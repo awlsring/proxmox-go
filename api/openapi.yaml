@@ -1,0 +1,2006 @@
+openapi: 3.0.2
+info:
+  title: Proxmox
+  version: 2023-01-01
+servers:
+- url: /
+security:
+- smithy.api.httpApiKeyAuth: []
+paths:
+  /access/acl:
+    get:
+      operationId: GetAccessControlList
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAccessControlListResponseContent'
+          description: GetAccessControlList 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: UpdateAccessControlList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessControlListRequestContent'
+        required: true
+      responses:
+        "200":
+          description: UpdateAccessControlList 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/ticket:
+    post:
+      operationId: CreateTicket
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateTicketResponseContent'
+          description: CreateTicket 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /cluster/config:
+    post:
+      operationId: CreateClusterConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClusterConfigRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateClusterConfigResponseContent'
+          description: CreateClusterConfig 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /cluster/config/apiversion:
+    get:
+      operationId: GetClusterApiVersion
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClusterApiVersionResponseContent'
+          description: GetClusterApiVersion 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /cluster/config/join:
+    get:
+      operationId: GetClusterJoinInformation
+      parameters:
+      - description: The node which to join.
+        explode: true
+        in: query
+        name: node
+        required: false
+        schema:
+          description: The node which to join.
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClusterJoinInformationResponseContent'
+          description: GetClusterJoinInformation 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: JoinCluster
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JoinClusterRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JoinClusterResponseContent'
+          description: JoinCluster 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /cluster/config/nodes:
+    get:
+      operationId: ListCorosyncNodes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCorosyncNodesResponseContent'
+          description: ListCorosyncNodes 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /cluster/config/nodes/{node}:
+    delete:
+      operationId: RemoveCorosyncNode
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: RemoveCorosyncNode 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: AddCorosyncNode
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddCorosyncNodeRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddCorosyncNodeResponseContent'
+          description: AddCorosyncNode 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /cluster/config/totem:
+    get:
+      operationId: GetClusterTotemSettings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClusterTotemSettingsResponseContent'
+          description: GetClusterTotemSettings 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes:
+    get:
+      operationId: ListNodes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNodesResponseContent'
+          description: ListNodes 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/network:
+    delete:
+      operationId: RevertNetworkInterfaceConfiguration
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: RevertNetworkInterfaceConfiguration 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      operationId: ListNetworkInterfaces
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/NetworkInterfaceType'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNetworkInterfacesResponseContent'
+          description: ListNetworkInterfaces 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: CreateNetworkInterface
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNetworkInterfaceRequestContent'
+        required: true
+      responses:
+        "200":
+          description: CreateNetworkInterface 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: ApplyNetworkInterfaceConfiguration
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplyNetworkInterfaceConfigurationResponseContent'
+          description: ApplyNetworkInterfaceConfiguration 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/network/{interface}:
+    delete:
+      operationId: DeleteNetworkInterface
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: interface
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: DeleteNetworkInterface 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      operationId: GetNetworkInterface
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: interface
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetNetworkInterfaceResponseContent'
+          description: GetNetworkInterface 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: UpdateNetworkInterface
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: interface
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateNetworkInterfaceRequestContent'
+        required: true
+      responses:
+        "200":
+          description: UpdateNetworkInterface 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu:
+    get:
+      operationId: ListVirtualMachines
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVirtualMachinesResponseContent'
+          description: ListVirtualMachines 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /storage:
+    get:
+      operationId: ListStorage
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListStorageResponseContent'
+          description: ListStorage 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /version:
+    get:
+      operationId: GetVersion
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVersionResponseContent'
+          description: GetVersion 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+components:
+  schemas:
+    AccessControlSummary:
+      example:
+        path: path
+        roleid: roleid
+        propagate: 0.8008281904610115
+        ugid: ugid
+        type: null
+      properties:
+        path:
+          type: string
+        roleid:
+          description: The role id
+          type: string
+        ugid:
+          description: The user group id
+          type: string
+        type:
+          $ref: '#/components/schemas/AccessControlType'
+        propagate:
+          description: Allow permission propegation
+          type: number
+      required:
+      - path
+      - propagate
+      - roleid
+      - type
+      - ugid
+      type: object
+    AccessControlType:
+      enum:
+      - user
+      - group
+      - token
+      type: string
+    AddCorosyncNodeRequestContent:
+      example:
+        new_node_ip: new_node_ip
+        apiversion: 0.8008281904610115
+        link1: link1
+        link0: link0
+        link5: link5
+        link4: link4
+        force: true
+        link3: link3
+        votes: 1.4658129805029452
+        link2: link2
+        nodeid: 6.027456183070403
+        link7: link7
+        link6: link6
+      properties:
+        apiversion:
+          description: The api version on the new node
+          type: number
+        force:
+          description: Do not throw an error if the node is already in the cluster
+          type: boolean
+        link0:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link1:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link2:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link3:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link4:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link5:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link6:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        link7:
+          description: "Address and priority of the link. Input as string with format\
+            \ address=<ip>,priority=<int>"
+          type: string
+        new_node_ip:
+          description: The IP address of the node to add
+          type: string
+        nodeid:
+          description: NodeID of the node to add
+          type: number
+        votes:
+          description: Votes thew new node should have
+          type: number
+      type: object
+    AddCorosyncNodeResponseContent:
+      example:
+        data:
+          warnings: warnings
+          corosync_conf: corosync_conf
+          corosync_authkey: corosync_authkey
+      properties:
+        data:
+          $ref: '#/components/schemas/CorosyncSettings'
+      required:
+      - data
+      type: object
+    ApplyNetworkInterfaceConfigurationResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    CapabilityCategoryMap:
+      additionalProperties:
+        type: number
+      type: object
+    CapabilityMap:
+      additionalProperties:
+        $ref: '#/components/schemas/CapabilityCategoryMap'
+      type: object
+    CorosyncNodeSummary:
+      example:
+        ring1_addr: ring1_addr
+        ring4_addr: ring4_addr
+        ring7_addr: ring7_addr
+        ring3_addr: ring3_addr
+        pve_addr: pve_addr
+        quorum_votes: quorum_votes
+        name: name
+        ring0_addr: ring0_addr
+        ring5_addr: ring5_addr
+        nodeid: nodeid
+        ring2_addr: ring2_addr
+        ring6_addr: ring6_addr
+      properties:
+        nodeid:
+          type: string
+        quorum_votes:
+          type: string
+        ring0_addr:
+          type: string
+        ring1_addr:
+          type: string
+        ring2_addr:
+          type: string
+        ring3_addr:
+          type: string
+        ring4_addr:
+          type: string
+        ring5_addr:
+          type: string
+        ring6_addr:
+          type: string
+        ring7_addr:
+          type: string
+        name:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        pve_addr:
+          type: string
+      required:
+      - name
+      - nodeid
+      - quorum_votes
+      - ring0_addr
+      type: object
+    CorosyncSettings:
+      example:
+        warnings: warnings
+        corosync_conf: corosync_conf
+        corosync_authkey: corosync_authkey
+      properties:
+        corosync_authkey:
+          type: string
+        corosync_conf:
+          type: string
+        warnings:
+          type: string
+      required:
+      - corosync_authkey
+      - corosync_conf
+      - warnings
+      type: object
+    CreateClusterConfigRequestContent:
+      example:
+        link1: link1
+        clustername: clustername
+        link0: link0
+        link5: link5
+        link4: link4
+        link3: link3
+        votes: 6.027456183070403
+        link2: link2
+        nodeid: 0.8008281904610115
+        link7: link7
+        link6: link6
+      properties:
+        clustername:
+          description: Cluster name
+          type: string
+        link0:
+          type: string
+        link1:
+          type: string
+        link2:
+          type: string
+        link3:
+          type: string
+        link4:
+          type: string
+        link5:
+          type: string
+        link6:
+          type: string
+        link7:
+          type: string
+        nodeid:
+          description: Node ID for the node
+          type: number
+        votes:
+          description: Votes for the node
+          type: number
+      required:
+      - clustername
+      type: object
+    CreateClusterConfigResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    CreateNetworkInterfaceRequestContent:
+      example:
+        bridge_ports: bridge_ports
+        bond_primary: bond_primary
+        bond_mode: null
+        type: null
+        autostart: true
+        ovs_bridge: ovs_bridge
+        bridge_vlan_aware: true
+        netmask: netmask
+        vlan-raw-device: vlan-raw-device
+        address6: address6
+        cidr: cidr
+        ovs_options: ovs_options
+        comments6: comments6
+        ovs_ports: ovs_ports
+        slaves:
+        - slaves
+        - slaves
+        address: address
+        comments: comments
+        ovs_bonds: ovs_bonds
+        cidr6: cidr6
+        mtu: 0.8008281904610115
+        iface: iface
+        vlan-id: 5.962133916683182
+        ovs_tag: 1.4658129805029452
+        bond_xmit_hash_policy: null
+        netmask6: 6.027456183070403
+        gateway6: gateway6
+        gateway: gateway
+      properties:
+        iface:
+          type: string
+        type:
+          $ref: '#/components/schemas/NetworkInterfaceType'
+        address:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        address6:
+          pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
+          type: string
+        autostart:
+          type: boolean
+        bond_primary:
+          type: string
+        bond_mode:
+          $ref: '#/components/schemas/NetworkInterfaceBondMode'
+        bond_xmit_hash_policy:
+          $ref: '#/components/schemas/NetworkInterfaceBondHashPolicy'
+        bridge_ports:
+          type: string
+        bridge_vlan_aware:
+          type: boolean
+        cidr:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[1-2][0-9]|[0-9])$"
+          type: string
+        cidr6:
+          type: string
+        comments:
+          type: string
+        comments6:
+          type: string
+        gateway:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        gateway6:
+          pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
+          type: string
+        mtu:
+          type: number
+        netmask:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        netmask6:
+          type: number
+        ovs_bonds:
+          type: string
+        ovs_options:
+          type: string
+        ovs_ports:
+          type: string
+        ovs_tag:
+          type: number
+        ovs_bridge:
+          type: string
+        slaves:
+          items:
+            type: string
+          type: array
+        vlan-id:
+          type: number
+        vlan-raw-device:
+          type: string
+      required:
+      - iface
+      - type
+      type: object
+    CreateTicketRequestContent:
+      example:
+        password: password
+        realm: realm
+        username: username
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        realm:
+          type: string
+      required:
+      - password
+      - username
+      type: object
+    CreateTicketResponseContent:
+      example:
+        data:
+          cap:
+            key: null
+          ticket: ticket
+          clustername: clustername
+          CSRFPreventionToken: CSRFPreventionToken
+          username: username
+      properties:
+        data:
+          $ref: '#/components/schemas/Ticket'
+      required:
+      - data
+      type: object
+    GetAccessControlListResponseContent:
+      example:
+        data:
+        - path: path
+          roleid: roleid
+          propagate: 0.8008281904610115
+          ugid: ugid
+          type: null
+        - path: path
+          roleid: roleid
+          propagate: 0.8008281904610115
+          ugid: ugid
+          type: null
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AccessControlSummary'
+          type: array
+      required:
+      - data
+      type: object
+    GetClusterApiVersionResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          description: API version
+          type: string
+      type: object
+    GetClusterJoinInformationResponseContent:
+      example:
+        data:
+          config_digest: config_digest
+          totem:
+            cluster_name: cluster_name
+            link_mode: link_mode
+            ip_version: ip_version
+            interface:
+              key:
+                linknumber: linknumber
+            version: version
+            secauth: secauth
+            config_version: config_version
+          preferred_node: preferred_node
+          nodelist:
+          - ring1_addr: ring1_addr
+            ring4_addr: ring4_addr
+            ring7_addr: ring7_addr
+            ring3_addr: ring3_addr
+            pve_addr: pve_addr
+            quorum_votes: quorum_votes
+            name: name
+            ring0_addr: ring0_addr
+            ring5_addr: ring5_addr
+            nodeid: nodeid
+            ring2_addr: ring2_addr
+            ring6_addr: ring6_addr
+          - ring1_addr: ring1_addr
+            ring4_addr: ring4_addr
+            ring7_addr: ring7_addr
+            ring3_addr: ring3_addr
+            pve_addr: pve_addr
+            quorum_votes: quorum_votes
+            name: name
+            ring0_addr: ring0_addr
+            ring5_addr: ring5_addr
+            nodeid: nodeid
+            ring2_addr: ring2_addr
+            ring6_addr: ring6_addr
+      properties:
+        data:
+          $ref: '#/components/schemas/JoinInformation'
+      required:
+      - data
+      type: object
+    GetClusterTotemSettingsResponseContent:
+      example:
+        data:
+          cluster_name: cluster_name
+          link_mode: link_mode
+          ip_version: ip_version
+          interface:
+            key:
+              linknumber: linknumber
+          version: version
+          secauth: secauth
+          config_version: config_version
+      properties:
+        data:
+          $ref: '#/components/schemas/TotemSummary'
+      type: object
+    GetNetworkInterfaceResponseContent:
+      example:
+        data:
+          bridge_ports: bridge_ports
+          method6: null
+          slaves: slaves
+          address: address
+          method: null
+          active: 1.4658129805029452
+          bond_mode: null
+          priority: 0.8008281904610115
+          families:
+          - families
+          - families
+          autostart: 6.027456183070403
+          bridge_vids: bridge_vids
+          iface: iface
+          bond_miimon: bond_miimon
+          bridge_fd: bridge_fd
+          bridge_vlan_aware: 5.637376656633329
+          netmask: netmask
+          bond_xmit_hash_policy: null
+          exists: 5.962133916683182
+          bridge_stp: bridge_stp
+          address6: address6
+          cidr: cidr
+      properties:
+        data:
+          $ref: '#/components/schemas/NetworkInterfaceSummary'
+      required:
+      - data
+      type: object
+    GetVersionResponseContent:
+      example:
+        data:
+          repoid: repoid
+          release: release
+          version: version
+      properties:
+        data:
+          $ref: '#/components/schemas/VersionSummary'
+      required:
+      - data
+      type: object
+    InternalServerErrorResponseContent:
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
+    InvalidInputErrorResponseContent:
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
+    JoinClusterRequestContent:
+      example:
+        hostname: hostname
+        password: password
+        link1: link1
+        link0: link0
+        fingerprint: fingerprint
+        link5: link5
+        link4: link4
+        force: true
+        link3: link3
+        votes: 6.027456183070403
+        link2: link2
+        nodeid: 0.8008281904610115
+        link7: link7
+        link6: link6
+      properties:
+        fingerprint:
+          description: The fingerprint of the cluster certificate
+          type: string
+        hostname:
+          description: The hostname or IP address an existing cluster node
+          type: string
+        password:
+          description: Password for the node root user
+          type: string
+        force:
+          type: boolean
+        link0:
+          type: string
+        link1:
+          type: string
+        link2:
+          type: string
+        link3:
+          type: string
+        link4:
+          type: string
+        link5:
+          type: string
+        link6:
+          type: string
+        link7:
+          type: string
+        nodeid:
+          description: The node ID to use for the joining node
+          type: number
+        votes:
+          description: Votes for the node
+          type: number
+      required:
+      - fingerprint
+      - hostname
+      - password
+      type: object
+    JoinClusterResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    JoinInformation:
+      example:
+        config_digest: config_digest
+        totem:
+          cluster_name: cluster_name
+          link_mode: link_mode
+          ip_version: ip_version
+          interface:
+            key:
+              linknumber: linknumber
+          version: version
+          secauth: secauth
+          config_version: config_version
+        preferred_node: preferred_node
+        nodelist:
+        - ring1_addr: ring1_addr
+          ring4_addr: ring4_addr
+          ring7_addr: ring7_addr
+          ring3_addr: ring3_addr
+          pve_addr: pve_addr
+          quorum_votes: quorum_votes
+          name: name
+          ring0_addr: ring0_addr
+          ring5_addr: ring5_addr
+          nodeid: nodeid
+          ring2_addr: ring2_addr
+          ring6_addr: ring6_addr
+        - ring1_addr: ring1_addr
+          ring4_addr: ring4_addr
+          ring7_addr: ring7_addr
+          ring3_addr: ring3_addr
+          pve_addr: pve_addr
+          quorum_votes: quorum_votes
+          name: name
+          ring0_addr: ring0_addr
+          ring5_addr: ring5_addr
+          nodeid: nodeid
+          ring2_addr: ring2_addr
+          ring6_addr: ring6_addr
+      properties:
+        totem:
+          $ref: '#/components/schemas/TotemSummary'
+        preferred_node:
+          type: string
+        config_digest:
+          type: string
+        nodelist:
+          items:
+            $ref: '#/components/schemas/CorosyncNodeSummary'
+          type: array
+      required:
+      - config_digest
+      - nodelist
+      - preferred_node
+      - totem
+      type: object
+    LinkMap:
+      additionalProperties:
+        $ref: '#/components/schemas/LinkSummary'
+      type: object
+    LinkSummary:
+      example:
+        linknumber: linknumber
+      properties:
+        linknumber:
+          type: string
+      type: object
+    ListCorosyncNodesResponseContent:
+      example:
+        data:
+        - ring1_addr: ring1_addr
+          ring4_addr: ring4_addr
+          ring7_addr: ring7_addr
+          ring3_addr: ring3_addr
+          pve_addr: pve_addr
+          quorum_votes: quorum_votes
+          name: name
+          ring0_addr: ring0_addr
+          ring5_addr: ring5_addr
+          nodeid: nodeid
+          ring2_addr: ring2_addr
+          ring6_addr: ring6_addr
+        - ring1_addr: ring1_addr
+          ring4_addr: ring4_addr
+          ring7_addr: ring7_addr
+          ring3_addr: ring3_addr
+          pve_addr: pve_addr
+          quorum_votes: quorum_votes
+          name: name
+          ring0_addr: ring0_addr
+          ring5_addr: ring5_addr
+          nodeid: nodeid
+          ring2_addr: ring2_addr
+          ring6_addr: ring6_addr
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CorosyncNodeSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListNetworkInterfacesResponseContent:
+      example:
+        data:
+        - bridge_ports: bridge_ports
+          method6: null
+          slaves: slaves
+          address: address
+          method: null
+          active: 1.4658129805029452
+          bond_mode: null
+          priority: 0.8008281904610115
+          families:
+          - families
+          - families
+          autostart: 6.027456183070403
+          bridge_vids: bridge_vids
+          iface: iface
+          bond_miimon: bond_miimon
+          bridge_fd: bridge_fd
+          bridge_vlan_aware: 5.637376656633329
+          netmask: netmask
+          bond_xmit_hash_policy: null
+          exists: 5.962133916683182
+          bridge_stp: bridge_stp
+          address6: address6
+          cidr: cidr
+        - bridge_ports: bridge_ports
+          method6: null
+          slaves: slaves
+          address: address
+          method: null
+          active: 1.4658129805029452
+          bond_mode: null
+          priority: 0.8008281904610115
+          families:
+          - families
+          - families
+          autostart: 6.027456183070403
+          bridge_vids: bridge_vids
+          iface: iface
+          bond_miimon: bond_miimon
+          bridge_fd: bridge_fd
+          bridge_vlan_aware: 5.637376656633329
+          netmask: netmask
+          bond_xmit_hash_policy: null
+          exists: 5.962133916683182
+          bridge_stp: bridge_stp
+          address6: address6
+          cidr: cidr
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListNodesResponseContent:
+      example:
+        data:
+        - level: level
+          cpu: 2.302136
+          maxcpu: 5.637376656633329
+          type: type
+          uptime: 7.061401241503109
+          node: node
+          disk: 1.4658129805029452
+          ssl_fingerprint: ssl_fingerprint
+          mem: 6.027456183070403
+          maxdisk: 5.962133916683182
+          id: id
+          maxmem: 0.8008281904610115
+          status: null
+        - level: level
+          cpu: 2.302136
+          maxcpu: 5.637376656633329
+          type: type
+          uptime: 7.061401241503109
+          node: node
+          disk: 1.4658129805029452
+          ssl_fingerprint: ssl_fingerprint
+          mem: 6.027456183070403
+          maxdisk: 5.962133916683182
+          id: id
+          maxmem: 0.8008281904610115
+          status: null
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NodeSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListStorageResponseContent:
+      example:
+        data:
+        - path: path
+          nodes: nodes
+          vgname: vgname
+          digest: digest
+          thinpool: thinpool
+          storage: storage
+          type: null
+          content: content
+          mountpoint: mountpoint
+        - path: path
+          nodes: nodes
+          vgname: vgname
+          digest: digest
+          thinpool: thinpool
+          storage: storage
+          type: null
+          content: content
+          mountpoint: mountpoint
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/StorageSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListVirtualMachinesResponseContent:
+      example:
+        data:
+        - vmid: 0.8008281904610115
+          cpus: 4.145608029883936
+          diskread: 9.301444243932576
+          cpu: 2.027123
+          pid: 7.386281948385884
+          netout: 7.061401241503109
+          uptime: 5.637376656633329
+          tags: tags
+          mem: 6.027456183070403
+          maxdisk: 5.962133916683182
+          name: name
+          lock: lock
+          qmpstatus: qmpstatus
+          maxmem: 1.4658129805029452
+          diskwrite: 3.616076749251911
+          status: null
+          netin: 2.3021358869347655
+        - vmid: 0.8008281904610115
+          cpus: 4.145608029883936
+          diskread: 9.301444243932576
+          cpu: 2.027123
+          pid: 7.386281948385884
+          netout: 7.061401241503109
+          uptime: 5.637376656633329
+          tags: tags
+          mem: 6.027456183070403
+          maxdisk: 5.962133916683182
+          name: name
+          lock: lock
+          qmpstatus: qmpstatus
+          maxmem: 1.4658129805029452
+          diskwrite: 3.616076749251911
+          status: null
+          netin: 2.3021358869347655
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/VirtualMachineSummary'
+          type: array
+      required:
+      - data
+      type: object
+    NetworkInterfaceBondHashPolicy:
+      enum:
+      - layer2
+      - layer2+3
+      - layer3+4
+      type: string
+    NetworkInterfaceBondMode:
+      enum:
+      - balance-rr
+      - active-backup
+      - balance-xor
+      - broadcast
+      - 802.3ad
+      - balance-tlb
+      - balance-alb
+      - balance-slb
+      - lacp-balance-slb
+      - lacp-balance-tcp
+      type: string
+    NetworkInterfaceMethod:
+      enum:
+      - manual
+      - static
+      - none
+      - dhcp
+      - ipv6_autoconf
+      type: string
+    NetworkInterfaceSummary:
+      example:
+        bridge_ports: bridge_ports
+        method6: null
+        slaves: slaves
+        address: address
+        method: null
+        active: 1.4658129805029452
+        bond_mode: null
+        priority: 0.8008281904610115
+        families:
+        - families
+        - families
+        autostart: 6.027456183070403
+        bridge_vids: bridge_vids
+        iface: iface
+        bond_miimon: bond_miimon
+        bridge_fd: bridge_fd
+        bridge_vlan_aware: 5.637376656633329
+        netmask: netmask
+        bond_xmit_hash_policy: null
+        exists: 5.962133916683182
+        bridge_stp: bridge_stp
+        address6: address6
+        cidr: cidr
+      properties:
+        iface:
+          type: string
+        method:
+          $ref: '#/components/schemas/NetworkInterfaceMethod'
+        method6:
+          $ref: '#/components/schemas/NetworkInterfaceMethod'
+        priority:
+          type: number
+        families:
+          items:
+            type: string
+          type: array
+        bond_mode:
+          $ref: '#/components/schemas/NetworkInterfaceBondMode'
+        bond_xmit_hash_policy:
+          $ref: '#/components/schemas/NetworkInterfaceBondHashPolicy'
+        bond_miimon:
+          type: string
+        slaves:
+          type: string
+        autostart:
+          type: number
+        active:
+          type: number
+        exists:
+          type: number
+        bridge_vids:
+          type: string
+        bridge_ports:
+          type: string
+        bridge_fd:
+          type: string
+        bridge_stp:
+          type: string
+        bridge_vlan_aware:
+          type: number
+        address:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        netmask:
+          type: string
+        cidr:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[1-2][0-9]|[0-9])$"
+          type: string
+        address6:
+          pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
+          type: string
+      required:
+      - iface
+      type: object
+    NetworkInterfaceType:
+      enum:
+      - bridge
+      - bond
+      - eth
+      - alias
+      - vlan
+      - OVSBridge
+      - OVSBond
+      - OVSPort
+      - OVSIntPort
+      - unknown
+      type: string
+    NodeStatus:
+      enum:
+      - online
+      - offline
+      type: string
+    NodeSummary:
+      example:
+        level: level
+        cpu: 2.302136
+        maxcpu: 5.637376656633329
+        type: type
+        uptime: 7.061401241503109
+        node: node
+        disk: 1.4658129805029452
+        ssl_fingerprint: ssl_fingerprint
+        mem: 6.027456183070403
+        maxdisk: 5.962133916683182
+        id: id
+        maxmem: 0.8008281904610115
+        status: null
+      properties:
+        node:
+          description: The name of the node
+          pattern: "^[A-Za-z]+$"
+          type: string
+        maxmem:
+          description: Max memory allocated in bytes
+          type: number
+        mem:
+          description: Current memory utilization in bytes
+          type: number
+        disk:
+          description: Current disk utilization in bytes
+          type: number
+        maxdisk:
+          description: Max disk space available in bytes
+          type: number
+        maxcpu:
+          description: Amount of CPU cores available on node
+          type: number
+        id:
+          description: The node id. This is a string of 'node/<name>'
+          type: string
+        level:
+          description: The node's support level
+          type: string
+        ssl_fingerprint:
+          type: string
+        type:
+          description: The system type. Seems to be always node
+          type: string
+        cpu:
+          description: The virtual machines cpu utilization in percent
+          format: float
+          type: number
+        uptime:
+          description: The node's uptime in seconds
+          type: number
+        status:
+          $ref: '#/components/schemas/NodeStatus'
+      required:
+      - node
+      type: object
+    StorageSummary:
+      example:
+        path: path
+        nodes: nodes
+        vgname: vgname
+        digest: digest
+        thinpool: thinpool
+        storage: storage
+        type: null
+        content: content
+        mountpoint: mountpoint
+      properties:
+        storage:
+          description: The storage class name
+          pattern: "^[A-Za-z]+$"
+          type: string
+        content:
+          description: Comma seperated list of content types in storage. Returned
+            as a string
+          type: string
+        digest:
+          type: string
+        thinpool:
+          type: string
+        type:
+          $ref: '#/components/schemas/StorageType'
+        vgname:
+          description: The volume group name
+          type: string
+        path:
+          description: The storage path
+          type: string
+        mountpoint:
+          description: The storage mountpoint
+          type: string
+        nodes:
+          description: The nodes that have access to this storage
+          type: string
+      required:
+      - storage
+      type: object
+    StorageType:
+      enum:
+      - zfspool
+      - dir
+      - btrfs
+      - nfs
+      - cifs
+      - pbs
+      - glusterfs
+      - cephfs
+      - lvmthin
+      - lvm
+      - iscsi
+      - iscsidirect
+      - rbd
+      - zfs
+      type: string
+    Ticket:
+      example:
+        cap:
+          key: null
+        ticket: ticket
+        clustername: clustername
+        CSRFPreventionToken: CSRFPreventionToken
+        username: username
+      properties:
+        username:
+          type: string
+        cap:
+          additionalProperties:
+            $ref: '#/components/schemas/CapabilityCategoryMap'
+          type: object
+        CSRFPreventionToken:
+          type: string
+        ticket:
+          type: string
+        clustername:
+          type: string
+      required:
+      - username
+      type: object
+    TotemSummary:
+      example:
+        cluster_name: cluster_name
+        link_mode: link_mode
+        ip_version: ip_version
+        interface:
+          key:
+            linknumber: linknumber
+        version: version
+        secauth: secauth
+        config_version: config_version
+      properties:
+        secauth:
+          type: string
+        version:
+          type: string
+        interface:
+          additionalProperties:
+            $ref: '#/components/schemas/LinkSummary'
+          type: object
+        link_mode:
+          type: string
+        ip_version:
+          type: string
+        config_version:
+          type: string
+        cluster_name:
+          type: string
+      type: object
+    UpdateAccessControlListRequestContent:
+      example:
+        path: path
+        roles: roles
+        groups: groups
+        propagate: true
+        tokens: tokens
+        delete: true
+        users: users
+      properties:
+        path:
+          type: string
+        roles:
+          type: string
+        delete:
+          description: Removed permissions specified in request
+          type: boolean
+        groups:
+          description: Comma separated list of groups
+          type: string
+        propagate:
+          description: Allow propegation of permissions.
+          type: boolean
+        tokens:
+          description: Comma separated list of tokens
+          type: string
+        users:
+          description: Comma separated list of users
+          type: string
+      required:
+      - path
+      - roles
+      type: object
+    UpdateNetworkInterfaceRequestContent:
+      example:
+        bridge_ports: bridge_ports
+        bond_primary: bond_primary
+        bond_mode: null
+        type: null
+        autostart: true
+        ovs_bridge: ovs_bridge
+        bridge_vlan_aware: true
+        netmask: netmask
+        vlan-raw-device: vlan-raw-device
+        address6: address6
+        cidr: cidr
+        ovs_options: ovs_options
+        comments6: comments6
+        ovs_ports: ovs_ports
+        slaves:
+        - slaves
+        - slaves
+        address: address
+        comments: comments
+        ovs_bonds: ovs_bonds
+        cidr6: cidr6
+        mtu: 0.8008281904610115
+        vlan-id: 5.962133916683182
+        ovs_tag: 1.4658129805029452
+        bond_xmit_hash_policy: null
+        netmask6: 6.027456183070403
+        gateway6: gateway6
+        gateway: gateway
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkInterfaceType'
+        address:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        address6:
+          pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
+          type: string
+        autostart:
+          type: boolean
+        bond_primary:
+          type: string
+        bond_mode:
+          $ref: '#/components/schemas/NetworkInterfaceBondMode'
+        bond_xmit_hash_policy:
+          $ref: '#/components/schemas/NetworkInterfaceBondHashPolicy'
+        bridge_ports:
+          type: string
+        bridge_vlan_aware:
+          type: boolean
+        cidr:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[1-2][0-9]|[0-9])$"
+          type: string
+        cidr6:
+          type: string
+        comments:
+          type: string
+        comments6:
+          type: string
+        gateway:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        gateway6:
+          pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
+          type: string
+        mtu:
+          type: number
+        netmask:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        netmask6:
+          type: number
+        ovs_bonds:
+          type: string
+        ovs_options:
+          type: string
+        ovs_ports:
+          type: string
+        ovs_tag:
+          type: number
+        ovs_bridge:
+          type: string
+        slaves:
+          items:
+            type: string
+          type: array
+        vlan-id:
+          type: number
+        vlan-raw-device:
+          type: string
+      required:
+      - type
+      type: object
+    VersionSummary:
+      example:
+        repoid: repoid
+        release: release
+        version: version
+      properties:
+        version:
+          type: string
+        release:
+          type: string
+        repoid:
+          type: string
+      required:
+      - release
+      - repoid
+      - version
+      type: object
+    VirtualMachineStatus:
+      enum:
+      - running
+      - stopped
+      type: string
+    VirtualMachineSummary:
+      example:
+        vmid: 0.8008281904610115
+        cpus: 4.145608029883936
+        diskread: 9.301444243932576
+        cpu: 2.027123
+        pid: 7.386281948385884
+        netout: 7.061401241503109
+        uptime: 5.637376656633329
+        tags: tags
+        mem: 6.027456183070403
+        maxdisk: 5.962133916683182
+        name: name
+        lock: lock
+        qmpstatus: qmpstatus
+        maxmem: 1.4658129805029452
+        diskwrite: 3.616076749251911
+        status: null
+        netin: 2.3021358869347655
+      properties:
+        vmid:
+          description: The ID of the virtual machine. Unique across cluster
+          type: number
+        mem:
+          description: Current memory utilization in bytes
+          type: number
+        maxmem:
+          description: Max memory allocated in bytes
+          type: number
+        maxdisk:
+          description: Max root disk size in bytes
+          type: number
+        name:
+          description: The name of the virtual machine
+          type: string
+        status:
+          $ref: '#/components/schemas/VirtualMachineStatus'
+        uptime:
+          description: The uptime of the virtual machine in seconds
+          type: number
+        netin:
+          description: Current incoming network traffic in bytes
+          type: number
+        netout:
+          description: Current outgoing network traffic in bytes
+          type: number
+        diskread:
+          description: Current disk read in bytes
+          type: number
+        diskwrite:
+          description: Current disk write in bytes
+          type: number
+        cpu:
+          description: The virtual machines cpu utilization in percent
+          format: float
+          type: number
+        cpus:
+          description: Amount of CPU cores allocated to the virtual machine
+          type: number
+        pid:
+          description: PID of the qemu process on the host node
+          type: number
+        tags:
+          description: Tags assigned to the virtual machine. Comma separated list
+            of tags returned as a string.
+          type: string
+        lock:
+          description: The current configuration lock
+          type: string
+        qmpstatus:
+          description: Qemu QMP agent status
+          type: string
+      required:
+      - vmid
+      type: object
+  securitySchemes:
+    smithy.api.httpApiKeyAuth:
+      description: API key authentication via the 'Authorization' header
+      in: header
+      name: Authorization
+      scheme: ApiKey
+      type: http
