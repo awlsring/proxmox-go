@@ -166,11 +166,39 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetSmartHealth", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetSmartHealth(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService GetVersion", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
         resp, httpRes, err := apiClient.DefaultApi.GetVersion(context.Background()).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService InitializeGPT", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.InitializeGPT(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -195,6 +223,48 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         t.Skip("skip test")  // remove to run test
 
         resp, httpRes, err := apiClient.DefaultApi.ListCorosyncNodes(context.Background()).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListCpuCapabilities", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListCpuCapabilities(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListDisks", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListDisks(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListMachineCapabilities", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListMachineCapabilities(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -302,6 +372,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var interface_ string
 
         resp, httpRes, err := apiClient.DefaultApi.UpdateNetworkInterface(context.Background(), node, interface_).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService WipeDisk", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.WipeDisk(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

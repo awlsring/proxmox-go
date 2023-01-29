@@ -317,6 +317,258 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/capabilities/qemu/cpu:
+    get:
+      description: List all custom and default CPU models.
+      operationId: ListCpuCapabilities
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCpuCapabilitiesResponseContent'
+          description: ListCpuCapabilities 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/capabilities/qemu/machines:
+    get:
+      description: Get available QEMU/KVM machine types.
+      operationId: ListMachineCapabilities
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMachineCapabilitiesResponseContent'
+          description: ListMachineCapabilities 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/list:
+    get:
+      description: List local disks on node.
+      operationId: ListDisks
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: "Include partitions in response list. Takes a boolean integer\
+          \ value (0 false, 1 true)."
+        explode: true
+        in: query
+        name: include-partitions
+        required: false
+        schema:
+          description: "Include partitions in response list. Takes a boolean integer\
+            \ value (0 false, 1 true)."
+          type: number
+        style: form
+      - description: "Skip SMART checks. Takes a boolean integer value (0 false, 1\
+          \ true)."
+        explode: true
+        in: query
+        name: skipsmart
+        required: false
+        schema:
+          description: "Skip SMART checks. Takes a boolean integer value (0 false,\
+            \ 1 true)."
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/DiskTypeFilter'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDisksResponseContent'
+          description: ListDisks 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/smart:
+    get:
+      description: Get SMART health of a disk.
+      operationId: GetSmartHealth
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: Disk to check.
+        explode: true
+        in: query
+        name: disk
+        required: false
+        schema:
+          description: Disk to check.
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        style: form
+      - description: "Return only health status. Takes a boolean integer value (0\
+          \ false, 1 true)."
+        explode: true
+        in: query
+        name: healthonly
+        required: false
+        schema:
+          description: "Return only health status. Takes a boolean integer value (0\
+            \ false, 1 true)."
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSmartHealthResponseContent'
+          description: GetSmartHealth 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Initialize disk with GPT.
+      operationId: InitializeGPT
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitializeGPTRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitializeGPTResponseContent'
+          description: InitializeGPT 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      description: Wipe a disk or partition. Requires to be authenticated as the node
+        root user.
+      operationId: WipeDisk
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: Disk to wipe.
+        explode: true
+        in: query
+        name: disk
+        required: false
+        schema:
+          description: Disk to wipe.
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        style: form
+      responses:
+        "200":
+          description: WipeDisk 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/network:
     delete:
       operationId: RevertNetworkInterfaceConfiguration
@@ -820,6 +1072,23 @@ components:
       - corosync_conf
       - warnings
       type: object
+    CpuCapabilitySummary:
+      example:
+        vendor: vendor
+        custom: 0.8008281904610115
+        name: name
+      properties:
+        custom:
+          type: number
+        vendor:
+          type: string
+        name:
+          type: string
+      required:
+      - custom
+      - name
+      - vendor
+      type: object
     CreateClusterConfigRequestContent:
       example:
         link1: link1
@@ -1000,6 +1269,74 @@ components:
       required:
       - data
       type: object
+    DiskSummary:
+      example:
+        devpath: devpath
+        parent: parent
+        wearout: 5.637376656633329
+        health: health
+        gpt: 0.8008281904610115
+        osdid: 6.027456183070403
+        type: null
+        mounted: 2.3021358869347655
+        rpm: 5.962133916683182
+        wwn: wwn
+        by_id_link: by_id_link
+        size: 1.4658129805029452
+        serial: serial
+        vendor: vendor
+        model: model
+      properties:
+        devpath:
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        gpt:
+          type: number
+        osdid:
+          type: number
+        size:
+          description: The size of the disk in bytes
+          type: number
+        by_id_link:
+          type: string
+        model:
+          type: string
+        parent:
+          type: string
+        health:
+          type: string
+        serial:
+          type: string
+        rpm:
+          type: number
+        wwn:
+          type: string
+        vendor:
+          type: string
+        wearout:
+          type: number
+        type:
+          $ref: '#/components/schemas/DiskType'
+        mounted:
+          type: number
+      required:
+      - devpath
+      - gpt
+      - osdid
+      - size
+      type: object
+    DiskType:
+      enum:
+      - nvme
+      - ssd
+      - hdd
+      - partition
+      type: string
+    DiskTypeFilter:
+      enum:
+      - unused
+      - journal_disks
+      type: string
     GetAccessControlListResponseContent:
       example:
         data:
@@ -1123,6 +1460,47 @@ components:
       required:
       - data
       type: object
+    GetSmartHealthResponseContent:
+      example:
+        data:
+        - devpath: devpath
+          parent: parent
+          wearout: 5.637376656633329
+          health: health
+          gpt: 0.8008281904610115
+          osdid: 6.027456183070403
+          type: null
+          mounted: 2.3021358869347655
+          rpm: 5.962133916683182
+          wwn: wwn
+          by_id_link: by_id_link
+          size: 1.4658129805029452
+          serial: serial
+          vendor: vendor
+          model: model
+        - devpath: devpath
+          parent: parent
+          wearout: 5.637376656633329
+          health: health
+          gpt: 0.8008281904610115
+          osdid: 6.027456183070403
+          type: null
+          mounted: 2.3021358869347655
+          rpm: 5.962133916683182
+          wwn: wwn
+          by_id_link: by_id_link
+          size: 1.4658129805029452
+          serial: serial
+          vendor: vendor
+          model: model
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DiskSummary'
+          type: array
+      required:
+      - data
+      type: object
     GetVersionResponseContent:
       example:
         data:
@@ -1132,6 +1510,28 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/VersionSummary'
+      required:
+      - data
+      type: object
+    InitializeGPTRequestContent:
+      example:
+        disk: disk
+        uuid: uuid
+      properties:
+        disk:
+          description: Disk to initialize.
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        uuid:
+          pattern: "^[a-fA-F0-9-]+$"
+          type: string
+      type: object
+    InitializeGPTResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
       required:
       - data
       type: object
@@ -1315,6 +1715,81 @@ components:
       required:
       - data
       type: object
+    ListCpuCapabilitiesResponseContent:
+      example:
+        data:
+        - vendor: vendor
+          custom: 0.8008281904610115
+          name: name
+        - vendor: vendor
+          custom: 0.8008281904610115
+          name: name
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CpuCapabilitySummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListDisksResponseContent:
+      example:
+        data:
+        - devpath: devpath
+          parent: parent
+          wearout: 5.637376656633329
+          health: health
+          gpt: 0.8008281904610115
+          osdid: 6.027456183070403
+          type: null
+          mounted: 2.3021358869347655
+          rpm: 5.962133916683182
+          wwn: wwn
+          by_id_link: by_id_link
+          size: 1.4658129805029452
+          serial: serial
+          vendor: vendor
+          model: model
+        - devpath: devpath
+          parent: parent
+          wearout: 5.637376656633329
+          health: health
+          gpt: 0.8008281904610115
+          osdid: 6.027456183070403
+          type: null
+          mounted: 2.3021358869347655
+          rpm: 5.962133916683182
+          wwn: wwn
+          by_id_link: by_id_link
+          size: 1.4658129805029452
+          serial: serial
+          vendor: vendor
+          model: model
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DiskSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListMachineCapabilitiesResponseContent:
+      example:
+        data:
+        - id: id
+          type: null
+          version: version
+        - id: id
+          type: null
+          version: version
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/MachineCapabilitySummary'
+          type: array
+      required:
+      - data
+      type: object
     ListNetworkInterfacesResponseContent:
       example:
         data:
@@ -1483,6 +1958,28 @@ components:
       required:
       - data
       type: object
+    MachineCapabilitySummary:
+      example:
+        id: id
+        type: null
+        version: version
+      properties:
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/MachineType'
+        version:
+          type: string
+      required:
+      - id
+      - type
+      - version
+      type: object
+    MachineType:
+      enum:
+      - q35
+      - i440fx
+      type: string
     NetworkInterfaceBondHashPolicy:
       enum:
       - layer2

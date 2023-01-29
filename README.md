@@ -89,9 +89,14 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetClusterJoinInformation**](docs/DefaultApi.md#getclusterjoininformation) | **Get** /cluster/config/join | 
 *DefaultApi* | [**GetClusterTotemSettings**](docs/DefaultApi.md#getclustertotemsettings) | **Get** /cluster/config/totem | 
 *DefaultApi* | [**GetNetworkInterface**](docs/DefaultApi.md#getnetworkinterface) | **Get** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
+*DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**JoinCluster**](docs/DefaultApi.md#joincluster) | **Post** /cluster/config/join | 
 *DefaultApi* | [**ListCorosyncNodes**](docs/DefaultApi.md#listcorosyncnodes) | **Get** /cluster/config/nodes | 
+*DefaultApi* | [**ListCpuCapabilities**](docs/DefaultApi.md#listcpucapabilities) | **Get** /nodes/{node}/capabilities/qemu/cpu | 
+*DefaultApi* | [**ListDisks**](docs/DefaultApi.md#listdisks) | **Get** /nodes/{node}/disks/list | 
+*DefaultApi* | [**ListMachineCapabilities**](docs/DefaultApi.md#listmachinecapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 *DefaultApi* | [**ListNetworkInterfaces**](docs/DefaultApi.md#listnetworkinterfaces) | **Get** /nodes/{node}/network | 
 *DefaultApi* | [**ListNodes**](docs/DefaultApi.md#listnodes) | **Get** /nodes | 
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
@@ -100,6 +105,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
 *DefaultApi* | [**UpdateAccessControlList**](docs/DefaultApi.md#updateaccesscontrollist) | **Put** /access/acl | 
 *DefaultApi* | [**UpdateNetworkInterface**](docs/DefaultApi.md#updatenetworkinterface) | **Put** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**WipeDisk**](docs/DefaultApi.md#wipedisk) | **Put** /nodes/{node}/disks/smart | 
 
 
 ## Documentation For Models
@@ -111,17 +117,24 @@ Class | Method | HTTP request | Description
  - [ApplyNetworkInterfaceConfigurationResponseContent](docs/ApplyNetworkInterfaceConfigurationResponseContent.md)
  - [CorosyncNodeSummary](docs/CorosyncNodeSummary.md)
  - [CorosyncSettings](docs/CorosyncSettings.md)
+ - [CpuCapabilitySummary](docs/CpuCapabilitySummary.md)
  - [CreateClusterConfigRequestContent](docs/CreateClusterConfigRequestContent.md)
  - [CreateClusterConfigResponseContent](docs/CreateClusterConfigResponseContent.md)
  - [CreateNetworkInterfaceRequestContent](docs/CreateNetworkInterfaceRequestContent.md)
  - [CreateTicketRequestContent](docs/CreateTicketRequestContent.md)
  - [CreateTicketResponseContent](docs/CreateTicketResponseContent.md)
+ - [DiskSummary](docs/DiskSummary.md)
+ - [DiskType](docs/DiskType.md)
+ - [DiskTypeFilter](docs/DiskTypeFilter.md)
  - [GetAccessControlListResponseContent](docs/GetAccessControlListResponseContent.md)
  - [GetClusterApiVersionResponseContent](docs/GetClusterApiVersionResponseContent.md)
  - [GetClusterJoinInformationResponseContent](docs/GetClusterJoinInformationResponseContent.md)
  - [GetClusterTotemSettingsResponseContent](docs/GetClusterTotemSettingsResponseContent.md)
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
+ - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
+ - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
+ - [InitializeGPTResponseContent](docs/InitializeGPTResponseContent.md)
  - [InternalServerErrorResponseContent](docs/InternalServerErrorResponseContent.md)
  - [InvalidInputErrorResponseContent](docs/InvalidInputErrorResponseContent.md)
  - [JoinClusterRequestContent](docs/JoinClusterRequestContent.md)
@@ -129,10 +142,15 @@ Class | Method | HTTP request | Description
  - [JoinInformation](docs/JoinInformation.md)
  - [LinkSummary](docs/LinkSummary.md)
  - [ListCorosyncNodesResponseContent](docs/ListCorosyncNodesResponseContent.md)
+ - [ListCpuCapabilitiesResponseContent](docs/ListCpuCapabilitiesResponseContent.md)
+ - [ListDisksResponseContent](docs/ListDisksResponseContent.md)
+ - [ListMachineCapabilitiesResponseContent](docs/ListMachineCapabilitiesResponseContent.md)
  - [ListNetworkInterfacesResponseContent](docs/ListNetworkInterfacesResponseContent.md)
  - [ListNodesResponseContent](docs/ListNodesResponseContent.md)
  - [ListStorageResponseContent](docs/ListStorageResponseContent.md)
  - [ListVirtualMachinesResponseContent](docs/ListVirtualMachinesResponseContent.md)
+ - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
+ - [MachineType](docs/MachineType.md)
  - [NetworkInterfaceBondHashPolicy](docs/NetworkInterfaceBondHashPolicy.md)
  - [NetworkInterfaceBondMode](docs/NetworkInterfaceBondMode.md)
  - [NetworkInterfaceMethod](docs/NetworkInterfaceMethod.md)
