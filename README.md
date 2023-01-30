@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateLVM**](docs/DefaultApi.md#createlvm) | **Post** /nodes/{node}/disks/lvm | 
 *DefaultApi* | [**CreateLVMThin**](docs/DefaultApi.md#createlvmthin) | **Post** /nodes/{node}/disks/lvmthin | 
 *DefaultApi* | [**CreateNetworkInterface**](docs/DefaultApi.md#createnetworkinterface) | **Post** /nodes/{node}/network | 
+*DefaultApi* | [**CreatePool**](docs/DefaultApi.md#createpool) | **Post** /pools | 
 *DefaultApi* | [**CreateStorage**](docs/DefaultApi.md#createstorage) | **Post** /storage | 
 *DefaultApi* | [**CreateTicket**](docs/DefaultApi.md#createticket) | **Post** /access/ticket | 
 *DefaultApi* | [**CreateZFSPool**](docs/DefaultApi.md#createzfspool) | **Post** /nodes/{node}/disks/zfs | 
@@ -92,6 +93,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteLVM**](docs/DefaultApi.md#deletelvm) | **Delete** /nodes/{node}/disks/lvm/{name} | 
 *DefaultApi* | [**DeleteLVMThin**](docs/DefaultApi.md#deletelvmthin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 *DefaultApi* | [**DeleteNetworkInterface**](docs/DefaultApi.md#deletenetworkinterface) | **Delete** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**DeletePool**](docs/DefaultApi.md#deletepool) | **Delete** /pools/{poolId} | 
 *DefaultApi* | [**DeleteStorage**](docs/DefaultApi.md#deletestorage) | **Delete** /storage/{storage} | 
 *DefaultApi* | [**DeleteZFSPool**](docs/DefaultApi.md#deletezfspool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**GetAccessControlList**](docs/DefaultApi.md#getaccesscontrollist) | **Get** /access/acl | 
@@ -99,6 +101,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetClusterJoinInformation**](docs/DefaultApi.md#getclusterjoininformation) | **Get** /cluster/config/join | 
 *DefaultApi* | [**GetClusterTotemSettings**](docs/DefaultApi.md#getclustertotemsettings) | **Get** /cluster/config/totem | 
 *DefaultApi* | [**GetNetworkInterface**](docs/DefaultApi.md#getnetworkinterface) | **Get** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**GetPool**](docs/DefaultApi.md#getpool) | **Get** /pools/{poolId} | 
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetStorage**](docs/DefaultApi.md#getstorage) | **Get** /storage/{storage} | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
@@ -114,9 +117,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListMachineCapabilities**](docs/DefaultApi.md#listmachinecapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 *DefaultApi* | [**ListNetworkInterfaces**](docs/DefaultApi.md#listnetworkinterfaces) | **Get** /nodes/{node}/network | 
 *DefaultApi* | [**ListNodes**](docs/DefaultApi.md#listnodes) | **Get** /nodes | 
+*DefaultApi* | [**ListPools**](docs/DefaultApi.md#listpools) | **Get** /pools | 
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
 *DefaultApi* | [**ListVirtualMachines**](docs/DefaultApi.md#listvirtualmachines) | **Get** /nodes/{node}/qemu | 
 *DefaultApi* | [**ListZFSPools**](docs/DefaultApi.md#listzfspools) | **Get** /nodes/{node}/disks/zfs | 
+*DefaultApi* | [**ModifyPool**](docs/DefaultApi.md#modifypool) | **Put** /pools | 
 *DefaultApi* | [**ModifyStorage**](docs/DefaultApi.md#modifystorage) | **Put** /storage/{storage} | 
 *DefaultApi* | [**RemoveCorosyncNode**](docs/DefaultApi.md#removecorosyncnode) | **Delete** /cluster/config/nodes/{node} | 
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
@@ -144,6 +149,7 @@ Class | Method | HTTP request | Description
  - [CreateLVMThinRequestContent](docs/CreateLVMThinRequestContent.md)
  - [CreateLVMThinResponseContent](docs/CreateLVMThinResponseContent.md)
  - [CreateNetworkInterfaceRequestContent](docs/CreateNetworkInterfaceRequestContent.md)
+ - [CreatePoolRequestContent](docs/CreatePoolRequestContent.md)
  - [CreateStorageRequestContent](docs/CreateStorageRequestContent.md)
  - [CreateStorageResponseContent](docs/CreateStorageResponseContent.md)
  - [CreateTicketRequestContent](docs/CreateTicketRequestContent.md)
@@ -164,6 +170,7 @@ Class | Method | HTTP request | Description
  - [GetClusterJoinInformationResponseContent](docs/GetClusterJoinInformationResponseContent.md)
  - [GetClusterTotemSettingsResponseContent](docs/GetClusterTotemSettingsResponseContent.md)
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
+ - [GetPoolResponseContent](docs/GetPoolResponseContent.md)
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetStorageResponseContent](docs/GetStorageResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
@@ -187,11 +194,13 @@ Class | Method | HTTP request | Description
  - [ListMachineCapabilitiesResponseContent](docs/ListMachineCapabilitiesResponseContent.md)
  - [ListNetworkInterfacesResponseContent](docs/ListNetworkInterfacesResponseContent.md)
  - [ListNodesResponseContent](docs/ListNodesResponseContent.md)
+ - [ListPoolsResponseContent](docs/ListPoolsResponseContent.md)
  - [ListStorageResponseContent](docs/ListStorageResponseContent.md)
  - [ListVirtualMachinesResponseContent](docs/ListVirtualMachinesResponseContent.md)
  - [ListZFSPoolsResponseContent](docs/ListZFSPoolsResponseContent.md)
  - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
  - [MachineType](docs/MachineType.md)
+ - [ModifyPoolRequestContent](docs/ModifyPoolRequestContent.md)
  - [ModifyStorageRequestContent](docs/ModifyStorageRequestContent.md)
  - [ModifyStorageResponseContent](docs/ModifyStorageResponseContent.md)
  - [NetworkInterfaceBondHashPolicy](docs/NetworkInterfaceBondHashPolicy.md)
@@ -201,6 +210,8 @@ Class | Method | HTTP request | Description
  - [NetworkInterfaceType](docs/NetworkInterfaceType.md)
  - [NodeStatus](docs/NodeStatus.md)
  - [NodeSummary](docs/NodeSummary.md)
+ - [PoolInfo](docs/PoolInfo.md)
+ - [PoolMemberType](docs/PoolMemberType.md)
  - [StorageConfiguration](docs/StorageConfiguration.md)
  - [StoragePreallocation](docs/StoragePreallocation.md)
  - [StorageSMBVersion](docs/StorageSMBVersion.md)
@@ -226,6 +237,21 @@ Class | Method | HTTP request | Description
 
 
 ### smithy.api.httpApiKeyAuth
+
+
+### smithy.api.httpBasicAuth
+
+- **Type**: HTTP basic authentication
+
+Example
+
+```golang
+auth := context.WithValue(context.Background(), sw.ContextBasicAuth, sw.BasicAuth{
+    UserName: "username",
+    Password: "password",
+})
+r, err := client.Service.Operation(auth, args)
+```
 
 
 ## Documentation for Utility Methods

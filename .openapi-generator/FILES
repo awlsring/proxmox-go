@@ -23,6 +23,7 @@ docs/CreateLVMResponseContent.md
 docs/CreateLVMThinRequestContent.md
 docs/CreateLVMThinResponseContent.md
 docs/CreateNetworkInterfaceRequestContent.md
+docs/CreatePoolRequestContent.md
 docs/CreateStorageRequestContent.md
 docs/CreateStorageResponseContent.md
 docs/CreateTicketRequestContent.md
@@ -44,6 +45,7 @@ docs/GetClusterApiVersionResponseContent.md
 docs/GetClusterJoinInformationResponseContent.md
 docs/GetClusterTotemSettingsResponseContent.md
 docs/GetNetworkInterfaceResponseContent.md
+docs/GetPoolResponseContent.md
 docs/GetSmartHealthResponseContent.md
 docs/GetStorageResponseContent.md
 docs/GetVersionResponseContent.md
@@ -67,11 +69,13 @@ docs/ListLVMsResponseContent.md
 docs/ListMachineCapabilitiesResponseContent.md
 docs/ListNetworkInterfacesResponseContent.md
 docs/ListNodesResponseContent.md
+docs/ListPoolsResponseContent.md
 docs/ListStorageResponseContent.md
 docs/ListVirtualMachinesResponseContent.md
 docs/ListZFSPoolsResponseContent.md
 docs/MachineCapabilitySummary.md
 docs/MachineType.md
+docs/ModifyPoolRequestContent.md
 docs/ModifyStorageRequestContent.md
 docs/ModifyStorageResponseContent.md
 docs/NetworkInterfaceBondHashPolicy.md
@@ -81,6 +85,8 @@ docs/NetworkInterfaceSummary.md
 docs/NetworkInterfaceType.md
 docs/NodeStatus.md
 docs/NodeSummary.md
+docs/PoolInfo.md
+docs/PoolMemberType.md
 docs/StorageConfiguration.md
 docs/StoragePreallocation.md
 docs/StorageSMBVersion.md
@@ -119,6 +125,7 @@ model_create_lvm_response_content.go
 model_create_lvm_thin_request_content.go
 model_create_lvm_thin_response_content.go
 model_create_network_interface_request_content.go
+model_create_pool_request_content.go
 model_create_storage_request_content.go
 model_create_storage_response_content.go
 model_create_ticket_request_content.go
@@ -139,6 +146,7 @@ model_get_cluster_api_version_response_content.go
 model_get_cluster_join_information_response_content.go
 model_get_cluster_totem_settings_response_content.go
 model_get_network_interface_response_content.go
+model_get_pool_response_content.go
 model_get_smart_health_response_content.go
 model_get_storage_response_content.go
 model_get_version_response_content.go
@@ -160,6 +168,7 @@ model_list_lvms_response_content.go
 model_list_machine_capabilities_response_content.go
 model_list_network_interfaces_response_content.go
 model_list_nodes_response_content.go
+model_list_pools_response_content.go
 model_list_storage_response_content.go
 model_list_virtual_machines_response_content.go
 model_list_zfs_pools_response_content.go
@@ -167,6 +176,7 @@ model_lvm_summary.go
 model_lvm_thin_summary.go
 model_machine_capability_summary.go
 model_machine_type.go
+model_modify_pool_request_content.go
 model_modify_storage_request_content.go
 model_modify_storage_response_content.go
 model_network_interface_bond_hash_policy.go
@@ -176,6 +186,8 @@ model_network_interface_summary.go
 model_network_interface_type.go
 model_node_status.go
 model_node_summary.go
+model_pool_info.go
+model_pool_member_type.go
 model_storage_configuration.go
 model_storage_preallocation.go
 model_storage_smb_version.go

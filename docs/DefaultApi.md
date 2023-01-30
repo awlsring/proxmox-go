@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**CreateLVM**](DefaultApi.md#CreateLVM) | **Post** /nodes/{node}/disks/lvm | 
 [**CreateLVMThin**](DefaultApi.md#CreateLVMThin) | **Post** /nodes/{node}/disks/lvmthin | 
 [**CreateNetworkInterface**](DefaultApi.md#CreateNetworkInterface) | **Post** /nodes/{node}/network | 
+[**CreatePool**](DefaultApi.md#CreatePool) | **Post** /pools | 
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
 [**CreateZFSPool**](DefaultApi.md#CreateZFSPool) | **Post** /nodes/{node}/disks/zfs | 
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**DeleteLVM**](DefaultApi.md#DeleteLVM) | **Delete** /nodes/{node}/disks/lvm/{name} | 
 [**DeleteLVMThin**](DefaultApi.md#DeleteLVMThin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 [**DeleteNetworkInterface**](DefaultApi.md#DeleteNetworkInterface) | **Delete** /nodes/{node}/network/{interface} | 
+[**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
 [**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 [**GetAccessControlList**](DefaultApi.md#GetAccessControlList) | **Get** /access/acl | 
@@ -25,6 +27,7 @@ Method | HTTP request | Description
 [**GetClusterJoinInformation**](DefaultApi.md#GetClusterJoinInformation) | **Get** /cluster/config/join | 
 [**GetClusterTotemSettings**](DefaultApi.md#GetClusterTotemSettings) | **Get** /cluster/config/totem | 
 [**GetNetworkInterface**](DefaultApi.md#GetNetworkInterface) | **Get** /nodes/{node}/network/{interface} | 
+[**GetPool**](DefaultApi.md#GetPool) | **Get** /pools/{poolId} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetStorage**](DefaultApi.md#GetStorage) | **Get** /storage/{storage} | 
 [**GetVersion**](DefaultApi.md#GetVersion) | **Get** /version | 
@@ -40,9 +43,11 @@ Method | HTTP request | Description
 [**ListMachineCapabilities**](DefaultApi.md#ListMachineCapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 [**ListNetworkInterfaces**](DefaultApi.md#ListNetworkInterfaces) | **Get** /nodes/{node}/network | 
 [**ListNodes**](DefaultApi.md#ListNodes) | **Get** /nodes | 
+[**ListPools**](DefaultApi.md#ListPools) | **Get** /pools | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
 [**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
+[**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools | 
 [**ModifyStorage**](DefaultApi.md#ModifyStorage) | **Put** /storage/{storage} | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
@@ -110,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -178,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -242,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -314,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -386,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -458,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -526,7 +531,69 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreatePool
+
+> CreatePool(ctx).CreatePoolRequestContent(createPoolRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createPoolRequestContent := *openapiclient.NewCreatePoolRequestContent("Poolid_example") // CreatePoolRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreatePool(context.Background()).CreatePoolRequestContent(createPoolRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreatePool``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreatePoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createPoolRequestContent** | [**CreatePoolRequestContent**](CreatePoolRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -590,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -654,7 +721,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -726,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -803,7 +870,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -880,7 +947,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -957,7 +1024,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1026,7 +1093,73 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeletePool
+
+> DeletePool(ctx, poolId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    poolId := "poolId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeletePool(context.Background(), poolId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeletePool``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeletePoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1092,7 +1225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1169,7 +1302,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1228,7 +1361,7 @@ Other parameters are passed through a pointer to a apiGetAccessControlListReques
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1287,7 +1420,7 @@ Other parameters are passed through a pointer to a apiGetClusterApiVersionReques
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1351,7 +1484,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1410,7 +1543,7 @@ Other parameters are passed through a pointer to a apiGetClusterTotemSettingsReq
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1481,7 +1614,77 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPool
+
+> GetPoolResponseContent GetPool(ctx, poolId).Type_(type_).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    poolId := "poolId_example" // string | 
+    type_ := openapiclient.PoolMemberType("qemu") // PoolMemberType |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetPool(context.Background(), poolId).Type_(type_).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetPool``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPool`: GetPoolResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetPool`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **type_** | [**PoolMemberType**](PoolMemberType.md) |  | 
+
+### Return type
+
+[**GetPoolResponseContent**](GetPoolResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1555,7 +1758,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1623,7 +1826,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1682,7 +1885,7 @@ Other parameters are passed through a pointer to a apiGetVersionRequest struct v
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1755,7 +1958,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1827,7 +2030,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1891,7 +2094,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -1950,7 +2153,7 @@ Other parameters are passed through a pointer to a apiListCorosyncNodesRequest s
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2020,7 +2223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2090,7 +2293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2166,7 +2369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2236,7 +2439,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2306,7 +2509,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2376,7 +2579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2446,7 +2649,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2505,7 +2708,66 @@ Other parameters are passed through a pointer to a apiListNodesRequest struct vi
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListPools
+
+> ListPoolsResponseContent ListPools(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListPools(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListPools``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListPools`: ListPoolsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListPools`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPoolsRequest struct via the builder pattern
+
+
+### Return type
+
+[**ListPoolsResponseContent**](ListPoolsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2564,7 +2826,7 @@ Other parameters are passed through a pointer to a apiListStorageRequest struct 
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2632,7 +2894,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2702,11 +2964,73 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ModifyPool
+
+> ModifyPool(ctx).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    modifyPoolRequestContent := *openapiclient.NewModifyPoolRequestContent("Poolid_example") // ModifyPoolRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ModifyPool(context.Background()).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyPool``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiModifyPoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modifyPoolRequestContent** | [**ModifyPoolRequestContent**](ModifyPoolRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2772,7 +3096,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2838,7 +3162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2904,7 +3228,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -2966,7 +3290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -3037,7 +3361,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 
@@ -3107,7 +3431,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
 
 ### HTTP request headers
 

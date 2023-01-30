@@ -118,6 +118,18 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService CreatePool", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        resp, httpRes, err := apiClient.DefaultApi.CreatePool(context.Background()).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService CreateStorage", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -216,6 +228,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService DeletePool", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var poolId string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeletePool(context.Background(), poolId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService DeleteStorage", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -301,6 +327,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var interface_ string
 
         resp, httpRes, err := apiClient.DefaultApi.GetNetworkInterface(context.Background(), node, interface_).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetPool", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var poolId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetPool(context.Background(), poolId).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -511,6 +551,18 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ListPools", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        resp, httpRes, err := apiClient.DefaultApi.ListPools(context.Background()).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ListStorage", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -544,6 +596,18 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ListZFSPools(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ModifyPool", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        resp, httpRes, err := apiClient.DefaultApi.ModifyPool(context.Background()).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

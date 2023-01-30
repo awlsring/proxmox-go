@@ -5,6 +5,7 @@ info:
 servers:
 - url: /
 security:
+- smithy.api.httpBasicAuth: []
 - smithy.api.httpApiKeyAuth: []
 paths:
   /access/acl:
@@ -1406,6 +1407,136 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /pools:
+    get:
+      operationId: ListPools
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPoolsResponseContent'
+          description: ListPools 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: CreatePool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePoolRequestContent'
+        required: true
+      responses:
+        "200":
+          description: CreatePool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: ModifyPool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyPoolRequestContent'
+        required: true
+      responses:
+        "200":
+          description: ModifyPool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /pools/{poolId}:
+    delete:
+      operationId: DeletePool
+      parameters:
+      - explode: false
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: DeletePool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      operationId: GetPool
+      parameters:
+      - explode: false
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/PoolMemberType'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPoolResponseContent'
+          description: GetPool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /storage:
     get:
       operationId: ListStorage
@@ -2020,6 +2151,18 @@ components:
       - iface
       - type
       type: object
+    CreatePoolRequestContent:
+      example:
+        poolid: poolid
+        comment: comment
+      properties:
+        poolid:
+          type: string
+        comment:
+          type: string
+      required:
+      - poolid
+      type: object
     CreateStorageRequestContent:
       example:
         blocksize: blocksize
@@ -2587,6 +2730,21 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/NetworkInterfaceSummary'
+      required:
+      - data
+      type: object
+    GetPoolResponseContent:
+      example:
+        data:
+        - poolid: poolid
+          comment: comment
+        - poolid: poolid
+          comment: comment
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PoolInfo'
+          type: array
       required:
       - data
       type: object
@@ -3213,6 +3371,21 @@ components:
       required:
       - data
       type: object
+    ListPoolsResponseContent:
+      example:
+        data:
+        - poolid: poolid
+          comment: comment
+        - poolid: poolid
+          comment: comment
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PoolInfo'
+          type: array
+      required:
+      - data
+      type: object
     ListStorageResponseContent:
       example:
         data:
@@ -3334,6 +3507,30 @@ components:
       - q35
       - i440fx
       type: string
+    ModifyPoolRequestContent:
+      example:
+        poolid: poolid
+        comment: comment
+        storage: storage
+        delete: true
+        vms: vms
+      properties:
+        poolid:
+          type: string
+        comment:
+          type: string
+        delete:
+          description: Remove storage and vms in request rather than adding.
+          type: boolean
+        storage:
+          description: List of storage identifiers to add to the pool.
+          type: string
+        vms:
+          description: List of VM identifiers to add to the pool.
+          type: string
+      required:
+      - poolid
+      type: object
     ModifyStorageRequestContent:
       example:
         blocksize: blocksize
@@ -3709,6 +3906,24 @@ components:
       required:
       - node
       type: object
+    PoolInfo:
+      example:
+        poolid: poolid
+        comment: comment
+      properties:
+        poolid:
+          type: string
+        comment:
+          type: string
+      required:
+      - poolid
+      type: object
+    PoolMemberType:
+      enum:
+      - qemu
+      - lxc
+      - storage
+      type: string
     StorageConfiguration:
       example:
         storage: storage
@@ -4238,4 +4453,8 @@ components:
       in: header
       name: Authorization
       scheme: ApiKey
+      type: http
+    smithy.api.httpBasicAuth:
+      description: HTTP Basic authentication
+      scheme: Basic
       type: http
