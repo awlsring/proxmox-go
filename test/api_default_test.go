@@ -204,6 +204,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService DeleteStorage", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var storage string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteStorage(context.Background(), storage).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService DeleteZFSPool", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

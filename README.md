@@ -91,6 +91,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteLVM**](docs/DefaultApi.md#deletelvm) | **Delete** /nodes/{node}/disks/lvm/{name} | 
 *DefaultApi* | [**DeleteLVMThin**](docs/DefaultApi.md#deletelvmthin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 *DefaultApi* | [**DeleteNetworkInterface**](docs/DefaultApi.md#deletenetworkinterface) | **Delete** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**DeleteStorage**](docs/DefaultApi.md#deletestorage) | **Delete** /storage/{storage} | 
 *DefaultApi* | [**DeleteZFSPool**](docs/DefaultApi.md#deletezfspool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**GetAccessControlList**](docs/DefaultApi.md#getaccesscontrollist) | **Get** /access/acl | 
 *DefaultApi* | [**GetClusterApiVersion**](docs/DefaultApi.md#getclusterapiversion) | **Get** /cluster/config/apiversion | 

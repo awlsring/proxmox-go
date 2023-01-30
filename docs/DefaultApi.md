@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**DeleteLVM**](DefaultApi.md#DeleteLVM) | **Delete** /nodes/{node}/disks/lvm/{name} | 
 [**DeleteLVMThin**](DefaultApi.md#DeleteLVMThin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 [**DeleteNetworkInterface**](DefaultApi.md#DeleteNetworkInterface) | **Delete** /nodes/{node}/network/{interface} | 
+[**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
 [**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 [**GetAccessControlList**](DefaultApi.md#GetAccessControlList) | **Get** /access/acl | 
 [**GetClusterApiVersion**](DefaultApi.md#GetClusterApiVersion) | **Get** /cluster/config/apiversion | 
@@ -950,6 +951,72 @@ Other parameters are passed through a pointer to a apiDeleteNetworkInterfaceRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteStorage
+
+> DeleteStorage(ctx, storage).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    storage := "storage_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteStorage(context.Background(), storage).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteStorage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**storage** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteStorageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
