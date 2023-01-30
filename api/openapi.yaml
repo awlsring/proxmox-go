@@ -381,6 +381,139 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/disks/directory:
+    get:
+      description: List PVE managed directory storages.
+      operationId: ListDirectories
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDirectoriesResponseContent'
+          description: ListDirectories 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Create a Filesystem on an unused disk. Will be mounted under '/mnt/pve/NAME'.
+      operationId: CreateDirectory
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDirectoryRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateDirectoryResponseContent'
+          description: CreateDirectory 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/directory/{name}:
+    delete:
+      description: Unmounts the storage and removes the mount unit.
+      operationId: DeleteDirectory
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The storage identifier.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: The storage identifier.
+          type: string
+        style: simple
+      - description: "Marks the associated storage as not available on this node anr\
+          \ removes them from the config. Takes a boolean integer value (0 false,\
+          \ 1 true)."
+        explode: true
+        in: query
+        name: cleanup-config
+        required: false
+        schema:
+          description: "Marks the associated storage as not available on this node\
+            \ anr removes them from the config. Takes a boolean integer value (0 false,\
+            \ 1 true)."
+          type: number
+        style: form
+      - description: "Wipes the disk. Takes a boolean integer value (0 false, 1 true)."
+        explode: true
+        in: query
+        name: cleanup-disks
+        required: false
+        schema:
+          description: "Wipes the disk. Takes a boolean integer value (0 false, 1\
+            \ true)."
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteDirectoryResponseContent'
+          description: DeleteDirectory 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/disks/list:
     get:
       description: List local disks on node.
@@ -430,6 +563,272 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDisksResponseContent'
           description: ListDisks 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/lvm:
+    get:
+      description: List LVM volume groups on node.
+      operationId: ListLVMs
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLVMsResponseContent'
+          description: ListLVMs 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Create a LVM volume group.
+      operationId: CreateLVM
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLVMRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateLVMResponseContent'
+          description: CreateLVM 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/lvm/{name}:
+    delete:
+      description: Removes an LVM volume group.
+      operationId: DeleteLVM
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The storage identifier.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: The storage identifier.
+          type: string
+        style: simple
+      - description: "Marks the associated storage as not available on this node anr\
+          \ removes them from the config. Takes a boolean integer value (0 false,\
+          \ 1 true)."
+        explode: true
+        in: query
+        name: cleanup-config
+        required: false
+        schema:
+          description: "Marks the associated storage as not available on this node\
+            \ anr removes them from the config. Takes a boolean integer value (0 false,\
+            \ 1 true)."
+          type: number
+        style: form
+      - description: "Wipes the disk. Takes a boolean integer value (0 false, 1 true)."
+        explode: true
+        in: query
+        name: cleanup-disks
+        required: false
+        schema:
+          description: "Wipes the disk. Takes a boolean integer value (0 false, 1\
+            \ true)."
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteLVMResponseContent'
+          description: DeleteLVM 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/lvmthin:
+    get:
+      description: List LVM thinpools on node.
+      operationId: ListLVMThins
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLVMThinsResponseContent'
+          description: ListLVMThins 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Create a LVM thinpool.
+      operationId: CreateLVMThin
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLVMThinRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateLVMThinResponseContent'
+          description: CreateLVMThin 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/lvmthin/{name}:
+    delete:
+      description: Removes an LVM thinpool.
+      operationId: DeleteLVMThin
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The storage identifier.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: The storage identifier.
+          type: string
+        style: simple
+      - description: "Marks the associated storage as not available on this node anr\
+          \ removes them from the config. Takes a boolean integer value (0 false,\
+          \ 1 true)."
+        explode: true
+        in: query
+        name: cleanup-config
+        required: false
+        schema:
+          description: "Marks the associated storage as not available on this node\
+            \ anr removes them from the config. Takes a boolean integer value (0 false,\
+            \ 1 true)."
+          type: number
+        style: form
+      - description: "Wipes the disk. Takes a boolean integer value (0 false, 1 true)."
+        explode: true
+        in: query
+        name: cleanup-disks
+        required: false
+        schema:
+          description: "Wipes the disk. Takes a boolean integer value (0 false, 1\
+            \ true)."
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteLVMThinResponseContent'
+          description: DeleteLVMThin 200 response
         "400":
           content:
             application/json:
@@ -557,6 +956,177 @@ paths:
       responses:
         "200":
           description: WipeDisk 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/zfs:
+    get:
+      description: List LVM volume groups on node.
+      operationId: ListZFSPools
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListZFSPoolsResponseContent'
+          description: ListZFSPools 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Create a ZFS pool.
+      operationId: CreateZFSPool
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateZFSPoolRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateZFSPoolResponseContent'
+          description: CreateZFSPool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/disks/zfs/{name}:
+    delete:
+      description: Destroys a ZFS pool.
+      operationId: DeleteZFSPool
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The storage identifier.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: The storage identifier.
+          type: string
+        style: simple
+      - description: "Marks the associated storage as not available on this node anr\
+          \ removes them from the config. Takes a boolean integer value (0 false,\
+          \ 1 true)."
+        explode: true
+        in: query
+        name: cleanup-config
+        required: false
+        schema:
+          description: "Marks the associated storage as not available on this node\
+            \ anr removes them from the config. Takes a boolean integer value (0 false,\
+            \ 1 true)."
+          type: number
+        style: form
+      - description: "Wipes the disk. Takes a boolean integer value (0 false, 1 true)."
+        explode: true
+        in: query
+        name: cleanup-disks
+        required: false
+        schema:
+          description: "Wipes the disk. Takes a boolean integer value (0 false, 1\
+            \ true)."
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteZFSPoolResponseContent'
+          description: DeleteZFSPool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      description: List LVM volume groups on node.
+      operationId: GetZFSPoolStatus
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetZFSPoolStatusResponseContent'
+          description: GetZFSPoolStatus 200 response
         "400":
           content:
             application/json:
@@ -1140,6 +1710,99 @@ components:
       required:
       - data
       type: object
+    CreateDirectoryRequestContent:
+      example:
+        name: name
+        device: device
+        add_storage: 0.8008281904610115
+        filesystem: null
+      properties:
+        device:
+          description: The device to create the directory on.
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        name:
+          description: The storage identifier.
+          type: string
+        add_storage:
+          description: "Configure storage using the directory. Takes a boolean integer\
+            \ value (0 false, 1 true)."
+          type: number
+        filesystem:
+          $ref: '#/components/schemas/DirectoryFileSystem'
+      required:
+      - device
+      - name
+      type: object
+    CreateDirectoryResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    CreateLVMRequestContent:
+      example:
+        name: name
+        device: device
+        add_storage: 0.8008281904610115
+      properties:
+        device:
+          description: The device to create the lvm on.
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        name:
+          description: The storage identifier.
+          type: string
+        add_storage:
+          description: "Configure storage using the lvm. Takes a boolean integer value\
+            \ (0 false, 1 true)."
+          type: number
+      required:
+      - device
+      - name
+      type: object
+    CreateLVMResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    CreateLVMThinRequestContent:
+      example:
+        name: name
+        device: device
+        add_storage: 0.8008281904610115
+      properties:
+        device:
+          description: The device to create the lvm thinpool on.
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        name:
+          description: The storage identifier.
+          type: string
+        add_storage:
+          description: "Configure storage using the lvm thinpool. Takes a boolean\
+            \ integer value (0 false, 1 true)."
+          type: number
+      required:
+      - device
+      - name
+      type: object
+    CreateLVMThinResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     CreateNetworkInterfaceRequestContent:
       example:
         bridge_ports: bridge_ports
@@ -1268,6 +1931,122 @@ components:
           $ref: '#/components/schemas/Ticket'
       required:
       - data
+      type: object
+    CreateZFSPoolRequestContent:
+      example:
+        devices: devices
+        raidlevel: null
+        name: name
+        ashift: 6.027456183070403
+        compression: null
+        add_storage: 0.8008281904610115
+        draid-config: draid-config
+      properties:
+        devices:
+          description: The devices to create the zfs pool on. This is a comma seperated
+            list sent as a string.
+          type: string
+        name:
+          description: The storage identifier.
+          type: string
+        raidlevel:
+          $ref: '#/components/schemas/ZFSRaidLevel'
+        add_storage:
+          description: "Configure storage using the directory. Takes a boolean integer\
+            \ value (0 false, 1 true)."
+          type: number
+        ashift:
+          description: The pool vector size exponent.
+          type: number
+        compression:
+          $ref: '#/components/schemas/ZFSCompression'
+        draid-config:
+          description: "Draid config. Set as string like 'data=<int>,spares=<int>"
+          type: string
+      required:
+      - devices
+      - name
+      - raidlevel
+      type: object
+    CreateZFSPoolResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DeleteDirectoryResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DeleteLVMResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DeleteLVMThinResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DeleteZFSPoolResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DirectoryFileSystem:
+      enum:
+      - ext4
+      - xfs
+      type: string
+    DirectorySummary:
+      example:
+        path: path
+        unitfile: unitfile
+        options: options
+        type: type
+        device: device
+      properties:
+        device:
+          description: The mounted device
+          type: string
+        options:
+          description: The mount options
+          type: string
+        path:
+          description: The mount path
+          type: string
+        type:
+          description: The mount type
+          type: string
+        unitfile:
+          description: The path of the mount unit
+          type: string
+      required:
+      - device
+      - options
+      - path
+      - type
+      - unitfile
       type: object
     DiskSummary:
       example:
@@ -1513,6 +2292,40 @@ components:
       required:
       - data
       type: object
+    GetZFSPoolStatusResponseContent:
+      example:
+        data:
+          children:
+          - msg: msg
+            read: 6.027456183070403
+            children:
+            - null
+            - null
+            cksum: 0.8008281904610115
+            name: name
+            state: state
+            write: 1.4658129805029452
+          - msg: msg
+            read: 6.027456183070403
+            children:
+            - null
+            - null
+            cksum: 0.8008281904610115
+            name: name
+            state: state
+            write: 1.4658129805029452
+          name: name
+          scan: scan
+          action: action
+          state: state
+          errors: errors
+          status: status
+      properties:
+        data:
+          $ref: '#/components/schemas/ZFSPoolStatusSummary'
+      required:
+      - data
+      type: object
     InitializeGPTRequestContent:
       example:
         disk: disk
@@ -1669,6 +2482,78 @@ components:
       - preferred_node
       - totem
       type: object
+    LVMSummary:
+      example:
+        lvcount: 5.962133916683182
+        size: 1.4658129805029452
+        children:
+        - null
+        - null
+        name: name
+        leaf: 0.8008281904610115
+        free: 6.027456183070403
+      properties:
+        children:
+          items:
+            $ref: '#/components/schemas/LVMSummary'
+          type: array
+        leaf:
+          description: "Is leaf. This is a boolean intergar, 1 is true, 0 is false"
+          type: number
+        name:
+          pattern: "^/dev/[a-zA-Z0-9/]+$"
+          type: string
+        free:
+          description: The free space on lvm in bytes
+          type: number
+        size:
+          description: The total size of lvm in bytes
+          type: number
+        lvcount:
+          description: The number of logical volumes
+          type: number
+      required:
+      - children
+      - leaf
+      type: object
+    LVMThinSummary:
+      example:
+        metadata_used: 5.962133916683182
+        vg: vg
+        lv:
+        - null
+        - null
+        metadata_size: 1.4658129805029452
+        lv_size: 0.8008281904610115
+        used: 6.027456183070403
+      properties:
+        lv:
+          items:
+            $ref: '#/components/schemas/LVMThinSummary'
+          type: array
+        lv_size:
+          description: The size of the lvm thin pool in bytes
+          type: number
+        used:
+          description: The used size of the lvm thin pool in bytes
+          type: number
+        metadata_size:
+          description: The size of the metadata lv in bytes
+          type: number
+        metadata_used:
+          description: The used size of the metadata lv in bytes
+          type: number
+        vg:
+          description: The associated volume group.
+          type: string
+      required:
+      - lv
+      - lv_size
+      - metadata_size
+      - metadata_used
+      - used
+      - vg
+      type: object
     LinkMap:
       additionalProperties:
         $ref: '#/components/schemas/LinkSummary'
@@ -1732,6 +2617,27 @@ components:
       required:
       - data
       type: object
+    ListDirectoriesResponseContent:
+      example:
+        data:
+        - path: path
+          unitfile: unitfile
+          options: options
+          type: type
+          device: device
+        - path: path
+          unitfile: unitfile
+          options: options
+          type: type
+          device: device
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DirectorySummary'
+          type: array
+      required:
+      - data
+      type: object
     ListDisksResponseContent:
       example:
         data:
@@ -1769,6 +2675,60 @@ components:
         data:
           items:
             $ref: '#/components/schemas/DiskSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListLVMThinsResponseContent:
+      example:
+        data:
+        - metadata_used: 5.962133916683182
+          vg: vg
+          lv:
+          - null
+          - null
+          metadata_size: 1.4658129805029452
+          lv_size: 0.8008281904610115
+          used: 6.027456183070403
+        - metadata_used: 5.962133916683182
+          vg: vg
+          lv:
+          - null
+          - null
+          metadata_size: 1.4658129805029452
+          lv_size: 0.8008281904610115
+          used: 6.027456183070403
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LVMThinSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListLVMsResponseContent:
+      example:
+        data:
+        - lvcount: 5.962133916683182
+          size: 1.4658129805029452
+          children:
+          - null
+          - null
+          name: name
+          leaf: 0.8008281904610115
+          free: 6.027456183070403
+        - lvcount: 5.962133916683182
+          size: 1.4658129805029452
+          children:
+          - null
+          - null
+          name: name
+          leaf: 0.8008281904610115
+          free: 6.027456183070403
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LVMSummary'
           type: array
       required:
       - data
@@ -1954,6 +2914,31 @@ components:
         data:
           items:
             $ref: '#/components/schemas/VirtualMachineSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListZFSPoolsResponseContent:
+      example:
+        data:
+        - frag: 1.4658129805029452
+          size: 5.637376656633329
+          name: name
+          health: health
+          alloc: 0.8008281904610115
+          free: 5.962133916683182
+          dedup: 6.027456183070403
+        - frag: 1.4658129805029452
+          size: 5.637376656633329
+          name: name
+          health: health
+          alloc: 0.8008281904610115
+          free: 5.962133916683182
+          dedup: 6.027456183070403
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ZFSPoolSummary'
           type: array
       required:
       - data
@@ -2494,6 +3479,159 @@ components:
       required:
       - vmid
       type: object
+    ZFSCompression:
+      enum:
+      - "on"
+      - "off"
+      - lz4
+      - lzjb
+      - gzip
+      - zle
+      - zstd
+      type: string
+    ZFSPoolStatusChild:
+      example:
+        msg: msg
+        read: 6.027456183070403
+        children:
+        - null
+        - null
+        cksum: 0.8008281904610115
+        name: name
+        state: state
+        write: 1.4658129805029452
+      properties:
+        cksum:
+          type: number
+        read:
+          type: number
+        write:
+          type: number
+        name:
+          type: string
+        state:
+          type: string
+        msg:
+          type: string
+        children:
+          items:
+            $ref: '#/components/schemas/ZFSPoolStatusChild'
+          type: array
+      required:
+      - cksum
+      - name
+      - read
+      - state
+      - write
+      type: object
+    ZFSPoolStatusSummary:
+      example:
+        children:
+        - msg: msg
+          read: 6.027456183070403
+          children:
+          - null
+          - null
+          cksum: 0.8008281904610115
+          name: name
+          state: state
+          write: 1.4658129805029452
+        - msg: msg
+          read: 6.027456183070403
+          children:
+          - null
+          - null
+          cksum: 0.8008281904610115
+          name: name
+          state: state
+          write: 1.4658129805029452
+        name: name
+        scan: scan
+        action: action
+        state: state
+        errors: errors
+        status: status
+      properties:
+        children:
+          description: The pool configuration including vdevs for each section. May
+            be nested.
+          items:
+            $ref: '#/components/schemas/ZFSPoolStatusChild'
+          type: array
+        errors:
+          description: Errors on the pool
+          type: string
+        name:
+          description: The pool name
+          type: string
+        state:
+          description: The state of the pool
+          type: string
+        action:
+          description: Recommended action to address the pool state
+          type: string
+        scan:
+          description: Information on the last or current scrub.
+          type: string
+        status:
+          description: Information on the state of the pool
+          type: string
+      required:
+      - children
+      - errors
+      - name
+      - state
+      type: object
+    ZFSPoolSummary:
+      example:
+        frag: 1.4658129805029452
+        size: 5.637376656633329
+        name: name
+        health: health
+        alloc: 0.8008281904610115
+        free: 5.962133916683182
+        dedup: 6.027456183070403
+      properties:
+        alloc:
+          description: The allocated space on the pool in bytes
+          type: number
+        dedup:
+          type: number
+        frag:
+          type: number
+        health:
+          description: The health of the pool
+          type: string
+        free:
+          description: The free space on the pool in bytes
+          type: number
+        size:
+          description: The total size of the pool in bytes
+          type: number
+        name:
+          description: Name of the pool
+          type: string
+      required:
+      - alloc
+      - dedup
+      - frag
+      - free
+      - health
+      - name
+      - size
+      type: object
+    ZFSRaidLevel:
+      enum:
+      - single
+      - mirror
+      - raidz
+      - raidz2
+      - raidz3
+      - raid10
+      - draid
+      - draid2
+      - draid3
+      type: string
   securitySchemes:
     smithy.api.httpApiKeyAuth:
       description: API key authentication via the 'Authorization' header

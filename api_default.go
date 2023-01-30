@@ -404,6 +404,411 @@ func (a *DefaultApiService) CreateClusterConfigExecute(r ApiCreateClusterConfigR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateDirectoryRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	createDirectoryRequestContent *CreateDirectoryRequestContent
+}
+
+func (r ApiCreateDirectoryRequest) CreateDirectoryRequestContent(createDirectoryRequestContent CreateDirectoryRequestContent) ApiCreateDirectoryRequest {
+	r.createDirectoryRequestContent = &createDirectoryRequestContent
+	return r
+}
+
+func (r ApiCreateDirectoryRequest) Execute() (*CreateDirectoryResponseContent, *http.Response, error) {
+	return r.ApiService.CreateDirectoryExecute(r)
+}
+
+/*
+CreateDirectory Method for CreateDirectory
+
+Create a Filesystem on an unused disk. Will be mounted under '/mnt/pve/NAME'.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiCreateDirectoryRequest
+*/
+func (a *DefaultApiService) CreateDirectory(ctx context.Context, node string) ApiCreateDirectoryRequest {
+	return ApiCreateDirectoryRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return CreateDirectoryResponseContent
+func (a *DefaultApiService) CreateDirectoryExecute(r ApiCreateDirectoryRequest) (*CreateDirectoryResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateDirectoryResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateDirectory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/directory"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.createDirectoryRequestContent == nil {
+		return localVarReturnValue, nil, reportError("createDirectoryRequestContent is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createDirectoryRequestContent
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateLVMRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	createLVMRequestContent *CreateLVMRequestContent
+}
+
+func (r ApiCreateLVMRequest) CreateLVMRequestContent(createLVMRequestContent CreateLVMRequestContent) ApiCreateLVMRequest {
+	r.createLVMRequestContent = &createLVMRequestContent
+	return r
+}
+
+func (r ApiCreateLVMRequest) Execute() (*CreateLVMResponseContent, *http.Response, error) {
+	return r.ApiService.CreateLVMExecute(r)
+}
+
+/*
+CreateLVM Method for CreateLVM
+
+Create a LVM volume group.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiCreateLVMRequest
+*/
+func (a *DefaultApiService) CreateLVM(ctx context.Context, node string) ApiCreateLVMRequest {
+	return ApiCreateLVMRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return CreateLVMResponseContent
+func (a *DefaultApiService) CreateLVMExecute(r ApiCreateLVMRequest) (*CreateLVMResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateLVMResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateLVM")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/lvm"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.createLVMRequestContent == nil {
+		return localVarReturnValue, nil, reportError("createLVMRequestContent is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createLVMRequestContent
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateLVMThinRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	createLVMThinRequestContent *CreateLVMThinRequestContent
+}
+
+func (r ApiCreateLVMThinRequest) CreateLVMThinRequestContent(createLVMThinRequestContent CreateLVMThinRequestContent) ApiCreateLVMThinRequest {
+	r.createLVMThinRequestContent = &createLVMThinRequestContent
+	return r
+}
+
+func (r ApiCreateLVMThinRequest) Execute() (*CreateLVMThinResponseContent, *http.Response, error) {
+	return r.ApiService.CreateLVMThinExecute(r)
+}
+
+/*
+CreateLVMThin Method for CreateLVMThin
+
+Create a LVM thinpool.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiCreateLVMThinRequest
+*/
+func (a *DefaultApiService) CreateLVMThin(ctx context.Context, node string) ApiCreateLVMThinRequest {
+	return ApiCreateLVMThinRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return CreateLVMThinResponseContent
+func (a *DefaultApiService) CreateLVMThinExecute(r ApiCreateLVMThinRequest) (*CreateLVMThinResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateLVMThinResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateLVMThin")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/lvmthin"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.createLVMThinRequestContent == nil {
+		return localVarReturnValue, nil, reportError("createLVMThinRequestContent is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createLVMThinRequestContent
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiCreateNetworkInterfaceRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -655,6 +1060,585 @@ func (a *DefaultApiService) CreateTicketExecute(r ApiCreateTicketRequest) (*Crea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateZFSPoolRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	createZFSPoolRequestContent *CreateZFSPoolRequestContent
+}
+
+func (r ApiCreateZFSPoolRequest) CreateZFSPoolRequestContent(createZFSPoolRequestContent CreateZFSPoolRequestContent) ApiCreateZFSPoolRequest {
+	r.createZFSPoolRequestContent = &createZFSPoolRequestContent
+	return r
+}
+
+func (r ApiCreateZFSPoolRequest) Execute() (*CreateZFSPoolResponseContent, *http.Response, error) {
+	return r.ApiService.CreateZFSPoolExecute(r)
+}
+
+/*
+CreateZFSPool Method for CreateZFSPool
+
+Create a ZFS pool.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiCreateZFSPoolRequest
+*/
+func (a *DefaultApiService) CreateZFSPool(ctx context.Context, node string) ApiCreateZFSPoolRequest {
+	return ApiCreateZFSPoolRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return CreateZFSPoolResponseContent
+func (a *DefaultApiService) CreateZFSPoolExecute(r ApiCreateZFSPoolRequest) (*CreateZFSPoolResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateZFSPoolResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateZFSPool")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/zfs"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.createZFSPoolRequestContent == nil {
+		return localVarReturnValue, nil, reportError("createZFSPoolRequestContent is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createZFSPoolRequestContent
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteDirectoryRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	name string
+	cleanupConfig *float32
+	cleanupDisks *float32
+}
+
+// Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteDirectoryRequest) CleanupConfig(cleanupConfig float32) ApiDeleteDirectoryRequest {
+	r.cleanupConfig = &cleanupConfig
+	return r
+}
+
+// Wipes the disk. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteDirectoryRequest) CleanupDisks(cleanupDisks float32) ApiDeleteDirectoryRequest {
+	r.cleanupDisks = &cleanupDisks
+	return r
+}
+
+func (r ApiDeleteDirectoryRequest) Execute() (*DeleteDirectoryResponseContent, *http.Response, error) {
+	return r.ApiService.DeleteDirectoryExecute(r)
+}
+
+/*
+DeleteDirectory Method for DeleteDirectory
+
+Unmounts the storage and removes the mount unit.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param name The storage identifier.
+ @return ApiDeleteDirectoryRequest
+*/
+func (a *DefaultApiService) DeleteDirectory(ctx context.Context, node string, name string) ApiDeleteDirectoryRequest {
+	return ApiDeleteDirectoryRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		name: name,
+	}
+}
+
+// Execute executes the request
+//  @return DeleteDirectoryResponseContent
+func (a *DefaultApiService) DeleteDirectoryExecute(r ApiDeleteDirectoryRequest) (*DeleteDirectoryResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeleteDirectoryResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteDirectory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/directory/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.cleanupConfig != nil {
+		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+	}
+	if r.cleanupDisks != nil {
+		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteLVMRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	name string
+	cleanupConfig *float32
+	cleanupDisks *float32
+}
+
+// Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteLVMRequest) CleanupConfig(cleanupConfig float32) ApiDeleteLVMRequest {
+	r.cleanupConfig = &cleanupConfig
+	return r
+}
+
+// Wipes the disk. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteLVMRequest) CleanupDisks(cleanupDisks float32) ApiDeleteLVMRequest {
+	r.cleanupDisks = &cleanupDisks
+	return r
+}
+
+func (r ApiDeleteLVMRequest) Execute() (*DeleteLVMResponseContent, *http.Response, error) {
+	return r.ApiService.DeleteLVMExecute(r)
+}
+
+/*
+DeleteLVM Method for DeleteLVM
+
+Removes an LVM volume group.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param name The storage identifier.
+ @return ApiDeleteLVMRequest
+*/
+func (a *DefaultApiService) DeleteLVM(ctx context.Context, node string, name string) ApiDeleteLVMRequest {
+	return ApiDeleteLVMRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		name: name,
+	}
+}
+
+// Execute executes the request
+//  @return DeleteLVMResponseContent
+func (a *DefaultApiService) DeleteLVMExecute(r ApiDeleteLVMRequest) (*DeleteLVMResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeleteLVMResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteLVM")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/lvm/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.cleanupConfig != nil {
+		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+	}
+	if r.cleanupDisks != nil {
+		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteLVMThinRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	name string
+	cleanupConfig *float32
+	cleanupDisks *float32
+}
+
+// Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteLVMThinRequest) CleanupConfig(cleanupConfig float32) ApiDeleteLVMThinRequest {
+	r.cleanupConfig = &cleanupConfig
+	return r
+}
+
+// Wipes the disk. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteLVMThinRequest) CleanupDisks(cleanupDisks float32) ApiDeleteLVMThinRequest {
+	r.cleanupDisks = &cleanupDisks
+	return r
+}
+
+func (r ApiDeleteLVMThinRequest) Execute() (*DeleteLVMThinResponseContent, *http.Response, error) {
+	return r.ApiService.DeleteLVMThinExecute(r)
+}
+
+/*
+DeleteLVMThin Method for DeleteLVMThin
+
+Removes an LVM thinpool.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param name The storage identifier.
+ @return ApiDeleteLVMThinRequest
+*/
+func (a *DefaultApiService) DeleteLVMThin(ctx context.Context, node string, name string) ApiDeleteLVMThinRequest {
+	return ApiDeleteLVMThinRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		name: name,
+	}
+}
+
+// Execute executes the request
+//  @return DeleteLVMThinResponseContent
+func (a *DefaultApiService) DeleteLVMThinExecute(r ApiDeleteLVMThinRequest) (*DeleteLVMThinResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeleteLVMThinResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteLVMThin")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/lvmthin/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.cleanupConfig != nil {
+		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+	}
+	if r.cleanupDisks != nil {
+		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeleteNetworkInterfaceRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -768,6 +1752,154 @@ func (a *DefaultApiService) DeleteNetworkInterfaceExecute(r ApiDeleteNetworkInte
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiDeleteZFSPoolRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	name string
+	cleanupConfig *float32
+	cleanupDisks *float32
+}
+
+// Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteZFSPoolRequest) CleanupConfig(cleanupConfig float32) ApiDeleteZFSPoolRequest {
+	r.cleanupConfig = &cleanupConfig
+	return r
+}
+
+// Wipes the disk. Takes a boolean integer value (0 false, 1 true).
+func (r ApiDeleteZFSPoolRequest) CleanupDisks(cleanupDisks float32) ApiDeleteZFSPoolRequest {
+	r.cleanupDisks = &cleanupDisks
+	return r
+}
+
+func (r ApiDeleteZFSPoolRequest) Execute() (*DeleteZFSPoolResponseContent, *http.Response, error) {
+	return r.ApiService.DeleteZFSPoolExecute(r)
+}
+
+/*
+DeleteZFSPool Method for DeleteZFSPool
+
+Destroys a ZFS pool.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param name The storage identifier.
+ @return ApiDeleteZFSPoolRequest
+*/
+func (a *DefaultApiService) DeleteZFSPool(ctx context.Context, node string, name string) ApiDeleteZFSPoolRequest {
+	return ApiDeleteZFSPoolRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		name: name,
+	}
+}
+
+// Execute executes the request
+//  @return DeleteZFSPoolResponseContent
+func (a *DefaultApiService) DeleteZFSPoolExecute(r ApiDeleteZFSPoolRequest) (*DeleteZFSPoolResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeleteZFSPoolResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteZFSPool")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/zfs/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.cleanupConfig != nil {
+		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+	}
+	if r.cleanupDisks != nil {
+		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGetAccessControlListRequest struct {
@@ -1640,6 +2772,134 @@ func (a *DefaultApiService) GetVersionExecute(r ApiGetVersionRequest) (*GetVersi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetZFSPoolStatusRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	name string
+}
+
+func (r ApiGetZFSPoolStatusRequest) Execute() (*GetZFSPoolStatusResponseContent, *http.Response, error) {
+	return r.ApiService.GetZFSPoolStatusExecute(r)
+}
+
+/*
+GetZFSPoolStatus Method for GetZFSPoolStatus
+
+List LVM volume groups on node.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param name
+ @return ApiGetZFSPoolStatusRequest
+*/
+func (a *DefaultApiService) GetZFSPoolStatus(ctx context.Context, node string, name string) ApiGetZFSPoolStatusRequest {
+	return ApiGetZFSPoolStatusRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		name: name,
+	}
+}
+
+// Execute executes the request
+//  @return GetZFSPoolStatusResponseContent
+func (a *DefaultApiService) GetZFSPoolStatusExecute(r ApiGetZFSPoolStatusRequest) (*GetZFSPoolStatusResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetZFSPoolStatusResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetZFSPoolStatus")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/zfs/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInitializeGPTRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -2143,6 +3403,130 @@ func (a *DefaultApiService) ListCpuCapabilitiesExecute(r ApiListCpuCapabilitiesR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiListDirectoriesRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+}
+
+func (r ApiListDirectoriesRequest) Execute() (*ListDirectoriesResponseContent, *http.Response, error) {
+	return r.ApiService.ListDirectoriesExecute(r)
+}
+
+/*
+ListDirectories Method for ListDirectories
+
+List PVE managed directory storages.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiListDirectoriesRequest
+*/
+func (a *DefaultApiService) ListDirectories(ctx context.Context, node string) ApiListDirectoriesRequest {
+	return ApiListDirectoriesRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return ListDirectoriesResponseContent
+func (a *DefaultApiService) ListDirectoriesExecute(r ApiListDirectoriesRequest) (*ListDirectoriesResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListDirectoriesResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListDirectories")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/directory"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiListDisksRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -2221,6 +3605,254 @@ func (a *DefaultApiService) ListDisksExecute(r ApiListDisksRequest) (*ListDisksR
 	if r.type_ != nil {
 		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
 	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListLVMThinsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+}
+
+func (r ApiListLVMThinsRequest) Execute() (*ListLVMThinsResponseContent, *http.Response, error) {
+	return r.ApiService.ListLVMThinsExecute(r)
+}
+
+/*
+ListLVMThins Method for ListLVMThins
+
+List LVM thinpools on node.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiListLVMThinsRequest
+*/
+func (a *DefaultApiService) ListLVMThins(ctx context.Context, node string) ApiListLVMThinsRequest {
+	return ApiListLVMThinsRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return ListLVMThinsResponseContent
+func (a *DefaultApiService) ListLVMThinsExecute(r ApiListLVMThinsRequest) (*ListLVMThinsResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListLVMThinsResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListLVMThins")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/lvmthin"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListLVMsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+}
+
+func (r ApiListLVMsRequest) Execute() (*ListLVMsResponseContent, *http.Response, error) {
+	return r.ApiService.ListLVMsExecute(r)
+}
+
+/*
+ListLVMs Method for ListLVMs
+
+List LVM volume groups on node.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiListLVMsRequest
+*/
+func (a *DefaultApiService) ListLVMs(ctx context.Context, node string) ApiListLVMsRequest {
+	return ApiListLVMsRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return ListLVMsResponseContent
+func (a *DefaultApiService) ListLVMsExecute(r ApiListLVMsRequest) (*ListLVMsResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListLVMsResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListLVMs")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/lvm"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -2828,6 +4460,130 @@ func (a *DefaultApiService) ListVirtualMachinesExecute(r ApiListVirtualMachinesR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListZFSPoolsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+}
+
+func (r ApiListZFSPoolsRequest) Execute() (*ListZFSPoolsResponseContent, *http.Response, error) {
+	return r.ApiService.ListZFSPoolsExecute(r)
+}
+
+/*
+ListZFSPools Method for ListZFSPools
+
+List LVM volume groups on node.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @return ApiListZFSPoolsRequest
+*/
+func (a *DefaultApiService) ListZFSPools(ctx context.Context, node string) ApiListZFSPoolsRequest {
+	return ApiListZFSPoolsRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+	}
+}
+
+// Execute executes the request
+//  @return ListZFSPoolsResponseContent
+func (a *DefaultApiService) ListZFSPoolsExecute(r ApiListZFSPoolsRequest) (*ListZFSPoolsResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListZFSPoolsResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListZFSPools")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/disks/zfs"
 	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

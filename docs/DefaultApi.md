@@ -7,9 +7,17 @@ Method | HTTP request | Description
 [**AddCorosyncNode**](DefaultApi.md#AddCorosyncNode) | **Post** /cluster/config/nodes/{node} | 
 [**ApplyNetworkInterfaceConfiguration**](DefaultApi.md#ApplyNetworkInterfaceConfiguration) | **Put** /nodes/{node}/network | 
 [**CreateClusterConfig**](DefaultApi.md#CreateClusterConfig) | **Post** /cluster/config | 
+[**CreateDirectory**](DefaultApi.md#CreateDirectory) | **Post** /nodes/{node}/disks/directory | 
+[**CreateLVM**](DefaultApi.md#CreateLVM) | **Post** /nodes/{node}/disks/lvm | 
+[**CreateLVMThin**](DefaultApi.md#CreateLVMThin) | **Post** /nodes/{node}/disks/lvmthin | 
 [**CreateNetworkInterface**](DefaultApi.md#CreateNetworkInterface) | **Post** /nodes/{node}/network | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
+[**CreateZFSPool**](DefaultApi.md#CreateZFSPool) | **Post** /nodes/{node}/disks/zfs | 
+[**DeleteDirectory**](DefaultApi.md#DeleteDirectory) | **Delete** /nodes/{node}/disks/directory/{name} | 
+[**DeleteLVM**](DefaultApi.md#DeleteLVM) | **Delete** /nodes/{node}/disks/lvm/{name} | 
+[**DeleteLVMThin**](DefaultApi.md#DeleteLVMThin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 [**DeleteNetworkInterface**](DefaultApi.md#DeleteNetworkInterface) | **Delete** /nodes/{node}/network/{interface} | 
+[**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 [**GetAccessControlList**](DefaultApi.md#GetAccessControlList) | **Get** /access/acl | 
 [**GetClusterApiVersion**](DefaultApi.md#GetClusterApiVersion) | **Get** /cluster/config/apiversion | 
 [**GetClusterJoinInformation**](DefaultApi.md#GetClusterJoinInformation) | **Get** /cluster/config/join | 
@@ -17,16 +25,21 @@ Method | HTTP request | Description
 [**GetNetworkInterface**](DefaultApi.md#GetNetworkInterface) | **Get** /nodes/{node}/network/{interface} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetVersion**](DefaultApi.md#GetVersion) | **Get** /version | 
+[**GetZFSPoolStatus**](DefaultApi.md#GetZFSPoolStatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 [**InitializeGPT**](DefaultApi.md#InitializeGPT) | **Post** /nodes/{node}/disks/smart | 
 [**JoinCluster**](DefaultApi.md#JoinCluster) | **Post** /cluster/config/join | 
 [**ListCorosyncNodes**](DefaultApi.md#ListCorosyncNodes) | **Get** /cluster/config/nodes | 
 [**ListCpuCapabilities**](DefaultApi.md#ListCpuCapabilities) | **Get** /nodes/{node}/capabilities/qemu/cpu | 
+[**ListDirectories**](DefaultApi.md#ListDirectories) | **Get** /nodes/{node}/disks/directory | 
 [**ListDisks**](DefaultApi.md#ListDisks) | **Get** /nodes/{node}/disks/list | 
+[**ListLVMThins**](DefaultApi.md#ListLVMThins) | **Get** /nodes/{node}/disks/lvmthin | 
+[**ListLVMs**](DefaultApi.md#ListLVMs) | **Get** /nodes/{node}/disks/lvm | 
 [**ListMachineCapabilities**](DefaultApi.md#ListMachineCapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 [**ListNetworkInterfaces**](DefaultApi.md#ListNetworkInterfaces) | **Get** /nodes/{node}/network | 
 [**ListNodes**](DefaultApi.md#ListNodes) | **Get** /nodes | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
+[**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
@@ -237,6 +250,222 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateDirectory
+
+> CreateDirectoryResponseContent CreateDirectory(ctx, node).CreateDirectoryRequestContent(createDirectoryRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    createDirectoryRequestContent := *openapiclient.NewCreateDirectoryRequestContent("Device_example", "Name_example") // CreateDirectoryRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateDirectory(context.Background(), node).CreateDirectoryRequestContent(createDirectoryRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateDirectory``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateDirectory`: CreateDirectoryResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateDirectory`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDirectoryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createDirectoryRequestContent** | [**CreateDirectoryRequestContent**](CreateDirectoryRequestContent.md) |  | 
+
+### Return type
+
+[**CreateDirectoryResponseContent**](CreateDirectoryResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLVM
+
+> CreateLVMResponseContent CreateLVM(ctx, node).CreateLVMRequestContent(createLVMRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    createLVMRequestContent := *openapiclient.NewCreateLVMRequestContent("Device_example", "Name_example") // CreateLVMRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateLVM(context.Background(), node).CreateLVMRequestContent(createLVMRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateLVM``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateLVM`: CreateLVMResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateLVM`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLVMRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createLVMRequestContent** | [**CreateLVMRequestContent**](CreateLVMRequestContent.md) |  | 
+
+### Return type
+
+[**CreateLVMResponseContent**](CreateLVMResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLVMThin
+
+> CreateLVMThinResponseContent CreateLVMThin(ctx, node).CreateLVMThinRequestContent(createLVMThinRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    createLVMThinRequestContent := *openapiclient.NewCreateLVMThinRequestContent("Device_example", "Name_example") // CreateLVMThinRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateLVMThin(context.Background(), node).CreateLVMThinRequestContent(createLVMThinRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateLVMThin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateLVMThin`: CreateLVMThinResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateLVMThin`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLVMThinRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createLVMThinRequestContent** | [**CreateLVMThinRequestContent**](CreateLVMThinRequestContent.md) |  | 
+
+### Return type
+
+[**CreateLVMThinResponseContent**](CreateLVMThinResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateNetworkInterface
 
 > CreateNetworkInterface(ctx, node).CreateNetworkInterfaceRequestContent(createNetworkInterfaceRequestContent).Execute()
@@ -369,6 +598,309 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateZFSPool
+
+> CreateZFSPoolResponseContent CreateZFSPool(ctx, node).CreateZFSPoolRequestContent(createZFSPoolRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    createZFSPoolRequestContent := *openapiclient.NewCreateZFSPoolRequestContent("Devices_example", "Name_example", openapiclient.ZFSRaidLevel("single")) // CreateZFSPoolRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateZFSPool(context.Background(), node).CreateZFSPoolRequestContent(createZFSPoolRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateZFSPool``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateZFSPool`: CreateZFSPoolResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateZFSPool`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateZFSPoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createZFSPoolRequestContent** | [**CreateZFSPoolRequestContent**](CreateZFSPoolRequestContent.md) |  | 
+
+### Return type
+
+[**CreateZFSPoolResponseContent**](CreateZFSPoolResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDirectory
+
+> DeleteDirectoryResponseContent DeleteDirectory(ctx, node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    name := "name_example" // string | The storage identifier.
+    cleanupConfig := float32(8.14) // float32 | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). (optional)
+    cleanupDisks := float32(8.14) // float32 | Wipes the disk. Takes a boolean integer value (0 false, 1 true). (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteDirectory(context.Background(), node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteDirectory``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteDirectory`: DeleteDirectoryResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteDirectory`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**name** | **string** | The storage identifier. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDirectoryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **cleanupConfig** | **float32** | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). | 
+ **cleanupDisks** | **float32** | Wipes the disk. Takes a boolean integer value (0 false, 1 true). | 
+
+### Return type
+
+[**DeleteDirectoryResponseContent**](DeleteDirectoryResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteLVM
+
+> DeleteLVMResponseContent DeleteLVM(ctx, node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    name := "name_example" // string | The storage identifier.
+    cleanupConfig := float32(8.14) // float32 | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). (optional)
+    cleanupDisks := float32(8.14) // float32 | Wipes the disk. Takes a boolean integer value (0 false, 1 true). (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteLVM(context.Background(), node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteLVM``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteLVM`: DeleteLVMResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteLVM`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**name** | **string** | The storage identifier. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteLVMRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **cleanupConfig** | **float32** | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). | 
+ **cleanupDisks** | **float32** | Wipes the disk. Takes a boolean integer value (0 false, 1 true). | 
+
+### Return type
+
+[**DeleteLVMResponseContent**](DeleteLVMResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteLVMThin
+
+> DeleteLVMThinResponseContent DeleteLVMThin(ctx, node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    name := "name_example" // string | The storage identifier.
+    cleanupConfig := float32(8.14) // float32 | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). (optional)
+    cleanupDisks := float32(8.14) // float32 | Wipes the disk. Takes a boolean integer value (0 false, 1 true). (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteLVMThin(context.Background(), node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteLVMThin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteLVMThin`: DeleteLVMThinResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteLVMThin`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**name** | **string** | The storage identifier. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteLVMThinRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **cleanupConfig** | **float32** | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). | 
+ **cleanupDisks** | **float32** | Wipes the disk. Takes a boolean integer value (0 false, 1 true). | 
+
+### Return type
+
+[**DeleteLVMThinResponseContent**](DeleteLVMThinResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteNetworkInterface
 
 > DeleteNetworkInterface(ctx, node, interface_).Execute()
@@ -423,6 +955,83 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteZFSPool
+
+> DeleteZFSPoolResponseContent DeleteZFSPool(ctx, node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    name := "name_example" // string | The storage identifier.
+    cleanupConfig := float32(8.14) // float32 | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). (optional)
+    cleanupDisks := float32(8.14) // float32 | Wipes the disk. Takes a boolean integer value (0 false, 1 true). (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteZFSPool(context.Background(), node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteZFSPool``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteZFSPool`: DeleteZFSPoolResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteZFSPool`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**name** | **string** | The storage identifier. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteZFSPoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **cleanupConfig** | **float32** | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). | 
+ **cleanupDisks** | **float32** | Wipes the disk. Takes a boolean integer value (0 false, 1 true). | 
+
+### Return type
+
+[**DeleteZFSPoolResponseContent**](DeleteZFSPoolResponseContent.md)
 
 ### Authorization
 
@@ -883,6 +1492,79 @@ Other parameters are passed through a pointer to a apiGetVersionRequest struct v
 [[Back to README]](../README.md)
 
 
+## GetZFSPoolStatus
+
+> GetZFSPoolStatusResponseContent GetZFSPoolStatus(ctx, node, name).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    name := "name_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetZFSPoolStatus(context.Background(), node, name).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetZFSPoolStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetZFSPoolStatus`: GetZFSPoolStatusResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetZFSPoolStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**name** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetZFSPoolStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetZFSPoolStatusResponseContent**](GetZFSPoolStatusResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InitializeGPT
 
 > InitializeGPTResponseContent InitializeGPT(ctx, node).InitializeGPTRequestContent(initializeGPTRequestContent).Execute()
@@ -1148,6 +1830,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListDirectories
+
+> ListDirectoriesResponseContent ListDirectories(ctx, node).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListDirectories(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListDirectories``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListDirectories`: ListDirectoriesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListDirectories`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListDirectoriesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListDirectoriesResponseContent**](ListDirectoriesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListDisks
 
 > ListDisksResponseContent ListDisks(ctx, node).IncludePartitions(includePartitions).Skipsmart(skipsmart).Type_(type_).Execute()
@@ -1209,6 +1961,146 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListDisksResponseContent**](ListDisksResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListLVMThins
+
+> ListLVMThinsResponseContent ListLVMThins(ctx, node).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListLVMThins(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListLVMThins``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListLVMThins`: ListLVMThinsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListLVMThins`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListLVMThinsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListLVMThinsResponseContent**](ListLVMThinsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListLVMs
+
+> ListLVMsResponseContent ListLVMs(ctx, node).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListLVMs(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListLVMs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListLVMs`: ListLVMsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListLVMs`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListLVMsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListLVMsResponseContent**](ListLVMsResponseContent.md)
 
 ### Authorization
 
@@ -1535,6 +2427,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListVirtualMachinesResponseContent**](ListVirtualMachinesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListZFSPools
+
+> ListZFSPoolsResponseContent ListZFSPools(ctx, node).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListZFSPools(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListZFSPools``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListZFSPools`: ListZFSPoolsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListZFSPools`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListZFSPoolsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListZFSPoolsResponseContent**](ListZFSPoolsResponseContent.md)
 
 ### Authorization
 

@@ -81,9 +81,17 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**AddCorosyncNode**](docs/DefaultApi.md#addcorosyncnode) | **Post** /cluster/config/nodes/{node} | 
 *DefaultApi* | [**ApplyNetworkInterfaceConfiguration**](docs/DefaultApi.md#applynetworkinterfaceconfiguration) | **Put** /nodes/{node}/network | 
 *DefaultApi* | [**CreateClusterConfig**](docs/DefaultApi.md#createclusterconfig) | **Post** /cluster/config | 
+*DefaultApi* | [**CreateDirectory**](docs/DefaultApi.md#createdirectory) | **Post** /nodes/{node}/disks/directory | 
+*DefaultApi* | [**CreateLVM**](docs/DefaultApi.md#createlvm) | **Post** /nodes/{node}/disks/lvm | 
+*DefaultApi* | [**CreateLVMThin**](docs/DefaultApi.md#createlvmthin) | **Post** /nodes/{node}/disks/lvmthin | 
 *DefaultApi* | [**CreateNetworkInterface**](docs/DefaultApi.md#createnetworkinterface) | **Post** /nodes/{node}/network | 
 *DefaultApi* | [**CreateTicket**](docs/DefaultApi.md#createticket) | **Post** /access/ticket | 
+*DefaultApi* | [**CreateZFSPool**](docs/DefaultApi.md#createzfspool) | **Post** /nodes/{node}/disks/zfs | 
+*DefaultApi* | [**DeleteDirectory**](docs/DefaultApi.md#deletedirectory) | **Delete** /nodes/{node}/disks/directory/{name} | 
+*DefaultApi* | [**DeleteLVM**](docs/DefaultApi.md#deletelvm) | **Delete** /nodes/{node}/disks/lvm/{name} | 
+*DefaultApi* | [**DeleteLVMThin**](docs/DefaultApi.md#deletelvmthin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 *DefaultApi* | [**DeleteNetworkInterface**](docs/DefaultApi.md#deletenetworkinterface) | **Delete** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**DeleteZFSPool**](docs/DefaultApi.md#deletezfspool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**GetAccessControlList**](docs/DefaultApi.md#getaccesscontrollist) | **Get** /access/acl | 
 *DefaultApi* | [**GetClusterApiVersion**](docs/DefaultApi.md#getclusterapiversion) | **Get** /cluster/config/apiversion | 
 *DefaultApi* | [**GetClusterJoinInformation**](docs/DefaultApi.md#getclusterjoininformation) | **Get** /cluster/config/join | 
@@ -91,16 +99,21 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetNetworkInterface**](docs/DefaultApi.md#getnetworkinterface) | **Get** /nodes/{node}/network/{interface} | 
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
+*DefaultApi* | [**GetZFSPoolStatus**](docs/DefaultApi.md#getzfspoolstatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**JoinCluster**](docs/DefaultApi.md#joincluster) | **Post** /cluster/config/join | 
 *DefaultApi* | [**ListCorosyncNodes**](docs/DefaultApi.md#listcorosyncnodes) | **Get** /cluster/config/nodes | 
 *DefaultApi* | [**ListCpuCapabilities**](docs/DefaultApi.md#listcpucapabilities) | **Get** /nodes/{node}/capabilities/qemu/cpu | 
+*DefaultApi* | [**ListDirectories**](docs/DefaultApi.md#listdirectories) | **Get** /nodes/{node}/disks/directory | 
 *DefaultApi* | [**ListDisks**](docs/DefaultApi.md#listdisks) | **Get** /nodes/{node}/disks/list | 
+*DefaultApi* | [**ListLVMThins**](docs/DefaultApi.md#listlvmthins) | **Get** /nodes/{node}/disks/lvmthin | 
+*DefaultApi* | [**ListLVMs**](docs/DefaultApi.md#listlvms) | **Get** /nodes/{node}/disks/lvm | 
 *DefaultApi* | [**ListMachineCapabilities**](docs/DefaultApi.md#listmachinecapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 *DefaultApi* | [**ListNetworkInterfaces**](docs/DefaultApi.md#listnetworkinterfaces) | **Get** /nodes/{node}/network | 
 *DefaultApi* | [**ListNodes**](docs/DefaultApi.md#listnodes) | **Get** /nodes | 
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
 *DefaultApi* | [**ListVirtualMachines**](docs/DefaultApi.md#listvirtualmachines) | **Get** /nodes/{node}/qemu | 
+*DefaultApi* | [**ListZFSPools**](docs/DefaultApi.md#listzfspools) | **Get** /nodes/{node}/disks/zfs | 
 *DefaultApi* | [**RemoveCorosyncNode**](docs/DefaultApi.md#removecorosyncnode) | **Delete** /cluster/config/nodes/{node} | 
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
 *DefaultApi* | [**UpdateAccessControlList**](docs/DefaultApi.md#updateaccesscontrollist) | **Put** /access/acl | 
@@ -120,9 +133,23 @@ Class | Method | HTTP request | Description
  - [CpuCapabilitySummary](docs/CpuCapabilitySummary.md)
  - [CreateClusterConfigRequestContent](docs/CreateClusterConfigRequestContent.md)
  - [CreateClusterConfigResponseContent](docs/CreateClusterConfigResponseContent.md)
+ - [CreateDirectoryRequestContent](docs/CreateDirectoryRequestContent.md)
+ - [CreateDirectoryResponseContent](docs/CreateDirectoryResponseContent.md)
+ - [CreateLVMRequestContent](docs/CreateLVMRequestContent.md)
+ - [CreateLVMResponseContent](docs/CreateLVMResponseContent.md)
+ - [CreateLVMThinRequestContent](docs/CreateLVMThinRequestContent.md)
+ - [CreateLVMThinResponseContent](docs/CreateLVMThinResponseContent.md)
  - [CreateNetworkInterfaceRequestContent](docs/CreateNetworkInterfaceRequestContent.md)
  - [CreateTicketRequestContent](docs/CreateTicketRequestContent.md)
  - [CreateTicketResponseContent](docs/CreateTicketResponseContent.md)
+ - [CreateZFSPoolRequestContent](docs/CreateZFSPoolRequestContent.md)
+ - [CreateZFSPoolResponseContent](docs/CreateZFSPoolResponseContent.md)
+ - [DeleteDirectoryResponseContent](docs/DeleteDirectoryResponseContent.md)
+ - [DeleteLVMResponseContent](docs/DeleteLVMResponseContent.md)
+ - [DeleteLVMThinResponseContent](docs/DeleteLVMThinResponseContent.md)
+ - [DeleteZFSPoolResponseContent](docs/DeleteZFSPoolResponseContent.md)
+ - [DirectoryFileSystem](docs/DirectoryFileSystem.md)
+ - [DirectorySummary](docs/DirectorySummary.md)
  - [DiskSummary](docs/DiskSummary.md)
  - [DiskType](docs/DiskType.md)
  - [DiskTypeFilter](docs/DiskTypeFilter.md)
@@ -133,6 +160,7 @@ Class | Method | HTTP request | Description
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
+ - [GetZFSPoolStatusResponseContent](docs/GetZFSPoolStatusResponseContent.md)
  - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
  - [InitializeGPTResponseContent](docs/InitializeGPTResponseContent.md)
  - [InternalServerErrorResponseContent](docs/InternalServerErrorResponseContent.md)
@@ -140,15 +168,21 @@ Class | Method | HTTP request | Description
  - [JoinClusterRequestContent](docs/JoinClusterRequestContent.md)
  - [JoinClusterResponseContent](docs/JoinClusterResponseContent.md)
  - [JoinInformation](docs/JoinInformation.md)
+ - [LVMSummary](docs/LVMSummary.md)
+ - [LVMThinSummary](docs/LVMThinSummary.md)
  - [LinkSummary](docs/LinkSummary.md)
  - [ListCorosyncNodesResponseContent](docs/ListCorosyncNodesResponseContent.md)
  - [ListCpuCapabilitiesResponseContent](docs/ListCpuCapabilitiesResponseContent.md)
+ - [ListDirectoriesResponseContent](docs/ListDirectoriesResponseContent.md)
  - [ListDisksResponseContent](docs/ListDisksResponseContent.md)
+ - [ListLVMThinsResponseContent](docs/ListLVMThinsResponseContent.md)
+ - [ListLVMsResponseContent](docs/ListLVMsResponseContent.md)
  - [ListMachineCapabilitiesResponseContent](docs/ListMachineCapabilitiesResponseContent.md)
  - [ListNetworkInterfacesResponseContent](docs/ListNetworkInterfacesResponseContent.md)
  - [ListNodesResponseContent](docs/ListNodesResponseContent.md)
  - [ListStorageResponseContent](docs/ListStorageResponseContent.md)
  - [ListVirtualMachinesResponseContent](docs/ListVirtualMachinesResponseContent.md)
+ - [ListZFSPoolsResponseContent](docs/ListZFSPoolsResponseContent.md)
  - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
  - [MachineType](docs/MachineType.md)
  - [NetworkInterfaceBondHashPolicy](docs/NetworkInterfaceBondHashPolicy.md)
@@ -167,6 +201,11 @@ Class | Method | HTTP request | Description
  - [VersionSummary](docs/VersionSummary.md)
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)
+ - [ZFSCompression](docs/ZFSCompression.md)
+ - [ZFSPoolStatusChild](docs/ZFSPoolStatusChild.md)
+ - [ZFSPoolStatusSummary](docs/ZFSPoolStatusSummary.md)
+ - [ZFSPoolSummary](docs/ZFSPoolSummary.md)
+ - [ZFSRaidLevel](docs/ZFSRaidLevel.md)
 
 
 ## Documentation For Authorization

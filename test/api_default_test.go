@@ -62,6 +62,48 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService CreateDirectory", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateDirectory(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService CreateLVM", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateLVM(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService CreateLVMThin", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateLVMThin(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService CreateNetworkInterface", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -88,6 +130,65 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService CreateZFSPool", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateZFSPool(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService DeleteDirectory", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var name string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteDirectory(context.Background(), node, name).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService DeleteLVM", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var name string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteLVM(context.Background(), node, name).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService DeleteLVMThin", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var name string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteLVMThin(context.Background(), node, name).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService DeleteNetworkInterface", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -96,6 +197,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var interface_ string
 
         resp, httpRes, err := apiClient.DefaultApi.DeleteNetworkInterface(context.Background(), node, interface_).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService DeleteZFSPool", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var name string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteZFSPool(context.Background(), node, name).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -192,6 +308,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetZFSPoolStatus", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var name string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetZFSPoolStatus(context.Background(), node, name).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService InitializeGPT", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -244,6 +375,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ListDirectories", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListDirectories(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ListDisks", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -251,6 +396,34 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ListDisks(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListLVMThins", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListLVMThins(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListLVMs", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListLVMs(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -317,6 +490,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ListVirtualMachines(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListZFSPools", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListZFSPools(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
