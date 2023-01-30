@@ -23,6 +23,8 @@ docs/CreateLVMResponseContent.md
 docs/CreateLVMThinRequestContent.md
 docs/CreateLVMThinResponseContent.md
 docs/CreateNetworkInterfaceRequestContent.md
+docs/CreateStorageRequestContent.md
+docs/CreateStorageResponseContent.md
 docs/CreateTicketRequestContent.md
 docs/CreateTicketResponseContent.md
 docs/CreateZFSPoolRequestContent.md
@@ -43,6 +45,7 @@ docs/GetClusterJoinInformationResponseContent.md
 docs/GetClusterTotemSettingsResponseContent.md
 docs/GetNetworkInterfaceResponseContent.md
 docs/GetSmartHealthResponseContent.md
+docs/GetStorageResponseContent.md
 docs/GetVersionResponseContent.md
 docs/GetZFSPoolStatusResponseContent.md
 docs/InitializeGPTRequestContent.md
@@ -69,6 +72,8 @@ docs/ListVirtualMachinesResponseContent.md
 docs/ListZFSPoolsResponseContent.md
 docs/MachineCapabilitySummary.md
 docs/MachineType.md
+docs/ModifyStorageRequestContent.md
+docs/ModifyStorageResponseContent.md
 docs/NetworkInterfaceBondHashPolicy.md
 docs/NetworkInterfaceBondMode.md
 docs/NetworkInterfaceMethod.md
@@ -76,7 +81,11 @@ docs/NetworkInterfaceSummary.md
 docs/NetworkInterfaceType.md
 docs/NodeStatus.md
 docs/NodeSummary.md
+docs/StorageConfiguration.md
+docs/StoragePreallocation.md
+docs/StorageSMBVersion.md
 docs/StorageSummary.md
+docs/StorageTransport.md
 docs/StorageType.md
 docs/Ticket.md
 docs/TotemSummary.md
@@ -110,6 +119,8 @@ model_create_lvm_response_content.go
 model_create_lvm_thin_request_content.go
 model_create_lvm_thin_response_content.go
 model_create_network_interface_request_content.go
+model_create_storage_request_content.go
+model_create_storage_response_content.go
 model_create_ticket_request_content.go
 model_create_ticket_response_content.go
 model_create_zfs_pool_request_content.go
@@ -129,6 +140,7 @@ model_get_cluster_join_information_response_content.go
 model_get_cluster_totem_settings_response_content.go
 model_get_network_interface_response_content.go
 model_get_smart_health_response_content.go
+model_get_storage_response_content.go
 model_get_version_response_content.go
 model_get_zfs_pool_status_response_content.go
 model_initialize_gpt_request_content.go
@@ -155,6 +167,8 @@ model_lvm_summary.go
 model_lvm_thin_summary.go
 model_machine_capability_summary.go
 model_machine_type.go
+model_modify_storage_request_content.go
+model_modify_storage_response_content.go
 model_network_interface_bond_hash_policy.go
 model_network_interface_bond_mode.go
 model_network_interface_method.go
@@ -162,7 +176,11 @@ model_network_interface_summary.go
 model_network_interface_type.go
 model_node_status.go
 model_node_summary.go
+model_storage_configuration.go
+model_storage_preallocation.go
+model_storage_smb_version.go
 model_storage_summary.go
+model_storage_transport.go
 model_storage_type.go
 model_ticket.go
 model_totem_summary.go

@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateLVM**](docs/DefaultApi.md#createlvm) | **Post** /nodes/{node}/disks/lvm | 
 *DefaultApi* | [**CreateLVMThin**](docs/DefaultApi.md#createlvmthin) | **Post** /nodes/{node}/disks/lvmthin | 
 *DefaultApi* | [**CreateNetworkInterface**](docs/DefaultApi.md#createnetworkinterface) | **Post** /nodes/{node}/network | 
+*DefaultApi* | [**CreateStorage**](docs/DefaultApi.md#createstorage) | **Post** /storage | 
 *DefaultApi* | [**CreateTicket**](docs/DefaultApi.md#createticket) | **Post** /access/ticket | 
 *DefaultApi* | [**CreateZFSPool**](docs/DefaultApi.md#createzfspool) | **Post** /nodes/{node}/disks/zfs | 
 *DefaultApi* | [**DeleteDirectory**](docs/DefaultApi.md#deletedirectory) | **Delete** /nodes/{node}/disks/directory/{name} | 
@@ -99,6 +100,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetClusterTotemSettings**](docs/DefaultApi.md#getclustertotemsettings) | **Get** /cluster/config/totem | 
 *DefaultApi* | [**GetNetworkInterface**](docs/DefaultApi.md#getnetworkinterface) | **Get** /nodes/{node}/network/{interface} | 
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
+*DefaultApi* | [**GetStorage**](docs/DefaultApi.md#getstorage) | **Get** /storage/{storage} | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
 *DefaultApi* | [**GetZFSPoolStatus**](docs/DefaultApi.md#getzfspoolstatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
@@ -115,6 +117,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
 *DefaultApi* | [**ListVirtualMachines**](docs/DefaultApi.md#listvirtualmachines) | **Get** /nodes/{node}/qemu | 
 *DefaultApi* | [**ListZFSPools**](docs/DefaultApi.md#listzfspools) | **Get** /nodes/{node}/disks/zfs | 
+*DefaultApi* | [**ModifyStorage**](docs/DefaultApi.md#modifystorage) | **Put** /storage/{storage} | 
 *DefaultApi* | [**RemoveCorosyncNode**](docs/DefaultApi.md#removecorosyncnode) | **Delete** /cluster/config/nodes/{node} | 
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
 *DefaultApi* | [**UpdateAccessControlList**](docs/DefaultApi.md#updateaccesscontrollist) | **Put** /access/acl | 
@@ -141,6 +144,8 @@ Class | Method | HTTP request | Description
  - [CreateLVMThinRequestContent](docs/CreateLVMThinRequestContent.md)
  - [CreateLVMThinResponseContent](docs/CreateLVMThinResponseContent.md)
  - [CreateNetworkInterfaceRequestContent](docs/CreateNetworkInterfaceRequestContent.md)
+ - [CreateStorageRequestContent](docs/CreateStorageRequestContent.md)
+ - [CreateStorageResponseContent](docs/CreateStorageResponseContent.md)
  - [CreateTicketRequestContent](docs/CreateTicketRequestContent.md)
  - [CreateTicketResponseContent](docs/CreateTicketResponseContent.md)
  - [CreateZFSPoolRequestContent](docs/CreateZFSPoolRequestContent.md)
@@ -160,6 +165,7 @@ Class | Method | HTTP request | Description
  - [GetClusterTotemSettingsResponseContent](docs/GetClusterTotemSettingsResponseContent.md)
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
+ - [GetStorageResponseContent](docs/GetStorageResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
  - [GetZFSPoolStatusResponseContent](docs/GetZFSPoolStatusResponseContent.md)
  - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
@@ -186,6 +192,8 @@ Class | Method | HTTP request | Description
  - [ListZFSPoolsResponseContent](docs/ListZFSPoolsResponseContent.md)
  - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
  - [MachineType](docs/MachineType.md)
+ - [ModifyStorageRequestContent](docs/ModifyStorageRequestContent.md)
+ - [ModifyStorageResponseContent](docs/ModifyStorageResponseContent.md)
  - [NetworkInterfaceBondHashPolicy](docs/NetworkInterfaceBondHashPolicy.md)
  - [NetworkInterfaceBondMode](docs/NetworkInterfaceBondMode.md)
  - [NetworkInterfaceMethod](docs/NetworkInterfaceMethod.md)
@@ -193,7 +201,11 @@ Class | Method | HTTP request | Description
  - [NetworkInterfaceType](docs/NetworkInterfaceType.md)
  - [NodeStatus](docs/NodeStatus.md)
  - [NodeSummary](docs/NodeSummary.md)
+ - [StorageConfiguration](docs/StorageConfiguration.md)
+ - [StoragePreallocation](docs/StoragePreallocation.md)
+ - [StorageSMBVersion](docs/StorageSMBVersion.md)
  - [StorageSummary](docs/StorageSummary.md)
+ - [StorageTransport](docs/StorageTransport.md)
  - [StorageType](docs/StorageType.md)
  - [Ticket](docs/Ticket.md)
  - [TotemSummary](docs/TotemSummary.md)

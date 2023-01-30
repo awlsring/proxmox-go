@@ -118,6 +118,18 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService CreateStorage", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateStorage(context.Background()).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService CreateTicket", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -303,6 +315,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.GetSmartHealth(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetStorage", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var storage string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetStorage(context.Background(), storage).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -518,6 +544,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ListZFSPools(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ModifyStorage", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var storage string
+
+        resp, httpRes, err := apiClient.DefaultApi.ModifyStorage(context.Background(), storage).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
