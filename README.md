@@ -79,6 +79,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**AddCorosyncNode**](docs/DefaultApi.md#addcorosyncnode) | **Post** /cluster/config/nodes/{node} | 
+*DefaultApi* | [**AddCustomNodeCertificate**](docs/DefaultApi.md#addcustomnodecertificate) | **Post** /nodes/{node}/certificates/custom | 
 *DefaultApi* | [**AddRepository**](docs/DefaultApi.md#addrepository) | **Put** /nodes/{node}/apt/repositories | 
 *DefaultApi* | [**ApplyNetworkInterfaceConfiguration**](docs/DefaultApi.md#applynetworkinterfaceconfiguration) | **Put** /nodes/{node}/network | 
 *DefaultApi* | [**ChangeRepositoryProperties**](docs/DefaultApi.md#changerepositoryproperties) | **Post** /nodes/{node}/apt/repositories | 
@@ -95,6 +96,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteLVM**](docs/DefaultApi.md#deletelvm) | **Delete** /nodes/{node}/disks/lvm/{name} | 
 *DefaultApi* | [**DeleteLVMThin**](docs/DefaultApi.md#deletelvmthin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 *DefaultApi* | [**DeleteNetworkInterface**](docs/DefaultApi.md#deletenetworkinterface) | **Delete** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**DeleteNodeCertificate**](docs/DefaultApi.md#deletenodecertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 *DefaultApi* | [**DeletePool**](docs/DefaultApi.md#deletepool) | **Delete** /pools/{poolId} | 
 *DefaultApi* | [**DeleteStorage**](docs/DefaultApi.md#deletestorage) | **Delete** /storage/{storage} | 
 *DefaultApi* | [**DeleteZFSPool**](docs/DefaultApi.md#deletezfspool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
@@ -119,17 +121,23 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListLVMs**](docs/DefaultApi.md#listlvms) | **Get** /nodes/{node}/disks/lvm | 
 *DefaultApi* | [**ListMachineCapabilities**](docs/DefaultApi.md#listmachinecapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 *DefaultApi* | [**ListNetworkInterfaces**](docs/DefaultApi.md#listnetworkinterfaces) | **Get** /nodes/{node}/network | 
+*DefaultApi* | [**ListNodeCertificates**](docs/DefaultApi.md#listnodecertificates) | **Get** /nodes/{node}/certificates/info | 
 *DefaultApi* | [**ListNodes**](docs/DefaultApi.md#listnodes) | **Get** /nodes | 
 *DefaultApi* | [**ListPackages**](docs/DefaultApi.md#listpackages) | **Get** /nodes/{node}/apt/versions | 
+*DefaultApi* | [**ListPciDeviceMediatedDevices**](docs/DefaultApi.md#listpcidevicemediateddevices) | **Get** /nodes/{node}/hardware/pci/{deviceId} | 
+*DefaultApi* | [**ListPciDevices**](docs/DefaultApi.md#listpcidevices) | **Get** /nodes/{node}/hardware/pci | 
 *DefaultApi* | [**ListPools**](docs/DefaultApi.md#listpools) | **Get** /pools | 
 *DefaultApi* | [**ListRepositoriesInformation**](docs/DefaultApi.md#listrepositoriesinformation) | **Get** /nodes/{node}/apt/repository | 
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
 *DefaultApi* | [**ListUpdates**](docs/DefaultApi.md#listupdates) | **Get** /nodes/{node}/apt/update | 
+*DefaultApi* | [**ListUsbDevices**](docs/DefaultApi.md#listusbdevices) | **Get** /nodes/{node}/hardware/usb | 
 *DefaultApi* | [**ListVirtualMachines**](docs/DefaultApi.md#listvirtualmachines) | **Get** /nodes/{node}/qemu | 
 *DefaultApi* | [**ListZFSPools**](docs/DefaultApi.md#listzfspools) | **Get** /nodes/{node}/disks/zfs | 
 *DefaultApi* | [**ModifyPool**](docs/DefaultApi.md#modifypool) | **Put** /pools | 
 *DefaultApi* | [**ModifyStorage**](docs/DefaultApi.md#modifystorage) | **Put** /storage/{storage} | 
+*DefaultApi* | [**OrderNodeCertificate**](docs/DefaultApi.md#ordernodecertificate) | **Post** /nodes/{node}/certificates/acme/certificate | 
 *DefaultApi* | [**RemoveCorosyncNode**](docs/DefaultApi.md#removecorosyncnode) | **Delete** /cluster/config/nodes/{node} | 
+*DefaultApi* | [**RenewNodeCertificate**](docs/DefaultApi.md#renewnodecertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
 *DefaultApi* | [**UpdateAccessControlList**](docs/DefaultApi.md#updateaccesscontrollist) | **Put** /access/acl | 
 *DefaultApi* | [**UpdateNetworkInterface**](docs/DefaultApi.md#updatenetworkinterface) | **Put** /nodes/{node}/network/{interface} | 
@@ -142,6 +150,8 @@ Class | Method | HTTP request | Description
  - [AccessControlType](docs/AccessControlType.md)
  - [AddCorosyncNodeRequestContent](docs/AddCorosyncNodeRequestContent.md)
  - [AddCorosyncNodeResponseContent](docs/AddCorosyncNodeResponseContent.md)
+ - [AddCustomNodeCertificateRequestContent](docs/AddCustomNodeCertificateRequestContent.md)
+ - [AddCustomNodeCertificateResponseContent](docs/AddCustomNodeCertificateResponseContent.md)
  - [ApplyNetworkInterfaceConfigurationResponseContent](docs/ApplyNetworkInterfaceConfigurationResponseContent.md)
  - [CorosyncNodeSummary](docs/CorosyncNodeSummary.md)
  - [CorosyncSettings](docs/CorosyncSettings.md)
@@ -165,6 +175,7 @@ Class | Method | HTTP request | Description
  - [DeleteDirectoryResponseContent](docs/DeleteDirectoryResponseContent.md)
  - [DeleteLVMResponseContent](docs/DeleteLVMResponseContent.md)
  - [DeleteLVMThinResponseContent](docs/DeleteLVMThinResponseContent.md)
+ - [DeleteNodeCertificateResponseContent](docs/DeleteNodeCertificateResponseContent.md)
  - [DeleteZFSPoolResponseContent](docs/DeleteZFSPoolResponseContent.md)
  - [DirectoryFileSystem](docs/DirectoryFileSystem.md)
  - [DirectorySummary](docs/DirectorySummary.md)
@@ -203,12 +214,16 @@ Class | Method | HTTP request | Description
  - [ListLVMsResponseContent](docs/ListLVMsResponseContent.md)
  - [ListMachineCapabilitiesResponseContent](docs/ListMachineCapabilitiesResponseContent.md)
  - [ListNetworkInterfacesResponseContent](docs/ListNetworkInterfacesResponseContent.md)
+ - [ListNodeCertificatesResponseContent](docs/ListNodeCertificatesResponseContent.md)
  - [ListNodesResponseContent](docs/ListNodesResponseContent.md)
  - [ListPackagesResponseContent](docs/ListPackagesResponseContent.md)
+ - [ListPciDeviceMediatedDevicesResponseContent](docs/ListPciDeviceMediatedDevicesResponseContent.md)
+ - [ListPciDevicesResponseContent](docs/ListPciDevicesResponseContent.md)
  - [ListPoolsResponseContent](docs/ListPoolsResponseContent.md)
  - [ListRepositoriesInformationResponseContent](docs/ListRepositoriesInformationResponseContent.md)
  - [ListStorageResponseContent](docs/ListStorageResponseContent.md)
  - [ListUpdatesResponseContent](docs/ListUpdatesResponseContent.md)
+ - [ListUsbDevicesResponseContent](docs/ListUsbDevicesResponseContent.md)
  - [ListVirtualMachinesResponseContent](docs/ListVirtualMachinesResponseContent.md)
  - [ListZFSPoolsResponseContent](docs/ListZFSPoolsResponseContent.md)
  - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
@@ -221,11 +236,17 @@ Class | Method | HTTP request | Description
  - [NetworkInterfaceMethod](docs/NetworkInterfaceMethod.md)
  - [NetworkInterfaceSummary](docs/NetworkInterfaceSummary.md)
  - [NetworkInterfaceType](docs/NetworkInterfaceType.md)
+ - [NodeCertificate](docs/NodeCertificate.md)
  - [NodeStatus](docs/NodeStatus.md)
  - [NodeSummary](docs/NodeSummary.md)
+ - [OrderNodeCertificateRequestContent](docs/OrderNodeCertificateRequestContent.md)
+ - [OrderNodeCertificateResponseContent](docs/OrderNodeCertificateResponseContent.md)
  - [PackageSummary](docs/PackageSummary.md)
+ - [PciMediatedDeviceSummary](docs/PciMediatedDeviceSummary.md)
  - [PoolInfo](docs/PoolInfo.md)
  - [PoolMemberType](docs/PoolMemberType.md)
+ - [RenewNodeCertificateRequestContent](docs/RenewNodeCertificateRequestContent.md)
+ - [RenewNodeCertificateResponseContent](docs/RenewNodeCertificateResponseContent.md)
  - [RepositoriesReport](docs/RepositoriesReport.md)
  - [RepositorySummary](docs/RepositorySummary.md)
  - [StorageConfiguration](docs/StorageConfiguration.md)
@@ -239,6 +260,7 @@ Class | Method | HTTP request | Description
  - [UpdateAccessControlListRequestContent](docs/UpdateAccessControlListRequestContent.md)
  - [UpdateNetworkInterfaceRequestContent](docs/UpdateNetworkInterfaceRequestContent.md)
  - [UpdateSummary](docs/UpdateSummary.md)
+ - [UsbDeviceSummary](docs/UsbDeviceSummary.md)
  - [VersionSummary](docs/VersionSummary.md)
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)

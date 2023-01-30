@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddCorosyncNode**](DefaultApi.md#AddCorosyncNode) | **Post** /cluster/config/nodes/{node} | 
+[**AddCustomNodeCertificate**](DefaultApi.md#AddCustomNodeCertificate) | **Post** /nodes/{node}/certificates/custom | 
 [**AddRepository**](DefaultApi.md#AddRepository) | **Put** /nodes/{node}/apt/repositories | 
 [**ApplyNetworkInterfaceConfiguration**](DefaultApi.md#ApplyNetworkInterfaceConfiguration) | **Put** /nodes/{node}/network | 
 [**ChangeRepositoryProperties**](DefaultApi.md#ChangeRepositoryProperties) | **Post** /nodes/{node}/apt/repositories | 
@@ -21,6 +22,7 @@ Method | HTTP request | Description
 [**DeleteLVM**](DefaultApi.md#DeleteLVM) | **Delete** /nodes/{node}/disks/lvm/{name} | 
 [**DeleteLVMThin**](DefaultApi.md#DeleteLVMThin) | **Delete** /nodes/{node}/disks/lvmthin/{name} | 
 [**DeleteNetworkInterface**](DefaultApi.md#DeleteNetworkInterface) | **Delete** /nodes/{node}/network/{interface} | 
+[**DeleteNodeCertificate**](DefaultApi.md#DeleteNodeCertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 [**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
 [**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
@@ -45,17 +47,23 @@ Method | HTTP request | Description
 [**ListLVMs**](DefaultApi.md#ListLVMs) | **Get** /nodes/{node}/disks/lvm | 
 [**ListMachineCapabilities**](DefaultApi.md#ListMachineCapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 [**ListNetworkInterfaces**](DefaultApi.md#ListNetworkInterfaces) | **Get** /nodes/{node}/network | 
+[**ListNodeCertificates**](DefaultApi.md#ListNodeCertificates) | **Get** /nodes/{node}/certificates/info | 
 [**ListNodes**](DefaultApi.md#ListNodes) | **Get** /nodes | 
 [**ListPackages**](DefaultApi.md#ListPackages) | **Get** /nodes/{node}/apt/versions | 
+[**ListPciDeviceMediatedDevices**](DefaultApi.md#ListPciDeviceMediatedDevices) | **Get** /nodes/{node}/hardware/pci/{deviceId} | 
+[**ListPciDevices**](DefaultApi.md#ListPciDevices) | **Get** /nodes/{node}/hardware/pci | 
 [**ListPools**](DefaultApi.md#ListPools) | **Get** /pools | 
 [**ListRepositoriesInformation**](DefaultApi.md#ListRepositoriesInformation) | **Get** /nodes/{node}/apt/repository | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
 [**ListUpdates**](DefaultApi.md#ListUpdates) | **Get** /nodes/{node}/apt/update | 
+[**ListUsbDevices**](DefaultApi.md#ListUsbDevices) | **Get** /nodes/{node}/hardware/usb | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
 [**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
 [**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools | 
 [**ModifyStorage**](DefaultApi.md#ModifyStorage) | **Put** /storage/{storage} | 
+[**OrderNodeCertificate**](DefaultApi.md#OrderNodeCertificate) | **Post** /nodes/{node}/certificates/acme/certificate | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
+[**RenewNodeCertificate**](DefaultApi.md#RenewNodeCertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
 [**UpdateNetworkInterface**](DefaultApi.md#UpdateNetworkInterface) | **Put** /nodes/{node}/network/{interface} | 
@@ -118,6 +126,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AddCorosyncNodeResponseContent**](AddCorosyncNodeResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AddCustomNodeCertificate
+
+> AddCustomNodeCertificateResponseContent AddCustomNodeCertificate(ctx, node).AddCustomNodeCertificateRequestContent(addCustomNodeCertificateRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    addCustomNodeCertificateRequestContent := *openapiclient.NewAddCustomNodeCertificateRequestContent("Certificates_example") // AddCustomNodeCertificateRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.AddCustomNodeCertificate(context.Background(), node).AddCustomNodeCertificateRequestContent(addCustomNodeCertificateRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.AddCustomNodeCertificate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AddCustomNodeCertificate`: AddCustomNodeCertificateResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.AddCustomNodeCertificate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAddCustomNodeCertificateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **addCustomNodeCertificateRequestContent** | [**AddCustomNodeCertificateRequestContent**](AddCustomNodeCertificateRequestContent.md) |  | 
+
+### Return type
+
+[**AddCustomNodeCertificateResponseContent**](AddCustomNodeCertificateResponseContent.md)
 
 ### Authorization
 
@@ -1240,6 +1320,76 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteNodeCertificate
+
+> DeleteNodeCertificateResponseContent DeleteNodeCertificate(ctx, node).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteNodeCertificate(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteNodeCertificate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteNodeCertificate`: DeleteNodeCertificateResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteNodeCertificate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteNodeCertificateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DeleteNodeCertificateResponseContent**](DeleteNodeCertificateResponseContent.md)
 
 ### Authorization
 
@@ -2881,6 +3031,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListNodeCertificates
+
+> ListNodeCertificatesResponseContent ListNodeCertificates(ctx, node).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListNodeCertificates(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListNodeCertificates``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListNodeCertificates`: ListNodeCertificatesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListNodeCertificates`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListNodeCertificatesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListNodeCertificatesResponseContent**](ListNodeCertificatesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListNodes
 
 > ListNodesResponseContent ListNodes(ctx).Execute()
@@ -2993,6 +3213,149 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListPackagesResponseContent**](ListPackagesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListPciDeviceMediatedDevices
+
+> ListPciDeviceMediatedDevicesResponseContent ListPciDeviceMediatedDevices(ctx, node, deviceId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    deviceId := "deviceId_example" // string | The PCI device to get mediated devices for.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListPciDeviceMediatedDevices(context.Background(), node, deviceId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListPciDeviceMediatedDevices``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListPciDeviceMediatedDevices`: ListPciDeviceMediatedDevicesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListPciDeviceMediatedDevices`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**deviceId** | **string** | The PCI device to get mediated devices for. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPciDeviceMediatedDevicesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ListPciDeviceMediatedDevicesResponseContent**](ListPciDeviceMediatedDevicesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListPciDevices
+
+> ListPciDevicesResponseContent ListPciDevices(ctx, node).PciClassBlacklist(pciClassBlacklist).Verbose(verbose).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    pciClassBlacklist := "pciClassBlacklist_example" // string | Comma seperated list of PCI class IDs to exclude from the list (optional)
+    verbose := float32(8.14) // float32 | An integer used to represent a boolean. 0 is false, 1 is true. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListPciDevices(context.Background(), node).PciClassBlacklist(pciClassBlacklist).Verbose(verbose).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListPciDevices``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListPciDevices`: ListPciDevicesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListPciDevices`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPciDevicesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **pciClassBlacklist** | **string** | Comma seperated list of PCI class IDs to exclude from the list | 
+ **verbose** | **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | 
+
+### Return type
+
+[**ListPciDevicesResponseContent**](ListPciDevicesResponseContent.md)
 
 ### Authorization
 
@@ -3247,6 +3610,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListUpdatesResponseContent**](ListUpdatesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListUsbDevices
+
+> ListUsbDevicesResponseContent ListUsbDevices(ctx, node).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListUsbDevices(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListUsbDevices``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListUsbDevices`: ListUsbDevicesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListUsbDevices`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListUsbDevicesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListUsbDevicesResponseContent**](ListUsbDevicesResponseContent.md)
 
 ### Authorization
 
@@ -3532,6 +3963,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## OrderNodeCertificate
+
+> OrderNodeCertificateResponseContent OrderNodeCertificate(ctx, node).OrderNodeCertificateRequestContent(orderNodeCertificateRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    orderNodeCertificateRequestContent := *openapiclient.NewOrderNodeCertificateRequestContent() // OrderNodeCertificateRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.OrderNodeCertificate(context.Background(), node).OrderNodeCertificateRequestContent(orderNodeCertificateRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.OrderNodeCertificate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `OrderNodeCertificate`: OrderNodeCertificateResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.OrderNodeCertificate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOrderNodeCertificateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **orderNodeCertificateRequestContent** | [**OrderNodeCertificateRequestContent**](OrderNodeCertificateRequestContent.md) |  | 
+
+### Return type
+
+[**OrderNodeCertificateResponseContent**](OrderNodeCertificateResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RemoveCorosyncNode
 
 > RemoveCorosyncNode(ctx, node).Execute()
@@ -3591,6 +4094,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RenewNodeCertificate
+
+> RenewNodeCertificateResponseContent RenewNodeCertificate(ctx, node).RenewNodeCertificateRequestContent(renewNodeCertificateRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    renewNodeCertificateRequestContent := *openapiclient.NewRenewNodeCertificateRequestContent() // RenewNodeCertificateRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.RenewNodeCertificate(context.Background(), node).RenewNodeCertificateRequestContent(renewNodeCertificateRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RenewNodeCertificate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RenewNodeCertificate`: RenewNodeCertificateResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.RenewNodeCertificate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRenewNodeCertificateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **renewNodeCertificateRequestContent** | [**RenewNodeCertificateRequestContent**](RenewNodeCertificateRequestContent.md) |  | 
+
+### Return type
+
+[**RenewNodeCertificateResponseContent**](RenewNodeCertificateResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -36,6 +36,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService AddCustomNodeCertificate", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.AddCustomNodeCertificate(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService AddRepository", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -249,6 +263,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var interface_ string
 
         resp, httpRes, err := apiClient.DefaultApi.DeleteNetworkInterface(context.Background(), node, interface_).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService DeleteNodeCertificate", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteNodeCertificate(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -581,6 +609,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ListNodeCertificates", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListNodeCertificates(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ListNodes", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -600,6 +642,35 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ListPackages(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListPciDeviceMediatedDevices", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var deviceId string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListPciDeviceMediatedDevices(context.Background(), node, deviceId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListPciDevices", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListPciDevices(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -652,6 +723,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ListUpdates(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListUsbDevices", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListUsbDevices(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -713,6 +798,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService OrderNodeCertificate", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.OrderNodeCertificate(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService RemoveCorosyncNode", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -720,6 +819,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.RemoveCorosyncNode(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService RenewNodeCertificate", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.RenewNodeCertificate(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

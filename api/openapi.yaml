@@ -622,6 +622,180 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/certificates/acme/certificate:
+    delete:
+      description: Renew existing certificate from CA.
+      operationId: DeleteNodeCertificate
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteNodeCertificateResponseContent'
+          description: DeleteNodeCertificate 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Order a new certificate from ACME-compatible CA.
+      operationId: OrderNodeCertificate
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderNodeCertificateRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderNodeCertificateResponseContent'
+          description: OrderNodeCertificate 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      description: Renew existing certificate from CA.
+      operationId: RenewNodeCertificate
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RenewNodeCertificateRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenewNodeCertificateResponseContent'
+          description: RenewNodeCertificate 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/certificates/custom:
+    post:
+      description: Add or update a custom certificate.
+      operationId: AddCustomNodeCertificate
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddCustomNodeCertificateRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddCustomNodeCertificateResponseContent'
+          description: AddCustomNodeCertificate 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/certificates/info:
+    get:
+      description: Get information about the node's certificates.
+      operationId: ListNodeCertificates
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNodeCertificatesResponseContent'
+          description: ListNodeCertificates 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/disks/directory:
     get:
       description: List PVE managed directory storages.
@@ -1380,6 +1554,128 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/hardware/pci:
+    get:
+      operationId: ListPciDevices
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: Comma seperated list of PCI class IDs to exclude from the list
+        explode: true
+        in: query
+        name: pci-class-blacklist
+        required: false
+        schema:
+          description: Comma seperated list of PCI class IDs to exclude from the list
+          type: string
+        style: form
+      - description: "An integer used to represent a boolean. 0 is false, 1 is true."
+        explode: true
+        in: query
+        name: verbose
+        required: false
+        schema:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPciDevicesResponseContent'
+          description: ListPciDevices 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/hardware/pci/{deviceId}:
+    get:
+      operationId: ListPciDeviceMediatedDevices
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The PCI device to get mediated devices for.
+        explode: false
+        in: path
+        name: deviceId
+        required: true
+        schema:
+          description: The PCI device to get mediated devices for.
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPciDeviceMediatedDevicesResponseContent'
+          description: ListPciDeviceMediatedDevices 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/hardware/usb:
+    get:
+      operationId: ListUsbDevices
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsbDevicesResponseContent'
+          description: ListUsbDevices 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/network:
     delete:
       operationId: RevertNetworkInterfaceConfiguration
@@ -2049,6 +2345,53 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CorosyncSettings'
+      required:
+      - data
+      type: object
+    AddCustomNodeCertificateRequestContent:
+      example:
+        certificates: certificates
+        restart: 0.6027456183070403
+        force: 0.08008281904610115
+        key: key
+      properties:
+        certificates:
+          description: PEM encoded certificate.
+          type: string
+        force:
+          description: Overwrite existing custom or ACME certificate.
+          maximum: 1
+          minimum: 0
+          type: number
+        key:
+          description: PEM encoded private key.
+          type: string
+        restart:
+          description: Restart the PVE proxy.
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - certificates
+      type: object
+    AddCustomNodeCertificateResponseContent:
+      example:
+        data:
+          notAfter: 0.8008281904610115
+          filename: filename
+          public-key-type: public-key-type
+          sans:
+          - sans
+          - sans
+          subject: subject
+          fingerprint: fingerprint
+          pem: pem
+          issuer: issuer
+          notBefore: 6.027456183070403
+          public-key-bits: public-key-bits
+      properties:
+        data:
+          $ref: '#/components/schemas/NodeCertificate'
       required:
       - data
       type: object
@@ -2730,6 +3073,15 @@ components:
       - data
       type: object
     DeleteLVMThinResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DeleteNodeCertificateResponseContent:
       example:
         data: data
       properties:
@@ -3700,6 +4052,41 @@ components:
       required:
       - data
       type: object
+    ListNodeCertificatesResponseContent:
+      example:
+        data:
+        - notAfter: 0.8008281904610115
+          filename: filename
+          public-key-type: public-key-type
+          sans:
+          - sans
+          - sans
+          subject: subject
+          fingerprint: fingerprint
+          pem: pem
+          issuer: issuer
+          notBefore: 6.027456183070403
+          public-key-bits: public-key-bits
+        - notAfter: 0.8008281904610115
+          filename: filename
+          public-key-type: public-key-type
+          sans:
+          - sans
+          - sans
+          subject: subject
+          fingerprint: fingerprint
+          pem: pem
+          issuer: issuer
+          notBefore: 6.027456183070403
+          public-key-bits: public-key-bits
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NodeCertificate'
+          type: array
+      required:
+      - data
+      type: object
     ListNodesResponseContent:
       example:
         data:
@@ -3766,6 +4153,56 @@ components:
         data:
           items:
             $ref: '#/components/schemas/PackageSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListPciDeviceMediatedDevicesResponseContent:
+      example:
+        data:
+        - available: 0.8008281904610115
+          description: description
+          type: type
+        - available: 0.8008281904610115
+          description: description
+          type: type
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PciMediatedDeviceSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListPciDevicesResponseContent:
+      example:
+        data:
+        - product: product
+          level: 1.4658129805029452
+          port: 5.962133916683182
+          serial: serial
+          usbpath: usbpath
+          busnum: 0.8008281904610115
+          devnum: 6.027456183070403
+          prodid: prodid
+          vendid: vendid
+          speed: speed
+          manufacturer: manufacturer
+        - product: product
+          level: 1.4658129805029452
+          port: 5.962133916683182
+          serial: serial
+          usbpath: usbpath
+          busnum: 0.8008281904610115
+          devnum: 6.027456183070403
+          prodid: prodid
+          vendid: vendid
+          speed: speed
+          manufacturer: manufacturer
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UsbDeviceSummary'
           type: array
       required:
       - data
@@ -3947,6 +4384,39 @@ components:
         data:
           items:
             $ref: '#/components/schemas/UpdateSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListUsbDevicesResponseContent:
+      example:
+        data:
+        - product: product
+          level: 1.4658129805029452
+          port: 5.962133916683182
+          serial: serial
+          usbpath: usbpath
+          busnum: 0.8008281904610115
+          devnum: 6.027456183070403
+          prodid: prodid
+          vendid: vendid
+          speed: speed
+          manufacturer: manufacturer
+        - product: product
+          level: 1.4658129805029452
+          port: 5.962133916683182
+          serial: serial
+          usbpath: usbpath
+          busnum: 0.8008281904610115
+          devnum: 6.027456183070403
+          prodid: prodid
+          vendid: vendid
+          speed: speed
+          manufacturer: manufacturer
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UsbDeviceSummary'
           type: array
       required:
       - data
@@ -4379,6 +4849,53 @@ components:
       - OVSIntPort
       - unknown
       type: string
+    NodeCertificate:
+      example:
+        notAfter: 0.8008281904610115
+        filename: filename
+        public-key-type: public-key-type
+        sans:
+        - sans
+        - sans
+        subject: subject
+        fingerprint: fingerprint
+        pem: pem
+        issuer: issuer
+        notBefore: 6.027456183070403
+        public-key-bits: public-key-bits
+      properties:
+        filename:
+          description: The certificate's filename.
+          type: string
+        fingerprint:
+          description: The certificate's fingerprint.
+          type: string
+        issuer:
+          description: The certificate's issuer.
+          type: string
+        notAfter:
+          description: The certificate's notAfter timestamp.
+          type: number
+        notBefore:
+          description: The certificate's notAfter timestamp.
+          type: number
+        pem:
+          type: string
+        public-key-bits:
+          description: The certificate's key size.
+          type: string
+        public-key-type:
+          description: The certificate's key algorithm.
+          type: string
+        sans:
+          description: The certificate's sans
+          items:
+            type: string
+          type: array
+        subject:
+          description: The certificate's subject.
+          type: string
+      type: object
     NodeStatus:
       enum:
       - online
@@ -4442,6 +4959,25 @@ components:
       required:
       - node
       type: object
+    OrderNodeCertificateRequestContent:
+      example:
+        force: 0.08008281904610115
+      properties:
+        force:
+          description: Overwrite existing custom certificate.
+          maximum: 1
+          minimum: 0
+          type: number
+      type: object
+    OrderNodeCertificateResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     PackageSummary:
       example:
         Origin: Origin
@@ -4490,6 +5026,23 @@ components:
       - Title
       - Version
       type: object
+    PciMediatedDeviceSummary:
+      example:
+        available: 0.8008281904610115
+        description: description
+        type: type
+      properties:
+        available:
+          type: number
+        description:
+          type: string
+        type:
+          type: string
+      required:
+      - available
+      - description
+      - type
+      type: object
     PoolInfo:
       example:
         poolid: poolid
@@ -4508,6 +5061,25 @@ components:
       - lxc
       - storage
       type: string
+    RenewNodeCertificateRequestContent:
+      example:
+        force: 0.08008281904610115
+      properties:
+        force:
+          description: Force renewal even if expirary is more than 30 days away.
+          maximum: 1
+          minimum: 0
+          type: number
+      type: object
+    RenewNodeCertificateResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     RepositoriesReport:
       example:
         digest: digest
@@ -4971,6 +5543,51 @@ components:
       - Section
       - Title
       - Version
+      type: object
+    UsbDeviceSummary:
+      example:
+        product: product
+        level: 1.4658129805029452
+        port: 5.962133916683182
+        serial: serial
+        usbpath: usbpath
+        busnum: 0.8008281904610115
+        devnum: 6.027456183070403
+        prodid: prodid
+        vendid: vendid
+        speed: speed
+        manufacturer: manufacturer
+      properties:
+        busnum:
+          type: number
+        devnum:
+          type: number
+        level:
+          type: number
+        port:
+          type: number
+        prodid:
+          type: string
+        vendid:
+          type: string
+        speed:
+          type: string
+        manufacturer:
+          type: string
+        product:
+          type: string
+        serial:
+          type: string
+        usbpath:
+          type: string
+      required:
+      - busnum
+      - devnum
+      - level
+      - port
+      - prodid
+      - speed
+      - vendid
       type: object
     VersionSummary:
       example:
