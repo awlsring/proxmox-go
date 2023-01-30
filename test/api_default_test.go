@@ -36,6 +36,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService AddRepository", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.AddRepository(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ApplyNetworkInterfaceConfiguration", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -43,6 +57,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.ApplyNetworkInterfaceConfiguration(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ChangeRepositoryProperties", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ChangeRepositoryProperties(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -334,6 +362,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetPackageChangelog", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetPackageChangelog(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService GetPool", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -551,6 +593,20 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ListPackages", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListPackages(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ListPools", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -563,11 +619,39 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ListRepositoriesInformation", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListRepositoriesInformation(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ListStorage", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
         resp, httpRes, err := apiClient.DefaultApi.ListStorage(context.Background()).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService ListUpdates", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListUpdates(context.Background(), node).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

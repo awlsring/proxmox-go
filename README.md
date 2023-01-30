@@ -79,7 +79,9 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**AddCorosyncNode**](docs/DefaultApi.md#addcorosyncnode) | **Post** /cluster/config/nodes/{node} | 
+*DefaultApi* | [**AddRepository**](docs/DefaultApi.md#addrepository) | **Put** /nodes/{node}/apt/repositories | 
 *DefaultApi* | [**ApplyNetworkInterfaceConfiguration**](docs/DefaultApi.md#applynetworkinterfaceconfiguration) | **Put** /nodes/{node}/network | 
+*DefaultApi* | [**ChangeRepositoryProperties**](docs/DefaultApi.md#changerepositoryproperties) | **Post** /nodes/{node}/apt/repositories | 
 *DefaultApi* | [**CreateClusterConfig**](docs/DefaultApi.md#createclusterconfig) | **Post** /cluster/config | 
 *DefaultApi* | [**CreateDirectory**](docs/DefaultApi.md#createdirectory) | **Post** /nodes/{node}/disks/directory | 
 *DefaultApi* | [**CreateLVM**](docs/DefaultApi.md#createlvm) | **Post** /nodes/{node}/disks/lvm | 
@@ -101,6 +103,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetClusterJoinInformation**](docs/DefaultApi.md#getclusterjoininformation) | **Get** /cluster/config/join | 
 *DefaultApi* | [**GetClusterTotemSettings**](docs/DefaultApi.md#getclustertotemsettings) | **Get** /cluster/config/totem | 
 *DefaultApi* | [**GetNetworkInterface**](docs/DefaultApi.md#getnetworkinterface) | **Get** /nodes/{node}/network/{interface} | 
+*DefaultApi* | [**GetPackageChangelog**](docs/DefaultApi.md#getpackagechangelog) | **Get** /nodes/{node}/apt/changelog | 
 *DefaultApi* | [**GetPool**](docs/DefaultApi.md#getpool) | **Get** /pools/{poolId} | 
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetStorage**](docs/DefaultApi.md#getstorage) | **Get** /storage/{storage} | 
@@ -117,8 +120,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListMachineCapabilities**](docs/DefaultApi.md#listmachinecapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 *DefaultApi* | [**ListNetworkInterfaces**](docs/DefaultApi.md#listnetworkinterfaces) | **Get** /nodes/{node}/network | 
 *DefaultApi* | [**ListNodes**](docs/DefaultApi.md#listnodes) | **Get** /nodes | 
+*DefaultApi* | [**ListPackages**](docs/DefaultApi.md#listpackages) | **Get** /nodes/{node}/apt/versions | 
 *DefaultApi* | [**ListPools**](docs/DefaultApi.md#listpools) | **Get** /pools | 
+*DefaultApi* | [**ListRepositoriesInformation**](docs/DefaultApi.md#listrepositoriesinformation) | **Get** /nodes/{node}/apt/repository | 
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
+*DefaultApi* | [**ListUpdates**](docs/DefaultApi.md#listupdates) | **Get** /nodes/{node}/apt/update | 
 *DefaultApi* | [**ListVirtualMachines**](docs/DefaultApi.md#listvirtualmachines) | **Get** /nodes/{node}/qemu | 
 *DefaultApi* | [**ListZFSPools**](docs/DefaultApi.md#listzfspools) | **Get** /nodes/{node}/disks/zfs | 
 *DefaultApi* | [**ModifyPool**](docs/DefaultApi.md#modifypool) | **Put** /pools | 
@@ -165,11 +171,15 @@ Class | Method | HTTP request | Description
  - [DiskSummary](docs/DiskSummary.md)
  - [DiskType](docs/DiskType.md)
  - [DiskTypeFilter](docs/DiskTypeFilter.md)
+ - [FileInfoSummary](docs/FileInfoSummary.md)
+ - [FileRepositorySummary](docs/FileRepositorySummary.md)
+ - [FileSummary](docs/FileSummary.md)
  - [GetAccessControlListResponseContent](docs/GetAccessControlListResponseContent.md)
  - [GetClusterApiVersionResponseContent](docs/GetClusterApiVersionResponseContent.md)
  - [GetClusterJoinInformationResponseContent](docs/GetClusterJoinInformationResponseContent.md)
  - [GetClusterTotemSettingsResponseContent](docs/GetClusterTotemSettingsResponseContent.md)
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
+ - [GetPackageChangelogResponseContent](docs/GetPackageChangelogResponseContent.md)
  - [GetPoolResponseContent](docs/GetPoolResponseContent.md)
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetStorageResponseContent](docs/GetStorageResponseContent.md)
@@ -194,8 +204,11 @@ Class | Method | HTTP request | Description
  - [ListMachineCapabilitiesResponseContent](docs/ListMachineCapabilitiesResponseContent.md)
  - [ListNetworkInterfacesResponseContent](docs/ListNetworkInterfacesResponseContent.md)
  - [ListNodesResponseContent](docs/ListNodesResponseContent.md)
+ - [ListPackagesResponseContent](docs/ListPackagesResponseContent.md)
  - [ListPoolsResponseContent](docs/ListPoolsResponseContent.md)
+ - [ListRepositoriesInformationResponseContent](docs/ListRepositoriesInformationResponseContent.md)
  - [ListStorageResponseContent](docs/ListStorageResponseContent.md)
+ - [ListUpdatesResponseContent](docs/ListUpdatesResponseContent.md)
  - [ListVirtualMachinesResponseContent](docs/ListVirtualMachinesResponseContent.md)
  - [ListZFSPoolsResponseContent](docs/ListZFSPoolsResponseContent.md)
  - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
@@ -210,8 +223,11 @@ Class | Method | HTTP request | Description
  - [NetworkInterfaceType](docs/NetworkInterfaceType.md)
  - [NodeStatus](docs/NodeStatus.md)
  - [NodeSummary](docs/NodeSummary.md)
+ - [PackageSummary](docs/PackageSummary.md)
  - [PoolInfo](docs/PoolInfo.md)
  - [PoolMemberType](docs/PoolMemberType.md)
+ - [RepositoriesReport](docs/RepositoriesReport.md)
+ - [RepositorySummary](docs/RepositorySummary.md)
  - [StorageConfiguration](docs/StorageConfiguration.md)
  - [StoragePreallocation](docs/StoragePreallocation.md)
  - [StorageSMBVersion](docs/StorageSMBVersion.md)
@@ -222,6 +238,7 @@ Class | Method | HTTP request | Description
  - [TotemSummary](docs/TotemSummary.md)
  - [UpdateAccessControlListRequestContent](docs/UpdateAccessControlListRequestContent.md)
  - [UpdateNetworkInterfaceRequestContent](docs/UpdateNetworkInterfaceRequestContent.md)
+ - [UpdateSummary](docs/UpdateSummary.md)
  - [VersionSummary](docs/VersionSummary.md)
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)

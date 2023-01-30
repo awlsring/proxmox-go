@@ -318,6 +318,246 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/apt/changelog:
+    get:
+      operationId: GetPackageChangelog
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The name of the package to get the changelog for.
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          description: The name of the package to get the changelog for.
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPackageChangelogResponseContent'
+          description: GetPackageChangelog 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/apt/repositories:
+    post:
+      operationId: ChangeRepositoryProperties
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: Path to the containing file
+        explode: true
+        in: query
+        name: path
+        required: true
+        schema:
+          description: Path to the containing file
+          type: string
+        style: form
+      - description: Index within the file
+        explode: true
+        in: query
+        name: index
+        required: true
+        schema:
+          description: Index within the file
+          type: number
+        style: form
+      - description: Digest to detect modifications
+        explode: true
+        in: query
+        name: digest
+        required: false
+        schema:
+          description: Digest to detect modifications
+          type: string
+        style: form
+      - description: Wether the repository is enabled
+        explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          description: Wether the repository is enabled
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: ChangeRepositoryProperties 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: AddRepository
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: Handle that identifies the repository
+        explode: true
+        in: query
+        name: handle
+        required: true
+        schema:
+          description: Handle that identifies the repository
+          type: string
+        style: form
+      - description: Digest to detect modifications
+        explode: true
+        in: query
+        name: digest
+        required: false
+        schema:
+          description: Digest to detect modifications
+          type: string
+        style: form
+      responses:
+        "200":
+          description: AddRepository 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/apt/repository:
+    get:
+      operationId: ListRepositoriesInformation
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRepositoriesInformationResponseContent'
+          description: ListRepositoriesInformation 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/apt/update:
+    get:
+      operationId: ListUpdates
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUpdatesResponseContent'
+          description: ListUpdates 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/apt/versions:
+    get:
+      operationId: ListPackages
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPackagesResponseContent'
+          description: ListPackages 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/capabilities/qemu/cpu:
     get:
       description: List all custom and default CPU models.
@@ -2610,6 +2850,123 @@ components:
       - unused
       - journal_disks
       type: string
+    FileInfoSummary:
+      example:
+        path: path
+        kind: kind
+        index: 5.962133916683182
+        message: message
+      properties:
+        path:
+          type: string
+        index:
+          type: number
+        message:
+          type: string
+        kind:
+          type: string
+      required:
+      - index
+      - kind
+      - message
+      - path
+      type: object
+    FileRepositorySummary:
+      example:
+        Components:
+        - Components
+        - Components
+        URIs:
+        - URIs
+        - URIs
+        Types:
+        - Types
+        - Types
+        Comment: Comment
+        FileType: FileType
+        Enabled: 6.027456183070403
+        Suites:
+        - Suites
+        - Suites
+      properties:
+        Enabled:
+          type: number
+        Components:
+          items:
+            type: string
+          type: array
+        FileType:
+          type: string
+        URIs:
+          items:
+            type: string
+          type: array
+        Types:
+          items:
+            type: string
+          type: array
+        Suites:
+          items:
+            type: string
+          type: array
+        Comment:
+          type: string
+      type: object
+    FileSummary:
+      example:
+        path: path
+        file-type: file-type
+        repositories:
+        - Components:
+          - Components
+          - Components
+          URIs:
+          - URIs
+          - URIs
+          Types:
+          - Types
+          - Types
+          Comment: Comment
+          FileType: FileType
+          Enabled: 6.027456183070403
+          Suites:
+          - Suites
+          - Suites
+        - Components:
+          - Components
+          - Components
+          URIs:
+          - URIs
+          - URIs
+          Types:
+          - Types
+          - Types
+          Comment: Comment
+          FileType: FileType
+          Enabled: 6.027456183070403
+          Suites:
+          - Suites
+          - Suites
+        digest:
+        - 1.4658129805029452
+        - 1.4658129805029452
+        content: content
+      properties:
+        path:
+          type: string
+        content:
+          type: string
+        repositories:
+          items:
+            $ref: '#/components/schemas/FileRepositorySummary'
+          type: array
+        digest:
+          items:
+            type: number
+          type: array
+        file-type:
+          type: string
+      type: object
     GetAccessControlListResponseContent:
       example:
         data:
@@ -2730,6 +3087,15 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/NetworkInterfaceSummary'
+      required:
+      - data
+      type: object
+    GetPackageChangelogResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
       required:
       - data
       type: object
@@ -3371,6 +3737,39 @@ components:
       required:
       - data
       type: object
+    ListPackagesResponseContent:
+      example:
+        data:
+        - Origin: Origin
+          Description: Description
+          Version: Version
+          Priority: Priority
+          CurrentState: CurrentState
+          Title: Title
+          Arch: Arch
+          OldVersion: OldVersion
+          Package: Package
+          RunningKernel: RunningKernel
+          Section: Section
+        - Origin: Origin
+          Description: Description
+          Version: Version
+          Priority: Priority
+          CurrentState: CurrentState
+          Title: Title
+          Arch: Arch
+          OldVersion: OldVersion
+          Package: Package
+          RunningKernel: RunningKernel
+          Section: Section
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PackageSummary'
+          type: array
+      required:
+      - data
+      type: object
     ListPoolsResponseContent:
       example:
         data:
@@ -3383,6 +3782,112 @@ components:
           items:
             $ref: '#/components/schemas/PoolInfo'
           type: array
+      required:
+      - data
+      type: object
+    ListRepositoriesInformationResponseContent:
+      example:
+        data:
+          digest: digest
+          standard-repos:
+          - name: name
+            description: description
+            handle: handle
+            status: 0.8008281904610115
+          - name: name
+            description: description
+            handle: handle
+            status: 0.8008281904610115
+          files:
+          - path: path
+            file-type: file-type
+            repositories:
+            - Components:
+              - Components
+              - Components
+              URIs:
+              - URIs
+              - URIs
+              Types:
+              - Types
+              - Types
+              Comment: Comment
+              FileType: FileType
+              Enabled: 6.027456183070403
+              Suites:
+              - Suites
+              - Suites
+            - Components:
+              - Components
+              - Components
+              URIs:
+              - URIs
+              - URIs
+              Types:
+              - Types
+              - Types
+              Comment: Comment
+              FileType: FileType
+              Enabled: 6.027456183070403
+              Suites:
+              - Suites
+              - Suites
+            digest:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            content: content
+          - path: path
+            file-type: file-type
+            repositories:
+            - Components:
+              - Components
+              - Components
+              URIs:
+              - URIs
+              - URIs
+              Types:
+              - Types
+              - Types
+              Comment: Comment
+              FileType: FileType
+              Enabled: 6.027456183070403
+              Suites:
+              - Suites
+              - Suites
+            - Components:
+              - Components
+              - Components
+              URIs:
+              - URIs
+              - URIs
+              Types:
+              - Types
+              - Types
+              Comment: Comment
+              FileType: FileType
+              Enabled: 6.027456183070403
+              Suites:
+              - Suites
+              - Suites
+            digest:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            content: content
+          errors:
+          - errors
+          - errors
+          infos:
+          - path: path
+            kind: kind
+            index: 5.962133916683182
+            message: message
+          - path: path
+            kind: kind
+            index: 5.962133916683182
+            message: message
+      properties:
+        data:
+          $ref: '#/components/schemas/RepositoriesReport'
       required:
       - data
       type: object
@@ -3411,6 +3916,37 @@ components:
         data:
           items:
             $ref: '#/components/schemas/StorageSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListUpdatesResponseContent:
+      example:
+        data:
+        - Origin: Origin
+          Description: Description
+          Version: Version
+          ChangeLogUrl: ChangeLogUrl
+          Priority: Priority
+          Title: Title
+          Arch: Arch
+          OldVersion: OldVersion
+          Package: Package
+          Section: Section
+        - Origin: Origin
+          Description: Description
+          Version: Version
+          ChangeLogUrl: ChangeLogUrl
+          Priority: Priority
+          Title: Title
+          Arch: Arch
+          OldVersion: OldVersion
+          Package: Package
+          Section: Section
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UpdateSummary'
           type: array
       required:
       - data
@@ -3906,6 +4442,54 @@ components:
       required:
       - node
       type: object
+    PackageSummary:
+      example:
+        Origin: Origin
+        Description: Description
+        Version: Version
+        Priority: Priority
+        CurrentState: CurrentState
+        Title: Title
+        Arch: Arch
+        OldVersion: OldVersion
+        Package: Package
+        RunningKernel: RunningKernel
+        Section: Section
+      properties:
+        Title:
+          type: string
+        Priority:
+          type: string
+        OldVersion:
+          type: string
+        Description:
+          type: string
+        Arch:
+          type: string
+        Package:
+          type: string
+        Section:
+          type: string
+        Version:
+          type: string
+        Origin:
+          type: string
+        CurrentState:
+          type: string
+        RunningKernel:
+          type: string
+      required:
+      - Arch
+      - CurrentState
+      - Description
+      - OldVersion
+      - Origin
+      - Package
+      - Priority
+      - Section
+      - Title
+      - Version
+      type: object
     PoolInfo:
       example:
         poolid: poolid
@@ -3924,6 +4508,152 @@ components:
       - lxc
       - storage
       type: string
+    RepositoriesReport:
+      example:
+        digest: digest
+        standard-repos:
+        - name: name
+          description: description
+          handle: handle
+          status: 0.8008281904610115
+        - name: name
+          description: description
+          handle: handle
+          status: 0.8008281904610115
+        files:
+        - path: path
+          file-type: file-type
+          repositories:
+          - Components:
+            - Components
+            - Components
+            URIs:
+            - URIs
+            - URIs
+            Types:
+            - Types
+            - Types
+            Comment: Comment
+            FileType: FileType
+            Enabled: 6.027456183070403
+            Suites:
+            - Suites
+            - Suites
+          - Components:
+            - Components
+            - Components
+            URIs:
+            - URIs
+            - URIs
+            Types:
+            - Types
+            - Types
+            Comment: Comment
+            FileType: FileType
+            Enabled: 6.027456183070403
+            Suites:
+            - Suites
+            - Suites
+          digest:
+          - 1.4658129805029452
+          - 1.4658129805029452
+          content: content
+        - path: path
+          file-type: file-type
+          repositories:
+          - Components:
+            - Components
+            - Components
+            URIs:
+            - URIs
+            - URIs
+            Types:
+            - Types
+            - Types
+            Comment: Comment
+            FileType: FileType
+            Enabled: 6.027456183070403
+            Suites:
+            - Suites
+            - Suites
+          - Components:
+            - Components
+            - Components
+            URIs:
+            - URIs
+            - URIs
+            Types:
+            - Types
+            - Types
+            Comment: Comment
+            FileType: FileType
+            Enabled: 6.027456183070403
+            Suites:
+            - Suites
+            - Suites
+          digest:
+          - 1.4658129805029452
+          - 1.4658129805029452
+          content: content
+        errors:
+        - errors
+        - errors
+        infos:
+        - path: path
+          kind: kind
+          index: 5.962133916683182
+          message: message
+        - path: path
+          kind: kind
+          index: 5.962133916683182
+          message: message
+      properties:
+        digest:
+          type: string
+        standard-repos:
+          items:
+            $ref: '#/components/schemas/RepositorySummary'
+          type: array
+        errors:
+          items:
+            type: string
+          type: array
+        files:
+          items:
+            $ref: '#/components/schemas/FileSummary'
+          type: array
+        infos:
+          items:
+            $ref: '#/components/schemas/FileInfoSummary'
+          type: array
+      required:
+      - digest
+      - errors
+      - files
+      - infos
+      - standard-repos
+      type: object
+    RepositorySummary:
+      example:
+        name: name
+        description: description
+        handle: handle
+        status: 0.8008281904610115
+      properties:
+        description:
+          type: string
+        status:
+          type: number
+        name:
+          type: string
+        handle:
+          type: string
+      required:
+      - description
+      - handle
+      - name
+      - status
+      type: object
     StorageConfiguration:
       example:
         storage: storage
@@ -4196,6 +4926,51 @@ components:
           type: string
       required:
       - type
+      type: object
+    UpdateSummary:
+      example:
+        Origin: Origin
+        Description: Description
+        Version: Version
+        ChangeLogUrl: ChangeLogUrl
+        Priority: Priority
+        Title: Title
+        Arch: Arch
+        OldVersion: OldVersion
+        Package: Package
+        Section: Section
+      properties:
+        Title:
+          type: string
+        ChangeLogUrl:
+          type: string
+        Priority:
+          type: string
+        OldVersion:
+          type: string
+        Description:
+          type: string
+        Arch:
+          type: string
+        Package:
+          type: string
+        Section:
+          type: string
+        Version:
+          type: string
+        Origin:
+          type: string
+      required:
+      - Arch
+      - ChangeLogUrl
+      - Description
+      - OldVersion
+      - Origin
+      - Package
+      - Priority
+      - Section
+      - Title
+      - Version
       type: object
     VersionSummary:
       example:
