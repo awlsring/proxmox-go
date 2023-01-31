@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApplyVirtualMachineConfigurationAsync**](docs/DefaultApi.md#applyvirtualmachineconfigurationasync) | **Post** /nodes/{node}/qemu/{vmId}/config | 
 *DefaultApi* | [**ApplyVirtualMachineConfigurationSync**](docs/DefaultApi.md#applyvirtualmachineconfigurationsync) | **Put** /nodes/{node}/qemu/{vmId}/config | 
 *DefaultApi* | [**ChangeRepositoryProperties**](docs/DefaultApi.md#changerepositoryproperties) | **Post** /nodes/{node}/apt/repositories | 
+*DefaultApi* | [**CloneVirtualMachine**](docs/DefaultApi.md#clonevirtualmachine) | **Post** /nodes/{node}/qemu/{vmId}/clone | 
 *DefaultApi* | [**CreateClusterConfig**](docs/DefaultApi.md#createclusterconfig) | **Post** /cluster/config | 
 *DefaultApi* | [**CreateDirectory**](docs/DefaultApi.md#createdirectory) | **Post** /nodes/{node}/disks/directory | 
 *DefaultApi* | [**CreateLVM**](docs/DefaultApi.md#createlvm) | **Post** /nodes/{node}/disks/lvm | 
@@ -160,6 +161,9 @@ Class | Method | HTTP request | Description
  - [ApplyVirtualMachineConfigurationAsyncRequestContent](docs/ApplyVirtualMachineConfigurationAsyncRequestContent.md)
  - [ApplyVirtualMachineConfigurationAsyncResponseContent](docs/ApplyVirtualMachineConfigurationAsyncResponseContent.md)
  - [ApplyVirtualMachineConfigurationSyncRequestContent](docs/ApplyVirtualMachineConfigurationSyncRequestContent.md)
+ - [CloneVirtualMachineDiskFormat](docs/CloneVirtualMachineDiskFormat.md)
+ - [CloneVirtualMachineRequestContent](docs/CloneVirtualMachineRequestContent.md)
+ - [CloneVirtualMachineResponseContent](docs/CloneVirtualMachineResponseContent.md)
  - [CorosyncNodeSummary](docs/CorosyncNodeSummary.md)
  - [CorosyncSettings](docs/CorosyncSettings.md)
  - [CpuCapabilitySummary](docs/CpuCapabilitySummary.md)

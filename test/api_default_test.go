@@ -122,6 +122,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService CloneVirtualMachine", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.CloneVirtualMachine(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService CreateClusterConfig", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

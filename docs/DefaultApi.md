@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**ApplyVirtualMachineConfigurationAsync**](DefaultApi.md#ApplyVirtualMachineConfigurationAsync) | **Post** /nodes/{node}/qemu/{vmId}/config | 
 [**ApplyVirtualMachineConfigurationSync**](DefaultApi.md#ApplyVirtualMachineConfigurationSync) | **Put** /nodes/{node}/qemu/{vmId}/config | 
 [**ChangeRepositoryProperties**](DefaultApi.md#ChangeRepositoryProperties) | **Post** /nodes/{node}/apt/repositories | 
+[**CloneVirtualMachine**](DefaultApi.md#CloneVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/clone | 
 [**CreateClusterConfig**](DefaultApi.md#CreateClusterConfig) | **Post** /cluster/config | 
 [**CreateDirectory**](DefaultApi.md#CreateDirectory) | **Post** /nodes/{node}/disks/directory | 
 [**CreateLVM**](DefaultApi.md#CreateLVM) | **Post** /nodes/{node}/disks/lvm | 
@@ -570,6 +571,81 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CloneVirtualMachine
+
+> CloneVirtualMachineResponseContent CloneVirtualMachine(ctx, node, vmId).CloneVirtualMachineRequestContent(cloneVirtualMachineRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    cloneVirtualMachineRequestContent := *openapiclient.NewCloneVirtualMachineRequestContent(float32(123)) // CloneVirtualMachineRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CloneVirtualMachine(context.Background(), node, vmId).CloneVirtualMachineRequestContent(cloneVirtualMachineRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CloneVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CloneVirtualMachine`: CloneVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CloneVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCloneVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **cloneVirtualMachineRequestContent** | [**CloneVirtualMachineRequestContent**](CloneVirtualMachineRequestContent.md) |  | 
+
+### Return type
+
+[**CloneVirtualMachineResponseContent**](CloneVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -1943,6 +1943,53 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/clone:
+    post:
+      description: Create a copy of a virtual machine or template.
+      operationId: CloneVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloneVirtualMachineRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloneVirtualMachineResponseContent'
+          description: CloneVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/config:
     get:
       description: Get the virtual machine configuration with pending configuration
@@ -4097,6 +4144,69 @@ components:
     CapabilityMap:
       additionalProperties:
         $ref: '#/components/schemas/CapabilityCategoryMap'
+      type: object
+    CloneVirtualMachineDiskFormat:
+      enum:
+      - raw
+      - qcow2
+      - vmdk
+      type: string
+    CloneVirtualMachineRequestContent:
+      example:
+        bwlimit: 6.027456183070403
+        newid: 0.8008281904610115
+        name: name
+        format: null
+        pool: pool
+        description: description
+        storage: storage
+        snapname: snapname
+        full: true
+        target: target
+      properties:
+        newid:
+          description: The id of the virtual machine as an integer
+          type: number
+        bwlimit:
+          description: Override deafult bandwidth limit in KiB/s
+          type: number
+        description:
+          description: Set a description for the new VM
+          type: string
+        full:
+          description: Create a full clone with all copy of disks.
+          type: boolean
+        name:
+          description: Set a name for the new VM
+          type: string
+        format:
+          $ref: '#/components/schemas/CloneVirtualMachineDiskFormat'
+        storage:
+          description: Set the storage for the new VM. Only valid for full clones.
+          pattern: "^[A-Za-z]+$"
+          type: string
+        target:
+          description: Set the target node for the new VM. Only valid if the original
+            VM is on shared storage.
+          pattern: "^[A-Za-z]+$"
+          type: string
+        snapname:
+          description: Set the snapshot name for the new VM.
+          type: string
+        pool:
+          description: Add the VM to a resource pool.
+          type: string
+      required:
+      - newid
+      type: object
+    CloneVirtualMachineResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
       type: object
     CorosyncNodeSummary:
       example:
