@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetStorage**](docs/DefaultApi.md#getstorage) | **Get** /storage/{storage} | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
+*DefaultApi* | [**GetVirtualMachineStatus**](docs/DefaultApi.md#getvirtualmachinestatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 *DefaultApi* | [**GetZFSPoolStatus**](docs/DefaultApi.md#getzfspoolstatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**JoinCluster**](docs/DefaultApi.md#joincluster) | **Post** /cluster/config/join | 
@@ -195,6 +196,7 @@ Class | Method | HTTP request | Description
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetStorageResponseContent](docs/GetStorageResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
+ - [GetVirtualMachineStatusResponseContent](docs/GetVirtualMachineStatusResponseContent.md)
  - [GetZFSPoolStatusResponseContent](docs/GetZFSPoolStatusResponseContent.md)
  - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
  - [InitializeGPTResponseContent](docs/InitializeGPTResponseContent.md)
@@ -245,6 +247,7 @@ Class | Method | HTTP request | Description
  - [PciMediatedDeviceSummary](docs/PciMediatedDeviceSummary.md)
  - [PoolInfo](docs/PoolInfo.md)
  - [PoolMemberType](docs/PoolMemberType.md)
+ - [ProxmoxSupportSummary](docs/ProxmoxSupportSummary.md)
  - [RenewNodeCertificateRequestContent](docs/RenewNodeCertificateRequestContent.md)
  - [RenewNodeCertificateResponseContent](docs/RenewNodeCertificateResponseContent.md)
  - [RepositoriesReport](docs/RepositoriesReport.md)
@@ -262,7 +265,12 @@ Class | Method | HTTP request | Description
  - [UpdateSummary](docs/UpdateSummary.md)
  - [UsbDeviceSummary](docs/UsbDeviceSummary.md)
  - [VersionSummary](docs/VersionSummary.md)
+ - [VirtualMachineBalloonSummary](docs/VirtualMachineBalloonSummary.md)
+ - [VirtualMachineHighAvailabilityStatus](docs/VirtualMachineHighAvailabilityStatus.md)
+ - [VirtualMachineNicBlockStatistics](docs/VirtualMachineNicBlockStatistics.md)
+ - [VirtualMachineNicStatus](docs/VirtualMachineNicStatus.md)
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
+ - [VirtualMachineStatusSummary](docs/VirtualMachineStatusSummary.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)
  - [ZFSCompression](docs/ZFSCompression.md)
  - [ZFSPoolStatusChild](docs/ZFSPoolStatusChild.md)

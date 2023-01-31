@@ -56,6 +56,7 @@ docs/GetPoolResponseContent.md
 docs/GetSmartHealthResponseContent.md
 docs/GetStorageResponseContent.md
 docs/GetVersionResponseContent.md
+docs/GetVirtualMachineStatusResponseContent.md
 docs/GetZFSPoolStatusResponseContent.md
 docs/InitializeGPTRequestContent.md
 docs/InitializeGPTResponseContent.md
@@ -106,6 +107,7 @@ docs/PackageSummary.md
 docs/PciMediatedDeviceSummary.md
 docs/PoolInfo.md
 docs/PoolMemberType.md
+docs/ProxmoxSupportSummary.md
 docs/RenewNodeCertificateRequestContent.md
 docs/RenewNodeCertificateResponseContent.md
 docs/RepositoriesReport.md
@@ -123,7 +125,12 @@ docs/UpdateNetworkInterfaceRequestContent.md
 docs/UpdateSummary.md
 docs/UsbDeviceSummary.md
 docs/VersionSummary.md
+docs/VirtualMachineBalloonSummary.md
+docs/VirtualMachineHighAvailabilityStatus.md
+docs/VirtualMachineNicBlockStatistics.md
+docs/VirtualMachineNicStatus.md
 docs/VirtualMachineStatus.md
+docs/VirtualMachineStatusSummary.md
 docs/VirtualMachineSummary.md
 docs/ZFSCompression.md
 docs/ZFSPoolStatusChild.md
@@ -182,6 +189,7 @@ model_get_pool_response_content.go
 model_get_smart_health_response_content.go
 model_get_storage_response_content.go
 model_get_version_response_content.go
+model_get_virtual_machine_status_response_content.go
 model_get_zfs_pool_status_response_content.go
 model_initialize_gpt_request_content.go
 model_initialize_gpt_response_content.go
@@ -232,6 +240,7 @@ model_package_summary.go
 model_pci_mediated_device_summary.go
 model_pool_info.go
 model_pool_member_type.go
+model_proxmox_support_summary.go
 model_renew_node_certificate_request_content.go
 model_renew_node_certificate_response_content.go
 model_repositories_report.go
@@ -249,7 +258,12 @@ model_update_network_interface_request_content.go
 model_update_summary.go
 model_usb_device_summary.go
 model_version_summary.go
+model_virtual_machine_balloon_summary.go
+model_virtual_machine_high_availability_status.go
+model_virtual_machine_nic_block_statistics.go
+model_virtual_machine_nic_status.go
 model_virtual_machine_status.go
+model_virtual_machine_status_summary.go
 model_virtual_machine_summary.go
 model_zfs_compression.go
 model_zfs_pool_status_child.go

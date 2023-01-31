@@ -1943,6 +1943,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/status/current:
+    get:
+      description: Get the utilization and status of a virtual machine.
+      operationId: GetVirtualMachineStatus
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineStatusResponseContent'
+          description: GetVirtualMachineStatus 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /pools:
     get:
       operationId: ListPools
@@ -3537,6 +3578,94 @@ components:
       required:
       - data
       type: object
+    GetVirtualMachineStatusResponseContent:
+      example:
+        data:
+          agent: 0.14658129805029452
+          spice: 0.9301444243932576
+          diskread: 7.457744773683766
+          pid: 7.061401241503109
+          mem: 4.145608029883936
+          maxdisk: 5.637376656633329
+          running-qemu: running-qemu
+          nics:
+            key:
+              netout: 5.025004791520295
+              netin: 4.965218492984954
+          lock: lock
+          qmpstatus: qmpstatus
+          balloon: 7.386281948385884
+          vmid: 6.027456183070403
+          cpus: 5.962133916683182
+          running-machine: running-machine
+          ballooninfo:
+            free_mem: 9.369310271410669
+            actual: 6.438423552598547
+            mem_swapped_out: 6.683562403749608
+            major_page_faults: 1.284659006116532
+            total_mem: 9.018348186070783
+            last_update: 3.5571952270680973
+            mem_swapped_in: 8.762042012749001
+            minor_page_faults: 6.965117697638846
+            max_mem: 9.965781217890562
+          proxmox-support:
+            pbs-dirty-bitmap-migration: true
+            query-bitmap-info: true
+            pbs-masterkey: true
+            backup-max-workers: true
+            pbs-dirty-bitmap: true
+            pbs-dirty-bitmap-savevm: true
+            pbs-library-version: pbs-library-version
+          cpu: 2.027123
+          netout: 1.4894159098541704
+          freemem: 1.1730742509559433
+          tags: tags
+          uptime: 3.616076749251911
+          blockstat:
+            key:
+              flush_total_time_ns: 2.8841621266687802
+              rd_operations: 3.2588565619047607
+              timed_stats:
+              - timed_stats
+              - timed_stats
+              invalid_unmap_operations: 0.2025324113236393
+              failed_unmap_operations: 4.258773108174356
+              wr_highest_offset: 6.878052220127876
+              unmap_total_time_ns: 4.078845849666752
+              wr_total_time_ns: 3.0205796992916243
+              unmap_operations: 7.740351818741173
+              account_failed: true
+              wr_merged: 7.143538047012306
+              rd_total_time_ns: 5.944895607614016
+              idle_time_ns: 3.0937452626664474
+              invalid_rd_operations: 0.8851374739011653
+              failed_rd_operations: 0.10263654006109402
+              invalid_flush_operations: 8.969578798196912
+              failed_flush_operations: 7.058770351582356
+              unmap_merged: 7.04836565559697
+              wr_bytes: 4.652396432933246
+              rd_bytes: 6.778324963048013
+              wr_operations: 3.353193347011243
+              invalid_wr_operations: 5.533258397034986
+              unmap_bytes: 6.519180951018382
+              failed_wr_operations: 3.0576100241049344
+              account_invalid: true
+              flush_operations: 6.704019297950036
+              rd_merged: 6.628464275087742
+          disk: 1.2315135367772556
+          name: name
+          ha:
+            managed: 0.08008281904610115
+          maxmem: 2.3021358869347655
+          diskwrite: 6.84685269835264
+          status: null
+          netin: 1.0246457001441578
+      properties:
+        data:
+          $ref: '#/components/schemas/VirtualMachineStatusSummary'
+      required:
+      - data
+      type: object
     GetZFSPoolStatusResponseContent:
       example:
         data:
@@ -5061,6 +5190,31 @@ components:
       - lxc
       - storage
       type: string
+    ProxmoxSupportSummary:
+      example:
+        pbs-dirty-bitmap-migration: true
+        query-bitmap-info: true
+        pbs-masterkey: true
+        backup-max-workers: true
+        pbs-dirty-bitmap: true
+        pbs-dirty-bitmap-savevm: true
+        pbs-library-version: pbs-library-version
+      properties:
+        pbs-library-version:
+          type: string
+        pbs-masterkey:
+          type: boolean
+        pbs-dirty-bitmap-savevm:
+          type: boolean
+        pbs-dirty-bitmap-migration:
+          type: boolean
+        pbs-dirty-bitmap:
+          type: boolean
+        backup-max-workers:
+          type: boolean
+        query-bitmap-info:
+          type: boolean
+      type: object
     RenewNodeCertificateRequestContent:
       example:
         force: 0.08008281904610115
@@ -5606,11 +5760,318 @@ components:
       - repoid
       - version
       type: object
+    VirtualMachineBalloonSummary:
+      example:
+        free_mem: 9.369310271410669
+        actual: 6.438423552598547
+        mem_swapped_out: 6.683562403749608
+        major_page_faults: 1.284659006116532
+        total_mem: 9.018348186070783
+        last_update: 3.5571952270680973
+        mem_swapped_in: 8.762042012749001
+        minor_page_faults: 6.965117697638846
+        max_mem: 9.965781217890562
+      properties:
+        max_mem:
+          type: number
+        free_mem:
+          type: number
+        mem_swapped_out:
+          type: number
+        mem_swapped_in:
+          type: number
+        total_mem:
+          type: number
+        actual:
+          type: number
+        last_update:
+          type: number
+        minor_page_faults:
+          type: number
+        major_page_faults:
+          type: number
+      type: object
+    VirtualMachineHighAvailabilityStatus:
+      example:
+        managed: 0.08008281904610115
+      properties:
+        managed:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - managed
+      type: object
+    VirtualMachineNicBlockStatistics:
+      example:
+        flush_total_time_ns: 2.8841621266687802
+        rd_operations: 3.2588565619047607
+        timed_stats:
+        - timed_stats
+        - timed_stats
+        invalid_unmap_operations: 0.2025324113236393
+        failed_unmap_operations: 4.258773108174356
+        wr_highest_offset: 6.878052220127876
+        unmap_total_time_ns: 4.078845849666752
+        wr_total_time_ns: 3.0205796992916243
+        unmap_operations: 7.740351818741173
+        account_failed: true
+        wr_merged: 7.143538047012306
+        rd_total_time_ns: 5.944895607614016
+        idle_time_ns: 3.0937452626664474
+        invalid_rd_operations: 0.8851374739011653
+        failed_rd_operations: 0.10263654006109402
+        invalid_flush_operations: 8.969578798196912
+        failed_flush_operations: 7.058770351582356
+        unmap_merged: 7.04836565559697
+        wr_bytes: 4.652396432933246
+        rd_bytes: 6.778324963048013
+        wr_operations: 3.353193347011243
+        invalid_wr_operations: 5.533258397034986
+        unmap_bytes: 6.519180951018382
+        failed_wr_operations: 3.0576100241049344
+        account_invalid: true
+        flush_operations: 6.704019297950036
+        rd_merged: 6.628464275087742
+      properties:
+        flush_total_time_ns:
+          type: number
+        rd_bytes:
+          type: number
+        timed_stats:
+          items:
+            type: string
+          type: array
+        wr_highest_offset:
+          type: number
+        rd_total_time_ns:
+          type: number
+        flush_operations:
+          type: number
+        wr_operations:
+          type: number
+        idle_time_ns:
+          type: number
+        wr_merged:
+          type: number
+        invalid_rd_operations:
+          type: number
+        failed_flush_operations:
+          type: number
+        unmap_bytes:
+          type: number
+        failed_rd_operations:
+          type: number
+        wr_bytes:
+          type: number
+        invalid_flush_operations:
+          type: number
+        unmap_operations:
+          type: number
+        wr_total_time_ns:
+          type: number
+        failed_wr_operations:
+          type: number
+        unmap_merged:
+          type: number
+        invalid_wr_operations:
+          type: number
+        rd_operations:
+          type: number
+        unmap_total_time_ns:
+          type: number
+        invalid_unmap_operations:
+          type: number
+        account_failed:
+          type: boolean
+        account_invalid:
+          type: boolean
+        rd_merged:
+          type: number
+        failed_unmap_operations:
+          type: number
+      type: object
+    VirtualMachineNicBlockStatisticsMap:
+      additionalProperties:
+        $ref: '#/components/schemas/VirtualMachineNicBlockStatistics'
+      type: object
+    VirtualMachineNicStatus:
+      example:
+        netout: 5.025004791520295
+        netin: 4.965218492984954
+      properties:
+        netin:
+          type: number
+        netout:
+          type: number
+      type: object
+    VirtualMachineNicStatusMap:
+      additionalProperties:
+        $ref: '#/components/schemas/VirtualMachineNicStatus'
+      type: object
     VirtualMachineStatus:
       enum:
       - running
       - stopped
       type: string
+    VirtualMachineStatusSummary:
+      example:
+        agent: 0.14658129805029452
+        spice: 0.9301444243932576
+        diskread: 7.457744773683766
+        pid: 7.061401241503109
+        mem: 4.145608029883936
+        maxdisk: 5.637376656633329
+        running-qemu: running-qemu
+        nics:
+          key:
+            netout: 5.025004791520295
+            netin: 4.965218492984954
+        lock: lock
+        qmpstatus: qmpstatus
+        balloon: 7.386281948385884
+        vmid: 6.027456183070403
+        cpus: 5.962133916683182
+        running-machine: running-machine
+        ballooninfo:
+          free_mem: 9.369310271410669
+          actual: 6.438423552598547
+          mem_swapped_out: 6.683562403749608
+          major_page_faults: 1.284659006116532
+          total_mem: 9.018348186070783
+          last_update: 3.5571952270680973
+          mem_swapped_in: 8.762042012749001
+          minor_page_faults: 6.965117697638846
+          max_mem: 9.965781217890562
+        proxmox-support:
+          pbs-dirty-bitmap-migration: true
+          query-bitmap-info: true
+          pbs-masterkey: true
+          backup-max-workers: true
+          pbs-dirty-bitmap: true
+          pbs-dirty-bitmap-savevm: true
+          pbs-library-version: pbs-library-version
+        cpu: 2.027123
+        netout: 1.4894159098541704
+        freemem: 1.1730742509559433
+        tags: tags
+        uptime: 3.616076749251911
+        blockstat:
+          key:
+            flush_total_time_ns: 2.8841621266687802
+            rd_operations: 3.2588565619047607
+            timed_stats:
+            - timed_stats
+            - timed_stats
+            invalid_unmap_operations: 0.2025324113236393
+            failed_unmap_operations: 4.258773108174356
+            wr_highest_offset: 6.878052220127876
+            unmap_total_time_ns: 4.078845849666752
+            wr_total_time_ns: 3.0205796992916243
+            unmap_operations: 7.740351818741173
+            account_failed: true
+            wr_merged: 7.143538047012306
+            rd_total_time_ns: 5.944895607614016
+            idle_time_ns: 3.0937452626664474
+            invalid_rd_operations: 0.8851374739011653
+            failed_rd_operations: 0.10263654006109402
+            invalid_flush_operations: 8.969578798196912
+            failed_flush_operations: 7.058770351582356
+            unmap_merged: 7.04836565559697
+            wr_bytes: 4.652396432933246
+            rd_bytes: 6.778324963048013
+            wr_operations: 3.353193347011243
+            invalid_wr_operations: 5.533258397034986
+            unmap_bytes: 6.519180951018382
+            failed_wr_operations: 3.0576100241049344
+            account_invalid: true
+            flush_operations: 6.704019297950036
+            rd_merged: 6.628464275087742
+        disk: 1.2315135367772556
+        name: name
+        ha:
+          managed: 0.08008281904610115
+        maxmem: 2.3021358869347655
+        diskwrite: 6.84685269835264
+        status: null
+        netin: 1.0246457001441578
+      properties:
+        status:
+          $ref: '#/components/schemas/VirtualMachineStatus'
+        ha:
+          $ref: '#/components/schemas/VirtualMachineHighAvailabilityStatus'
+        vmid:
+          description: The id of the virtual machine as an integer
+          type: number
+        agent:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        cpus:
+          type: number
+        lock:
+          type: string
+        maxdisk:
+          type: number
+        maxmem:
+          type: number
+        name:
+          type: string
+        pid:
+          type: number
+        qmpstatus:
+          type: string
+        running-machine:
+          type: string
+        running-qemu:
+          type: string
+        spice:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        tags:
+          type: string
+        uptime:
+          type: number
+        cpu:
+          format: float
+          type: number
+        mem:
+          type: number
+        balloon:
+          type: number
+        disk:
+          type: number
+        netin:
+          type: number
+        netout:
+          type: number
+        diskwrite:
+          type: number
+        diskread:
+          type: number
+        freemem:
+          type: number
+        nics:
+          additionalProperties:
+            $ref: '#/components/schemas/VirtualMachineNicStatus'
+          type: object
+        ballooninfo:
+          $ref: '#/components/schemas/VirtualMachineBalloonSummary'
+        blockstat:
+          additionalProperties:
+            $ref: '#/components/schemas/VirtualMachineNicBlockStatistics'
+          type: object
+        proxmox-support:
+          $ref: '#/components/schemas/ProxmoxSupportSummary'
+      required:
+      - ha
+      - status
+      - vmid
+      type: object
     VirtualMachineSummary:
       example:
         vmid: 0.8008281904610115

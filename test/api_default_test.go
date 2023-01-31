@@ -458,6 +458,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetVirtualMachineStatus", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineStatus(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService GetZFSPoolStatus", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
