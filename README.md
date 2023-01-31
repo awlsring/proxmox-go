@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetStorage**](docs/DefaultApi.md#getstorage) | **Get** /storage/{storage} | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
+*DefaultApi* | [**GetVirtualMachineConfiguration**](docs/DefaultApi.md#getvirtualmachineconfiguration) | **Get** /nodes/{node}/qemu/{vmId}/config | 
 *DefaultApi* | [**GetVirtualMachineStatus**](docs/DefaultApi.md#getvirtualmachinestatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 *DefaultApi* | [**GetZFSPoolStatus**](docs/DefaultApi.md#getzfspoolstatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
@@ -196,6 +197,7 @@ Class | Method | HTTP request | Description
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetStorageResponseContent](docs/GetStorageResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
+ - [GetVirtualMachineConfigurationResponseContent](docs/GetVirtualMachineConfigurationResponseContent.md)
  - [GetVirtualMachineStatusResponseContent](docs/GetVirtualMachineStatusResponseContent.md)
  - [GetZFSPoolStatusResponseContent](docs/GetZFSPoolStatusResponseContent.md)
  - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
@@ -265,10 +267,18 @@ Class | Method | HTTP request | Description
  - [UpdateSummary](docs/UpdateSummary.md)
  - [UsbDeviceSummary](docs/UsbDeviceSummary.md)
  - [VersionSummary](docs/VersionSummary.md)
+ - [VirtualMachineArchitecture](docs/VirtualMachineArchitecture.md)
  - [VirtualMachineBalloonSummary](docs/VirtualMachineBalloonSummary.md)
+ - [VirtualMachineCloudInitType](docs/VirtualMachineCloudInitType.md)
+ - [VirtualMachineConfigLock](docs/VirtualMachineConfigLock.md)
+ - [VirtualMachineConfigurationSummary](docs/VirtualMachineConfigurationSummary.md)
  - [VirtualMachineHighAvailabilityStatus](docs/VirtualMachineHighAvailabilityStatus.md)
+ - [VirtualMachineHugePages](docs/VirtualMachineHugePages.md)
+ - [VirtualMachineKeyboard](docs/VirtualMachineKeyboard.md)
  - [VirtualMachineNicBlockStatistics](docs/VirtualMachineNicBlockStatistics.md)
  - [VirtualMachineNicStatus](docs/VirtualMachineNicStatus.md)
+ - [VirtualMachineOperatingSystem](docs/VirtualMachineOperatingSystem.md)
+ - [VirtualMachineScsiControllerType](docs/VirtualMachineScsiControllerType.md)
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
  - [VirtualMachineStatusSummary](docs/VirtualMachineStatusSummary.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)
