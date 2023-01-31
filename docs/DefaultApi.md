@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**CreatePool**](DefaultApi.md#CreatePool) | **Post** /pools | 
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
+[**CreateVirtualMachine**](DefaultApi.md#CreateVirtualMachine) | **Post** /nodes/{node}/qemu | 
+[**CreateVirtualMachineTemplate**](DefaultApi.md#CreateVirtualMachineTemplate) | **Post** /nodes/{node}/qemu/{vmId}/template | 
 [**CreateZFSPool**](DefaultApi.md#CreateZFSPool) | **Post** /nodes/{node}/disks/zfs | 
 [**DeleteDirectory**](DefaultApi.md#DeleteDirectory) | **Delete** /nodes/{node}/disks/directory/{name} | 
 [**DeleteLVM**](DefaultApi.md#DeleteLVM) | **Delete** /nodes/{node}/disks/lvm/{name} | 
@@ -28,6 +30,7 @@ Method | HTTP request | Description
 [**DeleteNodeCertificate**](DefaultApi.md#DeleteNodeCertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 [**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
+[**DeleteVirtualMachine**](DefaultApi.md#DeleteVirtualMachine) | **Delete** /nodes/{node}/qemu/{vmId} | 
 [**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 [**GetAccessControlList**](DefaultApi.md#GetAccessControlList) | **Get** /access/acl | 
 [**GetClusterApiVersion**](DefaultApi.md#GetClusterApiVersion) | **Get** /cluster/config/apiversion | 
@@ -35,11 +38,14 @@ Method | HTTP request | Description
 [**GetClusterTotemSettings**](DefaultApi.md#GetClusterTotemSettings) | **Get** /cluster/config/totem | 
 [**GetNetworkInterface**](DefaultApi.md#GetNetworkInterface) | **Get** /nodes/{node}/network/{interface} | 
 [**GetPackageChangelog**](DefaultApi.md#GetPackageChangelog) | **Get** /nodes/{node}/apt/changelog | 
+[**GetPendingVirtualMachineCloudInitChanges**](DefaultApi.md#GetPendingVirtualMachineCloudInitChanges) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**GetPool**](DefaultApi.md#GetPool) | **Get** /pools/{poolId} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetStorage**](DefaultApi.md#GetStorage) | **Get** /storage/{storage} | 
 [**GetVersion**](DefaultApi.md#GetVersion) | **Get** /version | 
+[**GetVirtualMachineCloudInit**](DefaultApi.md#GetVirtualMachineCloudInit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
 [**GetVirtualMachineConfiguration**](DefaultApi.md#GetVirtualMachineConfiguration) | **Get** /nodes/{node}/qemu/{vmId}/config | 
+[**GetVirtualMachineFeatureSupport**](DefaultApi.md#GetVirtualMachineFeatureSupport) | **Get** /nodes/{node}/qemu/{vmId}/feature | 
 [**GetVirtualMachineStatus**](DefaultApi.md#GetVirtualMachineStatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 [**GetZFSPoolStatus**](DefaultApi.md#GetZFSPoolStatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 [**InitializeGPT**](DefaultApi.md#InitializeGPT) | **Post** /nodes/{node}/disks/smart | 
@@ -67,6 +73,7 @@ Method | HTTP request | Description
 [**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools | 
 [**ModifyStorage**](DefaultApi.md#ModifyStorage) | **Put** /storage/{storage} | 
 [**OrderNodeCertificate**](DefaultApi.md#OrderNodeCertificate) | **Post** /nodes/{node}/certificates/acme/certificate | 
+[**RegenerateVirtualMachineCloudInit**](DefaultApi.md#RegenerateVirtualMachineCloudInit) | **Put** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
 [**RenewNodeCertificate**](DefaultApi.md#RenewNodeCertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
@@ -1191,6 +1198,153 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateVirtualMachine
+
+> CreateVirtualMachineResponseContent CreateVirtualMachine(ctx, node).CreateVirtualMachineRequestContent(createVirtualMachineRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    createVirtualMachineRequestContent := *openapiclient.NewCreateVirtualMachineRequestContent("Vmid_example") // CreateVirtualMachineRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateVirtualMachine(context.Background(), node).CreateVirtualMachineRequestContent(createVirtualMachineRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateVirtualMachine`: CreateVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createVirtualMachineRequestContent** | [**CreateVirtualMachineRequestContent**](CreateVirtualMachineRequestContent.md) |  | 
+
+### Return type
+
+[**CreateVirtualMachineResponseContent**](CreateVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateVirtualMachineTemplate
+
+> CreateVirtualMachineTemplateResponseContent CreateVirtualMachineTemplate(ctx, node, vmId).CreateVirtualMachineTemplateRequestContent(createVirtualMachineTemplateRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    createVirtualMachineTemplateRequestContent := *openapiclient.NewCreateVirtualMachineTemplateRequestContent() // CreateVirtualMachineTemplateRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateVirtualMachineTemplate(context.Background(), node, vmId).CreateVirtualMachineTemplateRequestContent(createVirtualMachineTemplateRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateVirtualMachineTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateVirtualMachineTemplate`: CreateVirtualMachineTemplateResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateVirtualMachineTemplate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateVirtualMachineTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **createVirtualMachineTemplateRequestContent** | [**CreateVirtualMachineTemplateRequestContent**](CreateVirtualMachineTemplateRequestContent.md) |  | 
+
+### Return type
+
+[**CreateVirtualMachineTemplateResponseContent**](CreateVirtualMachineTemplateResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateZFSPool
 
 > CreateZFSPoolResponseContent CreateZFSPool(ctx, node).CreateZFSPoolRequestContent(createZFSPoolRequestContent).Execute()
@@ -1765,6 +1919,85 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteVirtualMachine
+
+> DeleteVirtualMachineResponseContent DeleteVirtualMachine(ctx, node, vmId).DestoryUnreferencedDisks(destoryUnreferencedDisks).Purge(purge).Skiplock(skiplock).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    destoryUnreferencedDisks := float32(8.14) // float32 | Destroy disks that are not referenced in the config. (optional)
+    purge := float32(8.14) // float32 | Purge the VM from the configurations, backups, jobs, and HA. (optional)
+    skiplock := float32(8.14) // float32 | Skip the lock check. Only valid for root. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteVirtualMachine(context.Background(), node, vmId).DestoryUnreferencedDisks(destoryUnreferencedDisks).Purge(purge).Skiplock(skiplock).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteVirtualMachine`: DeleteVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **destoryUnreferencedDisks** | **float32** | Destroy disks that are not referenced in the config. | 
+ **purge** | **float32** | Purge the VM from the configurations, backups, jobs, and HA. | 
+ **skiplock** | **float32** | Skip the lock check. Only valid for root. | 
+
+### Return type
+
+[**DeleteVirtualMachineResponseContent**](DeleteVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteZFSPool
 
 > DeleteZFSPoolResponseContent DeleteZFSPool(ctx, node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
@@ -2224,6 +2457,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetPendingVirtualMachineCloudInitChanges
+
+> GetPendingVirtualMachineCloudInitChangesResponseContent GetPendingVirtualMachineCloudInitChanges(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetPendingVirtualMachineCloudInitChanges(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetPendingVirtualMachineCloudInitChanges``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPendingVirtualMachineCloudInitChanges`: GetPendingVirtualMachineCloudInitChangesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetPendingVirtualMachineCloudInitChanges`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPendingVirtualMachineCloudInitChangesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetPendingVirtualMachineCloudInitChangesResponseContent**](GetPendingVirtualMachineCloudInitChangesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetPool
 
 > GetPoolResponseContent GetPool(ctx, poolId).Type_(type_).Execute()
@@ -2495,6 +2801,81 @@ Other parameters are passed through a pointer to a apiGetVersionRequest struct v
 [[Back to README]](../README.md)
 
 
+## GetVirtualMachineCloudInit
+
+> GetVirtualMachineCloudInitResponseContent GetVirtualMachineCloudInit(ctx, node, vmId).Type_(type_).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    type_ := openapiclient.CloudInitType("user") // CloudInitType | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineCloudInit(context.Background(), node, vmId).Type_(type_).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineCloudInit``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineCloudInit`: GetVirtualMachineCloudInitResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineCloudInit`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineCloudInitRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **type_** | [**CloudInitType**](CloudInitType.md) |  | 
+
+### Return type
+
+[**GetVirtualMachineCloudInitResponseContent**](GetVirtualMachineCloudInitResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetVirtualMachineConfiguration
 
 > GetVirtualMachineConfigurationResponseContent GetVirtualMachineConfiguration(ctx, node, vmId).Current(current).Snapshot(snapshot).Execute()
@@ -2557,6 +2938,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetVirtualMachineConfigurationResponseContent**](GetVirtualMachineConfigurationResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineFeatureSupport
+
+> GetVirtualMachineFeatureSupportResponseContent GetVirtualMachineFeatureSupport(ctx, node, vmId).Feature(feature).Snapname(snapname).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    feature := "feature_example" // string | 
+    snapname := "snapname_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineFeatureSupport(context.Background(), node, vmId).Feature(feature).Snapname(snapname).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineFeatureSupport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineFeatureSupport`: GetVirtualMachineFeatureSupportResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineFeatureSupport`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineFeatureSupportRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **feature** | **string** |  | 
+ **snapname** | **string** |  | 
+
+### Return type
+
+[**GetVirtualMachineFeatureSupportResponseContent**](GetVirtualMachineFeatureSupportResponseContent.md)
 
 ### Authorization
 
@@ -4406,6 +4864,77 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RegenerateVirtualMachineCloudInit
+
+> RegenerateVirtualMachineCloudInit(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.RegenerateVirtualMachineCloudInit(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RegenerateVirtualMachineCloudInit``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRegenerateVirtualMachineCloudInitRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

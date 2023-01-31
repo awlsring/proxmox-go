@@ -241,6 +241,35 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService CreateVirtualMachine", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateVirtualMachine(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService CreateVirtualMachineTemplate", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.CreateVirtualMachineTemplate(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService CreateZFSPool", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -357,6 +386,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService DeleteVirtualMachine", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.DeleteVirtualMachine(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService DeleteZFSPool", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -449,6 +493,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetPendingVirtualMachineCloudInitChanges", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetPendingVirtualMachineCloudInitChanges(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService GetPool", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -503,6 +562,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetVirtualMachineCloudInit", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineCloudInit(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService GetVirtualMachineConfiguration", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -511,6 +585,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var vmId string
 
         resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineConfiguration(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetVirtualMachineFeatureSupport", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineFeatureSupport(context.Background(), node, vmId).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -880,6 +969,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.OrderNodeCertificate(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService RegenerateVirtualMachineCloudInit", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.RegenerateVirtualMachineCloudInit(context.Background(), node, vmId).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

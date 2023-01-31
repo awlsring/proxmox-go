@@ -14,14 +14,18 @@ import (
 	"encoding/json"
 )
 
-// ApplyVirtualMachineConfigurationAsyncRequestContent struct for ApplyVirtualMachineConfigurationAsyncRequestContent
-type ApplyVirtualMachineConfigurationAsyncRequestContent struct {
+// CreateVirtualMachineRequestContent struct for CreateVirtualMachineRequestContent
+type CreateVirtualMachineRequestContent struct {
+	// The id of the virtual machine as a string
+	Vmid string `json:"vmid"`
 	// Enable ACPI support. Default to enabled.
 	Acpi *float32 `json:"acpi,omitempty"`
 	// List of cores to execute processes. Example value: 1,5,8-11.
 	Affinity *string `json:"affinity,omitempty"`
 	// The QEMU agent and its configuration.
 	Agent *string `json:"agent,omitempty"`
+	// The archive of the virtual machine.
+	Archive *string `json:"archive,omitempty"`
 	Arch *VirtualMachineArchitecture `json:"arch,omitempty"`
 	// Additional command line arguments passed to the kvm.
 	Args *string `json:"args,omitempty"`
@@ -31,9 +35,9 @@ type ApplyVirtualMachineConfigurationAsyncRequestContent struct {
 	Autostart *float32 `json:"autostart,omitempty"`
 	// Amount of RAM for the VM in MB.
 	Ballon *float32 `json:"ballon,omitempty"`
+	Bios *VirtualMachineBios `json:"bios,omitempty"`
 	// The boot order of the virtual machine.
 	Boot *string `json:"boot,omitempty"`
-	Bios *VirtualMachineBios `json:"bios,omitempty"`
 	// The boot disk of the virtual machine.
 	Bootdisk *string `json:"bootdisk,omitempty"`
 	// The CD-ROM device and its configuration. An alias for option ide2
@@ -57,8 +61,6 @@ type ApplyVirtualMachineConfigurationAsyncRequestContent struct {
 	Description *string `json:"description,omitempty"`
 	// The SHA1 digest of the virtual machine configuration. This can prevent concurrent modifications of the virtual machine configuration.
 	Digest *string `json:"digest,omitempty"`
-	// A list of settings to delete from the configuration.
-	Delete *string `json:"delete,omitempty"`
 	// The EFI disk device and its configuration.
 	Efidisk0 *string `json:"efidisk0,omitempty"`
 	// Freeze the CPU at virtual machine start.
@@ -119,6 +121,8 @@ type ApplyVirtualMachineConfigurationAsyncRequestContent struct {
 	Kvm *float32 `json:"kvm,omitempty"`
 	// Set the real time clock to local time.
 	Localtime *float32 `json:"localtime,omitempty"`
+	// Start VM immediatly from backup and start in the background.
+	LiveRestore *float32 `json:"live-restore,omitempty"`
 	Lock *VirtualMachineConfigLock `json:"lock,omitempty"`
 	// The machine type.
 	Machine *string `json:"machine,omitempty"`
@@ -288,6 +292,8 @@ type ApplyVirtualMachineConfigurationAsyncRequestContent struct {
 	Template *float32 `json:"template,omitempty"`
 	// Configure a disk for storing TPM state.
 	Tpmstate0 *string `json:"tpmstate0,omitempty"`
+	// Assign a unique random ehternet address.
+	Unqiue *float32 `json:"unqiue,omitempty"`
 	// A usb device on the virtual machine.
 	Usb0 *string `json:"usb0,omitempty"`
 	// A usb device on the virtual machine.
@@ -364,25 +370,50 @@ type ApplyVirtualMachineConfigurationAsyncRequestContent struct {
 	Watchdog *string `json:"watchdog,omitempty"`
 }
 
-// NewApplyVirtualMachineConfigurationAsyncRequestContent instantiates a new ApplyVirtualMachineConfigurationAsyncRequestContent object
+// NewCreateVirtualMachineRequestContent instantiates a new CreateVirtualMachineRequestContent object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplyVirtualMachineConfigurationAsyncRequestContent() *ApplyVirtualMachineConfigurationAsyncRequestContent {
-	this := ApplyVirtualMachineConfigurationAsyncRequestContent{}
+func NewCreateVirtualMachineRequestContent(vmid string) *CreateVirtualMachineRequestContent {
+	this := CreateVirtualMachineRequestContent{}
+	this.Vmid = vmid
 	return &this
 }
 
-// NewApplyVirtualMachineConfigurationAsyncRequestContentWithDefaults instantiates a new ApplyVirtualMachineConfigurationAsyncRequestContent object
+// NewCreateVirtualMachineRequestContentWithDefaults instantiates a new CreateVirtualMachineRequestContent object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewApplyVirtualMachineConfigurationAsyncRequestContentWithDefaults() *ApplyVirtualMachineConfigurationAsyncRequestContent {
-	this := ApplyVirtualMachineConfigurationAsyncRequestContent{}
+func NewCreateVirtualMachineRequestContentWithDefaults() *CreateVirtualMachineRequestContent {
+	this := CreateVirtualMachineRequestContent{}
 	return &this
+}
+
+// GetVmid returns the Vmid field value
+func (o *CreateVirtualMachineRequestContent) GetVmid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Vmid
+}
+
+// GetVmidOk returns a tuple with the Vmid field value
+// and a boolean to check if the value has been set.
+func (o *CreateVirtualMachineRequestContent) GetVmidOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return &o.Vmid, true
+}
+
+// SetVmid sets field value
+func (o *CreateVirtualMachineRequestContent) SetVmid(v string) {
+	o.Vmid = v
 }
 
 // GetAcpi returns the Acpi field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAcpi() float32 {
+func (o *CreateVirtualMachineRequestContent) GetAcpi() float32 {
 	if o == nil || isNil(o.Acpi) {
 		var ret float32
 		return ret
@@ -392,7 +423,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAcpi() float32 
 
 // GetAcpiOk returns a tuple with the Acpi field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAcpiOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetAcpiOk() (*float32, bool) {
 	if o == nil || isNil(o.Acpi) {
     return nil, false
 	}
@@ -400,7 +431,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAcpiOk() (*floa
 }
 
 // HasAcpi returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAcpi() bool {
+func (o *CreateVirtualMachineRequestContent) HasAcpi() bool {
 	if o != nil && !isNil(o.Acpi) {
 		return true
 	}
@@ -409,12 +440,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAcpi() bool {
 }
 
 // SetAcpi gets a reference to the given float32 and assigns it to the Acpi field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetAcpi(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetAcpi(v float32) {
 	o.Acpi = &v
 }
 
 // GetAffinity returns the Affinity field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAffinity() string {
+func (o *CreateVirtualMachineRequestContent) GetAffinity() string {
 	if o == nil || isNil(o.Affinity) {
 		var ret string
 		return ret
@@ -424,7 +455,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAffinity() stri
 
 // GetAffinityOk returns a tuple with the Affinity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAffinityOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetAffinityOk() (*string, bool) {
 	if o == nil || isNil(o.Affinity) {
     return nil, false
 	}
@@ -432,7 +463,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAffinityOk() (*
 }
 
 // HasAffinity returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAffinity() bool {
+func (o *CreateVirtualMachineRequestContent) HasAffinity() bool {
 	if o != nil && !isNil(o.Affinity) {
 		return true
 	}
@@ -441,12 +472,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAffinity() bool
 }
 
 // SetAffinity gets a reference to the given string and assigns it to the Affinity field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetAffinity(v string) {
+func (o *CreateVirtualMachineRequestContent) SetAffinity(v string) {
 	o.Affinity = &v
 }
 
 // GetAgent returns the Agent field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAgent() string {
+func (o *CreateVirtualMachineRequestContent) GetAgent() string {
 	if o == nil || isNil(o.Agent) {
 		var ret string
 		return ret
@@ -456,7 +487,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAgent() string 
 
 // GetAgentOk returns a tuple with the Agent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAgentOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetAgentOk() (*string, bool) {
 	if o == nil || isNil(o.Agent) {
     return nil, false
 	}
@@ -464,7 +495,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAgentOk() (*str
 }
 
 // HasAgent returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAgent() bool {
+func (o *CreateVirtualMachineRequestContent) HasAgent() bool {
 	if o != nil && !isNil(o.Agent) {
 		return true
 	}
@@ -473,12 +504,44 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAgent() bool {
 }
 
 // SetAgent gets a reference to the given string and assigns it to the Agent field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetAgent(v string) {
+func (o *CreateVirtualMachineRequestContent) SetAgent(v string) {
 	o.Agent = &v
 }
 
+// GetArchive returns the Archive field value if set, zero value otherwise.
+func (o *CreateVirtualMachineRequestContent) GetArchive() string {
+	if o == nil || isNil(o.Archive) {
+		var ret string
+		return ret
+	}
+	return *o.Archive
+}
+
+// GetArchiveOk returns a tuple with the Archive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateVirtualMachineRequestContent) GetArchiveOk() (*string, bool) {
+	if o == nil || isNil(o.Archive) {
+    return nil, false
+	}
+	return o.Archive, true
+}
+
+// HasArchive returns a boolean if a field has been set.
+func (o *CreateVirtualMachineRequestContent) HasArchive() bool {
+	if o != nil && !isNil(o.Archive) {
+		return true
+	}
+
+	return false
+}
+
+// SetArchive gets a reference to the given string and assigns it to the Archive field.
+func (o *CreateVirtualMachineRequestContent) SetArchive(v string) {
+	o.Archive = &v
+}
+
 // GetArch returns the Arch field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArch() VirtualMachineArchitecture {
+func (o *CreateVirtualMachineRequestContent) GetArch() VirtualMachineArchitecture {
 	if o == nil || isNil(o.Arch) {
 		var ret VirtualMachineArchitecture
 		return ret
@@ -488,7 +551,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArch() VirtualM
 
 // GetArchOk returns a tuple with the Arch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArchOk() (*VirtualMachineArchitecture, bool) {
+func (o *CreateVirtualMachineRequestContent) GetArchOk() (*VirtualMachineArchitecture, bool) {
 	if o == nil || isNil(o.Arch) {
     return nil, false
 	}
@@ -496,7 +559,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArchOk() (*Virt
 }
 
 // HasArch returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasArch() bool {
+func (o *CreateVirtualMachineRequestContent) HasArch() bool {
 	if o != nil && !isNil(o.Arch) {
 		return true
 	}
@@ -505,12 +568,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasArch() bool {
 }
 
 // SetArch gets a reference to the given VirtualMachineArchitecture and assigns it to the Arch field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetArch(v VirtualMachineArchitecture) {
+func (o *CreateVirtualMachineRequestContent) SetArch(v VirtualMachineArchitecture) {
 	o.Arch = &v
 }
 
 // GetArgs returns the Args field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArgs() string {
+func (o *CreateVirtualMachineRequestContent) GetArgs() string {
 	if o == nil || isNil(o.Args) {
 		var ret string
 		return ret
@@ -520,7 +583,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArgs() string {
 
 // GetArgsOk returns a tuple with the Args field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArgsOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetArgsOk() (*string, bool) {
 	if o == nil || isNil(o.Args) {
     return nil, false
 	}
@@ -528,7 +591,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetArgsOk() (*stri
 }
 
 // HasArgs returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasArgs() bool {
+func (o *CreateVirtualMachineRequestContent) HasArgs() bool {
 	if o != nil && !isNil(o.Args) {
 		return true
 	}
@@ -537,12 +600,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasArgs() bool {
 }
 
 // SetArgs gets a reference to the given string and assigns it to the Args field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetArgs(v string) {
+func (o *CreateVirtualMachineRequestContent) SetArgs(v string) {
 	o.Args = &v
 }
 
 // GetAudio0 returns the Audio0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAudio0() string {
+func (o *CreateVirtualMachineRequestContent) GetAudio0() string {
 	if o == nil || isNil(o.Audio0) {
 		var ret string
 		return ret
@@ -552,7 +615,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAudio0() string
 
 // GetAudio0Ok returns a tuple with the Audio0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAudio0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetAudio0Ok() (*string, bool) {
 	if o == nil || isNil(o.Audio0) {
     return nil, false
 	}
@@ -560,7 +623,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAudio0Ok() (*st
 }
 
 // HasAudio0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAudio0() bool {
+func (o *CreateVirtualMachineRequestContent) HasAudio0() bool {
 	if o != nil && !isNil(o.Audio0) {
 		return true
 	}
@@ -569,12 +632,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAudio0() bool {
 }
 
 // SetAudio0 gets a reference to the given string and assigns it to the Audio0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetAudio0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetAudio0(v string) {
 	o.Audio0 = &v
 }
 
 // GetAutostart returns the Autostart field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAutostart() float32 {
+func (o *CreateVirtualMachineRequestContent) GetAutostart() float32 {
 	if o == nil || isNil(o.Autostart) {
 		var ret float32
 		return ret
@@ -584,7 +647,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAutostart() flo
 
 // GetAutostartOk returns a tuple with the Autostart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAutostartOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetAutostartOk() (*float32, bool) {
 	if o == nil || isNil(o.Autostart) {
     return nil, false
 	}
@@ -592,7 +655,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetAutostartOk() (
 }
 
 // HasAutostart returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAutostart() bool {
+func (o *CreateVirtualMachineRequestContent) HasAutostart() bool {
 	if o != nil && !isNil(o.Autostart) {
 		return true
 	}
@@ -601,12 +664,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasAutostart() boo
 }
 
 // SetAutostart gets a reference to the given float32 and assigns it to the Autostart field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetAutostart(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetAutostart(v float32) {
 	o.Autostart = &v
 }
 
 // GetBallon returns the Ballon field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBallon() float32 {
+func (o *CreateVirtualMachineRequestContent) GetBallon() float32 {
 	if o == nil || isNil(o.Ballon) {
 		var ret float32
 		return ret
@@ -616,7 +679,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBallon() float3
 
 // GetBallonOk returns a tuple with the Ballon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBallonOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetBallonOk() (*float32, bool) {
 	if o == nil || isNil(o.Ballon) {
     return nil, false
 	}
@@ -624,7 +687,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBallonOk() (*fl
 }
 
 // HasBallon returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBallon() bool {
+func (o *CreateVirtualMachineRequestContent) HasBallon() bool {
 	if o != nil && !isNil(o.Ballon) {
 		return true
 	}
@@ -633,44 +696,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBallon() bool {
 }
 
 // SetBallon gets a reference to the given float32 and assigns it to the Ballon field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetBallon(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetBallon(v float32) {
 	o.Ballon = &v
 }
 
-// GetBoot returns the Boot field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBoot() string {
-	if o == nil || isNil(o.Boot) {
-		var ret string
-		return ret
-	}
-	return *o.Boot
-}
-
-// GetBootOk returns a tuple with the Boot field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBootOk() (*string, bool) {
-	if o == nil || isNil(o.Boot) {
-    return nil, false
-	}
-	return o.Boot, true
-}
-
-// HasBoot returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBoot() bool {
-	if o != nil && !isNil(o.Boot) {
-		return true
-	}
-
-	return false
-}
-
-// SetBoot gets a reference to the given string and assigns it to the Boot field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetBoot(v string) {
-	o.Boot = &v
-}
-
 // GetBios returns the Bios field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBios() VirtualMachineBios {
+func (o *CreateVirtualMachineRequestContent) GetBios() VirtualMachineBios {
 	if o == nil || isNil(o.Bios) {
 		var ret VirtualMachineBios
 		return ret
@@ -680,7 +711,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBios() VirtualM
 
 // GetBiosOk returns a tuple with the Bios field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBiosOk() (*VirtualMachineBios, bool) {
+func (o *CreateVirtualMachineRequestContent) GetBiosOk() (*VirtualMachineBios, bool) {
 	if o == nil || isNil(o.Bios) {
     return nil, false
 	}
@@ -688,7 +719,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBiosOk() (*Virt
 }
 
 // HasBios returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBios() bool {
+func (o *CreateVirtualMachineRequestContent) HasBios() bool {
 	if o != nil && !isNil(o.Bios) {
 		return true
 	}
@@ -697,12 +728,44 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBios() bool {
 }
 
 // SetBios gets a reference to the given VirtualMachineBios and assigns it to the Bios field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetBios(v VirtualMachineBios) {
+func (o *CreateVirtualMachineRequestContent) SetBios(v VirtualMachineBios) {
 	o.Bios = &v
 }
 
+// GetBoot returns the Boot field value if set, zero value otherwise.
+func (o *CreateVirtualMachineRequestContent) GetBoot() string {
+	if o == nil || isNil(o.Boot) {
+		var ret string
+		return ret
+	}
+	return *o.Boot
+}
+
+// GetBootOk returns a tuple with the Boot field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateVirtualMachineRequestContent) GetBootOk() (*string, bool) {
+	if o == nil || isNil(o.Boot) {
+    return nil, false
+	}
+	return o.Boot, true
+}
+
+// HasBoot returns a boolean if a field has been set.
+func (o *CreateVirtualMachineRequestContent) HasBoot() bool {
+	if o != nil && !isNil(o.Boot) {
+		return true
+	}
+
+	return false
+}
+
+// SetBoot gets a reference to the given string and assigns it to the Boot field.
+func (o *CreateVirtualMachineRequestContent) SetBoot(v string) {
+	o.Boot = &v
+}
+
 // GetBootdisk returns the Bootdisk field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBootdisk() string {
+func (o *CreateVirtualMachineRequestContent) GetBootdisk() string {
 	if o == nil || isNil(o.Bootdisk) {
 		var ret string
 		return ret
@@ -712,7 +775,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBootdisk() stri
 
 // GetBootdiskOk returns a tuple with the Bootdisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBootdiskOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetBootdiskOk() (*string, bool) {
 	if o == nil || isNil(o.Bootdisk) {
     return nil, false
 	}
@@ -720,7 +783,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBootdiskOk() (*
 }
 
 // HasBootdisk returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBootdisk() bool {
+func (o *CreateVirtualMachineRequestContent) HasBootdisk() bool {
 	if o != nil && !isNil(o.Bootdisk) {
 		return true
 	}
@@ -729,12 +792,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBootdisk() bool
 }
 
 // SetBootdisk gets a reference to the given string and assigns it to the Bootdisk field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetBootdisk(v string) {
+func (o *CreateVirtualMachineRequestContent) SetBootdisk(v string) {
 	o.Bootdisk = &v
 }
 
 // GetCdrom returns the Cdrom field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCdrom() string {
+func (o *CreateVirtualMachineRequestContent) GetCdrom() string {
 	if o == nil || isNil(o.Cdrom) {
 		var ret string
 		return ret
@@ -744,7 +807,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCdrom() string 
 
 // GetCdromOk returns a tuple with the Cdrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCdromOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCdromOk() (*string, bool) {
 	if o == nil || isNil(o.Cdrom) {
     return nil, false
 	}
@@ -752,7 +815,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCdromOk() (*str
 }
 
 // HasCdrom returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCdrom() bool {
+func (o *CreateVirtualMachineRequestContent) HasCdrom() bool {
 	if o != nil && !isNil(o.Cdrom) {
 		return true
 	}
@@ -761,12 +824,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCdrom() bool {
 }
 
 // SetCdrom gets a reference to the given string and assigns it to the Cdrom field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCdrom(v string) {
+func (o *CreateVirtualMachineRequestContent) SetCdrom(v string) {
 	o.Cdrom = &v
 }
 
 // GetCicustom returns the Cicustom field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCicustom() string {
+func (o *CreateVirtualMachineRequestContent) GetCicustom() string {
 	if o == nil || isNil(o.Cicustom) {
 		var ret string
 		return ret
@@ -776,7 +839,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCicustom() stri
 
 // GetCicustomOk returns a tuple with the Cicustom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCicustomOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCicustomOk() (*string, bool) {
 	if o == nil || isNil(o.Cicustom) {
     return nil, false
 	}
@@ -784,7 +847,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCicustomOk() (*
 }
 
 // HasCicustom returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCicustom() bool {
+func (o *CreateVirtualMachineRequestContent) HasCicustom() bool {
 	if o != nil && !isNil(o.Cicustom) {
 		return true
 	}
@@ -793,12 +856,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCicustom() bool
 }
 
 // SetCicustom gets a reference to the given string and assigns it to the Cicustom field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCicustom(v string) {
+func (o *CreateVirtualMachineRequestContent) SetCicustom(v string) {
 	o.Cicustom = &v
 }
 
 // GetCipassword returns the Cipassword field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCipassword() string {
+func (o *CreateVirtualMachineRequestContent) GetCipassword() string {
 	if o == nil || isNil(o.Cipassword) {
 		var ret string
 		return ret
@@ -808,7 +871,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCipassword() st
 
 // GetCipasswordOk returns a tuple with the Cipassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCipasswordOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCipasswordOk() (*string, bool) {
 	if o == nil || isNil(o.Cipassword) {
     return nil, false
 	}
@@ -816,7 +879,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCipasswordOk() 
 }
 
 // HasCipassword returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCipassword() bool {
+func (o *CreateVirtualMachineRequestContent) HasCipassword() bool {
 	if o != nil && !isNil(o.Cipassword) {
 		return true
 	}
@@ -825,12 +888,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCipassword() bo
 }
 
 // SetCipassword gets a reference to the given string and assigns it to the Cipassword field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCipassword(v string) {
+func (o *CreateVirtualMachineRequestContent) SetCipassword(v string) {
 	o.Cipassword = &v
 }
 
 // GetCitype returns the Citype field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCitype() VirtualMachineCloudInitType {
+func (o *CreateVirtualMachineRequestContent) GetCitype() VirtualMachineCloudInitType {
 	if o == nil || isNil(o.Citype) {
 		var ret VirtualMachineCloudInitType
 		return ret
@@ -840,7 +903,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCitype() Virtua
 
 // GetCitypeOk returns a tuple with the Citype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCitypeOk() (*VirtualMachineCloudInitType, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCitypeOk() (*VirtualMachineCloudInitType, bool) {
 	if o == nil || isNil(o.Citype) {
     return nil, false
 	}
@@ -848,7 +911,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCitypeOk() (*Vi
 }
 
 // HasCitype returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCitype() bool {
+func (o *CreateVirtualMachineRequestContent) HasCitype() bool {
 	if o != nil && !isNil(o.Citype) {
 		return true
 	}
@@ -857,12 +920,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCitype() bool {
 }
 
 // SetCitype gets a reference to the given VirtualMachineCloudInitType and assigns it to the Citype field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCitype(v VirtualMachineCloudInitType) {
+func (o *CreateVirtualMachineRequestContent) SetCitype(v VirtualMachineCloudInitType) {
 	o.Citype = &v
 }
 
 // GetCiuser returns the Ciuser field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCiuser() string {
+func (o *CreateVirtualMachineRequestContent) GetCiuser() string {
 	if o == nil || isNil(o.Ciuser) {
 		var ret string
 		return ret
@@ -872,7 +935,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCiuser() string
 
 // GetCiuserOk returns a tuple with the Ciuser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCiuserOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCiuserOk() (*string, bool) {
 	if o == nil || isNil(o.Ciuser) {
     return nil, false
 	}
@@ -880,7 +943,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCiuserOk() (*st
 }
 
 // HasCiuser returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCiuser() bool {
+func (o *CreateVirtualMachineRequestContent) HasCiuser() bool {
 	if o != nil && !isNil(o.Ciuser) {
 		return true
 	}
@@ -889,12 +952,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCiuser() bool {
 }
 
 // SetCiuser gets a reference to the given string and assigns it to the Ciuser field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCiuser(v string) {
+func (o *CreateVirtualMachineRequestContent) SetCiuser(v string) {
 	o.Ciuser = &v
 }
 
 // GetCores returns the Cores field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCores() float32 {
+func (o *CreateVirtualMachineRequestContent) GetCores() float32 {
 	if o == nil || isNil(o.Cores) {
 		var ret float32
 		return ret
@@ -904,7 +967,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCores() float32
 
 // GetCoresOk returns a tuple with the Cores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCoresOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCoresOk() (*float32, bool) {
 	if o == nil || isNil(o.Cores) {
     return nil, false
 	}
@@ -912,7 +975,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCoresOk() (*flo
 }
 
 // HasCores returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCores() bool {
+func (o *CreateVirtualMachineRequestContent) HasCores() bool {
 	if o != nil && !isNil(o.Cores) {
 		return true
 	}
@@ -921,12 +984,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCores() bool {
 }
 
 // SetCores gets a reference to the given float32 and assigns it to the Cores field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCores(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetCores(v float32) {
 	o.Cores = &v
 }
 
 // GetCpu returns the Cpu field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpu() string {
+func (o *CreateVirtualMachineRequestContent) GetCpu() string {
 	if o == nil || isNil(o.Cpu) {
 		var ret string
 		return ret
@@ -936,7 +999,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpu() string {
 
 // GetCpuOk returns a tuple with the Cpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpuOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCpuOk() (*string, bool) {
 	if o == nil || isNil(o.Cpu) {
     return nil, false
 	}
@@ -944,7 +1007,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpuOk() (*strin
 }
 
 // HasCpu returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCpu() bool {
+func (o *CreateVirtualMachineRequestContent) HasCpu() bool {
 	if o != nil && !isNil(o.Cpu) {
 		return true
 	}
@@ -953,12 +1016,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCpu() bool {
 }
 
 // SetCpu gets a reference to the given string and assigns it to the Cpu field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCpu(v string) {
+func (o *CreateVirtualMachineRequestContent) SetCpu(v string) {
 	o.Cpu = &v
 }
 
 // GetCpulimit returns the Cpulimit field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpulimit() float32 {
+func (o *CreateVirtualMachineRequestContent) GetCpulimit() float32 {
 	if o == nil || isNil(o.Cpulimit) {
 		var ret float32
 		return ret
@@ -968,7 +1031,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpulimit() floa
 
 // GetCpulimitOk returns a tuple with the Cpulimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpulimitOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCpulimitOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpulimit) {
     return nil, false
 	}
@@ -976,7 +1039,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpulimitOk() (*
 }
 
 // HasCpulimit returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCpulimit() bool {
+func (o *CreateVirtualMachineRequestContent) HasCpulimit() bool {
 	if o != nil && !isNil(o.Cpulimit) {
 		return true
 	}
@@ -985,12 +1048,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCpulimit() bool
 }
 
 // SetCpulimit gets a reference to the given float32 and assigns it to the Cpulimit field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCpulimit(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetCpulimit(v float32) {
 	o.Cpulimit = &v
 }
 
 // GetCpuunits returns the Cpuunits field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpuunits() float32 {
+func (o *CreateVirtualMachineRequestContent) GetCpuunits() float32 {
 	if o == nil || isNil(o.Cpuunits) {
 		var ret float32
 		return ret
@@ -1000,7 +1063,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpuunits() floa
 
 // GetCpuunitsOk returns a tuple with the Cpuunits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpuunitsOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetCpuunitsOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpuunits) {
     return nil, false
 	}
@@ -1008,7 +1071,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpuunitsOk() (*
 }
 
 // HasCpuunits returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCpuunits() bool {
+func (o *CreateVirtualMachineRequestContent) HasCpuunits() bool {
 	if o != nil && !isNil(o.Cpuunits) {
 		return true
 	}
@@ -1017,12 +1080,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasCpuunits() bool
 }
 
 // SetCpuunits gets a reference to the given float32 and assigns it to the Cpuunits field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetCpuunits(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetCpuunits(v float32) {
 	o.Cpuunits = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDescription() string {
+func (o *CreateVirtualMachineRequestContent) GetDescription() string {
 	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
@@ -1032,7 +1095,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDescription() s
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDescriptionOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetDescriptionOk() (*string, bool) {
 	if o == nil || isNil(o.Description) {
     return nil, false
 	}
@@ -1040,7 +1103,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDescriptionOk()
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDescription() bool {
+func (o *CreateVirtualMachineRequestContent) HasDescription() bool {
 	if o != nil && !isNil(o.Description) {
 		return true
 	}
@@ -1049,12 +1112,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDescription() b
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetDescription(v string) {
+func (o *CreateVirtualMachineRequestContent) SetDescription(v string) {
 	o.Description = &v
 }
 
 // GetDigest returns the Digest field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDigest() string {
+func (o *CreateVirtualMachineRequestContent) GetDigest() string {
 	if o == nil || isNil(o.Digest) {
 		var ret string
 		return ret
@@ -1064,7 +1127,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDigest() string
 
 // GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDigestOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetDigestOk() (*string, bool) {
 	if o == nil || isNil(o.Digest) {
     return nil, false
 	}
@@ -1072,7 +1135,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDigestOk() (*st
 }
 
 // HasDigest returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDigest() bool {
+func (o *CreateVirtualMachineRequestContent) HasDigest() bool {
 	if o != nil && !isNil(o.Digest) {
 		return true
 	}
@@ -1081,44 +1144,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDigest() bool {
 }
 
 // SetDigest gets a reference to the given string and assigns it to the Digest field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetDigest(v string) {
+func (o *CreateVirtualMachineRequestContent) SetDigest(v string) {
 	o.Digest = &v
 }
 
-// GetDelete returns the Delete field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDelete() string {
-	if o == nil || isNil(o.Delete) {
-		var ret string
-		return ret
-	}
-	return *o.Delete
-}
-
-// GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDeleteOk() (*string, bool) {
-	if o == nil || isNil(o.Delete) {
-    return nil, false
-	}
-	return o.Delete, true
-}
-
-// HasDelete returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDelete() bool {
-	if o != nil && !isNil(o.Delete) {
-		return true
-	}
-
-	return false
-}
-
-// SetDelete gets a reference to the given string and assigns it to the Delete field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetDelete(v string) {
-	o.Delete = &v
-}
-
 // GetEfidisk0 returns the Efidisk0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetEfidisk0() string {
+func (o *CreateVirtualMachineRequestContent) GetEfidisk0() string {
 	if o == nil || isNil(o.Efidisk0) {
 		var ret string
 		return ret
@@ -1128,7 +1159,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetEfidisk0() stri
 
 // GetEfidisk0Ok returns a tuple with the Efidisk0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetEfidisk0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetEfidisk0Ok() (*string, bool) {
 	if o == nil || isNil(o.Efidisk0) {
     return nil, false
 	}
@@ -1136,7 +1167,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetEfidisk0Ok() (*
 }
 
 // HasEfidisk0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasEfidisk0() bool {
+func (o *CreateVirtualMachineRequestContent) HasEfidisk0() bool {
 	if o != nil && !isNil(o.Efidisk0) {
 		return true
 	}
@@ -1145,12 +1176,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasEfidisk0() bool
 }
 
 // SetEfidisk0 gets a reference to the given string and assigns it to the Efidisk0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetEfidisk0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetEfidisk0(v string) {
 	o.Efidisk0 = &v
 }
 
 // GetFreeze returns the Freeze field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetFreeze() bool {
+func (o *CreateVirtualMachineRequestContent) GetFreeze() bool {
 	if o == nil || isNil(o.Freeze) {
 		var ret bool
 		return ret
@@ -1160,7 +1191,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetFreeze() bool {
 
 // GetFreezeOk returns a tuple with the Freeze field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetFreezeOk() (*bool, bool) {
+func (o *CreateVirtualMachineRequestContent) GetFreezeOk() (*bool, bool) {
 	if o == nil || isNil(o.Freeze) {
     return nil, false
 	}
@@ -1168,7 +1199,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetFreezeOk() (*bo
 }
 
 // HasFreeze returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasFreeze() bool {
+func (o *CreateVirtualMachineRequestContent) HasFreeze() bool {
 	if o != nil && !isNil(o.Freeze) {
 		return true
 	}
@@ -1177,12 +1208,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasFreeze() bool {
 }
 
 // SetFreeze gets a reference to the given bool and assigns it to the Freeze field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetFreeze(v bool) {
+func (o *CreateVirtualMachineRequestContent) SetFreeze(v bool) {
 	o.Freeze = &v
 }
 
 // GetHookscript returns the Hookscript field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHookscript() string {
+func (o *CreateVirtualMachineRequestContent) GetHookscript() string {
 	if o == nil || isNil(o.Hookscript) {
 		var ret string
 		return ret
@@ -1192,7 +1223,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHookscript() st
 
 // GetHookscriptOk returns a tuple with the Hookscript field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHookscriptOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHookscriptOk() (*string, bool) {
 	if o == nil || isNil(o.Hookscript) {
     return nil, false
 	}
@@ -1200,7 +1231,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHookscriptOk() 
 }
 
 // HasHookscript returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHookscript() bool {
+func (o *CreateVirtualMachineRequestContent) HasHookscript() bool {
 	if o != nil && !isNil(o.Hookscript) {
 		return true
 	}
@@ -1209,12 +1240,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHookscript() bo
 }
 
 // SetHookscript gets a reference to the given string and assigns it to the Hookscript field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHookscript(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHookscript(v string) {
 	o.Hookscript = &v
 }
 
 // GetHostpci0 returns the Hostpci0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci0() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci0() string {
 	if o == nil || isNil(o.Hostpci0) {
 		var ret string
 		return ret
@@ -1224,7 +1255,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci0() stri
 
 // GetHostpci0Ok returns a tuple with the Hostpci0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci0Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci0) {
     return nil, false
 	}
@@ -1232,7 +1263,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci0Ok() (*
 }
 
 // HasHostpci0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci0() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci0() bool {
 	if o != nil && !isNil(o.Hostpci0) {
 		return true
 	}
@@ -1241,12 +1272,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci0() bool
 }
 
 // SetHostpci0 gets a reference to the given string and assigns it to the Hostpci0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci0(v string) {
 	o.Hostpci0 = &v
 }
 
 // GetHostpci1 returns the Hostpci1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci1() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci1() string {
 	if o == nil || isNil(o.Hostpci1) {
 		var ret string
 		return ret
@@ -1256,7 +1287,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci1() stri
 
 // GetHostpci1Ok returns a tuple with the Hostpci1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci1Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci1) {
     return nil, false
 	}
@@ -1264,7 +1295,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci1Ok() (*
 }
 
 // HasHostpci1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci1() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci1() bool {
 	if o != nil && !isNil(o.Hostpci1) {
 		return true
 	}
@@ -1273,12 +1304,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci1() bool
 }
 
 // SetHostpci1 gets a reference to the given string and assigns it to the Hostpci1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci1(v string) {
 	o.Hostpci1 = &v
 }
 
 // GetHostpci2 returns the Hostpci2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci2() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci2() string {
 	if o == nil || isNil(o.Hostpci2) {
 		var ret string
 		return ret
@@ -1288,7 +1319,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci2() stri
 
 // GetHostpci2Ok returns a tuple with the Hostpci2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci2Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci2) {
     return nil, false
 	}
@@ -1296,7 +1327,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci2Ok() (*
 }
 
 // HasHostpci2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci2() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci2() bool {
 	if o != nil && !isNil(o.Hostpci2) {
 		return true
 	}
@@ -1305,12 +1336,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci2() bool
 }
 
 // SetHostpci2 gets a reference to the given string and assigns it to the Hostpci2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci2(v string) {
 	o.Hostpci2 = &v
 }
 
 // GetHostpci3 returns the Hostpci3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci3() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci3() string {
 	if o == nil || isNil(o.Hostpci3) {
 		var ret string
 		return ret
@@ -1320,7 +1351,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci3() stri
 
 // GetHostpci3Ok returns a tuple with the Hostpci3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci3Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci3) {
     return nil, false
 	}
@@ -1328,7 +1359,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci3Ok() (*
 }
 
 // HasHostpci3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci3() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci3() bool {
 	if o != nil && !isNil(o.Hostpci3) {
 		return true
 	}
@@ -1337,12 +1368,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci3() bool
 }
 
 // SetHostpci3 gets a reference to the given string and assigns it to the Hostpci3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci3(v string) {
 	o.Hostpci3 = &v
 }
 
 // GetHostpci4 returns the Hostpci4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci4() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci4() string {
 	if o == nil || isNil(o.Hostpci4) {
 		var ret string
 		return ret
@@ -1352,7 +1383,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci4() stri
 
 // GetHostpci4Ok returns a tuple with the Hostpci4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci4Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci4) {
     return nil, false
 	}
@@ -1360,7 +1391,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci4Ok() (*
 }
 
 // HasHostpci4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci4() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci4() bool {
 	if o != nil && !isNil(o.Hostpci4) {
 		return true
 	}
@@ -1369,12 +1400,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci4() bool
 }
 
 // SetHostpci4 gets a reference to the given string and assigns it to the Hostpci4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci4(v string) {
 	o.Hostpci4 = &v
 }
 
 // GetHostpci5 returns the Hostpci5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci5() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci5() string {
 	if o == nil || isNil(o.Hostpci5) {
 		var ret string
 		return ret
@@ -1384,7 +1415,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci5() stri
 
 // GetHostpci5Ok returns a tuple with the Hostpci5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci5Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci5) {
     return nil, false
 	}
@@ -1392,7 +1423,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci5Ok() (*
 }
 
 // HasHostpci5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci5() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci5() bool {
 	if o != nil && !isNil(o.Hostpci5) {
 		return true
 	}
@@ -1401,12 +1432,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci5() bool
 }
 
 // SetHostpci5 gets a reference to the given string and assigns it to the Hostpci5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci5(v string) {
 	o.Hostpci5 = &v
 }
 
 // GetHostpci6 returns the Hostpci6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci6() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci6() string {
 	if o == nil || isNil(o.Hostpci6) {
 		var ret string
 		return ret
@@ -1416,7 +1447,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci6() stri
 
 // GetHostpci6Ok returns a tuple with the Hostpci6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci6Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci6) {
     return nil, false
 	}
@@ -1424,7 +1455,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci6Ok() (*
 }
 
 // HasHostpci6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci6() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci6() bool {
 	if o != nil && !isNil(o.Hostpci6) {
 		return true
 	}
@@ -1433,12 +1464,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci6() bool
 }
 
 // SetHostpci6 gets a reference to the given string and assigns it to the Hostpci6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci6(v string) {
 	o.Hostpci6 = &v
 }
 
 // GetHostpci7 returns the Hostpci7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci7() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci7() string {
 	if o == nil || isNil(o.Hostpci7) {
 		var ret string
 		return ret
@@ -1448,7 +1479,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci7() stri
 
 // GetHostpci7Ok returns a tuple with the Hostpci7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci7Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci7) {
     return nil, false
 	}
@@ -1456,7 +1487,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci7Ok() (*
 }
 
 // HasHostpci7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci7() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci7() bool {
 	if o != nil && !isNil(o.Hostpci7) {
 		return true
 	}
@@ -1465,12 +1496,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci7() bool
 }
 
 // SetHostpci7 gets a reference to the given string and assigns it to the Hostpci7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci7(v string) {
 	o.Hostpci7 = &v
 }
 
 // GetHostpci8 returns the Hostpci8 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci8() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci8() string {
 	if o == nil || isNil(o.Hostpci8) {
 		var ret string
 		return ret
@@ -1480,7 +1511,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci8() stri
 
 // GetHostpci8Ok returns a tuple with the Hostpci8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci8Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci8Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci8) {
     return nil, false
 	}
@@ -1488,7 +1519,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci8Ok() (*
 }
 
 // HasHostpci8 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci8() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci8() bool {
 	if o != nil && !isNil(o.Hostpci8) {
 		return true
 	}
@@ -1497,12 +1528,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci8() bool
 }
 
 // SetHostpci8 gets a reference to the given string and assigns it to the Hostpci8 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci8(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci8(v string) {
 	o.Hostpci8 = &v
 }
 
 // GetHostpci9 returns the Hostpci9 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci9() string {
+func (o *CreateVirtualMachineRequestContent) GetHostpci9() string {
 	if o == nil || isNil(o.Hostpci9) {
 		var ret string
 		return ret
@@ -1512,7 +1543,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci9() stri
 
 // GetHostpci9Ok returns a tuple with the Hostpci9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci9Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHostpci9Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci9) {
     return nil, false
 	}
@@ -1520,7 +1551,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHostpci9Ok() (*
 }
 
 // HasHostpci9 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci9() bool {
+func (o *CreateVirtualMachineRequestContent) HasHostpci9() bool {
 	if o != nil && !isNil(o.Hostpci9) {
 		return true
 	}
@@ -1529,12 +1560,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHostpci9() bool
 }
 
 // SetHostpci9 gets a reference to the given string and assigns it to the Hostpci9 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHostpci9(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHostpci9(v string) {
 	o.Hostpci9 = &v
 }
 
 // GetHugepages returns the Hugepages field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHugepages() VirtualMachineHugePages {
+func (o *CreateVirtualMachineRequestContent) GetHugepages() VirtualMachineHugePages {
 	if o == nil || isNil(o.Hugepages) {
 		var ret VirtualMachineHugePages
 		return ret
@@ -1544,7 +1575,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHugepages() Vir
 
 // GetHugepagesOk returns a tuple with the Hugepages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHugepagesOk() (*VirtualMachineHugePages, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHugepagesOk() (*VirtualMachineHugePages, bool) {
 	if o == nil || isNil(o.Hugepages) {
     return nil, false
 	}
@@ -1552,7 +1583,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHugepagesOk() (
 }
 
 // HasHugepages returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHugepages() bool {
+func (o *CreateVirtualMachineRequestContent) HasHugepages() bool {
 	if o != nil && !isNil(o.Hugepages) {
 		return true
 	}
@@ -1561,12 +1592,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHugepages() boo
 }
 
 // SetHugepages gets a reference to the given VirtualMachineHugePages and assigns it to the Hugepages field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHugepages(v VirtualMachineHugePages) {
+func (o *CreateVirtualMachineRequestContent) SetHugepages(v VirtualMachineHugePages) {
 	o.Hugepages = &v
 }
 
 // GetIde0 returns the Ide0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde0() string {
+func (o *CreateVirtualMachineRequestContent) GetIde0() string {
 	if o == nil || isNil(o.Ide0) {
 		var ret string
 		return ret
@@ -1576,7 +1607,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde0() string {
 
 // GetIde0Ok returns a tuple with the Ide0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIde0Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide0) {
     return nil, false
 	}
@@ -1584,7 +1615,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde0Ok() (*stri
 }
 
 // HasIde0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde0() bool {
+func (o *CreateVirtualMachineRequestContent) HasIde0() bool {
 	if o != nil && !isNil(o.Ide0) {
 		return true
 	}
@@ -1593,12 +1624,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde0() bool {
 }
 
 // SetIde0 gets a reference to the given string and assigns it to the Ide0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIde0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIde0(v string) {
 	o.Ide0 = &v
 }
 
 // GetIde1 returns the Ide1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde1() string {
+func (o *CreateVirtualMachineRequestContent) GetIde1() string {
 	if o == nil || isNil(o.Ide1) {
 		var ret string
 		return ret
@@ -1608,7 +1639,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde1() string {
 
 // GetIde1Ok returns a tuple with the Ide1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIde1Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide1) {
     return nil, false
 	}
@@ -1616,7 +1647,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde1Ok() (*stri
 }
 
 // HasIde1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde1() bool {
+func (o *CreateVirtualMachineRequestContent) HasIde1() bool {
 	if o != nil && !isNil(o.Ide1) {
 		return true
 	}
@@ -1625,12 +1656,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde1() bool {
 }
 
 // SetIde1 gets a reference to the given string and assigns it to the Ide1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIde1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIde1(v string) {
 	o.Ide1 = &v
 }
 
 // GetIde2 returns the Ide2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde2() string {
+func (o *CreateVirtualMachineRequestContent) GetIde2() string {
 	if o == nil || isNil(o.Ide2) {
 		var ret string
 		return ret
@@ -1640,7 +1671,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde2() string {
 
 // GetIde2Ok returns a tuple with the Ide2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIde2Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide2) {
     return nil, false
 	}
@@ -1648,7 +1679,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde2Ok() (*stri
 }
 
 // HasIde2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde2() bool {
+func (o *CreateVirtualMachineRequestContent) HasIde2() bool {
 	if o != nil && !isNil(o.Ide2) {
 		return true
 	}
@@ -1657,12 +1688,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde2() bool {
 }
 
 // SetIde2 gets a reference to the given string and assigns it to the Ide2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIde2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIde2(v string) {
 	o.Ide2 = &v
 }
 
 // GetIde3 returns the Ide3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde3() string {
+func (o *CreateVirtualMachineRequestContent) GetIde3() string {
 	if o == nil || isNil(o.Ide3) {
 		var ret string
 		return ret
@@ -1672,7 +1703,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde3() string {
 
 // GetIde3Ok returns a tuple with the Ide3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIde3Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide3) {
     return nil, false
 	}
@@ -1680,7 +1711,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIde3Ok() (*stri
 }
 
 // HasIde3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde3() bool {
+func (o *CreateVirtualMachineRequestContent) HasIde3() bool {
 	if o != nil && !isNil(o.Ide3) {
 		return true
 	}
@@ -1689,12 +1720,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIde3() bool {
 }
 
 // SetIde3 gets a reference to the given string and assigns it to the Ide3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIde3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIde3(v string) {
 	o.Ide3 = &v
 }
 
 // GetIpconfig0 returns the Ipconfig0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig0() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig0() string {
 	if o == nil || isNil(o.Ipconfig0) {
 		var ret string
 		return ret
@@ -1704,7 +1735,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig0() str
 
 // GetIpconfig0Ok returns a tuple with the Ipconfig0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig0Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig0) {
     return nil, false
 	}
@@ -1712,7 +1743,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig0Ok() (
 }
 
 // HasIpconfig0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig0() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig0() bool {
 	if o != nil && !isNil(o.Ipconfig0) {
 		return true
 	}
@@ -1721,12 +1752,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig0() boo
 }
 
 // SetIpconfig0 gets a reference to the given string and assigns it to the Ipconfig0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig0(v string) {
 	o.Ipconfig0 = &v
 }
 
 // GetIpconfig1 returns the Ipconfig1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig1() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig1() string {
 	if o == nil || isNil(o.Ipconfig1) {
 		var ret string
 		return ret
@@ -1736,7 +1767,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig1() str
 
 // GetIpconfig1Ok returns a tuple with the Ipconfig1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig1Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig1) {
     return nil, false
 	}
@@ -1744,7 +1775,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig1Ok() (
 }
 
 // HasIpconfig1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig1() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig1() bool {
 	if o != nil && !isNil(o.Ipconfig1) {
 		return true
 	}
@@ -1753,12 +1784,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig1() boo
 }
 
 // SetIpconfig1 gets a reference to the given string and assigns it to the Ipconfig1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig1(v string) {
 	o.Ipconfig1 = &v
 }
 
 // GetIpconfig2 returns the Ipconfig2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig2() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig2() string {
 	if o == nil || isNil(o.Ipconfig2) {
 		var ret string
 		return ret
@@ -1768,7 +1799,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig2() str
 
 // GetIpconfig2Ok returns a tuple with the Ipconfig2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig2Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig2) {
     return nil, false
 	}
@@ -1776,7 +1807,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig2Ok() (
 }
 
 // HasIpconfig2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig2() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig2() bool {
 	if o != nil && !isNil(o.Ipconfig2) {
 		return true
 	}
@@ -1785,12 +1816,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig2() boo
 }
 
 // SetIpconfig2 gets a reference to the given string and assigns it to the Ipconfig2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig2(v string) {
 	o.Ipconfig2 = &v
 }
 
 // GetIpconfig3 returns the Ipconfig3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig3() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig3() string {
 	if o == nil || isNil(o.Ipconfig3) {
 		var ret string
 		return ret
@@ -1800,7 +1831,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig3() str
 
 // GetIpconfig3Ok returns a tuple with the Ipconfig3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig3Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig3) {
     return nil, false
 	}
@@ -1808,7 +1839,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig3Ok() (
 }
 
 // HasIpconfig3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig3() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig3() bool {
 	if o != nil && !isNil(o.Ipconfig3) {
 		return true
 	}
@@ -1817,12 +1848,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig3() boo
 }
 
 // SetIpconfig3 gets a reference to the given string and assigns it to the Ipconfig3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig3(v string) {
 	o.Ipconfig3 = &v
 }
 
 // GetIpconfig4 returns the Ipconfig4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig4() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig4() string {
 	if o == nil || isNil(o.Ipconfig4) {
 		var ret string
 		return ret
@@ -1832,7 +1863,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig4() str
 
 // GetIpconfig4Ok returns a tuple with the Ipconfig4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig4Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig4) {
     return nil, false
 	}
@@ -1840,7 +1871,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig4Ok() (
 }
 
 // HasIpconfig4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig4() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig4() bool {
 	if o != nil && !isNil(o.Ipconfig4) {
 		return true
 	}
@@ -1849,12 +1880,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig4() boo
 }
 
 // SetIpconfig4 gets a reference to the given string and assigns it to the Ipconfig4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig4(v string) {
 	o.Ipconfig4 = &v
 }
 
 // GetIpconfig5 returns the Ipconfig5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig5() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig5() string {
 	if o == nil || isNil(o.Ipconfig5) {
 		var ret string
 		return ret
@@ -1864,7 +1895,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig5() str
 
 // GetIpconfig5Ok returns a tuple with the Ipconfig5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig5Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig5) {
     return nil, false
 	}
@@ -1872,7 +1903,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig5Ok() (
 }
 
 // HasIpconfig5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig5() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig5() bool {
 	if o != nil && !isNil(o.Ipconfig5) {
 		return true
 	}
@@ -1881,12 +1912,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig5() boo
 }
 
 // SetIpconfig5 gets a reference to the given string and assigns it to the Ipconfig5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig5(v string) {
 	o.Ipconfig5 = &v
 }
 
 // GetIpconfig6 returns the Ipconfig6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig6() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig6() string {
 	if o == nil || isNil(o.Ipconfig6) {
 		var ret string
 		return ret
@@ -1896,7 +1927,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig6() str
 
 // GetIpconfig6Ok returns a tuple with the Ipconfig6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig6Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig6) {
     return nil, false
 	}
@@ -1904,7 +1935,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig6Ok() (
 }
 
 // HasIpconfig6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig6() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig6() bool {
 	if o != nil && !isNil(o.Ipconfig6) {
 		return true
 	}
@@ -1913,12 +1944,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig6() boo
 }
 
 // SetIpconfig6 gets a reference to the given string and assigns it to the Ipconfig6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig6(v string) {
 	o.Ipconfig6 = &v
 }
 
 // GetIpconfig7 returns the Ipconfig7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig7() string {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig7() string {
 	if o == nil || isNil(o.Ipconfig7) {
 		var ret string
 		return ret
@@ -1928,7 +1959,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig7() str
 
 // GetIpconfig7Ok returns a tuple with the Ipconfig7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIpconfig7Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig7) {
     return nil, false
 	}
@@ -1936,7 +1967,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIpconfig7Ok() (
 }
 
 // HasIpconfig7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig7() bool {
+func (o *CreateVirtualMachineRequestContent) HasIpconfig7() bool {
 	if o != nil && !isNil(o.Ipconfig7) {
 		return true
 	}
@@ -1945,12 +1976,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIpconfig7() boo
 }
 
 // SetIpconfig7 gets a reference to the given string and assigns it to the Ipconfig7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIpconfig7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIpconfig7(v string) {
 	o.Ipconfig7 = &v
 }
 
 // GetIvshmem returns the Ivshmem field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIvshmem() string {
+func (o *CreateVirtualMachineRequestContent) GetIvshmem() string {
 	if o == nil || isNil(o.Ivshmem) {
 		var ret string
 		return ret
@@ -1960,7 +1991,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIvshmem() strin
 
 // GetIvshmemOk returns a tuple with the Ivshmem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIvshmemOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetIvshmemOk() (*string, bool) {
 	if o == nil || isNil(o.Ivshmem) {
     return nil, false
 	}
@@ -1968,7 +1999,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetIvshmemOk() (*s
 }
 
 // HasIvshmem returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIvshmem() bool {
+func (o *CreateVirtualMachineRequestContent) HasIvshmem() bool {
 	if o != nil && !isNil(o.Ivshmem) {
 		return true
 	}
@@ -1977,12 +2008,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasIvshmem() bool 
 }
 
 // SetIvshmem gets a reference to the given string and assigns it to the Ivshmem field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetIvshmem(v string) {
+func (o *CreateVirtualMachineRequestContent) SetIvshmem(v string) {
 	o.Ivshmem = &v
 }
 
 // GetKeephugepages returns the Keephugepages field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeephugepages() float32 {
+func (o *CreateVirtualMachineRequestContent) GetKeephugepages() float32 {
 	if o == nil || isNil(o.Keephugepages) {
 		var ret float32
 		return ret
@@ -1992,7 +2023,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeephugepages()
 
 // GetKeephugepagesOk returns a tuple with the Keephugepages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeephugepagesOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetKeephugepagesOk() (*float32, bool) {
 	if o == nil || isNil(o.Keephugepages) {
     return nil, false
 	}
@@ -2000,7 +2031,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeephugepagesOk
 }
 
 // HasKeephugepages returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasKeephugepages() bool {
+func (o *CreateVirtualMachineRequestContent) HasKeephugepages() bool {
 	if o != nil && !isNil(o.Keephugepages) {
 		return true
 	}
@@ -2009,12 +2040,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasKeephugepages()
 }
 
 // SetKeephugepages gets a reference to the given float32 and assigns it to the Keephugepages field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetKeephugepages(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetKeephugepages(v float32) {
 	o.Keephugepages = &v
 }
 
 // GetKeyboard returns the Keyboard field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeyboard() VirtualMachineKeyboard {
+func (o *CreateVirtualMachineRequestContent) GetKeyboard() VirtualMachineKeyboard {
 	if o == nil || isNil(o.Keyboard) {
 		var ret VirtualMachineKeyboard
 		return ret
@@ -2024,7 +2055,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeyboard() Virt
 
 // GetKeyboardOk returns a tuple with the Keyboard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeyboardOk() (*VirtualMachineKeyboard, bool) {
+func (o *CreateVirtualMachineRequestContent) GetKeyboardOk() (*VirtualMachineKeyboard, bool) {
 	if o == nil || isNil(o.Keyboard) {
     return nil, false
 	}
@@ -2032,7 +2063,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKeyboardOk() (*
 }
 
 // HasKeyboard returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasKeyboard() bool {
+func (o *CreateVirtualMachineRequestContent) HasKeyboard() bool {
 	if o != nil && !isNil(o.Keyboard) {
 		return true
 	}
@@ -2041,12 +2072,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasKeyboard() bool
 }
 
 // SetKeyboard gets a reference to the given VirtualMachineKeyboard and assigns it to the Keyboard field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetKeyboard(v VirtualMachineKeyboard) {
+func (o *CreateVirtualMachineRequestContent) SetKeyboard(v VirtualMachineKeyboard) {
 	o.Keyboard = &v
 }
 
 // GetKvm returns the Kvm field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKvm() float32 {
+func (o *CreateVirtualMachineRequestContent) GetKvm() float32 {
 	if o == nil || isNil(o.Kvm) {
 		var ret float32
 		return ret
@@ -2056,7 +2087,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKvm() float32 {
 
 // GetKvmOk returns a tuple with the Kvm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKvmOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetKvmOk() (*float32, bool) {
 	if o == nil || isNil(o.Kvm) {
     return nil, false
 	}
@@ -2064,7 +2095,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetKvmOk() (*float
 }
 
 // HasKvm returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasKvm() bool {
+func (o *CreateVirtualMachineRequestContent) HasKvm() bool {
 	if o != nil && !isNil(o.Kvm) {
 		return true
 	}
@@ -2073,12 +2104,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasKvm() bool {
 }
 
 // SetKvm gets a reference to the given float32 and assigns it to the Kvm field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetKvm(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetKvm(v float32) {
 	o.Kvm = &v
 }
 
 // GetLocaltime returns the Localtime field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLocaltime() float32 {
+func (o *CreateVirtualMachineRequestContent) GetLocaltime() float32 {
 	if o == nil || isNil(o.Localtime) {
 		var ret float32
 		return ret
@@ -2088,7 +2119,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLocaltime() flo
 
 // GetLocaltimeOk returns a tuple with the Localtime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLocaltimeOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetLocaltimeOk() (*float32, bool) {
 	if o == nil || isNil(o.Localtime) {
     return nil, false
 	}
@@ -2096,7 +2127,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLocaltimeOk() (
 }
 
 // HasLocaltime returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasLocaltime() bool {
+func (o *CreateVirtualMachineRequestContent) HasLocaltime() bool {
 	if o != nil && !isNil(o.Localtime) {
 		return true
 	}
@@ -2105,12 +2136,44 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasLocaltime() boo
 }
 
 // SetLocaltime gets a reference to the given float32 and assigns it to the Localtime field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetLocaltime(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetLocaltime(v float32) {
 	o.Localtime = &v
 }
 
+// GetLiveRestore returns the LiveRestore field value if set, zero value otherwise.
+func (o *CreateVirtualMachineRequestContent) GetLiveRestore() float32 {
+	if o == nil || isNil(o.LiveRestore) {
+		var ret float32
+		return ret
+	}
+	return *o.LiveRestore
+}
+
+// GetLiveRestoreOk returns a tuple with the LiveRestore field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateVirtualMachineRequestContent) GetLiveRestoreOk() (*float32, bool) {
+	if o == nil || isNil(o.LiveRestore) {
+    return nil, false
+	}
+	return o.LiveRestore, true
+}
+
+// HasLiveRestore returns a boolean if a field has been set.
+func (o *CreateVirtualMachineRequestContent) HasLiveRestore() bool {
+	if o != nil && !isNil(o.LiveRestore) {
+		return true
+	}
+
+	return false
+}
+
+// SetLiveRestore gets a reference to the given float32 and assigns it to the LiveRestore field.
+func (o *CreateVirtualMachineRequestContent) SetLiveRestore(v float32) {
+	o.LiveRestore = &v
+}
+
 // GetLock returns the Lock field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLock() VirtualMachineConfigLock {
+func (o *CreateVirtualMachineRequestContent) GetLock() VirtualMachineConfigLock {
 	if o == nil || isNil(o.Lock) {
 		var ret VirtualMachineConfigLock
 		return ret
@@ -2120,7 +2183,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLock() VirtualM
 
 // GetLockOk returns a tuple with the Lock field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLockOk() (*VirtualMachineConfigLock, bool) {
+func (o *CreateVirtualMachineRequestContent) GetLockOk() (*VirtualMachineConfigLock, bool) {
 	if o == nil || isNil(o.Lock) {
     return nil, false
 	}
@@ -2128,7 +2191,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetLockOk() (*Virt
 }
 
 // HasLock returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasLock() bool {
+func (o *CreateVirtualMachineRequestContent) HasLock() bool {
 	if o != nil && !isNil(o.Lock) {
 		return true
 	}
@@ -2137,12 +2200,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasLock() bool {
 }
 
 // SetLock gets a reference to the given VirtualMachineConfigLock and assigns it to the Lock field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetLock(v VirtualMachineConfigLock) {
+func (o *CreateVirtualMachineRequestContent) SetLock(v VirtualMachineConfigLock) {
 	o.Lock = &v
 }
 
 // GetMachine returns the Machine field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMachine() string {
+func (o *CreateVirtualMachineRequestContent) GetMachine() string {
 	if o == nil || isNil(o.Machine) {
 		var ret string
 		return ret
@@ -2152,7 +2215,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMachine() strin
 
 // GetMachineOk returns a tuple with the Machine field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMachineOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetMachineOk() (*string, bool) {
 	if o == nil || isNil(o.Machine) {
     return nil, false
 	}
@@ -2160,7 +2223,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMachineOk() (*s
 }
 
 // HasMachine returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMachine() bool {
+func (o *CreateVirtualMachineRequestContent) HasMachine() bool {
 	if o != nil && !isNil(o.Machine) {
 		return true
 	}
@@ -2169,12 +2232,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMachine() bool 
 }
 
 // SetMachine gets a reference to the given string and assigns it to the Machine field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetMachine(v string) {
+func (o *CreateVirtualMachineRequestContent) SetMachine(v string) {
 	o.Machine = &v
 }
 
 // GetMemory returns the Memory field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMemory() float32 {
+func (o *CreateVirtualMachineRequestContent) GetMemory() float32 {
 	if o == nil || isNil(o.Memory) {
 		var ret float32
 		return ret
@@ -2184,7 +2247,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMemory() float3
 
 // GetMemoryOk returns a tuple with the Memory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMemoryOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetMemoryOk() (*float32, bool) {
 	if o == nil || isNil(o.Memory) {
     return nil, false
 	}
@@ -2192,7 +2255,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMemoryOk() (*fl
 }
 
 // HasMemory returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMemory() bool {
+func (o *CreateVirtualMachineRequestContent) HasMemory() bool {
 	if o != nil && !isNil(o.Memory) {
 		return true
 	}
@@ -2201,12 +2264,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMemory() bool {
 }
 
 // SetMemory gets a reference to the given float32 and assigns it to the Memory field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetMemory(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetMemory(v float32) {
 	o.Memory = &v
 }
 
 // GetMigrateDowntime returns the MigrateDowntime field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateDowntime() float32 {
+func (o *CreateVirtualMachineRequestContent) GetMigrateDowntime() float32 {
 	if o == nil || isNil(o.MigrateDowntime) {
 		var ret float32
 		return ret
@@ -2216,7 +2279,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateDowntime
 
 // GetMigrateDowntimeOk returns a tuple with the MigrateDowntime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateDowntimeOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetMigrateDowntimeOk() (*float32, bool) {
 	if o == nil || isNil(o.MigrateDowntime) {
     return nil, false
 	}
@@ -2224,7 +2287,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateDowntime
 }
 
 // HasMigrateDowntime returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMigrateDowntime() bool {
+func (o *CreateVirtualMachineRequestContent) HasMigrateDowntime() bool {
 	if o != nil && !isNil(o.MigrateDowntime) {
 		return true
 	}
@@ -2233,12 +2296,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMigrateDowntime
 }
 
 // SetMigrateDowntime gets a reference to the given float32 and assigns it to the MigrateDowntime field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetMigrateDowntime(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetMigrateDowntime(v float32) {
 	o.MigrateDowntime = &v
 }
 
 // GetMigrateSpeed returns the MigrateSpeed field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateSpeed() float32 {
+func (o *CreateVirtualMachineRequestContent) GetMigrateSpeed() float32 {
 	if o == nil || isNil(o.MigrateSpeed) {
 		var ret float32
 		return ret
@@ -2248,7 +2311,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateSpeed() 
 
 // GetMigrateSpeedOk returns a tuple with the MigrateSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateSpeedOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetMigrateSpeedOk() (*float32, bool) {
 	if o == nil || isNil(o.MigrateSpeed) {
     return nil, false
 	}
@@ -2256,7 +2319,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMigrateSpeedOk(
 }
 
 // HasMigrateSpeed returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMigrateSpeed() bool {
+func (o *CreateVirtualMachineRequestContent) HasMigrateSpeed() bool {
 	if o != nil && !isNil(o.MigrateSpeed) {
 		return true
 	}
@@ -2265,12 +2328,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMigrateSpeed() 
 }
 
 // SetMigrateSpeed gets a reference to the given float32 and assigns it to the MigrateSpeed field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetMigrateSpeed(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetMigrateSpeed(v float32) {
 	o.MigrateSpeed = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetName() string {
+func (o *CreateVirtualMachineRequestContent) GetName() string {
 	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
@@ -2280,7 +2343,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNameOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
     return nil, false
 	}
@@ -2288,7 +2351,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNameOk() (*stri
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasName() bool {
+func (o *CreateVirtualMachineRequestContent) HasName() bool {
 	if o != nil && !isNil(o.Name) {
 		return true
 	}
@@ -2297,12 +2360,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetName(v string) {
+func (o *CreateVirtualMachineRequestContent) SetName(v string) {
 	o.Name = &v
 }
 
 // GetNameserver returns the Nameserver field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNameserver() string {
+func (o *CreateVirtualMachineRequestContent) GetNameserver() string {
 	if o == nil || isNil(o.Nameserver) {
 		var ret string
 		return ret
@@ -2312,7 +2375,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNameserver() st
 
 // GetNameserverOk returns a tuple with the Nameserver field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNameserverOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNameserverOk() (*string, bool) {
 	if o == nil || isNil(o.Nameserver) {
     return nil, false
 	}
@@ -2320,7 +2383,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNameserverOk() 
 }
 
 // HasNameserver returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNameserver() bool {
+func (o *CreateVirtualMachineRequestContent) HasNameserver() bool {
 	if o != nil && !isNil(o.Nameserver) {
 		return true
 	}
@@ -2329,12 +2392,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNameserver() bo
 }
 
 // SetNameserver gets a reference to the given string and assigns it to the Nameserver field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNameserver(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNameserver(v string) {
 	o.Nameserver = &v
 }
 
 // GetNet0 returns the Net0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet0() string {
+func (o *CreateVirtualMachineRequestContent) GetNet0() string {
 	if o == nil || isNil(o.Net0) {
 		var ret string
 		return ret
@@ -2344,7 +2407,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet0() string {
 
 // GetNet0Ok returns a tuple with the Net0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet0Ok() (*string, bool) {
 	if o == nil || isNil(o.Net0) {
     return nil, false
 	}
@@ -2352,7 +2415,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet0Ok() (*stri
 }
 
 // HasNet0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet0() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet0() bool {
 	if o != nil && !isNil(o.Net0) {
 		return true
 	}
@@ -2361,12 +2424,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet0() bool {
 }
 
 // SetNet0 gets a reference to the given string and assigns it to the Net0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet0(v string) {
 	o.Net0 = &v
 }
 
 // GetNet1 returns the Net1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet1() string {
+func (o *CreateVirtualMachineRequestContent) GetNet1() string {
 	if o == nil || isNil(o.Net1) {
 		var ret string
 		return ret
@@ -2376,7 +2439,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet1() string {
 
 // GetNet1Ok returns a tuple with the Net1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet1Ok() (*string, bool) {
 	if o == nil || isNil(o.Net1) {
     return nil, false
 	}
@@ -2384,7 +2447,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet1Ok() (*stri
 }
 
 // HasNet1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet1() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet1() bool {
 	if o != nil && !isNil(o.Net1) {
 		return true
 	}
@@ -2393,12 +2456,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet1() bool {
 }
 
 // SetNet1 gets a reference to the given string and assigns it to the Net1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet1(v string) {
 	o.Net1 = &v
 }
 
 // GetNet2 returns the Net2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet2() string {
+func (o *CreateVirtualMachineRequestContent) GetNet2() string {
 	if o == nil || isNil(o.Net2) {
 		var ret string
 		return ret
@@ -2408,7 +2471,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet2() string {
 
 // GetNet2Ok returns a tuple with the Net2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet2Ok() (*string, bool) {
 	if o == nil || isNil(o.Net2) {
     return nil, false
 	}
@@ -2416,7 +2479,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet2Ok() (*stri
 }
 
 // HasNet2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet2() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet2() bool {
 	if o != nil && !isNil(o.Net2) {
 		return true
 	}
@@ -2425,12 +2488,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet2() bool {
 }
 
 // SetNet2 gets a reference to the given string and assigns it to the Net2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet2(v string) {
 	o.Net2 = &v
 }
 
 // GetNet3 returns the Net3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet3() string {
+func (o *CreateVirtualMachineRequestContent) GetNet3() string {
 	if o == nil || isNil(o.Net3) {
 		var ret string
 		return ret
@@ -2440,7 +2503,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet3() string {
 
 // GetNet3Ok returns a tuple with the Net3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet3Ok() (*string, bool) {
 	if o == nil || isNil(o.Net3) {
     return nil, false
 	}
@@ -2448,7 +2511,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet3Ok() (*stri
 }
 
 // HasNet3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet3() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet3() bool {
 	if o != nil && !isNil(o.Net3) {
 		return true
 	}
@@ -2457,12 +2520,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet3() bool {
 }
 
 // SetNet3 gets a reference to the given string and assigns it to the Net3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet3(v string) {
 	o.Net3 = &v
 }
 
 // GetNet4 returns the Net4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet4() string {
+func (o *CreateVirtualMachineRequestContent) GetNet4() string {
 	if o == nil || isNil(o.Net4) {
 		var ret string
 		return ret
@@ -2472,7 +2535,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet4() string {
 
 // GetNet4Ok returns a tuple with the Net4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet4Ok() (*string, bool) {
 	if o == nil || isNil(o.Net4) {
     return nil, false
 	}
@@ -2480,7 +2543,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet4Ok() (*stri
 }
 
 // HasNet4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet4() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet4() bool {
 	if o != nil && !isNil(o.Net4) {
 		return true
 	}
@@ -2489,12 +2552,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet4() bool {
 }
 
 // SetNet4 gets a reference to the given string and assigns it to the Net4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet4(v string) {
 	o.Net4 = &v
 }
 
 // GetNet5 returns the Net5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet5() string {
+func (o *CreateVirtualMachineRequestContent) GetNet5() string {
 	if o == nil || isNil(o.Net5) {
 		var ret string
 		return ret
@@ -2504,7 +2567,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet5() string {
 
 // GetNet5Ok returns a tuple with the Net5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet5Ok() (*string, bool) {
 	if o == nil || isNil(o.Net5) {
     return nil, false
 	}
@@ -2512,7 +2575,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet5Ok() (*stri
 }
 
 // HasNet5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet5() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet5() bool {
 	if o != nil && !isNil(o.Net5) {
 		return true
 	}
@@ -2521,12 +2584,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet5() bool {
 }
 
 // SetNet5 gets a reference to the given string and assigns it to the Net5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet5(v string) {
 	o.Net5 = &v
 }
 
 // GetNet6 returns the Net6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet6() string {
+func (o *CreateVirtualMachineRequestContent) GetNet6() string {
 	if o == nil || isNil(o.Net6) {
 		var ret string
 		return ret
@@ -2536,7 +2599,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet6() string {
 
 // GetNet6Ok returns a tuple with the Net6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet6Ok() (*string, bool) {
 	if o == nil || isNil(o.Net6) {
     return nil, false
 	}
@@ -2544,7 +2607,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet6Ok() (*stri
 }
 
 // HasNet6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet6() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet6() bool {
 	if o != nil && !isNil(o.Net6) {
 		return true
 	}
@@ -2553,12 +2616,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet6() bool {
 }
 
 // SetNet6 gets a reference to the given string and assigns it to the Net6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet6(v string) {
 	o.Net6 = &v
 }
 
 // GetNet7 returns the Net7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet7() string {
+func (o *CreateVirtualMachineRequestContent) GetNet7() string {
 	if o == nil || isNil(o.Net7) {
 		var ret string
 		return ret
@@ -2568,7 +2631,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet7() string {
 
 // GetNet7Ok returns a tuple with the Net7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNet7Ok() (*string, bool) {
 	if o == nil || isNil(o.Net7) {
     return nil, false
 	}
@@ -2576,7 +2639,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNet7Ok() (*stri
 }
 
 // HasNet7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet7() bool {
+func (o *CreateVirtualMachineRequestContent) HasNet7() bool {
 	if o != nil && !isNil(o.Net7) {
 		return true
 	}
@@ -2585,12 +2648,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNet7() bool {
 }
 
 // SetNet7 gets a reference to the given string and assigns it to the Net7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNet7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNet7(v string) {
 	o.Net7 = &v
 }
 
 // GetNuma returns the Numa field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma() float32 {
+func (o *CreateVirtualMachineRequestContent) GetNuma() float32 {
 	if o == nil || isNil(o.Numa) {
 		var ret float32
 		return ret
@@ -2600,7 +2663,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma() float32 
 
 // GetNumaOk returns a tuple with the Numa field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNumaOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNumaOk() (*float32, bool) {
 	if o == nil || isNil(o.Numa) {
     return nil, false
 	}
@@ -2608,7 +2671,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNumaOk() (*floa
 }
 
 // HasNuma returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma() bool {
 	if o != nil && !isNil(o.Numa) {
 		return true
 	}
@@ -2617,12 +2680,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma() bool {
 }
 
 // SetNuma gets a reference to the given float32 and assigns it to the Numa field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetNuma(v float32) {
 	o.Numa = &v
 }
 
 // GetNuma0 returns the Numa0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma0() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma0() string {
 	if o == nil || isNil(o.Numa0) {
 		var ret string
 		return ret
@@ -2632,7 +2695,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma0() string 
 
 // GetNuma0Ok returns a tuple with the Numa0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma0Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa0) {
     return nil, false
 	}
@@ -2640,7 +2703,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma0Ok() (*str
 }
 
 // HasNuma0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma0() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma0() bool {
 	if o != nil && !isNil(o.Numa0) {
 		return true
 	}
@@ -2649,12 +2712,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma0() bool {
 }
 
 // SetNuma0 gets a reference to the given string and assigns it to the Numa0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma0(v string) {
 	o.Numa0 = &v
 }
 
 // GetNuma1 returns the Numa1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma1() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma1() string {
 	if o == nil || isNil(o.Numa1) {
 		var ret string
 		return ret
@@ -2664,7 +2727,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma1() string 
 
 // GetNuma1Ok returns a tuple with the Numa1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma1Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa1) {
     return nil, false
 	}
@@ -2672,7 +2735,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma1Ok() (*str
 }
 
 // HasNuma1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma1() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma1() bool {
 	if o != nil && !isNil(o.Numa1) {
 		return true
 	}
@@ -2681,12 +2744,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma1() bool {
 }
 
 // SetNuma1 gets a reference to the given string and assigns it to the Numa1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma1(v string) {
 	o.Numa1 = &v
 }
 
 // GetNuma2 returns the Numa2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma2() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma2() string {
 	if o == nil || isNil(o.Numa2) {
 		var ret string
 		return ret
@@ -2696,7 +2759,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma2() string 
 
 // GetNuma2Ok returns a tuple with the Numa2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma2Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa2) {
     return nil, false
 	}
@@ -2704,7 +2767,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma2Ok() (*str
 }
 
 // HasNuma2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma2() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma2() bool {
 	if o != nil && !isNil(o.Numa2) {
 		return true
 	}
@@ -2713,12 +2776,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma2() bool {
 }
 
 // SetNuma2 gets a reference to the given string and assigns it to the Numa2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma2(v string) {
 	o.Numa2 = &v
 }
 
 // GetNuma3 returns the Numa3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma3() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma3() string {
 	if o == nil || isNil(o.Numa3) {
 		var ret string
 		return ret
@@ -2728,7 +2791,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma3() string 
 
 // GetNuma3Ok returns a tuple with the Numa3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma3Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa3) {
     return nil, false
 	}
@@ -2736,7 +2799,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma3Ok() (*str
 }
 
 // HasNuma3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma3() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma3() bool {
 	if o != nil && !isNil(o.Numa3) {
 		return true
 	}
@@ -2745,12 +2808,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma3() bool {
 }
 
 // SetNuma3 gets a reference to the given string and assigns it to the Numa3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma3(v string) {
 	o.Numa3 = &v
 }
 
 // GetNuma4 returns the Numa4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma4() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma4() string {
 	if o == nil || isNil(o.Numa4) {
 		var ret string
 		return ret
@@ -2760,7 +2823,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma4() string 
 
 // GetNuma4Ok returns a tuple with the Numa4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma4Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa4) {
     return nil, false
 	}
@@ -2768,7 +2831,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma4Ok() (*str
 }
 
 // HasNuma4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma4() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma4() bool {
 	if o != nil && !isNil(o.Numa4) {
 		return true
 	}
@@ -2777,12 +2840,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma4() bool {
 }
 
 // SetNuma4 gets a reference to the given string and assigns it to the Numa4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma4(v string) {
 	o.Numa4 = &v
 }
 
 // GetNuma5 returns the Numa5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma5() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma5() string {
 	if o == nil || isNil(o.Numa5) {
 		var ret string
 		return ret
@@ -2792,7 +2855,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma5() string 
 
 // GetNuma5Ok returns a tuple with the Numa5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma5Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa5) {
     return nil, false
 	}
@@ -2800,7 +2863,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma5Ok() (*str
 }
 
 // HasNuma5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma5() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma5() bool {
 	if o != nil && !isNil(o.Numa5) {
 		return true
 	}
@@ -2809,12 +2872,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma5() bool {
 }
 
 // SetNuma5 gets a reference to the given string and assigns it to the Numa5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma5(v string) {
 	o.Numa5 = &v
 }
 
 // GetNuma6 returns the Numa6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma6() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma6() string {
 	if o == nil || isNil(o.Numa6) {
 		var ret string
 		return ret
@@ -2824,7 +2887,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma6() string 
 
 // GetNuma6Ok returns a tuple with the Numa6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma6Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa6) {
     return nil, false
 	}
@@ -2832,7 +2895,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma6Ok() (*str
 }
 
 // HasNuma6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma6() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma6() bool {
 	if o != nil && !isNil(o.Numa6) {
 		return true
 	}
@@ -2841,12 +2904,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma6() bool {
 }
 
 // SetNuma6 gets a reference to the given string and assigns it to the Numa6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma6(v string) {
 	o.Numa6 = &v
 }
 
 // GetNuma7 returns the Numa7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma7() string {
+func (o *CreateVirtualMachineRequestContent) GetNuma7() string {
 	if o == nil || isNil(o.Numa7) {
 		var ret string
 		return ret
@@ -2856,7 +2919,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma7() string 
 
 // GetNuma7Ok returns a tuple with the Numa7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetNuma7Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa7) {
     return nil, false
 	}
@@ -2864,7 +2927,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetNuma7Ok() (*str
 }
 
 // HasNuma7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma7() bool {
+func (o *CreateVirtualMachineRequestContent) HasNuma7() bool {
 	if o != nil && !isNil(o.Numa7) {
 		return true
 	}
@@ -2873,12 +2936,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasNuma7() bool {
 }
 
 // SetNuma7 gets a reference to the given string and assigns it to the Numa7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetNuma7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetNuma7(v string) {
 	o.Numa7 = &v
 }
 
 // GetOnboot returns the Onboot field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOnboot() float32 {
+func (o *CreateVirtualMachineRequestContent) GetOnboot() float32 {
 	if o == nil || isNil(o.Onboot) {
 		var ret float32
 		return ret
@@ -2888,7 +2951,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOnboot() float3
 
 // GetOnbootOk returns a tuple with the Onboot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOnbootOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetOnbootOk() (*float32, bool) {
 	if o == nil || isNil(o.Onboot) {
     return nil, false
 	}
@@ -2896,7 +2959,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOnbootOk() (*fl
 }
 
 // HasOnboot returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasOnboot() bool {
+func (o *CreateVirtualMachineRequestContent) HasOnboot() bool {
 	if o != nil && !isNil(o.Onboot) {
 		return true
 	}
@@ -2905,12 +2968,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasOnboot() bool {
 }
 
 // SetOnboot gets a reference to the given float32 and assigns it to the Onboot field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetOnboot(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetOnboot(v float32) {
 	o.Onboot = &v
 }
 
 // GetOstype returns the Ostype field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOstype() VirtualMachineOperatingSystem {
+func (o *CreateVirtualMachineRequestContent) GetOstype() VirtualMachineOperatingSystem {
 	if o == nil || isNil(o.Ostype) {
 		var ret VirtualMachineOperatingSystem
 		return ret
@@ -2920,7 +2983,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOstype() Virtua
 
 // GetOstypeOk returns a tuple with the Ostype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOstypeOk() (*VirtualMachineOperatingSystem, bool) {
+func (o *CreateVirtualMachineRequestContent) GetOstypeOk() (*VirtualMachineOperatingSystem, bool) {
 	if o == nil || isNil(o.Ostype) {
     return nil, false
 	}
@@ -2928,7 +2991,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetOstypeOk() (*Vi
 }
 
 // HasOstype returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasOstype() bool {
+func (o *CreateVirtualMachineRequestContent) HasOstype() bool {
 	if o != nil && !isNil(o.Ostype) {
 		return true
 	}
@@ -2937,12 +3000,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasOstype() bool {
 }
 
 // SetOstype gets a reference to the given VirtualMachineOperatingSystem and assigns it to the Ostype field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetOstype(v VirtualMachineOperatingSystem) {
+func (o *CreateVirtualMachineRequestContent) SetOstype(v VirtualMachineOperatingSystem) {
 	o.Ostype = &v
 }
 
 // GetParallel0 returns the Parallel0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel0() string {
+func (o *CreateVirtualMachineRequestContent) GetParallel0() string {
 	if o == nil || isNil(o.Parallel0) {
 		var ret string
 		return ret
@@ -2952,7 +3015,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel0() str
 
 // GetParallel0Ok returns a tuple with the Parallel0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetParallel0Ok() (*string, bool) {
 	if o == nil || isNil(o.Parallel0) {
     return nil, false
 	}
@@ -2960,7 +3023,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel0Ok() (
 }
 
 // HasParallel0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasParallel0() bool {
+func (o *CreateVirtualMachineRequestContent) HasParallel0() bool {
 	if o != nil && !isNil(o.Parallel0) {
 		return true
 	}
@@ -2969,12 +3032,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasParallel0() boo
 }
 
 // SetParallel0 gets a reference to the given string and assigns it to the Parallel0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetParallel0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetParallel0(v string) {
 	o.Parallel0 = &v
 }
 
 // GetParallel1 returns the Parallel1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel1() string {
+func (o *CreateVirtualMachineRequestContent) GetParallel1() string {
 	if o == nil || isNil(o.Parallel1) {
 		var ret string
 		return ret
@@ -2984,7 +3047,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel1() str
 
 // GetParallel1Ok returns a tuple with the Parallel1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetParallel1Ok() (*string, bool) {
 	if o == nil || isNil(o.Parallel1) {
     return nil, false
 	}
@@ -2992,7 +3055,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel1Ok() (
 }
 
 // HasParallel1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasParallel1() bool {
+func (o *CreateVirtualMachineRequestContent) HasParallel1() bool {
 	if o != nil && !isNil(o.Parallel1) {
 		return true
 	}
@@ -3001,12 +3064,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasParallel1() boo
 }
 
 // SetParallel1 gets a reference to the given string and assigns it to the Parallel1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetParallel1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetParallel1(v string) {
 	o.Parallel1 = &v
 }
 
 // GetParallel2 returns the Parallel2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel2() string {
+func (o *CreateVirtualMachineRequestContent) GetParallel2() string {
 	if o == nil || isNil(o.Parallel2) {
 		var ret string
 		return ret
@@ -3016,7 +3079,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel2() str
 
 // GetParallel2Ok returns a tuple with the Parallel2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetParallel2Ok() (*string, bool) {
 	if o == nil || isNil(o.Parallel2) {
     return nil, false
 	}
@@ -3024,7 +3087,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetParallel2Ok() (
 }
 
 // HasParallel2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasParallel2() bool {
+func (o *CreateVirtualMachineRequestContent) HasParallel2() bool {
 	if o != nil && !isNil(o.Parallel2) {
 		return true
 	}
@@ -3033,12 +3096,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasParallel2() boo
 }
 
 // SetParallel2 gets a reference to the given string and assigns it to the Parallel2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetParallel2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetParallel2(v string) {
 	o.Parallel2 = &v
 }
 
 // GetProtection returns the Protection field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetProtection() float32 {
+func (o *CreateVirtualMachineRequestContent) GetProtection() float32 {
 	if o == nil || isNil(o.Protection) {
 		var ret float32
 		return ret
@@ -3048,7 +3111,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetProtection() fl
 
 // GetProtectionOk returns a tuple with the Protection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetProtectionOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetProtectionOk() (*float32, bool) {
 	if o == nil || isNil(o.Protection) {
     return nil, false
 	}
@@ -3056,7 +3119,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetProtectionOk() 
 }
 
 // HasProtection returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasProtection() bool {
+func (o *CreateVirtualMachineRequestContent) HasProtection() bool {
 	if o != nil && !isNil(o.Protection) {
 		return true
 	}
@@ -3065,12 +3128,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasProtection() bo
 }
 
 // SetProtection gets a reference to the given float32 and assigns it to the Protection field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetProtection(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetProtection(v float32) {
 	o.Protection = &v
 }
 
 // GetReboot returns the Reboot field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetReboot() float32 {
+func (o *CreateVirtualMachineRequestContent) GetReboot() float32 {
 	if o == nil || isNil(o.Reboot) {
 		var ret float32
 		return ret
@@ -3080,7 +3143,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetReboot() float3
 
 // GetRebootOk returns a tuple with the Reboot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetRebootOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetRebootOk() (*float32, bool) {
 	if o == nil || isNil(o.Reboot) {
     return nil, false
 	}
@@ -3088,7 +3151,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetRebootOk() (*fl
 }
 
 // HasReboot returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasReboot() bool {
+func (o *CreateVirtualMachineRequestContent) HasReboot() bool {
 	if o != nil && !isNil(o.Reboot) {
 		return true
 	}
@@ -3097,12 +3160,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasReboot() bool {
 }
 
 // SetReboot gets a reference to the given float32 and assigns it to the Reboot field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetReboot(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetReboot(v float32) {
 	o.Reboot = &v
 }
 
 // GetRng0 returns the Rng0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetRng0() string {
+func (o *CreateVirtualMachineRequestContent) GetRng0() string {
 	if o == nil || isNil(o.Rng0) {
 		var ret string
 		return ret
@@ -3112,7 +3175,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetRng0() string {
 
 // GetRng0Ok returns a tuple with the Rng0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetRng0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetRng0Ok() (*string, bool) {
 	if o == nil || isNil(o.Rng0) {
     return nil, false
 	}
@@ -3120,7 +3183,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetRng0Ok() (*stri
 }
 
 // HasRng0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasRng0() bool {
+func (o *CreateVirtualMachineRequestContent) HasRng0() bool {
 	if o != nil && !isNil(o.Rng0) {
 		return true
 	}
@@ -3129,12 +3192,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasRng0() bool {
 }
 
 // SetRng0 gets a reference to the given string and assigns it to the Rng0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetRng0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetRng0(v string) {
 	o.Rng0 = &v
 }
 
 // GetSata0 returns the Sata0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata0() string {
+func (o *CreateVirtualMachineRequestContent) GetSata0() string {
 	if o == nil || isNil(o.Sata0) {
 		var ret string
 		return ret
@@ -3144,7 +3207,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata0() string 
 
 // GetSata0Ok returns a tuple with the Sata0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSata0Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata0) {
     return nil, false
 	}
@@ -3152,7 +3215,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata0Ok() (*str
 }
 
 // HasSata0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata0() bool {
+func (o *CreateVirtualMachineRequestContent) HasSata0() bool {
 	if o != nil && !isNil(o.Sata0) {
 		return true
 	}
@@ -3161,12 +3224,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata0() bool {
 }
 
 // SetSata0 gets a reference to the given string and assigns it to the Sata0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSata0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSata0(v string) {
 	o.Sata0 = &v
 }
 
 // GetSata1 returns the Sata1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata1() string {
+func (o *CreateVirtualMachineRequestContent) GetSata1() string {
 	if o == nil || isNil(o.Sata1) {
 		var ret string
 		return ret
@@ -3176,7 +3239,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata1() string 
 
 // GetSata1Ok returns a tuple with the Sata1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSata1Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata1) {
     return nil, false
 	}
@@ -3184,7 +3247,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata1Ok() (*str
 }
 
 // HasSata1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata1() bool {
+func (o *CreateVirtualMachineRequestContent) HasSata1() bool {
 	if o != nil && !isNil(o.Sata1) {
 		return true
 	}
@@ -3193,12 +3256,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata1() bool {
 }
 
 // SetSata1 gets a reference to the given string and assigns it to the Sata1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSata1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSata1(v string) {
 	o.Sata1 = &v
 }
 
 // GetSata2 returns the Sata2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata2() string {
+func (o *CreateVirtualMachineRequestContent) GetSata2() string {
 	if o == nil || isNil(o.Sata2) {
 		var ret string
 		return ret
@@ -3208,7 +3271,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata2() string 
 
 // GetSata2Ok returns a tuple with the Sata2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSata2Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata2) {
     return nil, false
 	}
@@ -3216,7 +3279,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata2Ok() (*str
 }
 
 // HasSata2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata2() bool {
+func (o *CreateVirtualMachineRequestContent) HasSata2() bool {
 	if o != nil && !isNil(o.Sata2) {
 		return true
 	}
@@ -3225,12 +3288,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata2() bool {
 }
 
 // SetSata2 gets a reference to the given string and assigns it to the Sata2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSata2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSata2(v string) {
 	o.Sata2 = &v
 }
 
 // GetSata3 returns the Sata3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata3() string {
+func (o *CreateVirtualMachineRequestContent) GetSata3() string {
 	if o == nil || isNil(o.Sata3) {
 		var ret string
 		return ret
@@ -3240,7 +3303,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata3() string 
 
 // GetSata3Ok returns a tuple with the Sata3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSata3Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata3) {
     return nil, false
 	}
@@ -3248,7 +3311,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata3Ok() (*str
 }
 
 // HasSata3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata3() bool {
+func (o *CreateVirtualMachineRequestContent) HasSata3() bool {
 	if o != nil && !isNil(o.Sata3) {
 		return true
 	}
@@ -3257,12 +3320,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata3() bool {
 }
 
 // SetSata3 gets a reference to the given string and assigns it to the Sata3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSata3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSata3(v string) {
 	o.Sata3 = &v
 }
 
 // GetSata4 returns the Sata4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata4() string {
+func (o *CreateVirtualMachineRequestContent) GetSata4() string {
 	if o == nil || isNil(o.Sata4) {
 		var ret string
 		return ret
@@ -3272,7 +3335,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata4() string 
 
 // GetSata4Ok returns a tuple with the Sata4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSata4Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata4) {
     return nil, false
 	}
@@ -3280,7 +3343,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata4Ok() (*str
 }
 
 // HasSata4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata4() bool {
+func (o *CreateVirtualMachineRequestContent) HasSata4() bool {
 	if o != nil && !isNil(o.Sata4) {
 		return true
 	}
@@ -3289,12 +3352,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata4() bool {
 }
 
 // SetSata4 gets a reference to the given string and assigns it to the Sata4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSata4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSata4(v string) {
 	o.Sata4 = &v
 }
 
 // GetSata5 returns the Sata5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata5() string {
+func (o *CreateVirtualMachineRequestContent) GetSata5() string {
 	if o == nil || isNil(o.Sata5) {
 		var ret string
 		return ret
@@ -3304,7 +3367,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata5() string 
 
 // GetSata5Ok returns a tuple with the Sata5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSata5Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata5) {
     return nil, false
 	}
@@ -3312,7 +3375,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSata5Ok() (*str
 }
 
 // HasSata5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata5() bool {
+func (o *CreateVirtualMachineRequestContent) HasSata5() bool {
 	if o != nil && !isNil(o.Sata5) {
 		return true
 	}
@@ -3321,12 +3384,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSata5() bool {
 }
 
 // SetSata5 gets a reference to the given string and assigns it to the Sata5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSata5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSata5(v string) {
 	o.Sata5 = &v
 }
 
 // GetScsi0 returns the Scsi0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi0() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi0() string {
 	if o == nil || isNil(o.Scsi0) {
 		var ret string
 		return ret
@@ -3336,7 +3399,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi0() string 
 
 // GetScsi0Ok returns a tuple with the Scsi0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi0Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi0) {
     return nil, false
 	}
@@ -3344,7 +3407,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi0Ok() (*str
 }
 
 // HasScsi0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi0() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi0() bool {
 	if o != nil && !isNil(o.Scsi0) {
 		return true
 	}
@@ -3353,12 +3416,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi0() bool {
 }
 
 // SetScsi0 gets a reference to the given string and assigns it to the Scsi0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi0(v string) {
 	o.Scsi0 = &v
 }
 
 // GetScsi1 returns the Scsi1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi1() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi1() string {
 	if o == nil || isNil(o.Scsi1) {
 		var ret string
 		return ret
@@ -3368,7 +3431,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi1() string 
 
 // GetScsi1Ok returns a tuple with the Scsi1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi1Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi1) {
     return nil, false
 	}
@@ -3376,7 +3439,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi1Ok() (*str
 }
 
 // HasScsi1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi1() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi1() bool {
 	if o != nil && !isNil(o.Scsi1) {
 		return true
 	}
@@ -3385,12 +3448,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi1() bool {
 }
 
 // SetScsi1 gets a reference to the given string and assigns it to the Scsi1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi1(v string) {
 	o.Scsi1 = &v
 }
 
 // GetScsi2 returns the Scsi2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi2() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi2() string {
 	if o == nil || isNil(o.Scsi2) {
 		var ret string
 		return ret
@@ -3400,7 +3463,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi2() string 
 
 // GetScsi2Ok returns a tuple with the Scsi2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi2Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi2) {
     return nil, false
 	}
@@ -3408,7 +3471,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi2Ok() (*str
 }
 
 // HasScsi2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi2() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi2() bool {
 	if o != nil && !isNil(o.Scsi2) {
 		return true
 	}
@@ -3417,12 +3480,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi2() bool {
 }
 
 // SetScsi2 gets a reference to the given string and assigns it to the Scsi2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi2(v string) {
 	o.Scsi2 = &v
 }
 
 // GetScsi3 returns the Scsi3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi3() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi3() string {
 	if o == nil || isNil(o.Scsi3) {
 		var ret string
 		return ret
@@ -3432,7 +3495,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi3() string 
 
 // GetScsi3Ok returns a tuple with the Scsi3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi3Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi3) {
     return nil, false
 	}
@@ -3440,7 +3503,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi3Ok() (*str
 }
 
 // HasScsi3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi3() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi3() bool {
 	if o != nil && !isNil(o.Scsi3) {
 		return true
 	}
@@ -3449,12 +3512,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi3() bool {
 }
 
 // SetScsi3 gets a reference to the given string and assigns it to the Scsi3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi3(v string) {
 	o.Scsi3 = &v
 }
 
 // GetScsi4 returns the Scsi4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi4() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi4() string {
 	if o == nil || isNil(o.Scsi4) {
 		var ret string
 		return ret
@@ -3464,7 +3527,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi4() string 
 
 // GetScsi4Ok returns a tuple with the Scsi4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi4Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi4) {
     return nil, false
 	}
@@ -3472,7 +3535,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi4Ok() (*str
 }
 
 // HasScsi4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi4() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi4() bool {
 	if o != nil && !isNil(o.Scsi4) {
 		return true
 	}
@@ -3481,12 +3544,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi4() bool {
 }
 
 // SetScsi4 gets a reference to the given string and assigns it to the Scsi4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi4(v string) {
 	o.Scsi4 = &v
 }
 
 // GetScsi5 returns the Scsi5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi5() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi5() string {
 	if o == nil || isNil(o.Scsi5) {
 		var ret string
 		return ret
@@ -3496,7 +3559,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi5() string 
 
 // GetScsi5Ok returns a tuple with the Scsi5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi5Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi5) {
     return nil, false
 	}
@@ -3504,7 +3567,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi5Ok() (*str
 }
 
 // HasScsi5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi5() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi5() bool {
 	if o != nil && !isNil(o.Scsi5) {
 		return true
 	}
@@ -3513,12 +3576,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi5() bool {
 }
 
 // SetScsi5 gets a reference to the given string and assigns it to the Scsi5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi5(v string) {
 	o.Scsi5 = &v
 }
 
 // GetScsi6 returns the Scsi6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi6() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi6() string {
 	if o == nil || isNil(o.Scsi6) {
 		var ret string
 		return ret
@@ -3528,7 +3591,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi6() string 
 
 // GetScsi6Ok returns a tuple with the Scsi6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi6Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi6) {
     return nil, false
 	}
@@ -3536,7 +3599,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi6Ok() (*str
 }
 
 // HasScsi6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi6() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi6() bool {
 	if o != nil && !isNil(o.Scsi6) {
 		return true
 	}
@@ -3545,12 +3608,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi6() bool {
 }
 
 // SetScsi6 gets a reference to the given string and assigns it to the Scsi6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi6(v string) {
 	o.Scsi6 = &v
 }
 
 // GetScsi7 returns the Scsi7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi7() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi7() string {
 	if o == nil || isNil(o.Scsi7) {
 		var ret string
 		return ret
@@ -3560,7 +3623,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi7() string 
 
 // GetScsi7Ok returns a tuple with the Scsi7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi7Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi7) {
     return nil, false
 	}
@@ -3568,7 +3631,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi7Ok() (*str
 }
 
 // HasScsi7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi7() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi7() bool {
 	if o != nil && !isNil(o.Scsi7) {
 		return true
 	}
@@ -3577,12 +3640,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi7() bool {
 }
 
 // SetScsi7 gets a reference to the given string and assigns it to the Scsi7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi7(v string) {
 	o.Scsi7 = &v
 }
 
 // GetScsi8 returns the Scsi8 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi8() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi8() string {
 	if o == nil || isNil(o.Scsi8) {
 		var ret string
 		return ret
@@ -3592,7 +3655,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi8() string 
 
 // GetScsi8Ok returns a tuple with the Scsi8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi8Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi8Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi8) {
     return nil, false
 	}
@@ -3600,7 +3663,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi8Ok() (*str
 }
 
 // HasScsi8 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi8() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi8() bool {
 	if o != nil && !isNil(o.Scsi8) {
 		return true
 	}
@@ -3609,12 +3672,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi8() bool {
 }
 
 // SetScsi8 gets a reference to the given string and assigns it to the Scsi8 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi8(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi8(v string) {
 	o.Scsi8 = &v
 }
 
 // GetScsi9 returns the Scsi9 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi9() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi9() string {
 	if o == nil || isNil(o.Scsi9) {
 		var ret string
 		return ret
@@ -3624,7 +3687,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi9() string 
 
 // GetScsi9Ok returns a tuple with the Scsi9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi9Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi9Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi9) {
     return nil, false
 	}
@@ -3632,7 +3695,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi9Ok() (*str
 }
 
 // HasScsi9 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi9() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi9() bool {
 	if o != nil && !isNil(o.Scsi9) {
 		return true
 	}
@@ -3641,12 +3704,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi9() bool {
 }
 
 // SetScsi9 gets a reference to the given string and assigns it to the Scsi9 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi9(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi9(v string) {
 	o.Scsi9 = &v
 }
 
 // GetScsi10 returns the Scsi10 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi10() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi10() string {
 	if o == nil || isNil(o.Scsi10) {
 		var ret string
 		return ret
@@ -3656,7 +3719,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi10() string
 
 // GetScsi10Ok returns a tuple with the Scsi10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi10Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi10Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi10) {
     return nil, false
 	}
@@ -3664,7 +3727,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi10Ok() (*st
 }
 
 // HasScsi10 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi10() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi10() bool {
 	if o != nil && !isNil(o.Scsi10) {
 		return true
 	}
@@ -3673,12 +3736,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi10() bool {
 }
 
 // SetScsi10 gets a reference to the given string and assigns it to the Scsi10 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi10(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi10(v string) {
 	o.Scsi10 = &v
 }
 
 // GetScsi11 returns the Scsi11 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi11() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi11() string {
 	if o == nil || isNil(o.Scsi11) {
 		var ret string
 		return ret
@@ -3688,7 +3751,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi11() string
 
 // GetScsi11Ok returns a tuple with the Scsi11 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi11Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi11Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi11) {
     return nil, false
 	}
@@ -3696,7 +3759,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi11Ok() (*st
 }
 
 // HasScsi11 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi11() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi11() bool {
 	if o != nil && !isNil(o.Scsi11) {
 		return true
 	}
@@ -3705,12 +3768,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi11() bool {
 }
 
 // SetScsi11 gets a reference to the given string and assigns it to the Scsi11 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi11(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi11(v string) {
 	o.Scsi11 = &v
 }
 
 // GetScsi12 returns the Scsi12 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi12() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi12() string {
 	if o == nil || isNil(o.Scsi12) {
 		var ret string
 		return ret
@@ -3720,7 +3783,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi12() string
 
 // GetScsi12Ok returns a tuple with the Scsi12 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi12Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi12Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi12) {
     return nil, false
 	}
@@ -3728,7 +3791,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi12Ok() (*st
 }
 
 // HasScsi12 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi12() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi12() bool {
 	if o != nil && !isNil(o.Scsi12) {
 		return true
 	}
@@ -3737,12 +3800,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi12() bool {
 }
 
 // SetScsi12 gets a reference to the given string and assigns it to the Scsi12 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi12(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi12(v string) {
 	o.Scsi12 = &v
 }
 
 // GetScsi13 returns the Scsi13 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi13() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi13() string {
 	if o == nil || isNil(o.Scsi13) {
 		var ret string
 		return ret
@@ -3752,7 +3815,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi13() string
 
 // GetScsi13Ok returns a tuple with the Scsi13 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi13Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi13Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi13) {
     return nil, false
 	}
@@ -3760,7 +3823,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi13Ok() (*st
 }
 
 // HasScsi13 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi13() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi13() bool {
 	if o != nil && !isNil(o.Scsi13) {
 		return true
 	}
@@ -3769,12 +3832,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi13() bool {
 }
 
 // SetScsi13 gets a reference to the given string and assigns it to the Scsi13 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi13(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi13(v string) {
 	o.Scsi13 = &v
 }
 
 // GetScsi14 returns the Scsi14 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi14() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi14() string {
 	if o == nil || isNil(o.Scsi14) {
 		var ret string
 		return ret
@@ -3784,7 +3847,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi14() string
 
 // GetScsi14Ok returns a tuple with the Scsi14 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi14Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi14Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi14) {
     return nil, false
 	}
@@ -3792,7 +3855,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi14Ok() (*st
 }
 
 // HasScsi14 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi14() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi14() bool {
 	if o != nil && !isNil(o.Scsi14) {
 		return true
 	}
@@ -3801,12 +3864,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi14() bool {
 }
 
 // SetScsi14 gets a reference to the given string and assigns it to the Scsi14 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi14(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi14(v string) {
 	o.Scsi14 = &v
 }
 
 // GetScsi15 returns the Scsi15 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi15() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi15() string {
 	if o == nil || isNil(o.Scsi15) {
 		var ret string
 		return ret
@@ -3816,7 +3879,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi15() string
 
 // GetScsi15Ok returns a tuple with the Scsi15 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi15Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi15Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi15) {
     return nil, false
 	}
@@ -3824,7 +3887,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi15Ok() (*st
 }
 
 // HasScsi15 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi15() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi15() bool {
 	if o != nil && !isNil(o.Scsi15) {
 		return true
 	}
@@ -3833,12 +3896,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi15() bool {
 }
 
 // SetScsi15 gets a reference to the given string and assigns it to the Scsi15 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi15(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi15(v string) {
 	o.Scsi15 = &v
 }
 
 // GetScsi16 returns the Scsi16 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi16() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi16() string {
 	if o == nil || isNil(o.Scsi16) {
 		var ret string
 		return ret
@@ -3848,7 +3911,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi16() string
 
 // GetScsi16Ok returns a tuple with the Scsi16 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi16Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi16Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi16) {
     return nil, false
 	}
@@ -3856,7 +3919,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi16Ok() (*st
 }
 
 // HasScsi16 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi16() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi16() bool {
 	if o != nil && !isNil(o.Scsi16) {
 		return true
 	}
@@ -3865,12 +3928,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi16() bool {
 }
 
 // SetScsi16 gets a reference to the given string and assigns it to the Scsi16 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi16(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi16(v string) {
 	o.Scsi16 = &v
 }
 
 // GetScsi17 returns the Scsi17 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi17() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi17() string {
 	if o == nil || isNil(o.Scsi17) {
 		var ret string
 		return ret
@@ -3880,7 +3943,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi17() string
 
 // GetScsi17Ok returns a tuple with the Scsi17 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi17Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi17Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi17) {
     return nil, false
 	}
@@ -3888,7 +3951,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi17Ok() (*st
 }
 
 // HasScsi17 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi17() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi17() bool {
 	if o != nil && !isNil(o.Scsi17) {
 		return true
 	}
@@ -3897,12 +3960,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi17() bool {
 }
 
 // SetScsi17 gets a reference to the given string and assigns it to the Scsi17 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi17(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi17(v string) {
 	o.Scsi17 = &v
 }
 
 // GetScsi18 returns the Scsi18 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi18() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi18() string {
 	if o == nil || isNil(o.Scsi18) {
 		var ret string
 		return ret
@@ -3912,7 +3975,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi18() string
 
 // GetScsi18Ok returns a tuple with the Scsi18 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi18Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi18Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi18) {
     return nil, false
 	}
@@ -3920,7 +3983,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi18Ok() (*st
 }
 
 // HasScsi18 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi18() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi18() bool {
 	if o != nil && !isNil(o.Scsi18) {
 		return true
 	}
@@ -3929,12 +3992,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi18() bool {
 }
 
 // SetScsi18 gets a reference to the given string and assigns it to the Scsi18 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi18(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi18(v string) {
 	o.Scsi18 = &v
 }
 
 // GetScsi19 returns the Scsi19 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi19() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi19() string {
 	if o == nil || isNil(o.Scsi19) {
 		var ret string
 		return ret
@@ -3944,7 +4007,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi19() string
 
 // GetScsi19Ok returns a tuple with the Scsi19 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi19Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi19Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi19) {
     return nil, false
 	}
@@ -3952,7 +4015,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi19Ok() (*st
 }
 
 // HasScsi19 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi19() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi19() bool {
 	if o != nil && !isNil(o.Scsi19) {
 		return true
 	}
@@ -3961,12 +4024,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi19() bool {
 }
 
 // SetScsi19 gets a reference to the given string and assigns it to the Scsi19 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi19(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi19(v string) {
 	o.Scsi19 = &v
 }
 
 // GetScsi20 returns the Scsi20 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi20() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi20() string {
 	if o == nil || isNil(o.Scsi20) {
 		var ret string
 		return ret
@@ -3976,7 +4039,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi20() string
 
 // GetScsi20Ok returns a tuple with the Scsi20 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi20Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi20Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi20) {
     return nil, false
 	}
@@ -3984,7 +4047,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi20Ok() (*st
 }
 
 // HasScsi20 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi20() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi20() bool {
 	if o != nil && !isNil(o.Scsi20) {
 		return true
 	}
@@ -3993,12 +4056,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi20() bool {
 }
 
 // SetScsi20 gets a reference to the given string and assigns it to the Scsi20 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi20(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi20(v string) {
 	o.Scsi20 = &v
 }
 
 // GetScsi21 returns the Scsi21 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi21() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi21() string {
 	if o == nil || isNil(o.Scsi21) {
 		var ret string
 		return ret
@@ -4008,7 +4071,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi21() string
 
 // GetScsi21Ok returns a tuple with the Scsi21 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi21Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi21Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi21) {
     return nil, false
 	}
@@ -4016,7 +4079,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi21Ok() (*st
 }
 
 // HasScsi21 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi21() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi21() bool {
 	if o != nil && !isNil(o.Scsi21) {
 		return true
 	}
@@ -4025,12 +4088,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi21() bool {
 }
 
 // SetScsi21 gets a reference to the given string and assigns it to the Scsi21 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi21(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi21(v string) {
 	o.Scsi21 = &v
 }
 
 // GetScsi22 returns the Scsi22 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi22() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi22() string {
 	if o == nil || isNil(o.Scsi22) {
 		var ret string
 		return ret
@@ -4040,7 +4103,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi22() string
 
 // GetScsi22Ok returns a tuple with the Scsi22 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi22Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi22Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi22) {
     return nil, false
 	}
@@ -4048,7 +4111,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi22Ok() (*st
 }
 
 // HasScsi22 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi22() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi22() bool {
 	if o != nil && !isNil(o.Scsi22) {
 		return true
 	}
@@ -4057,12 +4120,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi22() bool {
 }
 
 // SetScsi22 gets a reference to the given string and assigns it to the Scsi22 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi22(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi22(v string) {
 	o.Scsi22 = &v
 }
 
 // GetScsi23 returns the Scsi23 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi23() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi23() string {
 	if o == nil || isNil(o.Scsi23) {
 		var ret string
 		return ret
@@ -4072,7 +4135,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi23() string
 
 // GetScsi23Ok returns a tuple with the Scsi23 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi23Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi23Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi23) {
     return nil, false
 	}
@@ -4080,7 +4143,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi23Ok() (*st
 }
 
 // HasScsi23 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi23() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi23() bool {
 	if o != nil && !isNil(o.Scsi23) {
 		return true
 	}
@@ -4089,12 +4152,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi23() bool {
 }
 
 // SetScsi23 gets a reference to the given string and assigns it to the Scsi23 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi23(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi23(v string) {
 	o.Scsi23 = &v
 }
 
 // GetScsi24 returns the Scsi24 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi24() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi24() string {
 	if o == nil || isNil(o.Scsi24) {
 		var ret string
 		return ret
@@ -4104,7 +4167,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi24() string
 
 // GetScsi24Ok returns a tuple with the Scsi24 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi24Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi24Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi24) {
     return nil, false
 	}
@@ -4112,7 +4175,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi24Ok() (*st
 }
 
 // HasScsi24 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi24() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi24() bool {
 	if o != nil && !isNil(o.Scsi24) {
 		return true
 	}
@@ -4121,12 +4184,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi24() bool {
 }
 
 // SetScsi24 gets a reference to the given string and assigns it to the Scsi24 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi24(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi24(v string) {
 	o.Scsi24 = &v
 }
 
 // GetScsi25 returns the Scsi25 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi25() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi25() string {
 	if o == nil || isNil(o.Scsi25) {
 		var ret string
 		return ret
@@ -4136,7 +4199,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi25() string
 
 // GetScsi25Ok returns a tuple with the Scsi25 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi25Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi25Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi25) {
     return nil, false
 	}
@@ -4144,7 +4207,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi25Ok() (*st
 }
 
 // HasScsi25 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi25() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi25() bool {
 	if o != nil && !isNil(o.Scsi25) {
 		return true
 	}
@@ -4153,12 +4216,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi25() bool {
 }
 
 // SetScsi25 gets a reference to the given string and assigns it to the Scsi25 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi25(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi25(v string) {
 	o.Scsi25 = &v
 }
 
 // GetScsi26 returns the Scsi26 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi26() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi26() string {
 	if o == nil || isNil(o.Scsi26) {
 		var ret string
 		return ret
@@ -4168,7 +4231,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi26() string
 
 // GetScsi26Ok returns a tuple with the Scsi26 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi26Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi26Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi26) {
     return nil, false
 	}
@@ -4176,7 +4239,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi26Ok() (*st
 }
 
 // HasScsi26 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi26() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi26() bool {
 	if o != nil && !isNil(o.Scsi26) {
 		return true
 	}
@@ -4185,12 +4248,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi26() bool {
 }
 
 // SetScsi26 gets a reference to the given string and assigns it to the Scsi26 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi26(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi26(v string) {
 	o.Scsi26 = &v
 }
 
 // GetScsi27 returns the Scsi27 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi27() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi27() string {
 	if o == nil || isNil(o.Scsi27) {
 		var ret string
 		return ret
@@ -4200,7 +4263,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi27() string
 
 // GetScsi27Ok returns a tuple with the Scsi27 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi27Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi27Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi27) {
     return nil, false
 	}
@@ -4208,7 +4271,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi27Ok() (*st
 }
 
 // HasScsi27 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi27() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi27() bool {
 	if o != nil && !isNil(o.Scsi27) {
 		return true
 	}
@@ -4217,12 +4280,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi27() bool {
 }
 
 // SetScsi27 gets a reference to the given string and assigns it to the Scsi27 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi27(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi27(v string) {
 	o.Scsi27 = &v
 }
 
 // GetScsi28 returns the Scsi28 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi28() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi28() string {
 	if o == nil || isNil(o.Scsi28) {
 		var ret string
 		return ret
@@ -4232,7 +4295,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi28() string
 
 // GetScsi28Ok returns a tuple with the Scsi28 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi28Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi28Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi28) {
     return nil, false
 	}
@@ -4240,7 +4303,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi28Ok() (*st
 }
 
 // HasScsi28 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi28() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi28() bool {
 	if o != nil && !isNil(o.Scsi28) {
 		return true
 	}
@@ -4249,12 +4312,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi28() bool {
 }
 
 // SetScsi28 gets a reference to the given string and assigns it to the Scsi28 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi28(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi28(v string) {
 	o.Scsi28 = &v
 }
 
 // GetScsi29 returns the Scsi29 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi29() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi29() string {
 	if o == nil || isNil(o.Scsi29) {
 		var ret string
 		return ret
@@ -4264,7 +4327,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi29() string
 
 // GetScsi29Ok returns a tuple with the Scsi29 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi29Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi29Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi29) {
     return nil, false
 	}
@@ -4272,7 +4335,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi29Ok() (*st
 }
 
 // HasScsi29 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi29() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi29() bool {
 	if o != nil && !isNil(o.Scsi29) {
 		return true
 	}
@@ -4281,12 +4344,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi29() bool {
 }
 
 // SetScsi29 gets a reference to the given string and assigns it to the Scsi29 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi29(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi29(v string) {
 	o.Scsi29 = &v
 }
 
 // GetScsi30 returns the Scsi30 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi30() string {
+func (o *CreateVirtualMachineRequestContent) GetScsi30() string {
 	if o == nil || isNil(o.Scsi30) {
 		var ret string
 		return ret
@@ -4296,7 +4359,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi30() string
 
 // GetScsi30Ok returns a tuple with the Scsi30 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi30Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsi30Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi30) {
     return nil, false
 	}
@@ -4304,7 +4367,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsi30Ok() (*st
 }
 
 // HasScsi30 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi30() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsi30() bool {
 	if o != nil && !isNil(o.Scsi30) {
 		return true
 	}
@@ -4313,12 +4376,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsi30() bool {
 }
 
 // SetScsi30 gets a reference to the given string and assigns it to the Scsi30 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsi30(v string) {
+func (o *CreateVirtualMachineRequestContent) SetScsi30(v string) {
 	o.Scsi30 = &v
 }
 
 // GetScsihw returns the Scsihw field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsihw() VirtualMachineScsiControllerType {
+func (o *CreateVirtualMachineRequestContent) GetScsihw() VirtualMachineScsiControllerType {
 	if o == nil || isNil(o.Scsihw) {
 		var ret VirtualMachineScsiControllerType
 		return ret
@@ -4328,7 +4391,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsihw() Virtua
 
 // GetScsihwOk returns a tuple with the Scsihw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsihwOk() (*VirtualMachineScsiControllerType, bool) {
+func (o *CreateVirtualMachineRequestContent) GetScsihwOk() (*VirtualMachineScsiControllerType, bool) {
 	if o == nil || isNil(o.Scsihw) {
     return nil, false
 	}
@@ -4336,7 +4399,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetScsihwOk() (*Vi
 }
 
 // HasScsihw returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsihw() bool {
+func (o *CreateVirtualMachineRequestContent) HasScsihw() bool {
 	if o != nil && !isNil(o.Scsihw) {
 		return true
 	}
@@ -4345,12 +4408,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasScsihw() bool {
 }
 
 // SetScsihw gets a reference to the given VirtualMachineScsiControllerType and assigns it to the Scsihw field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetScsihw(v VirtualMachineScsiControllerType) {
+func (o *CreateVirtualMachineRequestContent) SetScsihw(v VirtualMachineScsiControllerType) {
 	o.Scsihw = &v
 }
 
 // GetSearchdomain returns the Searchdomain field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSearchdomain() string {
+func (o *CreateVirtualMachineRequestContent) GetSearchdomain() string {
 	if o == nil || isNil(o.Searchdomain) {
 		var ret string
 		return ret
@@ -4360,7 +4423,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSearchdomain() 
 
 // GetSearchdomainOk returns a tuple with the Searchdomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSearchdomainOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSearchdomainOk() (*string, bool) {
 	if o == nil || isNil(o.Searchdomain) {
     return nil, false
 	}
@@ -4368,7 +4431,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSearchdomainOk(
 }
 
 // HasSearchdomain returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSearchdomain() bool {
+func (o *CreateVirtualMachineRequestContent) HasSearchdomain() bool {
 	if o != nil && !isNil(o.Searchdomain) {
 		return true
 	}
@@ -4377,12 +4440,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSearchdomain() 
 }
 
 // SetSearchdomain gets a reference to the given string and assigns it to the Searchdomain field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSearchdomain(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSearchdomain(v string) {
 	o.Searchdomain = &v
 }
 
 // GetSerial0 returns the Serial0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial0() string {
+func (o *CreateVirtualMachineRequestContent) GetSerial0() string {
 	if o == nil || isNil(o.Serial0) {
 		var ret string
 		return ret
@@ -4392,7 +4455,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial0() strin
 
 // GetSerial0Ok returns a tuple with the Serial0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSerial0Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial0) {
     return nil, false
 	}
@@ -4400,7 +4463,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial0Ok() (*s
 }
 
 // HasSerial0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial0() bool {
+func (o *CreateVirtualMachineRequestContent) HasSerial0() bool {
 	if o != nil && !isNil(o.Serial0) {
 		return true
 	}
@@ -4409,12 +4472,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial0() bool 
 }
 
 // SetSerial0 gets a reference to the given string and assigns it to the Serial0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSerial0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSerial0(v string) {
 	o.Serial0 = &v
 }
 
 // GetSerial1 returns the Serial1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial1() string {
+func (o *CreateVirtualMachineRequestContent) GetSerial1() string {
 	if o == nil || isNil(o.Serial1) {
 		var ret string
 		return ret
@@ -4424,7 +4487,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial1() strin
 
 // GetSerial1Ok returns a tuple with the Serial1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSerial1Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial1) {
     return nil, false
 	}
@@ -4432,7 +4495,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial1Ok() (*s
 }
 
 // HasSerial1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial1() bool {
+func (o *CreateVirtualMachineRequestContent) HasSerial1() bool {
 	if o != nil && !isNil(o.Serial1) {
 		return true
 	}
@@ -4441,12 +4504,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial1() bool 
 }
 
 // SetSerial1 gets a reference to the given string and assigns it to the Serial1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSerial1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSerial1(v string) {
 	o.Serial1 = &v
 }
 
 // GetSerial2 returns the Serial2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial2() string {
+func (o *CreateVirtualMachineRequestContent) GetSerial2() string {
 	if o == nil || isNil(o.Serial2) {
 		var ret string
 		return ret
@@ -4456,7 +4519,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial2() strin
 
 // GetSerial2Ok returns a tuple with the Serial2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSerial2Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial2) {
     return nil, false
 	}
@@ -4464,7 +4527,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial2Ok() (*s
 }
 
 // HasSerial2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial2() bool {
+func (o *CreateVirtualMachineRequestContent) HasSerial2() bool {
 	if o != nil && !isNil(o.Serial2) {
 		return true
 	}
@@ -4473,12 +4536,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial2() bool 
 }
 
 // SetSerial2 gets a reference to the given string and assigns it to the Serial2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSerial2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSerial2(v string) {
 	o.Serial2 = &v
 }
 
 // GetSerial3 returns the Serial3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial3() string {
+func (o *CreateVirtualMachineRequestContent) GetSerial3() string {
 	if o == nil || isNil(o.Serial3) {
 		var ret string
 		return ret
@@ -4488,7 +4551,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial3() strin
 
 // GetSerial3Ok returns a tuple with the Serial3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSerial3Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial3) {
     return nil, false
 	}
@@ -4496,7 +4559,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSerial3Ok() (*s
 }
 
 // HasSerial3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial3() bool {
+func (o *CreateVirtualMachineRequestContent) HasSerial3() bool {
 	if o != nil && !isNil(o.Serial3) {
 		return true
 	}
@@ -4505,12 +4568,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSerial3() bool 
 }
 
 // SetSerial3 gets a reference to the given string and assigns it to the Serial3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSerial3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSerial3(v string) {
 	o.Serial3 = &v
 }
 
 // GetShares returns the Shares field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetShares() float32 {
+func (o *CreateVirtualMachineRequestContent) GetShares() float32 {
 	if o == nil || isNil(o.Shares) {
 		var ret float32
 		return ret
@@ -4520,7 +4583,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetShares() float3
 
 // GetSharesOk returns a tuple with the Shares field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSharesOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSharesOk() (*float32, bool) {
 	if o == nil || isNil(o.Shares) {
     return nil, false
 	}
@@ -4528,7 +4591,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSharesOk() (*fl
 }
 
 // HasShares returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasShares() bool {
+func (o *CreateVirtualMachineRequestContent) HasShares() bool {
 	if o != nil && !isNil(o.Shares) {
 		return true
 	}
@@ -4537,12 +4600,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasShares() bool {
 }
 
 // SetShares gets a reference to the given float32 and assigns it to the Shares field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetShares(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetShares(v float32) {
 	o.Shares = &v
 }
 
 // GetSmbios1 returns the Smbios1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSmbios1() string {
+func (o *CreateVirtualMachineRequestContent) GetSmbios1() string {
 	if o == nil || isNil(o.Smbios1) {
 		var ret string
 		return ret
@@ -4552,7 +4615,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSmbios1() strin
 
 // GetSmbios1Ok returns a tuple with the Smbios1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSmbios1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSmbios1Ok() (*string, bool) {
 	if o == nil || isNil(o.Smbios1) {
     return nil, false
 	}
@@ -4560,7 +4623,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSmbios1Ok() (*s
 }
 
 // HasSmbios1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSmbios1() bool {
+func (o *CreateVirtualMachineRequestContent) HasSmbios1() bool {
 	if o != nil && !isNil(o.Smbios1) {
 		return true
 	}
@@ -4569,12 +4632,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSmbios1() bool 
 }
 
 // SetSmbios1 gets a reference to the given string and assigns it to the Smbios1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSmbios1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSmbios1(v string) {
 	o.Smbios1 = &v
 }
 
 // GetSockets returns the Sockets field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSockets() float32 {
+func (o *CreateVirtualMachineRequestContent) GetSockets() float32 {
 	if o == nil || isNil(o.Sockets) {
 		var ret float32
 		return ret
@@ -4584,7 +4647,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSockets() float
 
 // GetSocketsOk returns a tuple with the Sockets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSocketsOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSocketsOk() (*float32, bool) {
 	if o == nil || isNil(o.Sockets) {
     return nil, false
 	}
@@ -4592,7 +4655,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSocketsOk() (*f
 }
 
 // HasSockets returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSockets() bool {
+func (o *CreateVirtualMachineRequestContent) HasSockets() bool {
 	if o != nil && !isNil(o.Sockets) {
 		return true
 	}
@@ -4601,12 +4664,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSockets() bool 
 }
 
 // SetSockets gets a reference to the given float32 and assigns it to the Sockets field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSockets(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetSockets(v float32) {
 	o.Sockets = &v
 }
 
 // GetSpiceEnhancements returns the SpiceEnhancements field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSpiceEnhancements() string {
+func (o *CreateVirtualMachineRequestContent) GetSpiceEnhancements() string {
 	if o == nil || isNil(o.SpiceEnhancements) {
 		var ret string
 		return ret
@@ -4616,7 +4679,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSpiceEnhancemen
 
 // GetSpiceEnhancementsOk returns a tuple with the SpiceEnhancements field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSpiceEnhancementsOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSpiceEnhancementsOk() (*string, bool) {
 	if o == nil || isNil(o.SpiceEnhancements) {
     return nil, false
 	}
@@ -4624,7 +4687,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSpiceEnhancemen
 }
 
 // HasSpiceEnhancements returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSpiceEnhancements() bool {
+func (o *CreateVirtualMachineRequestContent) HasSpiceEnhancements() bool {
 	if o != nil && !isNil(o.SpiceEnhancements) {
 		return true
 	}
@@ -4633,12 +4696,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSpiceEnhancemen
 }
 
 // SetSpiceEnhancements gets a reference to the given string and assigns it to the SpiceEnhancements field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSpiceEnhancements(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSpiceEnhancements(v string) {
 	o.SpiceEnhancements = &v
 }
 
 // GetSshkeys returns the Sshkeys field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSshkeys() string {
+func (o *CreateVirtualMachineRequestContent) GetSshkeys() string {
 	if o == nil || isNil(o.Sshkeys) {
 		var ret string
 		return ret
@@ -4648,7 +4711,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSshkeys() strin
 
 // GetSshkeysOk returns a tuple with the Sshkeys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSshkeysOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetSshkeysOk() (*string, bool) {
 	if o == nil || isNil(o.Sshkeys) {
     return nil, false
 	}
@@ -4656,7 +4719,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetSshkeysOk() (*s
 }
 
 // HasSshkeys returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSshkeys() bool {
+func (o *CreateVirtualMachineRequestContent) HasSshkeys() bool {
 	if o != nil && !isNil(o.Sshkeys) {
 		return true
 	}
@@ -4665,12 +4728,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasSshkeys() bool 
 }
 
 // SetSshkeys gets a reference to the given string and assigns it to the Sshkeys field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetSshkeys(v string) {
+func (o *CreateVirtualMachineRequestContent) SetSshkeys(v string) {
 	o.Sshkeys = &v
 }
 
 // GetStartdate returns the Startdate field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartdate() string {
+func (o *CreateVirtualMachineRequestContent) GetStartdate() string {
 	if o == nil || isNil(o.Startdate) {
 		var ret string
 		return ret
@@ -4680,7 +4743,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartdate() str
 
 // GetStartdateOk returns a tuple with the Startdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartdateOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetStartdateOk() (*string, bool) {
 	if o == nil || isNil(o.Startdate) {
     return nil, false
 	}
@@ -4688,7 +4751,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartdateOk() (
 }
 
 // HasStartdate returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasStartdate() bool {
+func (o *CreateVirtualMachineRequestContent) HasStartdate() bool {
 	if o != nil && !isNil(o.Startdate) {
 		return true
 	}
@@ -4697,12 +4760,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasStartdate() boo
 }
 
 // SetStartdate gets a reference to the given string and assigns it to the Startdate field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetStartdate(v string) {
+func (o *CreateVirtualMachineRequestContent) SetStartdate(v string) {
 	o.Startdate = &v
 }
 
 // GetStartup returns the Startup field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartup() string {
+func (o *CreateVirtualMachineRequestContent) GetStartup() string {
 	if o == nil || isNil(o.Startup) {
 		var ret string
 		return ret
@@ -4712,7 +4775,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartup() strin
 
 // GetStartupOk returns a tuple with the Startup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartupOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetStartupOk() (*string, bool) {
 	if o == nil || isNil(o.Startup) {
     return nil, false
 	}
@@ -4720,7 +4783,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetStartupOk() (*s
 }
 
 // HasStartup returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasStartup() bool {
+func (o *CreateVirtualMachineRequestContent) HasStartup() bool {
 	if o != nil && !isNil(o.Startup) {
 		return true
 	}
@@ -4729,12 +4792,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasStartup() bool 
 }
 
 // SetStartup gets a reference to the given string and assigns it to the Startup field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetStartup(v string) {
+func (o *CreateVirtualMachineRequestContent) SetStartup(v string) {
 	o.Startup = &v
 }
 
 // GetTablet returns the Tablet field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTablet() float32 {
+func (o *CreateVirtualMachineRequestContent) GetTablet() float32 {
 	if o == nil || isNil(o.Tablet) {
 		var ret float32
 		return ret
@@ -4744,7 +4807,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTablet() float3
 
 // GetTabletOk returns a tuple with the Tablet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTabletOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetTabletOk() (*float32, bool) {
 	if o == nil || isNil(o.Tablet) {
     return nil, false
 	}
@@ -4752,7 +4815,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTabletOk() (*fl
 }
 
 // HasTablet returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTablet() bool {
+func (o *CreateVirtualMachineRequestContent) HasTablet() bool {
 	if o != nil && !isNil(o.Tablet) {
 		return true
 	}
@@ -4761,12 +4824,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTablet() bool {
 }
 
 // SetTablet gets a reference to the given float32 and assigns it to the Tablet field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetTablet(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetTablet(v float32) {
 	o.Tablet = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTags() string {
+func (o *CreateVirtualMachineRequestContent) GetTags() string {
 	if o == nil || isNil(o.Tags) {
 		var ret string
 		return ret
@@ -4776,7 +4839,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTags() string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTagsOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetTagsOk() (*string, bool) {
 	if o == nil || isNil(o.Tags) {
     return nil, false
 	}
@@ -4784,7 +4847,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTagsOk() (*stri
 }
 
 // HasTags returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTags() bool {
+func (o *CreateVirtualMachineRequestContent) HasTags() bool {
 	if o != nil && !isNil(o.Tags) {
 		return true
 	}
@@ -4793,12 +4856,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTags() bool {
 }
 
 // SetTags gets a reference to the given string and assigns it to the Tags field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetTags(v string) {
+func (o *CreateVirtualMachineRequestContent) SetTags(v string) {
 	o.Tags = &v
 }
 
 // GetTemplate returns the Template field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTemplate() float32 {
+func (o *CreateVirtualMachineRequestContent) GetTemplate() float32 {
 	if o == nil || isNil(o.Template) {
 		var ret float32
 		return ret
@@ -4808,7 +4871,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTemplate() floa
 
 // GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTemplateOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetTemplateOk() (*float32, bool) {
 	if o == nil || isNil(o.Template) {
     return nil, false
 	}
@@ -4816,7 +4879,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTemplateOk() (*
 }
 
 // HasTemplate returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTemplate() bool {
+func (o *CreateVirtualMachineRequestContent) HasTemplate() bool {
 	if o != nil && !isNil(o.Template) {
 		return true
 	}
@@ -4825,12 +4888,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTemplate() bool
 }
 
 // SetTemplate gets a reference to the given float32 and assigns it to the Template field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetTemplate(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetTemplate(v float32) {
 	o.Template = &v
 }
 
 // GetTpmstate0 returns the Tpmstate0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTpmstate0() string {
+func (o *CreateVirtualMachineRequestContent) GetTpmstate0() string {
 	if o == nil || isNil(o.Tpmstate0) {
 		var ret string
 		return ret
@@ -4840,7 +4903,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTpmstate0() str
 
 // GetTpmstate0Ok returns a tuple with the Tpmstate0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTpmstate0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetTpmstate0Ok() (*string, bool) {
 	if o == nil || isNil(o.Tpmstate0) {
     return nil, false
 	}
@@ -4848,7 +4911,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetTpmstate0Ok() (
 }
 
 // HasTpmstate0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTpmstate0() bool {
+func (o *CreateVirtualMachineRequestContent) HasTpmstate0() bool {
 	if o != nil && !isNil(o.Tpmstate0) {
 		return true
 	}
@@ -4857,12 +4920,44 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasTpmstate0() boo
 }
 
 // SetTpmstate0 gets a reference to the given string and assigns it to the Tpmstate0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetTpmstate0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetTpmstate0(v string) {
 	o.Tpmstate0 = &v
 }
 
+// GetUnqiue returns the Unqiue field value if set, zero value otherwise.
+func (o *CreateVirtualMachineRequestContent) GetUnqiue() float32 {
+	if o == nil || isNil(o.Unqiue) {
+		var ret float32
+		return ret
+	}
+	return *o.Unqiue
+}
+
+// GetUnqiueOk returns a tuple with the Unqiue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateVirtualMachineRequestContent) GetUnqiueOk() (*float32, bool) {
+	if o == nil || isNil(o.Unqiue) {
+    return nil, false
+	}
+	return o.Unqiue, true
+}
+
+// HasUnqiue returns a boolean if a field has been set.
+func (o *CreateVirtualMachineRequestContent) HasUnqiue() bool {
+	if o != nil && !isNil(o.Unqiue) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnqiue gets a reference to the given float32 and assigns it to the Unqiue field.
+func (o *CreateVirtualMachineRequestContent) SetUnqiue(v float32) {
+	o.Unqiue = &v
+}
+
 // GetUsb0 returns the Usb0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb0() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb0() string {
 	if o == nil || isNil(o.Usb0) {
 		var ret string
 		return ret
@@ -4872,7 +4967,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb0() string {
 
 // GetUsb0Ok returns a tuple with the Usb0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb0Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb0) {
     return nil, false
 	}
@@ -4880,7 +4975,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb0Ok() (*stri
 }
 
 // HasUsb0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb0() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb0() bool {
 	if o != nil && !isNil(o.Usb0) {
 		return true
 	}
@@ -4889,12 +4984,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb0() bool {
 }
 
 // SetUsb0 gets a reference to the given string and assigns it to the Usb0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb0(v string) {
 	o.Usb0 = &v
 }
 
 // GetUsb1 returns the Usb1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb1() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb1() string {
 	if o == nil || isNil(o.Usb1) {
 		var ret string
 		return ret
@@ -4904,7 +4999,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb1() string {
 
 // GetUsb1Ok returns a tuple with the Usb1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb1Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb1) {
     return nil, false
 	}
@@ -4912,7 +5007,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb1Ok() (*stri
 }
 
 // HasUsb1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb1() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb1() bool {
 	if o != nil && !isNil(o.Usb1) {
 		return true
 	}
@@ -4921,12 +5016,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb1() bool {
 }
 
 // SetUsb1 gets a reference to the given string and assigns it to the Usb1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb1(v string) {
 	o.Usb1 = &v
 }
 
 // GetUsb2 returns the Usb2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb2() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb2() string {
 	if o == nil || isNil(o.Usb2) {
 		var ret string
 		return ret
@@ -4936,7 +5031,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb2() string {
 
 // GetUsb2Ok returns a tuple with the Usb2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb2Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb2) {
     return nil, false
 	}
@@ -4944,7 +5039,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb2Ok() (*stri
 }
 
 // HasUsb2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb2() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb2() bool {
 	if o != nil && !isNil(o.Usb2) {
 		return true
 	}
@@ -4953,12 +5048,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb2() bool {
 }
 
 // SetUsb2 gets a reference to the given string and assigns it to the Usb2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb2(v string) {
 	o.Usb2 = &v
 }
 
 // GetUsb3 returns the Usb3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb3() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb3() string {
 	if o == nil || isNil(o.Usb3) {
 		var ret string
 		return ret
@@ -4968,7 +5063,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb3() string {
 
 // GetUsb3Ok returns a tuple with the Usb3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb3Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb3) {
     return nil, false
 	}
@@ -4976,7 +5071,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb3Ok() (*stri
 }
 
 // HasUsb3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb3() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb3() bool {
 	if o != nil && !isNil(o.Usb3) {
 		return true
 	}
@@ -4985,12 +5080,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb3() bool {
 }
 
 // SetUsb3 gets a reference to the given string and assigns it to the Usb3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb3(v string) {
 	o.Usb3 = &v
 }
 
 // GetUsb4 returns the Usb4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb4() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb4() string {
 	if o == nil || isNil(o.Usb4) {
 		var ret string
 		return ret
@@ -5000,7 +5095,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb4() string {
 
 // GetUsb4Ok returns a tuple with the Usb4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb4Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb4) {
     return nil, false
 	}
@@ -5008,7 +5103,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb4Ok() (*stri
 }
 
 // HasUsb4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb4() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb4() bool {
 	if o != nil && !isNil(o.Usb4) {
 		return true
 	}
@@ -5017,12 +5112,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb4() bool {
 }
 
 // SetUsb4 gets a reference to the given string and assigns it to the Usb4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb4(v string) {
 	o.Usb4 = &v
 }
 
 // GetUsb5 returns the Usb5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb5() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb5() string {
 	if o == nil || isNil(o.Usb5) {
 		var ret string
 		return ret
@@ -5032,7 +5127,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb5() string {
 
 // GetUsb5Ok returns a tuple with the Usb5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb5Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb5) {
     return nil, false
 	}
@@ -5040,7 +5135,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb5Ok() (*stri
 }
 
 // HasUsb5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb5() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb5() bool {
 	if o != nil && !isNil(o.Usb5) {
 		return true
 	}
@@ -5049,12 +5144,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb5() bool {
 }
 
 // SetUsb5 gets a reference to the given string and assigns it to the Usb5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb5(v string) {
 	o.Usb5 = &v
 }
 
 // GetUsb6 returns the Usb6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb6() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb6() string {
 	if o == nil || isNil(o.Usb6) {
 		var ret string
 		return ret
@@ -5064,7 +5159,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb6() string {
 
 // GetUsb6Ok returns a tuple with the Usb6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb6Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb6) {
     return nil, false
 	}
@@ -5072,7 +5167,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb6Ok() (*stri
 }
 
 // HasUsb6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb6() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb6() bool {
 	if o != nil && !isNil(o.Usb6) {
 		return true
 	}
@@ -5081,12 +5176,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb6() bool {
 }
 
 // SetUsb6 gets a reference to the given string and assigns it to the Usb6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb6(v string) {
 	o.Usb6 = &v
 }
 
 // GetUsb7 returns the Usb7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb7() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb7() string {
 	if o == nil || isNil(o.Usb7) {
 		var ret string
 		return ret
@@ -5096,7 +5191,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb7() string {
 
 // GetUsb7Ok returns a tuple with the Usb7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb7Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb7) {
     return nil, false
 	}
@@ -5104,7 +5199,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb7Ok() (*stri
 }
 
 // HasUsb7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb7() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb7() bool {
 	if o != nil && !isNil(o.Usb7) {
 		return true
 	}
@@ -5113,12 +5208,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb7() bool {
 }
 
 // SetUsb7 gets a reference to the given string and assigns it to the Usb7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb7(v string) {
 	o.Usb7 = &v
 }
 
 // GetUsb8 returns the Usb8 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb8() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb8() string {
 	if o == nil || isNil(o.Usb8) {
 		var ret string
 		return ret
@@ -5128,7 +5223,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb8() string {
 
 // GetUsb8Ok returns a tuple with the Usb8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb8Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb8Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb8) {
     return nil, false
 	}
@@ -5136,7 +5231,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb8Ok() (*stri
 }
 
 // HasUsb8 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb8() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb8() bool {
 	if o != nil && !isNil(o.Usb8) {
 		return true
 	}
@@ -5145,12 +5240,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb8() bool {
 }
 
 // SetUsb8 gets a reference to the given string and assigns it to the Usb8 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb8(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb8(v string) {
 	o.Usb8 = &v
 }
 
 // GetUsb9 returns the Usb9 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb9() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb9() string {
 	if o == nil || isNil(o.Usb9) {
 		var ret string
 		return ret
@@ -5160,7 +5255,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb9() string {
 
 // GetUsb9Ok returns a tuple with the Usb9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb9Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb9Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb9) {
     return nil, false
 	}
@@ -5168,7 +5263,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb9Ok() (*stri
 }
 
 // HasUsb9 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb9() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb9() bool {
 	if o != nil && !isNil(o.Usb9) {
 		return true
 	}
@@ -5177,12 +5272,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb9() bool {
 }
 
 // SetUsb9 gets a reference to the given string and assigns it to the Usb9 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb9(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb9(v string) {
 	o.Usb9 = &v
 }
 
 // GetUsb10 returns the Usb10 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb10() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb10() string {
 	if o == nil || isNil(o.Usb10) {
 		var ret string
 		return ret
@@ -5192,7 +5287,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb10() string 
 
 // GetUsb10Ok returns a tuple with the Usb10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb10Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb10Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb10) {
     return nil, false
 	}
@@ -5200,7 +5295,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb10Ok() (*str
 }
 
 // HasUsb10 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb10() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb10() bool {
 	if o != nil && !isNil(o.Usb10) {
 		return true
 	}
@@ -5209,12 +5304,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb10() bool {
 }
 
 // SetUsb10 gets a reference to the given string and assigns it to the Usb10 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb10(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb10(v string) {
 	o.Usb10 = &v
 }
 
 // GetUsb11 returns the Usb11 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb11() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb11() string {
 	if o == nil || isNil(o.Usb11) {
 		var ret string
 		return ret
@@ -5224,7 +5319,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb11() string 
 
 // GetUsb11Ok returns a tuple with the Usb11 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb11Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb11Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb11) {
     return nil, false
 	}
@@ -5232,7 +5327,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb11Ok() (*str
 }
 
 // HasUsb11 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb11() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb11() bool {
 	if o != nil && !isNil(o.Usb11) {
 		return true
 	}
@@ -5241,12 +5336,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb11() bool {
 }
 
 // SetUsb11 gets a reference to the given string and assigns it to the Usb11 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb11(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb11(v string) {
 	o.Usb11 = &v
 }
 
 // GetUsb12 returns the Usb12 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb12() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb12() string {
 	if o == nil || isNil(o.Usb12) {
 		var ret string
 		return ret
@@ -5256,7 +5351,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb12() string 
 
 // GetUsb12Ok returns a tuple with the Usb12 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb12Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb12Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb12) {
     return nil, false
 	}
@@ -5264,7 +5359,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb12Ok() (*str
 }
 
 // HasUsb12 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb12() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb12() bool {
 	if o != nil && !isNil(o.Usb12) {
 		return true
 	}
@@ -5273,12 +5368,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb12() bool {
 }
 
 // SetUsb12 gets a reference to the given string and assigns it to the Usb12 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb12(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb12(v string) {
 	o.Usb12 = &v
 }
 
 // GetUsb13 returns the Usb13 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb13() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb13() string {
 	if o == nil || isNil(o.Usb13) {
 		var ret string
 		return ret
@@ -5288,7 +5383,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb13() string 
 
 // GetUsb13Ok returns a tuple with the Usb13 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb13Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb13Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb13) {
     return nil, false
 	}
@@ -5296,7 +5391,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb13Ok() (*str
 }
 
 // HasUsb13 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb13() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb13() bool {
 	if o != nil && !isNil(o.Usb13) {
 		return true
 	}
@@ -5305,12 +5400,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb13() bool {
 }
 
 // SetUsb13 gets a reference to the given string and assigns it to the Usb13 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb13(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb13(v string) {
 	o.Usb13 = &v
 }
 
 // GetUsb14 returns the Usb14 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb14() string {
+func (o *CreateVirtualMachineRequestContent) GetUsb14() string {
 	if o == nil || isNil(o.Usb14) {
 		var ret string
 		return ret
@@ -5320,7 +5415,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb14() string 
 
 // GetUsb14Ok returns a tuple with the Usb14 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb14Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetUsb14Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb14) {
     return nil, false
 	}
@@ -5328,7 +5423,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetUsb14Ok() (*str
 }
 
 // HasUsb14 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb14() bool {
+func (o *CreateVirtualMachineRequestContent) HasUsb14() bool {
 	if o != nil && !isNil(o.Usb14) {
 		return true
 	}
@@ -5337,12 +5432,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasUsb14() bool {
 }
 
 // SetUsb14 gets a reference to the given string and assigns it to the Usb14 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetUsb14(v string) {
+func (o *CreateVirtualMachineRequestContent) SetUsb14(v string) {
 	o.Usb14 = &v
 }
 
 // GetHotplug returns the Hotplug field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHotplug() string {
+func (o *CreateVirtualMachineRequestContent) GetHotplug() string {
 	if o == nil || isNil(o.Hotplug) {
 		var ret string
 		return ret
@@ -5352,7 +5447,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHotplug() strin
 
 // GetHotplugOk returns a tuple with the Hotplug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHotplugOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetHotplugOk() (*string, bool) {
 	if o == nil || isNil(o.Hotplug) {
     return nil, false
 	}
@@ -5360,7 +5455,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetHotplugOk() (*s
 }
 
 // HasHotplug returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHotplug() bool {
+func (o *CreateVirtualMachineRequestContent) HasHotplug() bool {
 	if o != nil && !isNil(o.Hotplug) {
 		return true
 	}
@@ -5369,12 +5464,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasHotplug() bool 
 }
 
 // SetHotplug gets a reference to the given string and assigns it to the Hotplug field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetHotplug(v string) {
+func (o *CreateVirtualMachineRequestContent) SetHotplug(v string) {
 	o.Hotplug = &v
 }
 
 // GetVcpus returns the Vcpus field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVcpus() float32 {
+func (o *CreateVirtualMachineRequestContent) GetVcpus() float32 {
 	if o == nil || isNil(o.Vcpus) {
 		var ret float32
 		return ret
@@ -5384,7 +5479,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVcpus() float32
 
 // GetVcpusOk returns a tuple with the Vcpus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVcpusOk() (*float32, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVcpusOk() (*float32, bool) {
 	if o == nil || isNil(o.Vcpus) {
     return nil, false
 	}
@@ -5392,7 +5487,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVcpusOk() (*flo
 }
 
 // HasVcpus returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVcpus() bool {
+func (o *CreateVirtualMachineRequestContent) HasVcpus() bool {
 	if o != nil && !isNil(o.Vcpus) {
 		return true
 	}
@@ -5401,12 +5496,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVcpus() bool {
 }
 
 // SetVcpus gets a reference to the given float32 and assigns it to the Vcpus field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVcpus(v float32) {
+func (o *CreateVirtualMachineRequestContent) SetVcpus(v float32) {
 	o.Vcpus = &v
 }
 
 // GetVga returns the Vga field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVga() string {
+func (o *CreateVirtualMachineRequestContent) GetVga() string {
 	if o == nil || isNil(o.Vga) {
 		var ret string
 		return ret
@@ -5416,7 +5511,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVga() string {
 
 // GetVgaOk returns a tuple with the Vga field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVgaOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVgaOk() (*string, bool) {
 	if o == nil || isNil(o.Vga) {
     return nil, false
 	}
@@ -5424,7 +5519,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVgaOk() (*strin
 }
 
 // HasVga returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVga() bool {
+func (o *CreateVirtualMachineRequestContent) HasVga() bool {
 	if o != nil && !isNil(o.Vga) {
 		return true
 	}
@@ -5433,12 +5528,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVga() bool {
 }
 
 // SetVga gets a reference to the given string and assigns it to the Vga field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVga(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVga(v string) {
 	o.Vga = &v
 }
 
 // GetVirtio0 returns the Virtio0 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio0() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio0() string {
 	if o == nil || isNil(o.Virtio0) {
 		var ret string
 		return ret
@@ -5448,7 +5543,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio0() strin
 
 // GetVirtio0Ok returns a tuple with the Virtio0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio0Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio0Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio0) {
     return nil, false
 	}
@@ -5456,7 +5551,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio0Ok() (*s
 }
 
 // HasVirtio0 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio0() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio0() bool {
 	if o != nil && !isNil(o.Virtio0) {
 		return true
 	}
@@ -5465,12 +5560,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio0() bool 
 }
 
 // SetVirtio0 gets a reference to the given string and assigns it to the Virtio0 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio0(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio0(v string) {
 	o.Virtio0 = &v
 }
 
 // GetVirtio1 returns the Virtio1 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio1() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio1() string {
 	if o == nil || isNil(o.Virtio1) {
 		var ret string
 		return ret
@@ -5480,7 +5575,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio1() strin
 
 // GetVirtio1Ok returns a tuple with the Virtio1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio1Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio1Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio1) {
     return nil, false
 	}
@@ -5488,7 +5583,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio1Ok() (*s
 }
 
 // HasVirtio1 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio1() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio1() bool {
 	if o != nil && !isNil(o.Virtio1) {
 		return true
 	}
@@ -5497,12 +5592,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio1() bool 
 }
 
 // SetVirtio1 gets a reference to the given string and assigns it to the Virtio1 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio1(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio1(v string) {
 	o.Virtio1 = &v
 }
 
 // GetVirtio2 returns the Virtio2 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio2() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio2() string {
 	if o == nil || isNil(o.Virtio2) {
 		var ret string
 		return ret
@@ -5512,7 +5607,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio2() strin
 
 // GetVirtio2Ok returns a tuple with the Virtio2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio2Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio2Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio2) {
     return nil, false
 	}
@@ -5520,7 +5615,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio2Ok() (*s
 }
 
 // HasVirtio2 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio2() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio2() bool {
 	if o != nil && !isNil(o.Virtio2) {
 		return true
 	}
@@ -5529,12 +5624,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio2() bool 
 }
 
 // SetVirtio2 gets a reference to the given string and assigns it to the Virtio2 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio2(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio2(v string) {
 	o.Virtio2 = &v
 }
 
 // GetVirtio3 returns the Virtio3 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio3() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio3() string {
 	if o == nil || isNil(o.Virtio3) {
 		var ret string
 		return ret
@@ -5544,7 +5639,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio3() strin
 
 // GetVirtio3Ok returns a tuple with the Virtio3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio3Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio3Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio3) {
     return nil, false
 	}
@@ -5552,7 +5647,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio3Ok() (*s
 }
 
 // HasVirtio3 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio3() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio3() bool {
 	if o != nil && !isNil(o.Virtio3) {
 		return true
 	}
@@ -5561,12 +5656,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio3() bool 
 }
 
 // SetVirtio3 gets a reference to the given string and assigns it to the Virtio3 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio3(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio3(v string) {
 	o.Virtio3 = &v
 }
 
 // GetVirtio4 returns the Virtio4 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio4() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio4() string {
 	if o == nil || isNil(o.Virtio4) {
 		var ret string
 		return ret
@@ -5576,7 +5671,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio4() strin
 
 // GetVirtio4Ok returns a tuple with the Virtio4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio4Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio4Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio4) {
     return nil, false
 	}
@@ -5584,7 +5679,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio4Ok() (*s
 }
 
 // HasVirtio4 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio4() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio4() bool {
 	if o != nil && !isNil(o.Virtio4) {
 		return true
 	}
@@ -5593,12 +5688,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio4() bool 
 }
 
 // SetVirtio4 gets a reference to the given string and assigns it to the Virtio4 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio4(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio4(v string) {
 	o.Virtio4 = &v
 }
 
 // GetVirtio5 returns the Virtio5 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio5() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio5() string {
 	if o == nil || isNil(o.Virtio5) {
 		var ret string
 		return ret
@@ -5608,7 +5703,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio5() strin
 
 // GetVirtio5Ok returns a tuple with the Virtio5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio5Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio5Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio5) {
     return nil, false
 	}
@@ -5616,7 +5711,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio5Ok() (*s
 }
 
 // HasVirtio5 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio5() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio5() bool {
 	if o != nil && !isNil(o.Virtio5) {
 		return true
 	}
@@ -5625,12 +5720,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio5() bool 
 }
 
 // SetVirtio5 gets a reference to the given string and assigns it to the Virtio5 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio5(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio5(v string) {
 	o.Virtio5 = &v
 }
 
 // GetVirtio6 returns the Virtio6 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio6() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio6() string {
 	if o == nil || isNil(o.Virtio6) {
 		var ret string
 		return ret
@@ -5640,7 +5735,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio6() strin
 
 // GetVirtio6Ok returns a tuple with the Virtio6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio6Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio6Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio6) {
     return nil, false
 	}
@@ -5648,7 +5743,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio6Ok() (*s
 }
 
 // HasVirtio6 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio6() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio6() bool {
 	if o != nil && !isNil(o.Virtio6) {
 		return true
 	}
@@ -5657,12 +5752,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio6() bool 
 }
 
 // SetVirtio6 gets a reference to the given string and assigns it to the Virtio6 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio6(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio6(v string) {
 	o.Virtio6 = &v
 }
 
 // GetVirtio7 returns the Virtio7 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio7() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio7() string {
 	if o == nil || isNil(o.Virtio7) {
 		var ret string
 		return ret
@@ -5672,7 +5767,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio7() strin
 
 // GetVirtio7Ok returns a tuple with the Virtio7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio7Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio7Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio7) {
     return nil, false
 	}
@@ -5680,7 +5775,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio7Ok() (*s
 }
 
 // HasVirtio7 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio7() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio7() bool {
 	if o != nil && !isNil(o.Virtio7) {
 		return true
 	}
@@ -5689,12 +5784,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio7() bool 
 }
 
 // SetVirtio7 gets a reference to the given string and assigns it to the Virtio7 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio7(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio7(v string) {
 	o.Virtio7 = &v
 }
 
 // GetVirtio8 returns the Virtio8 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio8() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio8() string {
 	if o == nil || isNil(o.Virtio8) {
 		var ret string
 		return ret
@@ -5704,7 +5799,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio8() strin
 
 // GetVirtio8Ok returns a tuple with the Virtio8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio8Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio8Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio8) {
     return nil, false
 	}
@@ -5712,7 +5807,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio8Ok() (*s
 }
 
 // HasVirtio8 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio8() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio8() bool {
 	if o != nil && !isNil(o.Virtio8) {
 		return true
 	}
@@ -5721,12 +5816,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio8() bool 
 }
 
 // SetVirtio8 gets a reference to the given string and assigns it to the Virtio8 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio8(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio8(v string) {
 	o.Virtio8 = &v
 }
 
 // GetVirtio9 returns the Virtio9 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio9() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio9() string {
 	if o == nil || isNil(o.Virtio9) {
 		var ret string
 		return ret
@@ -5736,7 +5831,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio9() strin
 
 // GetVirtio9Ok returns a tuple with the Virtio9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio9Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio9Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio9) {
     return nil, false
 	}
@@ -5744,7 +5839,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio9Ok() (*s
 }
 
 // HasVirtio9 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio9() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio9() bool {
 	if o != nil && !isNil(o.Virtio9) {
 		return true
 	}
@@ -5753,12 +5848,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio9() bool 
 }
 
 // SetVirtio9 gets a reference to the given string and assigns it to the Virtio9 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio9(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio9(v string) {
 	o.Virtio9 = &v
 }
 
 // GetVirtio10 returns the Virtio10 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio10() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio10() string {
 	if o == nil || isNil(o.Virtio10) {
 		var ret string
 		return ret
@@ -5768,7 +5863,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio10() stri
 
 // GetVirtio10Ok returns a tuple with the Virtio10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio10Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio10Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio10) {
     return nil, false
 	}
@@ -5776,7 +5871,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio10Ok() (*
 }
 
 // HasVirtio10 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio10() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio10() bool {
 	if o != nil && !isNil(o.Virtio10) {
 		return true
 	}
@@ -5785,12 +5880,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio10() bool
 }
 
 // SetVirtio10 gets a reference to the given string and assigns it to the Virtio10 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio10(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio10(v string) {
 	o.Virtio10 = &v
 }
 
 // GetVirtio11 returns the Virtio11 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio11() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio11() string {
 	if o == nil || isNil(o.Virtio11) {
 		var ret string
 		return ret
@@ -5800,7 +5895,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio11() stri
 
 // GetVirtio11Ok returns a tuple with the Virtio11 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio11Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio11Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio11) {
     return nil, false
 	}
@@ -5808,7 +5903,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio11Ok() (*
 }
 
 // HasVirtio11 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio11() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio11() bool {
 	if o != nil && !isNil(o.Virtio11) {
 		return true
 	}
@@ -5817,12 +5912,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio11() bool
 }
 
 // SetVirtio11 gets a reference to the given string and assigns it to the Virtio11 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio11(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio11(v string) {
 	o.Virtio11 = &v
 }
 
 // GetVirtio12 returns the Virtio12 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio12() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio12() string {
 	if o == nil || isNil(o.Virtio12) {
 		var ret string
 		return ret
@@ -5832,7 +5927,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio12() stri
 
 // GetVirtio12Ok returns a tuple with the Virtio12 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio12Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio12Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio12) {
     return nil, false
 	}
@@ -5840,7 +5935,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio12Ok() (*
 }
 
 // HasVirtio12 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio12() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio12() bool {
 	if o != nil && !isNil(o.Virtio12) {
 		return true
 	}
@@ -5849,12 +5944,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio12() bool
 }
 
 // SetVirtio12 gets a reference to the given string and assigns it to the Virtio12 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio12(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio12(v string) {
 	o.Virtio12 = &v
 }
 
 // GetVirtio13 returns the Virtio13 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio13() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio13() string {
 	if o == nil || isNil(o.Virtio13) {
 		var ret string
 		return ret
@@ -5864,7 +5959,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio13() stri
 
 // GetVirtio13Ok returns a tuple with the Virtio13 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio13Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio13Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio13) {
     return nil, false
 	}
@@ -5872,7 +5967,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio13Ok() (*
 }
 
 // HasVirtio13 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio13() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio13() bool {
 	if o != nil && !isNil(o.Virtio13) {
 		return true
 	}
@@ -5881,12 +5976,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio13() bool
 }
 
 // SetVirtio13 gets a reference to the given string and assigns it to the Virtio13 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio13(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio13(v string) {
 	o.Virtio13 = &v
 }
 
 // GetVirtio14 returns the Virtio14 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio14() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio14() string {
 	if o == nil || isNil(o.Virtio14) {
 		var ret string
 		return ret
@@ -5896,7 +5991,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio14() stri
 
 // GetVirtio14Ok returns a tuple with the Virtio14 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio14Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio14Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio14) {
     return nil, false
 	}
@@ -5904,7 +5999,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio14Ok() (*
 }
 
 // HasVirtio14 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio14() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio14() bool {
 	if o != nil && !isNil(o.Virtio14) {
 		return true
 	}
@@ -5913,12 +6008,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio14() bool
 }
 
 // SetVirtio14 gets a reference to the given string and assigns it to the Virtio14 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio14(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio14(v string) {
 	o.Virtio14 = &v
 }
 
 // GetVirtio15 returns the Virtio15 field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio15() string {
+func (o *CreateVirtualMachineRequestContent) GetVirtio15() string {
 	if o == nil || isNil(o.Virtio15) {
 		var ret string
 		return ret
@@ -5928,7 +6023,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio15() stri
 
 // GetVirtio15Ok returns a tuple with the Virtio15 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio15Ok() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVirtio15Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio15) {
     return nil, false
 	}
@@ -5936,7 +6031,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVirtio15Ok() (*
 }
 
 // HasVirtio15 returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio15() bool {
+func (o *CreateVirtualMachineRequestContent) HasVirtio15() bool {
 	if o != nil && !isNil(o.Virtio15) {
 		return true
 	}
@@ -5945,12 +6040,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVirtio15() bool
 }
 
 // SetVirtio15 gets a reference to the given string and assigns it to the Virtio15 field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVirtio15(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVirtio15(v string) {
 	o.Virtio15 = &v
 }
 
 // GetVmgenid returns the Vmgenid field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmgenid() string {
+func (o *CreateVirtualMachineRequestContent) GetVmgenid() string {
 	if o == nil || isNil(o.Vmgenid) {
 		var ret string
 		return ret
@@ -5960,7 +6055,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmgenid() strin
 
 // GetVmgenidOk returns a tuple with the Vmgenid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmgenidOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVmgenidOk() (*string, bool) {
 	if o == nil || isNil(o.Vmgenid) {
     return nil, false
 	}
@@ -5968,7 +6063,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmgenidOk() (*s
 }
 
 // HasVmgenid returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVmgenid() bool {
+func (o *CreateVirtualMachineRequestContent) HasVmgenid() bool {
 	if o != nil && !isNil(o.Vmgenid) {
 		return true
 	}
@@ -5977,12 +6072,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVmgenid() bool 
 }
 
 // SetVmgenid gets a reference to the given string and assigns it to the Vmgenid field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVmgenid(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVmgenid(v string) {
 	o.Vmgenid = &v
 }
 
 // GetVmstatestorage returns the Vmstatestorage field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmstatestorage() string {
+func (o *CreateVirtualMachineRequestContent) GetVmstatestorage() string {
 	if o == nil || isNil(o.Vmstatestorage) {
 		var ret string
 		return ret
@@ -5992,7 +6087,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmstatestorage(
 
 // GetVmstatestorageOk returns a tuple with the Vmstatestorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmstatestorageOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetVmstatestorageOk() (*string, bool) {
 	if o == nil || isNil(o.Vmstatestorage) {
     return nil, false
 	}
@@ -6000,7 +6095,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetVmstatestorageO
 }
 
 // HasVmstatestorage returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVmstatestorage() bool {
+func (o *CreateVirtualMachineRequestContent) HasVmstatestorage() bool {
 	if o != nil && !isNil(o.Vmstatestorage) {
 		return true
 	}
@@ -6009,12 +6104,12 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasVmstatestorage(
 }
 
 // SetVmstatestorage gets a reference to the given string and assigns it to the Vmstatestorage field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetVmstatestorage(v string) {
+func (o *CreateVirtualMachineRequestContent) SetVmstatestorage(v string) {
 	o.Vmstatestorage = &v
 }
 
 // GetWatchdog returns the Watchdog field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetWatchdog() string {
+func (o *CreateVirtualMachineRequestContent) GetWatchdog() string {
 	if o == nil || isNil(o.Watchdog) {
 		var ret string
 		return ret
@@ -6024,7 +6119,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetWatchdog() stri
 
 // GetWatchdogOk returns a tuple with the Watchdog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetWatchdogOk() (*string, bool) {
+func (o *CreateVirtualMachineRequestContent) GetWatchdogOk() (*string, bool) {
 	if o == nil || isNil(o.Watchdog) {
     return nil, false
 	}
@@ -6032,7 +6127,7 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetWatchdogOk() (*
 }
 
 // HasWatchdog returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasWatchdog() bool {
+func (o *CreateVirtualMachineRequestContent) HasWatchdog() bool {
 	if o != nil && !isNil(o.Watchdog) {
 		return true
 	}
@@ -6041,12 +6136,15 @@ func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasWatchdog() bool
 }
 
 // SetWatchdog gets a reference to the given string and assigns it to the Watchdog field.
-func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetWatchdog(v string) {
+func (o *CreateVirtualMachineRequestContent) SetWatchdog(v string) {
 	o.Watchdog = &v
 }
 
-func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]byte, error) {
+func (o CreateVirtualMachineRequestContent) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["vmid"] = o.Vmid
+	}
 	if !isNil(o.Acpi) {
 		toSerialize["acpi"] = o.Acpi
 	}
@@ -6055,6 +6153,9 @@ func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]by
 	}
 	if !isNil(o.Agent) {
 		toSerialize["agent"] = o.Agent
+	}
+	if !isNil(o.Archive) {
+		toSerialize["archive"] = o.Archive
 	}
 	if !isNil(o.Arch) {
 		toSerialize["arch"] = o.Arch
@@ -6071,11 +6172,11 @@ func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]by
 	if !isNil(o.Ballon) {
 		toSerialize["ballon"] = o.Ballon
 	}
-	if !isNil(o.Boot) {
-		toSerialize["boot"] = o.Boot
-	}
 	if !isNil(o.Bios) {
 		toSerialize["bios"] = o.Bios
+	}
+	if !isNil(o.Boot) {
+		toSerialize["boot"] = o.Boot
 	}
 	if !isNil(o.Bootdisk) {
 		toSerialize["bootdisk"] = o.Bootdisk
@@ -6112,9 +6213,6 @@ func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]by
 	}
 	if !isNil(o.Digest) {
 		toSerialize["digest"] = o.Digest
-	}
-	if !isNil(o.Delete) {
-		toSerialize["delete"] = o.Delete
 	}
 	if !isNil(o.Efidisk0) {
 		toSerialize["efidisk0"] = o.Efidisk0
@@ -6208,6 +6306,9 @@ func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]by
 	}
 	if !isNil(o.Localtime) {
 		toSerialize["localtime"] = o.Localtime
+	}
+	if !isNil(o.LiveRestore) {
+		toSerialize["live-restore"] = o.LiveRestore
 	}
 	if !isNil(o.Lock) {
 		toSerialize["lock"] = o.Lock
@@ -6467,6 +6568,9 @@ func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]by
 	if !isNil(o.Tpmstate0) {
 		toSerialize["tpmstate0"] = o.Tpmstate0
 	}
+	if !isNil(o.Unqiue) {
+		toSerialize["unqiue"] = o.Unqiue
+	}
 	if !isNil(o.Usb0) {
 		toSerialize["usb0"] = o.Usb0
 	}
@@ -6581,38 +6685,38 @@ func (o ApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]by
 	return json.Marshal(toSerialize)
 }
 
-type NullableApplyVirtualMachineConfigurationAsyncRequestContent struct {
-	value *ApplyVirtualMachineConfigurationAsyncRequestContent
+type NullableCreateVirtualMachineRequestContent struct {
+	value *CreateVirtualMachineRequestContent
 	isSet bool
 }
 
-func (v NullableApplyVirtualMachineConfigurationAsyncRequestContent) Get() *ApplyVirtualMachineConfigurationAsyncRequestContent {
+func (v NullableCreateVirtualMachineRequestContent) Get() *CreateVirtualMachineRequestContent {
 	return v.value
 }
 
-func (v *NullableApplyVirtualMachineConfigurationAsyncRequestContent) Set(val *ApplyVirtualMachineConfigurationAsyncRequestContent) {
+func (v *NullableCreateVirtualMachineRequestContent) Set(val *CreateVirtualMachineRequestContent) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableApplyVirtualMachineConfigurationAsyncRequestContent) IsSet() bool {
+func (v NullableCreateVirtualMachineRequestContent) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableApplyVirtualMachineConfigurationAsyncRequestContent) Unset() {
+func (v *NullableCreateVirtualMachineRequestContent) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableApplyVirtualMachineConfigurationAsyncRequestContent(val *ApplyVirtualMachineConfigurationAsyncRequestContent) *NullableApplyVirtualMachineConfigurationAsyncRequestContent {
-	return &NullableApplyVirtualMachineConfigurationAsyncRequestContent{value: val, isSet: true}
+func NewNullableCreateVirtualMachineRequestContent(val *CreateVirtualMachineRequestContent) *NullableCreateVirtualMachineRequestContent {
+	return &NullableCreateVirtualMachineRequestContent{value: val, isSet: true}
 }
 
-func (v NullableApplyVirtualMachineConfigurationAsyncRequestContent) MarshalJSON() ([]byte, error) {
+func (v NullableCreateVirtualMachineRequestContent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableApplyVirtualMachineConfigurationAsyncRequestContent) UnmarshalJSON(src []byte) error {
+func (v *NullableCreateVirtualMachineRequestContent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

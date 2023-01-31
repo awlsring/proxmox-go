@@ -27,7 +27,7 @@ type ApplyVirtualMachineConfigurationSyncRequestContent struct {
 	Args *string `json:"args,omitempty"`
 	// The audio device and its configuration.
 	Audio0 *string `json:"audio0,omitempty"`
-	// Start the virtual machine on node boot.
+	// Start the virtual machine on crash.
 	Autostart *float32 `json:"autostart,omitempty"`
 	// Amount of RAM for the VM in MB.
 	Ballon *float32 `json:"ballon,omitempty"`
@@ -35,8 +35,6 @@ type ApplyVirtualMachineConfigurationSyncRequestContent struct {
 	Boot *string `json:"boot,omitempty"`
 	// The boot disk of the virtual machine.
 	Bootdisk *string `json:"bootdisk,omitempty"`
-	// The metadata of the virtual machine.
-	Meta *string `json:"meta,omitempty"`
 	// The CD-ROM device and its configuration. An alias for option ide2
 	Cdrom *string `json:"cdrom,omitempty"`
 	// Specify custom cloud-init files to be used at start.
@@ -48,8 +46,7 @@ type ApplyVirtualMachineConfigurationSyncRequestContent struct {
 	Ciuser *string `json:"ciuser,omitempty"`
 	// Number of cores per socket.
 	Cores *float32 `json:"cores,omitempty"`
-	// The BIOS type.
-	Bios *string `json:"bios,omitempty"`
+	Bios *VirtualMachineBios `json:"bios,omitempty"`
 	// The CPU type.
 	Cpu *string `json:"cpu,omitempty"`
 	// CPU usage limit.
@@ -60,6 +57,8 @@ type ApplyVirtualMachineConfigurationSyncRequestContent struct {
 	Description *string `json:"description,omitempty"`
 	// The SHA1 digest of the virtual machine configuration. This can prevent concurrent modifications of the virtual machine configuration.
 	Digest *string `json:"digest,omitempty"`
+	// A list of settings to delete from the configuration.
+	Delete *string `json:"delete,omitempty"`
 	// The EFI disk device and its configuration.
 	Efidisk0 *string `json:"efidisk0,omitempty"`
 	// Freeze the CPU at virtual machine start.
@@ -702,38 +701,6 @@ func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetBootdisk(v strin
 	o.Bootdisk = &v
 }
 
-// GetMeta returns the Meta field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetMeta() string {
-	if o == nil || isNil(o.Meta) {
-		var ret string
-		return ret
-	}
-	return *o.Meta
-}
-
-// GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetMetaOk() (*string, bool) {
-	if o == nil || isNil(o.Meta) {
-    return nil, false
-	}
-	return o.Meta, true
-}
-
-// HasMeta returns a boolean if a field has been set.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasMeta() bool {
-	if o != nil && !isNil(o.Meta) {
-		return true
-	}
-
-	return false
-}
-
-// SetMeta gets a reference to the given string and assigns it to the Meta field.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetMeta(v string) {
-	o.Meta = &v
-}
-
 // GetCdrom returns the Cdrom field value if set, zero value otherwise.
 func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetCdrom() string {
 	if o == nil || isNil(o.Cdrom) {
@@ -927,9 +894,9 @@ func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetCores(v float32)
 }
 
 // GetBios returns the Bios field value if set, zero value otherwise.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetBios() string {
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetBios() VirtualMachineBios {
 	if o == nil || isNil(o.Bios) {
-		var ret string
+		var ret VirtualMachineBios
 		return ret
 	}
 	return *o.Bios
@@ -937,7 +904,7 @@ func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetBios() string {
 
 // GetBiosOk returns a tuple with the Bios field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetBiosOk() (*string, bool) {
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetBiosOk() (*VirtualMachineBios, bool) {
 	if o == nil || isNil(o.Bios) {
     return nil, false
 	}
@@ -953,8 +920,8 @@ func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasBios() bool {
 	return false
 }
 
-// SetBios gets a reference to the given string and assigns it to the Bios field.
-func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetBios(v string) {
+// SetBios gets a reference to the given VirtualMachineBios and assigns it to the Bios field.
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetBios(v VirtualMachineBios) {
 	o.Bios = &v
 }
 
@@ -1116,6 +1083,38 @@ func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasDigest() bool {
 // SetDigest gets a reference to the given string and assigns it to the Digest field.
 func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetDigest(v string) {
 	o.Digest = &v
+}
+
+// GetDelete returns the Delete field value if set, zero value otherwise.
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetDelete() string {
+	if o == nil || isNil(o.Delete) {
+		var ret string
+		return ret
+	}
+	return *o.Delete
+}
+
+// GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetDeleteOk() (*string, bool) {
+	if o == nil || isNil(o.Delete) {
+    return nil, false
+	}
+	return o.Delete, true
+}
+
+// HasDelete returns a boolean if a field has been set.
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasDelete() bool {
+	if o != nil && !isNil(o.Delete) {
+		return true
+	}
+
+	return false
+}
+
+// SetDelete gets a reference to the given string and assigns it to the Delete field.
+func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetDelete(v string) {
+	o.Delete = &v
 }
 
 // GetEfidisk0 returns the Efidisk0 field value if set, zero value otherwise.
@@ -6078,9 +6077,6 @@ func (o ApplyVirtualMachineConfigurationSyncRequestContent) MarshalJSON() ([]byt
 	if !isNil(o.Bootdisk) {
 		toSerialize["bootdisk"] = o.Bootdisk
 	}
-	if !isNil(o.Meta) {
-		toSerialize["meta"] = o.Meta
-	}
 	if !isNil(o.Cdrom) {
 		toSerialize["cdrom"] = o.Cdrom
 	}
@@ -6116,6 +6112,9 @@ func (o ApplyVirtualMachineConfigurationSyncRequestContent) MarshalJSON() ([]byt
 	}
 	if !isNil(o.Digest) {
 		toSerialize["digest"] = o.Digest
+	}
+	if !isNil(o.Delete) {
+		toSerialize["delete"] = o.Delete
 	}
 	if !isNil(o.Efidisk0) {
 		toSerialize["efidisk0"] = o.Efidisk0

@@ -1943,6 +1943,117 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+    post:
+      description: Create a new virtual machine.
+      operationId: CreateVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateVirtualMachineRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateVirtualMachineResponseContent'
+          description: CreateVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}:
+    delete:
+      description: Create a new virtual machine.
+      operationId: DeleteVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - description: Destroy disks that are not referenced in the config.
+        explode: true
+        in: query
+        name: destory-unreferenced-disks
+        required: false
+        schema:
+          description: Destroy disks that are not referenced in the config.
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      - description: "Purge the VM from the configurations, backups, jobs, and HA."
+        explode: true
+        in: query
+        name: purge
+        required: false
+        schema:
+          description: "Purge the VM from the configurations, backups, jobs, and HA."
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      - description: Skip the lock check. Only valid for root.
+        explode: true
+        in: query
+        name: skiplock
+        required: false
+        schema:
+          description: Skip the lock check. Only valid for root.
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteVirtualMachineResponseContent'
+          description: DeleteVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/clone:
     post:
       description: Create a copy of a virtual machine or template.
@@ -1978,6 +2089,131 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloneVirtualMachineResponseContent'
           description: CloneVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/cloudinit:
+    get:
+      description: Get the cloudinit configuration with both current and pending values.
+      operationId: GetPendingVirtualMachineCloudInitChanges
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPendingVirtualMachineCloudInitChangesResponseContent'
+          description: GetPendingVirtualMachineCloudInitChanges 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      description: Regenerate and change cloudinit config drive..
+      operationId: RegenerateVirtualMachineCloudInit
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: RegenerateVirtualMachineCloudInit 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/cloudinit/dump:
+    get:
+      description: Get automatically generated cloudinit config.
+      operationId: GetVirtualMachineCloudInit
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          $ref: '#/components/schemas/CloudInitType'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineCloudInitResponseContent'
+          description: GetVirtualMachineCloudInit 200 response
         "400":
           content:
             application/json:
@@ -2142,6 +2378,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/feature:
+    get:
+      description: Get the utilization and status of a virtual machine.
+      operationId: GetVirtualMachineFeatureSupport
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: feature
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: snapname
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineFeatureSupportResponseContent'
+          description: GetVirtualMachineFeatureSupport 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/status/current:
     get:
       description: Get the utilization and status of a virtual machine.
@@ -2171,6 +2462,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetVirtualMachineStatusResponseContent'
           description: GetVirtualMachineStatus 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/template:
+    post:
+      description: Create a copy of a virtual machine or template.
+      operationId: CreateVirtualMachineTemplate
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateVirtualMachineTemplateRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateVirtualMachineTemplateResponseContent'
+          description: CreateVirtualMachineTemplate 200 response
         "400":
           content:
             application/json:
@@ -2688,12 +3025,11 @@ components:
         virtio11: virtio11
         tags: tags
         virtio10: virtio10
-        meta: meta
         efidisk0: efidisk0
         affinity: affinity
         audio0: audio0
         template: 0.5025004791520294
-        bios: bios
+        bios: null
         protection: 0.14894159098541704
         citype: null
         cicustom: cicustom
@@ -2778,6 +3114,7 @@ components:
         description: description
         scsi0: scsi0
         scsi5: scsi5
+        delete: delete
         scsi4: scsi4
         scsi3: scsi3
         scsi2: scsi2
@@ -2844,7 +3181,7 @@ components:
           description: The audio device and its configuration.
           type: string
         autostart:
-          description: Start the virtual machine on node boot.
+          description: Start the virtual machine on crash.
           maximum: 1
           minimum: 0
           type: number
@@ -2854,11 +3191,10 @@ components:
         boot:
           description: The boot order of the virtual machine.
           type: string
+        bios:
+          $ref: '#/components/schemas/VirtualMachineBios'
         bootdisk:
           description: The boot disk of the virtual machine.
-          type: string
-        meta:
-          description: The metadata of the virtual machine.
           type: string
         cdrom:
           description: The CD-ROM device and its configuration. An alias for option
@@ -2878,9 +3214,6 @@ components:
         cores:
           description: Number of cores per socket.
           type: number
-        bios:
-          description: The BIOS type.
-          type: string
         cpu:
           description: The CPU type.
           type: string
@@ -2897,6 +3230,9 @@ components:
         digest:
           description: The SHA1 digest of the virtual machine configuration. This
             can prevent concurrent modifications of the virtual machine configuration.
+          type: string
+        delete:
+          description: A list of settings to delete from the configuration.
           type: string
         efidisk0:
           description: The EFI disk device and its configuration.
@@ -3439,12 +3775,11 @@ components:
         virtio11: virtio11
         tags: tags
         virtio10: virtio10
-        meta: meta
         efidisk0: efidisk0
         affinity: affinity
         audio0: audio0
         template: 0.5025004791520294
-        bios: bios
+        bios: null
         protection: 0.14894159098541704
         citype: null
         cicustom: cicustom
@@ -3529,6 +3864,7 @@ components:
         description: description
         scsi0: scsi0
         scsi5: scsi5
+        delete: delete
         scsi4: scsi4
         scsi3: scsi3
         scsi2: scsi2
@@ -3595,7 +3931,7 @@ components:
           description: The audio device and its configuration.
           type: string
         autostart:
-          description: Start the virtual machine on node boot.
+          description: Start the virtual machine on crash.
           maximum: 1
           minimum: 0
           type: number
@@ -3607,9 +3943,6 @@ components:
           type: string
         bootdisk:
           description: The boot disk of the virtual machine.
-          type: string
-        meta:
-          description: The metadata of the virtual machine.
           type: string
         cdrom:
           description: The CD-ROM device and its configuration. An alias for option
@@ -3630,8 +3963,7 @@ components:
           description: Number of cores per socket.
           type: number
         bios:
-          description: The BIOS type.
-          type: string
+          $ref: '#/components/schemas/VirtualMachineBios'
         cpu:
           description: The CPU type.
           type: string
@@ -3648,6 +3980,9 @@ components:
         digest:
           description: The SHA1 digest of the virtual machine configuration. This
             can prevent concurrent modifications of the virtual machine configuration.
+          type: string
+        delete:
+          description: A list of settings to delete from the configuration.
           type: string
         efidisk0:
           description: The EFI disk device and its configuration.
@@ -4208,6 +4543,12 @@ components:
       required:
       - data
       type: object
+    CloudInitType:
+      enum:
+      - user
+      - network
+      - meta
+      type: string
     CorosyncNodeSummary:
       example:
         ring1_addr: ring1_addr
@@ -4805,6 +5146,788 @@ components:
       required:
       - data
       type: object
+    CreateVirtualMachineRequestContent:
+      example:
+        net0: net0
+        usb13: usb13
+        usb14: usb14
+        usb8: usb8
+        usb11: usb11
+        cipassword: cipassword
+        usb9: usb9
+        usb12: usb12
+        net4: net4
+        usb6: usb6
+        net3: net3
+        usb7: usb7
+        usb10: usb10
+        net2: net2
+        usb4: usb4
+        net1: net1
+        usb5: usb5
+        net7: net7
+        net6: net6
+        net5: net5
+        autostart: 0.6027456183070403
+        startdate: startdate
+        smbios1: smbios1
+        tablet: 0.5025004791520294
+        cores: 5.962133916683182
+        freeze: true
+        usb2: usb2
+        lock: null
+        usb3: usb3
+        usb0: usb0
+        sockets: 4.965218492984954
+        usb1: usb1
+        ivshmem: ivshmem
+        vmid: vmid
+        virtio13: virtio13
+        virtio12: virtio12
+        tpmstate0: tpmstate0
+        virtio15: virtio15
+        keephugepages: 0.7061401241503109
+        unqiue: 0.9369310271410669
+        virtio14: virtio14
+        virtio11: virtio11
+        tags: tags
+        virtio10: virtio10
+        live-restore: 0.20271230230023218
+        efidisk0: efidisk0
+        affinity: affinity
+        audio0: audio0
+        template: 0.9965781217890561
+        bios: null
+        protection: 0.684685269835264
+        citype: null
+        cicustom: cicustom
+        shares: 1.1730742509559433
+        digest: digest
+        ipconfig0: ipconfig0
+        spice_enhancements: spice_enhancements
+        kvm: 0.9301444243932576
+        migrate_speed: 1.2315135367772556
+        scsi30: scsi30
+        ipconfig7: ipconfig7
+        sshkeys: sshkeys
+        ipconfig5: ipconfig5
+        ipconfig6: ipconfig6
+        ipconfig3: ipconfig3
+        cdrom: cdrom
+        ipconfig4: ipconfig4
+        ipconfig1: ipconfig1
+        ipconfig2: ipconfig2
+        watchdog: watchdog
+        machine: machine
+        parallel2: parallel2
+        parallel1: parallel1
+        parallel0: parallel0
+        arch: null
+        localtime: 0.3616076749251911
+        scsi22: scsi22
+        serial1: serial1
+        scsi23: scsi23
+        serial0: serial0
+        agent: agent
+        scsi20: scsi20
+        serial3: serial3
+        scsi21: scsi21
+        serial2: serial2
+        searchdomain: searchdomain
+        scsi28: scsi28
+        cpulimit: 5.637376656633329
+        scsi29: scsi29
+        scsi26: scsi26
+        bootdisk: bootdisk
+        scsi27: scsi27
+        scsi24: scsi24
+        scsi25: scsi25
+        startup: startup
+        migrate_downtime: 7.386282
+        scsi11: scsi11
+        scsi12: scsi12
+        scsi10: scsi10
+        numa: 0.10246457001441578
+        scsi19: scsi19
+        cpu: cpu
+        archive: archive
+        scsi17: scsi17
+        scsi18: scsi18
+        scsi15: scsi15
+        scsi16: scsi16
+        scsi13: scsi13
+        scsi14: scsi14
+        virtio3: virtio3
+        numa0: numa0
+        virtio4: virtio4
+        numa1: numa1
+        virtio5: virtio5
+        numa2: numa2
+        virtio6: virtio6
+        virtio7: virtio7
+        virtio8: virtio8
+        acpi: 0.08008281904610115
+        virtio9: virtio9
+        name: name
+        numa7: numa7
+        nameserver: nameserver
+        numa3: numa3
+        numa4: numa4
+        virtio0: virtio0
+        numa5: numa5
+        virtio1: virtio1
+        numa6: numa6
+        virtio2: virtio2
+        memory: 4.145608029883936
+        scsi1: scsi1
+        description: description
+        scsi0: scsi0
+        scsi5: scsi5
+        scsi4: scsi4
+        scsi3: scsi3
+        scsi2: scsi2
+        rng0: rng0
+        scsi9: scsi9
+        scsi8: scsi8
+        vga: vga
+        vmstatestorage: vmstatestorage
+        scsi7: scsi7
+        hotplug: hotplug
+        scsi6: scsi6
+        scsihw: null
+        sata1: sata1
+        sata2: sata2
+        sata0: sata0
+        sata5: sata5
+        ballon: 1.4658129805029452
+        sata3: sata3
+        sata4: sata4
+        boot: boot
+        cpuunits: 2.3021358869347655
+        ciuser: ciuser
+        hostpci0: hostpci0
+        reboot: 0.7457744773683765
+        hostpci1: hostpci1
+        keyboard: null
+        hostpci4: hostpci4
+        hostpci5: hostpci5
+        hostpci2: hostpci2
+        hostpci3: hostpci3
+        hostpci8: hostpci8
+        hostpci9: hostpci9
+        hostpci6: hostpci6
+        hookscript: hookscript
+        hostpci7: hostpci7
+        ostype: null
+        vcpus: 6.683562403749608
+        vmgenid: vmgenid
+        args: args
+        hugepages: null
+        ide1: ide1
+        ide0: ide0
+        onboot: 0.14894159098541704
+        ide3: ide3
+        ide2: ide2
+      properties:
+        vmid:
+          description: The id of the virtual machine as a string
+          type: string
+        acpi:
+          description: Enable ACPI support. Default to enabled.
+          maximum: 1
+          minimum: 0
+          type: number
+        affinity:
+          description: "List of cores to execute processes. Example value: 1,5,8-11."
+          type: string
+        agent:
+          description: The QEMU agent and its configuration.
+          type: string
+        archive:
+          description: The archive of the virtual machine.
+          type: string
+        arch:
+          $ref: '#/components/schemas/VirtualMachineArchitecture'
+        args:
+          description: Additional command line arguments passed to the kvm.
+          type: string
+        audio0:
+          description: The audio device and its configuration.
+          type: string
+        autostart:
+          description: Start the virtual machine on crash.
+          maximum: 1
+          minimum: 0
+          type: number
+        ballon:
+          description: Amount of RAM for the VM in MB.
+          type: number
+        bios:
+          $ref: '#/components/schemas/VirtualMachineBios'
+        boot:
+          description: The boot order of the virtual machine.
+          type: string
+        bootdisk:
+          description: The boot disk of the virtual machine.
+          type: string
+        cdrom:
+          description: The CD-ROM device and its configuration. An alias for option
+            ide2
+          type: string
+        cicustom:
+          description: Specify custom cloud-init files to be used at start.
+          type: string
+        cipassword:
+          description: The password for the cloud-init user.
+          type: string
+        citype:
+          $ref: '#/components/schemas/VirtualMachineCloudInitType'
+        ciuser:
+          description: The cloud-init user.
+          type: string
+        cores:
+          description: Number of cores per socket.
+          type: number
+        cpu:
+          description: The CPU type.
+          type: string
+        cpulimit:
+          description: CPU usage limit.
+          type: number
+        cpuunits:
+          description: "CPU weight for a VM. The higher the value, the more CPU time\
+            \ the VM gets."
+          type: number
+        description:
+          description: The description of the virtual machine.
+          type: string
+        digest:
+          description: The SHA1 digest of the virtual machine configuration. This
+            can prevent concurrent modifications of the virtual machine configuration.
+          type: string
+        efidisk0:
+          description: The EFI disk device and its configuration.
+          type: string
+        freeze:
+          description: Freeze the CPU at virtual machine start.
+          type: boolean
+        hookscript:
+          description: The hook script that is used at various point in the virtual
+            machines lifecycle.
+          type: string
+        hostpci0:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci1:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci2:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci3:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci4:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci5:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci6:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci7:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci8:
+          description: The host PCI device and its configuration.
+          type: string
+        hostpci9:
+          description: The host PCI device and its configuration.
+          type: string
+        hugepages:
+          $ref: '#/components/schemas/VirtualMachineHugePages'
+        ide0:
+          description: Volume used as IDE or harddisk.
+          type: string
+        ide1:
+          description: Volume used as IDE or harddisk.
+          type: string
+        ide2:
+          description: Volume used as IDE or harddisk.
+          type: string
+        ide3:
+          description: Volume used as IDE or harddisk.
+          type: string
+        ipconfig0:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig1:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig2:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig3:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig4:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig5:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig6:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ipconfig7:
+          description: "The ip address and gateways for the interface. Ip addresses\
+            \ are in CIDR format. Example value: ip=10.0.100.101/24,gw=10.0.100.1"
+          type: string
+        ivshmem:
+          description: Inter VM-shared memory.
+          type: string
+        keephugepages:
+          description: Keep hugepages after shutdown.
+          maximum: 1
+          minimum: 0
+          type: number
+        keyboard:
+          $ref: '#/components/schemas/VirtualMachineKeyboard'
+        kvm:
+          description: Enable KVM support. Default to enabled.
+          maximum: 1
+          minimum: 0
+          type: number
+        localtime:
+          description: Set the real time clock to local time.
+          maximum: 1
+          minimum: 0
+          type: number
+        live-restore:
+          description: Start VM immediatly from backup and start in the background.
+          maximum: 1
+          minimum: 0
+          type: number
+        lock:
+          $ref: '#/components/schemas/VirtualMachineConfigLock'
+        machine:
+          description: The machine type.
+          type: string
+        memory:
+          description: The amount of memory in MB.
+          type: number
+        migrate_downtime:
+          description: The maximum tolerated downtime in seconds during migration.
+          format: float
+          type: number
+        migrate_speed:
+          description: The maximum speed in MB/s during migration. 0 is no limit
+          type: number
+        name:
+          description: The name of the virtual machine.
+          type: string
+        nameserver:
+          description: The nameserver for the virtual machine.
+          type: string
+        net0:
+          description: The network interface and its configuration.
+          type: string
+        net1:
+          description: The network interface and its configuration.
+          type: string
+        net2:
+          description: The network interface and its configuration.
+          type: string
+        net3:
+          description: The network interface and its configuration.
+          type: string
+        net4:
+          description: The network interface and its configuration.
+          type: string
+        net5:
+          description: The network interface and its configuration.
+          type: string
+        net6:
+          description: The network interface and its configuration.
+          type: string
+        net7:
+          description: The network interface and its configuration.
+          type: string
+        numa:
+          description: Enable NUMA support. Default to disabled.
+          maximum: 1
+          minimum: 0
+          type: number
+        numa0:
+          description: NUMA topology.
+          type: string
+        numa1:
+          description: NUMA topology.
+          type: string
+        numa2:
+          description: NUMA topology.
+          type: string
+        numa3:
+          description: NUMA topology.
+          type: string
+        numa4:
+          description: NUMA topology.
+          type: string
+        numa5:
+          description: NUMA topology.
+          type: string
+        numa6:
+          description: NUMA topology.
+          type: string
+        numa7:
+          description: NUMA topology.
+          type: string
+        onboot:
+          description: Start the virtual machine on boot.
+          maximum: 1
+          minimum: 0
+          type: number
+        ostype:
+          $ref: '#/components/schemas/VirtualMachineOperatingSystem'
+        parallel0:
+          description: Host parallel device.
+          type: string
+        parallel1:
+          description: Host parallel device.
+          type: string
+        parallel2:
+          description: Host parallel device.
+          type: string
+        protection:
+          description: The protection flag on the virtual machine. Disables remove
+            VM and disk operations.
+          maximum: 1
+          minimum: 0
+          type: number
+        reboot:
+          description: Allows reboot. False will have the virtual machine exit on
+            reboot.
+          maximum: 1
+          minimum: 0
+          type: number
+        rng0:
+          description: Virtio based random number generator.
+          type: string
+        sata0:
+          description: Uses the volume as a sata disk.
+          type: string
+        sata1:
+          description: Uses the volume as a sata disk.
+          type: string
+        sata2:
+          description: Uses the volume as a sata disk.
+          type: string
+        sata3:
+          description: Uses the volume as a sata disk.
+          type: string
+        sata4:
+          description: Uses the volume as a sata disk.
+          type: string
+        sata5:
+          description: Uses the volume as a sata disk.
+          type: string
+        scsi0:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi1:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi2:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi3:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi4:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi5:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi6:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi7:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi8:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi9:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi10:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi11:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi12:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi13:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi14:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi15:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi16:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi17:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi18:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi19:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi20:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi21:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi22:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi23:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi24:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi25:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi26:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi27:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi28:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi29:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsi30:
+          description: Uses the volume as a scsi disk.
+          type: string
+        scsihw:
+          $ref: '#/components/schemas/VirtualMachineScsiControllerType'
+        searchdomain:
+          description: Cloudinit search domain.
+          type: string
+        serial0:
+          description: A serial device on the virtual machine.
+          type: string
+        serial1:
+          description: A serial device on the virtual machine.
+          type: string
+        serial2:
+          description: A serial device on the virtual machine.
+          type: string
+        serial3:
+          description: A serial device on the virtual machine.
+          type: string
+        shares:
+          description: The amount of memory shares for autoballooning.
+          type: number
+        smbios1:
+          description: SMBIOS type 1 field.
+          type: string
+        sockets:
+          description: The number of cpu sockets.
+          type: number
+        spice_enhancements:
+          description: Enable spice enhancements.
+          type: string
+        sshkeys:
+          description: Cloud init SSH public keys. One per line.
+          type: string
+        startdate:
+          description: The start date for the virtual machine real time clock.
+          type: string
+        startup:
+          description: The startup policy for the virtual machine.
+          type: string
+        tablet:
+          description: Enable tablet device.
+          maximum: 1
+          minimum: 0
+          type: number
+        tags:
+          description: The tags for the virtual machine.
+          type: string
+        template:
+          description: If the virtual machine is a template or not.
+          maximum: 1
+          minimum: 0
+          type: number
+        tpmstate0:
+          description: Configure a disk for storing TPM state.
+          type: string
+        unqiue:
+          description: Assign a unique random ehternet address.
+          maximum: 1
+          minimum: 0
+          type: number
+        usb0:
+          description: A usb device on the virtual machine.
+          type: string
+        usb1:
+          description: A usb device on the virtual machine.
+          type: string
+        usb2:
+          description: A usb device on the virtual machine.
+          type: string
+        usb3:
+          description: A usb device on the virtual machine.
+          type: string
+        usb4:
+          description: A usb device on the virtual machine.
+          type: string
+        usb5:
+          description: A usb device on the virtual machine.
+          type: string
+        usb6:
+          description: A usb device on the virtual machine.
+          type: string
+        usb7:
+          description: A usb device on the virtual machine.
+          type: string
+        usb8:
+          description: A usb device on the virtual machine.
+          type: string
+        usb9:
+          description: A usb device on the virtual machine.
+          type: string
+        usb10:
+          description: A usb device on the virtual machine.
+          type: string
+        usb11:
+          description: A usb device on the virtual machine.
+          type: string
+        usb12:
+          description: A usb device on the virtual machine.
+          type: string
+        usb13:
+          description: A usb device on the virtual machine.
+          type: string
+        usb14:
+          description: A usb device on the virtual machine.
+          type: string
+        hotplug:
+          description: Hotplug devices.
+          type: string
+        vcpus:
+          description: The number of hotplugged virtual cpus.
+          type: number
+        vga:
+          description: Configuration for the VGA hardware.
+          type: string
+        virtio0:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio1:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio2:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio3:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio4:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio5:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio6:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio7:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio8:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio9:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio10:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio11:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio12:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio13:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio14:
+          description: Uses the volume as a virtio disk.
+          type: string
+        virtio15:
+          description: Uses the volume as a virtio disk.
+          type: string
+        vmgenid:
+          description: Enable VM generation id seed.
+          type: string
+        vmstatestorage:
+          description: Default location for storing VM state.
+          type: string
+        watchdog:
+          description: The watchdog device for the virtual machine.
+          type: string
+      required:
+      - vmid
+      type: object
+    CreateVirtualMachineResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    CreateVirtualMachineTemplateRequestContent:
+      example:
+        disk: null
+      properties:
+        disk:
+          $ref: '#/components/schemas/VirtualMachineTemplateDiskTarget'
+      type: object
+    CreateVirtualMachineTemplateResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      type: object
     CreateZFSPoolRequestContent:
       example:
         devices: devices
@@ -4878,6 +6001,15 @@ components:
       - data
       type: object
     DeleteNodeCertificateResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    DeleteVirtualMachineResponseContent:
       example:
         data: data
       properties:
@@ -5247,6 +6379,23 @@ components:
       required:
       - data
       type: object
+    GetPendingVirtualMachineCloudInitChangesResponseContent:
+      example:
+        data:
+        - new: new
+          old: old
+          key: key
+        - new: new
+          old: old
+          key: key
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PendingVirtualMachineCloudInitField'
+          type: array
+      required:
+      - data
+      type: object
     GetPoolResponseContent:
       example:
         data:
@@ -5333,6 +6482,15 @@ components:
       required:
       - data
       type: object
+    GetVirtualMachineCloudInitResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     GetVirtualMachineConfigurationResponseContent:
       example:
         data:
@@ -5383,7 +6541,7 @@ components:
           affinity: affinity
           audio0: audio0
           template: 0.5025004791520294
-          bios: bios
+          bios: null
           protection: 0.14894159098541704
           citype: null
           cicustom: cicustom
@@ -5516,6 +6674,19 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/VirtualMachineConfigurationSummary'
+      required:
+      - data
+      type: object
+    GetVirtualMachineFeatureSupportResponseContent:
+      example:
+        data:
+          nodes:
+          - nodes
+          - nodes
+          hasFeature: 0.08008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/VirtualMachineFeatureSupportSummary'
       required:
       - data
       type: object
@@ -7113,6 +8284,21 @@ components:
       - description
       - type
       type: object
+    PendingVirtualMachineCloudInitField:
+      example:
+        new: new
+        old: old
+        key: key
+      properties:
+        key:
+          type: string
+        new:
+          type: string
+        old:
+          type: string
+      required:
+      - key
+      type: object
     PoolInfo:
       example:
         poolid: poolid
@@ -7737,6 +8923,11 @@ components:
         major_page_faults:
           type: number
       type: object
+    VirtualMachineBios:
+      enum:
+      - seabios
+      - ovmf
+      type: string
     VirtualMachineCloudInitType:
       enum:
       - configdrive2
@@ -7805,7 +8996,7 @@ components:
         affinity: affinity
         audio0: audio0
         template: 0.5025004791520294
-        bios: bios
+        bios: null
         protection: 0.14894159098541704
         citype: null
         cicustom: cicustom
@@ -7994,8 +9185,7 @@ components:
           description: Number of cores per socket.
           type: number
         bios:
-          description: The BIOS type.
-          type: string
+          $ref: '#/components/schemas/VirtualMachineBios'
         cpu:
           description: The CPU type.
           type: string
@@ -8499,6 +9689,27 @@ components:
       required:
       - digest
       type: object
+    VirtualMachineFeatureSupportSummary:
+      example:
+        nodes:
+        - nodes
+        - nodes
+        hasFeature: 0.08008281904610115
+      properties:
+        hasFeature:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        nodes:
+          items:
+            pattern: "^[A-Za-z]+$"
+            type: string
+          type: array
+      required:
+      - hasFeature
+      - nodes
+      type: object
     VirtualMachineHighAvailabilityStatus:
       example:
         managed: 0.08008281904610115
@@ -8913,6 +10124,68 @@ components:
       required:
       - vmid
       type: object
+    VirtualMachineTemplateDiskTarget:
+      enum:
+      - ide0
+      - ide1
+      - ide2
+      - ide3
+      - scsi0
+      - scsi1
+      - scsi2
+      - scsi3
+      - scsi4
+      - scsi5
+      - scsi6
+      - scsi7
+      - scsi8
+      - scsi9
+      - scsi10
+      - scsi11
+      - scsi12
+      - scsi13
+      - scsi14
+      - scsi15
+      - scsi16
+      - scsi17
+      - scsi18
+      - scsi19
+      - scsi20
+      - scsi21
+      - scsi22
+      - scsi23
+      - scsi24
+      - scsi25
+      - scsi26
+      - scsi27
+      - scsi28
+      - scsi29
+      - scsi30
+      - virtio0
+      - virtio1
+      - virtio2
+      - virtio3
+      - virtio4
+      - virtio5
+      - virtio6
+      - virtio7
+      - virtio8
+      - virtio9
+      - virtio10
+      - virtio11
+      - virtio12
+      - virtio13
+      - virtio14
+      - virtio15
+      - sata0
+      - sata1
+      - sata2
+      - sata3
+      - sata4
+      - sata5
+      - efidisk0
+      - tpmstate0
+      type: string
     ZFSCompression:
       enum:
       - "on"

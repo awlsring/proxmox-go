@@ -50,8 +50,7 @@ type VirtualMachineConfigurationSummary struct {
 	Ciuser *string `json:"ciuser,omitempty"`
 	// Number of cores per socket.
 	Cores *float32 `json:"cores,omitempty"`
-	// The BIOS type.
-	Bios *string `json:"bios,omitempty"`
+	Bios *VirtualMachineBios `json:"bios,omitempty"`
 	// The CPU type.
 	Cpu *string `json:"cpu,omitempty"`
 	// CPU usage limit.
@@ -952,9 +951,9 @@ func (o *VirtualMachineConfigurationSummary) SetCores(v float32) {
 }
 
 // GetBios returns the Bios field value if set, zero value otherwise.
-func (o *VirtualMachineConfigurationSummary) GetBios() string {
+func (o *VirtualMachineConfigurationSummary) GetBios() VirtualMachineBios {
 	if o == nil || isNil(o.Bios) {
-		var ret string
+		var ret VirtualMachineBios
 		return ret
 	}
 	return *o.Bios
@@ -962,7 +961,7 @@ func (o *VirtualMachineConfigurationSummary) GetBios() string {
 
 // GetBiosOk returns a tuple with the Bios field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualMachineConfigurationSummary) GetBiosOk() (*string, bool) {
+func (o *VirtualMachineConfigurationSummary) GetBiosOk() (*VirtualMachineBios, bool) {
 	if o == nil || isNil(o.Bios) {
     return nil, false
 	}
@@ -978,8 +977,8 @@ func (o *VirtualMachineConfigurationSummary) HasBios() bool {
 	return false
 }
 
-// SetBios gets a reference to the given string and assigns it to the Bios field.
-func (o *VirtualMachineConfigurationSummary) SetBios(v string) {
+// SetBios gets a reference to the given VirtualMachineBios and assigns it to the Bios field.
+func (o *VirtualMachineConfigurationSummary) SetBios(v VirtualMachineBios) {
 	o.Bios = &v
 }
 

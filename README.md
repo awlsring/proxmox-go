@@ -94,6 +94,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreatePool**](docs/DefaultApi.md#createpool) | **Post** /pools | 
 *DefaultApi* | [**CreateStorage**](docs/DefaultApi.md#createstorage) | **Post** /storage | 
 *DefaultApi* | [**CreateTicket**](docs/DefaultApi.md#createticket) | **Post** /access/ticket | 
+*DefaultApi* | [**CreateVirtualMachine**](docs/DefaultApi.md#createvirtualmachine) | **Post** /nodes/{node}/qemu | 
+*DefaultApi* | [**CreateVirtualMachineTemplate**](docs/DefaultApi.md#createvirtualmachinetemplate) | **Post** /nodes/{node}/qemu/{vmId}/template | 
 *DefaultApi* | [**CreateZFSPool**](docs/DefaultApi.md#createzfspool) | **Post** /nodes/{node}/disks/zfs | 
 *DefaultApi* | [**DeleteDirectory**](docs/DefaultApi.md#deletedirectory) | **Delete** /nodes/{node}/disks/directory/{name} | 
 *DefaultApi* | [**DeleteLVM**](docs/DefaultApi.md#deletelvm) | **Delete** /nodes/{node}/disks/lvm/{name} | 
@@ -102,6 +104,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteNodeCertificate**](docs/DefaultApi.md#deletenodecertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 *DefaultApi* | [**DeletePool**](docs/DefaultApi.md#deletepool) | **Delete** /pools/{poolId} | 
 *DefaultApi* | [**DeleteStorage**](docs/DefaultApi.md#deletestorage) | **Delete** /storage/{storage} | 
+*DefaultApi* | [**DeleteVirtualMachine**](docs/DefaultApi.md#deletevirtualmachine) | **Delete** /nodes/{node}/qemu/{vmId} | 
 *DefaultApi* | [**DeleteZFSPool**](docs/DefaultApi.md#deletezfspool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**GetAccessControlList**](docs/DefaultApi.md#getaccesscontrollist) | **Get** /access/acl | 
 *DefaultApi* | [**GetClusterApiVersion**](docs/DefaultApi.md#getclusterapiversion) | **Get** /cluster/config/apiversion | 
@@ -109,11 +112,14 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetClusterTotemSettings**](docs/DefaultApi.md#getclustertotemsettings) | **Get** /cluster/config/totem | 
 *DefaultApi* | [**GetNetworkInterface**](docs/DefaultApi.md#getnetworkinterface) | **Get** /nodes/{node}/network/{interface} | 
 *DefaultApi* | [**GetPackageChangelog**](docs/DefaultApi.md#getpackagechangelog) | **Get** /nodes/{node}/apt/changelog | 
+*DefaultApi* | [**GetPendingVirtualMachineCloudInitChanges**](docs/DefaultApi.md#getpendingvirtualmachinecloudinitchanges) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit | 
 *DefaultApi* | [**GetPool**](docs/DefaultApi.md#getpool) | **Get** /pools/{poolId} | 
 *DefaultApi* | [**GetSmartHealth**](docs/DefaultApi.md#getsmarthealth) | **Get** /nodes/{node}/disks/smart | 
 *DefaultApi* | [**GetStorage**](docs/DefaultApi.md#getstorage) | **Get** /storage/{storage} | 
 *DefaultApi* | [**GetVersion**](docs/DefaultApi.md#getversion) | **Get** /version | 
+*DefaultApi* | [**GetVirtualMachineCloudInit**](docs/DefaultApi.md#getvirtualmachinecloudinit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
 *DefaultApi* | [**GetVirtualMachineConfiguration**](docs/DefaultApi.md#getvirtualmachineconfiguration) | **Get** /nodes/{node}/qemu/{vmId}/config | 
+*DefaultApi* | [**GetVirtualMachineFeatureSupport**](docs/DefaultApi.md#getvirtualmachinefeaturesupport) | **Get** /nodes/{node}/qemu/{vmId}/feature | 
 *DefaultApi* | [**GetVirtualMachineStatus**](docs/DefaultApi.md#getvirtualmachinestatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 *DefaultApi* | [**GetZFSPoolStatus**](docs/DefaultApi.md#getzfspoolstatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
@@ -141,6 +147,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ModifyPool**](docs/DefaultApi.md#modifypool) | **Put** /pools | 
 *DefaultApi* | [**ModifyStorage**](docs/DefaultApi.md#modifystorage) | **Put** /storage/{storage} | 
 *DefaultApi* | [**OrderNodeCertificate**](docs/DefaultApi.md#ordernodecertificate) | **Post** /nodes/{node}/certificates/acme/certificate | 
+*DefaultApi* | [**RegenerateVirtualMachineCloudInit**](docs/DefaultApi.md#regeneratevirtualmachinecloudinit) | **Put** /nodes/{node}/qemu/{vmId}/cloudinit | 
 *DefaultApi* | [**RemoveCorosyncNode**](docs/DefaultApi.md#removecorosyncnode) | **Delete** /cluster/config/nodes/{node} | 
 *DefaultApi* | [**RenewNodeCertificate**](docs/DefaultApi.md#renewnodecertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
@@ -164,6 +171,7 @@ Class | Method | HTTP request | Description
  - [CloneVirtualMachineDiskFormat](docs/CloneVirtualMachineDiskFormat.md)
  - [CloneVirtualMachineRequestContent](docs/CloneVirtualMachineRequestContent.md)
  - [CloneVirtualMachineResponseContent](docs/CloneVirtualMachineResponseContent.md)
+ - [CloudInitType](docs/CloudInitType.md)
  - [CorosyncNodeSummary](docs/CorosyncNodeSummary.md)
  - [CorosyncSettings](docs/CorosyncSettings.md)
  - [CpuCapabilitySummary](docs/CpuCapabilitySummary.md)
@@ -181,12 +189,17 @@ Class | Method | HTTP request | Description
  - [CreateStorageResponseContent](docs/CreateStorageResponseContent.md)
  - [CreateTicketRequestContent](docs/CreateTicketRequestContent.md)
  - [CreateTicketResponseContent](docs/CreateTicketResponseContent.md)
+ - [CreateVirtualMachineRequestContent](docs/CreateVirtualMachineRequestContent.md)
+ - [CreateVirtualMachineResponseContent](docs/CreateVirtualMachineResponseContent.md)
+ - [CreateVirtualMachineTemplateRequestContent](docs/CreateVirtualMachineTemplateRequestContent.md)
+ - [CreateVirtualMachineTemplateResponseContent](docs/CreateVirtualMachineTemplateResponseContent.md)
  - [CreateZFSPoolRequestContent](docs/CreateZFSPoolRequestContent.md)
  - [CreateZFSPoolResponseContent](docs/CreateZFSPoolResponseContent.md)
  - [DeleteDirectoryResponseContent](docs/DeleteDirectoryResponseContent.md)
  - [DeleteLVMResponseContent](docs/DeleteLVMResponseContent.md)
  - [DeleteLVMThinResponseContent](docs/DeleteLVMThinResponseContent.md)
  - [DeleteNodeCertificateResponseContent](docs/DeleteNodeCertificateResponseContent.md)
+ - [DeleteVirtualMachineResponseContent](docs/DeleteVirtualMachineResponseContent.md)
  - [DeleteZFSPoolResponseContent](docs/DeleteZFSPoolResponseContent.md)
  - [DirectoryFileSystem](docs/DirectoryFileSystem.md)
  - [DirectorySummary](docs/DirectorySummary.md)
@@ -202,11 +215,14 @@ Class | Method | HTTP request | Description
  - [GetClusterTotemSettingsResponseContent](docs/GetClusterTotemSettingsResponseContent.md)
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
  - [GetPackageChangelogResponseContent](docs/GetPackageChangelogResponseContent.md)
+ - [GetPendingVirtualMachineCloudInitChangesResponseContent](docs/GetPendingVirtualMachineCloudInitChangesResponseContent.md)
  - [GetPoolResponseContent](docs/GetPoolResponseContent.md)
  - [GetSmartHealthResponseContent](docs/GetSmartHealthResponseContent.md)
  - [GetStorageResponseContent](docs/GetStorageResponseContent.md)
  - [GetVersionResponseContent](docs/GetVersionResponseContent.md)
+ - [GetVirtualMachineCloudInitResponseContent](docs/GetVirtualMachineCloudInitResponseContent.md)
  - [GetVirtualMachineConfigurationResponseContent](docs/GetVirtualMachineConfigurationResponseContent.md)
+ - [GetVirtualMachineFeatureSupportResponseContent](docs/GetVirtualMachineFeatureSupportResponseContent.md)
  - [GetVirtualMachineStatusResponseContent](docs/GetVirtualMachineStatusResponseContent.md)
  - [GetZFSPoolStatusResponseContent](docs/GetZFSPoolStatusResponseContent.md)
  - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
@@ -256,6 +272,7 @@ Class | Method | HTTP request | Description
  - [OrderNodeCertificateResponseContent](docs/OrderNodeCertificateResponseContent.md)
  - [PackageSummary](docs/PackageSummary.md)
  - [PciMediatedDeviceSummary](docs/PciMediatedDeviceSummary.md)
+ - [PendingVirtualMachineCloudInitField](docs/PendingVirtualMachineCloudInitField.md)
  - [PoolInfo](docs/PoolInfo.md)
  - [PoolMemberType](docs/PoolMemberType.md)
  - [ProxmoxSupportSummary](docs/ProxmoxSupportSummary.md)
@@ -278,9 +295,11 @@ Class | Method | HTTP request | Description
  - [VersionSummary](docs/VersionSummary.md)
  - [VirtualMachineArchitecture](docs/VirtualMachineArchitecture.md)
  - [VirtualMachineBalloonSummary](docs/VirtualMachineBalloonSummary.md)
+ - [VirtualMachineBios](docs/VirtualMachineBios.md)
  - [VirtualMachineCloudInitType](docs/VirtualMachineCloudInitType.md)
  - [VirtualMachineConfigLock](docs/VirtualMachineConfigLock.md)
  - [VirtualMachineConfigurationSummary](docs/VirtualMachineConfigurationSummary.md)
+ - [VirtualMachineFeatureSupportSummary](docs/VirtualMachineFeatureSupportSummary.md)
  - [VirtualMachineHighAvailabilityStatus](docs/VirtualMachineHighAvailabilityStatus.md)
  - [VirtualMachineHugePages](docs/VirtualMachineHugePages.md)
  - [VirtualMachineKeyboard](docs/VirtualMachineKeyboard.md)
@@ -291,6 +310,7 @@ Class | Method | HTTP request | Description
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
  - [VirtualMachineStatusSummary](docs/VirtualMachineStatusSummary.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)
+ - [VirtualMachineTemplateDiskTarget](docs/VirtualMachineTemplateDiskTarget.md)
  - [ZFSCompression](docs/ZFSCompression.md)
  - [ZFSPoolStatusChild](docs/ZFSPoolStatusChild.md)
  - [ZFSPoolStatusSummary](docs/ZFSPoolStatusSummary.md)

@@ -10,23 +10,23 @@ Name | Type | Description | Notes
 **Arch** | Pointer to [**VirtualMachineArchitecture**](VirtualMachineArchitecture.md) |  | [optional] 
 **Args** | Pointer to **string** | Additional command line arguments passed to the kvm. | [optional] 
 **Audio0** | Pointer to **string** | The audio device and its configuration. | [optional] 
-**Autostart** | Pointer to **float32** | Start the virtual machine on node boot. | [optional] 
+**Autostart** | Pointer to **float32** | Start the virtual machine on crash. | [optional] 
 **Ballon** | Pointer to **float32** | Amount of RAM for the VM in MB. | [optional] 
 **Boot** | Pointer to **string** | The boot order of the virtual machine. | [optional] 
+**Bios** | Pointer to [**VirtualMachineBios**](VirtualMachineBios.md) |  | [optional] 
 **Bootdisk** | Pointer to **string** | The boot disk of the virtual machine. | [optional] 
-**Meta** | Pointer to **string** | The metadata of the virtual machine. | [optional] 
 **Cdrom** | Pointer to **string** | The CD-ROM device and its configuration. An alias for option ide2 | [optional] 
 **Cicustom** | Pointer to **string** | Specify custom cloud-init files to be used at start. | [optional] 
 **Cipassword** | Pointer to **string** | The password for the cloud-init user. | [optional] 
 **Citype** | Pointer to [**VirtualMachineCloudInitType**](VirtualMachineCloudInitType.md) |  | [optional] 
 **Ciuser** | Pointer to **string** | The cloud-init user. | [optional] 
 **Cores** | Pointer to **float32** | Number of cores per socket. | [optional] 
-**Bios** | Pointer to **string** | The BIOS type. | [optional] 
 **Cpu** | Pointer to **string** | The CPU type. | [optional] 
 **Cpulimit** | Pointer to **float32** | CPU usage limit. | [optional] 
 **Cpuunits** | Pointer to **float32** | CPU weight for a VM. The higher the value, the more CPU time the VM gets. | [optional] 
 **Description** | Pointer to **string** | The description of the virtual machine. | [optional] 
 **Digest** | Pointer to **string** | The SHA1 digest of the virtual machine configuration. This can prevent concurrent modifications of the virtual machine configuration. | [optional] 
+**Delete** | Pointer to **string** | A list of settings to delete from the configuration. | [optional] 
 **Efidisk0** | Pointer to **string** | The EFI disk device and its configuration. | [optional] 
 **Freeze** | Pointer to **bool** | Freeze the CPU at virtual machine start. | [optional] 
 **Hookscript** | Pointer to **string** | The hook script that is used at various point in the virtual machines lifecycle. | [optional] 
@@ -426,6 +426,31 @@ SetBoot sets Boot field to given value.
 
 HasBoot returns a boolean if a field has been set.
 
+### GetBios
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBios() VirtualMachineBios`
+
+GetBios returns the Bios field if non-nil, zero value otherwise.
+
+### GetBiosOk
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBiosOk() (*VirtualMachineBios, bool)`
+
+GetBiosOk returns a tuple with the Bios field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBios
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetBios(v VirtualMachineBios)`
+
+SetBios sets Bios field to given value.
+
+### HasBios
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBios() bool`
+
+HasBios returns a boolean if a field has been set.
+
 ### GetBootdisk
 
 `func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBootdisk() string`
@@ -450,31 +475,6 @@ SetBootdisk sets Bootdisk field to given value.
 `func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBootdisk() bool`
 
 HasBootdisk returns a boolean if a field has been set.
-
-### GetMeta
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMeta() string`
-
-GetMeta returns the Meta field if non-nil, zero value otherwise.
-
-### GetMetaOk
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetMetaOk() (*string, bool)`
-
-GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMeta
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetMeta(v string)`
-
-SetMeta sets Meta field to given value.
-
-### HasMeta
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasMeta() bool`
-
-HasMeta returns a boolean if a field has been set.
 
 ### GetCdrom
 
@@ -626,31 +626,6 @@ SetCores sets Cores field to given value.
 
 HasCores returns a boolean if a field has been set.
 
-### GetBios
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBios() string`
-
-GetBios returns the Bios field if non-nil, zero value otherwise.
-
-### GetBiosOk
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetBiosOk() (*string, bool)`
-
-GetBiosOk returns a tuple with the Bios field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBios
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetBios(v string)`
-
-SetBios sets Bios field to given value.
-
-### HasBios
-
-`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasBios() bool`
-
-HasBios returns a boolean if a field has been set.
-
 ### GetCpu
 
 `func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetCpu() string`
@@ -775,6 +750,31 @@ SetDigest sets Digest field to given value.
 `func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDigest() bool`
 
 HasDigest returns a boolean if a field has been set.
+
+### GetDelete
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDelete() string`
+
+GetDelete returns the Delete field if non-nil, zero value otherwise.
+
+### GetDeleteOk
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) GetDeleteOk() (*string, bool)`
+
+GetDeleteOk returns a tuple with the Delete field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDelete
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) SetDelete(v string)`
+
+SetDelete sets Delete field to given value.
+
+### HasDelete
+
+`func (o *ApplyVirtualMachineConfigurationAsyncRequestContent) HasDelete() bool`
+
+HasDelete returns a boolean if a field has been set.
 
 ### GetEfidisk0
 
