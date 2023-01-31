@@ -46,6 +46,11 @@ Method | HTTP request | Description
 [**GetVirtualMachineCloudInit**](DefaultApi.md#GetVirtualMachineCloudInit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
 [**GetVirtualMachineConfiguration**](DefaultApi.md#GetVirtualMachineConfiguration) | **Get** /nodes/{node}/qemu/{vmId}/config | 
 [**GetVirtualMachineFeatureSupport**](DefaultApi.md#GetVirtualMachineFeatureSupport) | **Get** /nodes/{node}/qemu/{vmId}/feature | 
+[**GetVirtualMachineFileSystemInformation**](DefaultApi.md#GetVirtualMachineFileSystemInformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-fsinfo | 
+[**GetVirtualMachineHostname**](DefaultApi.md#GetVirtualMachineHostname) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-host-name | 
+[**GetVirtualMachineMemoryBlockInformation**](DefaultApi.md#GetVirtualMachineMemoryBlockInformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-memory-block-info | 
+[**GetVirtualMachineMemoryBlocks**](DefaultApi.md#GetVirtualMachineMemoryBlocks) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-memory-blocks | 
+[**GetVirtualMachineOperatingSystemInformation**](DefaultApi.md#GetVirtualMachineOperatingSystemInformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-osinfo | 
 [**GetVirtualMachineStatus**](DefaultApi.md#GetVirtualMachineStatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 [**GetZFSPoolStatus**](DefaultApi.md#GetZFSPoolStatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 [**InitializeGPT**](DefaultApi.md#InitializeGPT) | **Post** /nodes/{node}/disks/smart | 
@@ -3018,6 +3023,371 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetVirtualMachineFeatureSupportResponseContent**](GetVirtualMachineFeatureSupportResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineFileSystemInformation
+
+> GetVirtualMachineFileSystemInformationResponseContent GetVirtualMachineFileSystemInformation(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineFileSystemInformation(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineFileSystemInformation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineFileSystemInformation`: GetVirtualMachineFileSystemInformationResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineFileSystemInformation`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineFileSystemInformationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineFileSystemInformationResponseContent**](GetVirtualMachineFileSystemInformationResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineHostname
+
+> GetVirtualMachineHostnameResponseContent GetVirtualMachineHostname(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineHostname(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineHostname``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineHostname`: GetVirtualMachineHostnameResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineHostname`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineHostnameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineHostnameResponseContent**](GetVirtualMachineHostnameResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineMemoryBlockInformation
+
+> GetVirtualMachineMemoryBlockInformationResponseContent GetVirtualMachineMemoryBlockInformation(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineMemoryBlockInformation(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineMemoryBlockInformation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineMemoryBlockInformation`: GetVirtualMachineMemoryBlockInformationResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineMemoryBlockInformation`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineMemoryBlockInformationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineMemoryBlockInformationResponseContent**](GetVirtualMachineMemoryBlockInformationResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineMemoryBlocks
+
+> GetVirtualMachineMemoryBlocksResponseContent GetVirtualMachineMemoryBlocks(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineMemoryBlocks(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineMemoryBlocks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineMemoryBlocks`: GetVirtualMachineMemoryBlocksResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineMemoryBlocks`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineMemoryBlocksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineMemoryBlocksResponseContent**](GetVirtualMachineMemoryBlocksResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineOperatingSystemInformation
+
+> GetVirtualMachineOperatingSystemInformationResponseContent GetVirtualMachineOperatingSystemInformation(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineOperatingSystemInformation(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineOperatingSystemInformation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineOperatingSystemInformation`: GetVirtualMachineOperatingSystemInformationResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineOperatingSystemInformation`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineOperatingSystemInformationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineOperatingSystemInformationResponseContent**](GetVirtualMachineOperatingSystemInformationResponseContent.md)
 
 ### Authorization
 

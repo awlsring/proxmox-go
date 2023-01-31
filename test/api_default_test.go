@@ -607,6 +607,81 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService GetVirtualMachineFileSystemInformation", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineFileSystemInformation(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetVirtualMachineHostname", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineHostname(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetVirtualMachineMemoryBlockInformation", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineMemoryBlockInformation(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetVirtualMachineMemoryBlocks", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineMemoryBlocks(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService GetVirtualMachineOperatingSystemInformation", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.GetVirtualMachineOperatingSystemInformation(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService GetVirtualMachineStatus", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

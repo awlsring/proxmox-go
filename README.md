@@ -120,6 +120,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetVirtualMachineCloudInit**](docs/DefaultApi.md#getvirtualmachinecloudinit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
 *DefaultApi* | [**GetVirtualMachineConfiguration**](docs/DefaultApi.md#getvirtualmachineconfiguration) | **Get** /nodes/{node}/qemu/{vmId}/config | 
 *DefaultApi* | [**GetVirtualMachineFeatureSupport**](docs/DefaultApi.md#getvirtualmachinefeaturesupport) | **Get** /nodes/{node}/qemu/{vmId}/feature | 
+*DefaultApi* | [**GetVirtualMachineFileSystemInformation**](docs/DefaultApi.md#getvirtualmachinefilesysteminformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-fsinfo | 
+*DefaultApi* | [**GetVirtualMachineHostname**](docs/DefaultApi.md#getvirtualmachinehostname) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-host-name | 
+*DefaultApi* | [**GetVirtualMachineMemoryBlockInformation**](docs/DefaultApi.md#getvirtualmachinememoryblockinformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-memory-block-info | 
+*DefaultApi* | [**GetVirtualMachineMemoryBlocks**](docs/DefaultApi.md#getvirtualmachinememoryblocks) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-memory-blocks | 
+*DefaultApi* | [**GetVirtualMachineOperatingSystemInformation**](docs/DefaultApi.md#getvirtualmachineoperatingsysteminformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-osinfo | 
 *DefaultApi* | [**GetVirtualMachineStatus**](docs/DefaultApi.md#getvirtualmachinestatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 *DefaultApi* | [**GetZFSPoolStatus**](docs/DefaultApi.md#getzfspoolstatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 *DefaultApi* | [**InitializeGPT**](docs/DefaultApi.md#initializegpt) | **Post** /nodes/{node}/disks/smart | 
@@ -206,17 +211,24 @@ Class | Method | HTTP request | Description
  - [DeleteZFSPoolResponseContent](docs/DeleteZFSPoolResponseContent.md)
  - [DirectoryFileSystem](docs/DirectoryFileSystem.md)
  - [DirectorySummary](docs/DirectorySummary.md)
+ - [DiskInformationSummary](docs/DiskInformationSummary.md)
  - [DiskSummary](docs/DiskSummary.md)
  - [DiskType](docs/DiskType.md)
  - [DiskTypeFilter](docs/DiskTypeFilter.md)
  - [FileInfoSummary](docs/FileInfoSummary.md)
  - [FileRepositorySummary](docs/FileRepositorySummary.md)
  - [FileSummary](docs/FileSummary.md)
+ - [FileSystemInformationSummary](docs/FileSystemInformationSummary.md)
  - [GetAccessControlListResponseContent](docs/GetAccessControlListResponseContent.md)
  - [GetClusterApiVersionResponseContent](docs/GetClusterApiVersionResponseContent.md)
  - [GetClusterJoinInformationResponseContent](docs/GetClusterJoinInformationResponseContent.md)
  - [GetClusterTotemSettingsResponseContent](docs/GetClusterTotemSettingsResponseContent.md)
+ - [GetFsInfoResult](docs/GetFsInfoResult.md)
+ - [GetHostnameResult](docs/GetHostnameResult.md)
+ - [GetMemoryBlockInformationResult](docs/GetMemoryBlockInformationResult.md)
+ - [GetMemoryBlocksResult](docs/GetMemoryBlocksResult.md)
  - [GetNetworkInterfaceResponseContent](docs/GetNetworkInterfaceResponseContent.md)
+ - [GetOsInfoResult](docs/GetOsInfoResult.md)
  - [GetPackageChangelogResponseContent](docs/GetPackageChangelogResponseContent.md)
  - [GetPendingVirtualMachineCloudInitChangesResponseContent](docs/GetPendingVirtualMachineCloudInitChangesResponseContent.md)
  - [GetPoolResponseContent](docs/GetPoolResponseContent.md)
@@ -226,6 +238,11 @@ Class | Method | HTTP request | Description
  - [GetVirtualMachineCloudInitResponseContent](docs/GetVirtualMachineCloudInitResponseContent.md)
  - [GetVirtualMachineConfigurationResponseContent](docs/GetVirtualMachineConfigurationResponseContent.md)
  - [GetVirtualMachineFeatureSupportResponseContent](docs/GetVirtualMachineFeatureSupportResponseContent.md)
+ - [GetVirtualMachineFileSystemInformationResponseContent](docs/GetVirtualMachineFileSystemInformationResponseContent.md)
+ - [GetVirtualMachineHostnameResponseContent](docs/GetVirtualMachineHostnameResponseContent.md)
+ - [GetVirtualMachineMemoryBlockInformationResponseContent](docs/GetVirtualMachineMemoryBlockInformationResponseContent.md)
+ - [GetVirtualMachineMemoryBlocksResponseContent](docs/GetVirtualMachineMemoryBlocksResponseContent.md)
+ - [GetVirtualMachineOperatingSystemInformationResponseContent](docs/GetVirtualMachineOperatingSystemInformationResponseContent.md)
  - [GetVirtualMachineStatusResponseContent](docs/GetVirtualMachineStatusResponseContent.md)
  - [GetZFSPoolStatusResponseContent](docs/GetZFSPoolStatusResponseContent.md)
  - [InitializeGPTRequestContent](docs/InitializeGPTRequestContent.md)
@@ -261,6 +278,7 @@ Class | Method | HTTP request | Description
  - [ListZFSPoolsResponseContent](docs/ListZFSPoolsResponseContent.md)
  - [MachineCapabilitySummary](docs/MachineCapabilitySummary.md)
  - [MachineType](docs/MachineType.md)
+ - [MemoryBlockSummary](docs/MemoryBlockSummary.md)
  - [ModifyPoolRequestContent](docs/ModifyPoolRequestContent.md)
  - [ModifyStorageRequestContent](docs/ModifyStorageRequestContent.md)
  - [ModifyStorageResponseContent](docs/ModifyStorageResponseContent.md)
@@ -269,12 +287,15 @@ Class | Method | HTTP request | Description
  - [NetworkInterfaceMethod](docs/NetworkInterfaceMethod.md)
  - [NetworkInterfaceSummary](docs/NetworkInterfaceSummary.md)
  - [NetworkInterfaceType](docs/NetworkInterfaceType.md)
+ - [NoGuestAgentErrorResponseContent](docs/NoGuestAgentErrorResponseContent.md)
  - [NodeCertificate](docs/NodeCertificate.md)
  - [NodeStatus](docs/NodeStatus.md)
  - [NodeSummary](docs/NodeSummary.md)
+ - [OperatingSystemInformationSummary](docs/OperatingSystemInformationSummary.md)
  - [OrderNodeCertificateRequestContent](docs/OrderNodeCertificateRequestContent.md)
  - [OrderNodeCertificateResponseContent](docs/OrderNodeCertificateResponseContent.md)
  - [PackageSummary](docs/PackageSummary.md)
+ - [PciControllerSummary](docs/PciControllerSummary.md)
  - [PciMediatedDeviceSummary](docs/PciMediatedDeviceSummary.md)
  - [PendingVirtualMachineCloudInitField](docs/PendingVirtualMachineCloudInitField.md)
  - [PoolInfo](docs/PoolInfo.md)

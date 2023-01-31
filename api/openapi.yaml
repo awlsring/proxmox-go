@@ -2054,6 +2054,216 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/get-fsinfo:
+    get:
+      description: Get the file system information on the virtual machine. Requries
+        the guest agent to be installed and active.
+      operationId: GetVirtualMachineFileSystemInformation
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineFileSystemInformationResponseContent'
+          description: GetVirtualMachineFileSystemInformation 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/get-host-name:
+    get:
+      description: Get the hostname of the virtual machine. Requries the guest agent
+        to be installed and active.
+      operationId: GetVirtualMachineHostname
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineHostnameResponseContent'
+          description: GetVirtualMachineHostname 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/get-memory-block-info:
+    get:
+      description: Get the memory block info on the virtual machine. Requries the
+        guest agent to be installed and active.
+      operationId: GetVirtualMachineMemoryBlockInformation
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineMemoryBlockInformationResponseContent'
+          description: GetVirtualMachineMemoryBlockInformation 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/get-memory-blocks:
+    get:
+      description: Get the memory blocks on the virtual machine. Requries the guest
+        agent to be installed and active.
+      operationId: GetVirtualMachineMemoryBlocks
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineMemoryBlocksResponseContent'
+          description: GetVirtualMachineMemoryBlocks 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/get-osinfo:
+    get:
+      description: Get the OS information of the virtual machine. Requries the guest
+        agent to be installed and active.
+      operationId: GetVirtualMachineOperatingSystemInformation
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineOperatingSystemInformationResponseContent'
+          description: GetVirtualMachineOperatingSystemInformation 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/clone:
     post:
       description: Create a copy of a virtual machine or template.
@@ -6240,6 +6450,35 @@ components:
       - type
       - unitfile
       type: object
+    DiskInformationSummary:
+      example:
+        bus: 6.027456183070403
+        pci-controller:
+          bus: 1.4658129805029452
+          domain: 5.962133916683182
+          function: 5.637376656633329
+          slot: 2.3021358869347655
+        unit: 7.061401241503109
+        dev: dev
+        serial: serial
+        bus-type: bus-type
+        target: 0.8008281904610115
+      properties:
+        target:
+          type: number
+        bus:
+          type: number
+        pci-controller:
+          $ref: '#/components/schemas/PciControllerSummary'
+        unit:
+          type: number
+        dev:
+          type: string
+        bus-type:
+          type: string
+        serial:
+          type: string
+      type: object
     DiskSummary:
       example:
         devpath: devpath
@@ -6425,6 +6664,52 @@ components:
         file-type:
           type: string
       type: object
+    FileSystemInformationSummary:
+      example:
+        disk:
+        - bus: 6.027456183070403
+          pci-controller:
+            bus: 1.4658129805029452
+            domain: 5.962133916683182
+            function: 5.637376656633329
+            slot: 2.3021358869347655
+          unit: 7.061401241503109
+          dev: dev
+          serial: serial
+          bus-type: bus-type
+          target: 0.8008281904610115
+        - bus: 6.027456183070403
+          pci-controller:
+            bus: 1.4658129805029452
+            domain: 5.962133916683182
+            function: 5.637376656633329
+            slot: 2.3021358869347655
+          unit: 7.061401241503109
+          dev: dev
+          serial: serial
+          bus-type: bus-type
+          target: 0.8008281904610115
+        total-bytes: 3.616076749251911
+        used-bytes: 9.301444243932576
+        name: name
+        type: type
+        mountpoint: mountpoint
+      properties:
+        disk:
+          items:
+            $ref: '#/components/schemas/DiskInformationSummary'
+          type: array
+        name:
+          type: string
+        mountpoint:
+          type: string
+        type:
+          type: string
+        used-bytes:
+          type: number
+        total-bytes:
+          type: number
+      type: object
     GetAccessControlListResponseContent:
       example:
         data:
@@ -6516,6 +6801,100 @@ components:
         data:
           $ref: '#/components/schemas/TotemSummary'
       type: object
+    GetFsInfoResult:
+      example:
+        result:
+        - disk:
+          - bus: 6.027456183070403
+            pci-controller:
+              bus: 1.4658129805029452
+              domain: 5.962133916683182
+              function: 5.637376656633329
+              slot: 2.3021358869347655
+            unit: 7.061401241503109
+            dev: dev
+            serial: serial
+            bus-type: bus-type
+            target: 0.8008281904610115
+          - bus: 6.027456183070403
+            pci-controller:
+              bus: 1.4658129805029452
+              domain: 5.962133916683182
+              function: 5.637376656633329
+              slot: 2.3021358869347655
+            unit: 7.061401241503109
+            dev: dev
+            serial: serial
+            bus-type: bus-type
+            target: 0.8008281904610115
+          total-bytes: 3.616076749251911
+          used-bytes: 9.301444243932576
+          name: name
+          type: type
+          mountpoint: mountpoint
+        - disk:
+          - bus: 6.027456183070403
+            pci-controller:
+              bus: 1.4658129805029452
+              domain: 5.962133916683182
+              function: 5.637376656633329
+              slot: 2.3021358869347655
+            unit: 7.061401241503109
+            dev: dev
+            serial: serial
+            bus-type: bus-type
+            target: 0.8008281904610115
+          - bus: 6.027456183070403
+            pci-controller:
+              bus: 1.4658129805029452
+              domain: 5.962133916683182
+              function: 5.637376656633329
+              slot: 2.3021358869347655
+            unit: 7.061401241503109
+            dev: dev
+            serial: serial
+            bus-type: bus-type
+            target: 0.8008281904610115
+          total-bytes: 3.616076749251911
+          used-bytes: 9.301444243932576
+          name: name
+          type: type
+          mountpoint: mountpoint
+      properties:
+        result:
+          items:
+            $ref: '#/components/schemas/FileSystemInformationSummary'
+          type: array
+      type: object
+    GetHostnameResult:
+      example:
+        host-name: host-name
+      properties:
+        host-name:
+          type: string
+      type: object
+    GetMemoryBlockInformationResult:
+      example:
+        size: 0.8008281904610115
+      properties:
+        size:
+          type: number
+      type: object
+    GetMemoryBlocksResult:
+      example:
+        result:
+        - can-offline: true
+          online: true
+          phys-index: 0.8008281904610115
+        - can-offline: true
+          online: true
+          phys-index: 0.8008281904610115
+      properties:
+        result:
+          items:
+            $ref: '#/components/schemas/MemoryBlockSummary'
+          type: array
+      type: object
     GetNetworkInterfaceResponseContent:
       example:
         data:
@@ -6547,6 +6926,21 @@ components:
           $ref: '#/components/schemas/NetworkInterfaceSummary'
       required:
       - data
+      type: object
+    GetOsInfoResult:
+      example:
+        result:
+          kernel-release: kernel-release
+          machine: machine
+          pretty-name: pretty-name
+          name: name
+          version-id: version-id
+          id: id
+          version: version
+          kernel-version: kernel-version
+      properties:
+        result:
+          $ref: '#/components/schemas/OperatingSystemInformationSummary'
       type: object
     GetPackageChangelogResponseContent:
       example:
@@ -6865,6 +7259,126 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/VirtualMachineFeatureSupportSummary'
+      required:
+      - data
+      type: object
+    GetVirtualMachineFileSystemInformationResponseContent:
+      example:
+        data:
+          result:
+          - disk:
+            - bus: 6.027456183070403
+              pci-controller:
+                bus: 1.4658129805029452
+                domain: 5.962133916683182
+                function: 5.637376656633329
+                slot: 2.3021358869347655
+              unit: 7.061401241503109
+              dev: dev
+              serial: serial
+              bus-type: bus-type
+              target: 0.8008281904610115
+            - bus: 6.027456183070403
+              pci-controller:
+                bus: 1.4658129805029452
+                domain: 5.962133916683182
+                function: 5.637376656633329
+                slot: 2.3021358869347655
+              unit: 7.061401241503109
+              dev: dev
+              serial: serial
+              bus-type: bus-type
+              target: 0.8008281904610115
+            total-bytes: 3.616076749251911
+            used-bytes: 9.301444243932576
+            name: name
+            type: type
+            mountpoint: mountpoint
+          - disk:
+            - bus: 6.027456183070403
+              pci-controller:
+                bus: 1.4658129805029452
+                domain: 5.962133916683182
+                function: 5.637376656633329
+                slot: 2.3021358869347655
+              unit: 7.061401241503109
+              dev: dev
+              serial: serial
+              bus-type: bus-type
+              target: 0.8008281904610115
+            - bus: 6.027456183070403
+              pci-controller:
+                bus: 1.4658129805029452
+                domain: 5.962133916683182
+                function: 5.637376656633329
+                slot: 2.3021358869347655
+              unit: 7.061401241503109
+              dev: dev
+              serial: serial
+              bus-type: bus-type
+              target: 0.8008281904610115
+            total-bytes: 3.616076749251911
+            used-bytes: 9.301444243932576
+            name: name
+            type: type
+            mountpoint: mountpoint
+      properties:
+        data:
+          $ref: '#/components/schemas/GetFsInfoResult'
+      required:
+      - data
+      type: object
+    GetVirtualMachineHostnameResponseContent:
+      example:
+        data:
+          host-name: host-name
+      properties:
+        data:
+          $ref: '#/components/schemas/GetHostnameResult'
+      required:
+      - data
+      type: object
+    GetVirtualMachineMemoryBlockInformationResponseContent:
+      example:
+        data:
+          size: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/GetMemoryBlockInformationResult'
+      required:
+      - data
+      type: object
+    GetVirtualMachineMemoryBlocksResponseContent:
+      example:
+        data:
+          result:
+          - can-offline: true
+            online: true
+            phys-index: 0.8008281904610115
+          - can-offline: true
+            online: true
+            phys-index: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/GetMemoryBlocksResult'
+      required:
+      - data
+      type: object
+    GetVirtualMachineOperatingSystemInformationResponseContent:
+      example:
+        data:
+          result:
+            kernel-release: kernel-release
+            machine: machine
+            pretty-name: pretty-name
+            name: name
+            version-id: version-id
+            id: id
+            version: version
+            kernel-version: kernel-version
+      properties:
+        data:
+          $ref: '#/components/schemas/GetOsInfoResult'
       required:
       - data
       type: object
@@ -7941,6 +8455,19 @@ components:
       - q35
       - i440fx
       type: string
+    MemoryBlockSummary:
+      example:
+        can-offline: true
+        online: true
+        phys-index: 0.8008281904610115
+      properties:
+        online:
+          type: boolean
+        can-offline:
+          type: boolean
+        phys-index:
+          type: number
+      type: object
     ModifyPoolRequestContent:
       example:
         poolid: poolid
@@ -8277,6 +8804,13 @@ components:
       - OVSIntPort
       - unknown
       type: string
+    NoGuestAgentErrorResponseContent:
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
     NodeCertificate:
       example:
         notAfter: 0.8008281904610115
@@ -8387,6 +8921,34 @@ components:
       required:
       - node
       type: object
+    OperatingSystemInformationSummary:
+      example:
+        kernel-release: kernel-release
+        machine: machine
+        pretty-name: pretty-name
+        name: name
+        version-id: version-id
+        id: id
+        version: version
+        kernel-version: kernel-version
+      properties:
+        pretty-name:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        version-id:
+          type: string
+        id:
+          type: string
+        kernel-version:
+          type: string
+        kernel-release:
+          type: string
+        machine:
+          type: string
+      type: object
     OrderNodeCertificateRequestContent:
       example:
         force: 0.08008281904610115
@@ -8453,6 +9015,22 @@ components:
       - Section
       - Title
       - Version
+      type: object
+    PciControllerSummary:
+      example:
+        bus: 1.4658129805029452
+        domain: 5.962133916683182
+        function: 5.637376656633329
+        slot: 2.3021358869347655
+      properties:
+        bus:
+          type: number
+        domain:
+          type: number
+        function:
+          type: number
+        slot:
+          type: number
       type: object
     PciMediatedDeviceSummary:
       example:
