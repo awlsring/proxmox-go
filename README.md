@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListPackages**](docs/DefaultApi.md#listpackages) | **Get** /nodes/{node}/apt/versions | 
 *DefaultApi* | [**ListPciDeviceMediatedDevices**](docs/DefaultApi.md#listpcidevicemediateddevices) | **Get** /nodes/{node}/hardware/pci/{deviceId} | 
 *DefaultApi* | [**ListPciDevices**](docs/DefaultApi.md#listpcidevices) | **Get** /nodes/{node}/hardware/pci | 
+*DefaultApi* | [**ListPendingVirtualMachineConfigurationChanges**](docs/DefaultApi.md#listpendingvirtualmachineconfigurationchanges) | **Get** /nodes/{node}/qemu/{vmId}/pending | 
 *DefaultApi* | [**ListPools**](docs/DefaultApi.md#listpools) | **Get** /pools | 
 *DefaultApi* | [**ListRepositoriesInformation**](docs/DefaultApi.md#listrepositoriesinformation) | **Get** /nodes/{node}/apt/repository | 
 *DefaultApi* | [**ListStorage**](docs/DefaultApi.md#liststorage) | **Get** /storage | 
@@ -150,7 +151,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**RegenerateVirtualMachineCloudInit**](docs/DefaultApi.md#regeneratevirtualmachinecloudinit) | **Put** /nodes/{node}/qemu/{vmId}/cloudinit | 
 *DefaultApi* | [**RemoveCorosyncNode**](docs/DefaultApi.md#removecorosyncnode) | **Delete** /cluster/config/nodes/{node} | 
 *DefaultApi* | [**RenewNodeCertificate**](docs/DefaultApi.md#renewnodecertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
+*DefaultApi* | [**ResizeVirtualMachineDisk**](docs/DefaultApi.md#resizevirtualmachinedisk) | **Put** /nodes/{node}/qemu/{vmId}/resize | 
 *DefaultApi* | [**RevertNetworkInterfaceConfiguration**](docs/DefaultApi.md#revertnetworkinterfaceconfiguration) | **Delete** /nodes/{node}/network | 
+*DefaultApi* | [**UnlinkVirtualMachineDisks**](docs/DefaultApi.md#unlinkvirtualmachinedisks) | **Put** /nodes/{node}/qemu/{vmId}/unlink | 
 *DefaultApi* | [**UpdateAccessControlList**](docs/DefaultApi.md#updateaccesscontrollist) | **Put** /access/acl | 
 *DefaultApi* | [**UpdateNetworkInterface**](docs/DefaultApi.md#updatenetworkinterface) | **Put** /nodes/{node}/network/{interface} | 
 *DefaultApi* | [**WipeDisk**](docs/DefaultApi.md#wipedisk) | **Put** /nodes/{node}/disks/smart | 
@@ -248,6 +251,7 @@ Class | Method | HTTP request | Description
  - [ListPackagesResponseContent](docs/ListPackagesResponseContent.md)
  - [ListPciDeviceMediatedDevicesResponseContent](docs/ListPciDeviceMediatedDevicesResponseContent.md)
  - [ListPciDevicesResponseContent](docs/ListPciDevicesResponseContent.md)
+ - [ListPendingVirtualMachineConfigurationChangesResponseContent](docs/ListPendingVirtualMachineConfigurationChangesResponseContent.md)
  - [ListPoolsResponseContent](docs/ListPoolsResponseContent.md)
  - [ListRepositoriesInformationResponseContent](docs/ListRepositoriesInformationResponseContent.md)
  - [ListStorageResponseContent](docs/ListStorageResponseContent.md)
@@ -299,6 +303,7 @@ Class | Method | HTTP request | Description
  - [VirtualMachineCloudInitType](docs/VirtualMachineCloudInitType.md)
  - [VirtualMachineConfigLock](docs/VirtualMachineConfigLock.md)
  - [VirtualMachineConfigurationSummary](docs/VirtualMachineConfigurationSummary.md)
+ - [VirtualMachineDiskTarget](docs/VirtualMachineDiskTarget.md)
  - [VirtualMachineFeatureSupportSummary](docs/VirtualMachineFeatureSupportSummary.md)
  - [VirtualMachineHighAvailabilityStatus](docs/VirtualMachineHighAvailabilityStatus.md)
  - [VirtualMachineHugePages](docs/VirtualMachineHugePages.md)
@@ -310,7 +315,6 @@ Class | Method | HTTP request | Description
  - [VirtualMachineStatus](docs/VirtualMachineStatus.md)
  - [VirtualMachineStatusSummary](docs/VirtualMachineStatusSummary.md)
  - [VirtualMachineSummary](docs/VirtualMachineSummary.md)
- - [VirtualMachineTemplateDiskTarget](docs/VirtualMachineTemplateDiskTarget.md)
  - [ZFSCompression](docs/ZFSCompression.md)
  - [ZFSPoolStatusChild](docs/ZFSPoolStatusChild.md)
  - [ZFSPoolStatusSummary](docs/ZFSPoolStatusSummary.md)

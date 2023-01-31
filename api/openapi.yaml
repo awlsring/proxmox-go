@@ -2433,6 +2433,127 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/pending:
+    get:
+      description: List the virtual machine configuration with both current and pending
+        values.
+      operationId: ListPendingVirtualMachineConfigurationChanges
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPendingVirtualMachineConfigurationChangesResponseContent'
+          description: ListPendingVirtualMachineConfigurationChanges 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/resize:
+    put:
+      description: Extend the volume size of a virtual machine disk.
+      operationId: ResizeVirtualMachineDisk
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - description: The name of the disk to resize.
+        explode: true
+        in: query
+        name: disk
+        required: true
+        schema:
+          $ref: '#/components/schemas/VirtualMachineDiskTarget'
+        style: form
+      - description: "The new size of the disk in bytes, or with a suffix of K, M,\
+          \ G, or T for kilobytes, megabytes, gigabytes, or terabytes. If + is specified,\
+          \ the size is increased by the given amount."
+        explode: true
+        in: query
+        name: size
+        required: true
+        schema:
+          description: "The new size of the disk in bytes, or with a suffix of K,\
+            \ M, G, or T for kilobytes, megabytes, gigabytes, or terabytes. If + is\
+            \ specified, the size is increased by the given amount."
+          pattern: "^+?d+(.d+)?[KMGT]?$"
+          type: string
+        style: form
+      - description: The SHA1 digest of the current configuration. Used to prevent
+          concurrent operations.
+        explode: true
+        in: query
+        name: digest
+        required: false
+        schema:
+          description: The SHA1 digest of the current configuration. Used to prevent
+            concurrent operations.
+          type: string
+        style: form
+      - description: Ignore lock. Only valid if authenticated as root user.
+        explode: true
+        in: query
+        name: skiplock
+        required: false
+        schema:
+          description: Ignore lock. Only valid if authenticated as root user.
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: ResizeVirtualMachineDisk 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/status/current:
     get:
       description: Get the utilization and status of a virtual machine.
@@ -2508,6 +2629,63 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateVirtualMachineTemplateResponseContent'
           description: CreateVirtualMachineTemplate 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/unlink:
+    put:
+      description: Unlink/delete disk images.
+      operationId: UnlinkVirtualMachineDisks
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - description: A list of disk ids to unlink.
+        explode: true
+        in: query
+        name: idlist
+        required: true
+        schema:
+          description: A list of disk ids to unlink.
+          type: string
+        style: form
+      - description: "Fore removal of disk. Without this, the disk is replaced with\
+          \ a disk entry of 'unused[n]'."
+        explode: true
+        in: query
+        name: force
+        required: true
+        schema:
+          description: "Fore removal of disk. Without this, the disk is replaced with\
+            \ a disk entry of 'unused[n]'."
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: UnlinkVirtualMachineDisks 200 response
         "400":
           content:
             application/json:
@@ -5919,7 +6097,7 @@ components:
         disk: null
       properties:
         disk:
-          $ref: '#/components/schemas/VirtualMachineTemplateDiskTarget'
+          $ref: '#/components/schemas/VirtualMachineDiskTarget'
       type: object
     CreateVirtualMachineTemplateResponseContent:
       example:
@@ -7445,6 +7623,15 @@ components:
           items:
             $ref: '#/components/schemas/UsbDeviceSummary'
           type: array
+      required:
+      - data
+      type: object
+    ListPendingVirtualMachineConfigurationChangesResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
       required:
       - data
       type: object
@@ -9689,6 +9876,68 @@ components:
       required:
       - digest
       type: object
+    VirtualMachineDiskTarget:
+      enum:
+      - ide0
+      - ide1
+      - ide2
+      - ide3
+      - scsi0
+      - scsi1
+      - scsi2
+      - scsi3
+      - scsi4
+      - scsi5
+      - scsi6
+      - scsi7
+      - scsi8
+      - scsi9
+      - scsi10
+      - scsi11
+      - scsi12
+      - scsi13
+      - scsi14
+      - scsi15
+      - scsi16
+      - scsi17
+      - scsi18
+      - scsi19
+      - scsi20
+      - scsi21
+      - scsi22
+      - scsi23
+      - scsi24
+      - scsi25
+      - scsi26
+      - scsi27
+      - scsi28
+      - scsi29
+      - scsi30
+      - virtio0
+      - virtio1
+      - virtio2
+      - virtio3
+      - virtio4
+      - virtio5
+      - virtio6
+      - virtio7
+      - virtio8
+      - virtio9
+      - virtio10
+      - virtio11
+      - virtio12
+      - virtio13
+      - virtio14
+      - virtio15
+      - sata0
+      - sata1
+      - sata2
+      - sata3
+      - sata4
+      - sata5
+      - efidisk0
+      - tpmstate0
+      type: string
     VirtualMachineFeatureSupportSummary:
       example:
         nodes:
@@ -10124,68 +10373,6 @@ components:
       required:
       - vmid
       type: object
-    VirtualMachineTemplateDiskTarget:
-      enum:
-      - ide0
-      - ide1
-      - ide2
-      - ide3
-      - scsi0
-      - scsi1
-      - scsi2
-      - scsi3
-      - scsi4
-      - scsi5
-      - scsi6
-      - scsi7
-      - scsi8
-      - scsi9
-      - scsi10
-      - scsi11
-      - scsi12
-      - scsi13
-      - scsi14
-      - scsi15
-      - scsi16
-      - scsi17
-      - scsi18
-      - scsi19
-      - scsi20
-      - scsi21
-      - scsi22
-      - scsi23
-      - scsi24
-      - scsi25
-      - scsi26
-      - scsi27
-      - scsi28
-      - scsi29
-      - scsi30
-      - virtio0
-      - virtio1
-      - virtio2
-      - virtio3
-      - virtio4
-      - virtio5
-      - virtio6
-      - virtio7
-      - virtio8
-      - virtio9
-      - virtio10
-      - virtio11
-      - virtio12
-      - virtio13
-      - virtio14
-      - virtio15
-      - sata0
-      - sata1
-      - sata2
-      - sata3
-      - sata4
-      - sata5
-      - efidisk0
-      - tpmstate0
-      type: string
     ZFSCompression:
       enum:
       - "on"

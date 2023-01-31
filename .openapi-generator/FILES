@@ -97,6 +97,7 @@ docs/ListNodesResponseContent.md
 docs/ListPackagesResponseContent.md
 docs/ListPciDeviceMediatedDevicesResponseContent.md
 docs/ListPciDevicesResponseContent.md
+docs/ListPendingVirtualMachineConfigurationChangesResponseContent.md
 docs/ListPoolsResponseContent.md
 docs/ListRepositoriesInformationResponseContent.md
 docs/ListStorageResponseContent.md
@@ -148,6 +149,7 @@ docs/VirtualMachineBios.md
 docs/VirtualMachineCloudInitType.md
 docs/VirtualMachineConfigLock.md
 docs/VirtualMachineConfigurationSummary.md
+docs/VirtualMachineDiskTarget.md
 docs/VirtualMachineFeatureSupportSummary.md
 docs/VirtualMachineHighAvailabilityStatus.md
 docs/VirtualMachineHugePages.md
@@ -159,7 +161,6 @@ docs/VirtualMachineScsiControllerType.md
 docs/VirtualMachineStatus.md
 docs/VirtualMachineStatusSummary.md
 docs/VirtualMachineSummary.md
-docs/VirtualMachineTemplateDiskTarget.md
 docs/ZFSCompression.md
 docs/ZFSPoolStatusChild.md
 docs/ZFSPoolStatusSummary.md
@@ -256,6 +257,7 @@ model_list_nodes_response_content.go
 model_list_packages_response_content.go
 model_list_pci_device_mediated_devices_response_content.go
 model_list_pci_devices_response_content.go
+model_list_pending_virtual_machine_configuration_changes_response_content.go
 model_list_pools_response_content.go
 model_list_repositories_information_response_content.go
 model_list_storage_response_content.go
@@ -309,6 +311,7 @@ model_virtual_machine_bios.go
 model_virtual_machine_cloud_init_type.go
 model_virtual_machine_config_lock.go
 model_virtual_machine_configuration_summary.go
+model_virtual_machine_disk_target.go
 model_virtual_machine_feature_support_summary.go
 model_virtual_machine_high_availability_status.go
 model_virtual_machine_huge_pages.go
@@ -320,7 +323,6 @@ model_virtual_machine_scsi_controller_type.go
 model_virtual_machine_status.go
 model_virtual_machine_status_summary.go
 model_virtual_machine_summary.go
-model_virtual_machine_template_disk_target.go
 model_zfs_compression.go
 model_zfs_pool_status_child.go
 model_zfs_pool_status_summary.go

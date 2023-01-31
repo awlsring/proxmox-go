@@ -16,7 +16,7 @@ import (
 
 // CreateVirtualMachineTemplateRequestContent struct for CreateVirtualMachineTemplateRequestContent
 type CreateVirtualMachineTemplateRequestContent struct {
-	Disk *VirtualMachineTemplateDiskTarget `json:"disk,omitempty"`
+	Disk *VirtualMachineDiskTarget `json:"disk,omitempty"`
 }
 
 // NewCreateVirtualMachineTemplateRequestContent instantiates a new CreateVirtualMachineTemplateRequestContent object
@@ -37,9 +37,9 @@ func NewCreateVirtualMachineTemplateRequestContentWithDefaults() *CreateVirtualM
 }
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
-func (o *CreateVirtualMachineTemplateRequestContent) GetDisk() VirtualMachineTemplateDiskTarget {
+func (o *CreateVirtualMachineTemplateRequestContent) GetDisk() VirtualMachineDiskTarget {
 	if o == nil || isNil(o.Disk) {
-		var ret VirtualMachineTemplateDiskTarget
+		var ret VirtualMachineDiskTarget
 		return ret
 	}
 	return *o.Disk
@@ -47,7 +47,7 @@ func (o *CreateVirtualMachineTemplateRequestContent) GetDisk() VirtualMachineTem
 
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateVirtualMachineTemplateRequestContent) GetDiskOk() (*VirtualMachineTemplateDiskTarget, bool) {
+func (o *CreateVirtualMachineTemplateRequestContent) GetDiskOk() (*VirtualMachineDiskTarget, bool) {
 	if o == nil || isNil(o.Disk) {
     return nil, false
 	}
@@ -63,8 +63,8 @@ func (o *CreateVirtualMachineTemplateRequestContent) HasDisk() bool {
 	return false
 }
 
-// SetDisk gets a reference to the given VirtualMachineTemplateDiskTarget and assigns it to the Disk field.
-func (o *CreateVirtualMachineTemplateRequestContent) SetDisk(v VirtualMachineTemplateDiskTarget) {
+// SetDisk gets a reference to the given VirtualMachineDiskTarget and assigns it to the Disk field.
+func (o *CreateVirtualMachineTemplateRequestContent) SetDisk(v VirtualMachineDiskTarget) {
 	o.Disk = &v
 }
 

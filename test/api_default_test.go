@@ -842,6 +842,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ListPendingVirtualMachineConfigurationChanges", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.ListPendingVirtualMachineConfigurationChanges(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService ListPools", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -1019,6 +1034,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
 
     })
 
+    t.Run("Test DefaultApiService ResizeVirtualMachineDisk", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.ResizeVirtualMachineDisk(context.Background(), node, vmId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test DefaultApiService RevertNetworkInterfaceConfiguration", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -1026,6 +1056,21 @@ func Test_openapi_DefaultApiService(t *testing.T) {
         var node string
 
         resp, httpRes, err := apiClient.DefaultApi.RevertNetworkInterfaceConfiguration(context.Background(), node).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test DefaultApiService UnlinkVirtualMachineDisks", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var node string
+        var vmId string
+
+        resp, httpRes, err := apiClient.DefaultApi.UnlinkVirtualMachineDisks(context.Background(), node, vmId).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

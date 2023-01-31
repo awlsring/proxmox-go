@@ -7731,6 +7731,134 @@ func (a *DefaultApiService) ListPciDevicesExecute(r ApiListPciDevicesRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiListPendingVirtualMachineConfigurationChangesRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	vmId string
+}
+
+func (r ApiListPendingVirtualMachineConfigurationChangesRequest) Execute() (*ListPendingVirtualMachineConfigurationChangesResponseContent, *http.Response, error) {
+	return r.ApiService.ListPendingVirtualMachineConfigurationChangesExecute(r)
+}
+
+/*
+ListPendingVirtualMachineConfigurationChanges Method for ListPendingVirtualMachineConfigurationChanges
+
+List the virtual machine configuration with both current and pending values.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param vmId The id of the virtual machine as a string
+ @return ApiListPendingVirtualMachineConfigurationChangesRequest
+*/
+func (a *DefaultApiService) ListPendingVirtualMachineConfigurationChanges(ctx context.Context, node string, vmId string) ApiListPendingVirtualMachineConfigurationChangesRequest {
+	return ApiListPendingVirtualMachineConfigurationChangesRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		vmId: vmId,
+	}
+}
+
+// Execute executes the request
+//  @return ListPendingVirtualMachineConfigurationChangesResponseContent
+func (a *DefaultApiService) ListPendingVirtualMachineConfigurationChangesExecute(r ApiListPendingVirtualMachineConfigurationChangesRequest) (*ListPendingVirtualMachineConfigurationChangesResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListPendingVirtualMachineConfigurationChangesResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListPendingVirtualMachineConfigurationChanges")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/pending"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiListPoolsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -9319,6 +9447,165 @@ func (a *DefaultApiService) RenewNodeCertificateExecute(r ApiRenewNodeCertificat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiResizeVirtualMachineDiskRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	vmId string
+	disk *VirtualMachineDiskTarget
+	size *string
+	digest *string
+	skiplock *bool
+}
+
+// The name of the disk to resize.
+func (r ApiResizeVirtualMachineDiskRequest) Disk(disk VirtualMachineDiskTarget) ApiResizeVirtualMachineDiskRequest {
+	r.disk = &disk
+	return r
+}
+
+// The new size of the disk in bytes, or with a suffix of K, M, G, or T for kilobytes, megabytes, gigabytes, or terabytes. If + is specified, the size is increased by the given amount.
+func (r ApiResizeVirtualMachineDiskRequest) Size(size string) ApiResizeVirtualMachineDiskRequest {
+	r.size = &size
+	return r
+}
+
+// The SHA1 digest of the current configuration. Used to prevent concurrent operations.
+func (r ApiResizeVirtualMachineDiskRequest) Digest(digest string) ApiResizeVirtualMachineDiskRequest {
+	r.digest = &digest
+	return r
+}
+
+// Ignore lock. Only valid if authenticated as root user.
+func (r ApiResizeVirtualMachineDiskRequest) Skiplock(skiplock bool) ApiResizeVirtualMachineDiskRequest {
+	r.skiplock = &skiplock
+	return r
+}
+
+func (r ApiResizeVirtualMachineDiskRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ResizeVirtualMachineDiskExecute(r)
+}
+
+/*
+ResizeVirtualMachineDisk Method for ResizeVirtualMachineDisk
+
+Extend the volume size of a virtual machine disk.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param vmId The id of the virtual machine as a string
+ @return ApiResizeVirtualMachineDiskRequest
+*/
+func (a *DefaultApiService) ResizeVirtualMachineDisk(ctx context.Context, node string, vmId string) ApiResizeVirtualMachineDiskRequest {
+	return ApiResizeVirtualMachineDiskRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		vmId: vmId,
+	}
+}
+
+// Execute executes the request
+func (a *DefaultApiService) ResizeVirtualMachineDiskExecute(r ApiResizeVirtualMachineDiskRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ResizeVirtualMachineDisk")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/resize"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.disk == nil {
+		return nil, reportError("disk is required and must be specified")
+	}
+	if r.size == nil {
+		return nil, reportError("size is required and must be specified")
+	}
+
+	localVarQueryParams.Add("disk", parameterToString(*r.disk, ""))
+	localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	if r.digest != nil {
+		localVarQueryParams.Add("digest", parameterToString(*r.digest, ""))
+	}
+	if r.skiplock != nil {
+		localVarQueryParams.Add("skiplock", parameterToString(*r.skiplock, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiRevertNetworkInterfaceConfigurationRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -9364,6 +9651,145 @@ func (a *DefaultApiService) RevertNetworkInterfaceConfigurationExecute(r ApiReve
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InternalServerErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiUnlinkVirtualMachineDisksRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	vmId string
+	idlist *string
+	force *bool
+}
+
+// A list of disk ids to unlink.
+func (r ApiUnlinkVirtualMachineDisksRequest) Idlist(idlist string) ApiUnlinkVirtualMachineDisksRequest {
+	r.idlist = &idlist
+	return r
+}
+
+// Fore removal of disk. Without this, the disk is replaced with a disk entry of &#39;unused[n]&#39;.
+func (r ApiUnlinkVirtualMachineDisksRequest) Force(force bool) ApiUnlinkVirtualMachineDisksRequest {
+	r.force = &force
+	return r
+}
+
+func (r ApiUnlinkVirtualMachineDisksRequest) Execute() (*http.Response, error) {
+	return r.ApiService.UnlinkVirtualMachineDisksExecute(r)
+}
+
+/*
+UnlinkVirtualMachineDisks Method for UnlinkVirtualMachineDisks
+
+Unlink/delete disk images.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param vmId The id of the virtual machine as a string
+ @return ApiUnlinkVirtualMachineDisksRequest
+*/
+func (a *DefaultApiService) UnlinkVirtualMachineDisks(ctx context.Context, node string, vmId string) ApiUnlinkVirtualMachineDisksRequest {
+	return ApiUnlinkVirtualMachineDisksRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		vmId: vmId,
+	}
+}
+
+// Execute executes the request
+func (a *DefaultApiService) UnlinkVirtualMachineDisksExecute(r ApiUnlinkVirtualMachineDisksRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.UnlinkVirtualMachineDisks")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/unlink"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.idlist == nil {
+		return nil, reportError("idlist is required and must be specified")
+	}
+	if r.force == nil {
+		return nil, reportError("force is required and must be specified")
+	}
+
+	localVarQueryParams.Add("idlist", parameterToString(*r.idlist, ""))
+	localVarQueryParams.Add("force", parameterToString(*r.force, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

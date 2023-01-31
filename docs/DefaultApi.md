@@ -63,6 +63,7 @@ Method | HTTP request | Description
 [**ListPackages**](DefaultApi.md#ListPackages) | **Get** /nodes/{node}/apt/versions | 
 [**ListPciDeviceMediatedDevices**](DefaultApi.md#ListPciDeviceMediatedDevices) | **Get** /nodes/{node}/hardware/pci/{deviceId} | 
 [**ListPciDevices**](DefaultApi.md#ListPciDevices) | **Get** /nodes/{node}/hardware/pci | 
+[**ListPendingVirtualMachineConfigurationChanges**](DefaultApi.md#ListPendingVirtualMachineConfigurationChanges) | **Get** /nodes/{node}/qemu/{vmId}/pending | 
 [**ListPools**](DefaultApi.md#ListPools) | **Get** /pools | 
 [**ListRepositoriesInformation**](DefaultApi.md#ListRepositoriesInformation) | **Get** /nodes/{node}/apt/repository | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
@@ -76,7 +77,9 @@ Method | HTTP request | Description
 [**RegenerateVirtualMachineCloudInit**](DefaultApi.md#RegenerateVirtualMachineCloudInit) | **Put** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
 [**RenewNodeCertificate**](DefaultApi.md#RenewNodeCertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
+[**ResizeVirtualMachineDisk**](DefaultApi.md#ResizeVirtualMachineDisk) | **Put** /nodes/{node}/qemu/{vmId}/resize | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
+[**UnlinkVirtualMachineDisks**](DefaultApi.md#UnlinkVirtualMachineDisks) | **Put** /nodes/{node}/qemu/{vmId}/unlink | 
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
 [**UpdateNetworkInterface**](DefaultApi.md#UpdateNetworkInterface) | **Put** /nodes/{node}/network/{interface} | 
 [**WipeDisk**](DefaultApi.md#WipeDisk) | **Put** /nodes/{node}/disks/smart | 
@@ -4207,6 +4210,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListPendingVirtualMachineConfigurationChanges
+
+> ListPendingVirtualMachineConfigurationChangesResponseContent ListPendingVirtualMachineConfigurationChanges(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListPendingVirtualMachineConfigurationChanges(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListPendingVirtualMachineConfigurationChanges``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListPendingVirtualMachineConfigurationChanges`: ListPendingVirtualMachineConfigurationChangesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListPendingVirtualMachineConfigurationChanges`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPendingVirtualMachineConfigurationChangesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ListPendingVirtualMachineConfigurationChangesResponseContent**](ListPendingVirtualMachineConfigurationChangesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListPools
 
 > ListPoolsResponseContent ListPools(ctx).Execute()
@@ -5080,6 +5156,85 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ResizeVirtualMachineDisk
+
+> ResizeVirtualMachineDisk(ctx, node, vmId).Disk(disk).Size(size).Digest(digest).Skiplock(skiplock).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    disk := openapiclient.VirtualMachineDiskTarget("ide0") // VirtualMachineDiskTarget | The name of the disk to resize.
+    size := "size_example" // string | The new size of the disk in bytes, or with a suffix of K, M, G, or T for kilobytes, megabytes, gigabytes, or terabytes. If + is specified, the size is increased by the given amount.
+    digest := "digest_example" // string | The SHA1 digest of the current configuration. Used to prevent concurrent operations. (optional)
+    skiplock := true // bool | Ignore lock. Only valid if authenticated as root user. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ResizeVirtualMachineDisk(context.Background(), node, vmId).Disk(disk).Size(size).Digest(digest).Skiplock(skiplock).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ResizeVirtualMachineDisk``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResizeVirtualMachineDiskRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **disk** | [**VirtualMachineDiskTarget**](VirtualMachineDiskTarget.md) | The name of the disk to resize. | 
+ **size** | **string** | The new size of the disk in bytes, or with a suffix of K, M, G, or T for kilobytes, megabytes, gigabytes, or terabytes. If + is specified, the size is increased by the given amount. | 
+ **digest** | **string** | The SHA1 digest of the current configuration. Used to prevent concurrent operations. | 
+ **skiplock** | **bool** | Ignore lock. Only valid if authenticated as root user. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RevertNetworkInterfaceConfiguration
 
 > RevertNetworkInterfaceConfiguration(ctx, node).Execute()
@@ -5127,6 +5282,81 @@ Other parameters are passed through a pointer to a apiRevertNetworkInterfaceConf
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UnlinkVirtualMachineDisks
+
+> UnlinkVirtualMachineDisks(ctx, node, vmId).Idlist(idlist).Force(force).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    idlist := "idlist_example" // string | A list of disk ids to unlink.
+    force := true // bool | Fore removal of disk. Without this, the disk is replaced with a disk entry of 'unused[n]'.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.UnlinkVirtualMachineDisks(context.Background(), node, vmId).Idlist(idlist).Force(force).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UnlinkVirtualMachineDisks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUnlinkVirtualMachineDisksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **idlist** | **string** | A list of disk ids to unlink. | 
+ **force** | **bool** | Fore removal of disk. Without this, the disk is replaced with a disk entry of &#39;unused[n]&#39;. | 
 
 ### Return type
 
