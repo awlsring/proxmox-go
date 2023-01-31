@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**AddCustomNodeCertificate**](DefaultApi.md#AddCustomNodeCertificate) | **Post** /nodes/{node}/certificates/custom | 
 [**AddRepository**](DefaultApi.md#AddRepository) | **Put** /nodes/{node}/apt/repositories | 
 [**ApplyNetworkInterfaceConfiguration**](DefaultApi.md#ApplyNetworkInterfaceConfiguration) | **Put** /nodes/{node}/network | 
+[**ApplyVirtualMachineConfigurationAsync**](DefaultApi.md#ApplyVirtualMachineConfigurationAsync) | **Post** /nodes/{node}/qemu/{vmId}/config | 
+[**ApplyVirtualMachineConfigurationSync**](DefaultApi.md#ApplyVirtualMachineConfigurationSync) | **Put** /nodes/{node}/qemu/{vmId}/config | 
 [**ChangeRepositoryProperties**](DefaultApi.md#ChangeRepositoryProperties) | **Post** /nodes/{node}/apt/repositories | 
 [**CreateClusterConfig**](DefaultApi.md#CreateClusterConfig) | **Post** /cluster/config | 
 [**CreateDirectory**](DefaultApi.md#CreateDirectory) | **Post** /nodes/{node}/disks/directory | 
@@ -346,6 +348,154 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApplyVirtualMachineConfigurationAsync
+
+> ApplyVirtualMachineConfigurationAsyncResponseContent ApplyVirtualMachineConfigurationAsync(ctx, node, vmId).ApplyVirtualMachineConfigurationAsyncRequestContent(applyVirtualMachineConfigurationAsyncRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    applyVirtualMachineConfigurationAsyncRequestContent := *openapiclient.NewApplyVirtualMachineConfigurationAsyncRequestContent() // ApplyVirtualMachineConfigurationAsyncRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApplyVirtualMachineConfigurationAsync(context.Background(), node, vmId).ApplyVirtualMachineConfigurationAsyncRequestContent(applyVirtualMachineConfigurationAsyncRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApplyVirtualMachineConfigurationAsync``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApplyVirtualMachineConfigurationAsync`: ApplyVirtualMachineConfigurationAsyncResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ApplyVirtualMachineConfigurationAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApplyVirtualMachineConfigurationAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **applyVirtualMachineConfigurationAsyncRequestContent** | [**ApplyVirtualMachineConfigurationAsyncRequestContent**](ApplyVirtualMachineConfigurationAsyncRequestContent.md) |  | 
+
+### Return type
+
+[**ApplyVirtualMachineConfigurationAsyncResponseContent**](ApplyVirtualMachineConfigurationAsyncResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApplyVirtualMachineConfigurationSync
+
+> ApplyVirtualMachineConfigurationSync(ctx, node, vmId).ApplyVirtualMachineConfigurationSyncRequestContent(applyVirtualMachineConfigurationSyncRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    applyVirtualMachineConfigurationSyncRequestContent := *openapiclient.NewApplyVirtualMachineConfigurationSyncRequestContent() // ApplyVirtualMachineConfigurationSyncRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApplyVirtualMachineConfigurationSync(context.Background(), node, vmId).ApplyVirtualMachineConfigurationSyncRequestContent(applyVirtualMachineConfigurationSyncRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApplyVirtualMachineConfigurationSync``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApplyVirtualMachineConfigurationSyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **applyVirtualMachineConfigurationSyncRequestContent** | [**ApplyVirtualMachineConfigurationSyncRequestContent**](ApplyVirtualMachineConfigurationSyncRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -82,6 +82,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**AddCustomNodeCertificate**](docs/DefaultApi.md#addcustomnodecertificate) | **Post** /nodes/{node}/certificates/custom | 
 *DefaultApi* | [**AddRepository**](docs/DefaultApi.md#addrepository) | **Put** /nodes/{node}/apt/repositories | 
 *DefaultApi* | [**ApplyNetworkInterfaceConfiguration**](docs/DefaultApi.md#applynetworkinterfaceconfiguration) | **Put** /nodes/{node}/network | 
+*DefaultApi* | [**ApplyVirtualMachineConfigurationAsync**](docs/DefaultApi.md#applyvirtualmachineconfigurationasync) | **Post** /nodes/{node}/qemu/{vmId}/config | 
+*DefaultApi* | [**ApplyVirtualMachineConfigurationSync**](docs/DefaultApi.md#applyvirtualmachineconfigurationsync) | **Put** /nodes/{node}/qemu/{vmId}/config | 
 *DefaultApi* | [**ChangeRepositoryProperties**](docs/DefaultApi.md#changerepositoryproperties) | **Post** /nodes/{node}/apt/repositories | 
 *DefaultApi* | [**CreateClusterConfig**](docs/DefaultApi.md#createclusterconfig) | **Post** /cluster/config | 
 *DefaultApi* | [**CreateDirectory**](docs/DefaultApi.md#createdirectory) | **Post** /nodes/{node}/disks/directory | 
@@ -155,6 +157,9 @@ Class | Method | HTTP request | Description
  - [AddCustomNodeCertificateRequestContent](docs/AddCustomNodeCertificateRequestContent.md)
  - [AddCustomNodeCertificateResponseContent](docs/AddCustomNodeCertificateResponseContent.md)
  - [ApplyNetworkInterfaceConfigurationResponseContent](docs/ApplyNetworkInterfaceConfigurationResponseContent.md)
+ - [ApplyVirtualMachineConfigurationAsyncRequestContent](docs/ApplyVirtualMachineConfigurationAsyncRequestContent.md)
+ - [ApplyVirtualMachineConfigurationAsyncResponseContent](docs/ApplyVirtualMachineConfigurationAsyncResponseContent.md)
+ - [ApplyVirtualMachineConfigurationSyncRequestContent](docs/ApplyVirtualMachineConfigurationSyncRequestContent.md)
  - [CorosyncNodeSummary](docs/CorosyncNodeSummary.md)
  - [CorosyncSettings](docs/CorosyncSettings.md)
  - [CpuCapabilitySummary](docs/CpuCapabilitySummary.md)
