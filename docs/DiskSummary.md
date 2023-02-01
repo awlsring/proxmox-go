@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **Parent** | Pointer to **string** |  | [optional] 
 **Health** | Pointer to **string** |  | [optional] 
 **Serial** | Pointer to **string** |  | [optional] 
-**Rpm** | Pointer to **float32** |  | [optional] 
+**Rpm** | Pointer to **interface{}** |  | [optional] 
 **Wwn** | Pointer to **string** |  | [optional] 
 **Vendor** | Pointer to **string** |  | [optional] 
-**Wearout** | Pointer to **float32** |  | [optional] 
+**Wearout** | Pointer to **interface{}** |  | [optional] 
 **Type** | Pointer to [**DiskType**](DiskType.md) |  | [optional] 
 **Mounted** | Pointer to **float32** |  | [optional] 
 
@@ -246,20 +246,20 @@ HasSerial returns a boolean if a field has been set.
 
 ### GetRpm
 
-`func (o *DiskSummary) GetRpm() float32`
+`func (o *DiskSummary) GetRpm() interface{}`
 
 GetRpm returns the Rpm field if non-nil, zero value otherwise.
 
 ### GetRpmOk
 
-`func (o *DiskSummary) GetRpmOk() (*float32, bool)`
+`func (o *DiskSummary) GetRpmOk() (*interface{}, bool)`
 
 GetRpmOk returns a tuple with the Rpm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRpm
 
-`func (o *DiskSummary) SetRpm(v float32)`
+`func (o *DiskSummary) SetRpm(v interface{})`
 
 SetRpm sets Rpm field to given value.
 
@@ -269,6 +269,16 @@ SetRpm sets Rpm field to given value.
 
 HasRpm returns a boolean if a field has been set.
 
+### SetRpmNil
+
+`func (o *DiskSummary) SetRpmNil(b bool)`
+
+ SetRpmNil sets the value for Rpm to be an explicit nil
+
+### UnsetRpm
+`func (o *DiskSummary) UnsetRpm()`
+
+UnsetRpm ensures that no value is present for Rpm, not even an explicit nil
 ### GetWwn
 
 `func (o *DiskSummary) GetWwn() string`
@@ -321,20 +331,20 @@ HasVendor returns a boolean if a field has been set.
 
 ### GetWearout
 
-`func (o *DiskSummary) GetWearout() float32`
+`func (o *DiskSummary) GetWearout() interface{}`
 
 GetWearout returns the Wearout field if non-nil, zero value otherwise.
 
 ### GetWearoutOk
 
-`func (o *DiskSummary) GetWearoutOk() (*float32, bool)`
+`func (o *DiskSummary) GetWearoutOk() (*interface{}, bool)`
 
 GetWearoutOk returns a tuple with the Wearout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWearout
 
-`func (o *DiskSummary) SetWearout(v float32)`
+`func (o *DiskSummary) SetWearout(v interface{})`
 
 SetWearout sets Wearout field to given value.
 
@@ -344,6 +354,16 @@ SetWearout sets Wearout field to given value.
 
 HasWearout returns a boolean if a field has been set.
 
+### SetWearoutNil
+
+`func (o *DiskSummary) SetWearoutNil(b bool)`
+
+ SetWearoutNil sets the value for Wearout to be an explicit nil
+
+### UnsetWearout
+`func (o *DiskSummary) UnsetWearout()`
+
+UnsetWearout ensures that no value is present for Wearout, not even an explicit nil
 ### GetType
 
 `func (o *DiskSummary) GetType() DiskType`

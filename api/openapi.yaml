@@ -6525,13 +6525,13 @@ components:
       example:
         devpath: devpath
         parent: parent
-        wearout: 5.637376656633329
+        wearout: ""
         health: health
         gpt: 0.8008281904610115
         osdid: 6.027456183070403
         type: null
-        mounted: 2.3021358869347655
-        rpm: 5.962133916683182
+        mounted: 5.962133916683182
+        rpm: ""
         wwn: wwn
         by_id_link: by_id_link
         size: 1.4658129805029452
@@ -6559,14 +6559,12 @@ components:
           type: string
         serial:
           type: string
-        rpm:
-          type: number
+        rpm: {}
         wwn:
           type: string
         vendor:
           type: string
-        wearout:
-          type: number
+        wearout: {}
         type:
           $ref: '#/components/schemas/DiskType'
         mounted:
@@ -7030,13 +7028,13 @@ components:
         data:
         - devpath: devpath
           parent: parent
-          wearout: 5.637376656633329
+          wearout: ""
           health: health
           gpt: 0.8008281904610115
           osdid: 6.027456183070403
           type: null
-          mounted: 2.3021358869347655
-          rpm: 5.962133916683182
+          mounted: 5.962133916683182
+          rpm: ""
           wwn: wwn
           by_id_link: by_id_link
           size: 1.4658129805029452
@@ -7045,13 +7043,13 @@ components:
           model: model
         - devpath: devpath
           parent: parent
-          wearout: 5.637376656633329
+          wearout: ""
           health: health
           gpt: 0.8008281904610115
           osdid: 6.027456183070403
           type: null
-          mounted: 2.3021358869347655
-          rpm: 5.962133916683182
+          mounted: 5.962133916683182
+          rpm: ""
           wwn: wwn
           by_id_link: by_id_link
           size: 1.4658129805029452
@@ -7880,13 +7878,13 @@ components:
         data:
         - devpath: devpath
           parent: parent
-          wearout: 5.637376656633329
+          wearout: ""
           health: health
           gpt: 0.8008281904610115
           osdid: 6.027456183070403
           type: null
-          mounted: 2.3021358869347655
-          rpm: 5.962133916683182
+          mounted: 5.962133916683182
+          rpm: ""
           wwn: wwn
           by_id_link: by_id_link
           size: 1.4658129805029452
@@ -7895,13 +7893,13 @@ components:
           model: model
         - devpath: devpath
           parent: parent
-          wearout: 5.637376656633329
+          wearout: ""
           health: health
           gpt: 0.8008281904610115
           osdid: 6.027456183070403
           type: null
-          mounted: 2.3021358869347655
-          rpm: 5.962133916683182
+          mounted: 5.962133916683182
+          rpm: ""
           wwn: wwn
           by_id_link: by_id_link
           size: 1.4658129805029452

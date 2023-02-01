@@ -26,10 +26,10 @@ type DiskSummary struct {
 	Parent *string `json:"parent,omitempty"`
 	Health *string `json:"health,omitempty"`
 	Serial *string `json:"serial,omitempty"`
-	Rpm *float32 `json:"rpm,omitempty"`
+	Rpm interface{} `json:"rpm,omitempty"`
 	Wwn *string `json:"wwn,omitempty"`
 	Vendor *string `json:"vendor,omitempty"`
-	Wearout *float32 `json:"wearout,omitempty"`
+	Wearout interface{} `json:"wearout,omitempty"`
 	Type *DiskType `json:"type,omitempty"`
 	Mounted *float32 `json:"mounted,omitempty"`
 }
@@ -311,36 +311,37 @@ func (o *DiskSummary) SetSerial(v string) {
 	o.Serial = &v
 }
 
-// GetRpm returns the Rpm field value if set, zero value otherwise.
-func (o *DiskSummary) GetRpm() float32 {
-	if o == nil || isNil(o.Rpm) {
-		var ret float32
+// GetRpm returns the Rpm field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DiskSummary) GetRpm() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Rpm
+	return o.Rpm
 }
 
 // GetRpmOk returns a tuple with the Rpm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DiskSummary) GetRpmOk() (*float32, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DiskSummary) GetRpmOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Rpm) {
     return nil, false
 	}
-	return o.Rpm, true
+	return &o.Rpm, true
 }
 
 // HasRpm returns a boolean if a field has been set.
 func (o *DiskSummary) HasRpm() bool {
-	if o != nil && !isNil(o.Rpm) {
+	if o != nil && isNil(o.Rpm) {
 		return true
 	}
 
 	return false
 }
 
-// SetRpm gets a reference to the given float32 and assigns it to the Rpm field.
-func (o *DiskSummary) SetRpm(v float32) {
-	o.Rpm = &v
+// SetRpm gets a reference to the given interface{} and assigns it to the Rpm field.
+func (o *DiskSummary) SetRpm(v interface{}) {
+	o.Rpm = v
 }
 
 // GetWwn returns the Wwn field value if set, zero value otherwise.
@@ -407,36 +408,37 @@ func (o *DiskSummary) SetVendor(v string) {
 	o.Vendor = &v
 }
 
-// GetWearout returns the Wearout field value if set, zero value otherwise.
-func (o *DiskSummary) GetWearout() float32 {
-	if o == nil || isNil(o.Wearout) {
-		var ret float32
+// GetWearout returns the Wearout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DiskSummary) GetWearout() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Wearout
+	return o.Wearout
 }
 
 // GetWearoutOk returns a tuple with the Wearout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DiskSummary) GetWearoutOk() (*float32, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DiskSummary) GetWearoutOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Wearout) {
     return nil, false
 	}
-	return o.Wearout, true
+	return &o.Wearout, true
 }
 
 // HasWearout returns a boolean if a field has been set.
 func (o *DiskSummary) HasWearout() bool {
-	if o != nil && !isNil(o.Wearout) {
+	if o != nil && isNil(o.Wearout) {
 		return true
 	}
 
 	return false
 }
 
-// SetWearout gets a reference to the given float32 and assigns it to the Wearout field.
-func (o *DiskSummary) SetWearout(v float32) {
-	o.Wearout = &v
+// SetWearout gets a reference to the given interface{} and assigns it to the Wearout field.
+func (o *DiskSummary) SetWearout(v interface{}) {
+	o.Wearout = v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -532,7 +534,7 @@ func (o DiskSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Serial) {
 		toSerialize["serial"] = o.Serial
 	}
-	if !isNil(o.Rpm) {
+	if o.Rpm != nil {
 		toSerialize["rpm"] = o.Rpm
 	}
 	if !isNil(o.Wwn) {
@@ -541,7 +543,7 @@ func (o DiskSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Vendor) {
 		toSerialize["vendor"] = o.Vendor
 	}
-	if !isNil(o.Wearout) {
+	if o.Wearout != nil {
 		toSerialize["wearout"] = o.Wearout
 	}
 	if !isNil(o.Type) {
