@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetClusterApiVersionResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetClusterApiVersionResponseContent{}
+
 // GetClusterApiVersionResponseContent struct for GetClusterApiVersionResponseContent
 type GetClusterApiVersionResponseContent struct {
 	// API version
@@ -50,7 +53,7 @@ func (o *GetClusterApiVersionResponseContent) GetData() string {
 // and a boolean to check if the value has been set.
 func (o *GetClusterApiVersionResponseContent) GetDataOk() (*string, bool) {
 	if o == nil || isNil(o.Data) {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -70,11 +73,19 @@ func (o *GetClusterApiVersionResponseContent) SetData(v string) {
 }
 
 func (o GetClusterApiVersionResponseContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetClusterApiVersionResponseContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableGetClusterApiVersionResponseContent struct {

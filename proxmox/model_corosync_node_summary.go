@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CorosyncNodeSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CorosyncNodeSummary{}
+
 // CorosyncNodeSummary struct for CorosyncNodeSummary
 type CorosyncNodeSummary struct {
 	Nodeid string `json:"nodeid"`
@@ -65,7 +68,7 @@ func (o *CorosyncNodeSummary) GetNodeid() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetNodeidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Nodeid, true
 }
@@ -89,7 +92,7 @@ func (o *CorosyncNodeSummary) GetQuorumVotes() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetQuorumVotesOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.QuorumVotes, true
 }
@@ -113,7 +116,7 @@ func (o *CorosyncNodeSummary) GetRing0Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing0AddrOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Ring0Addr, true
 }
@@ -136,7 +139,7 @@ func (o *CorosyncNodeSummary) GetRing1Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing1AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring1Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring1Addr, true
 }
@@ -168,7 +171,7 @@ func (o *CorosyncNodeSummary) GetRing2Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing2AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring2Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring2Addr, true
 }
@@ -200,7 +203,7 @@ func (o *CorosyncNodeSummary) GetRing3Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing3AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring3Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring3Addr, true
 }
@@ -232,7 +235,7 @@ func (o *CorosyncNodeSummary) GetRing4Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing4AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring4Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring4Addr, true
 }
@@ -264,7 +267,7 @@ func (o *CorosyncNodeSummary) GetRing5Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing5AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring5Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring5Addr, true
 }
@@ -296,7 +299,7 @@ func (o *CorosyncNodeSummary) GetRing6Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing6AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring6Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring6Addr, true
 }
@@ -328,7 +331,7 @@ func (o *CorosyncNodeSummary) GetRing7Addr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing7AddrOk() (*string, bool) {
 	if o == nil || isNil(o.Ring7Addr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ring7Addr, true
 }
@@ -361,7 +364,7 @@ func (o *CorosyncNodeSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -384,7 +387,7 @@ func (o *CorosyncNodeSummary) GetPveAddr() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetPveAddrOk() (*string, bool) {
 	if o == nil || isNil(o.PveAddr) {
-    return nil, false
+		return nil, false
 	}
 	return o.PveAddr, true
 }
@@ -404,16 +407,18 @@ func (o *CorosyncNodeSummary) SetPveAddr(v string) {
 }
 
 func (o CorosyncNodeSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CorosyncNodeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["nodeid"] = o.Nodeid
-	}
-	if true {
-		toSerialize["quorum_votes"] = o.QuorumVotes
-	}
-	if true {
-		toSerialize["ring0_addr"] = o.Ring0Addr
-	}
+	toSerialize["nodeid"] = o.Nodeid
+	toSerialize["quorum_votes"] = o.QuorumVotes
+	toSerialize["ring0_addr"] = o.Ring0Addr
 	if !isNil(o.Ring1Addr) {
 		toSerialize["ring1_addr"] = o.Ring1Addr
 	}
@@ -435,13 +440,11 @@ func (o CorosyncNodeSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Ring7Addr) {
 		toSerialize["ring7_addr"] = o.Ring7Addr
 	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["name"] = o.Name
 	if !isNil(o.PveAddr) {
 		toSerialize["pve_addr"] = o.PveAddr
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCorosyncNodeSummary struct {

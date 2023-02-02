@@ -14,35 +14,35 @@ import (
 	"encoding/json"
 )
 
-// checks if the GetTimeResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetTimeResult{}
+// checks if the GetTimeZoneResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetTimeZoneResult{}
 
-// GetTimeResult struct for GetTimeResult
-type GetTimeResult struct {
-	Result *float32 `json:"result,omitempty"`
+// GetTimeZoneResult struct for GetTimeZoneResult
+type GetTimeZoneResult struct {
+	Result *TimeZoneSummary `json:"result,omitempty"`
 }
 
-// NewGetTimeResult instantiates a new GetTimeResult object
+// NewGetTimeZoneResult instantiates a new GetTimeZoneResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTimeResult() *GetTimeResult {
-	this := GetTimeResult{}
+func NewGetTimeZoneResult() *GetTimeZoneResult {
+	this := GetTimeZoneResult{}
 	return &this
 }
 
-// NewGetTimeResultWithDefaults instantiates a new GetTimeResult object
+// NewGetTimeZoneResultWithDefaults instantiates a new GetTimeZoneResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetTimeResultWithDefaults() *GetTimeResult {
-	this := GetTimeResult{}
+func NewGetTimeZoneResultWithDefaults() *GetTimeZoneResult {
+	this := GetTimeZoneResult{}
 	return &this
 }
 
 // GetResult returns the Result field value if set, zero value otherwise.
-func (o *GetTimeResult) GetResult() float32 {
+func (o *GetTimeZoneResult) GetResult() TimeZoneSummary {
 	if o == nil || isNil(o.Result) {
-		var ret float32
+		var ret TimeZoneSummary
 		return ret
 	}
 	return *o.Result
@@ -50,7 +50,7 @@ func (o *GetTimeResult) GetResult() float32 {
 
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetTimeResult) GetResultOk() (*float32, bool) {
+func (o *GetTimeZoneResult) GetResultOk() (*TimeZoneSummary, bool) {
 	if o == nil || isNil(o.Result) {
 		return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *GetTimeResult) GetResultOk() (*float32, bool) {
 }
 
 // HasResult returns a boolean if a field has been set.
-func (o *GetTimeResult) HasResult() bool {
+func (o *GetTimeZoneResult) HasResult() bool {
 	if o != nil && !isNil(o.Result) {
 		return true
 	}
@@ -66,12 +66,12 @@ func (o *GetTimeResult) HasResult() bool {
 	return false
 }
 
-// SetResult gets a reference to the given float32 and assigns it to the Result field.
-func (o *GetTimeResult) SetResult(v float32) {
+// SetResult gets a reference to the given TimeZoneSummary and assigns it to the Result field.
+func (o *GetTimeZoneResult) SetResult(v TimeZoneSummary) {
 	o.Result = &v
 }
 
-func (o GetTimeResult) MarshalJSON() ([]byte, error) {
+func (o GetTimeZoneResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -79,7 +79,7 @@ func (o GetTimeResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GetTimeResult) ToMap() (map[string]interface{}, error) {
+func (o GetTimeZoneResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Result) {
 		toSerialize["result"] = o.Result
@@ -87,38 +87,38 @@ func (o GetTimeResult) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableGetTimeResult struct {
-	value *GetTimeResult
+type NullableGetTimeZoneResult struct {
+	value *GetTimeZoneResult
 	isSet bool
 }
 
-func (v NullableGetTimeResult) Get() *GetTimeResult {
+func (v NullableGetTimeZoneResult) Get() *GetTimeZoneResult {
 	return v.value
 }
 
-func (v *NullableGetTimeResult) Set(val *GetTimeResult) {
+func (v *NullableGetTimeZoneResult) Set(val *GetTimeZoneResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetTimeResult) IsSet() bool {
+func (v NullableGetTimeZoneResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetTimeResult) Unset() {
+func (v *NullableGetTimeZoneResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetTimeResult(val *GetTimeResult) *NullableGetTimeResult {
-	return &NullableGetTimeResult{value: val, isSet: true}
+func NewNullableGetTimeZoneResult(val *GetTimeZoneResult) *NullableGetTimeZoneResult {
+	return &NullableGetTimeZoneResult{value: val, isSet: true}
 }
 
-func (v NullableGetTimeResult) MarshalJSON() ([]byte, error) {
+func (v NullableGetTimeZoneResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetTimeResult) UnmarshalJSON(src []byte) error {
+func (v *NullableGetTimeZoneResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

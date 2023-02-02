@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StorageConfiguration type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StorageConfiguration{}
+
 // StorageConfiguration struct for StorageConfiguration
 type StorageConfiguration struct {
 	Storage string `json:"storage"`
@@ -53,7 +56,7 @@ func (o *StorageConfiguration) GetStorage() string {
 // and a boolean to check if the value has been set.
 func (o *StorageConfiguration) GetStorageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Storage, true
 }
@@ -77,7 +80,7 @@ func (o *StorageConfiguration) GetType() StorageType {
 // and a boolean to check if the value has been set.
 func (o *StorageConfiguration) GetTypeOk() (*StorageType, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -88,14 +91,18 @@ func (o *StorageConfiguration) SetType(v StorageType) {
 }
 
 func (o StorageConfiguration) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["storage"] = o.Storage
-	}
-	if true {
-		toSerialize["type"] = o.Type
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StorageConfiguration) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["storage"] = o.Storage
+	toSerialize["type"] = o.Type
+	return toSerialize, nil
 }
 
 type NullableStorageConfiguration struct {

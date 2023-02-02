@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListLVMsResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListLVMsResponseContent{}
+
 // ListLVMsResponseContent struct for ListLVMsResponseContent
 type ListLVMsResponseContent struct {
 	Data []LVMSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListLVMsResponseContent) GetData() []LVMSummary {
 // and a boolean to check if the value has been set.
 func (o *ListLVMsResponseContent) GetDataOk() ([]LVMSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListLVMsResponseContent) SetData(v []LVMSummary) {
 }
 
 func (o ListLVMsResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListLVMsResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListLVMsResponseContent struct {

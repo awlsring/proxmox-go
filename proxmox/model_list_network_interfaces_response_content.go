@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListNetworkInterfacesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListNetworkInterfacesResponseContent{}
+
 // ListNetworkInterfacesResponseContent struct for ListNetworkInterfacesResponseContent
 type ListNetworkInterfacesResponseContent struct {
 	Data []NetworkInterfaceSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListNetworkInterfacesResponseContent) GetData() []NetworkInterfaceSumma
 // and a boolean to check if the value has been set.
 func (o *ListNetworkInterfacesResponseContent) GetDataOk() ([]NetworkInterfaceSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListNetworkInterfacesResponseContent) SetData(v []NetworkInterfaceSumma
 }
 
 func (o ListNetworkInterfacesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListNetworkInterfacesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListNetworkInterfacesResponseContent struct {

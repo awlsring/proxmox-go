@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetPoolResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetPoolResponseContent{}
+
 // GetPoolResponseContent struct for GetPoolResponseContent
 type GetPoolResponseContent struct {
 	Data []PoolInfo `json:"data"`
@@ -51,7 +54,7 @@ func (o *GetPoolResponseContent) GetData() []PoolInfo {
 // and a boolean to check if the value has been set.
 func (o *GetPoolResponseContent) GetDataOk() ([]PoolInfo, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *GetPoolResponseContent) SetData(v []PoolInfo) {
 }
 
 func (o GetPoolResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetPoolResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableGetPoolResponseContent struct {

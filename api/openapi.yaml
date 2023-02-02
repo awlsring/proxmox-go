@@ -2306,6 +2306,48 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
           description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/get-timezone:
+    get:
+      description: Get the time of the virtual machine. Requries the guest agent to
+        be installed and active.
+      operationId: GetVirtualMachineTimeZone
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineTimeZoneResponseContent'
+          description: GetVirtualMachineTimeZone 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/clone:
     post:
       description: Create a copy of a virtual machine or template.
@@ -7089,6 +7131,15 @@ components:
         result:
           type: number
       type: object
+    GetTimeZoneResult:
+      example:
+        result:
+          offset: 0.8008281904610115
+          zone: zone
+      properties:
+        result:
+          $ref: '#/components/schemas/TimeZoneSummary'
+      type: object
     GetVersionResponseContent:
       example:
         data:
@@ -7524,6 +7575,18 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/GetTimeResult'
+      required:
+      - data
+      type: object
+    GetVirtualMachineTimeZoneResponseContent:
+      example:
+        data:
+          result:
+            offset: 0.8008281904610115
+            zone: zone
+      properties:
+        data:
+          $ref: '#/components/schemas/GetTimeZoneResult'
       required:
       - data
       type: object
@@ -9445,6 +9508,16 @@ components:
           type: string
       required:
       - username
+      type: object
+    TimeZoneSummary:
+      example:
+        offset: 0.8008281904610115
+        zone: zone
+      properties:
+        zone:
+          type: string
+        offset:
+          type: number
       type: object
     TotemSummary:
       example:

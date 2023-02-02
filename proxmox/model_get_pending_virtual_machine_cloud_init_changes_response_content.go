@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetPendingVirtualMachineCloudInitChangesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetPendingVirtualMachineCloudInitChangesResponseContent{}
+
 // GetPendingVirtualMachineCloudInitChangesResponseContent struct for GetPendingVirtualMachineCloudInitChangesResponseContent
 type GetPendingVirtualMachineCloudInitChangesResponseContent struct {
 	Data []PendingVirtualMachineCloudInitField `json:"data"`
@@ -51,7 +54,7 @@ func (o *GetPendingVirtualMachineCloudInitChangesResponseContent) GetData() []Pe
 // and a boolean to check if the value has been set.
 func (o *GetPendingVirtualMachineCloudInitChangesResponseContent) GetDataOk() ([]PendingVirtualMachineCloudInitField, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *GetPendingVirtualMachineCloudInitChangesResponseContent) SetData(v []Pe
 }
 
 func (o GetPendingVirtualMachineCloudInitChangesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetPendingVirtualMachineCloudInitChangesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableGetPendingVirtualMachineCloudInitChangesResponseContent struct {

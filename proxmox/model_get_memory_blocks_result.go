@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetMemoryBlocksResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetMemoryBlocksResult{}
+
 // GetMemoryBlocksResult struct for GetMemoryBlocksResult
 type GetMemoryBlocksResult struct {
 	Result []MemoryBlockSummary `json:"result,omitempty"`
@@ -49,7 +52,7 @@ func (o *GetMemoryBlocksResult) GetResult() []MemoryBlockSummary {
 // and a boolean to check if the value has been set.
 func (o *GetMemoryBlocksResult) GetResultOk() ([]MemoryBlockSummary, bool) {
 	if o == nil || isNil(o.Result) {
-    return nil, false
+		return nil, false
 	}
 	return o.Result, true
 }
@@ -69,11 +72,19 @@ func (o *GetMemoryBlocksResult) SetResult(v []MemoryBlockSummary) {
 }
 
 func (o GetMemoryBlocksResult) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetMemoryBlocksResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Result) {
 		toSerialize["result"] = o.Result
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableGetMemoryBlocksResult struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DeleteVirtualMachineResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeleteVirtualMachineResponseContent{}
+
 // DeleteVirtualMachineResponseContent struct for DeleteVirtualMachineResponseContent
 type DeleteVirtualMachineResponseContent struct {
 	Data string `json:"data"`
@@ -51,7 +54,7 @@ func (o *DeleteVirtualMachineResponseContent) GetData() string {
 // and a boolean to check if the value has been set.
 func (o *DeleteVirtualMachineResponseContent) GetDataOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *DeleteVirtualMachineResponseContent) SetData(v string) {
 }
 
 func (o DeleteVirtualMachineResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DeleteVirtualMachineResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableDeleteVirtualMachineResponseContent struct {

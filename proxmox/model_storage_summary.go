@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StorageSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StorageSummary{}
+
 // StorageSummary struct for StorageSummary
 type StorageSummary struct {
 	// The storage class name
@@ -65,7 +68,7 @@ func (o *StorageSummary) GetStorage() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetStorageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Storage, true
 }
@@ -88,7 +91,7 @@ func (o *StorageSummary) GetContent() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetContentOk() (*string, bool) {
 	if o == nil || isNil(o.Content) {
-    return nil, false
+		return nil, false
 	}
 	return o.Content, true
 }
@@ -120,7 +123,7 @@ func (o *StorageSummary) GetDigest() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetDigestOk() (*string, bool) {
 	if o == nil || isNil(o.Digest) {
-    return nil, false
+		return nil, false
 	}
 	return o.Digest, true
 }
@@ -152,7 +155,7 @@ func (o *StorageSummary) GetThinpool() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetThinpoolOk() (*string, bool) {
 	if o == nil || isNil(o.Thinpool) {
-    return nil, false
+		return nil, false
 	}
 	return o.Thinpool, true
 }
@@ -184,7 +187,7 @@ func (o *StorageSummary) GetType() StorageType {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetTypeOk() (*StorageType, bool) {
 	if o == nil || isNil(o.Type) {
-    return nil, false
+		return nil, false
 	}
 	return o.Type, true
 }
@@ -216,7 +219,7 @@ func (o *StorageSummary) GetVgname() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetVgnameOk() (*string, bool) {
 	if o == nil || isNil(o.Vgname) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vgname, true
 }
@@ -248,7 +251,7 @@ func (o *StorageSummary) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetPathOk() (*string, bool) {
 	if o == nil || isNil(o.Path) {
-    return nil, false
+		return nil, false
 	}
 	return o.Path, true
 }
@@ -280,7 +283,7 @@ func (o *StorageSummary) GetMountpoint() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetMountpointOk() (*string, bool) {
 	if o == nil || isNil(o.Mountpoint) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mountpoint, true
 }
@@ -312,7 +315,7 @@ func (o *StorageSummary) GetNodes() string {
 // and a boolean to check if the value has been set.
 func (o *StorageSummary) GetNodesOk() (*string, bool) {
 	if o == nil || isNil(o.Nodes) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodes, true
 }
@@ -332,10 +335,16 @@ func (o *StorageSummary) SetNodes(v string) {
 }
 
 func (o StorageSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["storage"] = o.Storage
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o StorageSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["storage"] = o.Storage
 	if !isNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
@@ -360,7 +369,7 @@ func (o StorageSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Nodes) {
 		toSerialize["nodes"] = o.Nodes
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableStorageSummary struct {

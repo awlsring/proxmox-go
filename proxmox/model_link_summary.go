@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LinkSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LinkSummary{}
+
 // LinkSummary struct for LinkSummary
 type LinkSummary struct {
 	Linknumber *string `json:"linknumber,omitempty"`
@@ -49,7 +52,7 @@ func (o *LinkSummary) GetLinknumber() string {
 // and a boolean to check if the value has been set.
 func (o *LinkSummary) GetLinknumberOk() (*string, bool) {
 	if o == nil || isNil(o.Linknumber) {
-    return nil, false
+		return nil, false
 	}
 	return o.Linknumber, true
 }
@@ -69,11 +72,19 @@ func (o *LinkSummary) SetLinknumber(v string) {
 }
 
 func (o LinkSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o LinkSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Linknumber) {
 		toSerialize["linknumber"] = o.Linknumber
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableLinkSummary struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineNicStatus type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineNicStatus{}
+
 // VirtualMachineNicStatus struct for VirtualMachineNicStatus
 type VirtualMachineNicStatus struct {
 	Netin *float32 `json:"netin,omitempty"`
@@ -50,7 +53,7 @@ func (o *VirtualMachineNicStatus) GetNetin() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicStatus) GetNetinOk() (*float32, bool) {
 	if o == nil || isNil(o.Netin) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netin, true
 }
@@ -82,7 +85,7 @@ func (o *VirtualMachineNicStatus) GetNetout() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicStatus) GetNetoutOk() (*float32, bool) {
 	if o == nil || isNil(o.Netout) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netout, true
 }
@@ -102,6 +105,14 @@ func (o *VirtualMachineNicStatus) SetNetout(v float32) {
 }
 
 func (o VirtualMachineNicStatus) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineNicStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Netin) {
 		toSerialize["netin"] = o.Netin
@@ -109,7 +120,7 @@ func (o VirtualMachineNicStatus) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Netout) {
 		toSerialize["netout"] = o.Netout
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineNicStatus struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListVirtualMachinesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListVirtualMachinesResponseContent{}
+
 // ListVirtualMachinesResponseContent struct for ListVirtualMachinesResponseContent
 type ListVirtualMachinesResponseContent struct {
 	Data []VirtualMachineSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListVirtualMachinesResponseContent) GetData() []VirtualMachineSummary {
 // and a boolean to check if the value has been set.
 func (o *ListVirtualMachinesResponseContent) GetDataOk() ([]VirtualMachineSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListVirtualMachinesResponseContent) SetData(v []VirtualMachineSummary) 
 }
 
 func (o ListVirtualMachinesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListVirtualMachinesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListVirtualMachinesResponseContent struct {

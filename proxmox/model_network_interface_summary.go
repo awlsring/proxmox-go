@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NetworkInterfaceSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NetworkInterfaceSummary{}
+
 // NetworkInterfaceSummary struct for NetworkInterfaceSummary
 type NetworkInterfaceSummary struct {
 	Iface string `json:"iface"`
@@ -71,7 +74,7 @@ func (o *NetworkInterfaceSummary) GetIface() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetIfaceOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Iface, true
 }
@@ -94,7 +97,7 @@ func (o *NetworkInterfaceSummary) GetMethod() NetworkInterfaceMethod {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetMethodOk() (*NetworkInterfaceMethod, bool) {
 	if o == nil || isNil(o.Method) {
-    return nil, false
+		return nil, false
 	}
 	return o.Method, true
 }
@@ -126,7 +129,7 @@ func (o *NetworkInterfaceSummary) GetMethod6() NetworkInterfaceMethod {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetMethod6Ok() (*NetworkInterfaceMethod, bool) {
 	if o == nil || isNil(o.Method6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Method6, true
 }
@@ -158,7 +161,7 @@ func (o *NetworkInterfaceSummary) GetPriority() float32 {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetPriorityOk() (*float32, bool) {
 	if o == nil || isNil(o.Priority) {
-    return nil, false
+		return nil, false
 	}
 	return o.Priority, true
 }
@@ -190,7 +193,7 @@ func (o *NetworkInterfaceSummary) GetFamilies() []string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetFamiliesOk() ([]string, bool) {
 	if o == nil || isNil(o.Families) {
-    return nil, false
+		return nil, false
 	}
 	return o.Families, true
 }
@@ -222,7 +225,7 @@ func (o *NetworkInterfaceSummary) GetBondMode() NetworkInterfaceBondMode {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondModeOk() (*NetworkInterfaceBondMode, bool) {
 	if o == nil || isNil(o.BondMode) {
-    return nil, false
+		return nil, false
 	}
 	return o.BondMode, true
 }
@@ -254,7 +257,7 @@ func (o *NetworkInterfaceSummary) GetBondXmitHashPolicy() NetworkInterfaceBondHa
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondXmitHashPolicyOk() (*NetworkInterfaceBondHashPolicy, bool) {
 	if o == nil || isNil(o.BondXmitHashPolicy) {
-    return nil, false
+		return nil, false
 	}
 	return o.BondXmitHashPolicy, true
 }
@@ -286,7 +289,7 @@ func (o *NetworkInterfaceSummary) GetBondMiimon() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondMiimonOk() (*string, bool) {
 	if o == nil || isNil(o.BondMiimon) {
-    return nil, false
+		return nil, false
 	}
 	return o.BondMiimon, true
 }
@@ -318,7 +321,7 @@ func (o *NetworkInterfaceSummary) GetSlaves() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetSlavesOk() (*string, bool) {
 	if o == nil || isNil(o.Slaves) {
-    return nil, false
+		return nil, false
 	}
 	return o.Slaves, true
 }
@@ -350,7 +353,7 @@ func (o *NetworkInterfaceSummary) GetAutostart() float32 {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetAutostartOk() (*float32, bool) {
 	if o == nil || isNil(o.Autostart) {
-    return nil, false
+		return nil, false
 	}
 	return o.Autostart, true
 }
@@ -382,7 +385,7 @@ func (o *NetworkInterfaceSummary) GetActive() float32 {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetActiveOk() (*float32, bool) {
 	if o == nil || isNil(o.Active) {
-    return nil, false
+		return nil, false
 	}
 	return o.Active, true
 }
@@ -414,7 +417,7 @@ func (o *NetworkInterfaceSummary) GetExists() float32 {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetExistsOk() (*float32, bool) {
 	if o == nil || isNil(o.Exists) {
-    return nil, false
+		return nil, false
 	}
 	return o.Exists, true
 }
@@ -446,7 +449,7 @@ func (o *NetworkInterfaceSummary) GetBridgeVids() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeVidsOk() (*string, bool) {
 	if o == nil || isNil(o.BridgeVids) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgeVids, true
 }
@@ -478,7 +481,7 @@ func (o *NetworkInterfaceSummary) GetBridgePorts() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgePortsOk() (*string, bool) {
 	if o == nil || isNil(o.BridgePorts) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgePorts, true
 }
@@ -510,7 +513,7 @@ func (o *NetworkInterfaceSummary) GetBridgeFd() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeFdOk() (*string, bool) {
 	if o == nil || isNil(o.BridgeFd) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgeFd, true
 }
@@ -542,7 +545,7 @@ func (o *NetworkInterfaceSummary) GetBridgeStp() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeStpOk() (*string, bool) {
 	if o == nil || isNil(o.BridgeStp) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgeStp, true
 }
@@ -574,7 +577,7 @@ func (o *NetworkInterfaceSummary) GetBridgeVlanAware() float32 {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeVlanAwareOk() (*float32, bool) {
 	if o == nil || isNil(o.BridgeVlanAware) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgeVlanAware, true
 }
@@ -606,7 +609,7 @@ func (o *NetworkInterfaceSummary) GetAddress() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetAddressOk() (*string, bool) {
 	if o == nil || isNil(o.Address) {
-    return nil, false
+		return nil, false
 	}
 	return o.Address, true
 }
@@ -638,7 +641,7 @@ func (o *NetworkInterfaceSummary) GetNetmask() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetNetmaskOk() (*string, bool) {
 	if o == nil || isNil(o.Netmask) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netmask, true
 }
@@ -670,7 +673,7 @@ func (o *NetworkInterfaceSummary) GetCidr() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetCidrOk() (*string, bool) {
 	if o == nil || isNil(o.Cidr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cidr, true
 }
@@ -702,7 +705,7 @@ func (o *NetworkInterfaceSummary) GetAddress6() string {
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetAddress6Ok() (*string, bool) {
 	if o == nil || isNil(o.Address6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Address6, true
 }
@@ -722,10 +725,16 @@ func (o *NetworkInterfaceSummary) SetAddress6(v string) {
 }
 
 func (o NetworkInterfaceSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["iface"] = o.Iface
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iface"] = o.Iface
 	if !isNil(o.Method) {
 		toSerialize["method"] = o.Method
 	}
@@ -786,7 +795,7 @@ func (o NetworkInterfaceSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Address6) {
 		toSerialize["address6"] = o.Address6
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableNetworkInterfaceSummary struct {

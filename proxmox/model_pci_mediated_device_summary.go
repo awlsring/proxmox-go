@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PciMediatedDeviceSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PciMediatedDeviceSummary{}
+
 // PciMediatedDeviceSummary struct for PciMediatedDeviceSummary
 type PciMediatedDeviceSummary struct {
 	Available float32 `json:"available"`
@@ -55,7 +58,7 @@ func (o *PciMediatedDeviceSummary) GetAvailable() float32 {
 // and a boolean to check if the value has been set.
 func (o *PciMediatedDeviceSummary) GetAvailableOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Available, true
 }
@@ -79,7 +82,7 @@ func (o *PciMediatedDeviceSummary) GetDescription() string {
 // and a boolean to check if the value has been set.
 func (o *PciMediatedDeviceSummary) GetDescriptionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Description, true
 }
@@ -103,7 +106,7 @@ func (o *PciMediatedDeviceSummary) GetType() string {
 // and a boolean to check if the value has been set.
 func (o *PciMediatedDeviceSummary) GetTypeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -114,17 +117,19 @@ func (o *PciMediatedDeviceSummary) SetType(v string) {
 }
 
 func (o PciMediatedDeviceSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["available"] = o.Available
-	}
-	if true {
-		toSerialize["description"] = o.Description
-	}
-	if true {
-		toSerialize["type"] = o.Type
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PciMediatedDeviceSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["available"] = o.Available
+	toSerialize["description"] = o.Description
+	toSerialize["type"] = o.Type
+	return toSerialize, nil
 }
 
 type NullablePciMediatedDeviceSummary struct {

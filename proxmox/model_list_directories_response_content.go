@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListDirectoriesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListDirectoriesResponseContent{}
+
 // ListDirectoriesResponseContent struct for ListDirectoriesResponseContent
 type ListDirectoriesResponseContent struct {
 	Data []DirectorySummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListDirectoriesResponseContent) GetData() []DirectorySummary {
 // and a boolean to check if the value has been set.
 func (o *ListDirectoriesResponseContent) GetDataOk() ([]DirectorySummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListDirectoriesResponseContent) SetData(v []DirectorySummary) {
 }
 
 func (o ListDirectoriesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListDirectoriesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListDirectoriesResponseContent struct {

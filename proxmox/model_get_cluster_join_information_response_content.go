@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetClusterJoinInformationResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetClusterJoinInformationResponseContent{}
+
 // GetClusterJoinInformationResponseContent struct for GetClusterJoinInformationResponseContent
 type GetClusterJoinInformationResponseContent struct {
 	Data JoinInformation `json:"data"`
@@ -51,7 +54,7 @@ func (o *GetClusterJoinInformationResponseContent) GetData() JoinInformation {
 // and a boolean to check if the value has been set.
 func (o *GetClusterJoinInformationResponseContent) GetDataOk() (*JoinInformation, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *GetClusterJoinInformationResponseContent) SetData(v JoinInformation) {
 }
 
 func (o GetClusterJoinInformationResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetClusterJoinInformationResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableGetClusterJoinInformationResponseContent struct {

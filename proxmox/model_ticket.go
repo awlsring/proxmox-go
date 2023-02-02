@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Ticket type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Ticket{}
+
 // Ticket struct for Ticket
 type Ticket struct {
 	Username string `json:"username"`
@@ -55,7 +58,7 @@ func (o *Ticket) GetUsername() string {
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetUsernameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Username, true
 }
@@ -78,7 +81,7 @@ func (o *Ticket) GetCap() map[string]map[string]float32 {
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetCapOk() (*map[string]map[string]float32, bool) {
 	if o == nil || isNil(o.Cap) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cap, true
 }
@@ -110,7 +113,7 @@ func (o *Ticket) GetCSRFPreventionToken() string {
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetCSRFPreventionTokenOk() (*string, bool) {
 	if o == nil || isNil(o.CSRFPreventionToken) {
-    return nil, false
+		return nil, false
 	}
 	return o.CSRFPreventionToken, true
 }
@@ -142,7 +145,7 @@ func (o *Ticket) GetTicket() string {
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetTicketOk() (*string, bool) {
 	if o == nil || isNil(o.Ticket) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ticket, true
 }
@@ -174,7 +177,7 @@ func (o *Ticket) GetClustername() string {
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetClusternameOk() (*string, bool) {
 	if o == nil || isNil(o.Clustername) {
-    return nil, false
+		return nil, false
 	}
 	return o.Clustername, true
 }
@@ -194,10 +197,16 @@ func (o *Ticket) SetClustername(v string) {
 }
 
 func (o Ticket) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["username"] = o.Username
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Ticket) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["username"] = o.Username
 	if !isNil(o.Cap) {
 		toSerialize["cap"] = o.Cap
 	}
@@ -210,7 +219,7 @@ func (o Ticket) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Clustername) {
 		toSerialize["clustername"] = o.Clustername
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableTicket struct {

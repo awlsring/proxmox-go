@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateLVMThinRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateLVMThinRequestContent{}
+
 // CreateLVMThinRequestContent struct for CreateLVMThinRequestContent
 type CreateLVMThinRequestContent struct {
 	// The device to create the lvm thinpool on.
@@ -57,7 +60,7 @@ func (o *CreateLVMThinRequestContent) GetDevice() string {
 // and a boolean to check if the value has been set.
 func (o *CreateLVMThinRequestContent) GetDeviceOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Device, true
 }
@@ -81,7 +84,7 @@ func (o *CreateLVMThinRequestContent) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *CreateLVMThinRequestContent) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -104,7 +107,7 @@ func (o *CreateLVMThinRequestContent) GetAddStorage() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateLVMThinRequestContent) GetAddStorageOk() (*float32, bool) {
 	if o == nil || isNil(o.AddStorage) {
-    return nil, false
+		return nil, false
 	}
 	return o.AddStorage, true
 }
@@ -124,17 +127,21 @@ func (o *CreateLVMThinRequestContent) SetAddStorage(v float32) {
 }
 
 func (o CreateLVMThinRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateLVMThinRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["device"] = o.Device
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["device"] = o.Device
+	toSerialize["name"] = o.Name
 	if !isNil(o.AddStorage) {
 		toSerialize["add_storage"] = o.AddStorage
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateLVMThinRequestContent struct {

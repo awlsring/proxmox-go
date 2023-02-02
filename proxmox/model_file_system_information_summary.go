@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the FileSystemInformationSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FileSystemInformationSummary{}
+
 // FileSystemInformationSummary struct for FileSystemInformationSummary
 type FileSystemInformationSummary struct {
 	Disk []DiskInformationSummary `json:"disk,omitempty"`
@@ -54,7 +57,7 @@ func (o *FileSystemInformationSummary) GetDisk() []DiskInformationSummary {
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetDiskOk() ([]DiskInformationSummary, bool) {
 	if o == nil || isNil(o.Disk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Disk, true
 }
@@ -86,7 +89,7 @@ func (o *FileSystemInformationSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
-    return nil, false
+		return nil, false
 	}
 	return o.Name, true
 }
@@ -118,7 +121,7 @@ func (o *FileSystemInformationSummary) GetMountpoint() string {
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetMountpointOk() (*string, bool) {
 	if o == nil || isNil(o.Mountpoint) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mountpoint, true
 }
@@ -150,7 +153,7 @@ func (o *FileSystemInformationSummary) GetType() string {
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetTypeOk() (*string, bool) {
 	if o == nil || isNil(o.Type) {
-    return nil, false
+		return nil, false
 	}
 	return o.Type, true
 }
@@ -182,7 +185,7 @@ func (o *FileSystemInformationSummary) GetUsedBytes() float32 {
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetUsedBytesOk() (*float32, bool) {
 	if o == nil || isNil(o.UsedBytes) {
-    return nil, false
+		return nil, false
 	}
 	return o.UsedBytes, true
 }
@@ -214,7 +217,7 @@ func (o *FileSystemInformationSummary) GetTotalBytes() float32 {
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetTotalBytesOk() (*float32, bool) {
 	if o == nil || isNil(o.TotalBytes) {
-    return nil, false
+		return nil, false
 	}
 	return o.TotalBytes, true
 }
@@ -234,6 +237,14 @@ func (o *FileSystemInformationSummary) SetTotalBytes(v float32) {
 }
 
 func (o FileSystemInformationSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o FileSystemInformationSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
@@ -253,7 +264,7 @@ func (o FileSystemInformationSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.TotalBytes) {
 		toSerialize["total-bytes"] = o.TotalBytes
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableFileSystemInformationSummary struct {

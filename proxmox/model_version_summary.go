@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VersionSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VersionSummary{}
+
 // VersionSummary struct for VersionSummary
 type VersionSummary struct {
 	Version string `json:"version"`
@@ -55,7 +58,7 @@ func (o *VersionSummary) GetVersion() string {
 // and a boolean to check if the value has been set.
 func (o *VersionSummary) GetVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Version, true
 }
@@ -79,7 +82,7 @@ func (o *VersionSummary) GetRelease() string {
 // and a boolean to check if the value has been set.
 func (o *VersionSummary) GetReleaseOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Release, true
 }
@@ -103,7 +106,7 @@ func (o *VersionSummary) GetRepoid() string {
 // and a boolean to check if the value has been set.
 func (o *VersionSummary) GetRepoidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Repoid, true
 }
@@ -114,17 +117,19 @@ func (o *VersionSummary) SetRepoid(v string) {
 }
 
 func (o VersionSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["version"] = o.Version
-	}
-	if true {
-		toSerialize["release"] = o.Release
-	}
-	if true {
-		toSerialize["repoid"] = o.Repoid
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o VersionSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["version"] = o.Version
+	toSerialize["release"] = o.Release
+	toSerialize["repoid"] = o.Repoid
+	return toSerialize, nil
 }
 
 type NullableVersionSummary struct {

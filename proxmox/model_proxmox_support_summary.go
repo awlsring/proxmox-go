@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ProxmoxSupportSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ProxmoxSupportSummary{}
+
 // ProxmoxSupportSummary struct for ProxmoxSupportSummary
 type ProxmoxSupportSummary struct {
 	PbsLibraryVersion *string `json:"pbs-library-version,omitempty"`
@@ -55,7 +58,7 @@ func (o *ProxmoxSupportSummary) GetPbsLibraryVersion() string {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsLibraryVersionOk() (*string, bool) {
 	if o == nil || isNil(o.PbsLibraryVersion) {
-    return nil, false
+		return nil, false
 	}
 	return o.PbsLibraryVersion, true
 }
@@ -87,7 +90,7 @@ func (o *ProxmoxSupportSummary) GetPbsMasterkey() bool {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsMasterkeyOk() (*bool, bool) {
 	if o == nil || isNil(o.PbsMasterkey) {
-    return nil, false
+		return nil, false
 	}
 	return o.PbsMasterkey, true
 }
@@ -119,7 +122,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapSavevm() bool {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapSavevmOk() (*bool, bool) {
 	if o == nil || isNil(o.PbsDirtyBitmapSavevm) {
-    return nil, false
+		return nil, false
 	}
 	return o.PbsDirtyBitmapSavevm, true
 }
@@ -151,7 +154,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapMigration() bool {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapMigrationOk() (*bool, bool) {
 	if o == nil || isNil(o.PbsDirtyBitmapMigration) {
-    return nil, false
+		return nil, false
 	}
 	return o.PbsDirtyBitmapMigration, true
 }
@@ -183,7 +186,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmap() bool {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapOk() (*bool, bool) {
 	if o == nil || isNil(o.PbsDirtyBitmap) {
-    return nil, false
+		return nil, false
 	}
 	return o.PbsDirtyBitmap, true
 }
@@ -215,7 +218,7 @@ func (o *ProxmoxSupportSummary) GetBackupMaxWorkers() bool {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetBackupMaxWorkersOk() (*bool, bool) {
 	if o == nil || isNil(o.BackupMaxWorkers) {
-    return nil, false
+		return nil, false
 	}
 	return o.BackupMaxWorkers, true
 }
@@ -247,7 +250,7 @@ func (o *ProxmoxSupportSummary) GetQueryBitmapInfo() bool {
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetQueryBitmapInfoOk() (*bool, bool) {
 	if o == nil || isNil(o.QueryBitmapInfo) {
-    return nil, false
+		return nil, false
 	}
 	return o.QueryBitmapInfo, true
 }
@@ -267,6 +270,14 @@ func (o *ProxmoxSupportSummary) SetQueryBitmapInfo(v bool) {
 }
 
 func (o ProxmoxSupportSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ProxmoxSupportSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.PbsLibraryVersion) {
 		toSerialize["pbs-library-version"] = o.PbsLibraryVersion
@@ -289,7 +300,7 @@ func (o ProxmoxSupportSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.QueryBitmapInfo) {
 		toSerialize["query-bitmap-info"] = o.QueryBitmapInfo
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableProxmoxSupportSummary struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineFeatureSupportSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineFeatureSupportSummary{}
+
 // VirtualMachineFeatureSupportSummary struct for VirtualMachineFeatureSupportSummary
 type VirtualMachineFeatureSupportSummary struct {
 	// An integer used to represent a boolean. 0 is false, 1 is true.
@@ -54,7 +57,7 @@ func (o *VirtualMachineFeatureSupportSummary) GetHasFeature() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineFeatureSupportSummary) GetHasFeatureOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.HasFeature, true
 }
@@ -78,7 +81,7 @@ func (o *VirtualMachineFeatureSupportSummary) GetNodes() []string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineFeatureSupportSummary) GetNodesOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodes, true
 }
@@ -89,14 +92,18 @@ func (o *VirtualMachineFeatureSupportSummary) SetNodes(v []string) {
 }
 
 func (o VirtualMachineFeatureSupportSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["hasFeature"] = o.HasFeature
-	}
-	if true {
-		toSerialize["nodes"] = o.Nodes
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineFeatureSupportSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["hasFeature"] = o.HasFeature
+	toSerialize["nodes"] = o.Nodes
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineFeatureSupportSummary struct {

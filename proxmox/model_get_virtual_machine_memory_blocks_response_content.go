@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetVirtualMachineMemoryBlocksResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetVirtualMachineMemoryBlocksResponseContent{}
+
 // GetVirtualMachineMemoryBlocksResponseContent struct for GetVirtualMachineMemoryBlocksResponseContent
 type GetVirtualMachineMemoryBlocksResponseContent struct {
 	Data GetMemoryBlocksResult `json:"data"`
@@ -51,7 +54,7 @@ func (o *GetVirtualMachineMemoryBlocksResponseContent) GetData() GetMemoryBlocks
 // and a boolean to check if the value has been set.
 func (o *GetVirtualMachineMemoryBlocksResponseContent) GetDataOk() (*GetMemoryBlocksResult, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *GetVirtualMachineMemoryBlocksResponseContent) SetData(v GetMemoryBlocks
 }
 
 func (o GetVirtualMachineMemoryBlocksResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetVirtualMachineMemoryBlocksResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableGetVirtualMachineMemoryBlocksResponseContent struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AddCustomNodeCertificateResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AddCustomNodeCertificateResponseContent{}
+
 // AddCustomNodeCertificateResponseContent struct for AddCustomNodeCertificateResponseContent
 type AddCustomNodeCertificateResponseContent struct {
 	Data NodeCertificate `json:"data"`
@@ -51,7 +54,7 @@ func (o *AddCustomNodeCertificateResponseContent) GetData() NodeCertificate {
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateResponseContent) GetDataOk() (*NodeCertificate, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *AddCustomNodeCertificateResponseContent) SetData(v NodeCertificate) {
 }
 
 func (o AddCustomNodeCertificateResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AddCustomNodeCertificateResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableAddCustomNodeCertificateResponseContent struct {

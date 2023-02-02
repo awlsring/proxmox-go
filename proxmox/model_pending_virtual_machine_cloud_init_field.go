@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PendingVirtualMachineCloudInitField type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PendingVirtualMachineCloudInitField{}
+
 // PendingVirtualMachineCloudInitField struct for PendingVirtualMachineCloudInitField
 type PendingVirtualMachineCloudInitField struct {
 	Key string `json:"key"`
@@ -53,7 +56,7 @@ func (o *PendingVirtualMachineCloudInitField) GetKey() string {
 // and a boolean to check if the value has been set.
 func (o *PendingVirtualMachineCloudInitField) GetKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Key, true
 }
@@ -76,7 +79,7 @@ func (o *PendingVirtualMachineCloudInitField) GetNew() string {
 // and a boolean to check if the value has been set.
 func (o *PendingVirtualMachineCloudInitField) GetNewOk() (*string, bool) {
 	if o == nil || isNil(o.New) {
-    return nil, false
+		return nil, false
 	}
 	return o.New, true
 }
@@ -108,7 +111,7 @@ func (o *PendingVirtualMachineCloudInitField) GetOld() string {
 // and a boolean to check if the value has been set.
 func (o *PendingVirtualMachineCloudInitField) GetOldOk() (*string, bool) {
 	if o == nil || isNil(o.Old) {
-    return nil, false
+		return nil, false
 	}
 	return o.Old, true
 }
@@ -128,17 +131,23 @@ func (o *PendingVirtualMachineCloudInitField) SetOld(v string) {
 }
 
 func (o PendingVirtualMachineCloudInitField) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["key"] = o.Key
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PendingVirtualMachineCloudInitField) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["key"] = o.Key
 	if !isNil(o.New) {
 		toSerialize["new"] = o.New
 	}
 	if !isNil(o.Old) {
 		toSerialize["old"] = o.Old
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullablePendingVirtualMachineCloudInitField struct {

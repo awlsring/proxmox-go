@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PciControllerSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PciControllerSummary{}
+
 // PciControllerSummary struct for PciControllerSummary
 type PciControllerSummary struct {
 	Bus *float32 `json:"bus,omitempty"`
@@ -52,7 +55,7 @@ func (o *PciControllerSummary) GetBus() float32 {
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetBusOk() (*float32, bool) {
 	if o == nil || isNil(o.Bus) {
-    return nil, false
+		return nil, false
 	}
 	return o.Bus, true
 }
@@ -84,7 +87,7 @@ func (o *PciControllerSummary) GetDomain() float32 {
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetDomainOk() (*float32, bool) {
 	if o == nil || isNil(o.Domain) {
-    return nil, false
+		return nil, false
 	}
 	return o.Domain, true
 }
@@ -116,7 +119,7 @@ func (o *PciControllerSummary) GetFunction() float32 {
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetFunctionOk() (*float32, bool) {
 	if o == nil || isNil(o.Function) {
-    return nil, false
+		return nil, false
 	}
 	return o.Function, true
 }
@@ -148,7 +151,7 @@ func (o *PciControllerSummary) GetSlot() float32 {
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetSlotOk() (*float32, bool) {
 	if o == nil || isNil(o.Slot) {
-    return nil, false
+		return nil, false
 	}
 	return o.Slot, true
 }
@@ -168,6 +171,14 @@ func (o *PciControllerSummary) SetSlot(v float32) {
 }
 
 func (o PciControllerSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PciControllerSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Bus) {
 		toSerialize["bus"] = o.Bus
@@ -181,7 +192,7 @@ func (o PciControllerSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Slot) {
 		toSerialize["slot"] = o.Slot
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullablePciControllerSummary struct {

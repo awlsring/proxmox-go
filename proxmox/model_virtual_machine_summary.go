@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineSummary{}
+
 // VirtualMachineSummary struct for VirtualMachineSummary
 type VirtualMachineSummary struct {
 	// The ID of the virtual machine. Unique across cluster
@@ -83,7 +86,7 @@ func (o *VirtualMachineSummary) GetVmid() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetVmidOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Vmid, true
 }
@@ -106,7 +109,7 @@ func (o *VirtualMachineSummary) GetMem() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetMemOk() (*float32, bool) {
 	if o == nil || isNil(o.Mem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mem, true
 }
@@ -138,7 +141,7 @@ func (o *VirtualMachineSummary) GetMaxmem() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetMaxmemOk() (*float32, bool) {
 	if o == nil || isNil(o.Maxmem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Maxmem, true
 }
@@ -170,7 +173,7 @@ func (o *VirtualMachineSummary) GetMaxdisk() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetMaxdiskOk() (*float32, bool) {
 	if o == nil || isNil(o.Maxdisk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Maxdisk, true
 }
@@ -202,7 +205,7 @@ func (o *VirtualMachineSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
-    return nil, false
+		return nil, false
 	}
 	return o.Name, true
 }
@@ -234,7 +237,7 @@ func (o *VirtualMachineSummary) GetStatus() VirtualMachineStatus {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetStatusOk() (*VirtualMachineStatus, bool) {
 	if o == nil || isNil(o.Status) {
-    return nil, false
+		return nil, false
 	}
 	return o.Status, true
 }
@@ -266,7 +269,7 @@ func (o *VirtualMachineSummary) GetUptime() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetUptimeOk() (*float32, bool) {
 	if o == nil || isNil(o.Uptime) {
-    return nil, false
+		return nil, false
 	}
 	return o.Uptime, true
 }
@@ -298,7 +301,7 @@ func (o *VirtualMachineSummary) GetNetin() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetNetinOk() (*float32, bool) {
 	if o == nil || isNil(o.Netin) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netin, true
 }
@@ -330,7 +333,7 @@ func (o *VirtualMachineSummary) GetNetout() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetNetoutOk() (*float32, bool) {
 	if o == nil || isNil(o.Netout) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netout, true
 }
@@ -362,7 +365,7 @@ func (o *VirtualMachineSummary) GetDiskread() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetDiskreadOk() (*float32, bool) {
 	if o == nil || isNil(o.Diskread) {
-    return nil, false
+		return nil, false
 	}
 	return o.Diskread, true
 }
@@ -394,7 +397,7 @@ func (o *VirtualMachineSummary) GetDiskwrite() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetDiskwriteOk() (*float32, bool) {
 	if o == nil || isNil(o.Diskwrite) {
-    return nil, false
+		return nil, false
 	}
 	return o.Diskwrite, true
 }
@@ -426,7 +429,7 @@ func (o *VirtualMachineSummary) GetCpu() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetCpuOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpu) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cpu, true
 }
@@ -458,7 +461,7 @@ func (o *VirtualMachineSummary) GetCpus() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetCpusOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpus) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cpus, true
 }
@@ -490,7 +493,7 @@ func (o *VirtualMachineSummary) GetPid() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetPidOk() (*float32, bool) {
 	if o == nil || isNil(o.Pid) {
-    return nil, false
+		return nil, false
 	}
 	return o.Pid, true
 }
@@ -522,7 +525,7 @@ func (o *VirtualMachineSummary) GetTags() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetTagsOk() (*string, bool) {
 	if o == nil || isNil(o.Tags) {
-    return nil, false
+		return nil, false
 	}
 	return o.Tags, true
 }
@@ -554,7 +557,7 @@ func (o *VirtualMachineSummary) GetLock() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetLockOk() (*string, bool) {
 	if o == nil || isNil(o.Lock) {
-    return nil, false
+		return nil, false
 	}
 	return o.Lock, true
 }
@@ -586,7 +589,7 @@ func (o *VirtualMachineSummary) GetQmpstatus() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineSummary) GetQmpstatusOk() (*string, bool) {
 	if o == nil || isNil(o.Qmpstatus) {
-    return nil, false
+		return nil, false
 	}
 	return o.Qmpstatus, true
 }
@@ -606,10 +609,16 @@ func (o *VirtualMachineSummary) SetQmpstatus(v string) {
 }
 
 func (o VirtualMachineSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["vmid"] = o.Vmid
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["vmid"] = o.Vmid
 	if !isNil(o.Mem) {
 		toSerialize["mem"] = o.Mem
 	}
@@ -658,7 +667,7 @@ func (o VirtualMachineSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Qmpstatus) {
 		toSerialize["qmpstatus"] = o.Qmpstatus
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineSummary struct {

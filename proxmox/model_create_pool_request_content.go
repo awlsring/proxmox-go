@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreatePoolRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreatePoolRequestContent{}
+
 // CreatePoolRequestContent struct for CreatePoolRequestContent
 type CreatePoolRequestContent struct {
 	Poolid string `json:"poolid"`
@@ -52,7 +55,7 @@ func (o *CreatePoolRequestContent) GetPoolid() string {
 // and a boolean to check if the value has been set.
 func (o *CreatePoolRequestContent) GetPoolidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Poolid, true
 }
@@ -75,7 +78,7 @@ func (o *CreatePoolRequestContent) GetComment() string {
 // and a boolean to check if the value has been set.
 func (o *CreatePoolRequestContent) GetCommentOk() (*string, bool) {
 	if o == nil || isNil(o.Comment) {
-    return nil, false
+		return nil, false
 	}
 	return o.Comment, true
 }
@@ -95,14 +98,20 @@ func (o *CreatePoolRequestContent) SetComment(v string) {
 }
 
 func (o CreatePoolRequestContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["poolid"] = o.Poolid
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreatePoolRequestContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["poolid"] = o.Poolid
 	if !isNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreatePoolRequestContent struct {

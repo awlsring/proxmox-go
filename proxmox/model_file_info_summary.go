@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the FileInfoSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FileInfoSummary{}
+
 // FileInfoSummary struct for FileInfoSummary
 type FileInfoSummary struct {
 	Path string `json:"path"`
@@ -57,7 +60,7 @@ func (o *FileInfoSummary) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *FileInfoSummary) GetPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Path, true
 }
@@ -81,7 +84,7 @@ func (o *FileInfoSummary) GetIndex() float32 {
 // and a boolean to check if the value has been set.
 func (o *FileInfoSummary) GetIndexOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Index, true
 }
@@ -105,7 +108,7 @@ func (o *FileInfoSummary) GetMessage() string {
 // and a boolean to check if the value has been set.
 func (o *FileInfoSummary) GetMessageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Message, true
 }
@@ -129,7 +132,7 @@ func (o *FileInfoSummary) GetKind() string {
 // and a boolean to check if the value has been set.
 func (o *FileInfoSummary) GetKindOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Kind, true
 }
@@ -140,20 +143,20 @@ func (o *FileInfoSummary) SetKind(v string) {
 }
 
 func (o FileInfoSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["path"] = o.Path
-	}
-	if true {
-		toSerialize["index"] = o.Index
-	}
-	if true {
-		toSerialize["message"] = o.Message
-	}
-	if true {
-		toSerialize["kind"] = o.Kind
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o FileInfoSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["path"] = o.Path
+	toSerialize["index"] = o.Index
+	toSerialize["message"] = o.Message
+	toSerialize["kind"] = o.Kind
+	return toSerialize, nil
 }
 
 type NullableFileInfoSummary struct {

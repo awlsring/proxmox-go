@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateZFSPoolRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateZFSPoolRequestContent{}
+
 // CreateZFSPoolRequestContent struct for CreateZFSPoolRequestContent
 type CreateZFSPoolRequestContent struct {
 	// The devices to create the zfs pool on. This is a comma seperated list sent as a string.
@@ -64,7 +67,7 @@ func (o *CreateZFSPoolRequestContent) GetDevices() string {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetDevicesOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Devices, true
 }
@@ -88,7 +91,7 @@ func (o *CreateZFSPoolRequestContent) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -112,7 +115,7 @@ func (o *CreateZFSPoolRequestContent) GetRaidlevel() ZFSRaidLevel {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetRaidlevelOk() (*ZFSRaidLevel, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Raidlevel, true
 }
@@ -135,7 +138,7 @@ func (o *CreateZFSPoolRequestContent) GetAddStorage() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetAddStorageOk() (*float32, bool) {
 	if o == nil || isNil(o.AddStorage) {
-    return nil, false
+		return nil, false
 	}
 	return o.AddStorage, true
 }
@@ -167,7 +170,7 @@ func (o *CreateZFSPoolRequestContent) GetAshift() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetAshiftOk() (*float32, bool) {
 	if o == nil || isNil(o.Ashift) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ashift, true
 }
@@ -199,7 +202,7 @@ func (o *CreateZFSPoolRequestContent) GetCompression() ZFSCompression {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetCompressionOk() (*ZFSCompression, bool) {
 	if o == nil || isNil(o.Compression) {
-    return nil, false
+		return nil, false
 	}
 	return o.Compression, true
 }
@@ -231,7 +234,7 @@ func (o *CreateZFSPoolRequestContent) GetDraidConfig() string {
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetDraidConfigOk() (*string, bool) {
 	if o == nil || isNil(o.DraidConfig) {
-    return nil, false
+		return nil, false
 	}
 	return o.DraidConfig, true
 }
@@ -251,16 +254,18 @@ func (o *CreateZFSPoolRequestContent) SetDraidConfig(v string) {
 }
 
 func (o CreateZFSPoolRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateZFSPoolRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["devices"] = o.Devices
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["raidlevel"] = o.Raidlevel
-	}
+	toSerialize["devices"] = o.Devices
+	toSerialize["name"] = o.Name
+	toSerialize["raidlevel"] = o.Raidlevel
 	if !isNil(o.AddStorage) {
 		toSerialize["add_storage"] = o.AddStorage
 	}
@@ -273,7 +278,7 @@ func (o CreateZFSPoolRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.DraidConfig) {
 		toSerialize["draid-config"] = o.DraidConfig
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateZFSPoolRequestContent struct {

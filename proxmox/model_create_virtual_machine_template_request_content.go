@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateVirtualMachineTemplateRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateVirtualMachineTemplateRequestContent{}
+
 // CreateVirtualMachineTemplateRequestContent struct for CreateVirtualMachineTemplateRequestContent
 type CreateVirtualMachineTemplateRequestContent struct {
 	Disk *VirtualMachineDiskTarget `json:"disk,omitempty"`
@@ -49,7 +52,7 @@ func (o *CreateVirtualMachineTemplateRequestContent) GetDisk() VirtualMachineDis
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineTemplateRequestContent) GetDiskOk() (*VirtualMachineDiskTarget, bool) {
 	if o == nil || isNil(o.Disk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Disk, true
 }
@@ -69,11 +72,19 @@ func (o *CreateVirtualMachineTemplateRequestContent) SetDisk(v VirtualMachineDis
 }
 
 func (o CreateVirtualMachineTemplateRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateVirtualMachineTemplateRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateVirtualMachineTemplateRequestContent struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NodeCertificate type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NodeCertificate{}
+
 // NodeCertificate struct for NodeCertificate
 type NodeCertificate struct {
 	// The certificate's filename.
@@ -67,7 +70,7 @@ func (o *NodeCertificate) GetFilename() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetFilenameOk() (*string, bool) {
 	if o == nil || isNil(o.Filename) {
-    return nil, false
+		return nil, false
 	}
 	return o.Filename, true
 }
@@ -99,7 +102,7 @@ func (o *NodeCertificate) GetFingerprint() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetFingerprintOk() (*string, bool) {
 	if o == nil || isNil(o.Fingerprint) {
-    return nil, false
+		return nil, false
 	}
 	return o.Fingerprint, true
 }
@@ -131,7 +134,7 @@ func (o *NodeCertificate) GetIssuer() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetIssuerOk() (*string, bool) {
 	if o == nil || isNil(o.Issuer) {
-    return nil, false
+		return nil, false
 	}
 	return o.Issuer, true
 }
@@ -163,7 +166,7 @@ func (o *NodeCertificate) GetNotAfter() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetNotAfterOk() (*float32, bool) {
 	if o == nil || isNil(o.NotAfter) {
-    return nil, false
+		return nil, false
 	}
 	return o.NotAfter, true
 }
@@ -195,7 +198,7 @@ func (o *NodeCertificate) GetNotBefore() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetNotBeforeOk() (*float32, bool) {
 	if o == nil || isNil(o.NotBefore) {
-    return nil, false
+		return nil, false
 	}
 	return o.NotBefore, true
 }
@@ -227,7 +230,7 @@ func (o *NodeCertificate) GetPem() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetPemOk() (*string, bool) {
 	if o == nil || isNil(o.Pem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Pem, true
 }
@@ -259,7 +262,7 @@ func (o *NodeCertificate) GetPublicKeyBits() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetPublicKeyBitsOk() (*string, bool) {
 	if o == nil || isNil(o.PublicKeyBits) {
-    return nil, false
+		return nil, false
 	}
 	return o.PublicKeyBits, true
 }
@@ -291,7 +294,7 @@ func (o *NodeCertificate) GetPublicKeyType() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetPublicKeyTypeOk() (*string, bool) {
 	if o == nil || isNil(o.PublicKeyType) {
-    return nil, false
+		return nil, false
 	}
 	return o.PublicKeyType, true
 }
@@ -323,7 +326,7 @@ func (o *NodeCertificate) GetSans() []string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetSansOk() ([]string, bool) {
 	if o == nil || isNil(o.Sans) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sans, true
 }
@@ -355,7 +358,7 @@ func (o *NodeCertificate) GetSubject() string {
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetSubjectOk() (*string, bool) {
 	if o == nil || isNil(o.Subject) {
-    return nil, false
+		return nil, false
 	}
 	return o.Subject, true
 }
@@ -375,6 +378,14 @@ func (o *NodeCertificate) SetSubject(v string) {
 }
 
 func (o NodeCertificate) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NodeCertificate) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Filename) {
 		toSerialize["filename"] = o.Filename
@@ -406,7 +417,7 @@ func (o NodeCertificate) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Subject) {
 		toSerialize["subject"] = o.Subject
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableNodeCertificate struct {

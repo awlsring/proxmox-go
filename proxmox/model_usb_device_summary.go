@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UsbDeviceSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UsbDeviceSummary{}
+
 // UsbDeviceSummary struct for UsbDeviceSummary
 type UsbDeviceSummary struct {
 	Busnum float32 `json:"busnum"`
@@ -67,7 +70,7 @@ func (o *UsbDeviceSummary) GetBusnum() float32 {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetBusnumOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Busnum, true
 }
@@ -91,7 +94,7 @@ func (o *UsbDeviceSummary) GetDevnum() float32 {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetDevnumOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Devnum, true
 }
@@ -115,7 +118,7 @@ func (o *UsbDeviceSummary) GetLevel() float32 {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetLevelOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Level, true
 }
@@ -139,7 +142,7 @@ func (o *UsbDeviceSummary) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Port, true
 }
@@ -163,7 +166,7 @@ func (o *UsbDeviceSummary) GetProdid() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetProdidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Prodid, true
 }
@@ -187,7 +190,7 @@ func (o *UsbDeviceSummary) GetVendid() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetVendidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Vendid, true
 }
@@ -211,7 +214,7 @@ func (o *UsbDeviceSummary) GetSpeed() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetSpeedOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Speed, true
 }
@@ -234,7 +237,7 @@ func (o *UsbDeviceSummary) GetManufacturer() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetManufacturerOk() (*string, bool) {
 	if o == nil || isNil(o.Manufacturer) {
-    return nil, false
+		return nil, false
 	}
 	return o.Manufacturer, true
 }
@@ -266,7 +269,7 @@ func (o *UsbDeviceSummary) GetProduct() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetProductOk() (*string, bool) {
 	if o == nil || isNil(o.Product) {
-    return nil, false
+		return nil, false
 	}
 	return o.Product, true
 }
@@ -298,7 +301,7 @@ func (o *UsbDeviceSummary) GetSerial() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetSerialOk() (*string, bool) {
 	if o == nil || isNil(o.Serial) {
-    return nil, false
+		return nil, false
 	}
 	return o.Serial, true
 }
@@ -330,7 +333,7 @@ func (o *UsbDeviceSummary) GetUsbpath() string {
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetUsbpathOk() (*string, bool) {
 	if o == nil || isNil(o.Usbpath) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usbpath, true
 }
@@ -350,28 +353,22 @@ func (o *UsbDeviceSummary) SetUsbpath(v string) {
 }
 
 func (o UsbDeviceSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UsbDeviceSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["busnum"] = o.Busnum
-	}
-	if true {
-		toSerialize["devnum"] = o.Devnum
-	}
-	if true {
-		toSerialize["level"] = o.Level
-	}
-	if true {
-		toSerialize["port"] = o.Port
-	}
-	if true {
-		toSerialize["prodid"] = o.Prodid
-	}
-	if true {
-		toSerialize["vendid"] = o.Vendid
-	}
-	if true {
-		toSerialize["speed"] = o.Speed
-	}
+	toSerialize["busnum"] = o.Busnum
+	toSerialize["devnum"] = o.Devnum
+	toSerialize["level"] = o.Level
+	toSerialize["port"] = o.Port
+	toSerialize["prodid"] = o.Prodid
+	toSerialize["vendid"] = o.Vendid
+	toSerialize["speed"] = o.Speed
 	if !isNil(o.Manufacturer) {
 		toSerialize["manufacturer"] = o.Manufacturer
 	}
@@ -384,7 +381,7 @@ func (o UsbDeviceSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Usbpath) {
 		toSerialize["usbpath"] = o.Usbpath
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableUsbDeviceSummary struct {

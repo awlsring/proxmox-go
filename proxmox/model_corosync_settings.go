@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CorosyncSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CorosyncSettings{}
+
 // CorosyncSettings struct for CorosyncSettings
 type CorosyncSettings struct {
 	CorosyncAuthkey string `json:"corosync_authkey"`
@@ -55,7 +58,7 @@ func (o *CorosyncSettings) GetCorosyncAuthkey() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncSettings) GetCorosyncAuthkeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.CorosyncAuthkey, true
 }
@@ -79,7 +82,7 @@ func (o *CorosyncSettings) GetCorosyncConf() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncSettings) GetCorosyncConfOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.CorosyncConf, true
 }
@@ -103,7 +106,7 @@ func (o *CorosyncSettings) GetWarnings() string {
 // and a boolean to check if the value has been set.
 func (o *CorosyncSettings) GetWarningsOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Warnings, true
 }
@@ -114,17 +117,19 @@ func (o *CorosyncSettings) SetWarnings(v string) {
 }
 
 func (o CorosyncSettings) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["corosync_authkey"] = o.CorosyncAuthkey
-	}
-	if true {
-		toSerialize["corosync_conf"] = o.CorosyncConf
-	}
-	if true {
-		toSerialize["warnings"] = o.Warnings
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CorosyncSettings) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["corosync_authkey"] = o.CorosyncAuthkey
+	toSerialize["corosync_conf"] = o.CorosyncConf
+	toSerialize["warnings"] = o.Warnings
+	return toSerialize, nil
 }
 
 type NullableCorosyncSettings struct {

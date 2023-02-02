@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RepositorySummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RepositorySummary{}
+
 // RepositorySummary struct for RepositorySummary
 type RepositorySummary struct {
 	Description string `json:"description"`
@@ -57,7 +60,7 @@ func (o *RepositorySummary) GetDescription() string {
 // and a boolean to check if the value has been set.
 func (o *RepositorySummary) GetDescriptionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Description, true
 }
@@ -81,7 +84,7 @@ func (o *RepositorySummary) GetStatus() float32 {
 // and a boolean to check if the value has been set.
 func (o *RepositorySummary) GetStatusOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -105,7 +108,7 @@ func (o *RepositorySummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *RepositorySummary) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -129,7 +132,7 @@ func (o *RepositorySummary) GetHandle() string {
 // and a boolean to check if the value has been set.
 func (o *RepositorySummary) GetHandleOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Handle, true
 }
@@ -140,20 +143,20 @@ func (o *RepositorySummary) SetHandle(v string) {
 }
 
 func (o RepositorySummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["description"] = o.Description
-	}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["handle"] = o.Handle
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RepositorySummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["description"] = o.Description
+	toSerialize["status"] = o.Status
+	toSerialize["name"] = o.Name
+	toSerialize["handle"] = o.Handle
+	return toSerialize, nil
 }
 
 type NullableRepositorySummary struct {

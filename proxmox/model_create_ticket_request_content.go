@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateTicketRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateTicketRequestContent{}
+
 // CreateTicketRequestContent struct for CreateTicketRequestContent
 type CreateTicketRequestContent struct {
 	Username string `json:"username"`
@@ -54,7 +57,7 @@ func (o *CreateTicketRequestContent) GetUsername() string {
 // and a boolean to check if the value has been set.
 func (o *CreateTicketRequestContent) GetUsernameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Username, true
 }
@@ -78,7 +81,7 @@ func (o *CreateTicketRequestContent) GetPassword() string {
 // and a boolean to check if the value has been set.
 func (o *CreateTicketRequestContent) GetPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Password, true
 }
@@ -101,7 +104,7 @@ func (o *CreateTicketRequestContent) GetRealm() string {
 // and a boolean to check if the value has been set.
 func (o *CreateTicketRequestContent) GetRealmOk() (*string, bool) {
 	if o == nil || isNil(o.Realm) {
-    return nil, false
+		return nil, false
 	}
 	return o.Realm, true
 }
@@ -121,17 +124,21 @@ func (o *CreateTicketRequestContent) SetRealm(v string) {
 }
 
 func (o CreateTicketRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateTicketRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["username"] = o.Username
-	}
-	if true {
-		toSerialize["password"] = o.Password
-	}
+	toSerialize["username"] = o.Username
+	toSerialize["password"] = o.Password
 	if !isNil(o.Realm) {
 		toSerialize["realm"] = o.Realm
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateTicketRequestContent struct {

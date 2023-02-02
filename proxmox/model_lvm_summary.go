@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LVMSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LVMSummary{}
+
 // LVMSummary struct for LVMSummary
 type LVMSummary struct {
 	Children []LVMSummary `json:"children"`
@@ -61,7 +64,7 @@ func (o *LVMSummary) GetChildren() []LVMSummary {
 // and a boolean to check if the value has been set.
 func (o *LVMSummary) GetChildrenOk() ([]LVMSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Children, true
 }
@@ -85,7 +88,7 @@ func (o *LVMSummary) GetLeaf() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMSummary) GetLeafOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Leaf, true
 }
@@ -108,7 +111,7 @@ func (o *LVMSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *LVMSummary) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
-    return nil, false
+		return nil, false
 	}
 	return o.Name, true
 }
@@ -140,7 +143,7 @@ func (o *LVMSummary) GetFree() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMSummary) GetFreeOk() (*float32, bool) {
 	if o == nil || isNil(o.Free) {
-    return nil, false
+		return nil, false
 	}
 	return o.Free, true
 }
@@ -172,7 +175,7 @@ func (o *LVMSummary) GetSize() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMSummary) GetSizeOk() (*float32, bool) {
 	if o == nil || isNil(o.Size) {
-    return nil, false
+		return nil, false
 	}
 	return o.Size, true
 }
@@ -204,7 +207,7 @@ func (o *LVMSummary) GetLvcount() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMSummary) GetLvcountOk() (*float32, bool) {
 	if o == nil || isNil(o.Lvcount) {
-    return nil, false
+		return nil, false
 	}
 	return o.Lvcount, true
 }
@@ -224,13 +227,17 @@ func (o *LVMSummary) SetLvcount(v float32) {
 }
 
 func (o LVMSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o LVMSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["children"] = o.Children
-	}
-	if true {
-		toSerialize["leaf"] = o.Leaf
-	}
+	toSerialize["children"] = o.Children
+	toSerialize["leaf"] = o.Leaf
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -243,7 +250,7 @@ func (o LVMSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Lvcount) {
 		toSerialize["lvcount"] = o.Lvcount
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableLVMSummary struct {

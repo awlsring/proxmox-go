@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InitializeGPTRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InitializeGPTRequestContent{}
+
 // InitializeGPTRequestContent struct for InitializeGPTRequestContent
 type InitializeGPTRequestContent struct {
 	// Disk to initialize.
@@ -51,7 +54,7 @@ func (o *InitializeGPTRequestContent) GetDisk() string {
 // and a boolean to check if the value has been set.
 func (o *InitializeGPTRequestContent) GetDiskOk() (*string, bool) {
 	if o == nil || isNil(o.Disk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Disk, true
 }
@@ -83,7 +86,7 @@ func (o *InitializeGPTRequestContent) GetUuid() string {
 // and a boolean to check if the value has been set.
 func (o *InitializeGPTRequestContent) GetUuidOk() (*string, bool) {
 	if o == nil || isNil(o.Uuid) {
-    return nil, false
+		return nil, false
 	}
 	return o.Uuid, true
 }
@@ -103,6 +106,14 @@ func (o *InitializeGPTRequestContent) SetUuid(v string) {
 }
 
 func (o InitializeGPTRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o InitializeGPTRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
@@ -110,7 +121,7 @@ func (o InitializeGPTRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Uuid) {
 		toSerialize["uuid"] = o.Uuid
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableInitializeGPTRequestContent struct {

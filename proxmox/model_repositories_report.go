@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RepositoriesReport type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RepositoriesReport{}
+
 // RepositoriesReport struct for RepositoriesReport
 type RepositoriesReport struct {
 	Digest string `json:"digest"`
@@ -59,7 +62,7 @@ func (o *RepositoriesReport) GetDigest() string {
 // and a boolean to check if the value has been set.
 func (o *RepositoriesReport) GetDigestOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Digest, true
 }
@@ -83,7 +86,7 @@ func (o *RepositoriesReport) GetStandardRepos() []RepositorySummary {
 // and a boolean to check if the value has been set.
 func (o *RepositoriesReport) GetStandardReposOk() ([]RepositorySummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.StandardRepos, true
 }
@@ -107,7 +110,7 @@ func (o *RepositoriesReport) GetErrors() []string {
 // and a boolean to check if the value has been set.
 func (o *RepositoriesReport) GetErrorsOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Errors, true
 }
@@ -131,7 +134,7 @@ func (o *RepositoriesReport) GetFiles() []FileSummary {
 // and a boolean to check if the value has been set.
 func (o *RepositoriesReport) GetFilesOk() ([]FileSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Files, true
 }
@@ -155,7 +158,7 @@ func (o *RepositoriesReport) GetInfos() []FileInfoSummary {
 // and a boolean to check if the value has been set.
 func (o *RepositoriesReport) GetInfosOk() ([]FileInfoSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Infos, true
 }
@@ -166,23 +169,21 @@ func (o *RepositoriesReport) SetInfos(v []FileInfoSummary) {
 }
 
 func (o RepositoriesReport) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["digest"] = o.Digest
-	}
-	if true {
-		toSerialize["standard-repos"] = o.StandardRepos
-	}
-	if true {
-		toSerialize["errors"] = o.Errors
-	}
-	if true {
-		toSerialize["files"] = o.Files
-	}
-	if true {
-		toSerialize["infos"] = o.Infos
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RepositoriesReport) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["digest"] = o.Digest
+	toSerialize["standard-repos"] = o.StandardRepos
+	toSerialize["errors"] = o.Errors
+	toSerialize["files"] = o.Files
+	toSerialize["infos"] = o.Infos
+	return toSerialize, nil
 }
 
 type NullableRepositoriesReport struct {

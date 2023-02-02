@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineConfigurationSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineConfigurationSummary{}
+
 // VirtualMachineConfigurationSummary The virtual machine configuration.
 type VirtualMachineConfigurationSummary struct {
 	// SHA1 digest of the current configuration.
@@ -396,7 +399,7 @@ func (o *VirtualMachineConfigurationSummary) GetDigest() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetDigestOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Digest, true
 }
@@ -419,7 +422,7 @@ func (o *VirtualMachineConfigurationSummary) GetAcpi() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetAcpiOk() (*float32, bool) {
 	if o == nil || isNil(o.Acpi) {
-    return nil, false
+		return nil, false
 	}
 	return o.Acpi, true
 }
@@ -451,7 +454,7 @@ func (o *VirtualMachineConfigurationSummary) GetAffinity() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetAffinityOk() (*string, bool) {
 	if o == nil || isNil(o.Affinity) {
-    return nil, false
+		return nil, false
 	}
 	return o.Affinity, true
 }
@@ -483,7 +486,7 @@ func (o *VirtualMachineConfigurationSummary) GetAgent() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetAgentOk() (*string, bool) {
 	if o == nil || isNil(o.Agent) {
-    return nil, false
+		return nil, false
 	}
 	return o.Agent, true
 }
@@ -515,7 +518,7 @@ func (o *VirtualMachineConfigurationSummary) GetArch() VirtualMachineArchitectur
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetArchOk() (*VirtualMachineArchitecture, bool) {
 	if o == nil || isNil(o.Arch) {
-    return nil, false
+		return nil, false
 	}
 	return o.Arch, true
 }
@@ -547,7 +550,7 @@ func (o *VirtualMachineConfigurationSummary) GetArgs() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetArgsOk() (*string, bool) {
 	if o == nil || isNil(o.Args) {
-    return nil, false
+		return nil, false
 	}
 	return o.Args, true
 }
@@ -579,7 +582,7 @@ func (o *VirtualMachineConfigurationSummary) GetAudio0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetAudio0Ok() (*string, bool) {
 	if o == nil || isNil(o.Audio0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Audio0, true
 }
@@ -611,7 +614,7 @@ func (o *VirtualMachineConfigurationSummary) GetAutostart() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetAutostartOk() (*float32, bool) {
 	if o == nil || isNil(o.Autostart) {
-    return nil, false
+		return nil, false
 	}
 	return o.Autostart, true
 }
@@ -643,7 +646,7 @@ func (o *VirtualMachineConfigurationSummary) GetBallon() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetBallonOk() (*float32, bool) {
 	if o == nil || isNil(o.Ballon) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ballon, true
 }
@@ -675,7 +678,7 @@ func (o *VirtualMachineConfigurationSummary) GetBoot() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetBootOk() (*string, bool) {
 	if o == nil || isNil(o.Boot) {
-    return nil, false
+		return nil, false
 	}
 	return o.Boot, true
 }
@@ -707,7 +710,7 @@ func (o *VirtualMachineConfigurationSummary) GetBootdisk() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetBootdiskOk() (*string, bool) {
 	if o == nil || isNil(o.Bootdisk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Bootdisk, true
 }
@@ -739,7 +742,7 @@ func (o *VirtualMachineConfigurationSummary) GetMeta() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetMetaOk() (*string, bool) {
 	if o == nil || isNil(o.Meta) {
-    return nil, false
+		return nil, false
 	}
 	return o.Meta, true
 }
@@ -771,7 +774,7 @@ func (o *VirtualMachineConfigurationSummary) GetCdrom() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCdromOk() (*string, bool) {
 	if o == nil || isNil(o.Cdrom) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cdrom, true
 }
@@ -803,7 +806,7 @@ func (o *VirtualMachineConfigurationSummary) GetCicustom() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCicustomOk() (*string, bool) {
 	if o == nil || isNil(o.Cicustom) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cicustom, true
 }
@@ -835,7 +838,7 @@ func (o *VirtualMachineConfigurationSummary) GetCipassword() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCipasswordOk() (*string, bool) {
 	if o == nil || isNil(o.Cipassword) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cipassword, true
 }
@@ -867,7 +870,7 @@ func (o *VirtualMachineConfigurationSummary) GetCitype() VirtualMachineCloudInit
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCitypeOk() (*VirtualMachineCloudInitType, bool) {
 	if o == nil || isNil(o.Citype) {
-    return nil, false
+		return nil, false
 	}
 	return o.Citype, true
 }
@@ -899,7 +902,7 @@ func (o *VirtualMachineConfigurationSummary) GetCiuser() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCiuserOk() (*string, bool) {
 	if o == nil || isNil(o.Ciuser) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ciuser, true
 }
@@ -931,7 +934,7 @@ func (o *VirtualMachineConfigurationSummary) GetCores() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCoresOk() (*float32, bool) {
 	if o == nil || isNil(o.Cores) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cores, true
 }
@@ -963,7 +966,7 @@ func (o *VirtualMachineConfigurationSummary) GetBios() VirtualMachineBios {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetBiosOk() (*VirtualMachineBios, bool) {
 	if o == nil || isNil(o.Bios) {
-    return nil, false
+		return nil, false
 	}
 	return o.Bios, true
 }
@@ -995,7 +998,7 @@ func (o *VirtualMachineConfigurationSummary) GetCpu() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCpuOk() (*string, bool) {
 	if o == nil || isNil(o.Cpu) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cpu, true
 }
@@ -1027,7 +1030,7 @@ func (o *VirtualMachineConfigurationSummary) GetCpulimit() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCpulimitOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpulimit) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cpulimit, true
 }
@@ -1059,7 +1062,7 @@ func (o *VirtualMachineConfigurationSummary) GetCpuunits() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetCpuunitsOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpuunits) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cpuunits, true
 }
@@ -1091,7 +1094,7 @@ func (o *VirtualMachineConfigurationSummary) GetDescription() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetDescriptionOk() (*string, bool) {
 	if o == nil || isNil(o.Description) {
-    return nil, false
+		return nil, false
 	}
 	return o.Description, true
 }
@@ -1123,7 +1126,7 @@ func (o *VirtualMachineConfigurationSummary) GetEfidisk0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetEfidisk0Ok() (*string, bool) {
 	if o == nil || isNil(o.Efidisk0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Efidisk0, true
 }
@@ -1155,7 +1158,7 @@ func (o *VirtualMachineConfigurationSummary) GetFreeze() bool {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetFreezeOk() (*bool, bool) {
 	if o == nil || isNil(o.Freeze) {
-    return nil, false
+		return nil, false
 	}
 	return o.Freeze, true
 }
@@ -1187,7 +1190,7 @@ func (o *VirtualMachineConfigurationSummary) GetHookscript() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHookscriptOk() (*string, bool) {
 	if o == nil || isNil(o.Hookscript) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hookscript, true
 }
@@ -1219,7 +1222,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci0Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci0, true
 }
@@ -1251,7 +1254,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci1Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci1, true
 }
@@ -1283,7 +1286,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci2Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci2, true
 }
@@ -1315,7 +1318,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci3Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci3, true
 }
@@ -1347,7 +1350,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci4Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci4, true
 }
@@ -1379,7 +1382,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci5Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci5, true
 }
@@ -1411,7 +1414,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci6Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci6, true
 }
@@ -1443,7 +1446,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci7Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci7, true
 }
@@ -1475,7 +1478,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci8() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci8Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci8) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci8, true
 }
@@ -1507,7 +1510,7 @@ func (o *VirtualMachineConfigurationSummary) GetHostpci9() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHostpci9Ok() (*string, bool) {
 	if o == nil || isNil(o.Hostpci9) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostpci9, true
 }
@@ -1539,7 +1542,7 @@ func (o *VirtualMachineConfigurationSummary) GetHugepages() VirtualMachineHugePa
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHugepagesOk() (*VirtualMachineHugePages, bool) {
 	if o == nil || isNil(o.Hugepages) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hugepages, true
 }
@@ -1571,7 +1574,7 @@ func (o *VirtualMachineConfigurationSummary) GetIde0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIde0Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ide0, true
 }
@@ -1603,7 +1606,7 @@ func (o *VirtualMachineConfigurationSummary) GetIde1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIde1Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ide1, true
 }
@@ -1635,7 +1638,7 @@ func (o *VirtualMachineConfigurationSummary) GetIde2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIde2Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ide2, true
 }
@@ -1667,7 +1670,7 @@ func (o *VirtualMachineConfigurationSummary) GetIde3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIde3Ok() (*string, bool) {
 	if o == nil || isNil(o.Ide3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ide3, true
 }
@@ -1699,7 +1702,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig0Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig0, true
 }
@@ -1731,7 +1734,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig1Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig1, true
 }
@@ -1763,7 +1766,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig2Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig2, true
 }
@@ -1795,7 +1798,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig3Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig3, true
 }
@@ -1827,7 +1830,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig4Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig4, true
 }
@@ -1859,7 +1862,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig5Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig5, true
 }
@@ -1891,7 +1894,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig6Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig6, true
 }
@@ -1923,7 +1926,7 @@ func (o *VirtualMachineConfigurationSummary) GetIpconfig7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIpconfig7Ok() (*string, bool) {
 	if o == nil || isNil(o.Ipconfig7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ipconfig7, true
 }
@@ -1955,7 +1958,7 @@ func (o *VirtualMachineConfigurationSummary) GetIvshmem() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetIvshmemOk() (*string, bool) {
 	if o == nil || isNil(o.Ivshmem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ivshmem, true
 }
@@ -1987,7 +1990,7 @@ func (o *VirtualMachineConfigurationSummary) GetKeephugepages() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetKeephugepagesOk() (*float32, bool) {
 	if o == nil || isNil(o.Keephugepages) {
-    return nil, false
+		return nil, false
 	}
 	return o.Keephugepages, true
 }
@@ -2019,7 +2022,7 @@ func (o *VirtualMachineConfigurationSummary) GetKeyboard() VirtualMachineKeyboar
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetKeyboardOk() (*VirtualMachineKeyboard, bool) {
 	if o == nil || isNil(o.Keyboard) {
-    return nil, false
+		return nil, false
 	}
 	return o.Keyboard, true
 }
@@ -2051,7 +2054,7 @@ func (o *VirtualMachineConfigurationSummary) GetKvm() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetKvmOk() (*float32, bool) {
 	if o == nil || isNil(o.Kvm) {
-    return nil, false
+		return nil, false
 	}
 	return o.Kvm, true
 }
@@ -2083,7 +2086,7 @@ func (o *VirtualMachineConfigurationSummary) GetLocaltime() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetLocaltimeOk() (*float32, bool) {
 	if o == nil || isNil(o.Localtime) {
-    return nil, false
+		return nil, false
 	}
 	return o.Localtime, true
 }
@@ -2115,7 +2118,7 @@ func (o *VirtualMachineConfigurationSummary) GetLock() VirtualMachineConfigLock 
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetLockOk() (*VirtualMachineConfigLock, bool) {
 	if o == nil || isNil(o.Lock) {
-    return nil, false
+		return nil, false
 	}
 	return o.Lock, true
 }
@@ -2147,7 +2150,7 @@ func (o *VirtualMachineConfigurationSummary) GetMachine() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetMachineOk() (*string, bool) {
 	if o == nil || isNil(o.Machine) {
-    return nil, false
+		return nil, false
 	}
 	return o.Machine, true
 }
@@ -2179,7 +2182,7 @@ func (o *VirtualMachineConfigurationSummary) GetMemory() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetMemoryOk() (*float32, bool) {
 	if o == nil || isNil(o.Memory) {
-    return nil, false
+		return nil, false
 	}
 	return o.Memory, true
 }
@@ -2211,7 +2214,7 @@ func (o *VirtualMachineConfigurationSummary) GetMigrateDowntime() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetMigrateDowntimeOk() (*float32, bool) {
 	if o == nil || isNil(o.MigrateDowntime) {
-    return nil, false
+		return nil, false
 	}
 	return o.MigrateDowntime, true
 }
@@ -2243,7 +2246,7 @@ func (o *VirtualMachineConfigurationSummary) GetMigrateSpeed() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetMigrateSpeedOk() (*float32, bool) {
 	if o == nil || isNil(o.MigrateSpeed) {
-    return nil, false
+		return nil, false
 	}
 	return o.MigrateSpeed, true
 }
@@ -2275,7 +2278,7 @@ func (o *VirtualMachineConfigurationSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
-    return nil, false
+		return nil, false
 	}
 	return o.Name, true
 }
@@ -2307,7 +2310,7 @@ func (o *VirtualMachineConfigurationSummary) GetNameserver() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNameserverOk() (*string, bool) {
 	if o == nil || isNil(o.Nameserver) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nameserver, true
 }
@@ -2339,7 +2342,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet0Ok() (*string, bool) {
 	if o == nil || isNil(o.Net0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net0, true
 }
@@ -2371,7 +2374,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet1Ok() (*string, bool) {
 	if o == nil || isNil(o.Net1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net1, true
 }
@@ -2403,7 +2406,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet2Ok() (*string, bool) {
 	if o == nil || isNil(o.Net2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net2, true
 }
@@ -2435,7 +2438,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet3Ok() (*string, bool) {
 	if o == nil || isNil(o.Net3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net3, true
 }
@@ -2467,7 +2470,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet4Ok() (*string, bool) {
 	if o == nil || isNil(o.Net4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net4, true
 }
@@ -2499,7 +2502,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet5Ok() (*string, bool) {
 	if o == nil || isNil(o.Net5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net5, true
 }
@@ -2531,7 +2534,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet6Ok() (*string, bool) {
 	if o == nil || isNil(o.Net6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net6, true
 }
@@ -2563,7 +2566,7 @@ func (o *VirtualMachineConfigurationSummary) GetNet7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNet7Ok() (*string, bool) {
 	if o == nil || isNil(o.Net7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Net7, true
 }
@@ -2595,7 +2598,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNumaOk() (*float32, bool) {
 	if o == nil || isNil(o.Numa) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa, true
 }
@@ -2627,7 +2630,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma0Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa0, true
 }
@@ -2659,7 +2662,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma1Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa1, true
 }
@@ -2691,7 +2694,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma2Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa2, true
 }
@@ -2723,7 +2726,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma3Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa3, true
 }
@@ -2755,7 +2758,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma4Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa4, true
 }
@@ -2787,7 +2790,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma5Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa5, true
 }
@@ -2819,7 +2822,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma6Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa6, true
 }
@@ -2851,7 +2854,7 @@ func (o *VirtualMachineConfigurationSummary) GetNuma7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetNuma7Ok() (*string, bool) {
 	if o == nil || isNil(o.Numa7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Numa7, true
 }
@@ -2883,7 +2886,7 @@ func (o *VirtualMachineConfigurationSummary) GetOnboot() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetOnbootOk() (*float32, bool) {
 	if o == nil || isNil(o.Onboot) {
-    return nil, false
+		return nil, false
 	}
 	return o.Onboot, true
 }
@@ -2915,7 +2918,7 @@ func (o *VirtualMachineConfigurationSummary) GetOstype() VirtualMachineOperating
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetOstypeOk() (*VirtualMachineOperatingSystem, bool) {
 	if o == nil || isNil(o.Ostype) {
-    return nil, false
+		return nil, false
 	}
 	return o.Ostype, true
 }
@@ -2947,7 +2950,7 @@ func (o *VirtualMachineConfigurationSummary) GetParallel0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetParallel0Ok() (*string, bool) {
 	if o == nil || isNil(o.Parallel0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Parallel0, true
 }
@@ -2979,7 +2982,7 @@ func (o *VirtualMachineConfigurationSummary) GetParallel1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetParallel1Ok() (*string, bool) {
 	if o == nil || isNil(o.Parallel1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Parallel1, true
 }
@@ -3011,7 +3014,7 @@ func (o *VirtualMachineConfigurationSummary) GetParallel2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetParallel2Ok() (*string, bool) {
 	if o == nil || isNil(o.Parallel2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Parallel2, true
 }
@@ -3043,7 +3046,7 @@ func (o *VirtualMachineConfigurationSummary) GetProtection() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetProtectionOk() (*float32, bool) {
 	if o == nil || isNil(o.Protection) {
-    return nil, false
+		return nil, false
 	}
 	return o.Protection, true
 }
@@ -3075,7 +3078,7 @@ func (o *VirtualMachineConfigurationSummary) GetReboot() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetRebootOk() (*float32, bool) {
 	if o == nil || isNil(o.Reboot) {
-    return nil, false
+		return nil, false
 	}
 	return o.Reboot, true
 }
@@ -3107,7 +3110,7 @@ func (o *VirtualMachineConfigurationSummary) GetRng0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetRng0Ok() (*string, bool) {
 	if o == nil || isNil(o.Rng0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Rng0, true
 }
@@ -3139,7 +3142,7 @@ func (o *VirtualMachineConfigurationSummary) GetSata0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSata0Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sata0, true
 }
@@ -3171,7 +3174,7 @@ func (o *VirtualMachineConfigurationSummary) GetSata1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSata1Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sata1, true
 }
@@ -3203,7 +3206,7 @@ func (o *VirtualMachineConfigurationSummary) GetSata2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSata2Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sata2, true
 }
@@ -3235,7 +3238,7 @@ func (o *VirtualMachineConfigurationSummary) GetSata3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSata3Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sata3, true
 }
@@ -3267,7 +3270,7 @@ func (o *VirtualMachineConfigurationSummary) GetSata4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSata4Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sata4, true
 }
@@ -3299,7 +3302,7 @@ func (o *VirtualMachineConfigurationSummary) GetSata5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSata5Ok() (*string, bool) {
 	if o == nil || isNil(o.Sata5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sata5, true
 }
@@ -3331,7 +3334,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi0Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi0, true
 }
@@ -3363,7 +3366,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi1Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi1, true
 }
@@ -3395,7 +3398,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi2Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi2, true
 }
@@ -3427,7 +3430,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi3Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi3, true
 }
@@ -3459,7 +3462,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi4Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi4, true
 }
@@ -3491,7 +3494,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi5Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi5, true
 }
@@ -3523,7 +3526,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi6Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi6, true
 }
@@ -3555,7 +3558,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi7Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi7, true
 }
@@ -3587,7 +3590,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi8() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi8Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi8) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi8, true
 }
@@ -3619,7 +3622,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi9() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi9Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi9) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi9, true
 }
@@ -3651,7 +3654,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi10() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi10Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi10) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi10, true
 }
@@ -3683,7 +3686,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi11() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi11Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi11) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi11, true
 }
@@ -3715,7 +3718,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi12() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi12Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi12) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi12, true
 }
@@ -3747,7 +3750,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi13() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi13Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi13) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi13, true
 }
@@ -3779,7 +3782,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi14() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi14Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi14) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi14, true
 }
@@ -3811,7 +3814,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi15() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi15Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi15) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi15, true
 }
@@ -3843,7 +3846,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi16() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi16Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi16) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi16, true
 }
@@ -3875,7 +3878,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi17() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi17Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi17) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi17, true
 }
@@ -3907,7 +3910,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi18() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi18Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi18) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi18, true
 }
@@ -3939,7 +3942,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi19() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi19Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi19) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi19, true
 }
@@ -3971,7 +3974,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi20() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi20Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi20) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi20, true
 }
@@ -4003,7 +4006,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi21() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi21Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi21) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi21, true
 }
@@ -4035,7 +4038,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi22() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi22Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi22) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi22, true
 }
@@ -4067,7 +4070,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi23() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi23Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi23) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi23, true
 }
@@ -4099,7 +4102,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi24() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi24Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi24) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi24, true
 }
@@ -4131,7 +4134,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi25() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi25Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi25) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi25, true
 }
@@ -4163,7 +4166,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi26() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi26Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi26) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi26, true
 }
@@ -4195,7 +4198,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi27() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi27Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi27) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi27, true
 }
@@ -4227,7 +4230,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi28() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi28Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi28) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi28, true
 }
@@ -4259,7 +4262,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi29() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi29Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi29) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi29, true
 }
@@ -4291,7 +4294,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsi30() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsi30Ok() (*string, bool) {
 	if o == nil || isNil(o.Scsi30) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsi30, true
 }
@@ -4323,7 +4326,7 @@ func (o *VirtualMachineConfigurationSummary) GetScsihw() VirtualMachineScsiContr
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetScsihwOk() (*VirtualMachineScsiControllerType, bool) {
 	if o == nil || isNil(o.Scsihw) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scsihw, true
 }
@@ -4355,7 +4358,7 @@ func (o *VirtualMachineConfigurationSummary) GetSearchdomain() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSearchdomainOk() (*string, bool) {
 	if o == nil || isNil(o.Searchdomain) {
-    return nil, false
+		return nil, false
 	}
 	return o.Searchdomain, true
 }
@@ -4387,7 +4390,7 @@ func (o *VirtualMachineConfigurationSummary) GetSerial0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSerial0Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Serial0, true
 }
@@ -4419,7 +4422,7 @@ func (o *VirtualMachineConfigurationSummary) GetSerial1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSerial1Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Serial1, true
 }
@@ -4451,7 +4454,7 @@ func (o *VirtualMachineConfigurationSummary) GetSerial2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSerial2Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Serial2, true
 }
@@ -4483,7 +4486,7 @@ func (o *VirtualMachineConfigurationSummary) GetSerial3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSerial3Ok() (*string, bool) {
 	if o == nil || isNil(o.Serial3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Serial3, true
 }
@@ -4515,7 +4518,7 @@ func (o *VirtualMachineConfigurationSummary) GetShares() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSharesOk() (*float32, bool) {
 	if o == nil || isNil(o.Shares) {
-    return nil, false
+		return nil, false
 	}
 	return o.Shares, true
 }
@@ -4547,7 +4550,7 @@ func (o *VirtualMachineConfigurationSummary) GetSmbios1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSmbios1Ok() (*string, bool) {
 	if o == nil || isNil(o.Smbios1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Smbios1, true
 }
@@ -4579,7 +4582,7 @@ func (o *VirtualMachineConfigurationSummary) GetSockets() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSocketsOk() (*float32, bool) {
 	if o == nil || isNil(o.Sockets) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sockets, true
 }
@@ -4611,7 +4614,7 @@ func (o *VirtualMachineConfigurationSummary) GetSpiceEnhancements() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSpiceEnhancementsOk() (*string, bool) {
 	if o == nil || isNil(o.SpiceEnhancements) {
-    return nil, false
+		return nil, false
 	}
 	return o.SpiceEnhancements, true
 }
@@ -4643,7 +4646,7 @@ func (o *VirtualMachineConfigurationSummary) GetSshkeys() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetSshkeysOk() (*string, bool) {
 	if o == nil || isNil(o.Sshkeys) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sshkeys, true
 }
@@ -4675,7 +4678,7 @@ func (o *VirtualMachineConfigurationSummary) GetStartdate() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetStartdateOk() (*string, bool) {
 	if o == nil || isNil(o.Startdate) {
-    return nil, false
+		return nil, false
 	}
 	return o.Startdate, true
 }
@@ -4707,7 +4710,7 @@ func (o *VirtualMachineConfigurationSummary) GetStartup() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetStartupOk() (*string, bool) {
 	if o == nil || isNil(o.Startup) {
-    return nil, false
+		return nil, false
 	}
 	return o.Startup, true
 }
@@ -4739,7 +4742,7 @@ func (o *VirtualMachineConfigurationSummary) GetTablet() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetTabletOk() (*float32, bool) {
 	if o == nil || isNil(o.Tablet) {
-    return nil, false
+		return nil, false
 	}
 	return o.Tablet, true
 }
@@ -4771,7 +4774,7 @@ func (o *VirtualMachineConfigurationSummary) GetTags() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetTagsOk() (*string, bool) {
 	if o == nil || isNil(o.Tags) {
-    return nil, false
+		return nil, false
 	}
 	return o.Tags, true
 }
@@ -4803,7 +4806,7 @@ func (o *VirtualMachineConfigurationSummary) GetTemplate() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetTemplateOk() (*float32, bool) {
 	if o == nil || isNil(o.Template) {
-    return nil, false
+		return nil, false
 	}
 	return o.Template, true
 }
@@ -4835,7 +4838,7 @@ func (o *VirtualMachineConfigurationSummary) GetTpmstate0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetTpmstate0Ok() (*string, bool) {
 	if o == nil || isNil(o.Tpmstate0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Tpmstate0, true
 }
@@ -4867,7 +4870,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb0Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb0, true
 }
@@ -4899,7 +4902,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb1Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb1, true
 }
@@ -4931,7 +4934,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb2Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb2, true
 }
@@ -4963,7 +4966,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb3Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb3, true
 }
@@ -4995,7 +4998,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb4Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb4, true
 }
@@ -5027,7 +5030,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb5Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb5, true
 }
@@ -5059,7 +5062,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb6Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb6, true
 }
@@ -5091,7 +5094,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb7Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb7, true
 }
@@ -5123,7 +5126,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb8() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb8Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb8) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb8, true
 }
@@ -5155,7 +5158,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb9() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb9Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb9) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb9, true
 }
@@ -5187,7 +5190,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb10() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb10Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb10) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb10, true
 }
@@ -5219,7 +5222,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb11() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb11Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb11) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb11, true
 }
@@ -5251,7 +5254,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb12() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb12Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb12) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb12, true
 }
@@ -5283,7 +5286,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb13() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb13Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb13) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb13, true
 }
@@ -5315,7 +5318,7 @@ func (o *VirtualMachineConfigurationSummary) GetUsb14() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetUsb14Ok() (*string, bool) {
 	if o == nil || isNil(o.Usb14) {
-    return nil, false
+		return nil, false
 	}
 	return o.Usb14, true
 }
@@ -5347,7 +5350,7 @@ func (o *VirtualMachineConfigurationSummary) GetHotplug() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetHotplugOk() (*string, bool) {
 	if o == nil || isNil(o.Hotplug) {
-    return nil, false
+		return nil, false
 	}
 	return o.Hotplug, true
 }
@@ -5379,7 +5382,7 @@ func (o *VirtualMachineConfigurationSummary) GetVcpus() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVcpusOk() (*float32, bool) {
 	if o == nil || isNil(o.Vcpus) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vcpus, true
 }
@@ -5411,7 +5414,7 @@ func (o *VirtualMachineConfigurationSummary) GetVga() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVgaOk() (*string, bool) {
 	if o == nil || isNil(o.Vga) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vga, true
 }
@@ -5443,7 +5446,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio0() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio0Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio0, true
 }
@@ -5475,7 +5478,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio1() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio1Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio1, true
 }
@@ -5507,7 +5510,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio2() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio2Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio2, true
 }
@@ -5539,7 +5542,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio3() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio3Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio3, true
 }
@@ -5571,7 +5574,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio4() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio4Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio4, true
 }
@@ -5603,7 +5606,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio5() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio5Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio5, true
 }
@@ -5635,7 +5638,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio6() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio6Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio6, true
 }
@@ -5667,7 +5670,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio7() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio7Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio7, true
 }
@@ -5699,7 +5702,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio8() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio8Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio8) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio8, true
 }
@@ -5731,7 +5734,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio9() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio9Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio9) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio9, true
 }
@@ -5763,7 +5766,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio10() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio10Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio10) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio10, true
 }
@@ -5795,7 +5798,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio11() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio11Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio11) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio11, true
 }
@@ -5827,7 +5830,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio12() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio12Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio12) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio12, true
 }
@@ -5859,7 +5862,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio13() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio13Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio13) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio13, true
 }
@@ -5891,7 +5894,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio14() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio14Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio14) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio14, true
 }
@@ -5923,7 +5926,7 @@ func (o *VirtualMachineConfigurationSummary) GetVirtio15() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVirtio15Ok() (*string, bool) {
 	if o == nil || isNil(o.Virtio15) {
-    return nil, false
+		return nil, false
 	}
 	return o.Virtio15, true
 }
@@ -5955,7 +5958,7 @@ func (o *VirtualMachineConfigurationSummary) GetVmgenid() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVmgenidOk() (*string, bool) {
 	if o == nil || isNil(o.Vmgenid) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vmgenid, true
 }
@@ -5987,7 +5990,7 @@ func (o *VirtualMachineConfigurationSummary) GetVmstatestorage() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetVmstatestorageOk() (*string, bool) {
 	if o == nil || isNil(o.Vmstatestorage) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vmstatestorage, true
 }
@@ -6019,7 +6022,7 @@ func (o *VirtualMachineConfigurationSummary) GetWatchdog() string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineConfigurationSummary) GetWatchdogOk() (*string, bool) {
 	if o == nil || isNil(o.Watchdog) {
-    return nil, false
+		return nil, false
 	}
 	return o.Watchdog, true
 }
@@ -6039,10 +6042,16 @@ func (o *VirtualMachineConfigurationSummary) SetWatchdog(v string) {
 }
 
 func (o VirtualMachineConfigurationSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["digest"] = o.Digest
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineConfigurationSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["digest"] = o.Digest
 	if !isNil(o.Acpi) {
 		toSerialize["acpi"] = o.Acpi
 	}
@@ -6571,7 +6580,7 @@ func (o VirtualMachineConfigurationSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Watchdog) {
 		toSerialize["watchdog"] = o.Watchdog
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineConfigurationSummary struct {

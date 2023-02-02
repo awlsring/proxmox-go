@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JoinClusterRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JoinClusterRequestContent{}
+
 // JoinClusterRequestContent struct for JoinClusterRequestContent
 type JoinClusterRequestContent struct {
 	// The fingerprint of the cluster certificate
@@ -71,7 +74,7 @@ func (o *JoinClusterRequestContent) GetFingerprint() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetFingerprintOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Fingerprint, true
 }
@@ -95,7 +98,7 @@ func (o *JoinClusterRequestContent) GetHostname() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetHostnameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Hostname, true
 }
@@ -119,7 +122,7 @@ func (o *JoinClusterRequestContent) GetPassword() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Password, true
 }
@@ -142,7 +145,7 @@ func (o *JoinClusterRequestContent) GetForce() bool {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetForceOk() (*bool, bool) {
 	if o == nil || isNil(o.Force) {
-    return nil, false
+		return nil, false
 	}
 	return o.Force, true
 }
@@ -174,7 +177,7 @@ func (o *JoinClusterRequestContent) GetLink0() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink0Ok() (*string, bool) {
 	if o == nil || isNil(o.Link0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link0, true
 }
@@ -206,7 +209,7 @@ func (o *JoinClusterRequestContent) GetLink1() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink1Ok() (*string, bool) {
 	if o == nil || isNil(o.Link1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link1, true
 }
@@ -238,7 +241,7 @@ func (o *JoinClusterRequestContent) GetLink2() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink2Ok() (*string, bool) {
 	if o == nil || isNil(o.Link2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link2, true
 }
@@ -270,7 +273,7 @@ func (o *JoinClusterRequestContent) GetLink3() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink3Ok() (*string, bool) {
 	if o == nil || isNil(o.Link3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link3, true
 }
@@ -302,7 +305,7 @@ func (o *JoinClusterRequestContent) GetLink4() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink4Ok() (*string, bool) {
 	if o == nil || isNil(o.Link4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link4, true
 }
@@ -334,7 +337,7 @@ func (o *JoinClusterRequestContent) GetLink5() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink5Ok() (*string, bool) {
 	if o == nil || isNil(o.Link5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link5, true
 }
@@ -366,7 +369,7 @@ func (o *JoinClusterRequestContent) GetLink6() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink6Ok() (*string, bool) {
 	if o == nil || isNil(o.Link6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link6, true
 }
@@ -398,7 +401,7 @@ func (o *JoinClusterRequestContent) GetLink7() string {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetLink7Ok() (*string, bool) {
 	if o == nil || isNil(o.Link7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link7, true
 }
@@ -430,7 +433,7 @@ func (o *JoinClusterRequestContent) GetNodeid() float32 {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetNodeidOk() (*float32, bool) {
 	if o == nil || isNil(o.Nodeid) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodeid, true
 }
@@ -462,7 +465,7 @@ func (o *JoinClusterRequestContent) GetVotes() float32 {
 // and a boolean to check if the value has been set.
 func (o *JoinClusterRequestContent) GetVotesOk() (*float32, bool) {
 	if o == nil || isNil(o.Votes) {
-    return nil, false
+		return nil, false
 	}
 	return o.Votes, true
 }
@@ -482,16 +485,18 @@ func (o *JoinClusterRequestContent) SetVotes(v float32) {
 }
 
 func (o JoinClusterRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o JoinClusterRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fingerprint"] = o.Fingerprint
-	}
-	if true {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if true {
-		toSerialize["password"] = o.Password
-	}
+	toSerialize["fingerprint"] = o.Fingerprint
+	toSerialize["hostname"] = o.Hostname
+	toSerialize["password"] = o.Password
 	if !isNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
@@ -525,7 +530,7 @@ func (o JoinClusterRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Votes) {
 		toSerialize["votes"] = o.Votes
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableJoinClusterRequestContent struct {

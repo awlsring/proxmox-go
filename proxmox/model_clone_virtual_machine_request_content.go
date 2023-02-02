@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CloneVirtualMachineRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CloneVirtualMachineRequestContent{}
+
 // CloneVirtualMachineRequestContent struct for CloneVirtualMachineRequestContent
 type CloneVirtualMachineRequestContent struct {
 	// The id of the virtual machine as an integer
@@ -69,7 +72,7 @@ func (o *CloneVirtualMachineRequestContent) GetNewid() float32 {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetNewidOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Newid, true
 }
@@ -92,7 +95,7 @@ func (o *CloneVirtualMachineRequestContent) GetBwlimit() float32 {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetBwlimitOk() (*float32, bool) {
 	if o == nil || isNil(o.Bwlimit) {
-    return nil, false
+		return nil, false
 	}
 	return o.Bwlimit, true
 }
@@ -124,7 +127,7 @@ func (o *CloneVirtualMachineRequestContent) GetDescription() string {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetDescriptionOk() (*string, bool) {
 	if o == nil || isNil(o.Description) {
-    return nil, false
+		return nil, false
 	}
 	return o.Description, true
 }
@@ -156,7 +159,7 @@ func (o *CloneVirtualMachineRequestContent) GetFull() bool {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetFullOk() (*bool, bool) {
 	if o == nil || isNil(o.Full) {
-    return nil, false
+		return nil, false
 	}
 	return o.Full, true
 }
@@ -188,7 +191,7 @@ func (o *CloneVirtualMachineRequestContent) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
-    return nil, false
+		return nil, false
 	}
 	return o.Name, true
 }
@@ -220,7 +223,7 @@ func (o *CloneVirtualMachineRequestContent) GetFormat() CloneVirtualMachineDiskF
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetFormatOk() (*CloneVirtualMachineDiskFormat, bool) {
 	if o == nil || isNil(o.Format) {
-    return nil, false
+		return nil, false
 	}
 	return o.Format, true
 }
@@ -252,7 +255,7 @@ func (o *CloneVirtualMachineRequestContent) GetStorage() string {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetStorageOk() (*string, bool) {
 	if o == nil || isNil(o.Storage) {
-    return nil, false
+		return nil, false
 	}
 	return o.Storage, true
 }
@@ -284,7 +287,7 @@ func (o *CloneVirtualMachineRequestContent) GetTarget() string {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetTargetOk() (*string, bool) {
 	if o == nil || isNil(o.Target) {
-    return nil, false
+		return nil, false
 	}
 	return o.Target, true
 }
@@ -316,7 +319,7 @@ func (o *CloneVirtualMachineRequestContent) GetSnapname() string {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetSnapnameOk() (*string, bool) {
 	if o == nil || isNil(o.Snapname) {
-    return nil, false
+		return nil, false
 	}
 	return o.Snapname, true
 }
@@ -348,7 +351,7 @@ func (o *CloneVirtualMachineRequestContent) GetPool() string {
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetPoolOk() (*string, bool) {
 	if o == nil || isNil(o.Pool) {
-    return nil, false
+		return nil, false
 	}
 	return o.Pool, true
 }
@@ -368,10 +371,16 @@ func (o *CloneVirtualMachineRequestContent) SetPool(v string) {
 }
 
 func (o CloneVirtualMachineRequestContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["newid"] = o.Newid
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CloneVirtualMachineRequestContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["newid"] = o.Newid
 	if !isNil(o.Bwlimit) {
 		toSerialize["bwlimit"] = o.Bwlimit
 	}
@@ -399,7 +408,7 @@ func (o CloneVirtualMachineRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Pool) {
 		toSerialize["pool"] = o.Pool
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCloneVirtualMachineRequestContent struct {

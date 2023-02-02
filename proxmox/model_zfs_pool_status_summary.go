@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ZFSPoolStatusSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ZFSPoolStatusSummary{}
+
 // ZFSPoolStatusSummary struct for ZFSPoolStatusSummary
 type ZFSPoolStatusSummary struct {
 	// The pool configuration including vdevs for each section. May be nested.
@@ -67,7 +70,7 @@ func (o *ZFSPoolStatusSummary) GetChildren() []ZFSPoolStatusChild {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetChildrenOk() ([]ZFSPoolStatusChild, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Children, true
 }
@@ -91,7 +94,7 @@ func (o *ZFSPoolStatusSummary) GetErrors() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetErrorsOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Errors, true
 }
@@ -115,7 +118,7 @@ func (o *ZFSPoolStatusSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -139,7 +142,7 @@ func (o *ZFSPoolStatusSummary) GetState() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetStateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.State, true
 }
@@ -162,7 +165,7 @@ func (o *ZFSPoolStatusSummary) GetAction() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetActionOk() (*string, bool) {
 	if o == nil || isNil(o.Action) {
-    return nil, false
+		return nil, false
 	}
 	return o.Action, true
 }
@@ -194,7 +197,7 @@ func (o *ZFSPoolStatusSummary) GetScan() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetScanOk() (*string, bool) {
 	if o == nil || isNil(o.Scan) {
-    return nil, false
+		return nil, false
 	}
 	return o.Scan, true
 }
@@ -226,7 +229,7 @@ func (o *ZFSPoolStatusSummary) GetStatus() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetStatusOk() (*string, bool) {
 	if o == nil || isNil(o.Status) {
-    return nil, false
+		return nil, false
 	}
 	return o.Status, true
 }
@@ -246,19 +249,19 @@ func (o *ZFSPoolStatusSummary) SetStatus(v string) {
 }
 
 func (o ZFSPoolStatusSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ZFSPoolStatusSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["children"] = o.Children
-	}
-	if true {
-		toSerialize["errors"] = o.Errors
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["state"] = o.State
-	}
+	toSerialize["children"] = o.Children
+	toSerialize["errors"] = o.Errors
+	toSerialize["name"] = o.Name
+	toSerialize["state"] = o.State
 	if !isNil(o.Action) {
 		toSerialize["action"] = o.Action
 	}
@@ -268,7 +271,7 @@ func (o ZFSPoolStatusSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableZFSPoolStatusSummary struct {

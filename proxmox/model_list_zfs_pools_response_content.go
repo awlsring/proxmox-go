@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListZFSPoolsResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListZFSPoolsResponseContent{}
+
 // ListZFSPoolsResponseContent struct for ListZFSPoolsResponseContent
 type ListZFSPoolsResponseContent struct {
 	Data []ZFSPoolSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListZFSPoolsResponseContent) GetData() []ZFSPoolSummary {
 // and a boolean to check if the value has been set.
 func (o *ListZFSPoolsResponseContent) GetDataOk() ([]ZFSPoolSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListZFSPoolsResponseContent) SetData(v []ZFSPoolSummary) {
 }
 
 func (o ListZFSPoolsResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListZFSPoolsResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListZFSPoolsResponseContent struct {

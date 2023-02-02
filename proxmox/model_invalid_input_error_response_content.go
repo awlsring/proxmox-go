@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InvalidInputErrorResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InvalidInputErrorResponseContent{}
+
 // InvalidInputErrorResponseContent struct for InvalidInputErrorResponseContent
 type InvalidInputErrorResponseContent struct {
 	Message string `json:"message"`
@@ -51,7 +54,7 @@ func (o *InvalidInputErrorResponseContent) GetMessage() string {
 // and a boolean to check if the value has been set.
 func (o *InvalidInputErrorResponseContent) GetMessageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Message, true
 }
@@ -62,11 +65,17 @@ func (o *InvalidInputErrorResponseContent) SetMessage(v string) {
 }
 
 func (o InvalidInputErrorResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["message"] = o.Message
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InvalidInputErrorResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["message"] = o.Message
+	return toSerialize, nil
 }
 
 type NullableInvalidInputErrorResponseContent struct {

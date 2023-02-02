@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MemoryBlockSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MemoryBlockSummary{}
+
 // MemoryBlockSummary struct for MemoryBlockSummary
 type MemoryBlockSummary struct {
 	Online *bool `json:"online,omitempty"`
@@ -51,7 +54,7 @@ func (o *MemoryBlockSummary) GetOnline() bool {
 // and a boolean to check if the value has been set.
 func (o *MemoryBlockSummary) GetOnlineOk() (*bool, bool) {
 	if o == nil || isNil(o.Online) {
-    return nil, false
+		return nil, false
 	}
 	return o.Online, true
 }
@@ -83,7 +86,7 @@ func (o *MemoryBlockSummary) GetCanOffline() bool {
 // and a boolean to check if the value has been set.
 func (o *MemoryBlockSummary) GetCanOfflineOk() (*bool, bool) {
 	if o == nil || isNil(o.CanOffline) {
-    return nil, false
+		return nil, false
 	}
 	return o.CanOffline, true
 }
@@ -115,7 +118,7 @@ func (o *MemoryBlockSummary) GetPhysIndex() float32 {
 // and a boolean to check if the value has been set.
 func (o *MemoryBlockSummary) GetPhysIndexOk() (*float32, bool) {
 	if o == nil || isNil(o.PhysIndex) {
-    return nil, false
+		return nil, false
 	}
 	return o.PhysIndex, true
 }
@@ -135,6 +138,14 @@ func (o *MemoryBlockSummary) SetPhysIndex(v float32) {
 }
 
 func (o MemoryBlockSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MemoryBlockSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Online) {
 		toSerialize["online"] = o.Online
@@ -145,7 +156,7 @@ func (o MemoryBlockSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.PhysIndex) {
 		toSerialize["phys-index"] = o.PhysIndex
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableMemoryBlockSummary struct {

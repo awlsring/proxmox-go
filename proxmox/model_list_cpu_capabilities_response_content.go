@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListCpuCapabilitiesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListCpuCapabilitiesResponseContent{}
+
 // ListCpuCapabilitiesResponseContent struct for ListCpuCapabilitiesResponseContent
 type ListCpuCapabilitiesResponseContent struct {
 	Data []CpuCapabilitySummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListCpuCapabilitiesResponseContent) GetData() []CpuCapabilitySummary {
 // and a boolean to check if the value has been set.
 func (o *ListCpuCapabilitiesResponseContent) GetDataOk() ([]CpuCapabilitySummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListCpuCapabilitiesResponseContent) SetData(v []CpuCapabilitySummary) {
 }
 
 func (o ListCpuCapabilitiesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListCpuCapabilitiesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListCpuCapabilitiesResponseContent struct {

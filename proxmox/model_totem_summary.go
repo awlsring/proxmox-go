@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TotemSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TotemSummary{}
+
 // TotemSummary struct for TotemSummary
 type TotemSummary struct {
 	Secauth *string `json:"secauth,omitempty"`
@@ -55,7 +58,7 @@ func (o *TotemSummary) GetSecauth() string {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetSecauthOk() (*string, bool) {
 	if o == nil || isNil(o.Secauth) {
-    return nil, false
+		return nil, false
 	}
 	return o.Secauth, true
 }
@@ -87,7 +90,7 @@ func (o *TotemSummary) GetVersion() string {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetVersionOk() (*string, bool) {
 	if o == nil || isNil(o.Version) {
-    return nil, false
+		return nil, false
 	}
 	return o.Version, true
 }
@@ -119,7 +122,7 @@ func (o *TotemSummary) GetInterface() map[string]LinkSummary {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetInterfaceOk() (*map[string]LinkSummary, bool) {
 	if o == nil || isNil(o.Interface) {
-    return nil, false
+		return nil, false
 	}
 	return o.Interface, true
 }
@@ -151,7 +154,7 @@ func (o *TotemSummary) GetLinkMode() string {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetLinkModeOk() (*string, bool) {
 	if o == nil || isNil(o.LinkMode) {
-    return nil, false
+		return nil, false
 	}
 	return o.LinkMode, true
 }
@@ -183,7 +186,7 @@ func (o *TotemSummary) GetIpVersion() string {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetIpVersionOk() (*string, bool) {
 	if o == nil || isNil(o.IpVersion) {
-    return nil, false
+		return nil, false
 	}
 	return o.IpVersion, true
 }
@@ -215,7 +218,7 @@ func (o *TotemSummary) GetConfigVersion() string {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetConfigVersionOk() (*string, bool) {
 	if o == nil || isNil(o.ConfigVersion) {
-    return nil, false
+		return nil, false
 	}
 	return o.ConfigVersion, true
 }
@@ -247,7 +250,7 @@ func (o *TotemSummary) GetClusterName() string {
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetClusterNameOk() (*string, bool) {
 	if o == nil || isNil(o.ClusterName) {
-    return nil, false
+		return nil, false
 	}
 	return o.ClusterName, true
 }
@@ -267,6 +270,14 @@ func (o *TotemSummary) SetClusterName(v string) {
 }
 
 func (o TotemSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TotemSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Secauth) {
 		toSerialize["secauth"] = o.Secauth
@@ -289,7 +300,7 @@ func (o TotemSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.ClusterName) {
 		toSerialize["cluster_name"] = o.ClusterName
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableTotemSummary struct {

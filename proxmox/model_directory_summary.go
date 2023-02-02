@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DirectorySummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DirectorySummary{}
+
 // DirectorySummary struct for DirectorySummary
 type DirectorySummary struct {
 	// The mounted device
@@ -64,7 +67,7 @@ func (o *DirectorySummary) GetDevice() string {
 // and a boolean to check if the value has been set.
 func (o *DirectorySummary) GetDeviceOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Device, true
 }
@@ -88,7 +91,7 @@ func (o *DirectorySummary) GetOptions() string {
 // and a boolean to check if the value has been set.
 func (o *DirectorySummary) GetOptionsOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Options, true
 }
@@ -112,7 +115,7 @@ func (o *DirectorySummary) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *DirectorySummary) GetPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Path, true
 }
@@ -136,7 +139,7 @@ func (o *DirectorySummary) GetType() string {
 // and a boolean to check if the value has been set.
 func (o *DirectorySummary) GetTypeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -160,7 +163,7 @@ func (o *DirectorySummary) GetUnitfile() string {
 // and a boolean to check if the value has been set.
 func (o *DirectorySummary) GetUnitfileOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Unitfile, true
 }
@@ -171,23 +174,21 @@ func (o *DirectorySummary) SetUnitfile(v string) {
 }
 
 func (o DirectorySummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["device"] = o.Device
-	}
-	if true {
-		toSerialize["options"] = o.Options
-	}
-	if true {
-		toSerialize["path"] = o.Path
-	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
-	if true {
-		toSerialize["unitfile"] = o.Unitfile
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DirectorySummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["device"] = o.Device
+	toSerialize["options"] = o.Options
+	toSerialize["path"] = o.Path
+	toSerialize["type"] = o.Type
+	toSerialize["unitfile"] = o.Unitfile
+	return toSerialize, nil
 }
 
 type NullableDirectorySummary struct {

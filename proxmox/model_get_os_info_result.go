@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetOsInfoResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetOsInfoResult{}
+
 // GetOsInfoResult struct for GetOsInfoResult
 type GetOsInfoResult struct {
 	Result *OperatingSystemInformationSummary `json:"result,omitempty"`
@@ -49,7 +52,7 @@ func (o *GetOsInfoResult) GetResult() OperatingSystemInformationSummary {
 // and a boolean to check if the value has been set.
 func (o *GetOsInfoResult) GetResultOk() (*OperatingSystemInformationSummary, bool) {
 	if o == nil || isNil(o.Result) {
-    return nil, false
+		return nil, false
 	}
 	return o.Result, true
 }
@@ -69,11 +72,19 @@ func (o *GetOsInfoResult) SetResult(v OperatingSystemInformationSummary) {
 }
 
 func (o GetOsInfoResult) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetOsInfoResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Result) {
 		toSerialize["result"] = o.Result
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableGetOsInfoResult struct {

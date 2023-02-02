@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdateNetworkInterfaceRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateNetworkInterfaceRequestContent{}
+
 // UpdateNetworkInterfaceRequestContent struct for UpdateNetworkInterfaceRequestContent
 type UpdateNetworkInterfaceRequestContent struct {
 	Type NetworkInterfaceType `json:"type"`
@@ -76,7 +79,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetType() NetworkInterfaceType {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetTypeOk() (*NetworkInterfaceType, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -99,7 +102,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetAddress() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetAddressOk() (*string, bool) {
 	if o == nil || isNil(o.Address) {
-    return nil, false
+		return nil, false
 	}
 	return o.Address, true
 }
@@ -131,7 +134,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetAddress6() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetAddress6Ok() (*string, bool) {
 	if o == nil || isNil(o.Address6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Address6, true
 }
@@ -163,7 +166,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetAutostart() bool {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetAutostartOk() (*bool, bool) {
 	if o == nil || isNil(o.Autostart) {
-    return nil, false
+		return nil, false
 	}
 	return o.Autostart, true
 }
@@ -195,7 +198,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetBondPrimary() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetBondPrimaryOk() (*string, bool) {
 	if o == nil || isNil(o.BondPrimary) {
-    return nil, false
+		return nil, false
 	}
 	return o.BondPrimary, true
 }
@@ -227,7 +230,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetBondMode() NetworkInterfaceBon
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetBondModeOk() (*NetworkInterfaceBondMode, bool) {
 	if o == nil || isNil(o.BondMode) {
-    return nil, false
+		return nil, false
 	}
 	return o.BondMode, true
 }
@@ -259,7 +262,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetBondXmitHashPolicy() NetworkIn
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetBondXmitHashPolicyOk() (*NetworkInterfaceBondHashPolicy, bool) {
 	if o == nil || isNil(o.BondXmitHashPolicy) {
-    return nil, false
+		return nil, false
 	}
 	return o.BondXmitHashPolicy, true
 }
@@ -291,7 +294,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetBridgePorts() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetBridgePortsOk() (*string, bool) {
 	if o == nil || isNil(o.BridgePorts) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgePorts, true
 }
@@ -323,7 +326,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetBridgeVlanAware() bool {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetBridgeVlanAwareOk() (*bool, bool) {
 	if o == nil || isNil(o.BridgeVlanAware) {
-    return nil, false
+		return nil, false
 	}
 	return o.BridgeVlanAware, true
 }
@@ -355,7 +358,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetCidr() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetCidrOk() (*string, bool) {
 	if o == nil || isNil(o.Cidr) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cidr, true
 }
@@ -387,7 +390,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetCidr6() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetCidr6Ok() (*string, bool) {
 	if o == nil || isNil(o.Cidr6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cidr6, true
 }
@@ -419,7 +422,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetComments() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetCommentsOk() (*string, bool) {
 	if o == nil || isNil(o.Comments) {
-    return nil, false
+		return nil, false
 	}
 	return o.Comments, true
 }
@@ -451,7 +454,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetComments6() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetComments6Ok() (*string, bool) {
 	if o == nil || isNil(o.Comments6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Comments6, true
 }
@@ -483,7 +486,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetGateway() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetGatewayOk() (*string, bool) {
 	if o == nil || isNil(o.Gateway) {
-    return nil, false
+		return nil, false
 	}
 	return o.Gateway, true
 }
@@ -515,7 +518,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetGateway6() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetGateway6Ok() (*string, bool) {
 	if o == nil || isNil(o.Gateway6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Gateway6, true
 }
@@ -547,7 +550,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetMtu() float32 {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetMtuOk() (*float32, bool) {
 	if o == nil || isNil(o.Mtu) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mtu, true
 }
@@ -579,7 +582,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetNetmask() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetNetmaskOk() (*string, bool) {
 	if o == nil || isNil(o.Netmask) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netmask, true
 }
@@ -611,7 +614,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6() float32 {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6Ok() (*float32, bool) {
 	if o == nil || isNil(o.Netmask6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Netmask6, true
 }
@@ -643,7 +646,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetOvsBonds() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetOvsBondsOk() (*string, bool) {
 	if o == nil || isNil(o.OvsBonds) {
-    return nil, false
+		return nil, false
 	}
 	return o.OvsBonds, true
 }
@@ -675,7 +678,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetOvsOptions() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetOvsOptionsOk() (*string, bool) {
 	if o == nil || isNil(o.OvsOptions) {
-    return nil, false
+		return nil, false
 	}
 	return o.OvsOptions, true
 }
@@ -707,7 +710,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetOvsPorts() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetOvsPortsOk() (*string, bool) {
 	if o == nil || isNil(o.OvsPorts) {
-    return nil, false
+		return nil, false
 	}
 	return o.OvsPorts, true
 }
@@ -739,7 +742,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetOvsTag() float32 {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetOvsTagOk() (*float32, bool) {
 	if o == nil || isNil(o.OvsTag) {
-    return nil, false
+		return nil, false
 	}
 	return o.OvsTag, true
 }
@@ -771,7 +774,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetOvsBridge() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetOvsBridgeOk() (*string, bool) {
 	if o == nil || isNil(o.OvsBridge) {
-    return nil, false
+		return nil, false
 	}
 	return o.OvsBridge, true
 }
@@ -803,7 +806,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetSlaves() []string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetSlavesOk() ([]string, bool) {
 	if o == nil || isNil(o.Slaves) {
-    return nil, false
+		return nil, false
 	}
 	return o.Slaves, true
 }
@@ -835,7 +838,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetVlanId() float32 {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetVlanIdOk() (*float32, bool) {
 	if o == nil || isNil(o.VlanId) {
-    return nil, false
+		return nil, false
 	}
 	return o.VlanId, true
 }
@@ -867,7 +870,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetVlanRawDevice() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateNetworkInterfaceRequestContent) GetVlanRawDeviceOk() (*string, bool) {
 	if o == nil || isNil(o.VlanRawDevice) {
-    return nil, false
+		return nil, false
 	}
 	return o.VlanRawDevice, true
 }
@@ -887,10 +890,16 @@ func (o *UpdateNetworkInterfaceRequestContent) SetVlanRawDevice(v string) {
 }
 
 func (o UpdateNetworkInterfaceRequestContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["type"] = o.Type
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UpdateNetworkInterfaceRequestContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["type"] = o.Type
 	if !isNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
@@ -966,7 +975,7 @@ func (o UpdateNetworkInterfaceRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.VlanRawDevice) {
 		toSerialize["vlan-raw-device"] = o.VlanRawDevice
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableUpdateNetworkInterfaceRequestContent struct {

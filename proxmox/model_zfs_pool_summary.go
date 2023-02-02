@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ZFSPoolSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ZFSPoolSummary{}
+
 // ZFSPoolSummary struct for ZFSPoolSummary
 type ZFSPoolSummary struct {
 	// The allocated space on the pool in bytes
@@ -68,7 +71,7 @@ func (o *ZFSPoolSummary) GetAlloc() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetAllocOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Alloc, true
 }
@@ -92,7 +95,7 @@ func (o *ZFSPoolSummary) GetDedup() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetDedupOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Dedup, true
 }
@@ -116,7 +119,7 @@ func (o *ZFSPoolSummary) GetFrag() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetFragOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Frag, true
 }
@@ -140,7 +143,7 @@ func (o *ZFSPoolSummary) GetHealth() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetHealthOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Health, true
 }
@@ -164,7 +167,7 @@ func (o *ZFSPoolSummary) GetFree() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetFreeOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Free, true
 }
@@ -188,7 +191,7 @@ func (o *ZFSPoolSummary) GetSize() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetSizeOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Size, true
 }
@@ -212,7 +215,7 @@ func (o *ZFSPoolSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolSummary) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -223,29 +226,23 @@ func (o *ZFSPoolSummary) SetName(v string) {
 }
 
 func (o ZFSPoolSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["alloc"] = o.Alloc
-	}
-	if true {
-		toSerialize["dedup"] = o.Dedup
-	}
-	if true {
-		toSerialize["frag"] = o.Frag
-	}
-	if true {
-		toSerialize["health"] = o.Health
-	}
-	if true {
-		toSerialize["free"] = o.Free
-	}
-	if true {
-		toSerialize["size"] = o.Size
-	}
-	if true {
-		toSerialize["name"] = o.Name
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ZFSPoolSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["alloc"] = o.Alloc
+	toSerialize["dedup"] = o.Dedup
+	toSerialize["frag"] = o.Frag
+	toSerialize["health"] = o.Health
+	toSerialize["free"] = o.Free
+	toSerialize["size"] = o.Size
+	toSerialize["name"] = o.Name
+	return toSerialize, nil
 }
 
 type NullableZFSPoolSummary struct {

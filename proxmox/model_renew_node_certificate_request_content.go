@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RenewNodeCertificateRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RenewNodeCertificateRequestContent{}
+
 // RenewNodeCertificateRequestContent struct for RenewNodeCertificateRequestContent
 type RenewNodeCertificateRequestContent struct {
 	// Force renewal even if expirary is more than 30 days away.
@@ -50,7 +53,7 @@ func (o *RenewNodeCertificateRequestContent) GetForce() float32 {
 // and a boolean to check if the value has been set.
 func (o *RenewNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
 	if o == nil || isNil(o.Force) {
-    return nil, false
+		return nil, false
 	}
 	return o.Force, true
 }
@@ -70,11 +73,19 @@ func (o *RenewNodeCertificateRequestContent) SetForce(v float32) {
 }
 
 func (o RenewNodeCertificateRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o RenewNodeCertificateRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableRenewNodeCertificateRequestContent struct {

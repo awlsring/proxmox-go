@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListPendingVirtualMachineConfigurationChangesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListPendingVirtualMachineConfigurationChangesResponseContent{}
+
 // ListPendingVirtualMachineConfigurationChangesResponseContent struct for ListPendingVirtualMachineConfigurationChangesResponseContent
 type ListPendingVirtualMachineConfigurationChangesResponseContent struct {
 	Data string `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListPendingVirtualMachineConfigurationChangesResponseContent) GetData()
 // and a boolean to check if the value has been set.
 func (o *ListPendingVirtualMachineConfigurationChangesResponseContent) GetDataOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListPendingVirtualMachineConfigurationChangesResponseContent) SetData(v
 }
 
 func (o ListPendingVirtualMachineConfigurationChangesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListPendingVirtualMachineConfigurationChangesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListPendingVirtualMachineConfigurationChangesResponseContent struct {

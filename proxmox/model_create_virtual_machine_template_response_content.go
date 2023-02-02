@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateVirtualMachineTemplateResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateVirtualMachineTemplateResponseContent{}
+
 // CreateVirtualMachineTemplateResponseContent struct for CreateVirtualMachineTemplateResponseContent
 type CreateVirtualMachineTemplateResponseContent struct {
 	Data *string `json:"data,omitempty"`
@@ -49,7 +52,7 @@ func (o *CreateVirtualMachineTemplateResponseContent) GetData() string {
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineTemplateResponseContent) GetDataOk() (*string, bool) {
 	if o == nil || isNil(o.Data) {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -69,11 +72,19 @@ func (o *CreateVirtualMachineTemplateResponseContent) SetData(v string) {
 }
 
 func (o CreateVirtualMachineTemplateResponseContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateVirtualMachineTemplateResponseContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateVirtualMachineTemplateResponseContent struct {

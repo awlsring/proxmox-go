@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the OrderNodeCertificateRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &OrderNodeCertificateRequestContent{}
+
 // OrderNodeCertificateRequestContent struct for OrderNodeCertificateRequestContent
 type OrderNodeCertificateRequestContent struct {
 	// Overwrite existing custom certificate.
@@ -50,7 +53,7 @@ func (o *OrderNodeCertificateRequestContent) GetForce() float32 {
 // and a boolean to check if the value has been set.
 func (o *OrderNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
 	if o == nil || isNil(o.Force) {
-    return nil, false
+		return nil, false
 	}
 	return o.Force, true
 }
@@ -70,11 +73,19 @@ func (o *OrderNodeCertificateRequestContent) SetForce(v float32) {
 }
 
 func (o OrderNodeCertificateRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o OrderNodeCertificateRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableOrderNodeCertificateRequestContent struct {

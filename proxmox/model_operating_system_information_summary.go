@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the OperatingSystemInformationSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &OperatingSystemInformationSummary{}
+
 // OperatingSystemInformationSummary struct for OperatingSystemInformationSummary
 type OperatingSystemInformationSummary struct {
 	PrettyName *string `json:"pretty-name,omitempty"`
@@ -56,7 +59,7 @@ func (o *OperatingSystemInformationSummary) GetPrettyName() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetPrettyNameOk() (*string, bool) {
 	if o == nil || isNil(o.PrettyName) {
-    return nil, false
+		return nil, false
 	}
 	return o.PrettyName, true
 }
@@ -88,7 +91,7 @@ func (o *OperatingSystemInformationSummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
-    return nil, false
+		return nil, false
 	}
 	return o.Name, true
 }
@@ -120,7 +123,7 @@ func (o *OperatingSystemInformationSummary) GetVersion() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetVersionOk() (*string, bool) {
 	if o == nil || isNil(o.Version) {
-    return nil, false
+		return nil, false
 	}
 	return o.Version, true
 }
@@ -152,7 +155,7 @@ func (o *OperatingSystemInformationSummary) GetVersionId() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetVersionIdOk() (*string, bool) {
 	if o == nil || isNil(o.VersionId) {
-    return nil, false
+		return nil, false
 	}
 	return o.VersionId, true
 }
@@ -184,7 +187,7 @@ func (o *OperatingSystemInformationSummary) GetId() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetIdOk() (*string, bool) {
 	if o == nil || isNil(o.Id) {
-    return nil, false
+		return nil, false
 	}
 	return o.Id, true
 }
@@ -216,7 +219,7 @@ func (o *OperatingSystemInformationSummary) GetKernelVersion() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetKernelVersionOk() (*string, bool) {
 	if o == nil || isNil(o.KernelVersion) {
-    return nil, false
+		return nil, false
 	}
 	return o.KernelVersion, true
 }
@@ -248,7 +251,7 @@ func (o *OperatingSystemInformationSummary) GetKernelRelease() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetKernelReleaseOk() (*string, bool) {
 	if o == nil || isNil(o.KernelRelease) {
-    return nil, false
+		return nil, false
 	}
 	return o.KernelRelease, true
 }
@@ -280,7 +283,7 @@ func (o *OperatingSystemInformationSummary) GetMachine() string {
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetMachineOk() (*string, bool) {
 	if o == nil || isNil(o.Machine) {
-    return nil, false
+		return nil, false
 	}
 	return o.Machine, true
 }
@@ -300,6 +303,14 @@ func (o *OperatingSystemInformationSummary) SetMachine(v string) {
 }
 
 func (o OperatingSystemInformationSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o OperatingSystemInformationSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.PrettyName) {
 		toSerialize["pretty-name"] = o.PrettyName
@@ -325,7 +336,7 @@ func (o OperatingSystemInformationSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Machine) {
 		toSerialize["machine"] = o.Machine
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableOperatingSystemInformationSummary struct {

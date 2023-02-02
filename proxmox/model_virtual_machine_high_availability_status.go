@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineHighAvailabilityStatus type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineHighAvailabilityStatus{}
+
 // VirtualMachineHighAvailabilityStatus struct for VirtualMachineHighAvailabilityStatus
 type VirtualMachineHighAvailabilityStatus struct {
 	// An integer used to represent a boolean. 0 is false, 1 is true.
@@ -52,7 +55,7 @@ func (o *VirtualMachineHighAvailabilityStatus) GetManaged() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineHighAvailabilityStatus) GetManagedOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Managed, true
 }
@@ -63,11 +66,17 @@ func (o *VirtualMachineHighAvailabilityStatus) SetManaged(v float32) {
 }
 
 func (o VirtualMachineHighAvailabilityStatus) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["managed"] = o.Managed
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineHighAvailabilityStatus) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["managed"] = o.Managed
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineHighAvailabilityStatus struct {

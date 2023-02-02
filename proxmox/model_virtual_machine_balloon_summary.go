@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineBalloonSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineBalloonSummary{}
+
 // VirtualMachineBalloonSummary struct for VirtualMachineBalloonSummary
 type VirtualMachineBalloonSummary struct {
 	MaxMem *float32 `json:"max_mem,omitempty"`
@@ -57,7 +60,7 @@ func (o *VirtualMachineBalloonSummary) GetMaxMem() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMaxMemOk() (*float32, bool) {
 	if o == nil || isNil(o.MaxMem) {
-    return nil, false
+		return nil, false
 	}
 	return o.MaxMem, true
 }
@@ -89,7 +92,7 @@ func (o *VirtualMachineBalloonSummary) GetFreeMem() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetFreeMemOk() (*float32, bool) {
 	if o == nil || isNil(o.FreeMem) {
-    return nil, false
+		return nil, false
 	}
 	return o.FreeMem, true
 }
@@ -121,7 +124,7 @@ func (o *VirtualMachineBalloonSummary) GetMemSwappedOut() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMemSwappedOutOk() (*float32, bool) {
 	if o == nil || isNil(o.MemSwappedOut) {
-    return nil, false
+		return nil, false
 	}
 	return o.MemSwappedOut, true
 }
@@ -153,7 +156,7 @@ func (o *VirtualMachineBalloonSummary) GetMemSwappedIn() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMemSwappedInOk() (*float32, bool) {
 	if o == nil || isNil(o.MemSwappedIn) {
-    return nil, false
+		return nil, false
 	}
 	return o.MemSwappedIn, true
 }
@@ -185,7 +188,7 @@ func (o *VirtualMachineBalloonSummary) GetTotalMem() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetTotalMemOk() (*float32, bool) {
 	if o == nil || isNil(o.TotalMem) {
-    return nil, false
+		return nil, false
 	}
 	return o.TotalMem, true
 }
@@ -217,7 +220,7 @@ func (o *VirtualMachineBalloonSummary) GetActual() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetActualOk() (*float32, bool) {
 	if o == nil || isNil(o.Actual) {
-    return nil, false
+		return nil, false
 	}
 	return o.Actual, true
 }
@@ -249,7 +252,7 @@ func (o *VirtualMachineBalloonSummary) GetLastUpdate() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetLastUpdateOk() (*float32, bool) {
 	if o == nil || isNil(o.LastUpdate) {
-    return nil, false
+		return nil, false
 	}
 	return o.LastUpdate, true
 }
@@ -281,7 +284,7 @@ func (o *VirtualMachineBalloonSummary) GetMinorPageFaults() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMinorPageFaultsOk() (*float32, bool) {
 	if o == nil || isNil(o.MinorPageFaults) {
-    return nil, false
+		return nil, false
 	}
 	return o.MinorPageFaults, true
 }
@@ -313,7 +316,7 @@ func (o *VirtualMachineBalloonSummary) GetMajorPageFaults() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMajorPageFaultsOk() (*float32, bool) {
 	if o == nil || isNil(o.MajorPageFaults) {
-    return nil, false
+		return nil, false
 	}
 	return o.MajorPageFaults, true
 }
@@ -333,6 +336,14 @@ func (o *VirtualMachineBalloonSummary) SetMajorPageFaults(v float32) {
 }
 
 func (o VirtualMachineBalloonSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineBalloonSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.MaxMem) {
 		toSerialize["max_mem"] = o.MaxMem
@@ -361,7 +372,7 @@ func (o VirtualMachineBalloonSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.MajorPageFaults) {
 		toSerialize["major_page_faults"] = o.MajorPageFaults
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineBalloonSummary struct {

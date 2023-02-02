@@ -70,7 +70,7 @@ func (a *DefaultApiService) AddCorosyncNodeExecute(r ApiAddCorosyncNodeRequest) 
 	}
 
 	localVarPath := localBasePath + "/cluster/config/nodes/{node}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -124,8 +124,8 @@ func (a *DefaultApiService) AddCorosyncNodeExecute(r ApiAddCorosyncNodeRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -135,8 +135,8 @@ func (a *DefaultApiService) AddCorosyncNodeExecute(r ApiAddCorosyncNodeRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -202,7 +202,7 @@ func (a *DefaultApiService) AddCustomNodeCertificateExecute(r ApiAddCustomNodeCe
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/certificates/custom"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -259,8 +259,8 @@ func (a *DefaultApiService) AddCustomNodeCertificateExecute(r ApiAddCustomNodeCe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -270,8 +270,8 @@ func (a *DefaultApiService) AddCustomNodeCertificateExecute(r ApiAddCustomNodeCe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -341,7 +341,7 @@ func (a *DefaultApiService) AddRepositoryExecute(r ApiAddRepositoryRequest) (*ht
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/apt/repositories"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -350,9 +350,9 @@ func (a *DefaultApiService) AddRepositoryExecute(r ApiAddRepositoryRequest) (*ht
 		return nil, reportError("handle is required and must be specified")
 	}
 
-	localVarQueryParams.Add("handle", parameterToString(*r.handle, ""))
+	parameterAddToQuery(localVarQueryParams, "handle", r.handle, "")
 	if r.digest != nil {
-		localVarQueryParams.Add("digest", parameterToString(*r.digest, ""))
+		parameterAddToQuery(localVarQueryParams, "digest", r.digest, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -400,8 +400,8 @@ func (a *DefaultApiService) AddRepositoryExecute(r ApiAddRepositoryRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -411,8 +411,8 @@ func (a *DefaultApiService) AddRepositoryExecute(r ApiAddRepositoryRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -461,7 +461,7 @@ func (a *DefaultApiService) ApplyNetworkInterfaceConfigurationExecute(r ApiApply
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -513,8 +513,8 @@ func (a *DefaultApiService) ApplyNetworkInterfaceConfigurationExecute(r ApiApply
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -524,8 +524,8 @@ func (a *DefaultApiService) ApplyNetworkInterfaceConfigurationExecute(r ApiApply
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -594,8 +594,8 @@ func (a *DefaultApiService) ApplyVirtualMachineConfigurationAsyncExecute(r ApiAp
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/config"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -649,8 +649,8 @@ func (a *DefaultApiService) ApplyVirtualMachineConfigurationAsyncExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -660,8 +660,8 @@ func (a *DefaultApiService) ApplyVirtualMachineConfigurationAsyncExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -728,8 +728,8 @@ func (a *DefaultApiService) ApplyVirtualMachineConfigurationSyncExecute(r ApiApp
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/config"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -783,8 +783,8 @@ func (a *DefaultApiService) ApplyVirtualMachineConfigurationSyncExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -794,8 +794,8 @@ func (a *DefaultApiService) ApplyVirtualMachineConfigurationSyncExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -870,7 +870,7 @@ func (a *DefaultApiService) ChangeRepositoryPropertiesExecute(r ApiChangeReposit
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/apt/repositories"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -882,13 +882,13 @@ func (a *DefaultApiService) ChangeRepositoryPropertiesExecute(r ApiChangeReposit
 		return nil, reportError("index is required and must be specified")
 	}
 
-	localVarQueryParams.Add("path", parameterToString(*r.path, ""))
-	localVarQueryParams.Add("index", parameterToString(*r.index, ""))
+	parameterAddToQuery(localVarQueryParams, "path", r.path, "")
+	parameterAddToQuery(localVarQueryParams, "index", r.index, "")
 	if r.digest != nil {
-		localVarQueryParams.Add("digest", parameterToString(*r.digest, ""))
+		parameterAddToQuery(localVarQueryParams, "digest", r.digest, "")
 	}
 	if r.enabled != nil {
-		localVarQueryParams.Add("enabled", parameterToString(*r.enabled, ""))
+		parameterAddToQuery(localVarQueryParams, "enabled", r.enabled, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -936,8 +936,8 @@ func (a *DefaultApiService) ChangeRepositoryPropertiesExecute(r ApiChangeReposit
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -947,8 +947,8 @@ func (a *DefaultApiService) ChangeRepositoryPropertiesExecute(r ApiChangeReposit
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1008,8 +1008,8 @@ func (a *DefaultApiService) CloneVirtualMachineExecute(r ApiCloneVirtualMachineR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/clone"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1066,8 +1066,8 @@ func (a *DefaultApiService) CloneVirtualMachineExecute(r ApiCloneVirtualMachineR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1077,8 +1077,8 @@ func (a *DefaultApiService) CloneVirtualMachineExecute(r ApiCloneVirtualMachineR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1195,8 +1195,8 @@ func (a *DefaultApiService) CreateClusterConfigExecute(r ApiCreateClusterConfigR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1206,8 +1206,8 @@ func (a *DefaultApiService) CreateClusterConfigExecute(r ApiCreateClusterConfigR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1273,7 +1273,7 @@ func (a *DefaultApiService) CreateDirectoryExecute(r ApiCreateDirectoryRequest) 
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/directory"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1330,8 +1330,8 @@ func (a *DefaultApiService) CreateDirectoryExecute(r ApiCreateDirectoryRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1341,8 +1341,8 @@ func (a *DefaultApiService) CreateDirectoryExecute(r ApiCreateDirectoryRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1408,7 +1408,7 @@ func (a *DefaultApiService) CreateLVMExecute(r ApiCreateLVMRequest) (*CreateLVMR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/lvm"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1465,8 +1465,8 @@ func (a *DefaultApiService) CreateLVMExecute(r ApiCreateLVMRequest) (*CreateLVMR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1476,8 +1476,8 @@ func (a *DefaultApiService) CreateLVMExecute(r ApiCreateLVMRequest) (*CreateLVMR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1543,7 +1543,7 @@ func (a *DefaultApiService) CreateLVMThinExecute(r ApiCreateLVMThinRequest) (*Cr
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/lvmthin"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1600,8 +1600,8 @@ func (a *DefaultApiService) CreateLVMThinExecute(r ApiCreateLVMThinRequest) (*Cr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1611,8 +1611,8 @@ func (a *DefaultApiService) CreateLVMThinExecute(r ApiCreateLVMThinRequest) (*Cr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1674,7 +1674,7 @@ func (a *DefaultApiService) CreateNetworkInterfaceExecute(r ApiCreateNetworkInte
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1731,8 +1731,8 @@ func (a *DefaultApiService) CreateNetworkInterfaceExecute(r ApiCreateNetworkInte
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1742,8 +1742,8 @@ func (a *DefaultApiService) CreateNetworkInterfaceExecute(r ApiCreateNetworkInte
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1849,8 +1849,8 @@ func (a *DefaultApiService) CreatePoolExecute(r ApiCreatePoolRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1860,8 +1860,8 @@ func (a *DefaultApiService) CreatePoolExecute(r ApiCreatePoolRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1969,8 +1969,8 @@ func (a *DefaultApiService) CreateStorageExecute(r ApiCreateStorageRequest) (*Cr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1980,8 +1980,8 @@ func (a *DefaultApiService) CreateStorageExecute(r ApiCreateStorageRequest) (*Cr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2098,8 +2098,8 @@ func (a *DefaultApiService) CreateTicketExecute(r ApiCreateTicketRequest) (*Crea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2109,8 +2109,8 @@ func (a *DefaultApiService) CreateTicketExecute(r ApiCreateTicketRequest) (*Crea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2176,7 +2176,7 @@ func (a *DefaultApiService) CreateVirtualMachineExecute(r ApiCreateVirtualMachin
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2233,8 +2233,8 @@ func (a *DefaultApiService) CreateVirtualMachineExecute(r ApiCreateVirtualMachin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2244,8 +2244,8 @@ func (a *DefaultApiService) CreateVirtualMachineExecute(r ApiCreateVirtualMachin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2314,8 +2314,8 @@ func (a *DefaultApiService) CreateVirtualMachineTemplateExecute(r ApiCreateVirtu
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/template"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2369,8 +2369,8 @@ func (a *DefaultApiService) CreateVirtualMachineTemplateExecute(r ApiCreateVirtu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2380,8 +2380,8 @@ func (a *DefaultApiService) CreateVirtualMachineTemplateExecute(r ApiCreateVirtu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2447,7 +2447,7 @@ func (a *DefaultApiService) CreateZFSPoolExecute(r ApiCreateZFSPoolRequest) (*Cr
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/zfs"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2504,8 +2504,8 @@ func (a *DefaultApiService) CreateZFSPoolExecute(r ApiCreateZFSPoolRequest) (*Cr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2515,8 +2515,8 @@ func (a *DefaultApiService) CreateZFSPoolExecute(r ApiCreateZFSPoolRequest) (*Cr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2593,18 +2593,18 @@ func (a *DefaultApiService) DeleteDirectoryExecute(r ApiDeleteDirectoryRequest) 
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/directory/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.cleanupConfig != nil {
-		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-config", r.cleanupConfig, "")
 	}
 	if r.cleanupDisks != nil {
-		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-disks", r.cleanupDisks, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2652,8 +2652,8 @@ func (a *DefaultApiService) DeleteDirectoryExecute(r ApiDeleteDirectoryRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2663,8 +2663,8 @@ func (a *DefaultApiService) DeleteDirectoryExecute(r ApiDeleteDirectoryRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2741,18 +2741,18 @@ func (a *DefaultApiService) DeleteLVMExecute(r ApiDeleteLVMRequest) (*DeleteLVMR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/lvm/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.cleanupConfig != nil {
-		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-config", r.cleanupConfig, "")
 	}
 	if r.cleanupDisks != nil {
-		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-disks", r.cleanupDisks, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2800,8 +2800,8 @@ func (a *DefaultApiService) DeleteLVMExecute(r ApiDeleteLVMRequest) (*DeleteLVMR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2811,8 +2811,8 @@ func (a *DefaultApiService) DeleteLVMExecute(r ApiDeleteLVMRequest) (*DeleteLVMR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2889,18 +2889,18 @@ func (a *DefaultApiService) DeleteLVMThinExecute(r ApiDeleteLVMThinRequest) (*De
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/lvmthin/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.cleanupConfig != nil {
-		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-config", r.cleanupConfig, "")
 	}
 	if r.cleanupDisks != nil {
-		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-disks", r.cleanupDisks, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2948,8 +2948,8 @@ func (a *DefaultApiService) DeleteLVMThinExecute(r ApiDeleteLVMThinRequest) (*De
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2959,8 +2959,8 @@ func (a *DefaultApiService) DeleteLVMThinExecute(r ApiDeleteLVMThinRequest) (*De
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3019,8 +3019,8 @@ func (a *DefaultApiService) DeleteNetworkInterfaceExecute(r ApiDeleteNetworkInte
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network/{interface}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"interface"+"}", url.PathEscape(parameterToString(r.interface_, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"interface"+"}", url.PathEscape(parameterValueToString(r.interface_, "interface_")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3072,8 +3072,8 @@ func (a *DefaultApiService) DeleteNetworkInterfaceExecute(r ApiDeleteNetworkInte
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3083,8 +3083,8 @@ func (a *DefaultApiService) DeleteNetworkInterfaceExecute(r ApiDeleteNetworkInte
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3135,7 +3135,7 @@ func (a *DefaultApiService) DeleteNodeCertificateExecute(r ApiDeleteNodeCertific
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/certificates/acme/certificate"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3187,8 +3187,8 @@ func (a *DefaultApiService) DeleteNodeCertificateExecute(r ApiDeleteNodeCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3198,8 +3198,8 @@ func (a *DefaultApiService) DeleteNodeCertificateExecute(r ApiDeleteNodeCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3255,7 +3255,7 @@ func (a *DefaultApiService) DeletePoolExecute(r ApiDeletePoolRequest) (*http.Res
 	}
 
 	localVarPath := localBasePath + "/pools/{poolId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"poolId"+"}", url.PathEscape(parameterToString(r.poolId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"poolId"+"}", url.PathEscape(parameterValueToString(r.poolId, "poolId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3307,8 +3307,8 @@ func (a *DefaultApiService) DeletePoolExecute(r ApiDeletePoolRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3318,8 +3318,8 @@ func (a *DefaultApiService) DeletePoolExecute(r ApiDeletePoolRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3366,7 +3366,7 @@ func (a *DefaultApiService) DeleteStorageExecute(r ApiDeleteStorageRequest) (*ht
 	}
 
 	localVarPath := localBasePath + "/storage/{storage}"
-	localVarPath = strings.Replace(localVarPath, "{"+"storage"+"}", url.PathEscape(parameterToString(r.storage, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"storage"+"}", url.PathEscape(parameterValueToString(r.storage, "storage")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3418,8 +3418,8 @@ func (a *DefaultApiService) DeleteStorageExecute(r ApiDeleteStorageRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3429,8 +3429,8 @@ func (a *DefaultApiService) DeleteStorageExecute(r ApiDeleteStorageRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3505,21 +3505,21 @@ func (a *DefaultApiService) DeleteVirtualMachineExecute(r ApiDeleteVirtualMachin
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.destoryUnreferencedDisks != nil {
-		localVarQueryParams.Add("destory-unreferenced-disks", parameterToString(*r.destoryUnreferencedDisks, ""))
+		parameterAddToQuery(localVarQueryParams, "destory-unreferenced-disks", r.destoryUnreferencedDisks, "")
 	}
 	if r.purge != nil {
-		localVarQueryParams.Add("purge", parameterToString(*r.purge, ""))
+		parameterAddToQuery(localVarQueryParams, "purge", r.purge, "")
 	}
 	if r.skiplock != nil {
-		localVarQueryParams.Add("skiplock", parameterToString(*r.skiplock, ""))
+		parameterAddToQuery(localVarQueryParams, "skiplock", r.skiplock, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3567,8 +3567,8 @@ func (a *DefaultApiService) DeleteVirtualMachineExecute(r ApiDeleteVirtualMachin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3578,8 +3578,8 @@ func (a *DefaultApiService) DeleteVirtualMachineExecute(r ApiDeleteVirtualMachin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3656,18 +3656,18 @@ func (a *DefaultApiService) DeleteZFSPoolExecute(r ApiDeleteZFSPoolRequest) (*De
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/zfs/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.cleanupConfig != nil {
-		localVarQueryParams.Add("cleanup-config", parameterToString(*r.cleanupConfig, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-config", r.cleanupConfig, "")
 	}
 	if r.cleanupDisks != nil {
-		localVarQueryParams.Add("cleanup-disks", parameterToString(*r.cleanupDisks, ""))
+		parameterAddToQuery(localVarQueryParams, "cleanup-disks", r.cleanupDisks, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3715,8 +3715,8 @@ func (a *DefaultApiService) DeleteZFSPoolExecute(r ApiDeleteZFSPoolRequest) (*De
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3726,8 +3726,8 @@ func (a *DefaultApiService) DeleteZFSPoolExecute(r ApiDeleteZFSPoolRequest) (*De
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3833,8 +3833,8 @@ func (a *DefaultApiService) GetAccessControlListExecute(r ApiGetAccessControlLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3844,8 +3844,8 @@ func (a *DefaultApiService) GetAccessControlListExecute(r ApiGetAccessControlLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3951,8 +3951,8 @@ func (a *DefaultApiService) GetClusterApiVersionExecute(r ApiGetClusterApiVersio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3962,8 +3962,8 @@ func (a *DefaultApiService) GetClusterApiVersionExecute(r ApiGetClusterApiVersio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4031,7 +4031,7 @@ func (a *DefaultApiService) GetClusterJoinInformationExecute(r ApiGetClusterJoin
 	localVarFormParams := url.Values{}
 
 	if r.node != nil {
-		localVarQueryParams.Add("node", parameterToString(*r.node, ""))
+		parameterAddToQuery(localVarQueryParams, "node", r.node, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4079,8 +4079,8 @@ func (a *DefaultApiService) GetClusterJoinInformationExecute(r ApiGetClusterJoin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4090,8 +4090,8 @@ func (a *DefaultApiService) GetClusterJoinInformationExecute(r ApiGetClusterJoin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4197,8 +4197,8 @@ func (a *DefaultApiService) GetClusterTotemSettingsExecute(r ApiGetClusterTotemS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4208,8 +4208,8 @@ func (a *DefaultApiService) GetClusterTotemSettingsExecute(r ApiGetClusterTotemS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4270,8 +4270,8 @@ func (a *DefaultApiService) GetNetworkInterfaceExecute(r ApiGetNetworkInterfaceR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network/{interface}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"interface"+"}", url.PathEscape(parameterToString(r.interface_, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"interface"+"}", url.PathEscape(parameterValueToString(r.interface_, "interface_")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4323,8 +4323,8 @@ func (a *DefaultApiService) GetNetworkInterfaceExecute(r ApiGetNetworkInterfaceR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4334,8 +4334,8 @@ func (a *DefaultApiService) GetNetworkInterfaceExecute(r ApiGetNetworkInterfaceR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4400,14 +4400,14 @@ func (a *DefaultApiService) GetPackageChangelogExecute(r ApiGetPackageChangelogR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/apt/changelog"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.name != nil {
-		localVarQueryParams.Add("name", parameterToString(*r.name, ""))
+		parameterAddToQuery(localVarQueryParams, "name", r.name, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4455,8 +4455,8 @@ func (a *DefaultApiService) GetPackageChangelogExecute(r ApiGetPackageChangelogR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4466,8 +4466,8 @@ func (a *DefaultApiService) GetPackageChangelogExecute(r ApiGetPackageChangelogR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4530,8 +4530,8 @@ func (a *DefaultApiService) GetPendingVirtualMachineCloudInitChangesExecute(r Ap
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/cloudinit"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4583,8 +4583,8 @@ func (a *DefaultApiService) GetPendingVirtualMachineCloudInitChangesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4594,8 +4594,8 @@ func (a *DefaultApiService) GetPendingVirtualMachineCloudInitChangesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4659,14 +4659,14 @@ func (a *DefaultApiService) GetPoolExecute(r ApiGetPoolRequest) (*GetPoolRespons
 	}
 
 	localVarPath := localBasePath + "/pools/{poolId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"poolId"+"}", url.PathEscape(parameterToString(r.poolId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"poolId"+"}", url.PathEscape(parameterValueToString(r.poolId, "poolId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.type_ != nil {
-		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+		parameterAddToQuery(localVarQueryParams, "type", r.type_, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4714,8 +4714,8 @@ func (a *DefaultApiService) GetPoolExecute(r ApiGetPoolRequest) (*GetPoolRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4725,8 +4725,8 @@ func (a *DefaultApiService) GetPoolExecute(r ApiGetPoolRequest) (*GetPoolRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4800,17 +4800,17 @@ func (a *DefaultApiService) GetSmartHealthExecute(r ApiGetSmartHealthRequest) (*
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/smart"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.disk != nil {
-		localVarQueryParams.Add("disk", parameterToString(*r.disk, ""))
+		parameterAddToQuery(localVarQueryParams, "disk", r.disk, "")
 	}
 	if r.healthonly != nil {
-		localVarQueryParams.Add("healthonly", parameterToString(*r.healthonly, ""))
+		parameterAddToQuery(localVarQueryParams, "healthonly", r.healthonly, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4858,8 +4858,8 @@ func (a *DefaultApiService) GetSmartHealthExecute(r ApiGetSmartHealthRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4869,8 +4869,8 @@ func (a *DefaultApiService) GetSmartHealthExecute(r ApiGetSmartHealthRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4928,7 +4928,7 @@ func (a *DefaultApiService) GetStorageExecute(r ApiGetStorageRequest) (*GetStora
 	}
 
 	localVarPath := localBasePath + "/storage/{storage}"
-	localVarPath = strings.Replace(localVarPath, "{"+"storage"+"}", url.PathEscape(parameterToString(r.storage, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"storage"+"}", url.PathEscape(parameterValueToString(r.storage, "storage")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4980,8 +4980,8 @@ func (a *DefaultApiService) GetStorageExecute(r ApiGetStorageRequest) (*GetStora
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4991,8 +4991,8 @@ func (a *DefaultApiService) GetStorageExecute(r ApiGetStorageRequest) (*GetStora
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5098,8 +5098,8 @@ func (a *DefaultApiService) GetVersionExecute(r ApiGetVersionRequest) (*GetVersi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5109,8 +5109,8 @@ func (a *DefaultApiService) GetVersionExecute(r ApiGetVersionRequest) (*GetVersi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5179,8 +5179,8 @@ func (a *DefaultApiService) GetVirtualMachineCloudInitExecute(r ApiGetVirtualMac
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/cloudinit/dump"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5189,7 +5189,7 @@ func (a *DefaultApiService) GetVirtualMachineCloudInitExecute(r ApiGetVirtualMac
 		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
 	}
 
-	localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+	parameterAddToQuery(localVarQueryParams, "type", r.type_, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -5236,8 +5236,8 @@ func (a *DefaultApiService) GetVirtualMachineCloudInitExecute(r ApiGetVirtualMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5247,8 +5247,8 @@ func (a *DefaultApiService) GetVirtualMachineCloudInitExecute(r ApiGetVirtualMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5325,18 +5325,18 @@ func (a *DefaultApiService) GetVirtualMachineConfigurationExecute(r ApiGetVirtua
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/config"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.current != nil {
-		localVarQueryParams.Add("current", parameterToString(*r.current, ""))
+		parameterAddToQuery(localVarQueryParams, "current", r.current, "")
 	}
 	if r.snapshot != nil {
-		localVarQueryParams.Add("snapshot", parameterToString(*r.snapshot, ""))
+		parameterAddToQuery(localVarQueryParams, "snapshot", r.snapshot, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5384,8 +5384,8 @@ func (a *DefaultApiService) GetVirtualMachineConfigurationExecute(r ApiGetVirtua
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5395,8 +5395,8 @@ func (a *DefaultApiService) GetVirtualMachineConfigurationExecute(r ApiGetVirtua
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5471,8 +5471,8 @@ func (a *DefaultApiService) GetVirtualMachineFeatureSupportExecute(r ApiGetVirtu
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/feature"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5481,9 +5481,9 @@ func (a *DefaultApiService) GetVirtualMachineFeatureSupportExecute(r ApiGetVirtu
 		return localVarReturnValue, nil, reportError("feature is required and must be specified")
 	}
 
-	localVarQueryParams.Add("feature", parameterToString(*r.feature, ""))
+	parameterAddToQuery(localVarQueryParams, "feature", r.feature, "")
 	if r.snapname != nil {
-		localVarQueryParams.Add("snapname", parameterToString(*r.snapname, ""))
+		parameterAddToQuery(localVarQueryParams, "snapname", r.snapname, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5531,8 +5531,8 @@ func (a *DefaultApiService) GetVirtualMachineFeatureSupportExecute(r ApiGetVirtu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5542,8 +5542,8 @@ func (a *DefaultApiService) GetVirtualMachineFeatureSupportExecute(r ApiGetVirtu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5606,8 +5606,8 @@ func (a *DefaultApiService) GetVirtualMachineFileSystemInformationExecute(r ApiG
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-fsinfo"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5659,8 +5659,8 @@ func (a *DefaultApiService) GetVirtualMachineFileSystemInformationExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5670,8 +5670,8 @@ func (a *DefaultApiService) GetVirtualMachineFileSystemInformationExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5734,8 +5734,8 @@ func (a *DefaultApiService) GetVirtualMachineHostnameExecute(r ApiGetVirtualMach
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-host-name"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5787,8 +5787,8 @@ func (a *DefaultApiService) GetVirtualMachineHostnameExecute(r ApiGetVirtualMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5798,8 +5798,8 @@ func (a *DefaultApiService) GetVirtualMachineHostnameExecute(r ApiGetVirtualMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5862,8 +5862,8 @@ func (a *DefaultApiService) GetVirtualMachineMemoryBlockInformationExecute(r Api
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-memory-block-info"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5915,8 +5915,8 @@ func (a *DefaultApiService) GetVirtualMachineMemoryBlockInformationExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5926,8 +5926,8 @@ func (a *DefaultApiService) GetVirtualMachineMemoryBlockInformationExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5990,8 +5990,8 @@ func (a *DefaultApiService) GetVirtualMachineMemoryBlocksExecute(r ApiGetVirtual
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-memory-blocks"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6043,8 +6043,8 @@ func (a *DefaultApiService) GetVirtualMachineMemoryBlocksExecute(r ApiGetVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6054,8 +6054,8 @@ func (a *DefaultApiService) GetVirtualMachineMemoryBlocksExecute(r ApiGetVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6118,8 +6118,8 @@ func (a *DefaultApiService) GetVirtualMachineOperatingSystemInformationExecute(r
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-osinfo"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6171,8 +6171,8 @@ func (a *DefaultApiService) GetVirtualMachineOperatingSystemInformationExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6182,8 +6182,8 @@ func (a *DefaultApiService) GetVirtualMachineOperatingSystemInformationExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6246,8 +6246,8 @@ func (a *DefaultApiService) GetVirtualMachineStatusExecute(r ApiGetVirtualMachin
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/status/current"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6299,8 +6299,8 @@ func (a *DefaultApiService) GetVirtualMachineStatusExecute(r ApiGetVirtualMachin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6310,8 +6310,8 @@ func (a *DefaultApiService) GetVirtualMachineStatusExecute(r ApiGetVirtualMachin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6374,8 +6374,8 @@ func (a *DefaultApiService) GetVirtualMachineTimeExecute(r ApiGetVirtualMachineT
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-time"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6427,8 +6427,8 @@ func (a *DefaultApiService) GetVirtualMachineTimeExecute(r ApiGetVirtualMachineT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6438,8 +6438,136 @@ func (a *DefaultApiService) GetVirtualMachineTimeExecute(r ApiGetVirtualMachineT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetVirtualMachineTimeZoneRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	vmId string
+}
+
+func (r ApiGetVirtualMachineTimeZoneRequest) Execute() (*GetVirtualMachineTimeZoneResponseContent, *http.Response, error) {
+	return r.ApiService.GetVirtualMachineTimeZoneExecute(r)
+}
+
+/*
+GetVirtualMachineTimeZone Method for GetVirtualMachineTimeZone
+
+Get the time of the virtual machine. Requries the guest agent to be installed and active.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param vmId The id of the virtual machine as a string
+ @return ApiGetVirtualMachineTimeZoneRequest
+*/
+func (a *DefaultApiService) GetVirtualMachineTimeZone(ctx context.Context, node string, vmId string) ApiGetVirtualMachineTimeZoneRequest {
+	return ApiGetVirtualMachineTimeZoneRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		vmId: vmId,
+	}
+}
+
+// Execute executes the request
+//  @return GetVirtualMachineTimeZoneResponseContent
+func (a *DefaultApiService) GetVirtualMachineTimeZoneExecute(r ApiGetVirtualMachineTimeZoneRequest) (*GetVirtualMachineTimeZoneResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetVirtualMachineTimeZoneResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetVirtualMachineTimeZone")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-timezone"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v NoGuestAgentErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6502,8 +6630,8 @@ func (a *DefaultApiService) GetZFSPoolStatusExecute(r ApiGetZFSPoolStatusRequest
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/zfs/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterToString(r.name, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6555,8 +6683,8 @@ func (a *DefaultApiService) GetZFSPoolStatusExecute(r ApiGetZFSPoolStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6566,8 +6694,8 @@ func (a *DefaultApiService) GetZFSPoolStatusExecute(r ApiGetZFSPoolStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6633,7 +6761,7 @@ func (a *DefaultApiService) InitializeGPTExecute(r ApiInitializeGPTRequest) (*In
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/smart"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6687,8 +6815,8 @@ func (a *DefaultApiService) InitializeGPTExecute(r ApiInitializeGPTRequest) (*In
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6698,8 +6826,8 @@ func (a *DefaultApiService) InitializeGPTExecute(r ApiInitializeGPTRequest) (*In
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6816,8 +6944,8 @@ func (a *DefaultApiService) JoinClusterExecute(r ApiJoinClusterRequest) (*JoinCl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6827,8 +6955,8 @@ func (a *DefaultApiService) JoinClusterExecute(r ApiJoinClusterRequest) (*JoinCl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6934,8 +7062,8 @@ func (a *DefaultApiService) ListCorosyncNodesExecute(r ApiListCorosyncNodesReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6945,8 +7073,8 @@ func (a *DefaultApiService) ListCorosyncNodesExecute(r ApiListCorosyncNodesReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7006,7 +7134,7 @@ func (a *DefaultApiService) ListCpuCapabilitiesExecute(r ApiListCpuCapabilitiesR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/capabilities/qemu/cpu"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7058,8 +7186,8 @@ func (a *DefaultApiService) ListCpuCapabilitiesExecute(r ApiListCpuCapabilitiesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7069,8 +7197,8 @@ func (a *DefaultApiService) ListCpuCapabilitiesExecute(r ApiListCpuCapabilitiesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7130,7 +7258,7 @@ func (a *DefaultApiService) ListDirectoriesExecute(r ApiListDirectoriesRequest) 
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/directory"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7182,8 +7310,8 @@ func (a *DefaultApiService) ListDirectoriesExecute(r ApiListDirectoriesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7193,8 +7321,8 @@ func (a *DefaultApiService) ListDirectoriesExecute(r ApiListDirectoriesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7274,20 +7402,20 @@ func (a *DefaultApiService) ListDisksExecute(r ApiListDisksRequest) (*ListDisksR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.includePartitions != nil {
-		localVarQueryParams.Add("include-partitions", parameterToString(*r.includePartitions, ""))
+		parameterAddToQuery(localVarQueryParams, "include-partitions", r.includePartitions, "")
 	}
 	if r.skipsmart != nil {
-		localVarQueryParams.Add("skipsmart", parameterToString(*r.skipsmart, ""))
+		parameterAddToQuery(localVarQueryParams, "skipsmart", r.skipsmart, "")
 	}
 	if r.type_ != nil {
-		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+		parameterAddToQuery(localVarQueryParams, "type", r.type_, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -7335,8 +7463,8 @@ func (a *DefaultApiService) ListDisksExecute(r ApiListDisksRequest) (*ListDisksR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7346,8 +7474,8 @@ func (a *DefaultApiService) ListDisksExecute(r ApiListDisksRequest) (*ListDisksR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7407,7 +7535,7 @@ func (a *DefaultApiService) ListLVMThinsExecute(r ApiListLVMThinsRequest) (*List
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/lvmthin"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7459,8 +7587,8 @@ func (a *DefaultApiService) ListLVMThinsExecute(r ApiListLVMThinsRequest) (*List
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7470,8 +7598,8 @@ func (a *DefaultApiService) ListLVMThinsExecute(r ApiListLVMThinsRequest) (*List
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7531,7 +7659,7 @@ func (a *DefaultApiService) ListLVMsExecute(r ApiListLVMsRequest) (*ListLVMsResp
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/lvm"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7583,8 +7711,8 @@ func (a *DefaultApiService) ListLVMsExecute(r ApiListLVMsRequest) (*ListLVMsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7594,8 +7722,8 @@ func (a *DefaultApiService) ListLVMsExecute(r ApiListLVMsRequest) (*ListLVMsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7655,7 +7783,7 @@ func (a *DefaultApiService) ListMachineCapabilitiesExecute(r ApiListMachineCapab
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/capabilities/qemu/machines"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7707,8 +7835,8 @@ func (a *DefaultApiService) ListMachineCapabilitiesExecute(r ApiListMachineCapab
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7718,8 +7846,8 @@ func (a *DefaultApiService) ListMachineCapabilitiesExecute(r ApiListMachineCapab
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7783,14 +7911,14 @@ func (a *DefaultApiService) ListNetworkInterfacesExecute(r ApiListNetworkInterfa
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.type_ != nil {
-		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+		parameterAddToQuery(localVarQueryParams, "type", r.type_, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -7838,8 +7966,8 @@ func (a *DefaultApiService) ListNetworkInterfacesExecute(r ApiListNetworkInterfa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7849,8 +7977,8 @@ func (a *DefaultApiService) ListNetworkInterfacesExecute(r ApiListNetworkInterfa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7910,7 +8038,7 @@ func (a *DefaultApiService) ListNodeCertificatesExecute(r ApiListNodeCertificate
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/certificates/info"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7962,8 +8090,8 @@ func (a *DefaultApiService) ListNodeCertificatesExecute(r ApiListNodeCertificate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7973,8 +8101,8 @@ func (a *DefaultApiService) ListNodeCertificatesExecute(r ApiListNodeCertificate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8080,8 +8208,8 @@ func (a *DefaultApiService) ListNodesExecute(r ApiListNodesRequest) (*ListNodesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8091,8 +8219,8 @@ func (a *DefaultApiService) ListNodesExecute(r ApiListNodesRequest) (*ListNodesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8150,7 +8278,7 @@ func (a *DefaultApiService) ListPackagesExecute(r ApiListPackagesRequest) (*List
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/apt/versions"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -8202,8 +8330,8 @@ func (a *DefaultApiService) ListPackagesExecute(r ApiListPackagesRequest) (*List
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8213,8 +8341,8 @@ func (a *DefaultApiService) ListPackagesExecute(r ApiListPackagesRequest) (*List
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8275,8 +8403,8 @@ func (a *DefaultApiService) ListPciDeviceMediatedDevicesExecute(r ApiListPciDevi
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/hardware/pci/{deviceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"deviceId"+"}", url.PathEscape(parameterToString(r.deviceId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"deviceId"+"}", url.PathEscape(parameterValueToString(r.deviceId, "deviceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -8328,8 +8456,8 @@ func (a *DefaultApiService) ListPciDeviceMediatedDevicesExecute(r ApiListPciDevi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8339,8 +8467,8 @@ func (a *DefaultApiService) ListPciDeviceMediatedDevicesExecute(r ApiListPciDevi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8412,17 +8540,17 @@ func (a *DefaultApiService) ListPciDevicesExecute(r ApiListPciDevicesRequest) (*
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/hardware/pci"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.pciClassBlacklist != nil {
-		localVarQueryParams.Add("pci-class-blacklist", parameterToString(*r.pciClassBlacklist, ""))
+		parameterAddToQuery(localVarQueryParams, "pci-class-blacklist", r.pciClassBlacklist, "")
 	}
 	if r.verbose != nil {
-		localVarQueryParams.Add("verbose", parameterToString(*r.verbose, ""))
+		parameterAddToQuery(localVarQueryParams, "verbose", r.verbose, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -8470,8 +8598,8 @@ func (a *DefaultApiService) ListPciDevicesExecute(r ApiListPciDevicesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8481,8 +8609,8 @@ func (a *DefaultApiService) ListPciDevicesExecute(r ApiListPciDevicesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8545,8 +8673,8 @@ func (a *DefaultApiService) ListPendingVirtualMachineConfigurationChangesExecute
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/pending"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -8598,8 +8726,8 @@ func (a *DefaultApiService) ListPendingVirtualMachineConfigurationChangesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8609,8 +8737,8 @@ func (a *DefaultApiService) ListPendingVirtualMachineConfigurationChangesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8716,8 +8844,8 @@ func (a *DefaultApiService) ListPoolsExecute(r ApiListPoolsRequest) (*ListPoolsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8727,8 +8855,8 @@ func (a *DefaultApiService) ListPoolsExecute(r ApiListPoolsRequest) (*ListPoolsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8786,7 +8914,7 @@ func (a *DefaultApiService) ListRepositoriesInformationExecute(r ApiListReposito
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/apt/repository"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -8838,8 +8966,8 @@ func (a *DefaultApiService) ListRepositoriesInformationExecute(r ApiListReposito
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8849,8 +8977,8 @@ func (a *DefaultApiService) ListRepositoriesInformationExecute(r ApiListReposito
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8956,8 +9084,8 @@ func (a *DefaultApiService) ListStorageExecute(r ApiListStorageRequest) (*ListSt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8967,8 +9095,8 @@ func (a *DefaultApiService) ListStorageExecute(r ApiListStorageRequest) (*ListSt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9026,7 +9154,7 @@ func (a *DefaultApiService) ListUpdatesExecute(r ApiListUpdatesRequest) (*ListUp
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/apt/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9078,8 +9206,8 @@ func (a *DefaultApiService) ListUpdatesExecute(r ApiListUpdatesRequest) (*ListUp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9089,8 +9217,8 @@ func (a *DefaultApiService) ListUpdatesExecute(r ApiListUpdatesRequest) (*ListUp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9148,7 +9276,7 @@ func (a *DefaultApiService) ListUsbDevicesExecute(r ApiListUsbDevicesRequest) (*
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/hardware/usb"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9200,8 +9328,8 @@ func (a *DefaultApiService) ListUsbDevicesExecute(r ApiListUsbDevicesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9211,8 +9339,8 @@ func (a *DefaultApiService) ListUsbDevicesExecute(r ApiListUsbDevicesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9270,7 +9398,7 @@ func (a *DefaultApiService) ListVirtualMachinesExecute(r ApiListVirtualMachinesR
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9322,8 +9450,8 @@ func (a *DefaultApiService) ListVirtualMachinesExecute(r ApiListVirtualMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9333,8 +9461,8 @@ func (a *DefaultApiService) ListVirtualMachinesExecute(r ApiListVirtualMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9394,7 +9522,7 @@ func (a *DefaultApiService) ListZFSPoolsExecute(r ApiListZFSPoolsRequest) (*List
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/zfs"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9446,8 +9574,8 @@ func (a *DefaultApiService) ListZFSPoolsExecute(r ApiListZFSPoolsRequest) (*List
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9457,8 +9585,8 @@ func (a *DefaultApiService) ListZFSPoolsExecute(r ApiListZFSPoolsRequest) (*List
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9573,8 +9701,8 @@ func (a *DefaultApiService) ModifyPoolExecute(r ApiModifyPoolRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9584,8 +9712,8 @@ func (a *DefaultApiService) ModifyPoolExecute(r ApiModifyPoolRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9640,7 +9768,7 @@ func (a *DefaultApiService) ModifyStorageExecute(r ApiModifyStorageRequest) (*Mo
 	}
 
 	localVarPath := localBasePath + "/storage/{storage}"
-	localVarPath = strings.Replace(localVarPath, "{"+"storage"+"}", url.PathEscape(parameterToString(r.storage, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"storage"+"}", url.PathEscape(parameterValueToString(r.storage, "storage")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9694,8 +9822,8 @@ func (a *DefaultApiService) ModifyStorageExecute(r ApiModifyStorageRequest) (*Mo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9705,8 +9833,8 @@ func (a *DefaultApiService) ModifyStorageExecute(r ApiModifyStorageRequest) (*Mo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9772,7 +9900,7 @@ func (a *DefaultApiService) OrderNodeCertificateExecute(r ApiOrderNodeCertificat
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/certificates/acme/certificate"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9826,8 +9954,8 @@ func (a *DefaultApiService) OrderNodeCertificateExecute(r ApiOrderNodeCertificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9837,8 +9965,8 @@ func (a *DefaultApiService) OrderNodeCertificateExecute(r ApiOrderNodeCertificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9899,8 +10027,8 @@ func (a *DefaultApiService) RegenerateVirtualMachineCloudInitExecute(r ApiRegene
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/cloudinit"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -9952,8 +10080,8 @@ func (a *DefaultApiService) RegenerateVirtualMachineCloudInitExecute(r ApiRegene
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9963,8 +10091,8 @@ func (a *DefaultApiService) RegenerateVirtualMachineCloudInitExecute(r ApiRegene
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10011,7 +10139,7 @@ func (a *DefaultApiService) RemoveCorosyncNodeExecute(r ApiRemoveCorosyncNodeReq
 	}
 
 	localVarPath := localBasePath + "/cluster/config/nodes/{node}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -10063,8 +10191,8 @@ func (a *DefaultApiService) RemoveCorosyncNodeExecute(r ApiRemoveCorosyncNodeReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10074,8 +10202,8 @@ func (a *DefaultApiService) RemoveCorosyncNodeExecute(r ApiRemoveCorosyncNodeReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10132,7 +10260,7 @@ func (a *DefaultApiService) RenewNodeCertificateExecute(r ApiRenewNodeCertificat
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/certificates/acme/certificate"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -10186,8 +10314,8 @@ func (a *DefaultApiService) RenewNodeCertificateExecute(r ApiRenewNodeCertificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10197,8 +10325,8 @@ func (a *DefaultApiService) RenewNodeCertificateExecute(r ApiRenewNodeCertificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10287,8 +10415,8 @@ func (a *DefaultApiService) ResizeVirtualMachineDiskExecute(r ApiResizeVirtualMa
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/resize"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -10300,13 +10428,13 @@ func (a *DefaultApiService) ResizeVirtualMachineDiskExecute(r ApiResizeVirtualMa
 		return nil, reportError("size is required and must be specified")
 	}
 
-	localVarQueryParams.Add("disk", parameterToString(*r.disk, ""))
-	localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	parameterAddToQuery(localVarQueryParams, "disk", r.disk, "")
+	parameterAddToQuery(localVarQueryParams, "size", r.size, "")
 	if r.digest != nil {
-		localVarQueryParams.Add("digest", parameterToString(*r.digest, ""))
+		parameterAddToQuery(localVarQueryParams, "digest", r.digest, "")
 	}
 	if r.skiplock != nil {
-		localVarQueryParams.Add("skiplock", parameterToString(*r.skiplock, ""))
+		parameterAddToQuery(localVarQueryParams, "skiplock", r.skiplock, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10354,8 +10482,8 @@ func (a *DefaultApiService) ResizeVirtualMachineDiskExecute(r ApiResizeVirtualMa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10365,8 +10493,8 @@ func (a *DefaultApiService) ResizeVirtualMachineDiskExecute(r ApiResizeVirtualMa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10413,7 +10541,7 @@ func (a *DefaultApiService) RevertNetworkInterfaceConfigurationExecute(r ApiReve
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -10465,8 +10593,8 @@ func (a *DefaultApiService) RevertNetworkInterfaceConfigurationExecute(r ApiReve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10476,8 +10604,8 @@ func (a *DefaultApiService) RevertNetworkInterfaceConfigurationExecute(r ApiReve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10543,8 +10671,8 @@ func (a *DefaultApiService) UnlinkVirtualMachineDisksExecute(r ApiUnlinkVirtualM
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/unlink"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterToString(r.vmId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -10556,8 +10684,8 @@ func (a *DefaultApiService) UnlinkVirtualMachineDisksExecute(r ApiUnlinkVirtualM
 		return nil, reportError("force is required and must be specified")
 	}
 
-	localVarQueryParams.Add("idlist", parameterToString(*r.idlist, ""))
-	localVarQueryParams.Add("force", parameterToString(*r.force, ""))
+	parameterAddToQuery(localVarQueryParams, "idlist", r.idlist, "")
+	parameterAddToQuery(localVarQueryParams, "force", r.force, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -10604,8 +10732,8 @@ func (a *DefaultApiService) UnlinkVirtualMachineDisksExecute(r ApiUnlinkVirtualM
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10615,8 +10743,8 @@ func (a *DefaultApiService) UnlinkVirtualMachineDisksExecute(r ApiUnlinkVirtualM
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10722,8 +10850,8 @@ func (a *DefaultApiService) UpdateAccessControlListExecute(r ApiUpdateAccessCont
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10733,8 +10861,8 @@ func (a *DefaultApiService) UpdateAccessControlListExecute(r ApiUpdateAccessCont
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10790,8 +10918,8 @@ func (a *DefaultApiService) UpdateNetworkInterfaceExecute(r ApiUpdateNetworkInte
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/network/{interface}"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"interface"+"}", url.PathEscape(parameterToString(r.interface_, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"interface"+"}", url.PathEscape(parameterValueToString(r.interface_, "interface_")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -10848,8 +10976,8 @@ func (a *DefaultApiService) UpdateNetworkInterfaceExecute(r ApiUpdateNetworkInte
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10859,8 +10987,8 @@ func (a *DefaultApiService) UpdateNetworkInterfaceExecute(r ApiUpdateNetworkInte
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10916,14 +11044,14 @@ func (a *DefaultApiService) WipeDiskExecute(r ApiWipeDiskRequest) (*http.Respons
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/disks/smart"
-	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterToString(r.node, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.disk != nil {
-		localVarQueryParams.Add("disk", parameterToString(*r.disk, ""))
+		parameterAddToQuery(localVarQueryParams, "disk", r.disk, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10971,8 +11099,8 @@ func (a *DefaultApiService) WipeDiskExecute(r ApiWipeDiskRequest) (*http.Respons
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10982,8 +11110,8 @@ func (a *DefaultApiService) WipeDiskExecute(r ApiWipeDiskRequest) (*http.Respons
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

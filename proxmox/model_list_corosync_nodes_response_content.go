@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListCorosyncNodesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListCorosyncNodesResponseContent{}
+
 // ListCorosyncNodesResponseContent struct for ListCorosyncNodesResponseContent
 type ListCorosyncNodesResponseContent struct {
 	Data []CorosyncNodeSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListCorosyncNodesResponseContent) GetData() []CorosyncNodeSummary {
 // and a boolean to check if the value has been set.
 func (o *ListCorosyncNodesResponseContent) GetDataOk() ([]CorosyncNodeSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListCorosyncNodesResponseContent) SetData(v []CorosyncNodeSummary) {
 }
 
 func (o ListCorosyncNodesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListCorosyncNodesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListCorosyncNodesResponseContent struct {

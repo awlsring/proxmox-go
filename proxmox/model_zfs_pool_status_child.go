@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ZFSPoolStatusChild type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ZFSPoolStatusChild{}
+
 // ZFSPoolStatusChild struct for ZFSPoolStatusChild
 type ZFSPoolStatusChild struct {
 	Cksum float32 `json:"cksum"`
@@ -61,7 +64,7 @@ func (o *ZFSPoolStatusChild) GetCksum() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetCksumOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Cksum, true
 }
@@ -85,7 +88,7 @@ func (o *ZFSPoolStatusChild) GetRead() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetReadOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Read, true
 }
@@ -109,7 +112,7 @@ func (o *ZFSPoolStatusChild) GetWrite() float32 {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetWriteOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Write, true
 }
@@ -133,7 +136,7 @@ func (o *ZFSPoolStatusChild) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -157,7 +160,7 @@ func (o *ZFSPoolStatusChild) GetState() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetStateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.State, true
 }
@@ -180,7 +183,7 @@ func (o *ZFSPoolStatusChild) GetMsg() string {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetMsgOk() (*string, bool) {
 	if o == nil || isNil(o.Msg) {
-    return nil, false
+		return nil, false
 	}
 	return o.Msg, true
 }
@@ -212,7 +215,7 @@ func (o *ZFSPoolStatusChild) GetChildren() []ZFSPoolStatusChild {
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetChildrenOk() ([]ZFSPoolStatusChild, bool) {
 	if o == nil || isNil(o.Children) {
-    return nil, false
+		return nil, false
 	}
 	return o.Children, true
 }
@@ -232,29 +235,27 @@ func (o *ZFSPoolStatusChild) SetChildren(v []ZFSPoolStatusChild) {
 }
 
 func (o ZFSPoolStatusChild) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ZFSPoolStatusChild) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["cksum"] = o.Cksum
-	}
-	if true {
-		toSerialize["read"] = o.Read
-	}
-	if true {
-		toSerialize["write"] = o.Write
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["state"] = o.State
-	}
+	toSerialize["cksum"] = o.Cksum
+	toSerialize["read"] = o.Read
+	toSerialize["write"] = o.Write
+	toSerialize["name"] = o.Name
+	toSerialize["state"] = o.State
 	if !isNil(o.Msg) {
 		toSerialize["msg"] = o.Msg
 	}
 	if !isNil(o.Children) {
 		toSerialize["children"] = o.Children
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableZFSPoolStatusChild struct {

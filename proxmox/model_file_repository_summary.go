@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the FileRepositorySummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FileRepositorySummary{}
+
 // FileRepositorySummary struct for FileRepositorySummary
 type FileRepositorySummary struct {
 	Enabled *float32 `json:"Enabled,omitempty"`
@@ -55,7 +58,7 @@ func (o *FileRepositorySummary) GetEnabled() float32 {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetEnabledOk() (*float32, bool) {
 	if o == nil || isNil(o.Enabled) {
-    return nil, false
+		return nil, false
 	}
 	return o.Enabled, true
 }
@@ -87,7 +90,7 @@ func (o *FileRepositorySummary) GetComponents() []string {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetComponentsOk() ([]string, bool) {
 	if o == nil || isNil(o.Components) {
-    return nil, false
+		return nil, false
 	}
 	return o.Components, true
 }
@@ -119,7 +122,7 @@ func (o *FileRepositorySummary) GetFileType() string {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetFileTypeOk() (*string, bool) {
 	if o == nil || isNil(o.FileType) {
-    return nil, false
+		return nil, false
 	}
 	return o.FileType, true
 }
@@ -151,7 +154,7 @@ func (o *FileRepositorySummary) GetURIs() []string {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetURIsOk() ([]string, bool) {
 	if o == nil || isNil(o.URIs) {
-    return nil, false
+		return nil, false
 	}
 	return o.URIs, true
 }
@@ -183,7 +186,7 @@ func (o *FileRepositorySummary) GetTypes() []string {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetTypesOk() ([]string, bool) {
 	if o == nil || isNil(o.Types) {
-    return nil, false
+		return nil, false
 	}
 	return o.Types, true
 }
@@ -215,7 +218,7 @@ func (o *FileRepositorySummary) GetSuites() []string {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetSuitesOk() ([]string, bool) {
 	if o == nil || isNil(o.Suites) {
-    return nil, false
+		return nil, false
 	}
 	return o.Suites, true
 }
@@ -247,7 +250,7 @@ func (o *FileRepositorySummary) GetComment() string {
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetCommentOk() (*string, bool) {
 	if o == nil || isNil(o.Comment) {
-    return nil, false
+		return nil, false
 	}
 	return o.Comment, true
 }
@@ -267,6 +270,14 @@ func (o *FileRepositorySummary) SetComment(v string) {
 }
 
 func (o FileRepositorySummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o FileRepositorySummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Enabled) {
 		toSerialize["Enabled"] = o.Enabled
@@ -289,7 +300,7 @@ func (o FileRepositorySummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Comment) {
 		toSerialize["Comment"] = o.Comment
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableFileRepositorySummary struct {

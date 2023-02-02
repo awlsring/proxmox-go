@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MachineCapabilitySummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MachineCapabilitySummary{}
+
 // MachineCapabilitySummary struct for MachineCapabilitySummary
 type MachineCapabilitySummary struct {
 	Id string `json:"id"`
@@ -55,7 +58,7 @@ func (o *MachineCapabilitySummary) GetId() string {
 // and a boolean to check if the value has been set.
 func (o *MachineCapabilitySummary) GetIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -79,7 +82,7 @@ func (o *MachineCapabilitySummary) GetType() MachineType {
 // and a boolean to check if the value has been set.
 func (o *MachineCapabilitySummary) GetTypeOk() (*MachineType, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -103,7 +106,7 @@ func (o *MachineCapabilitySummary) GetVersion() string {
 // and a boolean to check if the value has been set.
 func (o *MachineCapabilitySummary) GetVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Version, true
 }
@@ -114,17 +117,19 @@ func (o *MachineCapabilitySummary) SetVersion(v string) {
 }
 
 func (o MachineCapabilitySummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
-	if true {
-		toSerialize["version"] = o.Version
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MachineCapabilitySummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["id"] = o.Id
+	toSerialize["type"] = o.Type
+	toSerialize["version"] = o.Version
+	return toSerialize, nil
 }
 
 type NullableMachineCapabilitySummary struct {

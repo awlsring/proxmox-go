@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdateSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateSummary{}
+
 // UpdateSummary struct for UpdateSummary
 type UpdateSummary struct {
 	Title string `json:"Title"`
@@ -69,7 +72,7 @@ func (o *UpdateSummary) GetTitle() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetTitleOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Title, true
 }
@@ -93,7 +96,7 @@ func (o *UpdateSummary) GetChangeLogUrl() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetChangeLogUrlOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ChangeLogUrl, true
 }
@@ -117,7 +120,7 @@ func (o *UpdateSummary) GetPriority() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetPriorityOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Priority, true
 }
@@ -141,7 +144,7 @@ func (o *UpdateSummary) GetOldVersion() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetOldVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.OldVersion, true
 }
@@ -165,7 +168,7 @@ func (o *UpdateSummary) GetDescription() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetDescriptionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Description, true
 }
@@ -189,7 +192,7 @@ func (o *UpdateSummary) GetArch() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetArchOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Arch, true
 }
@@ -213,7 +216,7 @@ func (o *UpdateSummary) GetPackage() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetPackageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Package, true
 }
@@ -237,7 +240,7 @@ func (o *UpdateSummary) GetSection() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetSectionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Section, true
 }
@@ -261,7 +264,7 @@ func (o *UpdateSummary) GetVersion() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Version, true
 }
@@ -285,7 +288,7 @@ func (o *UpdateSummary) GetOrigin() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateSummary) GetOriginOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Origin, true
 }
@@ -296,38 +299,26 @@ func (o *UpdateSummary) SetOrigin(v string) {
 }
 
 func (o UpdateSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["Title"] = o.Title
-	}
-	if true {
-		toSerialize["ChangeLogUrl"] = o.ChangeLogUrl
-	}
-	if true {
-		toSerialize["Priority"] = o.Priority
-	}
-	if true {
-		toSerialize["OldVersion"] = o.OldVersion
-	}
-	if true {
-		toSerialize["Description"] = o.Description
-	}
-	if true {
-		toSerialize["Arch"] = o.Arch
-	}
-	if true {
-		toSerialize["Package"] = o.Package
-	}
-	if true {
-		toSerialize["Section"] = o.Section
-	}
-	if true {
-		toSerialize["Version"] = o.Version
-	}
-	if true {
-		toSerialize["Origin"] = o.Origin
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UpdateSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["Title"] = o.Title
+	toSerialize["ChangeLogUrl"] = o.ChangeLogUrl
+	toSerialize["Priority"] = o.Priority
+	toSerialize["OldVersion"] = o.OldVersion
+	toSerialize["Description"] = o.Description
+	toSerialize["Arch"] = o.Arch
+	toSerialize["Package"] = o.Package
+	toSerialize["Section"] = o.Section
+	toSerialize["Version"] = o.Version
+	toSerialize["Origin"] = o.Origin
+	return toSerialize, nil
 }
 
 type NullableUpdateSummary struct {

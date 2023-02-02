@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateClusterConfigRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateClusterConfigRequestContent{}
+
 // CreateClusterConfigRequestContent struct for CreateClusterConfigRequestContent
 type CreateClusterConfigRequestContent struct {
 	// Cluster name
@@ -64,7 +67,7 @@ func (o *CreateClusterConfigRequestContent) GetClustername() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetClusternameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Clustername, true
 }
@@ -87,7 +90,7 @@ func (o *CreateClusterConfigRequestContent) GetLink0() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink0Ok() (*string, bool) {
 	if o == nil || isNil(o.Link0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link0, true
 }
@@ -119,7 +122,7 @@ func (o *CreateClusterConfigRequestContent) GetLink1() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink1Ok() (*string, bool) {
 	if o == nil || isNil(o.Link1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link1, true
 }
@@ -151,7 +154,7 @@ func (o *CreateClusterConfigRequestContent) GetLink2() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink2Ok() (*string, bool) {
 	if o == nil || isNil(o.Link2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link2, true
 }
@@ -183,7 +186,7 @@ func (o *CreateClusterConfigRequestContent) GetLink3() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink3Ok() (*string, bool) {
 	if o == nil || isNil(o.Link3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link3, true
 }
@@ -215,7 +218,7 @@ func (o *CreateClusterConfigRequestContent) GetLink4() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink4Ok() (*string, bool) {
 	if o == nil || isNil(o.Link4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link4, true
 }
@@ -247,7 +250,7 @@ func (o *CreateClusterConfigRequestContent) GetLink5() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink5Ok() (*string, bool) {
 	if o == nil || isNil(o.Link5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link5, true
 }
@@ -279,7 +282,7 @@ func (o *CreateClusterConfigRequestContent) GetLink6() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink6Ok() (*string, bool) {
 	if o == nil || isNil(o.Link6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link6, true
 }
@@ -311,7 +314,7 @@ func (o *CreateClusterConfigRequestContent) GetLink7() string {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink7Ok() (*string, bool) {
 	if o == nil || isNil(o.Link7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link7, true
 }
@@ -343,7 +346,7 @@ func (o *CreateClusterConfigRequestContent) GetNodeid() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetNodeidOk() (*float32, bool) {
 	if o == nil || isNil(o.Nodeid) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodeid, true
 }
@@ -375,7 +378,7 @@ func (o *CreateClusterConfigRequestContent) GetVotes() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetVotesOk() (*float32, bool) {
 	if o == nil || isNil(o.Votes) {
-    return nil, false
+		return nil, false
 	}
 	return o.Votes, true
 }
@@ -395,10 +398,16 @@ func (o *CreateClusterConfigRequestContent) SetVotes(v float32) {
 }
 
 func (o CreateClusterConfigRequestContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["clustername"] = o.Clustername
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateClusterConfigRequestContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["clustername"] = o.Clustername
 	if !isNil(o.Link0) {
 		toSerialize["link0"] = o.Link0
 	}
@@ -429,7 +438,7 @@ func (o CreateClusterConfigRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Votes) {
 		toSerialize["votes"] = o.Votes
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateClusterConfigRequestContent struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NoGuestAgentErrorResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NoGuestAgentErrorResponseContent{}
+
 // NoGuestAgentErrorResponseContent struct for NoGuestAgentErrorResponseContent
 type NoGuestAgentErrorResponseContent struct {
 	Message string `json:"message"`
@@ -51,7 +54,7 @@ func (o *NoGuestAgentErrorResponseContent) GetMessage() string {
 // and a boolean to check if the value has been set.
 func (o *NoGuestAgentErrorResponseContent) GetMessageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Message, true
 }
@@ -62,11 +65,17 @@ func (o *NoGuestAgentErrorResponseContent) SetMessage(v string) {
 }
 
 func (o NoGuestAgentErrorResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["message"] = o.Message
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o NoGuestAgentErrorResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["message"] = o.Message
+	return toSerialize, nil
 }
 
 type NullableNoGuestAgentErrorResponseContent struct {

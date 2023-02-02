@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DeleteNodeCertificateResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeleteNodeCertificateResponseContent{}
+
 // DeleteNodeCertificateResponseContent struct for DeleteNodeCertificateResponseContent
 type DeleteNodeCertificateResponseContent struct {
 	Data string `json:"data"`
@@ -51,7 +54,7 @@ func (o *DeleteNodeCertificateResponseContent) GetData() string {
 // and a boolean to check if the value has been set.
 func (o *DeleteNodeCertificateResponseContent) GetDataOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *DeleteNodeCertificateResponseContent) SetData(v string) {
 }
 
 func (o DeleteNodeCertificateResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DeleteNodeCertificateResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableDeleteNodeCertificateResponseContent struct {

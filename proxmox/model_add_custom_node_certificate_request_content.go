@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AddCustomNodeCertificateRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AddCustomNodeCertificateRequestContent{}
+
 // AddCustomNodeCertificateRequestContent struct for AddCustomNodeCertificateRequestContent
 type AddCustomNodeCertificateRequestContent struct {
 	// PEM encoded certificate.
@@ -58,7 +61,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetCertificates() string {
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetCertificatesOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Certificates, true
 }
@@ -81,7 +84,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetForce() float32 {
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
 	if o == nil || isNil(o.Force) {
-    return nil, false
+		return nil, false
 	}
 	return o.Force, true
 }
@@ -113,7 +116,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetKey() string {
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetKeyOk() (*string, bool) {
 	if o == nil || isNil(o.Key) {
-    return nil, false
+		return nil, false
 	}
 	return o.Key, true
 }
@@ -145,7 +148,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetRestart() float32 {
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetRestartOk() (*float32, bool) {
 	if o == nil || isNil(o.Restart) {
-    return nil, false
+		return nil, false
 	}
 	return o.Restart, true
 }
@@ -165,10 +168,16 @@ func (o *AddCustomNodeCertificateRequestContent) SetRestart(v float32) {
 }
 
 func (o AddCustomNodeCertificateRequestContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["certificates"] = o.Certificates
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o AddCustomNodeCertificateRequestContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["certificates"] = o.Certificates
 	if !isNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
@@ -178,7 +187,7 @@ func (o AddCustomNodeCertificateRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Restart) {
 		toSerialize["restart"] = o.Restart
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableAddCustomNodeCertificateRequestContent struct {

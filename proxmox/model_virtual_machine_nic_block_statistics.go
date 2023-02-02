@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VirtualMachineNicBlockStatistics type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VirtualMachineNicBlockStatistics{}
+
 // VirtualMachineNicBlockStatistics struct for VirtualMachineNicBlockStatistics
 type VirtualMachineNicBlockStatistics struct {
 	FlushTotalTimeNs *float32 `json:"flush_total_time_ns,omitempty"`
@@ -75,7 +78,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFlushTotalTimeNs() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFlushTotalTimeNsOk() (*float32, bool) {
 	if o == nil || isNil(o.FlushTotalTimeNs) {
-    return nil, false
+		return nil, false
 	}
 	return o.FlushTotalTimeNs, true
 }
@@ -107,7 +110,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdBytes() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdBytesOk() (*float32, bool) {
 	if o == nil || isNil(o.RdBytes) {
-    return nil, false
+		return nil, false
 	}
 	return o.RdBytes, true
 }
@@ -139,7 +142,7 @@ func (o *VirtualMachineNicBlockStatistics) GetTimedStats() []string {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetTimedStatsOk() ([]string, bool) {
 	if o == nil || isNil(o.TimedStats) {
-    return nil, false
+		return nil, false
 	}
 	return o.TimedStats, true
 }
@@ -171,7 +174,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrHighestOffset() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrHighestOffsetOk() (*float32, bool) {
 	if o == nil || isNil(o.WrHighestOffset) {
-    return nil, false
+		return nil, false
 	}
 	return o.WrHighestOffset, true
 }
@@ -203,7 +206,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdTotalTimeNs() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdTotalTimeNsOk() (*float32, bool) {
 	if o == nil || isNil(o.RdTotalTimeNs) {
-    return nil, false
+		return nil, false
 	}
 	return o.RdTotalTimeNs, true
 }
@@ -235,7 +238,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFlushOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFlushOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.FlushOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.FlushOperations, true
 }
@@ -267,7 +270,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.WrOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.WrOperations, true
 }
@@ -299,7 +302,7 @@ func (o *VirtualMachineNicBlockStatistics) GetIdleTimeNs() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetIdleTimeNsOk() (*float32, bool) {
 	if o == nil || isNil(o.IdleTimeNs) {
-    return nil, false
+		return nil, false
 	}
 	return o.IdleTimeNs, true
 }
@@ -331,7 +334,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrMerged() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrMergedOk() (*float32, bool) {
 	if o == nil || isNil(o.WrMerged) {
-    return nil, false
+		return nil, false
 	}
 	return o.WrMerged, true
 }
@@ -363,7 +366,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidRdOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidRdOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.InvalidRdOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.InvalidRdOperations, true
 }
@@ -395,7 +398,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedFlushOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedFlushOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.FailedFlushOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.FailedFlushOperations, true
 }
@@ -427,7 +430,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapBytes() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapBytesOk() (*float32, bool) {
 	if o == nil || isNil(o.UnmapBytes) {
-    return nil, false
+		return nil, false
 	}
 	return o.UnmapBytes, true
 }
@@ -459,7 +462,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedRdOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedRdOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.FailedRdOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.FailedRdOperations, true
 }
@@ -491,7 +494,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrBytes() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrBytesOk() (*float32, bool) {
 	if o == nil || isNil(o.WrBytes) {
-    return nil, false
+		return nil, false
 	}
 	return o.WrBytes, true
 }
@@ -523,7 +526,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidFlushOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidFlushOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.InvalidFlushOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.InvalidFlushOperations, true
 }
@@ -555,7 +558,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.UnmapOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.UnmapOperations, true
 }
@@ -587,7 +590,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrTotalTimeNs() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrTotalTimeNsOk() (*float32, bool) {
 	if o == nil || isNil(o.WrTotalTimeNs) {
-    return nil, false
+		return nil, false
 	}
 	return o.WrTotalTimeNs, true
 }
@@ -619,7 +622,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedWrOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedWrOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.FailedWrOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.FailedWrOperations, true
 }
@@ -651,7 +654,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapMerged() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapMergedOk() (*float32, bool) {
 	if o == nil || isNil(o.UnmapMerged) {
-    return nil, false
+		return nil, false
 	}
 	return o.UnmapMerged, true
 }
@@ -683,7 +686,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidWrOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidWrOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.InvalidWrOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.InvalidWrOperations, true
 }
@@ -715,7 +718,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.RdOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.RdOperations, true
 }
@@ -747,7 +750,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapTotalTimeNs() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapTotalTimeNsOk() (*float32, bool) {
 	if o == nil || isNil(o.UnmapTotalTimeNs) {
-    return nil, false
+		return nil, false
 	}
 	return o.UnmapTotalTimeNs, true
 }
@@ -779,7 +782,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidUnmapOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidUnmapOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.InvalidUnmapOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.InvalidUnmapOperations, true
 }
@@ -811,7 +814,7 @@ func (o *VirtualMachineNicBlockStatistics) GetAccountFailed() bool {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetAccountFailedOk() (*bool, bool) {
 	if o == nil || isNil(o.AccountFailed) {
-    return nil, false
+		return nil, false
 	}
 	return o.AccountFailed, true
 }
@@ -843,7 +846,7 @@ func (o *VirtualMachineNicBlockStatistics) GetAccountInvalid() bool {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetAccountInvalidOk() (*bool, bool) {
 	if o == nil || isNil(o.AccountInvalid) {
-    return nil, false
+		return nil, false
 	}
 	return o.AccountInvalid, true
 }
@@ -875,7 +878,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdMerged() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdMergedOk() (*float32, bool) {
 	if o == nil || isNil(o.RdMerged) {
-    return nil, false
+		return nil, false
 	}
 	return o.RdMerged, true
 }
@@ -907,7 +910,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedUnmapOperations() float32 {
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedUnmapOperationsOk() (*float32, bool) {
 	if o == nil || isNil(o.FailedUnmapOperations) {
-    return nil, false
+		return nil, false
 	}
 	return o.FailedUnmapOperations, true
 }
@@ -927,6 +930,14 @@ func (o *VirtualMachineNicBlockStatistics) SetFailedUnmapOperations(v float32) {
 }
 
 func (o VirtualMachineNicBlockStatistics) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o VirtualMachineNicBlockStatistics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.FlushTotalTimeNs) {
 		toSerialize["flush_total_time_ns"] = o.FlushTotalTimeNs
@@ -1009,7 +1020,7 @@ func (o VirtualMachineNicBlockStatistics) MarshalJSON() ([]byte, error) {
 	if !isNil(o.FailedUnmapOperations) {
 		toSerialize["failed_unmap_operations"] = o.FailedUnmapOperations
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableVirtualMachineNicBlockStatistics struct {

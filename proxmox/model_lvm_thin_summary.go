@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LVMThinSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LVMThinSummary{}
+
 // LVMThinSummary struct for LVMThinSummary
 type LVMThinSummary struct {
 	Lv []LVMThinSummary `json:"lv"`
@@ -66,7 +69,7 @@ func (o *LVMThinSummary) GetLv() []LVMThinSummary {
 // and a boolean to check if the value has been set.
 func (o *LVMThinSummary) GetLvOk() ([]LVMThinSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Lv, true
 }
@@ -90,7 +93,7 @@ func (o *LVMThinSummary) GetLvSize() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMThinSummary) GetLvSizeOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LvSize, true
 }
@@ -114,7 +117,7 @@ func (o *LVMThinSummary) GetUsed() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMThinSummary) GetUsedOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Used, true
 }
@@ -138,7 +141,7 @@ func (o *LVMThinSummary) GetMetadataSize() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMThinSummary) GetMetadataSizeOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MetadataSize, true
 }
@@ -162,7 +165,7 @@ func (o *LVMThinSummary) GetMetadataUsed() float32 {
 // and a boolean to check if the value has been set.
 func (o *LVMThinSummary) GetMetadataUsedOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MetadataUsed, true
 }
@@ -186,7 +189,7 @@ func (o *LVMThinSummary) GetVg() string {
 // and a boolean to check if the value has been set.
 func (o *LVMThinSummary) GetVgOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Vg, true
 }
@@ -197,26 +200,22 @@ func (o *LVMThinSummary) SetVg(v string) {
 }
 
 func (o LVMThinSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["lv"] = o.Lv
-	}
-	if true {
-		toSerialize["lv_size"] = o.LvSize
-	}
-	if true {
-		toSerialize["used"] = o.Used
-	}
-	if true {
-		toSerialize["metadata_size"] = o.MetadataSize
-	}
-	if true {
-		toSerialize["metadata_used"] = o.MetadataUsed
-	}
-	if true {
-		toSerialize["vg"] = o.Vg
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o LVMThinSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["lv"] = o.Lv
+	toSerialize["lv_size"] = o.LvSize
+	toSerialize["used"] = o.Used
+	toSerialize["metadata_size"] = o.MetadataSize
+	toSerialize["metadata_used"] = o.MetadataUsed
+	toSerialize["vg"] = o.Vg
+	return toSerialize, nil
 }
 
 type NullableLVMThinSummary struct {

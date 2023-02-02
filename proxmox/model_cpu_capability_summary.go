@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CpuCapabilitySummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CpuCapabilitySummary{}
+
 // CpuCapabilitySummary struct for CpuCapabilitySummary
 type CpuCapabilitySummary struct {
 	Custom float32 `json:"custom"`
@@ -55,7 +58,7 @@ func (o *CpuCapabilitySummary) GetCustom() float32 {
 // and a boolean to check if the value has been set.
 func (o *CpuCapabilitySummary) GetCustomOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Custom, true
 }
@@ -79,7 +82,7 @@ func (o *CpuCapabilitySummary) GetVendor() string {
 // and a boolean to check if the value has been set.
 func (o *CpuCapabilitySummary) GetVendorOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Vendor, true
 }
@@ -103,7 +106,7 @@ func (o *CpuCapabilitySummary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *CpuCapabilitySummary) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -114,17 +117,19 @@ func (o *CpuCapabilitySummary) SetName(v string) {
 }
 
 func (o CpuCapabilitySummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["custom"] = o.Custom
-	}
-	if true {
-		toSerialize["vendor"] = o.Vendor
-	}
-	if true {
-		toSerialize["name"] = o.Name
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CpuCapabilitySummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["custom"] = o.Custom
+	toSerialize["vendor"] = o.Vendor
+	toSerialize["name"] = o.Name
+	return toSerialize, nil
 }
 
 type NullableCpuCapabilitySummary struct {

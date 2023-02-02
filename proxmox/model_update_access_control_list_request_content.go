@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdateAccessControlListRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateAccessControlListRequestContent{}
+
 // UpdateAccessControlListRequestContent struct for UpdateAccessControlListRequestContent
 type UpdateAccessControlListRequestContent struct {
 	Path string `json:"path"`
@@ -63,7 +66,7 @@ func (o *UpdateAccessControlListRequestContent) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Path, true
 }
@@ -87,7 +90,7 @@ func (o *UpdateAccessControlListRequestContent) GetRoles() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetRolesOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Roles, true
 }
@@ -110,7 +113,7 @@ func (o *UpdateAccessControlListRequestContent) GetDelete() bool {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetDeleteOk() (*bool, bool) {
 	if o == nil || isNil(o.Delete) {
-    return nil, false
+		return nil, false
 	}
 	return o.Delete, true
 }
@@ -142,7 +145,7 @@ func (o *UpdateAccessControlListRequestContent) GetGroups() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetGroupsOk() (*string, bool) {
 	if o == nil || isNil(o.Groups) {
-    return nil, false
+		return nil, false
 	}
 	return o.Groups, true
 }
@@ -174,7 +177,7 @@ func (o *UpdateAccessControlListRequestContent) GetPropagate() bool {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetPropagateOk() (*bool, bool) {
 	if o == nil || isNil(o.Propagate) {
-    return nil, false
+		return nil, false
 	}
 	return o.Propagate, true
 }
@@ -206,7 +209,7 @@ func (o *UpdateAccessControlListRequestContent) GetTokens() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetTokensOk() (*string, bool) {
 	if o == nil || isNil(o.Tokens) {
-    return nil, false
+		return nil, false
 	}
 	return o.Tokens, true
 }
@@ -238,7 +241,7 @@ func (o *UpdateAccessControlListRequestContent) GetUsers() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetUsersOk() (*string, bool) {
 	if o == nil || isNil(o.Users) {
-    return nil, false
+		return nil, false
 	}
 	return o.Users, true
 }
@@ -258,13 +261,17 @@ func (o *UpdateAccessControlListRequestContent) SetUsers(v string) {
 }
 
 func (o UpdateAccessControlListRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UpdateAccessControlListRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["path"] = o.Path
-	}
-	if true {
-		toSerialize["roles"] = o.Roles
-	}
+	toSerialize["path"] = o.Path
+	toSerialize["roles"] = o.Roles
 	if !isNil(o.Delete) {
 		toSerialize["delete"] = o.Delete
 	}
@@ -280,7 +287,7 @@ func (o UpdateAccessControlListRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Users) {
 		toSerialize["users"] = o.Users
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableUpdateAccessControlListRequestContent struct {

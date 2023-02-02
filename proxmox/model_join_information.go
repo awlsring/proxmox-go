@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JoinInformation type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JoinInformation{}
+
 // JoinInformation struct for JoinInformation
 type JoinInformation struct {
 	Totem TotemSummary `json:"totem"`
@@ -57,7 +60,7 @@ func (o *JoinInformation) GetTotem() TotemSummary {
 // and a boolean to check if the value has been set.
 func (o *JoinInformation) GetTotemOk() (*TotemSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Totem, true
 }
@@ -81,7 +84,7 @@ func (o *JoinInformation) GetPreferredNode() string {
 // and a boolean to check if the value has been set.
 func (o *JoinInformation) GetPreferredNodeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PreferredNode, true
 }
@@ -105,7 +108,7 @@ func (o *JoinInformation) GetConfigDigest() string {
 // and a boolean to check if the value has been set.
 func (o *JoinInformation) GetConfigDigestOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ConfigDigest, true
 }
@@ -129,7 +132,7 @@ func (o *JoinInformation) GetNodelist() []CorosyncNodeSummary {
 // and a boolean to check if the value has been set.
 func (o *JoinInformation) GetNodelistOk() ([]CorosyncNodeSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodelist, true
 }
@@ -140,20 +143,20 @@ func (o *JoinInformation) SetNodelist(v []CorosyncNodeSummary) {
 }
 
 func (o JoinInformation) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["totem"] = o.Totem
-	}
-	if true {
-		toSerialize["preferred_node"] = o.PreferredNode
-	}
-	if true {
-		toSerialize["config_digest"] = o.ConfigDigest
-	}
-	if true {
-		toSerialize["nodelist"] = o.Nodelist
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JoinInformation) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["totem"] = o.Totem
+	toSerialize["preferred_node"] = o.PreferredNode
+	toSerialize["config_digest"] = o.ConfigDigest
+	toSerialize["nodelist"] = o.Nodelist
+	return toSerialize, nil
 }
 
 type NullableJoinInformation struct {

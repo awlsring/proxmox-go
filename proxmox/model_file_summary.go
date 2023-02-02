@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the FileSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FileSummary{}
+
 // FileSummary struct for FileSummary
 type FileSummary struct {
 	Path *string `json:"path,omitempty"`
@@ -53,7 +56,7 @@ func (o *FileSummary) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetPathOk() (*string, bool) {
 	if o == nil || isNil(o.Path) {
-    return nil, false
+		return nil, false
 	}
 	return o.Path, true
 }
@@ -85,7 +88,7 @@ func (o *FileSummary) GetContent() string {
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetContentOk() (*string, bool) {
 	if o == nil || isNil(o.Content) {
-    return nil, false
+		return nil, false
 	}
 	return o.Content, true
 }
@@ -117,7 +120,7 @@ func (o *FileSummary) GetRepositories() []FileRepositorySummary {
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetRepositoriesOk() ([]FileRepositorySummary, bool) {
 	if o == nil || isNil(o.Repositories) {
-    return nil, false
+		return nil, false
 	}
 	return o.Repositories, true
 }
@@ -149,7 +152,7 @@ func (o *FileSummary) GetDigest() []float32 {
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetDigestOk() ([]float32, bool) {
 	if o == nil || isNil(o.Digest) {
-    return nil, false
+		return nil, false
 	}
 	return o.Digest, true
 }
@@ -181,7 +184,7 @@ func (o *FileSummary) GetFileType() string {
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetFileTypeOk() (*string, bool) {
 	if o == nil || isNil(o.FileType) {
-    return nil, false
+		return nil, false
 	}
 	return o.FileType, true
 }
@@ -201,6 +204,14 @@ func (o *FileSummary) SetFileType(v string) {
 }
 
 func (o FileSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o FileSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Path) {
 		toSerialize["path"] = o.Path
@@ -217,7 +228,7 @@ func (o FileSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.FileType) {
 		toSerialize["file-type"] = o.FileType
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableFileSummary struct {

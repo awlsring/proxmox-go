@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DeleteLVMResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeleteLVMResponseContent{}
+
 // DeleteLVMResponseContent struct for DeleteLVMResponseContent
 type DeleteLVMResponseContent struct {
 	Data string `json:"data"`
@@ -51,7 +54,7 @@ func (o *DeleteLVMResponseContent) GetData() string {
 // and a boolean to check if the value has been set.
 func (o *DeleteLVMResponseContent) GetDataOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *DeleteLVMResponseContent) SetData(v string) {
 }
 
 func (o DeleteLVMResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DeleteLVMResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableDeleteLVMResponseContent struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ModifyPoolRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModifyPoolRequestContent{}
+
 // ModifyPoolRequestContent struct for ModifyPoolRequestContent
 type ModifyPoolRequestContent struct {
 	Poolid string `json:"poolid"`
@@ -58,7 +61,7 @@ func (o *ModifyPoolRequestContent) GetPoolid() string {
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetPoolidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Poolid, true
 }
@@ -81,7 +84,7 @@ func (o *ModifyPoolRequestContent) GetComment() string {
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetCommentOk() (*string, bool) {
 	if o == nil || isNil(o.Comment) {
-    return nil, false
+		return nil, false
 	}
 	return o.Comment, true
 }
@@ -113,7 +116,7 @@ func (o *ModifyPoolRequestContent) GetDelete() bool {
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetDeleteOk() (*bool, bool) {
 	if o == nil || isNil(o.Delete) {
-    return nil, false
+		return nil, false
 	}
 	return o.Delete, true
 }
@@ -145,7 +148,7 @@ func (o *ModifyPoolRequestContent) GetStorage() string {
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetStorageOk() (*string, bool) {
 	if o == nil || isNil(o.Storage) {
-    return nil, false
+		return nil, false
 	}
 	return o.Storage, true
 }
@@ -177,7 +180,7 @@ func (o *ModifyPoolRequestContent) GetVms() string {
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetVmsOk() (*string, bool) {
 	if o == nil || isNil(o.Vms) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vms, true
 }
@@ -197,10 +200,16 @@ func (o *ModifyPoolRequestContent) SetVms(v string) {
 }
 
 func (o ModifyPoolRequestContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["poolid"] = o.Poolid
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ModifyPoolRequestContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["poolid"] = o.Poolid
 	if !isNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
@@ -213,7 +222,7 @@ func (o ModifyPoolRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Vms) {
 		toSerialize["vms"] = o.Vms
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableModifyPoolRequestContent struct {

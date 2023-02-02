@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetVirtualMachineFeatureSupportResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetVirtualMachineFeatureSupportResponseContent{}
+
 // GetVirtualMachineFeatureSupportResponseContent struct for GetVirtualMachineFeatureSupportResponseContent
 type GetVirtualMachineFeatureSupportResponseContent struct {
 	Data VirtualMachineFeatureSupportSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *GetVirtualMachineFeatureSupportResponseContent) GetData() VirtualMachin
 // and a boolean to check if the value has been set.
 func (o *GetVirtualMachineFeatureSupportResponseContent) GetDataOk() (*VirtualMachineFeatureSupportSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *GetVirtualMachineFeatureSupportResponseContent) SetData(v VirtualMachin
 }
 
 func (o GetVirtualMachineFeatureSupportResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetVirtualMachineFeatureSupportResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableGetVirtualMachineFeatureSupportResponseContent struct {

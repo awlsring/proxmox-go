@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListPciDeviceMediatedDevicesResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListPciDeviceMediatedDevicesResponseContent{}
+
 // ListPciDeviceMediatedDevicesResponseContent struct for ListPciDeviceMediatedDevicesResponseContent
 type ListPciDeviceMediatedDevicesResponseContent struct {
 	Data []PciMediatedDeviceSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListPciDeviceMediatedDevicesResponseContent) GetData() []PciMediatedDev
 // and a boolean to check if the value has been set.
 func (o *ListPciDeviceMediatedDevicesResponseContent) GetDataOk() ([]PciMediatedDeviceSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListPciDeviceMediatedDevicesResponseContent) SetData(v []PciMediatedDev
 }
 
 func (o ListPciDeviceMediatedDevicesResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListPciDeviceMediatedDevicesResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListPciDeviceMediatedDevicesResponseContent struct {

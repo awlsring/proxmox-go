@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateStorageRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateStorageRequestContent{}
+
 // CreateStorageRequestContent struct for CreateStorageRequestContent
 type CreateStorageRequestContent struct {
 	Storage string `json:"storage"`
@@ -151,7 +154,7 @@ func (o *CreateStorageRequestContent) GetStorage() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetStorageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Storage, true
 }
@@ -175,7 +178,7 @@ func (o *CreateStorageRequestContent) GetType() StorageType {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetTypeOk() (*StorageType, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -198,7 +201,7 @@ func (o *CreateStorageRequestContent) GetAuthsupported() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetAuthsupportedOk() (*string, bool) {
 	if o == nil || isNil(o.Authsupported) {
-    return nil, false
+		return nil, false
 	}
 	return o.Authsupported, true
 }
@@ -230,7 +233,7 @@ func (o *CreateStorageRequestContent) GetBase() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetBaseOk() (*string, bool) {
 	if o == nil || isNil(o.Base) {
-    return nil, false
+		return nil, false
 	}
 	return o.Base, true
 }
@@ -262,7 +265,7 @@ func (o *CreateStorageRequestContent) GetBlocksize() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetBlocksizeOk() (*string, bool) {
 	if o == nil || isNil(o.Blocksize) {
-    return nil, false
+		return nil, false
 	}
 	return o.Blocksize, true
 }
@@ -294,7 +297,7 @@ func (o *CreateStorageRequestContent) GetBwlimit() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetBwlimitOk() (*string, bool) {
 	if o == nil || isNil(o.Bwlimit) {
-    return nil, false
+		return nil, false
 	}
 	return o.Bwlimit, true
 }
@@ -326,7 +329,7 @@ func (o *CreateStorageRequestContent) GetComstarHg() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetComstarHgOk() (*string, bool) {
 	if o == nil || isNil(o.ComstarHg) {
-    return nil, false
+		return nil, false
 	}
 	return o.ComstarHg, true
 }
@@ -358,7 +361,7 @@ func (o *CreateStorageRequestContent) GetComstarTg() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetComstarTgOk() (*string, bool) {
 	if o == nil || isNil(o.ComstarTg) {
-    return nil, false
+		return nil, false
 	}
 	return o.ComstarTg, true
 }
@@ -390,7 +393,7 @@ func (o *CreateStorageRequestContent) GetContent() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetContentOk() (*string, bool) {
 	if o == nil || isNil(o.Content) {
-    return nil, false
+		return nil, false
 	}
 	return o.Content, true
 }
@@ -422,7 +425,7 @@ func (o *CreateStorageRequestContent) GetDataPool() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetDataPoolOk() (*string, bool) {
 	if o == nil || isNil(o.DataPool) {
-    return nil, false
+		return nil, false
 	}
 	return o.DataPool, true
 }
@@ -454,7 +457,7 @@ func (o *CreateStorageRequestContent) GetDisable() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetDisableOk() (*bool, bool) {
 	if o == nil || isNil(o.Disable) {
-    return nil, false
+		return nil, false
 	}
 	return o.Disable, true
 }
@@ -486,7 +489,7 @@ func (o *CreateStorageRequestContent) GetDomain() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetDomainOk() (*string, bool) {
 	if o == nil || isNil(o.Domain) {
-    return nil, false
+		return nil, false
 	}
 	return o.Domain, true
 }
@@ -518,7 +521,7 @@ func (o *CreateStorageRequestContent) GetEncryptionKey() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetEncryptionKeyOk() (*string, bool) {
 	if o == nil || isNil(o.EncryptionKey) {
-    return nil, false
+		return nil, false
 	}
 	return o.EncryptionKey, true
 }
@@ -550,7 +553,7 @@ func (o *CreateStorageRequestContent) GetExport() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetExportOk() (*string, bool) {
 	if o == nil || isNil(o.Export) {
-    return nil, false
+		return nil, false
 	}
 	return o.Export, true
 }
@@ -582,7 +585,7 @@ func (o *CreateStorageRequestContent) GetFingerprint() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetFingerprintOk() (*string, bool) {
 	if o == nil || isNil(o.Fingerprint) {
-    return nil, false
+		return nil, false
 	}
 	return o.Fingerprint, true
 }
@@ -614,7 +617,7 @@ func (o *CreateStorageRequestContent) GetFormat() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetFormatOk() (*string, bool) {
 	if o == nil || isNil(o.Format) {
-    return nil, false
+		return nil, false
 	}
 	return o.Format, true
 }
@@ -646,7 +649,7 @@ func (o *CreateStorageRequestContent) GetFsName() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetFsNameOk() (*string, bool) {
 	if o == nil || isNil(o.FsName) {
-    return nil, false
+		return nil, false
 	}
 	return o.FsName, true
 }
@@ -678,7 +681,7 @@ func (o *CreateStorageRequestContent) GetFuse() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetFuseOk() (*bool, bool) {
 	if o == nil || isNil(o.Fuse) {
-    return nil, false
+		return nil, false
 	}
 	return o.Fuse, true
 }
@@ -710,7 +713,7 @@ func (o *CreateStorageRequestContent) GetIsMountpoint() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetIsMountpointOk() (*string, bool) {
 	if o == nil || isNil(o.IsMountpoint) {
-    return nil, false
+		return nil, false
 	}
 	return o.IsMountpoint, true
 }
@@ -742,7 +745,7 @@ func (o *CreateStorageRequestContent) GetIscsiprovider() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetIscsiproviderOk() (*string, bool) {
 	if o == nil || isNil(o.Iscsiprovider) {
-    return nil, false
+		return nil, false
 	}
 	return o.Iscsiprovider, true
 }
@@ -774,7 +777,7 @@ func (o *CreateStorageRequestContent) GetKeyring() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetKeyringOk() (*string, bool) {
 	if o == nil || isNil(o.Keyring) {
-    return nil, false
+		return nil, false
 	}
 	return o.Keyring, true
 }
@@ -806,7 +809,7 @@ func (o *CreateStorageRequestContent) GetKrbd() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetKrbdOk() (*bool, bool) {
 	if o == nil || isNil(o.Krbd) {
-    return nil, false
+		return nil, false
 	}
 	return o.Krbd, true
 }
@@ -838,7 +841,7 @@ func (o *CreateStorageRequestContent) GetLioTpg() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetLioTpgOk() (*string, bool) {
 	if o == nil || isNil(o.LioTpg) {
-    return nil, false
+		return nil, false
 	}
 	return o.LioTpg, true
 }
@@ -870,7 +873,7 @@ func (o *CreateStorageRequestContent) GetMasterPubkey() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetMasterPubkeyOk() (*string, bool) {
 	if o == nil || isNil(o.MasterPubkey) {
-    return nil, false
+		return nil, false
 	}
 	return o.MasterPubkey, true
 }
@@ -902,7 +905,7 @@ func (o *CreateStorageRequestContent) GetMaxProtectedBackups() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetMaxProtectedBackupsOk() (*float32, bool) {
 	if o == nil || isNil(o.MaxProtectedBackups) {
-    return nil, false
+		return nil, false
 	}
 	return o.MaxProtectedBackups, true
 }
@@ -934,7 +937,7 @@ func (o *CreateStorageRequestContent) GetMkdir() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetMkdirOk() (*bool, bool) {
 	if o == nil || isNil(o.Mkdir) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mkdir, true
 }
@@ -966,7 +969,7 @@ func (o *CreateStorageRequestContent) GetMonhost() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetMonhostOk() (*string, bool) {
 	if o == nil || isNil(o.Monhost) {
-    return nil, false
+		return nil, false
 	}
 	return o.Monhost, true
 }
@@ -998,7 +1001,7 @@ func (o *CreateStorageRequestContent) GetMountpoint() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetMountpointOk() (*string, bool) {
 	if o == nil || isNil(o.Mountpoint) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mountpoint, true
 }
@@ -1030,7 +1033,7 @@ func (o *CreateStorageRequestContent) GetNamespace() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetNamespaceOk() (*string, bool) {
 	if o == nil || isNil(o.Namespace) {
-    return nil, false
+		return nil, false
 	}
 	return o.Namespace, true
 }
@@ -1062,7 +1065,7 @@ func (o *CreateStorageRequestContent) GetNocow() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetNocowOk() (*float32, bool) {
 	if o == nil || isNil(o.Nocow) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nocow, true
 }
@@ -1094,7 +1097,7 @@ func (o *CreateStorageRequestContent) GetNodes() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetNodesOk() (*string, bool) {
 	if o == nil || isNil(o.Nodes) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodes, true
 }
@@ -1126,7 +1129,7 @@ func (o *CreateStorageRequestContent) GetNowritecache() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetNowritecacheOk() (*bool, bool) {
 	if o == nil || isNil(o.Nowritecache) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nowritecache, true
 }
@@ -1158,7 +1161,7 @@ func (o *CreateStorageRequestContent) GetOptions() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetOptionsOk() (*string, bool) {
 	if o == nil || isNil(o.Options) {
-    return nil, false
+		return nil, false
 	}
 	return o.Options, true
 }
@@ -1190,7 +1193,7 @@ func (o *CreateStorageRequestContent) GetPassword() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPasswordOk() (*string, bool) {
 	if o == nil || isNil(o.Password) {
-    return nil, false
+		return nil, false
 	}
 	return o.Password, true
 }
@@ -1222,7 +1225,7 @@ func (o *CreateStorageRequestContent) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPathOk() (*string, bool) {
 	if o == nil || isNil(o.Path) {
-    return nil, false
+		return nil, false
 	}
 	return o.Path, true
 }
@@ -1254,7 +1257,7 @@ func (o *CreateStorageRequestContent) GetPool() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPoolOk() (*string, bool) {
 	if o == nil || isNil(o.Pool) {
-    return nil, false
+		return nil, false
 	}
 	return o.Pool, true
 }
@@ -1286,7 +1289,7 @@ func (o *CreateStorageRequestContent) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPortOk() (*float32, bool) {
 	if o == nil || isNil(o.Port) {
-    return nil, false
+		return nil, false
 	}
 	return o.Port, true
 }
@@ -1318,7 +1321,7 @@ func (o *CreateStorageRequestContent) GetPortal() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPortalOk() (*string, bool) {
 	if o == nil || isNil(o.Portal) {
-    return nil, false
+		return nil, false
 	}
 	return o.Portal, true
 }
@@ -1350,7 +1353,7 @@ func (o *CreateStorageRequestContent) GetPreallocation() StoragePreallocation {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPreallocationOk() (*StoragePreallocation, bool) {
 	if o == nil || isNil(o.Preallocation) {
-    return nil, false
+		return nil, false
 	}
 	return o.Preallocation, true
 }
@@ -1382,7 +1385,7 @@ func (o *CreateStorageRequestContent) GetPruneBackups() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetPruneBackupsOk() (*string, bool) {
 	if o == nil || isNil(o.PruneBackups) {
-    return nil, false
+		return nil, false
 	}
 	return o.PruneBackups, true
 }
@@ -1414,7 +1417,7 @@ func (o *CreateStorageRequestContent) GetSaferemove() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetSaferemoveOk() (*bool, bool) {
 	if o == nil || isNil(o.Saferemove) {
-    return nil, false
+		return nil, false
 	}
 	return o.Saferemove, true
 }
@@ -1446,7 +1449,7 @@ func (o *CreateStorageRequestContent) GetSaferemoveThroughput() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetSaferemoveThroughputOk() (*string, bool) {
 	if o == nil || isNil(o.SaferemoveThroughput) {
-    return nil, false
+		return nil, false
 	}
 	return o.SaferemoveThroughput, true
 }
@@ -1478,7 +1481,7 @@ func (o *CreateStorageRequestContent) GetServer() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetServerOk() (*string, bool) {
 	if o == nil || isNil(o.Server) {
-    return nil, false
+		return nil, false
 	}
 	return o.Server, true
 }
@@ -1510,7 +1513,7 @@ func (o *CreateStorageRequestContent) GetServer2() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetServer2Ok() (*string, bool) {
 	if o == nil || isNil(o.Server2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Server2, true
 }
@@ -1542,7 +1545,7 @@ func (o *CreateStorageRequestContent) GetShare() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetShareOk() (*string, bool) {
 	if o == nil || isNil(o.Share) {
-    return nil, false
+		return nil, false
 	}
 	return o.Share, true
 }
@@ -1574,7 +1577,7 @@ func (o *CreateStorageRequestContent) GetShared() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetSharedOk() (*bool, bool) {
 	if o == nil || isNil(o.Shared) {
-    return nil, false
+		return nil, false
 	}
 	return o.Shared, true
 }
@@ -1606,7 +1609,7 @@ func (o *CreateStorageRequestContent) GetSmbversion() StorageSMBVersion {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetSmbversionOk() (*StorageSMBVersion, bool) {
 	if o == nil || isNil(o.Smbversion) {
-    return nil, false
+		return nil, false
 	}
 	return o.Smbversion, true
 }
@@ -1638,7 +1641,7 @@ func (o *CreateStorageRequestContent) GetSparse() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetSparseOk() (*bool, bool) {
 	if o == nil || isNil(o.Sparse) {
-    return nil, false
+		return nil, false
 	}
 	return o.Sparse, true
 }
@@ -1670,7 +1673,7 @@ func (o *CreateStorageRequestContent) GetSubdir() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetSubdirOk() (*string, bool) {
 	if o == nil || isNil(o.Subdir) {
-    return nil, false
+		return nil, false
 	}
 	return o.Subdir, true
 }
@@ -1702,7 +1705,7 @@ func (o *CreateStorageRequestContent) GetTaggedOnly() bool {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetTaggedOnlyOk() (*bool, bool) {
 	if o == nil || isNil(o.TaggedOnly) {
-    return nil, false
+		return nil, false
 	}
 	return o.TaggedOnly, true
 }
@@ -1734,7 +1737,7 @@ func (o *CreateStorageRequestContent) GetThinpool() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetThinpoolOk() (*string, bool) {
 	if o == nil || isNil(o.Thinpool) {
-    return nil, false
+		return nil, false
 	}
 	return o.Thinpool, true
 }
@@ -1766,7 +1769,7 @@ func (o *CreateStorageRequestContent) GetTransport() StorageTransport {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetTransportOk() (*StorageTransport, bool) {
 	if o == nil || isNil(o.Transport) {
-    return nil, false
+		return nil, false
 	}
 	return o.Transport, true
 }
@@ -1798,7 +1801,7 @@ func (o *CreateStorageRequestContent) GetUsername() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetUsernameOk() (*string, bool) {
 	if o == nil || isNil(o.Username) {
-    return nil, false
+		return nil, false
 	}
 	return o.Username, true
 }
@@ -1830,7 +1833,7 @@ func (o *CreateStorageRequestContent) GetVgname() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetVgnameOk() (*string, bool) {
 	if o == nil || isNil(o.Vgname) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vgname, true
 }
@@ -1862,7 +1865,7 @@ func (o *CreateStorageRequestContent) GetVolume() string {
 // and a boolean to check if the value has been set.
 func (o *CreateStorageRequestContent) GetVolumeOk() (*string, bool) {
 	if o == nil || isNil(o.Volume) {
-    return nil, false
+		return nil, false
 	}
 	return o.Volume, true
 }
@@ -1882,13 +1885,17 @@ func (o *CreateStorageRequestContent) SetVolume(v string) {
 }
 
 func (o CreateStorageRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateStorageRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["storage"] = o.Storage
-	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
+	toSerialize["storage"] = o.Storage
+	toSerialize["type"] = o.Type
 	if !isNil(o.Authsupported) {
 		toSerialize["authsupported"] = o.Authsupported
 	}
@@ -2048,7 +2055,7 @@ func (o CreateStorageRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Volume) {
 		toSerialize["volume"] = o.Volume
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateStorageRequestContent struct {

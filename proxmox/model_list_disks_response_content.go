@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListDisksResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListDisksResponseContent{}
+
 // ListDisksResponseContent struct for ListDisksResponseContent
 type ListDisksResponseContent struct {
 	Data []DiskSummary `json:"data"`
@@ -51,7 +54,7 @@ func (o *ListDisksResponseContent) GetData() []DiskSummary {
 // and a boolean to check if the value has been set.
 func (o *ListDisksResponseContent) GetDataOk() ([]DiskSummary, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *ListDisksResponseContent) SetData(v []DiskSummary) {
 }
 
 func (o ListDisksResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ListDisksResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableListDisksResponseContent struct {

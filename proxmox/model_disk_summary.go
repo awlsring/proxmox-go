@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DiskSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiskSummary{}
+
 // DiskSummary struct for DiskSummary
 type DiskSummary struct {
 	Devpath string `json:"devpath"`
@@ -69,7 +72,7 @@ func (o *DiskSummary) GetDevpath() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetDevpathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Devpath, true
 }
@@ -93,7 +96,7 @@ func (o *DiskSummary) GetGpt() float32 {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetGptOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Gpt, true
 }
@@ -117,7 +120,7 @@ func (o *DiskSummary) GetOsdid() float32 {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetOsdidOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Osdid, true
 }
@@ -141,7 +144,7 @@ func (o *DiskSummary) GetSize() float32 {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetSizeOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Size, true
 }
@@ -164,7 +167,7 @@ func (o *DiskSummary) GetByIdLink() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetByIdLinkOk() (*string, bool) {
 	if o == nil || isNil(o.ByIdLink) {
-    return nil, false
+		return nil, false
 	}
 	return o.ByIdLink, true
 }
@@ -196,7 +199,7 @@ func (o *DiskSummary) GetModel() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetModelOk() (*string, bool) {
 	if o == nil || isNil(o.Model) {
-    return nil, false
+		return nil, false
 	}
 	return o.Model, true
 }
@@ -228,7 +231,7 @@ func (o *DiskSummary) GetParent() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetParentOk() (*string, bool) {
 	if o == nil || isNil(o.Parent) {
-    return nil, false
+		return nil, false
 	}
 	return o.Parent, true
 }
@@ -260,7 +263,7 @@ func (o *DiskSummary) GetHealth() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetHealthOk() (*string, bool) {
 	if o == nil || isNil(o.Health) {
-    return nil, false
+		return nil, false
 	}
 	return o.Health, true
 }
@@ -292,7 +295,7 @@ func (o *DiskSummary) GetSerial() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetSerialOk() (*string, bool) {
 	if o == nil || isNil(o.Serial) {
-    return nil, false
+		return nil, false
 	}
 	return o.Serial, true
 }
@@ -325,7 +328,7 @@ func (o *DiskSummary) GetRpm() interface{} {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiskSummary) GetRpmOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Rpm) {
-    return nil, false
+		return nil, false
 	}
 	return &o.Rpm, true
 }
@@ -357,7 +360,7 @@ func (o *DiskSummary) GetWwn() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetWwnOk() (*string, bool) {
 	if o == nil || isNil(o.Wwn) {
-    return nil, false
+		return nil, false
 	}
 	return o.Wwn, true
 }
@@ -389,7 +392,7 @@ func (o *DiskSummary) GetVendor() string {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetVendorOk() (*string, bool) {
 	if o == nil || isNil(o.Vendor) {
-    return nil, false
+		return nil, false
 	}
 	return o.Vendor, true
 }
@@ -422,7 +425,7 @@ func (o *DiskSummary) GetWearout() interface{} {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiskSummary) GetWearoutOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Wearout) {
-    return nil, false
+		return nil, false
 	}
 	return &o.Wearout, true
 }
@@ -454,7 +457,7 @@ func (o *DiskSummary) GetType() DiskType {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetTypeOk() (*DiskType, bool) {
 	if o == nil || isNil(o.Type) {
-    return nil, false
+		return nil, false
 	}
 	return o.Type, true
 }
@@ -486,7 +489,7 @@ func (o *DiskSummary) GetMounted() float32 {
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetMountedOk() (*float32, bool) {
 	if o == nil || isNil(o.Mounted) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mounted, true
 }
@@ -506,19 +509,19 @@ func (o *DiskSummary) SetMounted(v float32) {
 }
 
 func (o DiskSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o DiskSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["devpath"] = o.Devpath
-	}
-	if true {
-		toSerialize["gpt"] = o.Gpt
-	}
-	if true {
-		toSerialize["osdid"] = o.Osdid
-	}
-	if true {
-		toSerialize["size"] = o.Size
-	}
+	toSerialize["devpath"] = o.Devpath
+	toSerialize["gpt"] = o.Gpt
+	toSerialize["osdid"] = o.Osdid
+	toSerialize["size"] = o.Size
 	if !isNil(o.ByIdLink) {
 		toSerialize["by_id_link"] = o.ByIdLink
 	}
@@ -552,7 +555,7 @@ func (o DiskSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Mounted) {
 		toSerialize["mounted"] = o.Mounted
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableDiskSummary struct {

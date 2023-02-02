@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetVirtualMachineFileSystemInformationResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetVirtualMachineFileSystemInformationResponseContent{}
+
 // GetVirtualMachineFileSystemInformationResponseContent struct for GetVirtualMachineFileSystemInformationResponseContent
 type GetVirtualMachineFileSystemInformationResponseContent struct {
 	Data GetFsInfoResult `json:"data"`
@@ -51,7 +54,7 @@ func (o *GetVirtualMachineFileSystemInformationResponseContent) GetData() GetFsI
 // and a boolean to check if the value has been set.
 func (o *GetVirtualMachineFileSystemInformationResponseContent) GetDataOk() (*GetFsInfoResult, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Data, true
 }
@@ -62,11 +65,17 @@ func (o *GetVirtualMachineFileSystemInformationResponseContent) SetData(v GetFsI
 }
 
 func (o GetVirtualMachineFileSystemInformationResponseContent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetVirtualMachineFileSystemInformationResponseContent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["data"] = o.Data
+	return toSerialize, nil
 }
 
 type NullableGetVirtualMachineFileSystemInformationResponseContent struct {

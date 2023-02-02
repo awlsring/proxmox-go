@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateDirectoryRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateDirectoryRequestContent{}
+
 // CreateDirectoryRequestContent struct for CreateDirectoryRequestContent
 type CreateDirectoryRequestContent struct {
 	// The device to create the directory on.
@@ -58,7 +61,7 @@ func (o *CreateDirectoryRequestContent) GetDevice() string {
 // and a boolean to check if the value has been set.
 func (o *CreateDirectoryRequestContent) GetDeviceOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Device, true
 }
@@ -82,7 +85,7 @@ func (o *CreateDirectoryRequestContent) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *CreateDirectoryRequestContent) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -105,7 +108,7 @@ func (o *CreateDirectoryRequestContent) GetAddStorage() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateDirectoryRequestContent) GetAddStorageOk() (*float32, bool) {
 	if o == nil || isNil(o.AddStorage) {
-    return nil, false
+		return nil, false
 	}
 	return o.AddStorage, true
 }
@@ -137,7 +140,7 @@ func (o *CreateDirectoryRequestContent) GetFilesystem() DirectoryFileSystem {
 // and a boolean to check if the value has been set.
 func (o *CreateDirectoryRequestContent) GetFilesystemOk() (*DirectoryFileSystem, bool) {
 	if o == nil || isNil(o.Filesystem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Filesystem, true
 }
@@ -157,20 +160,24 @@ func (o *CreateDirectoryRequestContent) SetFilesystem(v DirectoryFileSystem) {
 }
 
 func (o CreateDirectoryRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateDirectoryRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["device"] = o.Device
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["device"] = o.Device
+	toSerialize["name"] = o.Name
 	if !isNil(o.AddStorage) {
 		toSerialize["add_storage"] = o.AddStorage
 	}
 	if !isNil(o.Filesystem) {
 		toSerialize["filesystem"] = o.Filesystem
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCreateDirectoryRequestContent struct {

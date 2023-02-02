@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NodeSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NodeSummary{}
+
 // NodeSummary struct for NodeSummary
 type NodeSummary struct {
 	// The name of the node
@@ -74,7 +77,7 @@ func (o *NodeSummary) GetNode() string {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetNodeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Node, true
 }
@@ -97,7 +100,7 @@ func (o *NodeSummary) GetMaxmem() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMaxmemOk() (*float32, bool) {
 	if o == nil || isNil(o.Maxmem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Maxmem, true
 }
@@ -129,7 +132,7 @@ func (o *NodeSummary) GetMem() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMemOk() (*float32, bool) {
 	if o == nil || isNil(o.Mem) {
-    return nil, false
+		return nil, false
 	}
 	return o.Mem, true
 }
@@ -161,7 +164,7 @@ func (o *NodeSummary) GetDisk() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetDiskOk() (*float32, bool) {
 	if o == nil || isNil(o.Disk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Disk, true
 }
@@ -193,7 +196,7 @@ func (o *NodeSummary) GetMaxdisk() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMaxdiskOk() (*float32, bool) {
 	if o == nil || isNil(o.Maxdisk) {
-    return nil, false
+		return nil, false
 	}
 	return o.Maxdisk, true
 }
@@ -225,7 +228,7 @@ func (o *NodeSummary) GetMaxcpu() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMaxcpuOk() (*float32, bool) {
 	if o == nil || isNil(o.Maxcpu) {
-    return nil, false
+		return nil, false
 	}
 	return o.Maxcpu, true
 }
@@ -257,7 +260,7 @@ func (o *NodeSummary) GetId() string {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetIdOk() (*string, bool) {
 	if o == nil || isNil(o.Id) {
-    return nil, false
+		return nil, false
 	}
 	return o.Id, true
 }
@@ -289,7 +292,7 @@ func (o *NodeSummary) GetLevel() string {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetLevelOk() (*string, bool) {
 	if o == nil || isNil(o.Level) {
-    return nil, false
+		return nil, false
 	}
 	return o.Level, true
 }
@@ -321,7 +324,7 @@ func (o *NodeSummary) GetSslFingerprint() string {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetSslFingerprintOk() (*string, bool) {
 	if o == nil || isNil(o.SslFingerprint) {
-    return nil, false
+		return nil, false
 	}
 	return o.SslFingerprint, true
 }
@@ -353,7 +356,7 @@ func (o *NodeSummary) GetType() string {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetTypeOk() (*string, bool) {
 	if o == nil || isNil(o.Type) {
-    return nil, false
+		return nil, false
 	}
 	return o.Type, true
 }
@@ -385,7 +388,7 @@ func (o *NodeSummary) GetCpu() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetCpuOk() (*float32, bool) {
 	if o == nil || isNil(o.Cpu) {
-    return nil, false
+		return nil, false
 	}
 	return o.Cpu, true
 }
@@ -417,7 +420,7 @@ func (o *NodeSummary) GetUptime() float32 {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetUptimeOk() (*float32, bool) {
 	if o == nil || isNil(o.Uptime) {
-    return nil, false
+		return nil, false
 	}
 	return o.Uptime, true
 }
@@ -449,7 +452,7 @@ func (o *NodeSummary) GetStatus() NodeStatus {
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetStatusOk() (*NodeStatus, bool) {
 	if o == nil || isNil(o.Status) {
-    return nil, false
+		return nil, false
 	}
 	return o.Status, true
 }
@@ -469,10 +472,16 @@ func (o *NodeSummary) SetStatus(v NodeStatus) {
 }
 
 func (o NodeSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["node"] = o.Node
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NodeSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["node"] = o.Node
 	if !isNil(o.Maxmem) {
 		toSerialize["maxmem"] = o.Maxmem
 	}
@@ -509,7 +518,7 @@ func (o NodeSummary) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableNodeSummary struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetHostnameResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetHostnameResult{}
+
 // GetHostnameResult struct for GetHostnameResult
 type GetHostnameResult struct {
 	HostName *string `json:"host-name,omitempty"`
@@ -49,7 +52,7 @@ func (o *GetHostnameResult) GetHostName() string {
 // and a boolean to check if the value has been set.
 func (o *GetHostnameResult) GetHostNameOk() (*string, bool) {
 	if o == nil || isNil(o.HostName) {
-    return nil, false
+		return nil, false
 	}
 	return o.HostName, true
 }
@@ -69,11 +72,19 @@ func (o *GetHostnameResult) SetHostName(v string) {
 }
 
 func (o GetHostnameResult) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetHostnameResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.HostName) {
 		toSerialize["host-name"] = o.HostName
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableGetHostnameResult struct {

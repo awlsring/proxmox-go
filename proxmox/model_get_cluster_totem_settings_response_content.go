@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetClusterTotemSettingsResponseContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetClusterTotemSettingsResponseContent{}
+
 // GetClusterTotemSettingsResponseContent struct for GetClusterTotemSettingsResponseContent
 type GetClusterTotemSettingsResponseContent struct {
 	Data *TotemSummary `json:"data,omitempty"`
@@ -49,7 +52,7 @@ func (o *GetClusterTotemSettingsResponseContent) GetData() TotemSummary {
 // and a boolean to check if the value has been set.
 func (o *GetClusterTotemSettingsResponseContent) GetDataOk() (*TotemSummary, bool) {
 	if o == nil || isNil(o.Data) {
-    return nil, false
+		return nil, false
 	}
 	return o.Data, true
 }
@@ -69,11 +72,19 @@ func (o *GetClusterTotemSettingsResponseContent) SetData(v TotemSummary) {
 }
 
 func (o GetClusterTotemSettingsResponseContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetClusterTotemSettingsResponseContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableGetClusterTotemSettingsResponseContent struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PackageSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PackageSummary{}
+
 // PackageSummary struct for PackageSummary
 type PackageSummary struct {
 	Title string `json:"Title"`
@@ -70,7 +73,7 @@ func (o *PackageSummary) GetTitle() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetTitleOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Title, true
 }
@@ -94,7 +97,7 @@ func (o *PackageSummary) GetPriority() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetPriorityOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Priority, true
 }
@@ -118,7 +121,7 @@ func (o *PackageSummary) GetOldVersion() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetOldVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.OldVersion, true
 }
@@ -142,7 +145,7 @@ func (o *PackageSummary) GetDescription() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetDescriptionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Description, true
 }
@@ -166,7 +169,7 @@ func (o *PackageSummary) GetArch() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetArchOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Arch, true
 }
@@ -190,7 +193,7 @@ func (o *PackageSummary) GetPackage() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetPackageOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Package, true
 }
@@ -214,7 +217,7 @@ func (o *PackageSummary) GetSection() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetSectionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Section, true
 }
@@ -238,7 +241,7 @@ func (o *PackageSummary) GetVersion() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Version, true
 }
@@ -262,7 +265,7 @@ func (o *PackageSummary) GetOrigin() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetOriginOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Origin, true
 }
@@ -286,7 +289,7 @@ func (o *PackageSummary) GetCurrentState() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetCurrentStateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.CurrentState, true
 }
@@ -309,7 +312,7 @@ func (o *PackageSummary) GetRunningKernel() string {
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetRunningKernelOk() (*string, bool) {
 	if o == nil || isNil(o.RunningKernel) {
-    return nil, false
+		return nil, false
 	}
 	return o.RunningKernel, true
 }
@@ -329,41 +332,29 @@ func (o *PackageSummary) SetRunningKernel(v string) {
 }
 
 func (o PackageSummary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PackageSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["Title"] = o.Title
-	}
-	if true {
-		toSerialize["Priority"] = o.Priority
-	}
-	if true {
-		toSerialize["OldVersion"] = o.OldVersion
-	}
-	if true {
-		toSerialize["Description"] = o.Description
-	}
-	if true {
-		toSerialize["Arch"] = o.Arch
-	}
-	if true {
-		toSerialize["Package"] = o.Package
-	}
-	if true {
-		toSerialize["Section"] = o.Section
-	}
-	if true {
-		toSerialize["Version"] = o.Version
-	}
-	if true {
-		toSerialize["Origin"] = o.Origin
-	}
-	if true {
-		toSerialize["CurrentState"] = o.CurrentState
-	}
+	toSerialize["Title"] = o.Title
+	toSerialize["Priority"] = o.Priority
+	toSerialize["OldVersion"] = o.OldVersion
+	toSerialize["Description"] = o.Description
+	toSerialize["Arch"] = o.Arch
+	toSerialize["Package"] = o.Package
+	toSerialize["Section"] = o.Section
+	toSerialize["Version"] = o.Version
+	toSerialize["Origin"] = o.Origin
+	toSerialize["CurrentState"] = o.CurrentState
 	if !isNil(o.RunningKernel) {
 		toSerialize["RunningKernel"] = o.RunningKernel
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullablePackageSummary struct {

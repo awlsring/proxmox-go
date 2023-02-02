@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AccessControlSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AccessControlSummary{}
+
 // AccessControlSummary struct for AccessControlSummary
 type AccessControlSummary struct {
 	Path string `json:"path"`
@@ -62,7 +65,7 @@ func (o *AccessControlSummary) GetPath() string {
 // and a boolean to check if the value has been set.
 func (o *AccessControlSummary) GetPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Path, true
 }
@@ -86,7 +89,7 @@ func (o *AccessControlSummary) GetRoleid() string {
 // and a boolean to check if the value has been set.
 func (o *AccessControlSummary) GetRoleidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Roleid, true
 }
@@ -110,7 +113,7 @@ func (o *AccessControlSummary) GetUgid() string {
 // and a boolean to check if the value has been set.
 func (o *AccessControlSummary) GetUgidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Ugid, true
 }
@@ -134,7 +137,7 @@ func (o *AccessControlSummary) GetType() AccessControlType {
 // and a boolean to check if the value has been set.
 func (o *AccessControlSummary) GetTypeOk() (*AccessControlType, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -158,7 +161,7 @@ func (o *AccessControlSummary) GetPropagate() float32 {
 // and a boolean to check if the value has been set.
 func (o *AccessControlSummary) GetPropagateOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Propagate, true
 }
@@ -169,23 +172,21 @@ func (o *AccessControlSummary) SetPropagate(v float32) {
 }
 
 func (o AccessControlSummary) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["path"] = o.Path
-	}
-	if true {
-		toSerialize["roleid"] = o.Roleid
-	}
-	if true {
-		toSerialize["ugid"] = o.Ugid
-	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
-	if true {
-		toSerialize["propagate"] = o.Propagate
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AccessControlSummary) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["path"] = o.Path
+	toSerialize["roleid"] = o.Roleid
+	toSerialize["ugid"] = o.Ugid
+	toSerialize["type"] = o.Type
+	toSerialize["propagate"] = o.Propagate
+	return toSerialize, nil
 }
 
 type NullableAccessControlSummary struct {

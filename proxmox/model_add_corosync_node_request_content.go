@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AddCorosyncNodeRequestContent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AddCorosyncNodeRequestContent{}
+
 // AddCorosyncNodeRequestContent struct for AddCorosyncNodeRequestContent
 type AddCorosyncNodeRequestContent struct {
 	// The api version on the new node
@@ -74,7 +77,7 @@ func (o *AddCorosyncNodeRequestContent) GetApiversion() float32 {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetApiversionOk() (*float32, bool) {
 	if o == nil || isNil(o.Apiversion) {
-    return nil, false
+		return nil, false
 	}
 	return o.Apiversion, true
 }
@@ -106,7 +109,7 @@ func (o *AddCorosyncNodeRequestContent) GetForce() bool {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetForceOk() (*bool, bool) {
 	if o == nil || isNil(o.Force) {
-    return nil, false
+		return nil, false
 	}
 	return o.Force, true
 }
@@ -138,7 +141,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink0() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink0Ok() (*string, bool) {
 	if o == nil || isNil(o.Link0) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link0, true
 }
@@ -170,7 +173,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink1() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink1Ok() (*string, bool) {
 	if o == nil || isNil(o.Link1) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link1, true
 }
@@ -202,7 +205,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink2() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink2Ok() (*string, bool) {
 	if o == nil || isNil(o.Link2) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link2, true
 }
@@ -234,7 +237,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink3() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink3Ok() (*string, bool) {
 	if o == nil || isNil(o.Link3) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link3, true
 }
@@ -266,7 +269,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink4() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink4Ok() (*string, bool) {
 	if o == nil || isNil(o.Link4) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link4, true
 }
@@ -298,7 +301,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink5() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink5Ok() (*string, bool) {
 	if o == nil || isNil(o.Link5) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link5, true
 }
@@ -330,7 +333,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink6() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink6Ok() (*string, bool) {
 	if o == nil || isNil(o.Link6) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link6, true
 }
@@ -362,7 +365,7 @@ func (o *AddCorosyncNodeRequestContent) GetLink7() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetLink7Ok() (*string, bool) {
 	if o == nil || isNil(o.Link7) {
-    return nil, false
+		return nil, false
 	}
 	return o.Link7, true
 }
@@ -394,7 +397,7 @@ func (o *AddCorosyncNodeRequestContent) GetNewNodeIp() string {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetNewNodeIpOk() (*string, bool) {
 	if o == nil || isNil(o.NewNodeIp) {
-    return nil, false
+		return nil, false
 	}
 	return o.NewNodeIp, true
 }
@@ -426,7 +429,7 @@ func (o *AddCorosyncNodeRequestContent) GetNodeid() float32 {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetNodeidOk() (*float32, bool) {
 	if o == nil || isNil(o.Nodeid) {
-    return nil, false
+		return nil, false
 	}
 	return o.Nodeid, true
 }
@@ -458,7 +461,7 @@ func (o *AddCorosyncNodeRequestContent) GetVotes() float32 {
 // and a boolean to check if the value has been set.
 func (o *AddCorosyncNodeRequestContent) GetVotesOk() (*float32, bool) {
 	if o == nil || isNil(o.Votes) {
-    return nil, false
+		return nil, false
 	}
 	return o.Votes, true
 }
@@ -478,6 +481,14 @@ func (o *AddCorosyncNodeRequestContent) SetVotes(v float32) {
 }
 
 func (o AddCorosyncNodeRequestContent) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o AddCorosyncNodeRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Apiversion) {
 		toSerialize["apiversion"] = o.Apiversion
@@ -518,7 +529,7 @@ func (o AddCorosyncNodeRequestContent) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Votes) {
 		toSerialize["votes"] = o.Votes
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableAddCorosyncNodeRequestContent struct {
