@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Iface** | **string** |  | 
+**Type** | [**NetworkInterfaceType**](NetworkInterfaceType.md) |  | 
 **Method** | Pointer to [**NetworkInterfaceMethod**](NetworkInterfaceMethod.md) |  | [optional] 
 **Method6** | Pointer to [**NetworkInterfaceMethod**](NetworkInterfaceMethod.md) |  | [optional] 
 **Priority** | Pointer to **float32** |  | [optional] 
@@ -30,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewNetworkInterfaceSummary
 
-`func NewNetworkInterfaceSummary(iface string, ) *NetworkInterfaceSummary`
+`func NewNetworkInterfaceSummary(iface string, type_ NetworkInterfaceType, ) *NetworkInterfaceSummary`
 
 NewNetworkInterfaceSummary instantiates a new NetworkInterfaceSummary object
 This constructor will assign default values to properties that have it defined,
@@ -63,6 +64,26 @@ and a boolean to check if the value has been set.
 `func (o *NetworkInterfaceSummary) SetIface(v string)`
 
 SetIface sets Iface field to given value.
+
+
+### GetType
+
+`func (o *NetworkInterfaceSummary) GetType() NetworkInterfaceType`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *NetworkInterfaceSummary) GetTypeOk() (*NetworkInterfaceType, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *NetworkInterfaceSummary) SetType(v NetworkInterfaceType)`
+
+SetType sets Type field to given value.
 
 
 ### GetMethod

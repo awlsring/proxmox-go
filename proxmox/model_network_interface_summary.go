@@ -20,6 +20,7 @@ var _ MappedNullable = &NetworkInterfaceSummary{}
 // NetworkInterfaceSummary struct for NetworkInterfaceSummary
 type NetworkInterfaceSummary struct {
 	Iface string `json:"iface"`
+	Type NetworkInterfaceType `json:"type"`
 	Method *NetworkInterfaceMethod `json:"method,omitempty"`
 	Method6 *NetworkInterfaceMethod `json:"method6,omitempty"`
 	Priority *float32 `json:"priority,omitempty"`
@@ -46,9 +47,10 @@ type NetworkInterfaceSummary struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNetworkInterfaceSummary(iface string) *NetworkInterfaceSummary {
+func NewNetworkInterfaceSummary(iface string, type_ NetworkInterfaceType) *NetworkInterfaceSummary {
 	this := NetworkInterfaceSummary{}
 	this.Iface = iface
+	this.Type = type_
 	return &this
 }
 
@@ -82,6 +84,30 @@ func (o *NetworkInterfaceSummary) GetIfaceOk() (*string, bool) {
 // SetIface sets field value
 func (o *NetworkInterfaceSummary) SetIface(v string) {
 	o.Iface = v
+}
+
+// GetType returns the Type field value
+func (o *NetworkInterfaceSummary) GetType() NetworkInterfaceType {
+	if o == nil {
+		var ret NetworkInterfaceType
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetTypeOk() (*NetworkInterfaceType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *NetworkInterfaceSummary) SetType(v NetworkInterfaceType) {
+	o.Type = v
 }
 
 // GetMethod returns the Method field value if set, zero value otherwise.
@@ -735,6 +761,7 @@ func (o NetworkInterfaceSummary) MarshalJSON() ([]byte, error) {
 func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["iface"] = o.Iface
+	toSerialize["type"] = o.Type
 	if !isNil(o.Method) {
 		toSerialize["method"] = o.Method
 	}

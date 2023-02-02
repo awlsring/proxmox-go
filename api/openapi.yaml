@@ -6987,6 +6987,7 @@ components:
           method: null
           active: 1.4658129805029452
           bond_mode: null
+          type: null
           priority: 0.8008281904610115
           families:
           - families
@@ -8058,6 +8059,7 @@ components:
           method: null
           active: 1.4658129805029452
           bond_mode: null
+          type: null
           priority: 0.8008281904610115
           families:
           - families
@@ -8081,6 +8083,7 @@ components:
           method: null
           active: 1.4658129805029452
           bond_mode: null
+          type: null
           priority: 0.8008281904610115
           families:
           - families
@@ -8844,6 +8847,7 @@ components:
         method: null
         active: 1.4658129805029452
         bond_mode: null
+        type: null
         priority: 0.8008281904610115
         families:
         - families
@@ -8863,6 +8867,8 @@ components:
       properties:
         iface:
           type: string
+        type:
+          $ref: '#/components/schemas/NetworkInterfaceType'
         method:
           $ref: '#/components/schemas/NetworkInterfaceMethod'
         method6:
@@ -8910,6 +8916,7 @@ components:
           type: string
       required:
       - iface
+      - type
       type: object
     NetworkInterfaceType:
       enum:
