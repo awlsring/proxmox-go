@@ -54,6 +54,7 @@ Method | HTTP request | Description
 [**GetVirtualMachineStatus**](DefaultApi.md#GetVirtualMachineStatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 [**GetVirtualMachineTime**](DefaultApi.md#GetVirtualMachineTime) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-time | 
 [**GetVirtualMachineTimeZone**](DefaultApi.md#GetVirtualMachineTimeZone) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-timezone | 
+[**GetVirtualMachineVcpus**](DefaultApi.md#GetVirtualMachineVcpus) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-vcpus | 
 [**GetZFSPoolStatus**](DefaultApi.md#GetZFSPoolStatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
 [**InitializeGPT**](DefaultApi.md#InitializeGPT) | **Post** /nodes/{node}/disks/smart | 
 [**JoinCluster**](DefaultApi.md#JoinCluster) | **Post** /cluster/config/join | 
@@ -3609,6 +3610,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetVirtualMachineTimeZoneResponseContent**](GetVirtualMachineTimeZoneResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineVcpus
+
+> GetVirtualMachineVcpusResponseContent GetVirtualMachineVcpus(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineVcpus(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineVcpus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineVcpus`: GetVirtualMachineVcpusResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineVcpus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineVcpusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineVcpusResponseContent**](GetVirtualMachineVcpusResponseContent.md)
 
 ### Authorization
 

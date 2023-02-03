@@ -6470,7 +6470,7 @@ func (r ApiGetVirtualMachineTimeZoneRequest) Execute() (*GetVirtualMachineTimeZo
 /*
 GetVirtualMachineTimeZone Method for GetVirtualMachineTimeZone
 
-Get the time of the virtual machine. Requries the guest agent to be installed and active.
+Get the time zone of the virtual machine. Requries the guest agent to be installed and active.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param node
@@ -6502,6 +6502,134 @@ func (a *DefaultApiService) GetVirtualMachineTimeZoneExecute(r ApiGetVirtualMach
 	}
 
 	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-timezone"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v NoGuestAgentErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetVirtualMachineVcpusRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	vmId string
+}
+
+func (r ApiGetVirtualMachineVcpusRequest) Execute() (*GetVirtualMachineVcpusResponseContent, *http.Response, error) {
+	return r.ApiService.GetVirtualMachineVcpusExecute(r)
+}
+
+/*
+GetVirtualMachineVcpus Method for GetVirtualMachineVcpus
+
+Get the vcpus of the virtual machine. Requries the guest agent to be installed and active.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param vmId The id of the virtual machine as a string
+ @return ApiGetVirtualMachineVcpusRequest
+*/
+func (a *DefaultApiService) GetVirtualMachineVcpus(ctx context.Context, node string, vmId string) ApiGetVirtualMachineVcpusRequest {
+	return ApiGetVirtualMachineVcpusRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		vmId: vmId,
+	}
+}
+
+// Execute executes the request
+//  @return GetVirtualMachineVcpusResponseContent
+func (a *DefaultApiService) GetVirtualMachineVcpusExecute(r ApiGetVirtualMachineVcpusRequest) (*GetVirtualMachineVcpusResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetVirtualMachineVcpusResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetVirtualMachineVcpus")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/get-vcpus"
 	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
 
