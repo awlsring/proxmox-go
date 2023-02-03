@@ -8562,40 +8562,42 @@ components:
     ListVirtualMachinesResponseContent:
       example:
         data:
-        - vmid: 0.8008281904610115
-          cpus: 4.145608029883936
-          diskread: 9.301444243932576
-          cpu: 2.027123
-          pid: 7.386281948385884
-          netout: 7.061401241503109
-          uptime: 5.637376656633329
+        - template: 0.6027456183070403
+          vmid: 0.8008281904610115
+          cpus: 7.386281948385884
+          diskread: 3.616076749251911
+          cpu: 4.145608
+          pid: 1.2315135367772556
+          netout: 9.301444243932576
+          uptime: 2.3021358869347655
           tags: tags
-          mem: 6.027456183070403
-          maxdisk: 5.962133916683182
+          mem: 1.4658129805029452
+          maxdisk: 5.637376656633329
           name: name
           lock: lock
           qmpstatus: qmpstatus
-          maxmem: 1.4658129805029452
-          diskwrite: 3.616076749251911
+          maxmem: 5.962133916683182
+          diskwrite: 2.027123023002322
           status: null
-          netin: 2.3021358869347655
-        - vmid: 0.8008281904610115
-          cpus: 4.145608029883936
-          diskread: 9.301444243932576
-          cpu: 2.027123
-          pid: 7.386281948385884
-          netout: 7.061401241503109
-          uptime: 5.637376656633329
+          netin: 7.061401241503109
+        - template: 0.6027456183070403
+          vmid: 0.8008281904610115
+          cpus: 7.386281948385884
+          diskread: 3.616076749251911
+          cpu: 4.145608
+          pid: 1.2315135367772556
+          netout: 9.301444243932576
+          uptime: 2.3021358869347655
           tags: tags
-          mem: 6.027456183070403
-          maxdisk: 5.962133916683182
+          mem: 1.4658129805029452
+          maxdisk: 5.637376656633329
           name: name
           lock: lock
           qmpstatus: qmpstatus
-          maxmem: 1.4658129805029452
-          diskwrite: 3.616076749251911
+          maxmem: 5.962133916683182
+          diskwrite: 2.027123023002322
           status: null
-          netin: 2.3021358869347655
+          netin: 7.061401241503109
       properties:
         data:
           items:
@@ -11101,26 +11103,34 @@ components:
       type: object
     VirtualMachineSummary:
       example:
+        template: 0.6027456183070403
         vmid: 0.8008281904610115
-        cpus: 4.145608029883936
-        diskread: 9.301444243932576
-        cpu: 2.027123
-        pid: 7.386281948385884
-        netout: 7.061401241503109
-        uptime: 5.637376656633329
+        cpus: 7.386281948385884
+        diskread: 3.616076749251911
+        cpu: 4.145608
+        pid: 1.2315135367772556
+        netout: 9.301444243932576
+        uptime: 2.3021358869347655
         tags: tags
-        mem: 6.027456183070403
-        maxdisk: 5.962133916683182
+        mem: 1.4658129805029452
+        maxdisk: 5.637376656633329
         name: name
         lock: lock
         qmpstatus: qmpstatus
-        maxmem: 1.4658129805029452
-        diskwrite: 3.616076749251911
+        maxmem: 5.962133916683182
+        diskwrite: 2.027123023002322
         status: null
-        netin: 2.3021358869347655
+        netin: 7.061401241503109
       properties:
         vmid:
           description: The ID of the virtual machine. Unique across cluster
+          type: number
+        status:
+          $ref: '#/components/schemas/VirtualMachineStatus'
+        template:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
           type: number
         mem:
           description: Current memory utilization in bytes
@@ -11134,8 +11144,6 @@ components:
         name:
           description: The name of the virtual machine
           type: string
-        status:
-          $ref: '#/components/schemas/VirtualMachineStatus'
         uptime:
           description: The uptime of the virtual machine in seconds
           type: number
@@ -11172,6 +11180,7 @@ components:
           description: Qemu QMP agent status
           type: string
       required:
+      - status
       - vmid
       type: object
     ZFSCompression:

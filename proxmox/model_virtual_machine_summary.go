@@ -21,6 +21,9 @@ var _ MappedNullable = &VirtualMachineSummary{}
 type VirtualMachineSummary struct {
 	// The ID of the virtual machine. Unique across cluster
 	Vmid float32 `json:"vmid"`
+	Status VirtualMachineStatus `json:"status"`
+	// An integer used to represent a boolean. 0 is false, 1 is true.
+	Template *float32 `json:"template,omitempty"`
 	// Current memory utilization in bytes
 	Mem *float32 `json:"mem,omitempty"`
 	// Max memory allocated in bytes
@@ -29,7 +32,6 @@ type VirtualMachineSummary struct {
 	Maxdisk *float32 `json:"maxdisk,omitempty"`
 	// The name of the virtual machine
 	Name *string `json:"name,omitempty"`
-	Status *VirtualMachineStatus `json:"status,omitempty"`
 	// The uptime of the virtual machine in seconds
 	Uptime *float32 `json:"uptime,omitempty"`
 	// Current incoming network traffic in bytes
@@ -58,9 +60,10 @@ type VirtualMachineSummary struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVirtualMachineSummary(vmid float32) *VirtualMachineSummary {
+func NewVirtualMachineSummary(vmid float32, status VirtualMachineStatus) *VirtualMachineSummary {
 	this := VirtualMachineSummary{}
 	this.Vmid = vmid
+	this.Status = status
 	return &this
 }
 
@@ -94,6 +97,62 @@ func (o *VirtualMachineSummary) GetVmidOk() (*float32, bool) {
 // SetVmid sets field value
 func (o *VirtualMachineSummary) SetVmid(v float32) {
 	o.Vmid = v
+}
+
+// GetStatus returns the Status field value
+func (o *VirtualMachineSummary) GetStatus() VirtualMachineStatus {
+	if o == nil {
+		var ret VirtualMachineStatus
+		return ret
+	}
+
+	return o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineSummary) GetStatusOk() (*VirtualMachineStatus, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Status, true
+}
+
+// SetStatus sets field value
+func (o *VirtualMachineSummary) SetStatus(v VirtualMachineStatus) {
+	o.Status = v
+}
+
+// GetTemplate returns the Template field value if set, zero value otherwise.
+func (o *VirtualMachineSummary) GetTemplate() float32 {
+	if o == nil || isNil(o.Template) {
+		var ret float32
+		return ret
+	}
+	return *o.Template
+}
+
+// GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineSummary) GetTemplateOk() (*float32, bool) {
+	if o == nil || isNil(o.Template) {
+		return nil, false
+	}
+	return o.Template, true
+}
+
+// HasTemplate returns a boolean if a field has been set.
+func (o *VirtualMachineSummary) HasTemplate() bool {
+	if o != nil && !isNil(o.Template) {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplate gets a reference to the given float32 and assigns it to the Template field.
+func (o *VirtualMachineSummary) SetTemplate(v float32) {
+	o.Template = &v
 }
 
 // GetMem returns the Mem field value if set, zero value otherwise.
@@ -222,38 +281,6 @@ func (o *VirtualMachineSummary) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *VirtualMachineSummary) SetName(v string) {
 	o.Name = &v
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *VirtualMachineSummary) GetStatus() VirtualMachineStatus {
-	if o == nil || isNil(o.Status) {
-		var ret VirtualMachineStatus
-		return ret
-	}
-	return *o.Status
-}
-
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *VirtualMachineSummary) GetStatusOk() (*VirtualMachineStatus, bool) {
-	if o == nil || isNil(o.Status) {
-		return nil, false
-	}
-	return o.Status, true
-}
-
-// HasStatus returns a boolean if a field has been set.
-func (o *VirtualMachineSummary) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given VirtualMachineStatus and assigns it to the Status field.
-func (o *VirtualMachineSummary) SetStatus(v VirtualMachineStatus) {
-	o.Status = &v
 }
 
 // GetUptime returns the Uptime field value if set, zero value otherwise.
@@ -619,6 +646,10 @@ func (o VirtualMachineSummary) MarshalJSON() ([]byte, error) {
 func (o VirtualMachineSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["vmid"] = o.Vmid
+	toSerialize["status"] = o.Status
+	if !isNil(o.Template) {
+		toSerialize["template"] = o.Template
+	}
 	if !isNil(o.Mem) {
 		toSerialize["mem"] = o.Mem
 	}
@@ -630,9 +661,6 @@ func (o VirtualMachineSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Status) {
-		toSerialize["status"] = o.Status
 	}
 	if !isNil(o.Uptime) {
 		toSerialize["uptime"] = o.Uptime

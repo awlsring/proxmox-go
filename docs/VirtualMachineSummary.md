@@ -5,11 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Vmid** | **float32** | The ID of the virtual machine. Unique across cluster | 
+**Status** | [**VirtualMachineStatus**](VirtualMachineStatus.md) |  | 
+**Template** | Pointer to **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | [optional] 
 **Mem** | Pointer to **float32** | Current memory utilization in bytes | [optional] 
 **Maxmem** | Pointer to **float32** | Max memory allocated in bytes | [optional] 
 **Maxdisk** | Pointer to **float32** | Max root disk size in bytes | [optional] 
 **Name** | Pointer to **string** | The name of the virtual machine | [optional] 
-**Status** | Pointer to [**VirtualMachineStatus**](VirtualMachineStatus.md) |  | [optional] 
 **Uptime** | Pointer to **float32** | The uptime of the virtual machine in seconds | [optional] 
 **Netin** | Pointer to **float32** | Current incoming network traffic in bytes | [optional] 
 **Netout** | Pointer to **float32** | Current outgoing network traffic in bytes | [optional] 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewVirtualMachineSummary
 
-`func NewVirtualMachineSummary(vmid float32, ) *VirtualMachineSummary`
+`func NewVirtualMachineSummary(vmid float32, status VirtualMachineStatus, ) *VirtualMachineSummary`
 
 NewVirtualMachineSummary instantiates a new VirtualMachineSummary object
 This constructor will assign default values to properties that have it defined,
@@ -60,6 +61,51 @@ and a boolean to check if the value has been set.
 
 SetVmid sets Vmid field to given value.
 
+
+### GetStatus
+
+`func (o *VirtualMachineSummary) GetStatus() VirtualMachineStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *VirtualMachineSummary) GetStatusOk() (*VirtualMachineStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *VirtualMachineSummary) SetStatus(v VirtualMachineStatus)`
+
+SetStatus sets Status field to given value.
+
+
+### GetTemplate
+
+`func (o *VirtualMachineSummary) GetTemplate() float32`
+
+GetTemplate returns the Template field if non-nil, zero value otherwise.
+
+### GetTemplateOk
+
+`func (o *VirtualMachineSummary) GetTemplateOk() (*float32, bool)`
+
+GetTemplateOk returns a tuple with the Template field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplate
+
+`func (o *VirtualMachineSummary) SetTemplate(v float32)`
+
+SetTemplate sets Template field to given value.
+
+### HasTemplate
+
+`func (o *VirtualMachineSummary) HasTemplate() bool`
+
+HasTemplate returns a boolean if a field has been set.
 
 ### GetMem
 
@@ -160,31 +206,6 @@ SetName sets Name field to given value.
 `func (o *VirtualMachineSummary) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetStatus
-
-`func (o *VirtualMachineSummary) GetStatus() VirtualMachineStatus`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *VirtualMachineSummary) GetStatusOk() (*VirtualMachineStatus, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *VirtualMachineSummary) SetStatus(v VirtualMachineStatus)`
-
-SetStatus sets Status field to given value.
-
-### HasStatus
-
-`func (o *VirtualMachineSummary) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
 
 ### GetUptime
 
