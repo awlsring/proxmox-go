@@ -23,8 +23,11 @@ Name | Type | Description | Notes
 **BridgeStp** | Pointer to **string** |  | [optional] 
 **BridgeVlanAware** | Pointer to **float32** |  | [optional] 
 **Address** | Pointer to **string** |  | [optional] 
+**Gateway** | Pointer to **string** |  | [optional] 
+**Gateway6** | Pointer to **string** |  | [optional] 
 **Netmask** | Pointer to **string** |  | [optional] 
 **Cidr** | Pointer to **string** |  | [optional] 
+**Cidr6** | Pointer to **string** |  | [optional] 
 **Address6** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -511,6 +514,56 @@ SetAddress sets Address field to given value.
 
 HasAddress returns a boolean if a field has been set.
 
+### GetGateway
+
+`func (o *NetworkInterfaceSummary) GetGateway() string`
+
+GetGateway returns the Gateway field if non-nil, zero value otherwise.
+
+### GetGatewayOk
+
+`func (o *NetworkInterfaceSummary) GetGatewayOk() (*string, bool)`
+
+GetGatewayOk returns a tuple with the Gateway field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGateway
+
+`func (o *NetworkInterfaceSummary) SetGateway(v string)`
+
+SetGateway sets Gateway field to given value.
+
+### HasGateway
+
+`func (o *NetworkInterfaceSummary) HasGateway() bool`
+
+HasGateway returns a boolean if a field has been set.
+
+### GetGateway6
+
+`func (o *NetworkInterfaceSummary) GetGateway6() string`
+
+GetGateway6 returns the Gateway6 field if non-nil, zero value otherwise.
+
+### GetGateway6Ok
+
+`func (o *NetworkInterfaceSummary) GetGateway6Ok() (*string, bool)`
+
+GetGateway6Ok returns a tuple with the Gateway6 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGateway6
+
+`func (o *NetworkInterfaceSummary) SetGateway6(v string)`
+
+SetGateway6 sets Gateway6 field to given value.
+
+### HasGateway6
+
+`func (o *NetworkInterfaceSummary) HasGateway6() bool`
+
+HasGateway6 returns a boolean if a field has been set.
+
 ### GetNetmask
 
 `func (o *NetworkInterfaceSummary) GetNetmask() string`
@@ -560,6 +613,31 @@ SetCidr sets Cidr field to given value.
 `func (o *NetworkInterfaceSummary) HasCidr() bool`
 
 HasCidr returns a boolean if a field has been set.
+
+### GetCidr6
+
+`func (o *NetworkInterfaceSummary) GetCidr6() string`
+
+GetCidr6 returns the Cidr6 field if non-nil, zero value otherwise.
+
+### GetCidr6Ok
+
+`func (o *NetworkInterfaceSummary) GetCidr6Ok() (*string, bool)`
+
+GetCidr6Ok returns a tuple with the Cidr6 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCidr6
+
+`func (o *NetworkInterfaceSummary) SetCidr6(v string)`
+
+SetCidr6 sets Cidr6 field to given value.
+
+### HasCidr6
+
+`func (o *NetworkInterfaceSummary) HasCidr6() bool`
+
+HasCidr6 returns a boolean if a field has been set.
 
 ### GetAddress6
 

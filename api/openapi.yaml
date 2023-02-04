@@ -7119,28 +7119,31 @@ components:
         data:
           bridge_ports: bridge_ports
           method6: null
+          bond_mode: null
+          type: null
+          autostart: 6.027456183070403
+          bridge_vids: bridge_vids
+          bridge_fd: bridge_fd
+          bridge_vlan_aware: 5.637376656633329
+          netmask: netmask
+          bridge_stp: bridge_stp
+          address6: address6
+          cidr: cidr
           slaves: slaves
           address: address
           method: null
+          cidr6: cidr6
           active: 1.4658129805029452
-          bond_mode: null
-          type: null
           priority: 0.8008281904610115
           families:
           - families
           - families
-          autostart: 6.027456183070403
-          bridge_vids: bridge_vids
           iface: iface
           bond_miimon: bond_miimon
-          bridge_fd: bridge_fd
-          bridge_vlan_aware: 5.637376656633329
-          netmask: netmask
           bond_xmit_hash_policy: null
           exists: 5.962133916683182
-          bridge_stp: bridge_stp
-          address6: address6
-          cidr: cidr
+          gateway6: gateway6
+          gateway: gateway
       properties:
         data:
           $ref: '#/components/schemas/NetworkInterfaceSummary'
@@ -8240,52 +8243,58 @@ components:
         data:
         - bridge_ports: bridge_ports
           method6: null
+          bond_mode: null
+          type: null
+          autostart: 6.027456183070403
+          bridge_vids: bridge_vids
+          bridge_fd: bridge_fd
+          bridge_vlan_aware: 5.637376656633329
+          netmask: netmask
+          bridge_stp: bridge_stp
+          address6: address6
+          cidr: cidr
           slaves: slaves
           address: address
           method: null
+          cidr6: cidr6
           active: 1.4658129805029452
-          bond_mode: null
-          type: null
           priority: 0.8008281904610115
           families:
           - families
           - families
-          autostart: 6.027456183070403
-          bridge_vids: bridge_vids
           iface: iface
           bond_miimon: bond_miimon
-          bridge_fd: bridge_fd
-          bridge_vlan_aware: 5.637376656633329
-          netmask: netmask
           bond_xmit_hash_policy: null
           exists: 5.962133916683182
-          bridge_stp: bridge_stp
-          address6: address6
-          cidr: cidr
+          gateway6: gateway6
+          gateway: gateway
         - bridge_ports: bridge_ports
           method6: null
+          bond_mode: null
+          type: null
+          autostart: 6.027456183070403
+          bridge_vids: bridge_vids
+          bridge_fd: bridge_fd
+          bridge_vlan_aware: 5.637376656633329
+          netmask: netmask
+          bridge_stp: bridge_stp
+          address6: address6
+          cidr: cidr
           slaves: slaves
           address: address
           method: null
+          cidr6: cidr6
           active: 1.4658129805029452
-          bond_mode: null
-          type: null
           priority: 0.8008281904610115
           families:
           - families
           - families
-          autostart: 6.027456183070403
-          bridge_vids: bridge_vids
           iface: iface
           bond_miimon: bond_miimon
-          bridge_fd: bridge_fd
-          bridge_vlan_aware: 5.637376656633329
-          netmask: netmask
           bond_xmit_hash_policy: null
           exists: 5.962133916683182
-          bridge_stp: bridge_stp
-          address6: address6
-          cidr: cidr
+          gateway6: gateway6
+          gateway: gateway
       properties:
         data:
           items:
@@ -9030,28 +9039,31 @@ components:
       example:
         bridge_ports: bridge_ports
         method6: null
+        bond_mode: null
+        type: null
+        autostart: 6.027456183070403
+        bridge_vids: bridge_vids
+        bridge_fd: bridge_fd
+        bridge_vlan_aware: 5.637376656633329
+        netmask: netmask
+        bridge_stp: bridge_stp
+        address6: address6
+        cidr: cidr
         slaves: slaves
         address: address
         method: null
+        cidr6: cidr6
         active: 1.4658129805029452
-        bond_mode: null
-        type: null
         priority: 0.8008281904610115
         families:
         - families
         - families
-        autostart: 6.027456183070403
-        bridge_vids: bridge_vids
         iface: iface
         bond_miimon: bond_miimon
-        bridge_fd: bridge_fd
-        bridge_vlan_aware: 5.637376656633329
-        netmask: netmask
         bond_xmit_hash_policy: null
         exists: 5.962133916683182
-        bridge_stp: bridge_stp
-        address6: address6
-        cidr: cidr
+        gateway6: gateway6
+        gateway: gateway
       properties:
         iface:
           type: string
@@ -9094,10 +9106,18 @@ components:
         address:
           pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           type: string
+        gateway:
+          pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+          type: string
+        gateway6:
+          pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
+          type: string
         netmask:
           type: string
         cidr:
           pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[1-2][0-9]|[0-9])$"
+          type: string
+        cidr6:
           type: string
         address6:
           pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"

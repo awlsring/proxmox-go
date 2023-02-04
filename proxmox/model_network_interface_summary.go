@@ -38,8 +38,11 @@ type NetworkInterfaceSummary struct {
 	BridgeStp *string `json:"bridge_stp,omitempty"`
 	BridgeVlanAware *float32 `json:"bridge_vlan_aware,omitempty"`
 	Address *string `json:"address,omitempty"`
+	Gateway *string `json:"gateway,omitempty"`
+	Gateway6 *string `json:"gateway6,omitempty"`
 	Netmask *string `json:"netmask,omitempty"`
 	Cidr *string `json:"cidr,omitempty"`
+	Cidr6 *string `json:"cidr6,omitempty"`
 	Address6 *string `json:"address6,omitempty"`
 }
 
@@ -654,6 +657,70 @@ func (o *NetworkInterfaceSummary) SetAddress(v string) {
 	o.Address = &v
 }
 
+// GetGateway returns the Gateway field value if set, zero value otherwise.
+func (o *NetworkInterfaceSummary) GetGateway() string {
+	if o == nil || isNil(o.Gateway) {
+		var ret string
+		return ret
+	}
+	return *o.Gateway
+}
+
+// GetGatewayOk returns a tuple with the Gateway field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetGatewayOk() (*string, bool) {
+	if o == nil || isNil(o.Gateway) {
+		return nil, false
+	}
+	return o.Gateway, true
+}
+
+// HasGateway returns a boolean if a field has been set.
+func (o *NetworkInterfaceSummary) HasGateway() bool {
+	if o != nil && !isNil(o.Gateway) {
+		return true
+	}
+
+	return false
+}
+
+// SetGateway gets a reference to the given string and assigns it to the Gateway field.
+func (o *NetworkInterfaceSummary) SetGateway(v string) {
+	o.Gateway = &v
+}
+
+// GetGateway6 returns the Gateway6 field value if set, zero value otherwise.
+func (o *NetworkInterfaceSummary) GetGateway6() string {
+	if o == nil || isNil(o.Gateway6) {
+		var ret string
+		return ret
+	}
+	return *o.Gateway6
+}
+
+// GetGateway6Ok returns a tuple with the Gateway6 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetGateway6Ok() (*string, bool) {
+	if o == nil || isNil(o.Gateway6) {
+		return nil, false
+	}
+	return o.Gateway6, true
+}
+
+// HasGateway6 returns a boolean if a field has been set.
+func (o *NetworkInterfaceSummary) HasGateway6() bool {
+	if o != nil && !isNil(o.Gateway6) {
+		return true
+	}
+
+	return false
+}
+
+// SetGateway6 gets a reference to the given string and assigns it to the Gateway6 field.
+func (o *NetworkInterfaceSummary) SetGateway6(v string) {
+	o.Gateway6 = &v
+}
+
 // GetNetmask returns the Netmask field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetNetmask() string {
 	if o == nil || isNil(o.Netmask) {
@@ -716,6 +783,38 @@ func (o *NetworkInterfaceSummary) HasCidr() bool {
 // SetCidr gets a reference to the given string and assigns it to the Cidr field.
 func (o *NetworkInterfaceSummary) SetCidr(v string) {
 	o.Cidr = &v
+}
+
+// GetCidr6 returns the Cidr6 field value if set, zero value otherwise.
+func (o *NetworkInterfaceSummary) GetCidr6() string {
+	if o == nil || isNil(o.Cidr6) {
+		var ret string
+		return ret
+	}
+	return *o.Cidr6
+}
+
+// GetCidr6Ok returns a tuple with the Cidr6 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetCidr6Ok() (*string, bool) {
+	if o == nil || isNil(o.Cidr6) {
+		return nil, false
+	}
+	return o.Cidr6, true
+}
+
+// HasCidr6 returns a boolean if a field has been set.
+func (o *NetworkInterfaceSummary) HasCidr6() bool {
+	if o != nil && !isNil(o.Cidr6) {
+		return true
+	}
+
+	return false
+}
+
+// SetCidr6 gets a reference to the given string and assigns it to the Cidr6 field.
+func (o *NetworkInterfaceSummary) SetCidr6(v string) {
+	o.Cidr6 = &v
 }
 
 // GetAddress6 returns the Address6 field value if set, zero value otherwise.
@@ -813,11 +912,20 @@ func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	if !isNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
+	if !isNil(o.Gateway) {
+		toSerialize["gateway"] = o.Gateway
+	}
+	if !isNil(o.Gateway6) {
+		toSerialize["gateway6"] = o.Gateway6
+	}
 	if !isNil(o.Netmask) {
 		toSerialize["netmask"] = o.Netmask
 	}
 	if !isNil(o.Cidr) {
 		toSerialize["cidr"] = o.Cidr
+	}
+	if !isNil(o.Cidr6) {
+		toSerialize["cidr6"] = o.Cidr6
 	}
 	if !isNil(o.Address6) {
 		toSerialize["address6"] = o.Address6
