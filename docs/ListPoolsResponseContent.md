@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**[]PoolInfo**](PoolInfo.md) |  | 
+**Data** | [**[]PoolSummary**](PoolSummary.md) |  | 
 
 ## Methods
 
 ### NewListPoolsResponseContent
 
-`func NewListPoolsResponseContent(data []PoolInfo, ) *ListPoolsResponseContent`
+`func NewListPoolsResponseContent(data []PoolSummary, ) *ListPoolsResponseContent`
 
 NewListPoolsResponseContent instantiates a new ListPoolsResponseContent object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetData
 
-`func (o *ListPoolsResponseContent) GetData() []PoolInfo`
+`func (o *ListPoolsResponseContent) GetData() []PoolSummary`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *ListPoolsResponseContent) GetDataOk() (*[]PoolInfo, bool)`
+`func (o *ListPoolsResponseContent) GetDataOk() (*[]PoolSummary, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *ListPoolsResponseContent) SetData(v []PoolInfo)`
+`func (o *ListPoolsResponseContent) SetData(v []PoolSummary)`
 
 SetData sets Data field to given value.
 

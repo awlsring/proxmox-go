@@ -1,4 +1,4 @@
-# PoolInfo
+# PoolSummary
 
 ## Properties
 
@@ -9,65 +9,65 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewPoolInfo
+### NewPoolSummary
 
-`func NewPoolInfo(poolid string, ) *PoolInfo`
+`func NewPoolSummary(poolid string, ) *PoolSummary`
 
-NewPoolInfo instantiates a new PoolInfo object
+NewPoolSummary instantiates a new PoolSummary object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPoolInfoWithDefaults
+### NewPoolSummaryWithDefaults
 
-`func NewPoolInfoWithDefaults() *PoolInfo`
+`func NewPoolSummaryWithDefaults() *PoolSummary`
 
-NewPoolInfoWithDefaults instantiates a new PoolInfo object
+NewPoolSummaryWithDefaults instantiates a new PoolSummary object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPoolid
 
-`func (o *PoolInfo) GetPoolid() string`
+`func (o *PoolSummary) GetPoolid() string`
 
 GetPoolid returns the Poolid field if non-nil, zero value otherwise.
 
 ### GetPoolidOk
 
-`func (o *PoolInfo) GetPoolidOk() (*string, bool)`
+`func (o *PoolSummary) GetPoolidOk() (*string, bool)`
 
 GetPoolidOk returns a tuple with the Poolid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoolid
 
-`func (o *PoolInfo) SetPoolid(v string)`
+`func (o *PoolSummary) SetPoolid(v string)`
 
 SetPoolid sets Poolid field to given value.
 
 
 ### GetComment
 
-`func (o *PoolInfo) GetComment() string`
+`func (o *PoolSummary) GetComment() string`
 
 GetComment returns the Comment field if non-nil, zero value otherwise.
 
 ### GetCommentOk
 
-`func (o *PoolInfo) GetCommentOk() (*string, bool)`
+`func (o *PoolSummary) GetCommentOk() (*string, bool)`
 
 GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComment
 
-`func (o *PoolInfo) SetComment(v string)`
+`func (o *PoolSummary) SetComment(v string)`
 
 SetComment sets Comment field to given value.
 
 ### HasComment
 
-`func (o *PoolInfo) HasComment() bool`
+`func (o *PoolSummary) HasComment() bool`
 
 HasComment returns a boolean if a field has been set.
 

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **Gateway** | Pointer to **string** |  | [optional] 
 **Gateway6** | Pointer to **string** |  | [optional] 
 **Netmask** | Pointer to **string** |  | [optional] 
+**Netmask6** | Pointer to **string** |  | [optional] 
 **Cidr** | Pointer to **string** |  | [optional] 
 **Cidr6** | Pointer to **string** |  | [optional] 
 **Address6** | Pointer to **string** |  | [optional] 
@@ -588,6 +589,31 @@ SetNetmask sets Netmask field to given value.
 `func (o *NetworkInterfaceSummary) HasNetmask() bool`
 
 HasNetmask returns a boolean if a field has been set.
+
+### GetNetmask6
+
+`func (o *NetworkInterfaceSummary) GetNetmask6() string`
+
+GetNetmask6 returns the Netmask6 field if non-nil, zero value otherwise.
+
+### GetNetmask6Ok
+
+`func (o *NetworkInterfaceSummary) GetNetmask6Ok() (*string, bool)`
+
+GetNetmask6Ok returns a tuple with the Netmask6 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetmask6
+
+`func (o *NetworkInterfaceSummary) SetNetmask6(v string)`
+
+SetNetmask6 sets Netmask6 field to given value.
+
+### HasNetmask6
+
+`func (o *NetworkInterfaceSummary) HasNetmask6() bool`
+
+HasNetmask6 returns a boolean if a field has been set.
 
 ### GetCidr
 

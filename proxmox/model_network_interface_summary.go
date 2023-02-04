@@ -41,6 +41,7 @@ type NetworkInterfaceSummary struct {
 	Gateway *string `json:"gateway,omitempty"`
 	Gateway6 *string `json:"gateway6,omitempty"`
 	Netmask *string `json:"netmask,omitempty"`
+	Netmask6 *string `json:"netmask6,omitempty"`
 	Cidr *string `json:"cidr,omitempty"`
 	Cidr6 *string `json:"cidr6,omitempty"`
 	Address6 *string `json:"address6,omitempty"`
@@ -753,6 +754,38 @@ func (o *NetworkInterfaceSummary) SetNetmask(v string) {
 	o.Netmask = &v
 }
 
+// GetNetmask6 returns the Netmask6 field value if set, zero value otherwise.
+func (o *NetworkInterfaceSummary) GetNetmask6() string {
+	if o == nil || isNil(o.Netmask6) {
+		var ret string
+		return ret
+	}
+	return *o.Netmask6
+}
+
+// GetNetmask6Ok returns a tuple with the Netmask6 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetNetmask6Ok() (*string, bool) {
+	if o == nil || isNil(o.Netmask6) {
+		return nil, false
+	}
+	return o.Netmask6, true
+}
+
+// HasNetmask6 returns a boolean if a field has been set.
+func (o *NetworkInterfaceSummary) HasNetmask6() bool {
+	if o != nil && !isNil(o.Netmask6) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetmask6 gets a reference to the given string and assigns it to the Netmask6 field.
+func (o *NetworkInterfaceSummary) SetNetmask6(v string) {
+	o.Netmask6 = &v
+}
+
 // GetCidr returns the Cidr field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetCidr() string {
 	if o == nil || isNil(o.Cidr) {
@@ -920,6 +953,9 @@ func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Netmask) {
 		toSerialize["netmask"] = o.Netmask
+	}
+	if !isNil(o.Netmask6) {
+		toSerialize["netmask6"] = o.Netmask6
 	}
 	if !isNil(o.Cidr) {
 		toSerialize["cidr"] = o.Cidr

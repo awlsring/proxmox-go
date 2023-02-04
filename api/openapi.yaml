@@ -7142,6 +7142,7 @@ components:
           bond_miimon: bond_miimon
           bond_xmit_hash_policy: null
           exists: 5.962133916683182
+          netmask6: netmask6
           gateway6: gateway6
           gateway: gateway
       properties:
@@ -7194,15 +7195,53 @@ components:
     GetPoolResponseContent:
       example:
         data:
-        - poolid: poolid
-          comment: comment
-        - poolid: poolid
+          members:
+          - template: 1.2315135367772556
+            shared: 0.10246457001441578
+            vmid: 4.145608029883936
+            diskread: 7.061401241503109
+            cpu: 3.6160767
+            netout: 5.637376656633329
+            maxcpu: 2.027123023002322
+            type: null
+            content: content
+            uptime: 6.027456183070403
+            plugintype: plugintype
+            node: node
+            disk: 0.8008281904610115
+            mem: 7.386281948385884
+            maxdisk: 9.301444243932576
+            name: name
+            id: id
+            maxmem: 1.4658129805029452
+            diskwrite: 2.3021358869347655
+            netin: 5.962133916683182
+            status: status
+          - template: 1.2315135367772556
+            shared: 0.10246457001441578
+            vmid: 4.145608029883936
+            diskread: 7.061401241503109
+            cpu: 3.6160767
+            netout: 5.637376656633329
+            maxcpu: 2.027123023002322
+            type: null
+            content: content
+            uptime: 6.027456183070403
+            plugintype: plugintype
+            node: node
+            disk: 0.8008281904610115
+            mem: 7.386281948385884
+            maxdisk: 9.301444243932576
+            name: name
+            id: id
+            maxmem: 1.4658129805029452
+            diskwrite: 2.3021358869347655
+            netin: 5.962133916683182
+            status: status
           comment: comment
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/PoolInfo'
-          type: array
+          $ref: '#/components/schemas/PoolConfigurationSummary'
       required:
       - data
       type: object
@@ -8266,6 +8305,7 @@ components:
           bond_miimon: bond_miimon
           bond_xmit_hash_policy: null
           exists: 5.962133916683182
+          netmask6: netmask6
           gateway6: gateway6
           gateway: gateway
         - bridge_ports: bridge_ports
@@ -8293,6 +8333,7 @@ components:
           bond_miimon: bond_miimon
           bond_xmit_hash_policy: null
           exists: 5.962133916683182
+          netmask6: netmask6
           gateway6: gateway6
           gateway: gateway
       properties:
@@ -8477,7 +8518,7 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/PoolInfo'
+            $ref: '#/components/schemas/PoolSummary'
           type: array
       required:
       - data
@@ -9062,6 +9103,7 @@ components:
         bond_miimon: bond_miimon
         bond_xmit_hash_policy: null
         exists: 5.962133916683182
+        netmask6: netmask6
         gateway6: gateway6
         gateway: gateway
       properties:
@@ -9113,6 +9155,8 @@ components:
           pattern: "^([a-f0-9:]+:+)+[a-f0-9]+$"
           type: string
         netmask:
+          type: string
+        netmask6:
           type: string
         cidr:
           pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[1-2][0-9]|[0-9])$"
@@ -9399,7 +9443,143 @@ components:
       required:
       - key
       type: object
-    PoolInfo:
+    PoolConfigurationSummary:
+      example:
+        members:
+        - template: 1.2315135367772556
+          shared: 0.10246457001441578
+          vmid: 4.145608029883936
+          diskread: 7.061401241503109
+          cpu: 3.6160767
+          netout: 5.637376656633329
+          maxcpu: 2.027123023002322
+          type: null
+          content: content
+          uptime: 6.027456183070403
+          plugintype: plugintype
+          node: node
+          disk: 0.8008281904610115
+          mem: 7.386281948385884
+          maxdisk: 9.301444243932576
+          name: name
+          id: id
+          maxmem: 1.4658129805029452
+          diskwrite: 2.3021358869347655
+          netin: 5.962133916683182
+          status: status
+        - template: 1.2315135367772556
+          shared: 0.10246457001441578
+          vmid: 4.145608029883936
+          diskread: 7.061401241503109
+          cpu: 3.6160767
+          netout: 5.637376656633329
+          maxcpu: 2.027123023002322
+          type: null
+          content: content
+          uptime: 6.027456183070403
+          plugintype: plugintype
+          node: node
+          disk: 0.8008281904610115
+          mem: 7.386281948385884
+          maxdisk: 9.301444243932576
+          name: name
+          id: id
+          maxmem: 1.4658129805029452
+          diskwrite: 2.3021358869347655
+          netin: 5.962133916683182
+          status: status
+        comment: comment
+      properties:
+        members:
+          items:
+            $ref: '#/components/schemas/PoolMemberSummary'
+          type: array
+        comment:
+          type: string
+      required:
+      - members
+      type: object
+    PoolMemberSummary:
+      example:
+        template: 1.2315135367772556
+        shared: 0.10246457001441578
+        vmid: 4.145608029883936
+        diskread: 7.061401241503109
+        cpu: 3.6160767
+        netout: 5.637376656633329
+        maxcpu: 2.027123023002322
+        type: null
+        content: content
+        uptime: 6.027456183070403
+        plugintype: plugintype
+        node: node
+        disk: 0.8008281904610115
+        mem: 7.386281948385884
+        maxdisk: 9.301444243932576
+        name: name
+        id: id
+        maxmem: 1.4658129805029452
+        diskwrite: 2.3021358869347655
+        netin: 5.962133916683182
+        status: status
+      properties:
+        id:
+          type: string
+        disk:
+          type: number
+        uptime:
+          type: number
+        maxmem:
+          type: number
+        netin:
+          type: number
+        netout:
+          type: number
+        diskwrite:
+          type: number
+        diskread:
+          type: number
+        maxdisk:
+          type: number
+        cpu:
+          format: float
+          type: number
+        maxcpu:
+          type: number
+        vmid:
+          type: number
+        mem:
+          type: number
+        name:
+          type: string
+        template:
+          description: "Whether the VM is a template. This is a boolean integer, where\
+            \ 1 is true and 0 is false."
+          type: number
+        node:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        type:
+          $ref: '#/components/schemas/PoolMemberType'
+        status:
+          type: string
+        plugintype:
+          type: string
+        shared:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        content:
+          type: string
+      type: object
+    PoolMemberType:
+      enum:
+      - qemu
+      - lxc
+      - storage
+      type: string
+    PoolSummary:
       example:
         poolid: poolid
         comment: comment
@@ -9411,12 +9591,6 @@ components:
       required:
       - poolid
       type: object
-    PoolMemberType:
-      enum:
-      - qemu
-      - lxc
-      - storage
-      type: string
     ProxmoxSupportSummary:
       example:
         pbs-dirty-bitmap-migration: true

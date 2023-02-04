@@ -19,14 +19,14 @@ var _ MappedNullable = &GetPoolResponseContent{}
 
 // GetPoolResponseContent struct for GetPoolResponseContent
 type GetPoolResponseContent struct {
-	Data []PoolInfo `json:"data"`
+	Data PoolConfigurationSummary `json:"data"`
 }
 
 // NewGetPoolResponseContent instantiates a new GetPoolResponseContent object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetPoolResponseContent(data []PoolInfo) *GetPoolResponseContent {
+func NewGetPoolResponseContent(data PoolConfigurationSummary) *GetPoolResponseContent {
 	this := GetPoolResponseContent{}
 	this.Data = data
 	return &this
@@ -41,9 +41,9 @@ func NewGetPoolResponseContentWithDefaults() *GetPoolResponseContent {
 }
 
 // GetData returns the Data field value
-func (o *GetPoolResponseContent) GetData() []PoolInfo {
+func (o *GetPoolResponseContent) GetData() PoolConfigurationSummary {
 	if o == nil {
-		var ret []PoolInfo
+		var ret PoolConfigurationSummary
 		return ret
 	}
 
@@ -52,15 +52,15 @@ func (o *GetPoolResponseContent) GetData() []PoolInfo {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *GetPoolResponseContent) GetDataOk() ([]PoolInfo, bool) {
+func (o *GetPoolResponseContent) GetDataOk() (*PoolConfigurationSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Data, true
+	return &o.Data, true
 }
 
 // SetData sets field value
-func (o *GetPoolResponseContent) SetData(v []PoolInfo) {
+func (o *GetPoolResponseContent) SetData(v PoolConfigurationSummary) {
 	o.Data = v
 }
 

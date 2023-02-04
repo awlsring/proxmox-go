@@ -14,35 +14,35 @@ import (
 	"encoding/json"
 )
 
-// checks if the PoolInfo type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PoolInfo{}
+// checks if the PoolSummary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PoolSummary{}
 
-// PoolInfo struct for PoolInfo
-type PoolInfo struct {
+// PoolSummary struct for PoolSummary
+type PoolSummary struct {
 	Poolid string `json:"poolid"`
 	Comment *string `json:"comment,omitempty"`
 }
 
-// NewPoolInfo instantiates a new PoolInfo object
+// NewPoolSummary instantiates a new PoolSummary object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPoolInfo(poolid string) *PoolInfo {
-	this := PoolInfo{}
+func NewPoolSummary(poolid string) *PoolSummary {
+	this := PoolSummary{}
 	this.Poolid = poolid
 	return &this
 }
 
-// NewPoolInfoWithDefaults instantiates a new PoolInfo object
+// NewPoolSummaryWithDefaults instantiates a new PoolSummary object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPoolInfoWithDefaults() *PoolInfo {
-	this := PoolInfo{}
+func NewPoolSummaryWithDefaults() *PoolSummary {
+	this := PoolSummary{}
 	return &this
 }
 
 // GetPoolid returns the Poolid field value
-func (o *PoolInfo) GetPoolid() string {
+func (o *PoolSummary) GetPoolid() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -53,7 +53,7 @@ func (o *PoolInfo) GetPoolid() string {
 
 // GetPoolidOk returns a tuple with the Poolid field value
 // and a boolean to check if the value has been set.
-func (o *PoolInfo) GetPoolidOk() (*string, bool) {
+func (o *PoolSummary) GetPoolidOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -61,12 +61,12 @@ func (o *PoolInfo) GetPoolidOk() (*string, bool) {
 }
 
 // SetPoolid sets field value
-func (o *PoolInfo) SetPoolid(v string) {
+func (o *PoolSummary) SetPoolid(v string) {
 	o.Poolid = v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise.
-func (o *PoolInfo) GetComment() string {
+func (o *PoolSummary) GetComment() string {
 	if o == nil || isNil(o.Comment) {
 		var ret string
 		return ret
@@ -76,7 +76,7 @@ func (o *PoolInfo) GetComment() string {
 
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PoolInfo) GetCommentOk() (*string, bool) {
+func (o *PoolSummary) GetCommentOk() (*string, bool) {
 	if o == nil || isNil(o.Comment) {
 		return nil, false
 	}
@@ -84,7 +84,7 @@ func (o *PoolInfo) GetCommentOk() (*string, bool) {
 }
 
 // HasComment returns a boolean if a field has been set.
-func (o *PoolInfo) HasComment() bool {
+func (o *PoolSummary) HasComment() bool {
 	if o != nil && !isNil(o.Comment) {
 		return true
 	}
@@ -93,11 +93,11 @@ func (o *PoolInfo) HasComment() bool {
 }
 
 // SetComment gets a reference to the given string and assigns it to the Comment field.
-func (o *PoolInfo) SetComment(v string) {
+func (o *PoolSummary) SetComment(v string) {
 	o.Comment = &v
 }
 
-func (o PoolInfo) MarshalJSON() ([]byte, error) {
+func (o PoolSummary) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -105,7 +105,7 @@ func (o PoolInfo) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PoolInfo) ToMap() (map[string]interface{}, error) {
+func (o PoolSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["poolid"] = o.Poolid
 	if !isNil(o.Comment) {
@@ -114,38 +114,38 @@ func (o PoolInfo) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullablePoolInfo struct {
-	value *PoolInfo
+type NullablePoolSummary struct {
+	value *PoolSummary
 	isSet bool
 }
 
-func (v NullablePoolInfo) Get() *PoolInfo {
+func (v NullablePoolSummary) Get() *PoolSummary {
 	return v.value
 }
 
-func (v *NullablePoolInfo) Set(val *PoolInfo) {
+func (v *NullablePoolSummary) Set(val *PoolSummary) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePoolInfo) IsSet() bool {
+func (v NullablePoolSummary) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePoolInfo) Unset() {
+func (v *NullablePoolSummary) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePoolInfo(val *PoolInfo) *NullablePoolInfo {
-	return &NullablePoolInfo{value: val, isSet: true}
+func NewNullablePoolSummary(val *PoolSummary) *NullablePoolSummary {
+	return &NullablePoolSummary{value: val, isSet: true}
 }
 
-func (v NullablePoolInfo) MarshalJSON() ([]byte, error) {
+func (v NullablePoolSummary) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePoolInfo) UnmarshalJSON(src []byte) error {
+func (v *NullablePoolSummary) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
