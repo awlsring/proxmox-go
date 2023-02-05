@@ -55,6 +55,7 @@ Method | HTTP request | Description
 [**GetVirtualMachineHostname**](DefaultApi.md#GetVirtualMachineHostname) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-host-name | 
 [**GetVirtualMachineMemoryBlockInformation**](DefaultApi.md#GetVirtualMachineMemoryBlockInformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-memory-block-info | 
 [**GetVirtualMachineMemoryBlocks**](DefaultApi.md#GetVirtualMachineMemoryBlocks) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-memory-blocks | 
+[**GetVirtualMachineNetworkInterfaces**](DefaultApi.md#GetVirtualMachineNetworkInterfaces) | **Get** /nodes/{node}/qemu/{vmId}/agent/network-get-interfaces | 
 [**GetVirtualMachineOperatingSystemInformation**](DefaultApi.md#GetVirtualMachineOperatingSystemInformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-osinfo | 
 [**GetVirtualMachineStatus**](DefaultApi.md#GetVirtualMachineStatus) | **Get** /nodes/{node}/qemu/{vmId}/status/current | 
 [**GetVirtualMachineTime**](DefaultApi.md#GetVirtualMachineTime) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-time | 
@@ -3695,6 +3696,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetVirtualMachineMemoryBlocksResponseContent**](GetVirtualMachineMemoryBlocksResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineNetworkInterfaces
+
+> GetVirtualMachineNetworkInterfacesResponseContent GetVirtualMachineNetworkInterfaces(ctx, node, vmId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineNetworkInterfaces(context.Background(), node, vmId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineNetworkInterfaces``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineNetworkInterfaces`: GetVirtualMachineNetworkInterfacesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineNetworkInterfaces`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineNetworkInterfacesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetVirtualMachineNetworkInterfacesResponseContent**](GetVirtualMachineNetworkInterfacesResponseContent.md)
 
 ### Authorization
 
