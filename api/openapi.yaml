@@ -7781,6 +7781,7 @@ components:
           nodes: nodes
           vgname: vgname
           digest: digest
+          pool: pool
           thinpool: thinpool
           storage: storage
           type: null
@@ -9172,6 +9173,7 @@ components:
           nodes: nodes
           vgname: vgname
           digest: digest
+          pool: pool
           thinpool: thinpool
           storage: storage
           type: null
@@ -9181,6 +9183,7 @@ components:
           nodes: nodes
           vgname: vgname
           digest: digest
+          pool: pool
           thinpool: thinpool
           storage: storage
           type: null
@@ -10470,6 +10473,7 @@ components:
         nodes: nodes
         vgname: vgname
         digest: digest
+        pool: pool
         thinpool: thinpool
         storage: storage
         type: null
@@ -10492,6 +10496,8 @@ components:
           $ref: '#/components/schemas/StorageType'
         vgname:
           description: The volume group name
+          type: string
+        pool:
           type: string
         path:
           description: The storage path

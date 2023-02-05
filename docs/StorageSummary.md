@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Thinpool** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to [**StorageType**](StorageType.md) |  | [optional] 
 **Vgname** | Pointer to **string** | The volume group name | [optional] 
+**Pool** | Pointer to **string** |  | [optional] 
 **Path** | Pointer to **string** | The storage path | [optional] 
 **Mountpoint** | Pointer to **string** | The storage mountpoint | [optional] 
 **Nodes** | Pointer to **string** | The nodes that have access to this storage | [optional] 
@@ -177,6 +178,31 @@ SetVgname sets Vgname field to given value.
 `func (o *StorageSummary) HasVgname() bool`
 
 HasVgname returns a boolean if a field has been set.
+
+### GetPool
+
+`func (o *StorageSummary) GetPool() string`
+
+GetPool returns the Pool field if non-nil, zero value otherwise.
+
+### GetPoolOk
+
+`func (o *StorageSummary) GetPoolOk() (*string, bool)`
+
+GetPoolOk returns a tuple with the Pool field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPool
+
+`func (o *StorageSummary) SetPool(v string)`
+
+SetPool sets Pool field to given value.
+
+### HasPool
+
+`func (o *StorageSummary) HasPool() bool`
+
+HasPool returns a boolean if a field has been set.
 
 ### GetPath
 

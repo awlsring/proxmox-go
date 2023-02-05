@@ -28,6 +28,7 @@ type StorageSummary struct {
 	Type *StorageType `json:"type,omitempty"`
 	// The volume group name
 	Vgname *string `json:"vgname,omitempty"`
+	Pool *string `json:"pool,omitempty"`
 	// The storage path
 	Path *string `json:"path,omitempty"`
 	// The storage mountpoint
@@ -238,6 +239,38 @@ func (o *StorageSummary) SetVgname(v string) {
 	o.Vgname = &v
 }
 
+// GetPool returns the Pool field value if set, zero value otherwise.
+func (o *StorageSummary) GetPool() string {
+	if o == nil || isNil(o.Pool) {
+		var ret string
+		return ret
+	}
+	return *o.Pool
+}
+
+// GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageSummary) GetPoolOk() (*string, bool) {
+	if o == nil || isNil(o.Pool) {
+		return nil, false
+	}
+	return o.Pool, true
+}
+
+// HasPool returns a boolean if a field has been set.
+func (o *StorageSummary) HasPool() bool {
+	if o != nil && !isNil(o.Pool) {
+		return true
+	}
+
+	return false
+}
+
+// SetPool gets a reference to the given string and assigns it to the Pool field.
+func (o *StorageSummary) SetPool(v string) {
+	o.Pool = &v
+}
+
 // GetPath returns the Path field value if set, zero value otherwise.
 func (o *StorageSummary) GetPath() string {
 	if o == nil || isNil(o.Path) {
@@ -359,6 +392,9 @@ func (o StorageSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Vgname) {
 		toSerialize["vgname"] = o.Vgname
+	}
+	if !isNil(o.Pool) {
+		toSerialize["pool"] = o.Pool
 	}
 	if !isNil(o.Path) {
 		toSerialize["path"] = o.Path
