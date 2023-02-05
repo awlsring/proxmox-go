@@ -3076,6 +3076,405 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/storage:
+    get:
+      operationId: ListNodeStorage
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: content
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "An integer used to represent a boolean. 0 is false, 1 is true."
+        explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: storage
+        required: false
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: form
+      - description: "If target and node differ, only return storage that is available\
+          \ on both nodes."
+        explode: true
+        in: query
+        name: target
+        required: false
+        schema:
+          description: "If target and node differ, only return storage that is available\
+            \ on both nodes."
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNodeStorageResponseContent'
+          description: ListNodeStorage 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/storage/{storage}/content:
+    get:
+      operationId: ListStorageVolumes
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: content
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The id of the virtual machine as a string
+        explode: true
+        in: query
+        name: vmid
+        required: false
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListStorageVolumesResponseContent'
+          description: ListStorageVolumes 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: CreateStorageVolume
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStorageVolumeRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateStorageVolumeResponseContent'
+          description: CreateStorageVolume 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/storage/{storage}/content/{volume}:
+    delete:
+      operationId: DeleteStorageVolume
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: volume
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Delay in seconds to wait for task to finish.
+        explode: true
+        in: query
+        name: delay
+        required: false
+        schema:
+          description: Delay in seconds to wait for task to finish.
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteStorageVolumeResponseContent'
+          description: DeleteStorageVolume 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: UpdateStorageVolume
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: volume
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStorageVolumeRequestContent'
+        required: true
+      responses:
+        "200":
+          description: UpdateStorageVolume 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/storage/{storage}/download-url:
+    post:
+      description: Download a file from a URL to the specified storage.
+      operationId: DownloadFromUrlToStorage
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadFromUrlToStorageRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadFromUrlToStorageResponseContent'
+          description: DownloadFromUrlToStorage 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/storage/{storage}/status:
+    get:
+      operationId: GetStorageStatus
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetStorageStatusResponseContent'
+          description: GetStorageStatus 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/storage/{storage}/upload:
+    post:
+      operationId: UploadToStorage
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: storage
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadToStorageRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadToStorageResponseContent'
+          description: UploadToStorage 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /pools:
     get:
       operationId: ListPools
@@ -5057,6 +5456,15 @@ components:
       additionalProperties:
         $ref: '#/components/schemas/CapabilityCategoryMap'
       type: object
+    ChecksumAlgorithm:
+      enum:
+      - md5
+      - sha1
+      - sha224
+      - sha256
+      - sha384
+      - sha512
+      type: string
     CloneVirtualMachineDiskFormat:
       enum:
       - raw
@@ -5706,6 +6114,38 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/StorageConfiguration'
+      required:
+      - data
+      type: object
+    CreateStorageVolumeRequestContent:
+      example:
+        filename: filename
+        size: 0.8008281904610115
+        vmid: vmid
+        format: null
+      properties:
+        filename:
+          description: The filename of the new file
+          type: string
+        size:
+          description: The new size in byte string
+          type: number
+        vmid:
+          description: The id of the virtual machine as a string
+          type: string
+        format:
+          $ref: '#/components/schemas/StorageVolumeType'
+      required:
+      - filename
+      - size
+      - vmid
+      type: object
+    CreateStorageVolumeResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
       required:
       - data
       type: object
@@ -6603,6 +7043,15 @@ components:
       required:
       - data
       type: object
+    DeleteStorageVolumeResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     DeleteVirtualMachineResponseContent:
       example:
         data: data
@@ -6751,6 +7200,45 @@ components:
       - unused
       - journal_disks
       type: string
+    DownloadFromUrlToStorageRequestContent:
+      example:
+        filename: filename
+        tmpfilename: tmpfilename
+        checksum: checksum
+        checksum-algorithm: null
+        content: null
+        url: url
+      properties:
+        content:
+          $ref: '#/components/schemas/UploadContentType'
+        filename:
+          description: The name of the file to create.
+          type: string
+        url:
+          description: The URL to download from.
+          type: string
+        checksum:
+          description: The expceted checksum of the file.
+          type: string
+        checksum-algorithm:
+          $ref: '#/components/schemas/ChecksumAlgorithm'
+        tmpfilename:
+          description: The source filename.
+          type: string
+      required:
+      - content
+      - filename
+      - url
+      type: object
+    DownloadFromUrlToStorageResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     FileInfoSummary:
       example:
         path: path
@@ -7301,6 +7789,23 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/StorageSummary'
+      required:
+      - data
+      type: object
+    GetStorageStatusResponseContent:
+      example:
+        data:
+          shared: 0.08008281904610115
+          avail: 2.3021358869347655
+          total: 5.962133916683182
+          active: 0.6027456183070403
+          used: 5.637376656633329
+          type: null
+          content: content
+          enabled: 0.14658129805029452
+      properties:
+        data:
+          $ref: '#/components/schemas/StorageStatusSummary'
       required:
       - data
       type: object
@@ -8379,6 +8884,37 @@ components:
       required:
       - data
       type: object
+    ListNodeStorageResponseContent:
+      example:
+        data:
+        - shared: 0.14658129805029452
+          avail: 7.061401241503109
+          total: 5.962133916683182
+          used_fraction: 2.302136
+          active: 0.08008281904610115
+          storage: storage
+          used: 5.637376656633329
+          type: null
+          content: content
+          enabled: 0.6027456183070403
+        - shared: 0.14658129805029452
+          avail: 7.061401241503109
+          total: 5.962133916683182
+          used_fraction: 2.302136
+          active: 0.08008281904610115
+          storage: storage
+          used: 5.637376656633329
+          type: null
+          content: content
+          enabled: 0.6027456183070403
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NodeStorageSummary'
+          type: array
+      required:
+      - data
+      type: object
     ListNodesResponseContent:
       example:
         data:
@@ -8654,6 +9190,37 @@ components:
         data:
           items:
             $ref: '#/components/schemas/StorageSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListStorageVolumesResponseContent:
+      example:
+        data:
+        - parent: parent
+          notes: notes
+          size: 0.8008281904610115
+          encrypted: encrypted
+          protected: 0.14658129805029452
+          vmid: vmid
+          format: format
+          ctime: 6.027456183070403
+          used: 5.962133916683182
+          volid: volid
+        - parent: parent
+          notes: notes
+          size: 0.8008281904610115
+          encrypted: encrypted
+          protected: 0.14658129805029452
+          vmid: vmid
+          format: format
+          ctime: 6.027456183070403
+          used: 5.962133916683182
+          volid: volid
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/StorageVolumeSummary'
           type: array
       required:
       - data
@@ -9242,6 +9809,56 @@ components:
       - online
       - offline
       type: string
+    NodeStorageSummary:
+      example:
+        shared: 0.14658129805029452
+        avail: 7.061401241503109
+        total: 5.962133916683182
+        used_fraction: 2.302136
+        active: 0.08008281904610115
+        storage: storage
+        used: 5.637376656633329
+        type: null
+        content: content
+        enabled: 0.6027456183070403
+      properties:
+        storage:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        type:
+          $ref: '#/components/schemas/StorageType'
+        content:
+          description: The allowed storage content types.
+          type: string
+        active:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        enabled:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        shared:
+          description: Whether the storage is shared across all nodes.
+          maximum: 1
+          minimum: 0
+          type: number
+        total:
+          type: number
+        used:
+          type: number
+        used_fraction:
+          format: float
+          type: number
+        avail:
+          type: number
+      required:
+      - content
+      - storage
+      - type
+      type: object
     NodeSummary:
       example:
         level: level
@@ -9810,6 +10427,43 @@ components:
       - "2.1"
       - "3.11"
       type: string
+    StorageStatusSummary:
+      example:
+        shared: 0.08008281904610115
+        avail: 2.3021358869347655
+        total: 5.962133916683182
+        active: 0.6027456183070403
+        used: 5.637376656633329
+        type: null
+        content: content
+        enabled: 0.14658129805029452
+      properties:
+        content:
+          type: string
+        type:
+          $ref: '#/components/schemas/StorageType'
+        shared:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        active:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        enabled:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        total:
+          type: number
+        used:
+          type: number
+        avail:
+          type: number
+      type: object
     StorageSummary:
       example:
         path: path
@@ -9873,6 +10527,58 @@ components:
       - iscsidirect
       - rbd
       - zfs
+      type: string
+    StorageVolumeSummary:
+      example:
+        parent: parent
+        notes: notes
+        size: 0.8008281904610115
+        encrypted: encrypted
+        protected: 0.14658129805029452
+        vmid: vmid
+        format: format
+        ctime: 6.027456183070403
+        used: 5.962133916683182
+        volid: volid
+      properties:
+        format:
+          type: string
+        size:
+          description: The size of the storage content in bytes.
+          type: number
+        volid:
+          type: string
+        ctime:
+          description: The creation time of the storage content in seconds since the
+            epoch.
+          type: number
+        encrypted:
+          type: string
+        notes:
+          type: string
+        parent:
+          type: string
+        protected:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        used:
+          description: The amount of storage content used in bytes.
+          type: number
+        vmid:
+          description: The id of the virtual machine as a string
+          type: string
+      required:
+      - format
+      - size
+      - volid
+      type: object
+    StorageVolumeType:
+      enum:
+      - raw
+      - qcow2
+      - subvol
       type: string
     Ticket:
       example:
@@ -10064,6 +10770,22 @@ components:
       required:
       - type
       type: object
+    UpdateStorageVolumeRequestContent:
+      example:
+        notes: notes
+        protected: 0.08008281904610115
+      properties:
+        notes:
+          description: New notes for the volume
+          type: string
+        protected:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - protected
+      type: object
     UpdateSummary:
       example:
         Origin: Origin
@@ -10108,6 +10830,45 @@ components:
       - Section
       - Title
       - Version
+      type: object
+    UploadContentType:
+      enum:
+      - iso
+      - vztmpl
+      type: string
+    UploadToStorageRequestContent:
+      example:
+        filename: filename
+        tmpfilename: tmpfilename
+        checksum: checksum
+        checksum-algorithm: null
+        content: null
+      properties:
+        content:
+          $ref: '#/components/schemas/UploadContentType'
+        filename:
+          description: The name of the file to create.
+          type: string
+        checksum:
+          description: The expceted checksum of the file.
+          type: string
+        checksum-algorithm:
+          $ref: '#/components/schemas/ChecksumAlgorithm'
+        tmpfilename:
+          description: The source filename.
+          type: string
+      required:
+      - content
+      - filename
+      type: object
+    UploadToStorageResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
       type: object
     UsbDeviceSummary:
       example:

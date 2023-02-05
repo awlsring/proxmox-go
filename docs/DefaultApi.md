@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**CreateNetworkInterface**](DefaultApi.md#CreateNetworkInterface) | **Post** /nodes/{node}/network | 
 [**CreatePool**](DefaultApi.md#CreatePool) | **Post** /pools | 
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
+[**CreateStorageVolume**](DefaultApi.md#CreateStorageVolume) | **Post** /nodes/{node}/storage/{storage}/content | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
 [**CreateVirtualMachine**](DefaultApi.md#CreateVirtualMachine) | **Post** /nodes/{node}/qemu | 
 [**CreateVirtualMachineTemplate**](DefaultApi.md#CreateVirtualMachineTemplate) | **Post** /nodes/{node}/qemu/{vmId}/template | 
@@ -30,8 +31,10 @@ Method | HTTP request | Description
 [**DeleteNodeCertificate**](DefaultApi.md#DeleteNodeCertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 [**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
+[**DeleteStorageVolume**](DefaultApi.md#DeleteStorageVolume) | **Delete** /nodes/{node}/storage/{storage}/content/{volume} | 
 [**DeleteVirtualMachine**](DefaultApi.md#DeleteVirtualMachine) | **Delete** /nodes/{node}/qemu/{vmId} | 
 [**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
+[**DownloadFromUrlToStorage**](DefaultApi.md#DownloadFromUrlToStorage) | **Post** /nodes/{node}/storage/{storage}/download-url | 
 [**GetAccessControlList**](DefaultApi.md#GetAccessControlList) | **Get** /access/acl | 
 [**GetClusterApiVersion**](DefaultApi.md#GetClusterApiVersion) | **Get** /cluster/config/apiversion | 
 [**GetClusterJoinInformation**](DefaultApi.md#GetClusterJoinInformation) | **Get** /cluster/config/join | 
@@ -42,6 +45,7 @@ Method | HTTP request | Description
 [**GetPool**](DefaultApi.md#GetPool) | **Get** /pools/{poolId} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetStorage**](DefaultApi.md#GetStorage) | **Get** /storage/{storage} | 
+[**GetStorageStatus**](DefaultApi.md#GetStorageStatus) | **Get** /nodes/{node}/storage/{storage}/status | 
 [**GetVersion**](DefaultApi.md#GetVersion) | **Get** /version | 
 [**GetVirtualMachineAgentInfo**](DefaultApi.md#GetVirtualMachineAgentInfo) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-info | 
 [**GetVirtualMachineCloudInit**](DefaultApi.md#GetVirtualMachineCloudInit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
@@ -68,6 +72,7 @@ Method | HTTP request | Description
 [**ListMachineCapabilities**](DefaultApi.md#ListMachineCapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
 [**ListNetworkInterfaces**](DefaultApi.md#ListNetworkInterfaces) | **Get** /nodes/{node}/network | 
 [**ListNodeCertificates**](DefaultApi.md#ListNodeCertificates) | **Get** /nodes/{node}/certificates/info | 
+[**ListNodeStorage**](DefaultApi.md#ListNodeStorage) | **Get** /nodes/{node}/storage | 
 [**ListNodes**](DefaultApi.md#ListNodes) | **Get** /nodes | 
 [**ListPackages**](DefaultApi.md#ListPackages) | **Get** /nodes/{node}/apt/versions | 
 [**ListPciDeviceMediatedDevices**](DefaultApi.md#ListPciDeviceMediatedDevices) | **Get** /nodes/{node}/hardware/pci/{deviceId} | 
@@ -76,6 +81,7 @@ Method | HTTP request | Description
 [**ListPools**](DefaultApi.md#ListPools) | **Get** /pools | 
 [**ListRepositoriesInformation**](DefaultApi.md#ListRepositoriesInformation) | **Get** /nodes/{node}/apt/repository | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
+[**ListStorageVolumes**](DefaultApi.md#ListStorageVolumes) | **Get** /nodes/{node}/storage/{storage}/content | 
 [**ListUpdates**](DefaultApi.md#ListUpdates) | **Get** /nodes/{node}/apt/update | 
 [**ListUsbDevices**](DefaultApi.md#ListUsbDevices) | **Get** /nodes/{node}/hardware/usb | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
@@ -91,6 +97,8 @@ Method | HTTP request | Description
 [**UnlinkVirtualMachineDisks**](DefaultApi.md#UnlinkVirtualMachineDisks) | **Put** /nodes/{node}/qemu/{vmId}/unlink | 
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
 [**UpdateNetworkInterface**](DefaultApi.md#UpdateNetworkInterface) | **Put** /nodes/{node}/network/{interface} | 
+[**UpdateStorageVolume**](DefaultApi.md#UpdateStorageVolume) | **Put** /nodes/{node}/storage/{storage}/content/{volume} | 
+[**UploadToStorage**](DefaultApi.md#UploadToStorage) | **Post** /nodes/{node}/storage/{storage}/upload | 
 [**WipeDisk**](DefaultApi.md#WipeDisk) | **Put** /nodes/{node}/disks/smart | 
 
 
@@ -1146,6 +1154,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateStorageVolume
+
+> CreateStorageVolumeResponseContent CreateStorageVolume(ctx, node, storage).CreateStorageVolumeRequestContent(createStorageVolumeRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+    createStorageVolumeRequestContent := *openapiclient.NewCreateStorageVolumeRequestContent("Filename_example", float32(123), "Vmid_example") // CreateStorageVolumeRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateStorageVolume(context.Background(), node, storage).CreateStorageVolumeRequestContent(createStorageVolumeRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateStorageVolume``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateStorageVolume`: CreateStorageVolumeResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateStorageVolume`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateStorageVolumeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **createStorageVolumeRequestContent** | [**CreateStorageVolumeRequestContent**](CreateStorageVolumeRequestContent.md) |  | 
+
+### Return type
+
+[**CreateStorageVolumeResponseContent**](CreateStorageVolumeResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateTicket
 
 > CreateTicketResponseContent CreateTicket(ctx).CreateTicketRequestContent(createTicketRequestContent).Execute()
@@ -1931,6 +2012,82 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteStorageVolume
+
+> DeleteStorageVolumeResponseContent DeleteStorageVolume(ctx, node, storage, volume).Delay(delay).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+    volume := "volume_example" // string | 
+    delay := float32(8.14) // float32 | Delay in seconds to wait for task to finish. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteStorageVolume(context.Background(), node, storage, volume).Delay(delay).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteStorageVolume``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteStorageVolume`: DeleteStorageVolumeResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteStorageVolume`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+**volume** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteStorageVolumeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **delay** | **float32** | Delay in seconds to wait for task to finish. | 
+
+### Return type
+
+[**DeleteStorageVolumeResponseContent**](DeleteStorageVolumeResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteVirtualMachine
 
 > DeleteVirtualMachineResponseContent DeleteVirtualMachine(ctx, node, vmId).DestoryUnreferencedDisks(destoryUnreferencedDisks).Purge(purge).Skiplock(skiplock).Execute()
@@ -2080,6 +2237,81 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DownloadFromUrlToStorage
+
+> DownloadFromUrlToStorageResponseContent DownloadFromUrlToStorage(ctx, node, storage).DownloadFromUrlToStorageRequestContent(downloadFromUrlToStorageRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+    downloadFromUrlToStorageRequestContent := *openapiclient.NewDownloadFromUrlToStorageRequestContent(openapiclient.UploadContentType("iso"), "Filename_example", "Url_example") // DownloadFromUrlToStorageRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DownloadFromUrlToStorage(context.Background(), node, storage).DownloadFromUrlToStorageRequestContent(downloadFromUrlToStorageRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DownloadFromUrlToStorage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DownloadFromUrlToStorage`: DownloadFromUrlToStorageResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DownloadFromUrlToStorage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDownloadFromUrlToStorageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **downloadFromUrlToStorageRequestContent** | [**DownloadFromUrlToStorageRequestContent**](DownloadFromUrlToStorageRequestContent.md) |  | 
+
+### Return type
+
+[**DownloadFromUrlToStorageResponseContent**](DownloadFromUrlToStorageResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2739,6 +2971,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetStorageResponseContent**](GetStorageResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetStorageStatus
+
+> GetStorageStatusResponseContent GetStorageStatus(ctx, node, storage).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetStorageStatus(context.Background(), node, storage).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetStorageStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetStorageStatus`: GetStorageStatusResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetStorageStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetStorageStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetStorageStatusResponseContent**](GetStorageStatusResponseContent.md)
 
 ### Authorization
 
@@ -4606,6 +4909,82 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListNodeStorage
+
+> ListNodeStorageResponseContent ListNodeStorage(ctx, node).Content(content).Enabled(enabled).Storage(storage).Target(target).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    content := "content_example" // string |  (optional)
+    enabled := float32(8.14) // float32 | An integer used to represent a boolean. 0 is false, 1 is true. (optional)
+    storage := "storage_example" // string |  (optional)
+    target := "target_example" // string | If target and node differ, only return storage that is available on both nodes. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListNodeStorage(context.Background(), node).Content(content).Enabled(enabled).Storage(storage).Target(target).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListNodeStorage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListNodeStorage`: ListNodeStorageResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListNodeStorage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListNodeStorageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **content** | **string** |  | 
+ **enabled** | **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | 
+ **storage** | **string** |  | 
+ **target** | **string** | If target and node differ, only return storage that is available on both nodes. | 
+
+### Return type
+
+[**ListNodeStorageResponseContent**](ListNodeStorageResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListNodes
 
 > ListNodesResponseContent ListNodes(ctx).Execute()
@@ -5120,6 +5499,81 @@ Other parameters are passed through a pointer to a apiListStorageRequest struct 
 ### Return type
 
 [**ListStorageResponseContent**](ListStorageResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListStorageVolumes
+
+> ListStorageVolumesResponseContent ListStorageVolumes(ctx, node, storage).Content(content).Vmid(vmid).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+    content := "content_example" // string |  (optional)
+    vmid := "vmid_example" // string | The id of the virtual machine as a string (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListStorageVolumes(context.Background(), node, storage).Content(content).Vmid(vmid).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListStorageVolumes``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListStorageVolumes`: ListStorageVolumesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListStorageVolumes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListStorageVolumesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **content** | **string** |  | 
+ **vmid** | **string** | The id of the virtual machine as a string | 
+
+### Return type
+
+[**ListStorageVolumesResponseContent**](ListStorageVolumesResponseContent.md)
 
 ### Authorization
 
@@ -6160,6 +6614,153 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateStorageVolume
+
+> UpdateStorageVolume(ctx, node, storage, volume).UpdateStorageVolumeRequestContent(updateStorageVolumeRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+    volume := "volume_example" // string | 
+    updateStorageVolumeRequestContent := *openapiclient.NewUpdateStorageVolumeRequestContent(float32(123)) // UpdateStorageVolumeRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.UpdateStorageVolume(context.Background(), node, storage, volume).UpdateStorageVolumeRequestContent(updateStorageVolumeRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateStorageVolume``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+**volume** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateStorageVolumeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **updateStorageVolumeRequestContent** | [**UpdateStorageVolumeRequestContent**](UpdateStorageVolumeRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UploadToStorage
+
+> UploadToStorageResponseContent UploadToStorage(ctx, node, storage).UploadToStorageRequestContent(uploadToStorageRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    storage := "storage_example" // string | 
+    uploadToStorageRequestContent := *openapiclient.NewUploadToStorageRequestContent(openapiclient.UploadContentType("iso"), "Filename_example") // UploadToStorageRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.UploadToStorage(context.Background(), node, storage).UploadToStorageRequestContent(uploadToStorageRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UploadToStorage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UploadToStorage`: UploadToStorageResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.UploadToStorage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**storage** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUploadToStorageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **uploadToStorageRequestContent** | [**UploadToStorageRequestContent**](UploadToStorageRequestContent.md) |  | 
+
+### Return type
+
+[**UploadToStorageResponseContent**](UploadToStorageResponseContent.md)
 
 ### Authorization
 
