@@ -53,6 +53,70 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /access/password:
+    put:
+      description: Change a users password. This method cannot be used by API tokens.
+      operationId: ChangePassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequestContent'
+        required: true
+      responses:
+        "200":
+          description: ChangePassword 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/permissions:
+    get:
+      description: Retrive the permissions for the given user. If none specified the
+        permissions for the current user are returned.
+      operationId: GetPermissions
+      parameters:
+      - explode: true
+        in: query
+        name: path
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userid
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPermissionsResponseContent'
+          description: GetPermissions 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/ticket:
     post:
       operationId: CreateTicket
@@ -69,6 +133,350 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateTicketResponseContent'
           description: CreateTicket 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/users:
+    get:
+      description: List users on system.
+      operationId: ListUsers
+      parameters:
+      - description: "An integer used to represent a boolean. 0 is false, 1 is true."
+        explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      - description: "An integer used to represent a boolean. 0 is false, 1 is true."
+        explode: true
+        in: query
+        name: full
+        required: false
+        schema:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponseContent'
+          description: ListUsers 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Create a new user.
+      operationId: CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequestContent'
+        required: true
+      responses:
+        "200":
+          description: CreateUser 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/users/{userId}:
+    delete:
+      description: Delete a user.
+      operationId: DeleteUser
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: DeleteUser 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      description: Get user on system.
+      operationId: GetUserConfiguration
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserConfigurationResponseContent'
+          description: GetUserConfiguration 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      description: Update a user.
+      operationId: ModifyUser
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyUserRequestContent'
+      responses:
+        "200":
+          description: ModifyUser 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/users/{userId}/token:
+    get:
+      description: List user tokens system.
+      operationId: ListUserTokens
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUserTokensResponseContent'
+          description: ListUserTokens 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/users/{userId}/token/{tokenId}:
+    delete:
+      description: Delete a token.
+      operationId: DeleteUserToken
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: DeleteUserToken 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      description: Get user token.
+      operationId: GetUserToken
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserTokenResponseContent'
+          description: GetUserToken 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      description: Create token for user.
+      operationId: CreateUserToken
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserTokenRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserTokenResponseContent'
+          description: CreateUserToken 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      description: Modify a token.
+      operationId: ModifyUserToken
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyUserTokenRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModifyUserTokenResponseContent'
+          description: ModifyUserToken 200 response
         "400":
           content:
             application/json:
@@ -5498,6 +5906,19 @@ components:
       additionalProperties:
         $ref: '#/components/schemas/CapabilityCategoryMap'
       type: object
+    ChangePasswordRequestContent:
+      example:
+        password: password
+        userid: userid
+      properties:
+        userid:
+          type: string
+        password:
+          type: string
+      required:
+      - password
+      - userid
+      type: object
     ChecksumAlgorithm:
       enum:
       - md5
@@ -6219,6 +6640,73 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Ticket'
+      required:
+      - data
+      type: object
+    CreateUserRequestContent:
+      example:
+        firstname: firstname
+        enable: 0.08008281904610115
+        keys: keys
+        expire: 6.027456183070403
+        groups: groups
+        comment: comment
+        userid: userid
+        email: email
+        lastname: lastname
+      properties:
+        userid:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        enable:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        comment:
+          type: string
+        groups:
+          type: string
+        keys:
+          type: string
+        expire:
+          type: number
+      required:
+      - userid
+      type: object
+    CreateUserTokenRequestContent:
+      example:
+        expire: 6.027456183070403
+        comment: comment
+        privsep: 0.08008281904610115
+      properties:
+        privsep:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        expire:
+          type: number
+        comment:
+          type: string
+      type: object
+    CreateUserTokenResponseContent:
+      example:
+        data:
+          full-tokenid: full-tokenid
+          value: value
+          info:
+            expire: 5.962133916683182
+            comment: comment
+            privsep: 0.14658129805029452
+      properties:
+        data:
+          $ref: '#/components/schemas/CreatedTokenSummary'
       required:
       - data
       type: object
@@ -7049,6 +7537,26 @@ components:
       required:
       - data
       type: object
+    CreatedTokenSummary:
+      example:
+        full-tokenid: full-tokenid
+        value: value
+        info:
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+      properties:
+        full-tokenid:
+          type: string
+        value:
+          type: string
+        info:
+          $ref: '#/components/schemas/UserConfigurationTokenSummary'
+      required:
+      - full-tokenid
+      - info
+      - value
+      type: object
     DeleteDirectoryResponseContent:
       example:
         data: data
@@ -7722,6 +8230,18 @@ components:
       required:
       - data
       type: object
+    GetPermissionsResponseContent:
+      example:
+        data:
+          key: null
+      properties:
+        data:
+          additionalProperties:
+            $ref: '#/components/schemas/PermissionsDetailMap'
+          type: object
+      required:
+      - data
+      type: object
     GetPoolResponseContent:
       example:
         data:
@@ -7867,6 +8387,42 @@ components:
       properties:
         result:
           $ref: '#/components/schemas/TimeZoneSummary'
+      type: object
+    GetUserConfigurationResponseContent:
+      example:
+        data:
+          firstname: firstname
+          enable: 0.08008281904610115
+          keys: keys
+          expire: 6.027456183070403
+          groups:
+          - groups
+          - groups
+          comment: comment
+          tokens:
+            key:
+              expire: 5.962133916683182
+              comment: comment
+              privsep: 0.14658129805029452
+          email: email
+          lastname: lastname
+      properties:
+        data:
+          $ref: '#/components/schemas/UserConfigurationSummary'
+      required:
+      - data
+      type: object
+    GetUserTokenResponseContent:
+      example:
+        data:
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+      properties:
+        data:
+          $ref: '#/components/schemas/UserConfigurationTokenSummary'
+      required:
+      - data
       type: object
     GetVcpusResult:
       example:
@@ -9425,6 +9981,72 @@ components:
       required:
       - data
       type: object
+    ListUserTokensResponseContent:
+      example:
+        data:
+        - tokenid: tokenid
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+        - tokenid: tokenid
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UserTokenSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListUsersResponseContent:
+      example:
+        data:
+        - realm-type: realm-type
+          firstname: firstname
+          enable: 0.08008281904610115
+          expire: 6.027456183070403
+          groups: groups
+          comment: comment
+          tokens:
+          - tokenid: tokenid
+            expire: 5.962133916683182
+            comment: comment
+            privsep: 0.14658129805029452
+          - tokenid: tokenid
+            expire: 5.962133916683182
+            comment: comment
+            privsep: 0.14658129805029452
+          userid: userid
+          email: email
+          lastname: lastname
+        - realm-type: realm-type
+          firstname: firstname
+          enable: 0.08008281904610115
+          expire: 6.027456183070403
+          groups: groups
+          comment: comment
+          tokens:
+          - tokenid: tokenid
+            expire: 5.962133916683182
+            comment: comment
+            privsep: 0.14658129805029452
+          - tokenid: tokenid
+            expire: 5.962133916683182
+            comment: comment
+            privsep: 0.14658129805029452
+          userid: userid
+          email: email
+          lastname: lastname
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UserSummary'
+          type: array
+      required:
+      - data
+      type: object
     ListVirtualMachinesResponseContent:
       example:
         data:
@@ -9749,6 +10371,71 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/StorageConfiguration'
+      required:
+      - data
+      type: object
+    ModifyUserRequestContent:
+      example:
+        firstname: firstname
+        enable: 0.6027456183070403
+        keys: keys
+        expire: 1.4658129805029452
+        groups: groups
+        comment: comment
+        append: 0.08008281904610115
+        email: email
+        lastname: lastname
+      properties:
+        comment:
+          type: string
+        append:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        email:
+          type: string
+        enable:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        firstname:
+          type: string
+        lastname:
+          type: string
+        groups:
+          type: string
+        keys:
+          type: string
+        expire:
+          type: number
+      type: object
+    ModifyUserTokenRequestContent:
+      example:
+        expire: 6.027456183070403
+        comment: comment
+        privsep: 0.08008281904610115
+      properties:
+        privsep:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        expire:
+          type: number
+        comment:
+          type: string
+      type: object
+    ModifyUserTokenResponseContent:
+      example:
+        data:
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+      properties:
+        data:
+          $ref: '#/components/schemas/UserConfigurationTokenSummary'
       required:
       - data
       type: object
@@ -10236,6 +10923,17 @@ components:
           type: string
       required:
       - key
+      type: object
+    PermissionsDetailMap:
+      additionalProperties:
+        description: "An integer used to represent a boolean. 0 is false, 1 is true."
+        maximum: 1
+        minimum: 0
+        type: number
+      type: object
+    PermissionsMap:
+      additionalProperties:
+        $ref: '#/components/schemas/PermissionsDetailMap'
       type: object
     PoolConfigurationSummary:
       example:
@@ -10794,6 +11492,10 @@ components:
         offset:
           type: number
       type: object
+    TokenMap:
+      additionalProperties:
+        $ref: '#/components/schemas/UserConfigurationTokenSummary'
+      type: object
     TotemSummary:
       example:
         cluster_name: cluster_name
@@ -11094,6 +11796,136 @@ components:
       - prodid
       - speed
       - vendid
+      type: object
+    UserConfigurationSummary:
+      example:
+        firstname: firstname
+        enable: 0.08008281904610115
+        keys: keys
+        expire: 6.027456183070403
+        groups:
+        - groups
+        - groups
+        comment: comment
+        tokens:
+          key:
+            expire: 5.962133916683182
+            comment: comment
+            privsep: 0.14658129805029452
+        email: email
+        lastname: lastname
+      properties:
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        enable:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        comment:
+          type: string
+        groups:
+          items:
+            type: string
+          type: array
+        keys:
+          type: string
+        expire:
+          type: number
+        tokens:
+          additionalProperties:
+            $ref: '#/components/schemas/UserConfigurationTokenSummary'
+          type: object
+      type: object
+    UserConfigurationTokenSummary:
+      example:
+        expire: 5.962133916683182
+        comment: comment
+        privsep: 0.14658129805029452
+      properties:
+        privsep:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        expire:
+          type: number
+        comment:
+          type: string
+      type: object
+    UserSummary:
+      example:
+        realm-type: realm-type
+        firstname: firstname
+        enable: 0.08008281904610115
+        expire: 6.027456183070403
+        groups: groups
+        comment: comment
+        tokens:
+        - tokenid: tokenid
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+        - tokenid: tokenid
+          expire: 5.962133916683182
+          comment: comment
+          privsep: 0.14658129805029452
+        userid: userid
+        email: email
+        lastname: lastname
+      properties:
+        userid:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        enable:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        comment:
+          type: string
+        groups:
+          type: string
+        expire:
+          type: number
+        realm-type:
+          type: string
+        tokens:
+          items:
+            $ref: '#/components/schemas/UserTokenSummary'
+          type: array
+      required:
+      - userid
+      type: object
+    UserTokenSummary:
+      example:
+        tokenid: tokenid
+        expire: 5.962133916683182
+        comment: comment
+        privsep: 0.14658129805029452
+      properties:
+        tokenid:
+          type: string
+        privsep:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        expire:
+          type: number
+        comment:
+          type: string
+      required:
+      - tokenid
       type: object
     VcpuSummary:
       example:

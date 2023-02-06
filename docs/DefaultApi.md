@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**ApplyNetworkInterfaceConfiguration**](DefaultApi.md#ApplyNetworkInterfaceConfiguration) | **Put** /nodes/{node}/network | 
 [**ApplyVirtualMachineConfigurationAsync**](DefaultApi.md#ApplyVirtualMachineConfigurationAsync) | **Post** /nodes/{node}/qemu/{vmId}/config | 
 [**ApplyVirtualMachineConfigurationSync**](DefaultApi.md#ApplyVirtualMachineConfigurationSync) | **Put** /nodes/{node}/qemu/{vmId}/config | 
+[**ChangePassword**](DefaultApi.md#ChangePassword) | **Put** /access/password | 
 [**ChangeRepositoryProperties**](DefaultApi.md#ChangeRepositoryProperties) | **Post** /nodes/{node}/apt/repositories | 
 [**CloneVirtualMachine**](DefaultApi.md#CloneVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/clone | 
 [**CreateClusterConfig**](DefaultApi.md#CreateClusterConfig) | **Post** /cluster/config | 
@@ -21,6 +22,8 @@ Method | HTTP request | Description
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
 [**CreateStorageVolume**](DefaultApi.md#CreateStorageVolume) | **Post** /nodes/{node}/storage/{storage}/content | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
+[**CreateUser**](DefaultApi.md#CreateUser) | **Post** /access/users | 
+[**CreateUserToken**](DefaultApi.md#CreateUserToken) | **Post** /access/users/{userId}/token/{tokenId} | 
 [**CreateVirtualMachine**](DefaultApi.md#CreateVirtualMachine) | **Post** /nodes/{node}/qemu | 
 [**CreateVirtualMachineTemplate**](DefaultApi.md#CreateVirtualMachineTemplate) | **Post** /nodes/{node}/qemu/{vmId}/template | 
 [**CreateZFSPool**](DefaultApi.md#CreateZFSPool) | **Post** /nodes/{node}/disks/zfs | 
@@ -32,6 +35,8 @@ Method | HTTP request | Description
 [**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
 [**DeleteStorageVolume**](DefaultApi.md#DeleteStorageVolume) | **Delete** /nodes/{node}/storage/{storage}/content/{volume} | 
+[**DeleteUser**](DefaultApi.md#DeleteUser) | **Delete** /access/users/{userId} | 
+[**DeleteUserToken**](DefaultApi.md#DeleteUserToken) | **Delete** /access/users/{userId}/token/{tokenId} | 
 [**DeleteVirtualMachine**](DefaultApi.md#DeleteVirtualMachine) | **Delete** /nodes/{node}/qemu/{vmId} | 
 [**DeleteZFSPool**](DefaultApi.md#DeleteZFSPool) | **Delete** /nodes/{node}/disks/zfs/{name} | 
 [**DownloadFromUrlToStorage**](DefaultApi.md#DownloadFromUrlToStorage) | **Post** /nodes/{node}/storage/{storage}/download-url | 
@@ -42,10 +47,13 @@ Method | HTTP request | Description
 [**GetNetworkInterface**](DefaultApi.md#GetNetworkInterface) | **Get** /nodes/{node}/network/{interface} | 
 [**GetPackageChangelog**](DefaultApi.md#GetPackageChangelog) | **Get** /nodes/{node}/apt/changelog | 
 [**GetPendingVirtualMachineCloudInitChanges**](DefaultApi.md#GetPendingVirtualMachineCloudInitChanges) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit | 
+[**GetPermissions**](DefaultApi.md#GetPermissions) | **Get** /access/permissions | 
 [**GetPool**](DefaultApi.md#GetPool) | **Get** /pools/{poolId} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetStorage**](DefaultApi.md#GetStorage) | **Get** /storage/{storage} | 
 [**GetStorageStatus**](DefaultApi.md#GetStorageStatus) | **Get** /nodes/{node}/storage/{storage}/status | 
+[**GetUserConfiguration**](DefaultApi.md#GetUserConfiguration) | **Get** /access/users/{userId} | 
+[**GetUserToken**](DefaultApi.md#GetUserToken) | **Get** /access/users/{userId}/token/{tokenId} | 
 [**GetVersion**](DefaultApi.md#GetVersion) | **Get** /version | 
 [**GetVirtualMachineAgentInfo**](DefaultApi.md#GetVirtualMachineAgentInfo) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-info | 
 [**GetVirtualMachineCloudInit**](DefaultApi.md#GetVirtualMachineCloudInit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
@@ -85,10 +93,14 @@ Method | HTTP request | Description
 [**ListStorageVolumes**](DefaultApi.md#ListStorageVolumes) | **Get** /nodes/{node}/storage/{storage}/content | 
 [**ListUpdates**](DefaultApi.md#ListUpdates) | **Get** /nodes/{node}/apt/update | 
 [**ListUsbDevices**](DefaultApi.md#ListUsbDevices) | **Get** /nodes/{node}/hardware/usb | 
+[**ListUserTokens**](DefaultApi.md#ListUserTokens) | **Get** /access/users/{userId}/token | 
+[**ListUsers**](DefaultApi.md#ListUsers) | **Get** /access/users | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
 [**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
 [**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools | 
 [**ModifyStorage**](DefaultApi.md#ModifyStorage) | **Put** /storage/{storage} | 
+[**ModifyUser**](DefaultApi.md#ModifyUser) | **Put** /access/users/{userId} | 
+[**ModifyUserToken**](DefaultApi.md#ModifyUserToken) | **Put** /access/users/{userId}/token/{tokenId} | 
 [**OrderNodeCertificate**](DefaultApi.md#OrderNodeCertificate) | **Post** /nodes/{node}/certificates/acme/certificate | 
 [**RegenerateVirtualMachineCloudInit**](DefaultApi.md#RegenerateVirtualMachineCloudInit) | **Put** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
@@ -513,6 +525,70 @@ Name | Type | Description  | Notes
 
 
  **applyVirtualMachineConfigurationSyncRequestContent** | [**ApplyVirtualMachineConfigurationSyncRequestContent**](ApplyVirtualMachineConfigurationSyncRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ChangePassword
+
+> ChangePassword(ctx).ChangePasswordRequestContent(changePasswordRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    changePasswordRequestContent := *openapiclient.NewChangePasswordRequestContent("Userid_example", "Password_example") // ChangePasswordRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ChangePassword(context.Background()).ChangePasswordRequestContent(changePasswordRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ChangePassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiChangePasswordRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **changePasswordRequestContent** | [**ChangePasswordRequestContent**](ChangePasswordRequestContent.md) |  | 
 
 ### Return type
 
@@ -1277,6 +1353,145 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateTicketResponseContent**](CreateTicketResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateUser
+
+> CreateUser(ctx).CreateUserRequestContent(createUserRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createUserRequestContent := *openapiclient.NewCreateUserRequestContent("Userid_example") // CreateUserRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateUser(context.Background()).CreateUserRequestContent(createUserRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createUserRequestContent** | [**CreateUserRequestContent**](CreateUserRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateUserToken
+
+> CreateUserTokenResponseContent CreateUserToken(ctx, userId, tokenId).CreateUserTokenRequestContent(createUserTokenRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+    tokenId := "tokenId_example" // string | 
+    createUserTokenRequestContent := *openapiclient.NewCreateUserTokenRequestContent() // CreateUserTokenRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateUserToken(context.Background(), userId, tokenId).CreateUserTokenRequestContent(createUserTokenRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUserToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateUserToken`: CreateUserTokenResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateUserToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+**tokenId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUserTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **createUserTokenRequestContent** | [**CreateUserTokenRequestContent**](CreateUserTokenRequestContent.md) |  | 
+
+### Return type
+
+[**CreateUserTokenResponseContent**](CreateUserTokenResponseContent.md)
 
 ### Authorization
 
@@ -2089,6 +2304,145 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteUser
+
+> DeleteUser(ctx, userId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteUser(context.Background(), userId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteUserToken
+
+> DeleteUserToken(ctx, userId, tokenId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+    tokenId := "tokenId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteUserToken(context.Background(), userId, tokenId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteUserToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+**tokenId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteUserTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteVirtualMachine
 
 > DeleteVirtualMachineResponseContent DeleteVirtualMachine(ctx, node, vmId).DestoryUnreferencedDisks(destoryUnreferencedDisks).Purge(purge).Skiplock(skiplock).Execute()
@@ -2775,6 +3129,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetPermissions
+
+> GetPermissionsResponseContent GetPermissions(ctx).Path(path).Userid(userid).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    path := "path_example" // string |  (optional)
+    userid := "userid_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetPermissions(context.Background()).Path(path).Userid(userid).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPermissions`: GetPermissionsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string** |  | 
+ **userid** | **string** |  | 
+
+### Return type
+
+[**GetPermissionsResponseContent**](GetPermissionsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetPool
 
 > GetPoolResponseContent GetPool(ctx, poolId).Type_(type_).Execute()
@@ -3043,6 +3465,149 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetStorageStatusResponseContent**](GetStorageStatusResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserConfiguration
+
+> GetUserConfigurationResponseContent GetUserConfiguration(ctx, userId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetUserConfiguration(context.Background(), userId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetUserConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUserConfiguration`: GetUserConfigurationResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetUserConfiguration`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetUserConfigurationResponseContent**](GetUserConfigurationResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserToken
+
+> GetUserTokenResponseContent GetUserToken(ctx, userId, tokenId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+    tokenId := "tokenId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetUserToken(context.Background(), userId, tokenId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetUserToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUserToken`: GetUserTokenResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetUserToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+**tokenId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetUserTokenResponseContent**](GetUserTokenResponseContent.md)
 
 ### Authorization
 
@@ -5799,6 +6364,144 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListUserTokens
+
+> ListUserTokensResponseContent ListUserTokens(ctx, userId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListUserTokens(context.Background(), userId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListUserTokens``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListUserTokens`: ListUserTokensResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListUserTokens`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListUserTokensRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListUserTokensResponseContent**](ListUserTokensResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListUsers
+
+> ListUsersResponseContent ListUsers(ctx).Enabled(enabled).Full(full).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    enabled := float32(8.14) // float32 | An integer used to represent a boolean. 0 is false, 1 is true. (optional)
+    full := float32(8.14) // float32 | An integer used to represent a boolean. 0 is false, 1 is true. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListUsers(context.Background()).Enabled(enabled).Full(full).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListUsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListUsers`: ListUsersResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enabled** | **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | 
+ **full** | **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | 
+
+### Return type
+
+[**ListUsersResponseContent**](ListUsersResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListVirtualMachines
 
 > ListVirtualMachinesResponseContent ListVirtualMachines(ctx, node).Execute()
@@ -6054,6 +6757,151 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ModifyStorageResponseContent**](ModifyStorageResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ModifyUser
+
+> ModifyUser(ctx, userId).ModifyUserRequestContent(modifyUserRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+    modifyUserRequestContent := *openapiclient.NewModifyUserRequestContent() // ModifyUserRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ModifyUser(context.Background(), userId).ModifyUserRequestContent(modifyUserRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiModifyUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **modifyUserRequestContent** | [**ModifyUserRequestContent**](ModifyUserRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ModifyUserToken
+
+> ModifyUserTokenResponseContent ModifyUserToken(ctx, userId, tokenId).ModifyUserTokenRequestContent(modifyUserTokenRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    userId := "userId_example" // string | 
+    tokenId := "tokenId_example" // string | 
+    modifyUserTokenRequestContent := *openapiclient.NewModifyUserTokenRequestContent() // ModifyUserTokenRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ModifyUserToken(context.Background(), userId, tokenId).ModifyUserTokenRequestContent(modifyUserTokenRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyUserToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ModifyUserToken`: ModifyUserTokenResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ModifyUserToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **string** |  | 
+**tokenId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiModifyUserTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **modifyUserTokenRequestContent** | [**ModifyUserTokenRequestContent**](ModifyUserTokenRequestContent.md) |  | 
+
+### Return type
+
+[**ModifyUserTokenResponseContent**](ModifyUserTokenResponseContent.md)
 
 ### Authorization
 
