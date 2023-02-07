@@ -2882,6 +2882,48 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
           description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/ping:
+    post:
+      description: Ping the virtual machine. Requries the guest agent to be installed
+        and active.
+      operationId: PingVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PingVirtualMachineResponseContent'
+          description: PingVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/clone:
     post:
       description: Create a copy of a virtual machine or template.
@@ -10934,6 +10976,17 @@ components:
     PermissionsMap:
       additionalProperties:
         $ref: '#/components/schemas/PermissionsDetailMap'
+      type: object
+    PingResponse:
+      type: object
+    PingVirtualMachineResponseContent:
+      example:
+        data: "{}"
+      properties:
+        data:
+          type: object
+      required:
+      - data
       type: object
     PoolConfigurationSummary:
       example:
