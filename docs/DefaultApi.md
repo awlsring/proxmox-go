@@ -88,6 +88,7 @@ Method | HTTP request | Description
 [**ListPciDevices**](DefaultApi.md#ListPciDevices) | **Get** /nodes/{node}/hardware/pci | 
 [**ListPendingVirtualMachineConfigurationChanges**](DefaultApi.md#ListPendingVirtualMachineConfigurationChanges) | **Get** /nodes/{node}/qemu/{vmId}/pending | 
 [**ListPools**](DefaultApi.md#ListPools) | **Get** /pools | 
+[**ListRealms**](DefaultApi.md#ListRealms) | **Get** /access/domains | 
 [**ListRepositoriesInformation**](DefaultApi.md#ListRepositoriesInformation) | **Get** /nodes/{node}/apt/repository | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
 [**ListStorageVolumes**](DefaultApi.md#ListStorageVolumes) | **Get** /nodes/{node}/storage/{storage}/content | 
@@ -6012,6 +6013,65 @@ Other parameters are passed through a pointer to a apiListPoolsRequest struct vi
 ### Return type
 
 [**ListPoolsResponseContent**](ListPoolsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListRealms
+
+> ListRealmsResponseContent ListRealms(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListRealms(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListRealms``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListRealms`: ListRealmsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListRealms`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListRealmsRequest struct via the builder pattern
+
+
+### Return type
+
+[**ListRealmsResponseContent**](ListRealmsResponseContent.md)
 
 ### Authorization
 

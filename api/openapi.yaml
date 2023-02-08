@@ -53,6 +53,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /access/domains:
+    get:
+      operationId: ListRealms
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRealmsResponseContent'
+          description: ListRealms 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/password:
     put:
       description: Change a users password. This method cannot be used by API tokens.
@@ -9791,6 +9813,25 @@ components:
       required:
       - data
       type: object
+    ListRealmsResponseContent:
+      example:
+        data:
+        - realm: realm
+          comment: comment
+          type: type
+          tfa: null
+        - realm: realm
+          comment: comment
+          type: type
+          tfa: null
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/RealmSummary'
+          type: array
+      required:
+      - data
+      type: object
     ListRepositoriesInformationResponseContent:
       example:
         data:
@@ -11161,6 +11202,25 @@ components:
         query-bitmap-info:
           type: boolean
       type: object
+    RealmSummary:
+      example:
+        realm: realm
+        comment: comment
+        type: type
+        tfa: null
+      properties:
+        realm:
+          type: string
+        type:
+          type: string
+        comment:
+          type: string
+        tfa:
+          $ref: '#/components/schemas/TFAType'
+      required:
+      - realm
+      - type
+      type: object
     RenewNodeCertificateRequestContent:
       example:
         force: 0.08008281904610115
@@ -11510,6 +11570,11 @@ components:
       - raw
       - qcow2
       - subvol
+      type: string
+    TFAType:
+      enum:
+      - yubico
+      - oauth
       type: string
     Ticket:
       example:
