@@ -4034,29 +4034,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
-    put:
-      operationId: ModifyPool
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModifyPoolRequestContent'
-        required: true
-      responses:
-        "200":
-          description: ModifyPool 200 response
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
-          description: InvalidInputError 400 response
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InternalServerErrorResponseContent'
-          description: InternalServerError 500 response
   /pools/{poolId}:
     delete:
       operationId: DeletePool
@@ -4107,6 +4084,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPoolResponseContent'
           description: GetPool 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: ModifyPool
+      parameters:
+      - explode: false
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyPoolRequestContent'
+      responses:
+        "200":
+          description: ModifyPool 200 response
         "400":
           content:
             application/json:
@@ -10239,14 +10246,11 @@ components:
       type: object
     ModifyPoolRequestContent:
       example:
-        poolid: poolid
         comment: comment
         storage: storage
         delete: true
         vms: vms
       properties:
-        poolid:
-          type: string
         comment:
           type: string
         delete:
@@ -10258,8 +10262,6 @@ components:
         vms:
           description: List of VM identifiers to add to the pool.
           type: string
-      required:
-      - poolid
       type: object
     ModifyStorageRequestContent:
       example:

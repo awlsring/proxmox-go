@@ -19,7 +19,6 @@ var _ MappedNullable = &ModifyPoolRequestContent{}
 
 // ModifyPoolRequestContent struct for ModifyPoolRequestContent
 type ModifyPoolRequestContent struct {
-	Poolid string `json:"poolid"`
 	Comment *string `json:"comment,omitempty"`
 	// Remove storage and vms in request rather than adding.
 	Delete *bool `json:"delete,omitempty"`
@@ -33,9 +32,8 @@ type ModifyPoolRequestContent struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModifyPoolRequestContent(poolid string) *ModifyPoolRequestContent {
+func NewModifyPoolRequestContent() *ModifyPoolRequestContent {
 	this := ModifyPoolRequestContent{}
-	this.Poolid = poolid
 	return &this
 }
 
@@ -45,30 +43,6 @@ func NewModifyPoolRequestContent(poolid string) *ModifyPoolRequestContent {
 func NewModifyPoolRequestContentWithDefaults() *ModifyPoolRequestContent {
 	this := ModifyPoolRequestContent{}
 	return &this
-}
-
-// GetPoolid returns the Poolid field value
-func (o *ModifyPoolRequestContent) GetPoolid() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Poolid
-}
-
-// GetPoolidOk returns a tuple with the Poolid field value
-// and a boolean to check if the value has been set.
-func (o *ModifyPoolRequestContent) GetPoolidOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Poolid, true
-}
-
-// SetPoolid sets field value
-func (o *ModifyPoolRequestContent) SetPoolid(v string) {
-	o.Poolid = v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise.
@@ -209,7 +183,6 @@ func (o ModifyPoolRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o ModifyPoolRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["poolid"] = o.Poolid
 	if !isNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}

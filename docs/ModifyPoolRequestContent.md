@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Poolid** | **string** |  | 
 **Comment** | Pointer to **string** |  | [optional] 
 **Delete** | Pointer to **bool** | Remove storage and vms in request rather than adding. | [optional] 
 **Storage** | Pointer to **string** | List of storage identifiers to add to the pool. | [optional] 
@@ -14,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewModifyPoolRequestContent
 
-`func NewModifyPoolRequestContent(poolid string, ) *ModifyPoolRequestContent`
+`func NewModifyPoolRequestContent() *ModifyPoolRequestContent`
 
 NewModifyPoolRequestContent instantiates a new ModifyPoolRequestContent object
 This constructor will assign default values to properties that have it defined,
@@ -28,26 +27,6 @@ will change when the set of required properties is changed
 NewModifyPoolRequestContentWithDefaults instantiates a new ModifyPoolRequestContent object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetPoolid
-
-`func (o *ModifyPoolRequestContent) GetPoolid() string`
-
-GetPoolid returns the Poolid field if non-nil, zero value otherwise.
-
-### GetPoolidOk
-
-`func (o *ModifyPoolRequestContent) GetPoolidOk() (*string, bool)`
-
-GetPoolidOk returns a tuple with the Poolid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPoolid
-
-`func (o *ModifyPoolRequestContent) SetPoolid(v string)`
-
-SetPoolid sets Poolid field to given value.
-
 
 ### GetComment
 

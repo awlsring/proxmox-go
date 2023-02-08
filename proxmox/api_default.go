@@ -12215,6 +12215,7 @@ func (a *DefaultApiService) ListZFSPoolsExecute(r ApiListZFSPoolsRequest) (*List
 type ApiModifyPoolRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
+	poolId string
 	modifyPoolRequestContent *ModifyPoolRequestContent
 }
 
@@ -12231,12 +12232,14 @@ func (r ApiModifyPoolRequest) Execute() (*http.Response, error) {
 ModifyPool Method for ModifyPool
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param poolId
  @return ApiModifyPoolRequest
 */
-func (a *DefaultApiService) ModifyPool(ctx context.Context) ApiModifyPoolRequest {
+func (a *DefaultApiService) ModifyPool(ctx context.Context, poolId string) ApiModifyPoolRequest {
 	return ApiModifyPoolRequest{
 		ApiService: a,
 		ctx: ctx,
+		poolId: poolId,
 	}
 }
 
@@ -12253,14 +12256,12 @@ func (a *DefaultApiService) ModifyPoolExecute(r ApiModifyPoolRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pools"
+	localVarPath := localBasePath + "/pools/{poolId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"poolId"+"}", url.PathEscape(parameterValueToString(r.poolId, "poolId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.modifyPoolRequestContent == nil {
-		return nil, reportError("modifyPoolRequestContent is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

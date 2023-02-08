@@ -98,7 +98,7 @@ Method | HTTP request | Description
 [**ListUsers**](DefaultApi.md#ListUsers) | **Get** /access/users | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
 [**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
-[**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools | 
+[**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools/{poolId} | 
 [**ModifyStorage**](DefaultApi.md#ModifyStorage) | **Put** /storage/{storage} | 
 [**ModifyUser**](DefaultApi.md#ModifyUser) | **Put** /access/users/{userId} | 
 [**ModifyUserToken**](DefaultApi.md#ModifyUserToken) | **Put** /access/users/{userId}/token/{tokenId} | 
@@ -6703,7 +6703,7 @@ Name | Type | Description  | Notes
 
 ## ModifyPool
 
-> ModifyPool(ctx).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
+> ModifyPool(ctx, poolId).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
 
 
 
@@ -6720,11 +6720,12 @@ import (
 )
 
 func main() {
-    modifyPoolRequestContent := *openapiclient.NewModifyPoolRequestContent("Poolid_example") // ModifyPoolRequestContent | 
+    poolId := "poolId_example" // string | 
+    modifyPoolRequestContent := *openapiclient.NewModifyPoolRequestContent() // ModifyPoolRequestContent |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ModifyPool(context.Background()).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
+    resp, r, err := apiClient.DefaultApi.ModifyPool(context.Background(), poolId).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyPool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6735,6 +6736,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string** |  | 
 
 ### Other Parameters
 
@@ -6743,6 +6748,7 @@ Other parameters are passed through a pointer to a apiModifyPoolRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **modifyPoolRequestContent** | [**ModifyPoolRequestContent**](ModifyPoolRequestContent.md) |  | 
 
 ### Return type
