@@ -11155,6 +11155,8 @@ components:
       properties:
         id:
           type: string
+        type:
+          $ref: '#/components/schemas/PoolMemberType'
         disk:
           type: number
         uptime:
@@ -11189,8 +11191,6 @@ components:
         node:
           pattern: "^[A-Za-z]+$"
           type: string
-        type:
-          $ref: '#/components/schemas/PoolMemberType'
         status:
           type: string
         plugintype:
@@ -11202,6 +11202,9 @@ components:
           type: number
         content:
           type: string
+      required:
+      - id
+      - type
       type: object
     PoolMemberType:
       enum:

@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Type** | [**PoolMemberType**](PoolMemberType.md) |  | 
 **Disk** | Pointer to **float32** |  | [optional] 
 **Uptime** | Pointer to **float32** |  | [optional] 
 **Maxmem** | Pointer to **float32** |  | [optional] 
@@ -20,7 +21,6 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Template** | Pointer to **float32** | Whether the VM is a template. This is a boolean integer, where 1 is true and 0 is false. | [optional] 
 **Node** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to [**PoolMemberType**](PoolMemberType.md) |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **Plugintype** | Pointer to **string** |  | [optional] 
 **Shared** | Pointer to **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewPoolMemberSummary
 
-`func NewPoolMemberSummary() *PoolMemberSummary`
+`func NewPoolMemberSummary(id string, type_ PoolMemberType, ) *PoolMemberSummary`
 
 NewPoolMemberSummary instantiates a new PoolMemberSummary object
 This constructor will assign default values to properties that have it defined,
@@ -64,11 +64,26 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *PoolMemberSummary) HasId() bool`
+### GetType
 
-HasId returns a boolean if a field has been set.
+`func (o *PoolMemberSummary) GetType() PoolMemberType`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *PoolMemberSummary) GetTypeOk() (*PoolMemberType, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *PoolMemberSummary) SetType(v PoolMemberType)`
+
+SetType sets Type field to given value.
+
 
 ### GetDisk
 
@@ -444,31 +459,6 @@ SetNode sets Node field to given value.
 `func (o *PoolMemberSummary) HasNode() bool`
 
 HasNode returns a boolean if a field has been set.
-
-### GetType
-
-`func (o *PoolMemberSummary) GetType() PoolMemberType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *PoolMemberSummary) GetTypeOk() (*PoolMemberType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *PoolMemberSummary) SetType(v PoolMemberType)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *PoolMemberSummary) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetStatus
 

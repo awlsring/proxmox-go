@@ -19,7 +19,8 @@ var _ MappedNullable = &PoolMemberSummary{}
 
 // PoolMemberSummary struct for PoolMemberSummary
 type PoolMemberSummary struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
+	Type PoolMemberType `json:"type"`
 	Disk *float32 `json:"disk,omitempty"`
 	Uptime *float32 `json:"uptime,omitempty"`
 	Maxmem *float32 `json:"maxmem,omitempty"`
@@ -36,7 +37,6 @@ type PoolMemberSummary struct {
 	// Whether the VM is a template. This is a boolean integer, where 1 is true and 0 is false.
 	Template *float32 `json:"template,omitempty"`
 	Node *string `json:"node,omitempty"`
-	Type *PoolMemberType `json:"type,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Plugintype *string `json:"plugintype,omitempty"`
 	// An integer used to represent a boolean. 0 is false, 1 is true.
@@ -48,8 +48,10 @@ type PoolMemberSummary struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPoolMemberSummary() *PoolMemberSummary {
+func NewPoolMemberSummary(id string, type_ PoolMemberType) *PoolMemberSummary {
 	this := PoolMemberSummary{}
+	this.Id = id
+	this.Type = type_
 	return &this
 }
 
@@ -61,36 +63,52 @@ func NewPoolMemberSummaryWithDefaults() *PoolMemberSummary {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *PoolMemberSummary) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *PoolMemberSummary) HasId() bool {
-	if o != nil && !isNil(o.Id) {
-		return true
+// SetId sets field value
+func (o *PoolMemberSummary) SetId(v string) {
+	o.Id = v
+}
+
+// GetType returns the Type field value
+func (o *PoolMemberSummary) GetType() PoolMemberType {
+	if o == nil {
+		var ret PoolMemberType
+		return ret
 	}
 
-	return false
+	return o.Type
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *PoolMemberSummary) SetId(v string) {
-	o.Id = &v
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *PoolMemberSummary) GetTypeOk() (*PoolMemberType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *PoolMemberSummary) SetType(v PoolMemberType) {
+	o.Type = v
 }
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
@@ -573,38 +591,6 @@ func (o *PoolMemberSummary) SetNode(v string) {
 	o.Node = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *PoolMemberSummary) GetType() PoolMemberType {
-	if o == nil || isNil(o.Type) {
-		var ret PoolMemberType
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PoolMemberSummary) GetTypeOk() (*PoolMemberType, bool) {
-	if o == nil || isNil(o.Type) {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *PoolMemberSummary) HasType() bool {
-	if o != nil && !isNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given PoolMemberType and assigns it to the Type field.
-func (o *PoolMemberSummary) SetType(v PoolMemberType) {
-	o.Type = &v
-}
-
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetStatus() string {
 	if o == nil || isNil(o.Status) {
@@ -743,9 +729,8 @@ func (o PoolMemberSummary) MarshalJSON() ([]byte, error) {
 
 func (o PoolMemberSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["type"] = o.Type
 	if !isNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
@@ -790,9 +775,6 @@ func (o PoolMemberSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Node) {
 		toSerialize["node"] = o.Node
-	}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
 	}
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
