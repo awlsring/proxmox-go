@@ -75,6 +75,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /access/domains/{realm}:
+    get:
+      operationId: GetRealm
+      parameters:
+      - explode: false
+        in: path
+        name: realm
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRealmResponseContent'
+          description: GetRealm 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/password:
     put:
       description: Change a users password. This method cannot be used by API tokens.
@@ -8366,6 +8396,18 @@ components:
       required:
       - data
       type: object
+    GetRealmResponseContent:
+      example:
+        data:
+          digest: digest
+          comment: comment
+          type: type
+      properties:
+        data:
+          $ref: '#/components/schemas/RealmConfigurationSummary'
+      required:
+      - data
+      type: object
     GetSmartHealthResponseContent:
       example:
         data:
@@ -11203,6 +11245,22 @@ components:
           type: boolean
         query-bitmap-info:
           type: boolean
+      type: object
+    RealmConfigurationSummary:
+      example:
+        digest: digest
+        comment: comment
+        type: type
+      properties:
+        type:
+          type: string
+        digest:
+          type: string
+        comment:
+          type: string
+      required:
+      - digest
+      - type
       type: object
     RealmSummary:
       example:

@@ -49,6 +49,7 @@ Method | HTTP request | Description
 [**GetPendingVirtualMachineCloudInitChanges**](DefaultApi.md#GetPendingVirtualMachineCloudInitChanges) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**GetPermissions**](DefaultApi.md#GetPermissions) | **Get** /access/permissions | 
 [**GetPool**](DefaultApi.md#GetPool) | **Get** /pools/{poolId} | 
+[**GetRealm**](DefaultApi.md#GetRealm) | **Get** /access/domains/{realm} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetStorage**](DefaultApi.md#GetStorage) | **Get** /storage/{storage} | 
 [**GetStorageStatus**](DefaultApi.md#GetStorageStatus) | **Get** /nodes/{node}/storage/{storage}/status | 
@@ -3254,6 +3255,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetPoolResponseContent**](GetPoolResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRealm
+
+> GetRealmResponseContent GetRealm(ctx, realm).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    realm := "realm_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetRealm(context.Background(), realm).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetRealm``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRealm`: GetRealmResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetRealm`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**realm** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRealmRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetRealmResponseContent**](GetRealmResponseContent.md)
 
 ### Authorization
 
