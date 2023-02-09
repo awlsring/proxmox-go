@@ -37,6 +37,7 @@ type PoolMemberSummary struct {
 	// Whether the VM is a template. This is a boolean integer, where 1 is true and 0 is false.
 	Template *float32 `json:"template,omitempty"`
 	Node *string `json:"node,omitempty"`
+	Storage *string `json:"storage,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Plugintype *string `json:"plugintype,omitempty"`
 	// An integer used to represent a boolean. 0 is false, 1 is true.
@@ -591,6 +592,38 @@ func (o *PoolMemberSummary) SetNode(v string) {
 	o.Node = &v
 }
 
+// GetStorage returns the Storage field value if set, zero value otherwise.
+func (o *PoolMemberSummary) GetStorage() string {
+	if o == nil || isNil(o.Storage) {
+		var ret string
+		return ret
+	}
+	return *o.Storage
+}
+
+// GetStorageOk returns a tuple with the Storage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolMemberSummary) GetStorageOk() (*string, bool) {
+	if o == nil || isNil(o.Storage) {
+		return nil, false
+	}
+	return o.Storage, true
+}
+
+// HasStorage returns a boolean if a field has been set.
+func (o *PoolMemberSummary) HasStorage() bool {
+	if o != nil && !isNil(o.Storage) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorage gets a reference to the given string and assigns it to the Storage field.
+func (o *PoolMemberSummary) SetStorage(v string) {
+	o.Storage = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetStatus() string {
 	if o == nil || isNil(o.Status) {
@@ -775,6 +808,9 @@ func (o PoolMemberSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Node) {
 		toSerialize["node"] = o.Node
+	}
+	if !isNil(o.Storage) {
+		toSerialize["storage"] = o.Storage
 	}
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status

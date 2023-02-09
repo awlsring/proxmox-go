@@ -8354,6 +8354,7 @@ components:
             cpu: 3.6160767
             netout: 5.637376656633329
             maxcpu: 2.027123023002322
+            storage: storage
             type: null
             content: content
             uptime: 6.027456183070403
@@ -8375,6 +8376,7 @@ components:
             cpu: 3.6160767
             netout: 5.637376656633329
             maxcpu: 2.027123023002322
+            storage: storage
             type: null
             content: content
             uptime: 6.027456183070403
@@ -11083,6 +11085,7 @@ components:
           cpu: 3.6160767
           netout: 5.637376656633329
           maxcpu: 2.027123023002322
+          storage: storage
           type: null
           content: content
           uptime: 6.027456183070403
@@ -11104,6 +11107,7 @@ components:
           cpu: 3.6160767
           netout: 5.637376656633329
           maxcpu: 2.027123023002322
+          storage: storage
           type: null
           content: content
           uptime: 6.027456183070403
@@ -11138,6 +11142,7 @@ components:
         cpu: 3.6160767
         netout: 5.637376656633329
         maxcpu: 2.027123023002322
+        storage: storage
         type: null
         content: content
         uptime: 6.027456183070403
@@ -11189,6 +11194,9 @@ components:
             \ 1 is true and 0 is false."
           type: number
         node:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        storage:
           pattern: "^[A-Za-z]+$"
           type: string
         status:

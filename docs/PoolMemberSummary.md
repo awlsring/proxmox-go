@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Template** | Pointer to **float32** | Whether the VM is a template. This is a boolean integer, where 1 is true and 0 is false. | [optional] 
 **Node** | Pointer to **string** |  | [optional] 
+**Storage** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **Plugintype** | Pointer to **string** |  | [optional] 
 **Shared** | Pointer to **float32** | An integer used to represent a boolean. 0 is false, 1 is true. | [optional] 
@@ -459,6 +460,31 @@ SetNode sets Node field to given value.
 `func (o *PoolMemberSummary) HasNode() bool`
 
 HasNode returns a boolean if a field has been set.
+
+### GetStorage
+
+`func (o *PoolMemberSummary) GetStorage() string`
+
+GetStorage returns the Storage field if non-nil, zero value otherwise.
+
+### GetStorageOk
+
+`func (o *PoolMemberSummary) GetStorageOk() (*string, bool)`
+
+GetStorageOk returns a tuple with the Storage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorage
+
+`func (o *PoolMemberSummary) SetStorage(v string)`
+
+SetStorage sets Storage field to given value.
+
+### HasStorage
+
+`func (o *PoolMemberSummary) HasStorage() bool`
+
+HasStorage returns a boolean if a field has been set.
 
 ### GetStatus
 
