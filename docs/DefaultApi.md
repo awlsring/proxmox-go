@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**DeleteNetworkInterface**](DefaultApi.md#DeleteNetworkInterface) | **Delete** /nodes/{node}/network/{interface} | 
 [**DeleteNodeCertificate**](DefaultApi.md#DeleteNodeCertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 [**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
+[**DeleteRealm**](DefaultApi.md#DeleteRealm) | **Delete** /access/domains/{realm} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
 [**DeleteStorageVolume**](DefaultApi.md#DeleteStorageVolume) | **Delete** /nodes/{node}/storage/{storage}/content/{volume} | 
 [**DeleteUser**](DefaultApi.md#DeleteUser) | **Delete** /access/users/{userId} | 
@@ -2141,6 +2142,72 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDeletePoolRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteRealm
+
+> DeleteRealm(ctx, realm).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    realm := "realm_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteRealm(context.Background(), realm).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteRealm``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**realm** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteRealmRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
