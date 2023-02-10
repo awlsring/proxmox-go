@@ -25,6 +25,7 @@ type NetworkInterfaceSummary struct {
 	Method6 *NetworkInterfaceMethod `json:"method6,omitempty"`
 	Priority *float32 `json:"priority,omitempty"`
 	Families []string `json:"families,omitempty"`
+	BondPrimary *string `json:"bond_primary,omitempty"`
 	BondMode *NetworkInterfaceBondMode `json:"bond_mode,omitempty"`
 	BondXmitHashPolicy *NetworkInterfaceBondHashPolicy `json:"bond_xmit_hash_policy,omitempty"`
 	BondMiimon *string `json:"bond_miimon,omitempty"`
@@ -240,6 +241,38 @@ func (o *NetworkInterfaceSummary) HasFamilies() bool {
 // SetFamilies gets a reference to the given []string and assigns it to the Families field.
 func (o *NetworkInterfaceSummary) SetFamilies(v []string) {
 	o.Families = v
+}
+
+// GetBondPrimary returns the BondPrimary field value if set, zero value otherwise.
+func (o *NetworkInterfaceSummary) GetBondPrimary() string {
+	if o == nil || isNil(o.BondPrimary) {
+		var ret string
+		return ret
+	}
+	return *o.BondPrimary
+}
+
+// GetBondPrimaryOk returns a tuple with the BondPrimary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetBondPrimaryOk() (*string, bool) {
+	if o == nil || isNil(o.BondPrimary) {
+		return nil, false
+	}
+	return o.BondPrimary, true
+}
+
+// HasBondPrimary returns a boolean if a field has been set.
+func (o *NetworkInterfaceSummary) HasBondPrimary() bool {
+	if o != nil && !isNil(o.BondPrimary) {
+		return true
+	}
+
+	return false
+}
+
+// SetBondPrimary gets a reference to the given string and assigns it to the BondPrimary field.
+func (o *NetworkInterfaceSummary) SetBondPrimary(v string) {
+	o.BondPrimary = &v
 }
 
 // GetBondMode returns the BondMode field value if set, zero value otherwise.
@@ -905,6 +938,9 @@ func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Families) {
 		toSerialize["families"] = o.Families
+	}
+	if !isNil(o.BondPrimary) {
+		toSerialize["bond_primary"] = o.BondPrimary
 	}
 	if !isNil(o.BondMode) {
 		toSerialize["bond_mode"] = o.BondMode

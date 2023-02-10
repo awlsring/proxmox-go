@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Method6** | Pointer to [**NetworkInterfaceMethod**](NetworkInterfaceMethod.md) |  | [optional] 
 **Priority** | Pointer to **float32** |  | [optional] 
 **Families** | Pointer to **[]string** |  | [optional] 
+**BondPrimary** | Pointer to **string** |  | [optional] 
 **BondMode** | Pointer to [**NetworkInterfaceBondMode**](NetworkInterfaceBondMode.md) |  | [optional] 
 **BondXmitHashPolicy** | Pointer to [**NetworkInterfaceBondHashPolicy**](NetworkInterfaceBondHashPolicy.md) |  | [optional] 
 **BondMiimon** | Pointer to **string** |  | [optional] 
@@ -189,6 +190,31 @@ SetFamilies sets Families field to given value.
 `func (o *NetworkInterfaceSummary) HasFamilies() bool`
 
 HasFamilies returns a boolean if a field has been set.
+
+### GetBondPrimary
+
+`func (o *NetworkInterfaceSummary) GetBondPrimary() string`
+
+GetBondPrimary returns the BondPrimary field if non-nil, zero value otherwise.
+
+### GetBondPrimaryOk
+
+`func (o *NetworkInterfaceSummary) GetBondPrimaryOk() (*string, bool)`
+
+GetBondPrimaryOk returns a tuple with the BondPrimary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBondPrimary
+
+`func (o *NetworkInterfaceSummary) SetBondPrimary(v string)`
+
+SetBondPrimary sets BondPrimary field to given value.
+
+### HasBondPrimary
+
+`func (o *NetworkInterfaceSummary) HasBondPrimary() bool`
+
+HasBondPrimary returns a boolean if a field has been set.
 
 ### GetBondMode
 

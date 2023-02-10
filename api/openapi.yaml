@@ -8283,6 +8283,7 @@ components:
         data:
           bridge_ports: bridge_ports
           method6: null
+          bond_primary: bond_primary
           bond_mode: null
           type: null
           autostart: 6.027456183070403
@@ -9617,6 +9618,7 @@ components:
         data:
         - bridge_ports: bridge_ports
           method6: null
+          bond_primary: bond_primary
           bond_mode: null
           type: null
           autostart: 6.027456183070403
@@ -9645,6 +9647,7 @@ components:
           gateway: gateway
         - bridge_ports: bridge_ports
           method6: null
+          bond_primary: bond_primary
           bond_mode: null
           type: null
           autostart: 6.027456183070403
@@ -10665,6 +10668,7 @@ components:
       example:
         bridge_ports: bridge_ports
         method6: null
+        bond_primary: bond_primary
         bond_mode: null
         type: null
         autostart: 6.027456183070403
@@ -10706,6 +10710,8 @@ components:
           items:
             type: string
           type: array
+        bond_primary:
+          type: string
         bond_mode:
           $ref: '#/components/schemas/NetworkInterfaceBondMode'
         bond_xmit_hash_policy:
