@@ -43,7 +43,7 @@ type CreateNetworkInterfaceRequestContent struct {
 	OvsPorts *string `json:"ovs_ports,omitempty"`
 	OvsTag *float32 `json:"ovs_tag,omitempty"`
 	OvsBridge *string `json:"ovs_bridge,omitempty"`
-	Slaves []string `json:"slaves,omitempty"`
+	Slaves *string `json:"slaves,omitempty"`
 	VlanId *float32 `json:"vlan-id,omitempty"`
 	VlanRawDevice *string `json:"vlan-raw-device,omitempty"`
 }
@@ -820,17 +820,17 @@ func (o *CreateNetworkInterfaceRequestContent) SetOvsBridge(v string) {
 }
 
 // GetSlaves returns the Slaves field value if set, zero value otherwise.
-func (o *CreateNetworkInterfaceRequestContent) GetSlaves() []string {
+func (o *CreateNetworkInterfaceRequestContent) GetSlaves() string {
 	if o == nil || isNil(o.Slaves) {
-		var ret []string
+		var ret string
 		return ret
 	}
-	return o.Slaves
+	return *o.Slaves
 }
 
 // GetSlavesOk returns a tuple with the Slaves field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateNetworkInterfaceRequestContent) GetSlavesOk() ([]string, bool) {
+func (o *CreateNetworkInterfaceRequestContent) GetSlavesOk() (*string, bool) {
 	if o == nil || isNil(o.Slaves) {
 		return nil, false
 	}
@@ -846,9 +846,9 @@ func (o *CreateNetworkInterfaceRequestContent) HasSlaves() bool {
 	return false
 }
 
-// SetSlaves gets a reference to the given []string and assigns it to the Slaves field.
-func (o *CreateNetworkInterfaceRequestContent) SetSlaves(v []string) {
-	o.Slaves = v
+// SetSlaves gets a reference to the given string and assigns it to the Slaves field.
+func (o *CreateNetworkInterfaceRequestContent) SetSlaves(v string) {
+	o.Slaves = &v
 }
 
 // GetVlanId returns the VlanId field value if set, zero value otherwise.

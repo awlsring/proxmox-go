@@ -6380,9 +6380,7 @@ components:
         ovs_options: ovs_options
         comments6: comments6
         ovs_ports: ovs_ports
-        slaves:
-        - slaves
-        - slaves
+        slaves: slaves
         address: address
         comments: comments
         ovs_bonds: ovs_bonds
@@ -6451,9 +6449,7 @@ components:
         ovs_bridge:
           type: string
         slaves:
-          items:
-            type: string
-          type: array
+          type: string
         vlan-id:
           type: number
         vlan-raw-device:
@@ -11794,9 +11790,7 @@ components:
         ovs_options: ovs_options
         comments6: comments6
         ovs_ports: ovs_ports
-        slaves:
-        - slaves
-        - slaves
+        slaves: slaves
         address: address
         comments: comments
         ovs_bonds: ovs_bonds
@@ -11862,9 +11856,7 @@ components:
         ovs_bridge:
           type: string
         slaves:
-          items:
-            type: string
-          type: array
+          type: string
         vlan-id:
           type: number
         vlan-raw-device:

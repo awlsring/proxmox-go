@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **OvsPorts** | Pointer to **string** |  | [optional] 
 **OvsTag** | Pointer to **float32** |  | [optional] 
 **OvsBridge** | Pointer to **string** |  | [optional] 
-**Slaves** | Pointer to **[]string** |  | [optional] 
+**Slaves** | Pointer to **string** |  | [optional] 
 **VlanId** | Pointer to **float32** |  | [optional] 
 **VlanRawDevice** | Pointer to **string** |  | [optional] 
 
@@ -643,20 +643,20 @@ HasOvsBridge returns a boolean if a field has been set.
 
 ### GetSlaves
 
-`func (o *CreateNetworkInterfaceRequestContent) GetSlaves() []string`
+`func (o *CreateNetworkInterfaceRequestContent) GetSlaves() string`
 
 GetSlaves returns the Slaves field if non-nil, zero value otherwise.
 
 ### GetSlavesOk
 
-`func (o *CreateNetworkInterfaceRequestContent) GetSlavesOk() (*[]string, bool)`
+`func (o *CreateNetworkInterfaceRequestContent) GetSlavesOk() (*string, bool)`
 
 GetSlavesOk returns a tuple with the Slaves field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSlaves
 
-`func (o *CreateNetworkInterfaceRequestContent) SetSlaves(v []string)`
+`func (o *CreateNetworkInterfaceRequestContent) SetSlaves(v string)`
 
 SetSlaves sets Slaves field to given value.
 
