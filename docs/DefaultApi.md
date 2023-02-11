@@ -112,9 +112,11 @@ Method | HTTP request | Description
 [**RenewNodeCertificate**](DefaultApi.md#RenewNodeCertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
 [**ResizeVirtualMachineDisk**](DefaultApi.md#ResizeVirtualMachineDisk) | **Put** /nodes/{node}/qemu/{vmId}/resize | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
+[**SyncRealm**](DefaultApi.md#SyncRealm) | **Post** /access/domains/{realm} | 
 [**UnlinkVirtualMachineDisks**](DefaultApi.md#UnlinkVirtualMachineDisks) | **Put** /nodes/{node}/qemu/{vmId}/unlink | 
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
 [**UpdateNetworkInterface**](DefaultApi.md#UpdateNetworkInterface) | **Put** /nodes/{node}/network/{interface} | 
+[**UpdateRealm**](DefaultApi.md#UpdateRealm) | **Put** /access/domains/{realm} | 
 [**UpdateStorageVolume**](DefaultApi.md#UpdateStorageVolume) | **Put** /nodes/{node}/storage/{storage}/content/{volume} | 
 [**UploadToStorage**](DefaultApi.md#UploadToStorage) | **Post** /nodes/{node}/storage/{storage}/upload | 
 [**WipeDisk**](DefaultApi.md#WipeDisk) | **Put** /nodes/{node}/disks/smart | 
@@ -7682,6 +7684,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SyncRealm
+
+> SyncRealm(ctx, realm).SyncRealmRequestContent(syncRealmRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    realm := "realm_example" // string | 
+    syncRealmRequestContent := *openapiclient.NewSyncRealmRequestContent() // SyncRealmRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.SyncRealm(context.Background(), realm).SyncRealmRequestContent(syncRealmRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SyncRealm``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**realm** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSyncRealmRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **syncRealmRequestContent** | [**SyncRealmRequestContent**](SyncRealmRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UnlinkVirtualMachineDisks
 
 > UnlinkVirtualMachineDisks(ctx, node, vmId).Idlist(idlist).Force(force).Execute()
@@ -7871,6 +7941,74 @@ Name | Type | Description  | Notes
 
 
  **updateNetworkInterfaceRequestContent** | [**UpdateNetworkInterfaceRequestContent**](UpdateNetworkInterfaceRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateRealm
+
+> UpdateRealm(ctx, realm).UpdateRealmRequestContent(updateRealmRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    realm := "realm_example" // string | 
+    updateRealmRequestContent := *openapiclient.NewUpdateRealmRequestContent() // UpdateRealmRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.UpdateRealm(context.Background(), realm).UpdateRealmRequestContent(updateRealmRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateRealm``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**realm** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRealmRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateRealmRequestContent** | [**UpdateRealmRequestContent**](UpdateRealmRequestContent.md) |  | 
 
 ### Return type
 

@@ -153,6 +153,66 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+    post:
+      operationId: SyncRealm
+      parameters:
+      - explode: false
+        in: path
+        name: realm
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyncRealmRequestContent'
+      responses:
+        "200":
+          description: SyncRealm 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: UpdateRealm
+      parameters:
+      - explode: false
+        in: path
+        name: realm
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRealmRequestContent'
+      responses:
+        "200":
+          description: UpdateRealm 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/password:
     put:
       description: Change a users password. This method cannot be used by API tokens.
@@ -11494,6 +11554,12 @@ components:
       - realm
       - type
       type: object
+    RealmSyncScope:
+      enum:
+      - users
+      - groups
+      - both
+      type: string
     RealmType:
       enum:
       - ad
@@ -11852,6 +11918,40 @@ components:
       - qcow2
       - subvol
       type: string
+    SyncRealmRequestContent:
+      example:
+        enable-new: 0.6027456183070403
+        scope: null
+        remove-vanished: remove-vanished
+        purge: 0.5962133916683182
+        dry-run: 0.08008281904610115
+        full: 0.14658129805029452
+      properties:
+        dry-run:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        enable-new:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        full:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        purge:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        remove-vanished:
+          type: string
+        scope:
+          $ref: '#/components/schemas/RealmSyncScope'
+      type: object
     TFAType:
       enum:
       - yubico
@@ -12046,6 +12146,133 @@ components:
           type: string
       required:
       - type
+      type: object
+    UpdateRealmRequestContent:
+      example:
+        bind_dn: bind_dn
+        group_classes: group_classes
+        cert: cert
+        sync_attributes: sync_attributes
+        secure: 0.23021358869347652
+        server2: server2
+        delete: 0.14658129805029452
+        server1: server1
+        mode: null
+        user_attr: user_attr
+        default: 0.5962133916683182
+        password: password
+        base_dn: base_dn
+        group_filter: group_filter
+        digest: digest
+        sync-defaults-options: sync-defaults-options
+        verify: 0.7061401241503109
+        client-id: client-id
+        case-sensitive: 0.6027456183070403
+        user_classes: user_classes
+        sslversion: null
+        certkey: certkey
+        group_dn: group_dn
+        issuer-url: issuer-url
+        tfa: tfa
+        filter: filter
+        port: 5.637376656633329
+        autocreate: 0.08008281904610115
+        domain: domain
+        capath: capath
+        client-key: client-key
+        comment: comment
+        group_name_attr: group_name_attr
+        scopes: scopes
+        prompt: prompt
+      properties:
+        autocreate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        base_dn:
+          type: string
+        bind_dn:
+          type: string
+        capath:
+          type: string
+        case-sensitive:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        cert:
+          type: string
+        certkey:
+          type: string
+        client-id:
+          type: string
+        client-key:
+          type: string
+        comment:
+          type: string
+        delete:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        digest:
+          type: string
+        default:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        domain:
+          type: string
+        filter:
+          type: string
+        group_classes:
+          type: string
+        group_filter:
+          type: string
+        group_dn:
+          type: string
+        group_name_attr:
+          type: string
+        issuer-url:
+          type: string
+        mode:
+          $ref: '#/components/schemas/RealmMode'
+        password:
+          type: string
+        port:
+          type: number
+        prompt:
+          type: string
+        scopes:
+          type: string
+        secure:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        server1:
+          type: string
+        server2:
+          type: string
+        sslversion:
+          $ref: '#/components/schemas/RealmSslVersion'
+        sync-defaults-options:
+          type: string
+        sync_attributes:
+          type: string
+        tfa:
+          type: string
+        user_attr:
+          type: string
+        user_classes:
+          type: string
+        verify:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
       type: object
     UpdateStorageVolumeRequestContent:
       example:
