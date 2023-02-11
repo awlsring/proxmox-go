@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Gateway6** | Pointer to **string** |  | [optional] 
 **Mtu** | Pointer to **float32** |  | [optional] 
 **Netmask** | Pointer to **string** |  | [optional] 
-**Netmask6** | Pointer to **float32** |  | [optional] 
+**Netmask6** | Pointer to **string** |  | [optional] 
 **OvsBonds** | Pointer to **string** |  | [optional] 
 **OvsOptions** | Pointer to **string** |  | [optional] 
 **OvsPorts** | Pointer to **string** |  | [optional] 
@@ -493,20 +493,20 @@ HasNetmask returns a boolean if a field has been set.
 
 ### GetNetmask6
 
-`func (o *CreateNetworkInterfaceRequestContent) GetNetmask6() float32`
+`func (o *CreateNetworkInterfaceRequestContent) GetNetmask6() string`
 
 GetNetmask6 returns the Netmask6 field if non-nil, zero value otherwise.
 
 ### GetNetmask6Ok
 
-`func (o *CreateNetworkInterfaceRequestContent) GetNetmask6Ok() (*float32, bool)`
+`func (o *CreateNetworkInterfaceRequestContent) GetNetmask6Ok() (*string, bool)`
 
 GetNetmask6Ok returns a tuple with the Netmask6 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetmask6
 
-`func (o *CreateNetworkInterfaceRequestContent) SetNetmask6(v float32)`
+`func (o *CreateNetworkInterfaceRequestContent) SetNetmask6(v string)`
 
 SetNetmask6 sets Netmask6 field to given value.
 

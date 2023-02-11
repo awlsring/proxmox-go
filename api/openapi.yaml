@@ -6470,10 +6470,10 @@ components:
         cidr6: cidr6
         mtu: 0.8008281904610115
         iface: iface
-        vlan-id: 5.962133916683182
-        ovs_tag: 1.4658129805029452
+        vlan-id: 1.4658129805029452
+        ovs_tag: 6.027456183070403
         bond_xmit_hash_policy: null
-        netmask6: 6.027456183070403
+        netmask6: netmask6
         gateway6: gateway6
         gateway: gateway
       properties:
@@ -6520,7 +6520,7 @@ components:
           pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           type: string
         netmask6:
-          type: number
+          type: string
         ovs_bonds:
           type: string
         ovs_options:
