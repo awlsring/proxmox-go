@@ -8447,6 +8447,7 @@ components:
           address6: address6
           cidr: cidr
           slaves: slaves
+          comments: comments
           address: address
           method: null
           cidr6: cidr6
@@ -9782,6 +9783,7 @@ components:
           address6: address6
           cidr: cidr
           slaves: slaves
+          comments: comments
           address: address
           method: null
           cidr6: cidr6
@@ -9811,6 +9813,7 @@ components:
           address6: address6
           cidr: cidr
           slaves: slaves
+          comments: comments
           address: address
           method: null
           cidr6: cidr6
@@ -10832,6 +10835,7 @@ components:
         address6: address6
         cidr: cidr
         slaves: slaves
+        comments: comments
         address: address
         method: null
         cidr6: cidr6
@@ -10874,6 +10878,8 @@ components:
           type: string
         autostart:
           type: number
+        comments:
+          type: string
         active:
           type: number
         exists:

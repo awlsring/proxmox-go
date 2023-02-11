@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **BondMiimon** | Pointer to **string** |  | [optional] 
 **Slaves** | Pointer to **string** |  | [optional] 
 **Autostart** | Pointer to **float32** |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Active** | Pointer to **float32** |  | [optional] 
 **Exists** | Pointer to **float32** |  | [optional] 
 **BridgeVids** | Pointer to **string** |  | [optional] 
@@ -340,6 +341,31 @@ SetAutostart sets Autostart field to given value.
 `func (o *NetworkInterfaceSummary) HasAutostart() bool`
 
 HasAutostart returns a boolean if a field has been set.
+
+### GetComments
+
+`func (o *NetworkInterfaceSummary) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *NetworkInterfaceSummary) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *NetworkInterfaceSummary) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *NetworkInterfaceSummary) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetActive
 

@@ -31,6 +31,7 @@ type NetworkInterfaceSummary struct {
 	BondMiimon *string `json:"bond_miimon,omitempty"`
 	Slaves *string `json:"slaves,omitempty"`
 	Autostart *float32 `json:"autostart,omitempty"`
+	Comments *string `json:"comments,omitempty"`
 	Active *float32 `json:"active,omitempty"`
 	Exists *float32 `json:"exists,omitempty"`
 	BridgeVids *string `json:"bridge_vids,omitempty"`
@@ -433,6 +434,38 @@ func (o *NetworkInterfaceSummary) HasAutostart() bool {
 // SetAutostart gets a reference to the given float32 and assigns it to the Autostart field.
 func (o *NetworkInterfaceSummary) SetAutostart(v float32) {
 	o.Autostart = &v
+}
+
+// GetComments returns the Comments field value if set, zero value otherwise.
+func (o *NetworkInterfaceSummary) GetComments() string {
+	if o == nil || isNil(o.Comments) {
+		var ret string
+		return ret
+	}
+	return *o.Comments
+}
+
+// GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkInterfaceSummary) GetCommentsOk() (*string, bool) {
+	if o == nil || isNil(o.Comments) {
+		return nil, false
+	}
+	return o.Comments, true
+}
+
+// HasComments returns a boolean if a field has been set.
+func (o *NetworkInterfaceSummary) HasComments() bool {
+	if o != nil && !isNil(o.Comments) {
+		return true
+	}
+
+	return false
+}
+
+// SetComments gets a reference to the given string and assigns it to the Comments field.
+func (o *NetworkInterfaceSummary) SetComments(v string) {
+	o.Comments = &v
 }
 
 // GetActive returns the Active field value if set, zero value otherwise.
@@ -956,6 +989,9 @@ func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.Autostart) {
 		toSerialize["autostart"] = o.Autostart
+	}
+	if !isNil(o.Comments) {
+		toSerialize["comments"] = o.Comments
 	}
 	if !isNil(o.Active) {
 		toSerialize["active"] = o.Active
