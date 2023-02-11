@@ -36,7 +36,7 @@ type UpdateNetworkInterfaceRequestContent struct {
 	Gateway6 *string `json:"gateway6,omitempty"`
 	Mtu *float32 `json:"mtu,omitempty"`
 	Netmask *string `json:"netmask,omitempty"`
-	Netmask6 *float32 `json:"netmask6,omitempty"`
+	Netmask6 *string `json:"netmask6,omitempty"`
 	OvsBonds *string `json:"ovs_bonds,omitempty"`
 	OvsOptions *string `json:"ovs_options,omitempty"`
 	OvsPorts *string `json:"ovs_ports,omitempty"`
@@ -602,9 +602,9 @@ func (o *UpdateNetworkInterfaceRequestContent) SetNetmask(v string) {
 }
 
 // GetNetmask6 returns the Netmask6 field value if set, zero value otherwise.
-func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6() float32 {
+func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6() string {
 	if o == nil || isNil(o.Netmask6) {
-		var ret float32
+		var ret string
 		return ret
 	}
 	return *o.Netmask6
@@ -612,7 +612,7 @@ func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6() float32 {
 
 // GetNetmask6Ok returns a tuple with the Netmask6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6Ok() (*float32, bool) {
+func (o *UpdateNetworkInterfaceRequestContent) GetNetmask6Ok() (*string, bool) {
 	if o == nil || isNil(o.Netmask6) {
 		return nil, false
 	}
@@ -628,8 +628,8 @@ func (o *UpdateNetworkInterfaceRequestContent) HasNetmask6() bool {
 	return false
 }
 
-// SetNetmask6 gets a reference to the given float32 and assigns it to the Netmask6 field.
-func (o *UpdateNetworkInterfaceRequestContent) SetNetmask6(v float32) {
+// SetNetmask6 gets a reference to the given string and assigns it to the Netmask6 field.
+func (o *UpdateNetworkInterfaceRequestContent) SetNetmask6(v string) {
 	o.Netmask6 = &v
 }
 
