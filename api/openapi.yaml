@@ -75,6 +75,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+    post:
+      operationId: CreateRealm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRealmRequestContent'
+        required: true
+      responses:
+        "200":
+          description: CreateRealm 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/domains/{realm}:
     delete:
       operationId: DeleteRealm
@@ -6470,6 +6493,139 @@ components:
       required:
       - poolid
       type: object
+    CreateRealmRequestContent:
+      example:
+        bind_dn: bind_dn
+        group_classes: group_classes
+        cert: cert
+        sync_attributes: sync_attributes
+        type: null
+        secure: 0.5637376656633328
+        server2: server2
+        server1: server1
+        username-claim: username-claim
+        mode: null
+        acr-values: acr-values
+        user_attr: user_attr
+        default: 0.14658129805029452
+        password: password
+        base_dn: base_dn
+        group_filter: group_filter
+        sync-defaults-options: sync-defaults-options
+        verify: 0.23021358869347652
+        client-id: client-id
+        case-sensitive: 0.6027456183070403
+        user_classes: user_classes
+        sslversion: null
+        certkey: certkey
+        group_dn: group_dn
+        issuer-url: issuer-url
+        tfa: tfa
+        filter: filter
+        port: 5.962133916683182
+        autocreate: 0.08008281904610115
+        domain: domain
+        capath: capath
+        client-key: client-key
+        realm: realm
+        comment: comment
+        group_name_attr: group_name_attr
+        scopes: scopes
+        prompt: prompt
+      properties:
+        realm:
+          type: string
+        type:
+          $ref: '#/components/schemas/RealmType'
+        acr-values:
+          type: string
+        autocreate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        base_dn:
+          type: string
+        bind_dn:
+          type: string
+        capath:
+          type: string
+        case-sensitive:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        cert:
+          type: string
+        certkey:
+          type: string
+        client-id:
+          type: string
+        client-key:
+          type: string
+        comment:
+          type: string
+        default:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        domain:
+          type: string
+        filter:
+          type: string
+        group_classes:
+          type: string
+        group_filter:
+          type: string
+        group_dn:
+          type: string
+        group_name_attr:
+          type: string
+        issuer-url:
+          type: string
+        mode:
+          $ref: '#/components/schemas/RealmMode'
+        password:
+          type: string
+        port:
+          type: number
+        prompt:
+          type: string
+        scopes:
+          type: string
+        secure:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        server1:
+          type: string
+        server2:
+          type: string
+        sslversion:
+          $ref: '#/components/schemas/RealmSslVersion'
+        sync-defaults-options:
+          type: string
+        sync_attributes:
+          type: string
+        tfa:
+          type: string
+        user_attr:
+          type: string
+        user_classes:
+          type: string
+        username-claim:
+          type: string
+        verify:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - realm
+      - type
+      type: object
     CreateStorageRequestContent:
       example:
         blocksize: blocksize
@@ -11300,6 +11456,19 @@ components:
       - digest
       - type
       type: object
+    RealmMode:
+      enum:
+      - ldap
+      - ldaps
+      - ldap+starttls
+      type: string
+    RealmSslVersion:
+      enum:
+      - tlsv1
+      - tlsv1_1
+      - tlsv1_2
+      - tlsv1_3
+      type: string
     RealmSummary:
       example:
         realm: realm
@@ -11319,6 +11488,14 @@ components:
       - realm
       - type
       type: object
+    RealmType:
+      enum:
+      - ad
+      - ldap
+      - pam
+      - pve
+      - openid
+      type: string
     RenewNodeCertificateRequestContent:
       example:
         force: 0.08008281904610115

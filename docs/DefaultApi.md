@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**CreateLVMThin**](DefaultApi.md#CreateLVMThin) | **Post** /nodes/{node}/disks/lvmthin | 
 [**CreateNetworkInterface**](DefaultApi.md#CreateNetworkInterface) | **Post** /nodes/{node}/network | 
 [**CreatePool**](DefaultApi.md#CreatePool) | **Post** /pools | 
+[**CreateRealm**](DefaultApi.md#CreateRealm) | **Post** /access/domains | 
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
 [**CreateStorageVolume**](DefaultApi.md#CreateStorageVolume) | **Post** /nodes/{node}/storage/{storage}/content | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
@@ -1152,6 +1153,68 @@ Other parameters are passed through a pointer to a apiCreatePoolRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createPoolRequestContent** | [**CreatePoolRequestContent**](CreatePoolRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateRealm
+
+> CreateRealm(ctx).CreateRealmRequestContent(createRealmRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createRealmRequestContent := *openapiclient.NewCreateRealmRequestContent("Realm_example", openapiclient.RealmType("ad")) // CreateRealmRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateRealm(context.Background()).CreateRealmRequestContent(createRealmRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateRealm``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateRealmRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createRealmRequestContent** | [**CreateRealmRequestContent**](CreateRealmRequestContent.md) |  | 
 
 ### Return type
 
