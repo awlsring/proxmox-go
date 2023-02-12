@@ -235,7 +235,55 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+    post:
+      operationId: CreateGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupRequestContent'
+        required: true
+      responses:
+        "200":
+          description: CreateGroup 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/groups/{groupId}:
+    delete:
+      operationId: DeleteGroup
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: DeleteGroup 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
     get:
       operationId: GetGroupDetails
       parameters:
@@ -253,6 +301,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetGroupDetailsResponseContent'
           description: GetGroupDetails 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: UpdateGroup
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGroupRequestContent'
+      responses:
+        "200":
+          description: UpdateGroup 200 response
         "400":
           content:
             application/json:
@@ -6439,6 +6517,18 @@ components:
       required:
       - data
       type: object
+    CreateGroupRequestContent:
+      example:
+        groupid: groupid
+        comment: comment
+      properties:
+        groupid:
+          type: string
+        comment:
+          type: string
+      required:
+      - groupid
+      type: object
     CreateLVMRequestContent:
       example:
         name: name
@@ -12169,6 +12259,13 @@ components:
       required:
       - path
       - roles
+      type: object
+    UpdateGroupRequestContent:
+      example:
+        comment: comment
+      properties:
+        comment:
+          type: string
       type: object
     UpdateNetworkInterfaceRequestContent:
       example:
