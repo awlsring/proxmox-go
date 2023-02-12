@@ -213,6 +213,58 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /access/groups:
+    get:
+      operationId: ListGroups
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGroupsResponseContent'
+          description: ListGroups 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/groups/{groupId}:
+    get:
+      operationId: GetGroupDetails
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGroupDetailsResponseContent'
+          description: GetGroupDetails 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/password:
     put:
       description: Change a users password. This method cannot be used by API tokens.
@@ -8446,6 +8498,19 @@ components:
             $ref: '#/components/schemas/FileSystemInformationSummary'
           type: array
       type: object
+    GetGroupDetailsResponseContent:
+      example:
+        data:
+          comment: comment
+          users:
+          - users
+          - users
+      properties:
+        data:
+          $ref: '#/components/schemas/GroupDetailsSummary'
+      required:
+      - data
+      type: object
     GetHostnameResult:
       example:
         host-name: host-name
@@ -9402,6 +9467,37 @@ components:
       required:
       - data
       type: object
+    GroupDetailsSummary:
+      example:
+        comment: comment
+        users:
+        - users
+        - users
+      properties:
+        users:
+          items:
+            type: string
+          type: array
+        comment:
+          type: string
+      required:
+      - users
+      type: object
+    GroupSummary:
+      example:
+        groupid: groupid
+        comment: comment
+        users: users
+      properties:
+        groupid:
+          type: string
+        users:
+          type: string
+        comment:
+          type: string
+      required:
+      - groupid
+      type: object
     InitializeGPTRequestContent:
       example:
         disk: disk
@@ -9751,6 +9847,23 @@ components:
         data:
           items:
             $ref: '#/components/schemas/DiskSummary'
+          type: array
+      required:
+      - data
+      type: object
+    ListGroupsResponseContent:
+      example:
+        data:
+        - groupid: groupid
+          comment: comment
+          users: users
+        - groupid: groupid
+          comment: comment
+          users: users
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/GroupSummary'
           type: array
       required:
       - data

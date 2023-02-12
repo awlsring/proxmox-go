@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**GetClusterApiVersion**](DefaultApi.md#GetClusterApiVersion) | **Get** /cluster/config/apiversion | 
 [**GetClusterJoinInformation**](DefaultApi.md#GetClusterJoinInformation) | **Get** /cluster/config/join | 
 [**GetClusterTotemSettings**](DefaultApi.md#GetClusterTotemSettings) | **Get** /cluster/config/totem | 
+[**GetGroupDetails**](DefaultApi.md#GetGroupDetails) | **Get** /access/groups/{groupId} | 
 [**GetNetworkInterface**](DefaultApi.md#GetNetworkInterface) | **Get** /nodes/{node}/network/{interface} | 
 [**GetPackageChangelog**](DefaultApi.md#GetPackageChangelog) | **Get** /nodes/{node}/apt/changelog | 
 [**GetPendingVirtualMachineCloudInitChanges**](DefaultApi.md#GetPendingVirtualMachineCloudInitChanges) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit | 
@@ -79,6 +80,7 @@ Method | HTTP request | Description
 [**ListCpuCapabilities**](DefaultApi.md#ListCpuCapabilities) | **Get** /nodes/{node}/capabilities/qemu/cpu | 
 [**ListDirectories**](DefaultApi.md#ListDirectories) | **Get** /nodes/{node}/disks/directory | 
 [**ListDisks**](DefaultApi.md#ListDisks) | **Get** /nodes/{node}/disks/list | 
+[**ListGroups**](DefaultApi.md#ListGroups) | **Get** /access/groups | 
 [**ListLVMThins**](DefaultApi.md#ListLVMThins) | **Get** /nodes/{node}/disks/lvmthin | 
 [**ListLVMs**](DefaultApi.md#ListLVMs) | **Get** /nodes/{node}/disks/lvm | 
 [**ListMachineCapabilities**](DefaultApi.md#ListMachineCapabilities) | **Get** /nodes/{node}/capabilities/qemu/machines | 
@@ -3050,6 +3052,74 @@ Other parameters are passed through a pointer to a apiGetClusterTotemSettingsReq
 [[Back to README]](../README.md)
 
 
+## GetGroupDetails
+
+> GetGroupDetailsResponseContent GetGroupDetails(ctx, groupId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    groupId := "groupId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetGroupDetails(context.Background(), groupId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetGroupDetails``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetGroupDetails`: GetGroupDetailsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetGroupDetails`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**groupId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGroupDetailsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetGroupDetailsResponseContent**](GetGroupDetailsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetNetworkInterface
 
 > GetNetworkInterfaceResponseContent GetNetworkInterface(ctx, node, interface_).Execute()
@@ -5386,6 +5456,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListDisksResponseContent**](ListDisksResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListGroups
+
+> ListGroupsResponseContent ListGroups(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListGroups(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListGroups``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListGroups`: ListGroupsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListGroups`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListGroupsRequest struct via the builder pattern
+
+
+### Return type
+
+[**ListGroupsResponseContent**](ListGroupsResponseContent.md)
 
 ### Authorization
 
