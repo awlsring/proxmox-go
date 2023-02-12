@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Cidr6** | Pointer to **string** |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Comments6** | Pointer to **string** |  | [optional] 
+**Delete** | Pointer to **string** |  | [optional] 
 **Gateway** | Pointer to **string** |  | [optional] 
 **Gateway6** | Pointer to **string** |  | [optional] 
 **Mtu** | Pointer to **float32** |  | [optional] 
@@ -369,6 +370,31 @@ SetComments6 sets Comments6 field to given value.
 `func (o *UpdateNetworkInterfaceRequestContent) HasComments6() bool`
 
 HasComments6 returns a boolean if a field has been set.
+
+### GetDelete
+
+`func (o *UpdateNetworkInterfaceRequestContent) GetDelete() string`
+
+GetDelete returns the Delete field if non-nil, zero value otherwise.
+
+### GetDeleteOk
+
+`func (o *UpdateNetworkInterfaceRequestContent) GetDeleteOk() (*string, bool)`
+
+GetDeleteOk returns a tuple with the Delete field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDelete
+
+`func (o *UpdateNetworkInterfaceRequestContent) SetDelete(v string)`
+
+SetDelete sets Delete field to given value.
+
+### HasDelete
+
+`func (o *UpdateNetworkInterfaceRequestContent) HasDelete() bool`
+
+HasDelete returns a boolean if a field has been set.
 
 ### GetGateway
 

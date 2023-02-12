@@ -12064,6 +12064,7 @@ components:
         bond_mode: null
         type: null
         autostart: true
+        delete: delete
         ovs_bridge: ovs_bridge
         bridge_vlan_aware: true
         netmask: netmask
@@ -12114,6 +12115,8 @@ components:
         comments:
           type: string
         comments6:
+          type: string
+        delete:
           type: string
         gateway:
           pattern: "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"

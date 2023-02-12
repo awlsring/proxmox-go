@@ -32,6 +32,7 @@ type UpdateNetworkInterfaceRequestContent struct {
 	Cidr6 *string `json:"cidr6,omitempty"`
 	Comments *string `json:"comments,omitempty"`
 	Comments6 *string `json:"comments6,omitempty"`
+	Delete *string `json:"delete,omitempty"`
 	Gateway *string `json:"gateway,omitempty"`
 	Gateway6 *string `json:"gateway6,omitempty"`
 	Mtu *float32 `json:"mtu,omitempty"`
@@ -471,6 +472,38 @@ func (o *UpdateNetworkInterfaceRequestContent) HasComments6() bool {
 // SetComments6 gets a reference to the given string and assigns it to the Comments6 field.
 func (o *UpdateNetworkInterfaceRequestContent) SetComments6(v string) {
 	o.Comments6 = &v
+}
+
+// GetDelete returns the Delete field value if set, zero value otherwise.
+func (o *UpdateNetworkInterfaceRequestContent) GetDelete() string {
+	if o == nil || isNil(o.Delete) {
+		var ret string
+		return ret
+	}
+	return *o.Delete
+}
+
+// GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateNetworkInterfaceRequestContent) GetDeleteOk() (*string, bool) {
+	if o == nil || isNil(o.Delete) {
+		return nil, false
+	}
+	return o.Delete, true
+}
+
+// HasDelete returns a boolean if a field has been set.
+func (o *UpdateNetworkInterfaceRequestContent) HasDelete() bool {
+	if o != nil && !isNil(o.Delete) {
+		return true
+	}
+
+	return false
+}
+
+// SetDelete gets a reference to the given string and assigns it to the Delete field.
+func (o *UpdateNetworkInterfaceRequestContent) SetDelete(v string) {
+	o.Delete = &v
 }
 
 // GetGateway returns the Gateway field value if set, zero value otherwise.
@@ -935,6 +968,9 @@ func (o UpdateNetworkInterfaceRequestContent) ToMap() (map[string]interface{}, e
 	}
 	if !isNil(o.Comments6) {
 		toSerialize["comments6"] = o.Comments6
+	}
+	if !isNil(o.Delete) {
+		toSerialize["delete"] = o.Delete
 	}
 	if !isNil(o.Gateway) {
 		toSerialize["gateway"] = o.Gateway
