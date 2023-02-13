@@ -6618,7 +6618,7 @@ Name | Type | Description  | Notes
 
 ## ListStorage
 
-> ListStorageResponseContent ListStorage(ctx).Execute()
+> ListStorageResponseContent ListStorage(ctx).Type_(type_).Execute()
 
 
 
@@ -6635,10 +6635,11 @@ import (
 )
 
 func main() {
+    type_ := openapiclient.StorageType("zfspool") // StorageType |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ListStorage(context.Background()).Execute()
+    resp, r, err := apiClient.DefaultApi.ListStorage(context.Background()).Type_(type_).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListStorage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6650,12 +6651,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiListStorageRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | [**StorageType**](StorageType.md) |  | 
 
 ### Return type
 

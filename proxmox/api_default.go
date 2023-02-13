@@ -12018,6 +12018,12 @@ func (a *DefaultApiService) ListRepositoriesInformationExecute(r ApiListReposito
 type ApiListStorageRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
+	type_ *StorageType
+}
+
+func (r ApiListStorageRequest) Type_(type_ StorageType) ApiListStorageRequest {
+	r.type_ = &type_
+	return r
 }
 
 func (r ApiListStorageRequest) Execute() (*ListStorageResponseContent, *http.Response, error) {
@@ -12058,6 +12064,9 @@ func (a *DefaultApiService) ListStorageExecute(r ApiListStorageRequest) (*ListSt
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.type_ != nil {
+		parameterAddToQuery(localVarQueryParams, "type", r.type_, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

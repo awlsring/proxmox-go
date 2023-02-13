@@ -4397,6 +4397,14 @@ paths:
   /storage:
     get:
       operationId: ListStorage
+      parameters:
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/StorageType'
+        style: form
       responses:
         "200":
           content:
