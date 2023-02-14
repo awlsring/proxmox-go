@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**[]LVMSummary**](LVMSummary.md) |  | 
+**Data** | [**ListLVMsData**](ListLVMsData.md) |  | 
 
 ## Methods
 
 ### NewListLVMsResponseContent
 
-`func NewListLVMsResponseContent(data []LVMSummary, ) *ListLVMsResponseContent`
+`func NewListLVMsResponseContent(data ListLVMsData, ) *ListLVMsResponseContent`
 
 NewListLVMsResponseContent instantiates a new ListLVMsResponseContent object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetData
 
-`func (o *ListLVMsResponseContent) GetData() []LVMSummary`
+`func (o *ListLVMsResponseContent) GetData() ListLVMsData`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *ListLVMsResponseContent) GetDataOk() (*[]LVMSummary, bool)`
+`func (o *ListLVMsResponseContent) GetDataOk() (*ListLVMsData, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *ListLVMsResponseContent) SetData(v []LVMSummary)`
+`func (o *ListLVMsResponseContent) SetData(v ListLVMsData)`
 
 SetData sets Data field to given value.
 

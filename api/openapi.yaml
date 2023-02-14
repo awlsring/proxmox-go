@@ -9940,26 +9940,27 @@ components:
       - preferred_node
       - totem
       type: object
-    LVMSummary:
+    LVMChild:
       example:
-        lvcount: 5.962133916683182
-        size: 1.4658129805029452
+        lvcount: 5.637376656633329
+        size: 5.962133916683182
         children:
         - null
         - null
         name: name
-        leaf: 0.8008281904610115
-        free: 6.027456183070403
+        leaf: 0.6027456183070403
+        free: 1.4658129805029452
       properties:
         children:
           items:
-            $ref: '#/components/schemas/LVMSummary'
+            $ref: '#/components/schemas/LVMChild'
           type: array
         leaf:
           description: "Is leaf. This is a boolean intergar, 1 is true, 0 is false"
+          maximum: 1
+          minimum: 0
           type: number
         name:
-          pattern: "^/dev/[a-zA-Z0-9/]+$"
           type: string
         free:
           description: The free space on lvm in bytes
@@ -10173,30 +10174,64 @@ components:
       required:
       - data
       type: object
+    ListLVMsData:
+      example:
+        children:
+        - lvcount: 5.637376656633329
+          size: 5.962133916683182
+          children:
+          - null
+          - null
+          name: name
+          leaf: 0.6027456183070403
+          free: 1.4658129805029452
+        - lvcount: 5.637376656633329
+          size: 5.962133916683182
+          children:
+          - null
+          - null
+          name: name
+          leaf: 0.6027456183070403
+          free: 1.4658129805029452
+        leaf: 0.08008281904610115
+      properties:
+        leaf:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        children:
+          items:
+            $ref: '#/components/schemas/LVMChild'
+          type: array
+      required:
+      - children
+      - leaf
+      type: object
     ListLVMsResponseContent:
       example:
         data:
-        - lvcount: 5.962133916683182
-          size: 1.4658129805029452
           children:
-          - null
-          - null
-          name: name
-          leaf: 0.8008281904610115
-          free: 6.027456183070403
-        - lvcount: 5.962133916683182
-          size: 1.4658129805029452
-          children:
-          - null
-          - null
-          name: name
-          leaf: 0.8008281904610115
-          free: 6.027456183070403
+          - lvcount: 5.637376656633329
+            size: 5.962133916683182
+            children:
+            - null
+            - null
+            name: name
+            leaf: 0.6027456183070403
+            free: 1.4658129805029452
+          - lvcount: 5.637376656633329
+            size: 5.962133916683182
+            children:
+            - null
+            - null
+            name: name
+            leaf: 0.6027456183070403
+            free: 1.4658129805029452
+          leaf: 0.08008281904610115
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/LVMSummary'
-          type: array
+          $ref: '#/components/schemas/ListLVMsData'
       required:
       - data
       type: object

@@ -19,14 +19,14 @@ var _ MappedNullable = &ListLVMsResponseContent{}
 
 // ListLVMsResponseContent struct for ListLVMsResponseContent
 type ListLVMsResponseContent struct {
-	Data []LVMSummary `json:"data"`
+	Data ListLVMsData `json:"data"`
 }
 
 // NewListLVMsResponseContent instantiates a new ListLVMsResponseContent object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLVMsResponseContent(data []LVMSummary) *ListLVMsResponseContent {
+func NewListLVMsResponseContent(data ListLVMsData) *ListLVMsResponseContent {
 	this := ListLVMsResponseContent{}
 	this.Data = data
 	return &this
@@ -41,9 +41,9 @@ func NewListLVMsResponseContentWithDefaults() *ListLVMsResponseContent {
 }
 
 // GetData returns the Data field value
-func (o *ListLVMsResponseContent) GetData() []LVMSummary {
+func (o *ListLVMsResponseContent) GetData() ListLVMsData {
 	if o == nil {
-		var ret []LVMSummary
+		var ret ListLVMsData
 		return ret
 	}
 
@@ -52,15 +52,15 @@ func (o *ListLVMsResponseContent) GetData() []LVMSummary {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *ListLVMsResponseContent) GetDataOk() ([]LVMSummary, bool) {
+func (o *ListLVMsResponseContent) GetDataOk() (*ListLVMsData, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Data, true
+	return &o.Data, true
 }
 
 // SetData sets field value
-func (o *ListLVMsResponseContent) SetData(v []LVMSummary) {
+func (o *ListLVMsResponseContent) SetData(v ListLVMsData) {
 	o.Data = v
 }
 

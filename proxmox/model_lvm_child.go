@@ -14,12 +14,12 @@ import (
 	"encoding/json"
 )
 
-// checks if the LVMSummary type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &LVMSummary{}
+// checks if the LVMChild type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LVMChild{}
 
-// LVMSummary struct for LVMSummary
-type LVMSummary struct {
-	Children []LVMSummary `json:"children"`
+// LVMChild struct for LVMChild
+type LVMChild struct {
+	Children []LVMChild `json:"children"`
 	// Is leaf. This is a boolean intergar, 1 is true, 0 is false
 	Leaf float32 `json:"leaf"`
 	Name *string `json:"name,omitempty"`
@@ -31,29 +31,29 @@ type LVMSummary struct {
 	Lvcount *float32 `json:"lvcount,omitempty"`
 }
 
-// NewLVMSummary instantiates a new LVMSummary object
+// NewLVMChild instantiates a new LVMChild object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLVMSummary(children []LVMSummary, leaf float32) *LVMSummary {
-	this := LVMSummary{}
+func NewLVMChild(children []LVMChild, leaf float32) *LVMChild {
+	this := LVMChild{}
 	this.Children = children
 	this.Leaf = leaf
 	return &this
 }
 
-// NewLVMSummaryWithDefaults instantiates a new LVMSummary object
+// NewLVMChildWithDefaults instantiates a new LVMChild object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewLVMSummaryWithDefaults() *LVMSummary {
-	this := LVMSummary{}
+func NewLVMChildWithDefaults() *LVMChild {
+	this := LVMChild{}
 	return &this
 }
 
 // GetChildren returns the Children field value
-func (o *LVMSummary) GetChildren() []LVMSummary {
+func (o *LVMChild) GetChildren() []LVMChild {
 	if o == nil {
-		var ret []LVMSummary
+		var ret []LVMChild
 		return ret
 	}
 
@@ -62,7 +62,7 @@ func (o *LVMSummary) GetChildren() []LVMSummary {
 
 // GetChildrenOk returns a tuple with the Children field value
 // and a boolean to check if the value has been set.
-func (o *LVMSummary) GetChildrenOk() ([]LVMSummary, bool) {
+func (o *LVMChild) GetChildrenOk() ([]LVMChild, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,12 +70,12 @@ func (o *LVMSummary) GetChildrenOk() ([]LVMSummary, bool) {
 }
 
 // SetChildren sets field value
-func (o *LVMSummary) SetChildren(v []LVMSummary) {
+func (o *LVMChild) SetChildren(v []LVMChild) {
 	o.Children = v
 }
 
 // GetLeaf returns the Leaf field value
-func (o *LVMSummary) GetLeaf() float32 {
+func (o *LVMChild) GetLeaf() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -86,7 +86,7 @@ func (o *LVMSummary) GetLeaf() float32 {
 
 // GetLeafOk returns a tuple with the Leaf field value
 // and a boolean to check if the value has been set.
-func (o *LVMSummary) GetLeafOk() (*float32, bool) {
+func (o *LVMChild) GetLeafOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,12 +94,12 @@ func (o *LVMSummary) GetLeafOk() (*float32, bool) {
 }
 
 // SetLeaf sets field value
-func (o *LVMSummary) SetLeaf(v float32) {
+func (o *LVMChild) SetLeaf(v float32) {
 	o.Leaf = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *LVMSummary) GetName() string {
+func (o *LVMChild) GetName() string {
 	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
@@ -109,7 +109,7 @@ func (o *LVMSummary) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LVMSummary) GetNameOk() (*string, bool) {
+func (o *LVMChild) GetNameOk() (*string, bool) {
 	if o == nil || isNil(o.Name) {
 		return nil, false
 	}
@@ -117,7 +117,7 @@ func (o *LVMSummary) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *LVMSummary) HasName() bool {
+func (o *LVMChild) HasName() bool {
 	if o != nil && !isNil(o.Name) {
 		return true
 	}
@@ -126,12 +126,12 @@ func (o *LVMSummary) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *LVMSummary) SetName(v string) {
+func (o *LVMChild) SetName(v string) {
 	o.Name = &v
 }
 
 // GetFree returns the Free field value if set, zero value otherwise.
-func (o *LVMSummary) GetFree() float32 {
+func (o *LVMChild) GetFree() float32 {
 	if o == nil || isNil(o.Free) {
 		var ret float32
 		return ret
@@ -141,7 +141,7 @@ func (o *LVMSummary) GetFree() float32 {
 
 // GetFreeOk returns a tuple with the Free field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LVMSummary) GetFreeOk() (*float32, bool) {
+func (o *LVMChild) GetFreeOk() (*float32, bool) {
 	if o == nil || isNil(o.Free) {
 		return nil, false
 	}
@@ -149,7 +149,7 @@ func (o *LVMSummary) GetFreeOk() (*float32, bool) {
 }
 
 // HasFree returns a boolean if a field has been set.
-func (o *LVMSummary) HasFree() bool {
+func (o *LVMChild) HasFree() bool {
 	if o != nil && !isNil(o.Free) {
 		return true
 	}
@@ -158,12 +158,12 @@ func (o *LVMSummary) HasFree() bool {
 }
 
 // SetFree gets a reference to the given float32 and assigns it to the Free field.
-func (o *LVMSummary) SetFree(v float32) {
+func (o *LVMChild) SetFree(v float32) {
 	o.Free = &v
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *LVMSummary) GetSize() float32 {
+func (o *LVMChild) GetSize() float32 {
 	if o == nil || isNil(o.Size) {
 		var ret float32
 		return ret
@@ -173,7 +173,7 @@ func (o *LVMSummary) GetSize() float32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LVMSummary) GetSizeOk() (*float32, bool) {
+func (o *LVMChild) GetSizeOk() (*float32, bool) {
 	if o == nil || isNil(o.Size) {
 		return nil, false
 	}
@@ -181,7 +181,7 @@ func (o *LVMSummary) GetSizeOk() (*float32, bool) {
 }
 
 // HasSize returns a boolean if a field has been set.
-func (o *LVMSummary) HasSize() bool {
+func (o *LVMChild) HasSize() bool {
 	if o != nil && !isNil(o.Size) {
 		return true
 	}
@@ -190,12 +190,12 @@ func (o *LVMSummary) HasSize() bool {
 }
 
 // SetSize gets a reference to the given float32 and assigns it to the Size field.
-func (o *LVMSummary) SetSize(v float32) {
+func (o *LVMChild) SetSize(v float32) {
 	o.Size = &v
 }
 
 // GetLvcount returns the Lvcount field value if set, zero value otherwise.
-func (o *LVMSummary) GetLvcount() float32 {
+func (o *LVMChild) GetLvcount() float32 {
 	if o == nil || isNil(o.Lvcount) {
 		var ret float32
 		return ret
@@ -205,7 +205,7 @@ func (o *LVMSummary) GetLvcount() float32 {
 
 // GetLvcountOk returns a tuple with the Lvcount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LVMSummary) GetLvcountOk() (*float32, bool) {
+func (o *LVMChild) GetLvcountOk() (*float32, bool) {
 	if o == nil || isNil(o.Lvcount) {
 		return nil, false
 	}
@@ -213,7 +213,7 @@ func (o *LVMSummary) GetLvcountOk() (*float32, bool) {
 }
 
 // HasLvcount returns a boolean if a field has been set.
-func (o *LVMSummary) HasLvcount() bool {
+func (o *LVMChild) HasLvcount() bool {
 	if o != nil && !isNil(o.Lvcount) {
 		return true
 	}
@@ -222,11 +222,11 @@ func (o *LVMSummary) HasLvcount() bool {
 }
 
 // SetLvcount gets a reference to the given float32 and assigns it to the Lvcount field.
-func (o *LVMSummary) SetLvcount(v float32) {
+func (o *LVMChild) SetLvcount(v float32) {
 	o.Lvcount = &v
 }
 
-func (o LVMSummary) MarshalJSON() ([]byte, error) {
+func (o LVMChild) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -234,7 +234,7 @@ func (o LVMSummary) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o LVMSummary) ToMap() (map[string]interface{}, error) {
+func (o LVMChild) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["children"] = o.Children
 	toSerialize["leaf"] = o.Leaf
@@ -253,38 +253,38 @@ func (o LVMSummary) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableLVMSummary struct {
-	value *LVMSummary
+type NullableLVMChild struct {
+	value *LVMChild
 	isSet bool
 }
 
-func (v NullableLVMSummary) Get() *LVMSummary {
+func (v NullableLVMChild) Get() *LVMChild {
 	return v.value
 }
 
-func (v *NullableLVMSummary) Set(val *LVMSummary) {
+func (v *NullableLVMChild) Set(val *LVMChild) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableLVMSummary) IsSet() bool {
+func (v NullableLVMChild) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableLVMSummary) Unset() {
+func (v *NullableLVMChild) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableLVMSummary(val *LVMSummary) *NullableLVMSummary {
-	return &NullableLVMSummary{value: val, isSet: true}
+func NewNullableLVMChild(val *LVMChild) *NullableLVMChild {
+	return &NullableLVMChild{value: val, isSet: true}
 }
 
-func (v NullableLVMSummary) MarshalJSON() ([]byte, error) {
+func (v NullableLVMChild) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableLVMSummary) UnmarshalJSON(src []byte) error {
+func (v *NullableLVMChild) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
