@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Lv** | [**[]LVMThinSummary**](LVMThinSummary.md) |  | 
+**Lv** | **string** |  | 
 **LvSize** | **float32** | The size of the lvm thin pool in bytes | 
 **Used** | **float32** | The used size of the lvm thin pool in bytes | 
 **MetadataSize** | **float32** | The size of the metadata lv in bytes | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewLVMThinSummary
 
-`func NewLVMThinSummary(lv []LVMThinSummary, lvSize float32, used float32, metadataSize float32, metadataUsed float32, vg string, ) *LVMThinSummary`
+`func NewLVMThinSummary(lv string, lvSize float32, used float32, metadataSize float32, metadataUsed float32, vg string, ) *LVMThinSummary`
 
 NewLVMThinSummary instantiates a new LVMThinSummary object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLv
 
-`func (o *LVMThinSummary) GetLv() []LVMThinSummary`
+`func (o *LVMThinSummary) GetLv() string`
 
 GetLv returns the Lv field if non-nil, zero value otherwise.
 
 ### GetLvOk
 
-`func (o *LVMThinSummary) GetLvOk() (*[]LVMThinSummary, bool)`
+`func (o *LVMThinSummary) GetLvOk() (*string, bool)`
 
 GetLvOk returns a tuple with the Lv field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLv
 
-`func (o *LVMThinSummary) SetLv(v []LVMThinSummary)`
+`func (o *LVMThinSummary) SetLv(v string)`
 
 SetLv sets Lv field to given value.
 

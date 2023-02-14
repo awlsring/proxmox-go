@@ -9978,17 +9978,13 @@ components:
       example:
         metadata_used: 5.962133916683182
         vg: vg
-        lv:
-        - null
-        - null
+        lv: lv
         metadata_size: 1.4658129805029452
         lv_size: 0.8008281904610115
         used: 6.027456183070403
       properties:
         lv:
-          items:
-            $ref: '#/components/schemas/LVMThinSummary'
-          type: array
+          type: string
         lv_size:
           description: The size of the lvm thin pool in bytes
           type: number
@@ -10159,17 +10155,13 @@ components:
         data:
         - metadata_used: 5.962133916683182
           vg: vg
-          lv:
-          - null
-          - null
+          lv: lv
           metadata_size: 1.4658129805029452
           lv_size: 0.8008281904610115
           used: 6.027456183070403
         - metadata_used: 5.962133916683182
           vg: vg
-          lv:
-          - null
-          - null
+          lv: lv
           metadata_size: 1.4658129805029452
           lv_size: 0.8008281904610115
           used: 6.027456183070403

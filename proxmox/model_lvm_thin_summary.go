@@ -19,7 +19,7 @@ var _ MappedNullable = &LVMThinSummary{}
 
 // LVMThinSummary struct for LVMThinSummary
 type LVMThinSummary struct {
-	Lv []LVMThinSummary `json:"lv"`
+	Lv string `json:"lv"`
 	// The size of the lvm thin pool in bytes
 	LvSize float32 `json:"lv_size"`
 	// The used size of the lvm thin pool in bytes
@@ -36,7 +36,7 @@ type LVMThinSummary struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLVMThinSummary(lv []LVMThinSummary, lvSize float32, used float32, metadataSize float32, metadataUsed float32, vg string) *LVMThinSummary {
+func NewLVMThinSummary(lv string, lvSize float32, used float32, metadataSize float32, metadataUsed float32, vg string) *LVMThinSummary {
 	this := LVMThinSummary{}
 	this.Lv = lv
 	this.LvSize = lvSize
@@ -56,9 +56,9 @@ func NewLVMThinSummaryWithDefaults() *LVMThinSummary {
 }
 
 // GetLv returns the Lv field value
-func (o *LVMThinSummary) GetLv() []LVMThinSummary {
+func (o *LVMThinSummary) GetLv() string {
 	if o == nil {
-		var ret []LVMThinSummary
+		var ret string
 		return ret
 	}
 
@@ -67,15 +67,15 @@ func (o *LVMThinSummary) GetLv() []LVMThinSummary {
 
 // GetLvOk returns a tuple with the Lv field value
 // and a boolean to check if the value has been set.
-func (o *LVMThinSummary) GetLvOk() ([]LVMThinSummary, bool) {
+func (o *LVMThinSummary) GetLvOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Lv, true
+	return &o.Lv, true
 }
 
 // SetLv sets field value
-func (o *LVMThinSummary) SetLv(v []LVMThinSummary) {
+func (o *LVMThinSummary) SetLv(v string) {
 	o.Lv = v
 }
 
