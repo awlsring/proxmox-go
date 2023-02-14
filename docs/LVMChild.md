@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Children** | [**[]LVMChild**](LVMChild.md) |  | 
+**Children** | Pointer to [**[]LVMChild**](LVMChild.md) |  | [optional] 
 **Leaf** | **float32** | Is leaf. This is a boolean intergar, 1 is true, 0 is false | 
 **Name** | Pointer to **string** |  | [optional] 
 **Free** | Pointer to **float32** | The free space on lvm in bytes | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewLVMChild
 
-`func NewLVMChild(children []LVMChild, leaf float32, ) *LVMChild`
+`func NewLVMChild(leaf float32, ) *LVMChild`
 
 NewLVMChild instantiates a new LVMChild object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetChildren sets Children field to given value.
 
+### HasChildren
+
+`func (o *LVMChild) HasChildren() bool`
+
+HasChildren returns a boolean if a field has been set.
 
 ### GetLeaf
 

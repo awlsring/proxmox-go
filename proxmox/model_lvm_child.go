@@ -19,7 +19,7 @@ var _ MappedNullable = &LVMChild{}
 
 // LVMChild struct for LVMChild
 type LVMChild struct {
-	Children []LVMChild `json:"children"`
+	Children []LVMChild `json:"children,omitempty"`
 	// Is leaf. This is a boolean intergar, 1 is true, 0 is false
 	Leaf float32 `json:"leaf"`
 	Name *string `json:"name,omitempty"`
@@ -35,9 +35,8 @@ type LVMChild struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLVMChild(children []LVMChild, leaf float32) *LVMChild {
+func NewLVMChild(leaf float32) *LVMChild {
 	this := LVMChild{}
-	this.Children = children
 	this.Leaf = leaf
 	return &this
 }
@@ -50,26 +49,34 @@ func NewLVMChildWithDefaults() *LVMChild {
 	return &this
 }
 
-// GetChildren returns the Children field value
+// GetChildren returns the Children field value if set, zero value otherwise.
 func (o *LVMChild) GetChildren() []LVMChild {
-	if o == nil {
+	if o == nil || isNil(o.Children) {
 		var ret []LVMChild
 		return ret
 	}
-
 	return o.Children
 }
 
-// GetChildrenOk returns a tuple with the Children field value
+// GetChildrenOk returns a tuple with the Children field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LVMChild) GetChildrenOk() ([]LVMChild, bool) {
-	if o == nil {
+	if o == nil || isNil(o.Children) {
 		return nil, false
 	}
 	return o.Children, true
 }
 
-// SetChildren sets field value
+// HasChildren returns a boolean if a field has been set.
+func (o *LVMChild) HasChildren() bool {
+	if o != nil && !isNil(o.Children) {
+		return true
+	}
+
+	return false
+}
+
+// SetChildren gets a reference to the given []LVMChild and assigns it to the Children field.
 func (o *LVMChild) SetChildren(v []LVMChild) {
 	o.Children = v
 }
@@ -236,7 +243,9 @@ func (o LVMChild) MarshalJSON() ([]byte, error) {
 
 func (o LVMChild) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["children"] = o.Children
+	if !isNil(o.Children) {
+		toSerialize["children"] = o.Children
+	}
 	toSerialize["leaf"] = o.Leaf
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name

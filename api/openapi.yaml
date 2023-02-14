@@ -9972,7 +9972,6 @@ components:
           description: The number of logical volumes
           type: number
       required:
-      - children
       - leaf
       type: object
     LVMThinSummary:
