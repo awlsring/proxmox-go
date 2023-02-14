@@ -2891,6 +2891,53 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/exec:
+    post:
+      description: Execute a command on the virtual machine. Requries the guest agent
+        to be installed and active.
+      operationId: VirtualMachineExecuteCommand
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualMachineExecuteCommandRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualMachineExecuteCommandResponseContent'
+          description: VirtualMachineExecuteCommand 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/agent/get-fsinfo:
     get:
       description: Get the file system information on the virtual machine. Requries
@@ -8427,6 +8474,15 @@ components:
           type: string
       required:
       - data
+      type: object
+    ExecuteCommandResponse:
+      example:
+        pid: 0.8008281904610115
+      properties:
+        pid:
+          type: number
+      required:
+      - pid
       type: object
     FileInfoSummary:
       example:
@@ -14161,6 +14217,26 @@ components:
       - efidisk0
       - tpmstate0
       type: string
+    VirtualMachineExecuteCommandRequestContent:
+      example:
+        input-data: input-data
+        command: command
+      properties:
+        command:
+          type: string
+        input-data:
+          type: string
+      type: object
+    VirtualMachineExecuteCommandResponseContent:
+      example:
+        data:
+          pid: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/ExecuteCommandResponse'
+      required:
+      - data
+      type: object
     VirtualMachineFeatureSupportSummary:
       example:
         nodes:
