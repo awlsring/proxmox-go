@@ -407,6 +407,136 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /access/roles:
+    get:
+      operationId: ListRoles
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponseContent'
+          description: ListRoles 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: CreateRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRoleRequestContent'
+        required: true
+      responses:
+        "200":
+          description: CreateRole 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /access/roles/{roleId}:
+    delete:
+      operationId: DeleteRole
+      parameters:
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: DeleteRole 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    get:
+      operationId: GetRole
+      parameters:
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRoleResponseContent'
+          description: GetRole 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    put:
+      operationId: ModifyRole
+      parameters:
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyRoleRequestContent'
+      responses:
+        "200":
+          description: ModifyRole 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /access/ticket:
     post:
       operationId: CreateTicket
@@ -6836,6 +6966,18 @@ components:
       - realm
       - type
       type: object
+    CreateRoleRequestContent:
+      example:
+        roleid: roleid
+        privs: privs
+      properties:
+        roleid:
+          type: string
+        privs:
+          type: string
+      required:
+      - roleid
+      type: object
     CreateStorageRequestContent:
       example:
         blocksize: blocksize
@@ -8812,6 +8954,52 @@ components:
       required:
       - data
       type: object
+    GetRoleResponseContent:
+      example:
+        data:
+          VM.Clone: 0.6683562403749608
+          Pool.Allocate: 0.7061401241503109
+          VM.Backup: 0.9369310271410669
+          VM.Config.Options: 0.6778324963048014
+          SDN.Audit: 0.7386281948385884
+          Realm.Allocate: 0.3616076749251911
+          VM.Config.CDROM: 0.8762042012749002
+          Sys.Console: 0.14894159098541704
+          VM.Config.CPU: 0.9018348186070783
+          Permission.Modify: 0.23021358869347652
+          VM.Migrate: 0.5944895607614016
+          VM.Config.Disk: 0.35571952270680973
+          Datastore.AllocateTemplate: 0.5962133916683182
+          VM.Config.Memory: 0.1284659006116532
+          Realm.AllocateUser: 0.20271230230023218
+          VM.Monitor: 0.6704019297950036
+          Pool.Audit: 0.9301444243932576
+          Sys.Modify: 0.10246457001441578
+          VM.Console: 0.6878052220127876
+          SDN.Allocate: 0.4145608029883936
+          VM.Audit: 0.9965781217890561
+          VM.Config.Cloudinit: 0.6438423552598547
+          Sys.Audit: 0.12315135367772556
+          VM.Allocate: 0.5025004791520294
+          Datastore.Audit: 0.14658129805029452
+          Datastore.Allocate: 0.08008281904610115
+          VM.Snapshot.Rollback: 0.7143538047012307
+          Group.Allocate: 0.5637376656633328
+          Sys.PowerMgmt: 0.7457744773683765
+          VM.Config.HWType: 0.6965117697638845
+          Sys.Syslog: 0.11730742509559433
+          VM.PowerMgmt: 0.3353193347011243
+          VM.Snapshot: 0.30937452626664474
+          Datastore.AllocateSpace: 0.6027456183070403
+          Sys.Incoming: 0.684685269835264
+          User.Modify: 0.4965218492984954
+          VM.Config.Network: 0.288416212666878
+      properties:
+        data:
+          $ref: '#/components/schemas/RolePermissionSummary'
+      required:
+      - data
+      type: object
     GetSmartHealthResponseContent:
       example:
         data:
@@ -10443,6 +10631,23 @@ components:
       required:
       - data
       type: object
+    ListRolesResponseContent:
+      example:
+        data:
+        - special: 0.08008281904610115
+          roleid: roleid
+          privs: privs
+        - special: 0.08008281904610115
+          roleid: roleid
+          privs: privs
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/RoleSummary'
+          type: array
+      required:
+      - data
+      type: object
     ListStorageResponseContent:
       example:
         data:
@@ -10760,6 +10965,19 @@ components:
         vms:
           description: List of VM identifiers to add to the pool.
           type: string
+      type: object
+    ModifyRoleRequestContent:
+      example:
+        privs: privs
+        append: 0.08008281904610115
+      properties:
+        privs:
+          type: string
+        append:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
       type: object
     ModifyStorageRequestContent:
       example:
@@ -11943,6 +12161,250 @@ components:
       - handle
       - name
       - status
+      type: object
+    RolePermissionSummary:
+      example:
+        VM.Clone: 0.6683562403749608
+        Pool.Allocate: 0.7061401241503109
+        VM.Backup: 0.9369310271410669
+        VM.Config.Options: 0.6778324963048014
+        SDN.Audit: 0.7386281948385884
+        Realm.Allocate: 0.3616076749251911
+        VM.Config.CDROM: 0.8762042012749002
+        Sys.Console: 0.14894159098541704
+        VM.Config.CPU: 0.9018348186070783
+        Permission.Modify: 0.23021358869347652
+        VM.Migrate: 0.5944895607614016
+        VM.Config.Disk: 0.35571952270680973
+        Datastore.AllocateTemplate: 0.5962133916683182
+        VM.Config.Memory: 0.1284659006116532
+        Realm.AllocateUser: 0.20271230230023218
+        VM.Monitor: 0.6704019297950036
+        Pool.Audit: 0.9301444243932576
+        Sys.Modify: 0.10246457001441578
+        VM.Console: 0.6878052220127876
+        SDN.Allocate: 0.4145608029883936
+        VM.Audit: 0.9965781217890561
+        VM.Config.Cloudinit: 0.6438423552598547
+        Sys.Audit: 0.12315135367772556
+        VM.Allocate: 0.5025004791520294
+        Datastore.Audit: 0.14658129805029452
+        Datastore.Allocate: 0.08008281904610115
+        VM.Snapshot.Rollback: 0.7143538047012307
+        Group.Allocate: 0.5637376656633328
+        Sys.PowerMgmt: 0.7457744773683765
+        VM.Config.HWType: 0.6965117697638845
+        Sys.Syslog: 0.11730742509559433
+        VM.PowerMgmt: 0.3353193347011243
+        VM.Snapshot: 0.30937452626664474
+        Datastore.AllocateSpace: 0.6027456183070403
+        Sys.Incoming: 0.684685269835264
+        User.Modify: 0.4965218492984954
+        VM.Config.Network: 0.288416212666878
+      properties:
+        Datastore.Allocate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Datastore.AllocateSpace:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Datastore.Audit:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Datastore.AllocateTemplate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Group.Allocate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Permission.Modify:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Pool.Allocate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Pool.Audit:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Realm.Allocate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Realm.AllocateUser:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        SDN.Allocate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        SDN.Audit:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Sys.Audit:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Sys.Modify:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Sys.Console:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Sys.Incoming:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Sys.PowerMgmt:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        Sys.Syslog:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        User.Modify:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Allocate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Audit:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Backup:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Clone:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.CDROM:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.CPU:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.Cloudinit:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.Disk:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.HWType:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.Memory:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.Network:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Config.Options:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Console:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Migrate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Monitor:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.PowerMgmt:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Snapshot:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        VM.Snapshot.Rollback:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      type: object
+    RoleSummary:
+      example:
+        special: 0.08008281904610115
+        roleid: roleid
+        privs: privs
+      properties:
+        roleid:
+          type: string
+        privs:
+          type: string
+        special:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - roleid
       type: object
     StorageConfiguration:
       example:

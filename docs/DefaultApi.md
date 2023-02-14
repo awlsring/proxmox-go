@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**CreateNetworkInterface**](DefaultApi.md#CreateNetworkInterface) | **Post** /nodes/{node}/network | 
 [**CreatePool**](DefaultApi.md#CreatePool) | **Post** /pools | 
 [**CreateRealm**](DefaultApi.md#CreateRealm) | **Post** /access/domains | 
+[**CreateRole**](DefaultApi.md#CreateRole) | **Post** /access/roles | 
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
 [**CreateStorageVolume**](DefaultApi.md#CreateStorageVolume) | **Post** /nodes/{node}/storage/{storage}/content | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
@@ -37,6 +38,7 @@ Method | HTTP request | Description
 [**DeleteNodeCertificate**](DefaultApi.md#DeleteNodeCertificate) | **Delete** /nodes/{node}/certificates/acme/certificate | 
 [**DeletePool**](DefaultApi.md#DeletePool) | **Delete** /pools/{poolId} | 
 [**DeleteRealm**](DefaultApi.md#DeleteRealm) | **Delete** /access/domains/{realm} | 
+[**DeleteRole**](DefaultApi.md#DeleteRole) | **Delete** /access/roles/{roleId} | 
 [**DeleteStorage**](DefaultApi.md#DeleteStorage) | **Delete** /storage/{storage} | 
 [**DeleteStorageVolume**](DefaultApi.md#DeleteStorageVolume) | **Delete** /nodes/{node}/storage/{storage}/content/{volume} | 
 [**DeleteUser**](DefaultApi.md#DeleteUser) | **Delete** /access/users/{userId} | 
@@ -55,6 +57,7 @@ Method | HTTP request | Description
 [**GetPermissions**](DefaultApi.md#GetPermissions) | **Get** /access/permissions | 
 [**GetPool**](DefaultApi.md#GetPool) | **Get** /pools/{poolId} | 
 [**GetRealm**](DefaultApi.md#GetRealm) | **Get** /access/domains/{realm} | 
+[**GetRole**](DefaultApi.md#GetRole) | **Get** /access/roles/{roleId} | 
 [**GetSmartHealth**](DefaultApi.md#GetSmartHealth) | **Get** /nodes/{node}/disks/smart | 
 [**GetStorage**](DefaultApi.md#GetStorage) | **Get** /storage/{storage} | 
 [**GetStorageStatus**](DefaultApi.md#GetStorageStatus) | **Get** /nodes/{node}/storage/{storage}/status | 
@@ -97,6 +100,7 @@ Method | HTTP request | Description
 [**ListPools**](DefaultApi.md#ListPools) | **Get** /pools | 
 [**ListRealms**](DefaultApi.md#ListRealms) | **Get** /access/domains | 
 [**ListRepositoriesInformation**](DefaultApi.md#ListRepositoriesInformation) | **Get** /nodes/{node}/apt/repository | 
+[**ListRoles**](DefaultApi.md#ListRoles) | **Get** /access/roles | 
 [**ListStorage**](DefaultApi.md#ListStorage) | **Get** /storage | 
 [**ListStorageVolumes**](DefaultApi.md#ListStorageVolumes) | **Get** /nodes/{node}/storage/{storage}/content | 
 [**ListUpdates**](DefaultApi.md#ListUpdates) | **Get** /nodes/{node}/apt/update | 
@@ -106,6 +110,7 @@ Method | HTTP request | Description
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
 [**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
 [**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools/{poolId} | 
+[**ModifyRole**](DefaultApi.md#ModifyRole) | **Put** /access/roles/{roleId} | 
 [**ModifyStorage**](DefaultApi.md#ModifyStorage) | **Put** /storage/{storage} | 
 [**ModifyUser**](DefaultApi.md#ModifyUser) | **Put** /access/users/{userId} | 
 [**ModifyUserToken**](DefaultApi.md#ModifyUserToken) | **Put** /access/users/{userId}/token/{tokenId} | 
@@ -1303,6 +1308,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateRole
+
+> CreateRole(ctx).CreateRoleRequestContent(createRoleRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createRoleRequestContent := *openapiclient.NewCreateRoleRequestContent("Roleid_example") // CreateRoleRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateRole(context.Background()).CreateRoleRequestContent(createRoleRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createRoleRequestContent** | [**CreateRoleRequestContent**](CreateRoleRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateStorage
 
 > CreateStorageResponseContent CreateStorage(ctx).CreateStorageRequestContent(createStorageRequestContent).Execute()
@@ -2406,6 +2473,72 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDeleteRealmRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteRole
+
+> DeleteRole(ctx, roleId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    roleId := "roleId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteRole(context.Background(), roleId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**roleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteRoleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -3656,6 +3789,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetRealmResponseContent**](GetRealmResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRole
+
+> GetRoleResponseContent GetRole(ctx, roleId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    roleId := "roleId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetRole(context.Background(), roleId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRole`: GetRoleResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**roleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetRoleResponseContent**](GetRoleResponseContent.md)
 
 ### Authorization
 
@@ -6616,6 +6817,65 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListRoles
+
+> ListRolesResponseContent ListRoles(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListRoles(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListRoles`: ListRolesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListRolesRequest struct via the builder pattern
+
+
+### Return type
+
+[**ListRolesResponseContent**](ListRolesResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListStorage
 
 > ListStorageResponseContent ListStorage(ctx).Type_(type_).Execute()
@@ -7216,6 +7476,74 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **modifyPoolRequestContent** | [**ModifyPoolRequestContent**](ModifyPoolRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ModifyRole
+
+> ModifyRole(ctx, roleId).ModifyRoleRequestContent(modifyRoleRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    roleId := "roleId_example" // string | 
+    modifyRoleRequestContent := *openapiclient.NewModifyRoleRequestContent() // ModifyRoleRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ModifyRole(context.Background(), roleId).ModifyRoleRequestContent(modifyRoleRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**roleId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiModifyRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **modifyRoleRequestContent** | [**ModifyRoleRequestContent**](ModifyRoleRequestContent.md) |  | 
 
 ### Return type
 
