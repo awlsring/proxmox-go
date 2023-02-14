@@ -3812,8 +3812,15 @@ type ApiDeleteLVMThinRequest struct {
 	ApiService *DefaultApiService
 	node string
 	name string
+	volumeGroup *string
 	cleanupConfig *float32
 	cleanupDisks *float32
+}
+
+// The volume group name.
+func (r ApiDeleteLVMThinRequest) VolumeGroup(volumeGroup string) ApiDeleteLVMThinRequest {
+	r.volumeGroup = &volumeGroup
+	return r
 }
 
 // Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true).
@@ -3873,7 +3880,11 @@ func (a *DefaultApiService) DeleteLVMThinExecute(r ApiDeleteLVMThinRequest) (*De
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.volumeGroup == nil {
+		return localVarReturnValue, nil, reportError("volumeGroup is required and must be specified")
+	}
 
+	parameterAddToQuery(localVarQueryParams, "volume-group", r.volumeGroup, "")
 	if r.cleanupConfig != nil {
 		parameterAddToQuery(localVarQueryParams, "cleanup-config", r.cleanupConfig, "")
 	}

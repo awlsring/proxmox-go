@@ -2151,7 +2151,7 @@ Name | Type | Description  | Notes
 
 ## DeleteLVMThin
 
-> DeleteLVMThinResponseContent DeleteLVMThin(ctx, node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+> DeleteLVMThinResponseContent DeleteLVMThin(ctx, node, name).VolumeGroup(volumeGroup).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
 
 
 
@@ -2172,12 +2172,13 @@ import (
 func main() {
     node := "node_example" // string | 
     name := "name_example" // string | The storage identifier.
+    volumeGroup := "volumeGroup_example" // string | The volume group name.
     cleanupConfig := float32(8.14) // float32 | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). (optional)
     cleanupDisks := float32(8.14) // float32 | Wipes the disk. Takes a boolean integer value (0 false, 1 true). (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteLVMThin(context.Background(), node, name).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
+    resp, r, err := apiClient.DefaultApi.DeleteLVMThin(context.Background(), node, name).VolumeGroup(volumeGroup).CleanupConfig(cleanupConfig).CleanupDisks(cleanupDisks).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteLVMThin``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2205,6 +2206,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **volumeGroup** | **string** | The volume group name. | 
  **cleanupConfig** | **float32** | Marks the associated storage as not available on this node anr removes them from the config. Takes a boolean integer value (0 false, 1 true). | 
  **cleanupDisks** | **float32** | Wipes the disk. Takes a boolean integer value (0 false, 1 true). | 
 

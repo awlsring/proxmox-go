@@ -2042,6 +2042,15 @@ paths:
           description: The storage identifier.
           type: string
         style: simple
+      - description: The volume group name.
+        explode: true
+        in: query
+        name: volume-group
+        required: true
+        schema:
+          description: The volume group name.
+          type: string
+        style: form
       - description: "Marks the associated storage as not available on this node anr\
           \ removes them from the config. Takes a boolean integer value (0 false,\
           \ 1 true)."
