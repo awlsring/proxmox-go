@@ -6,13 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Storage** | **string** | The storage class name | 
 **Content** | Pointer to **string** | Comma seperated list of content types in storage. Returned as a string | [optional] 
-**Digest** | Pointer to **string** |  | [optional] 
+**Server** | Pointer to **string** | The storage server | [optional] 
+**Shared** | Pointer to **float32** | Whether the storage is shared | [optional] 
 **Thinpool** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to [**StorageType**](StorageType.md) |  | [optional] 
 **Vgname** | Pointer to **string** | The volume group name | [optional] 
 **Pool** | Pointer to **string** |  | [optional] 
 **Path** | Pointer to **string** | The storage path | [optional] 
+**Export** | Pointer to **string** | The storage export | [optional] 
 **Mountpoint** | Pointer to **string** | The storage mountpoint | [optional] 
+**Digest** | Pointer to **string** | The storage digest | [optional] 
 **Nodes** | Pointer to **string** | The nodes that have access to this storage | [optional] 
 
 ## Methods
@@ -79,30 +82,55 @@ SetContent sets Content field to given value.
 
 HasContent returns a boolean if a field has been set.
 
-### GetDigest
+### GetServer
 
-`func (o *StorageSummary) GetDigest() string`
+`func (o *StorageSummary) GetServer() string`
 
-GetDigest returns the Digest field if non-nil, zero value otherwise.
+GetServer returns the Server field if non-nil, zero value otherwise.
 
-### GetDigestOk
+### GetServerOk
 
-`func (o *StorageSummary) GetDigestOk() (*string, bool)`
+`func (o *StorageSummary) GetServerOk() (*string, bool)`
 
-GetDigestOk returns a tuple with the Digest field if it's non-nil, zero value otherwise
+GetServerOk returns a tuple with the Server field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDigest
+### SetServer
 
-`func (o *StorageSummary) SetDigest(v string)`
+`func (o *StorageSummary) SetServer(v string)`
 
-SetDigest sets Digest field to given value.
+SetServer sets Server field to given value.
 
-### HasDigest
+### HasServer
 
-`func (o *StorageSummary) HasDigest() bool`
+`func (o *StorageSummary) HasServer() bool`
 
-HasDigest returns a boolean if a field has been set.
+HasServer returns a boolean if a field has been set.
+
+### GetShared
+
+`func (o *StorageSummary) GetShared() float32`
+
+GetShared returns the Shared field if non-nil, zero value otherwise.
+
+### GetSharedOk
+
+`func (o *StorageSummary) GetSharedOk() (*float32, bool)`
+
+GetSharedOk returns a tuple with the Shared field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShared
+
+`func (o *StorageSummary) SetShared(v float32)`
+
+SetShared sets Shared field to given value.
+
+### HasShared
+
+`func (o *StorageSummary) HasShared() bool`
+
+HasShared returns a boolean if a field has been set.
 
 ### GetThinpool
 
@@ -229,6 +257,31 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### GetExport
+
+`func (o *StorageSummary) GetExport() string`
+
+GetExport returns the Export field if non-nil, zero value otherwise.
+
+### GetExportOk
+
+`func (o *StorageSummary) GetExportOk() (*string, bool)`
+
+GetExportOk returns a tuple with the Export field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExport
+
+`func (o *StorageSummary) SetExport(v string)`
+
+SetExport sets Export field to given value.
+
+### HasExport
+
+`func (o *StorageSummary) HasExport() bool`
+
+HasExport returns a boolean if a field has been set.
+
 ### GetMountpoint
 
 `func (o *StorageSummary) GetMountpoint() string`
@@ -253,6 +306,31 @@ SetMountpoint sets Mountpoint field to given value.
 `func (o *StorageSummary) HasMountpoint() bool`
 
 HasMountpoint returns a boolean if a field has been set.
+
+### GetDigest
+
+`func (o *StorageSummary) GetDigest() string`
+
+GetDigest returns the Digest field if non-nil, zero value otherwise.
+
+### GetDigestOk
+
+`func (o *StorageSummary) GetDigestOk() (*string, bool)`
+
+GetDigestOk returns a tuple with the Digest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDigest
+
+`func (o *StorageSummary) SetDigest(v string)`
+
+SetDigest sets Digest field to given value.
+
+### HasDigest
+
+`func (o *StorageSummary) HasDigest() bool`
+
+HasDigest returns a boolean if a field has been set.
 
 ### GetNodes
 

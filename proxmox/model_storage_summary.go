@@ -23,7 +23,10 @@ type StorageSummary struct {
 	Storage string `json:"storage"`
 	// Comma seperated list of content types in storage. Returned as a string
 	Content *string `json:"content,omitempty"`
-	Digest *string `json:"digest,omitempty"`
+	// The storage server
+	Server *string `json:"server,omitempty"`
+	// Whether the storage is shared
+	Shared *float32 `json:"shared,omitempty"`
 	Thinpool *string `json:"thinpool,omitempty"`
 	Type *StorageType `json:"type,omitempty"`
 	// The volume group name
@@ -31,8 +34,12 @@ type StorageSummary struct {
 	Pool *string `json:"pool,omitempty"`
 	// The storage path
 	Path *string `json:"path,omitempty"`
+	// The storage export
+	Export *string `json:"export,omitempty"`
 	// The storage mountpoint
 	Mountpoint *string `json:"mountpoint,omitempty"`
+	// The storage digest
+	Digest *string `json:"digest,omitempty"`
 	// The nodes that have access to this storage
 	Nodes *string `json:"nodes,omitempty"`
 }
@@ -111,36 +118,68 @@ func (o *StorageSummary) SetContent(v string) {
 	o.Content = &v
 }
 
-// GetDigest returns the Digest field value if set, zero value otherwise.
-func (o *StorageSummary) GetDigest() string {
-	if o == nil || isNil(o.Digest) {
+// GetServer returns the Server field value if set, zero value otherwise.
+func (o *StorageSummary) GetServer() string {
+	if o == nil || isNil(o.Server) {
 		var ret string
 		return ret
 	}
-	return *o.Digest
+	return *o.Server
 }
 
-// GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
+// GetServerOk returns a tuple with the Server field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StorageSummary) GetDigestOk() (*string, bool) {
-	if o == nil || isNil(o.Digest) {
+func (o *StorageSummary) GetServerOk() (*string, bool) {
+	if o == nil || isNil(o.Server) {
 		return nil, false
 	}
-	return o.Digest, true
+	return o.Server, true
 }
 
-// HasDigest returns a boolean if a field has been set.
-func (o *StorageSummary) HasDigest() bool {
-	if o != nil && !isNil(o.Digest) {
+// HasServer returns a boolean if a field has been set.
+func (o *StorageSummary) HasServer() bool {
+	if o != nil && !isNil(o.Server) {
 		return true
 	}
 
 	return false
 }
 
-// SetDigest gets a reference to the given string and assigns it to the Digest field.
-func (o *StorageSummary) SetDigest(v string) {
-	o.Digest = &v
+// SetServer gets a reference to the given string and assigns it to the Server field.
+func (o *StorageSummary) SetServer(v string) {
+	o.Server = &v
+}
+
+// GetShared returns the Shared field value if set, zero value otherwise.
+func (o *StorageSummary) GetShared() float32 {
+	if o == nil || isNil(o.Shared) {
+		var ret float32
+		return ret
+	}
+	return *o.Shared
+}
+
+// GetSharedOk returns a tuple with the Shared field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageSummary) GetSharedOk() (*float32, bool) {
+	if o == nil || isNil(o.Shared) {
+		return nil, false
+	}
+	return o.Shared, true
+}
+
+// HasShared returns a boolean if a field has been set.
+func (o *StorageSummary) HasShared() bool {
+	if o != nil && !isNil(o.Shared) {
+		return true
+	}
+
+	return false
+}
+
+// SetShared gets a reference to the given float32 and assigns it to the Shared field.
+func (o *StorageSummary) SetShared(v float32) {
+	o.Shared = &v
 }
 
 // GetThinpool returns the Thinpool field value if set, zero value otherwise.
@@ -303,6 +342,38 @@ func (o *StorageSummary) SetPath(v string) {
 	o.Path = &v
 }
 
+// GetExport returns the Export field value if set, zero value otherwise.
+func (o *StorageSummary) GetExport() string {
+	if o == nil || isNil(o.Export) {
+		var ret string
+		return ret
+	}
+	return *o.Export
+}
+
+// GetExportOk returns a tuple with the Export field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageSummary) GetExportOk() (*string, bool) {
+	if o == nil || isNil(o.Export) {
+		return nil, false
+	}
+	return o.Export, true
+}
+
+// HasExport returns a boolean if a field has been set.
+func (o *StorageSummary) HasExport() bool {
+	if o != nil && !isNil(o.Export) {
+		return true
+	}
+
+	return false
+}
+
+// SetExport gets a reference to the given string and assigns it to the Export field.
+func (o *StorageSummary) SetExport(v string) {
+	o.Export = &v
+}
+
 // GetMountpoint returns the Mountpoint field value if set, zero value otherwise.
 func (o *StorageSummary) GetMountpoint() string {
 	if o == nil || isNil(o.Mountpoint) {
@@ -333,6 +404,38 @@ func (o *StorageSummary) HasMountpoint() bool {
 // SetMountpoint gets a reference to the given string and assigns it to the Mountpoint field.
 func (o *StorageSummary) SetMountpoint(v string) {
 	o.Mountpoint = &v
+}
+
+// GetDigest returns the Digest field value if set, zero value otherwise.
+func (o *StorageSummary) GetDigest() string {
+	if o == nil || isNil(o.Digest) {
+		var ret string
+		return ret
+	}
+	return *o.Digest
+}
+
+// GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageSummary) GetDigestOk() (*string, bool) {
+	if o == nil || isNil(o.Digest) {
+		return nil, false
+	}
+	return o.Digest, true
+}
+
+// HasDigest returns a boolean if a field has been set.
+func (o *StorageSummary) HasDigest() bool {
+	if o != nil && !isNil(o.Digest) {
+		return true
+	}
+
+	return false
+}
+
+// SetDigest gets a reference to the given string and assigns it to the Digest field.
+func (o *StorageSummary) SetDigest(v string) {
+	o.Digest = &v
 }
 
 // GetNodes returns the Nodes field value if set, zero value otherwise.
@@ -381,8 +484,11 @@ func (o StorageSummary) ToMap() (map[string]interface{}, error) {
 	if !isNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
-	if !isNil(o.Digest) {
-		toSerialize["digest"] = o.Digest
+	if !isNil(o.Server) {
+		toSerialize["server"] = o.Server
+	}
+	if !isNil(o.Shared) {
+		toSerialize["shared"] = o.Shared
 	}
 	if !isNil(o.Thinpool) {
 		toSerialize["thinpool"] = o.Thinpool
@@ -399,8 +505,14 @@ func (o StorageSummary) ToMap() (map[string]interface{}, error) {
 	if !isNil(o.Path) {
 		toSerialize["path"] = o.Path
 	}
+	if !isNil(o.Export) {
+		toSerialize["export"] = o.Export
+	}
 	if !isNil(o.Mountpoint) {
 		toSerialize["mountpoint"] = o.Mountpoint
+	}
+	if !isNil(o.Digest) {
+		toSerialize["digest"] = o.Digest
 	}
 	if !isNil(o.Nodes) {
 		toSerialize["nodes"] = o.Nodes

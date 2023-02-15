@@ -9109,16 +9109,19 @@ components:
     GetStorageResponseContent:
       example:
         data:
-          path: path
-          nodes: nodes
+          server: server
+          shared: 0.08008281904610115
           vgname: vgname
-          digest: digest
           pool: pool
           thinpool: thinpool
           storage: storage
           type: null
           content: content
           mountpoint: mountpoint
+          path: path
+          nodes: nodes
+          digest: digest
+          export: export
       properties:
         data:
           $ref: '#/components/schemas/StorageSummary'
@@ -10742,26 +10745,32 @@ components:
     ListStorageResponseContent:
       example:
         data:
-        - path: path
-          nodes: nodes
+        - server: server
+          shared: 0.08008281904610115
           vgname: vgname
-          digest: digest
           pool: pool
           thinpool: thinpool
           storage: storage
           type: null
           content: content
           mountpoint: mountpoint
-        - path: path
+          path: path
           nodes: nodes
-          vgname: vgname
           digest: digest
+          export: export
+        - server: server
+          shared: 0.08008281904610115
+          vgname: vgname
           pool: pool
           thinpool: thinpool
           storage: storage
           type: null
           content: content
           mountpoint: mountpoint
+          path: path
+          nodes: nodes
+          digest: digest
+          export: export
       properties:
         data:
           items:
@@ -12565,16 +12574,19 @@ components:
       type: object
     StorageSummary:
       example:
-        path: path
-        nodes: nodes
+        server: server
+        shared: 0.08008281904610115
         vgname: vgname
-        digest: digest
         pool: pool
         thinpool: thinpool
         storage: storage
         type: null
         content: content
         mountpoint: mountpoint
+        path: path
+        nodes: nodes
+        digest: digest
+        export: export
       properties:
         storage:
           description: The storage class name
@@ -12584,8 +12596,14 @@ components:
           description: Comma seperated list of content types in storage. Returned
             as a string
           type: string
-        digest:
+        server:
+          description: The storage server
           type: string
+        shared:
+          description: Whether the storage is shared
+          maximum: 1
+          minimum: 0
+          type: number
         thinpool:
           type: string
         type:
@@ -12598,8 +12616,14 @@ components:
         path:
           description: The storage path
           type: string
+        export:
+          description: The storage export
+          type: string
         mountpoint:
           description: The storage mountpoint
+          type: string
+        digest:
+          description: The storage digest
           type: string
         nodes:
           description: The nodes that have access to this storage
