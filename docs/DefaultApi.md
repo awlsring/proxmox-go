@@ -66,6 +66,7 @@ Method | HTTP request | Description
 [**GetVersion**](DefaultApi.md#GetVersion) | **Get** /version | 
 [**GetVirtualMachineAgentInfo**](DefaultApi.md#GetVirtualMachineAgentInfo) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-info | 
 [**GetVirtualMachineCloudInit**](DefaultApi.md#GetVirtualMachineCloudInit) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit/dump | 
+[**GetVirtualMachineCommandStatus**](DefaultApi.md#GetVirtualMachineCommandStatus) | **Get** /nodes/{node}/qemu/{vmId}/agent/exec-status | 
 [**GetVirtualMachineConfiguration**](DefaultApi.md#GetVirtualMachineConfiguration) | **Get** /nodes/{node}/qemu/{vmId}/config | 
 [**GetVirtualMachineFeatureSupport**](DefaultApi.md#GetVirtualMachineFeatureSupport) | **Get** /nodes/{node}/qemu/{vmId}/feature | 
 [**GetVirtualMachineFileSystemInformation**](DefaultApi.md#GetVirtualMachineFileSystemInformation) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-fsinfo | 
@@ -4423,6 +4424,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetVirtualMachineCloudInitResponseContent**](GetVirtualMachineCloudInitResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVirtualMachineCommandStatus
+
+> GetVirtualMachineCommandStatusResponseContent GetVirtualMachineCommandStatus(ctx, node, vmId).Pid(pid).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    pid := float32(8.14) // float32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetVirtualMachineCommandStatus(context.Background(), node, vmId).Pid(pid).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVirtualMachineCommandStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVirtualMachineCommandStatus`: GetVirtualMachineCommandStatusResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetVirtualMachineCommandStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVirtualMachineCommandStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **pid** | **float32** |  | 
+
+### Return type
+
+[**GetVirtualMachineCommandStatusResponseContent**](GetVirtualMachineCommandStatusResponseContent.md)
 
 ### Authorization
 

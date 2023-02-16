@@ -2938,6 +2938,55 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
           description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/exec-status:
+    get:
+      description: Get a command status of an execution started on the virtual machine.
+        Requries the guest agent to be installed and active.
+      operationId: GetVirtualMachineCommandStatus
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pid
+        required: true
+        schema:
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVirtualMachineCommandStatusResponseContent'
+          description: GetVirtualMachineCommandStatus 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/agent/get-fsinfo:
     get:
       description: Get the file system information on the virtual machine. Requries
@@ -6530,6 +6579,33 @@ components:
       - network
       - meta
       type: string
+    CommandStatusSummary:
+      example:
+        err-truncated: true
+        exited: true
+        exitcode: 0.8008281904610115
+        err-data: err-data
+        signal: 6.027456183070403
+        out-truncated: true
+        out-data: out-data
+      properties:
+        exited:
+          type: boolean
+        err-data:
+          type: string
+        err-truncated:
+          type: boolean
+        exitcode:
+          type: number
+        out-data:
+          type: string
+        out-truncated:
+          type: boolean
+        signal:
+          type: number
+      required:
+      - exited
+      type: object
     CommandSummary:
       example:
         success-response: true
@@ -9248,6 +9324,22 @@ components:
       properties:
         data:
           type: string
+      required:
+      - data
+      type: object
+    GetVirtualMachineCommandStatusResponseContent:
+      example:
+        data:
+          err-truncated: true
+          exited: true
+          exitcode: 0.8008281904610115
+          err-data: err-data
+          signal: 6.027456183070403
+          out-truncated: true
+          out-data: out-data
+      properties:
+        data:
+          $ref: '#/components/schemas/CommandStatusSummary'
       required:
       - data
       type: object
