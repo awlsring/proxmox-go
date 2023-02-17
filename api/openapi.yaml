@@ -2987,6 +2987,55 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
           description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/file-read:
+    get:
+      description: Read a file on the virtual machine. Requries the guest agent to
+        be installed and active.
+      operationId: VirtualMachineReadFile
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: file
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualMachineReadFileResponseContent'
+          description: VirtualMachineReadFile 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/agent/get-fsinfo:
     get:
       description: Get the file system information on the virtual machine. Requries
@@ -8580,6 +8629,21 @@ components:
       - kind
       - message
       - path
+      type: object
+    FileReadSummary:
+      example:
+        truncated: 0.08008281904610115
+        content: content
+      properties:
+        content:
+          type: string
+        truncated:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - content
       type: object
     FileRepositorySummary:
       example:
@@ -14543,6 +14607,17 @@ components:
       - l26
       - solaris
       type: string
+    VirtualMachineReadFileResponseContent:
+      example:
+        data:
+          truncated: 0.08008281904610115
+          content: content
+      properties:
+        data:
+          $ref: '#/components/schemas/FileReadSummary'
+      required:
+      - data
+      type: object
     VirtualMachineScsiControllerType:
       enum:
       - lsi

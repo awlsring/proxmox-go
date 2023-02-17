@@ -16317,6 +16317,144 @@ func (a *DefaultApiService) VirtualMachineExecuteCommandExecute(r ApiVirtualMach
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiVirtualMachineReadFileRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	node string
+	vmId string
+	file *string
+}
+
+func (r ApiVirtualMachineReadFileRequest) File(file string) ApiVirtualMachineReadFileRequest {
+	r.file = &file
+	return r
+}
+
+func (r ApiVirtualMachineReadFileRequest) Execute() (*VirtualMachineReadFileResponseContent, *http.Response, error) {
+	return r.ApiService.VirtualMachineReadFileExecute(r)
+}
+
+/*
+VirtualMachineReadFile Method for VirtualMachineReadFile
+
+Read a file on the virtual machine. Requries the guest agent to be installed and active.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param node
+ @param vmId The id of the virtual machine as a string
+ @return ApiVirtualMachineReadFileRequest
+*/
+func (a *DefaultApiService) VirtualMachineReadFile(ctx context.Context, node string, vmId string) ApiVirtualMachineReadFileRequest {
+	return ApiVirtualMachineReadFileRequest{
+		ApiService: a,
+		ctx: ctx,
+		node: node,
+		vmId: vmId,
+	}
+}
+
+// Execute executes the request
+//  @return VirtualMachineReadFileResponseContent
+func (a *DefaultApiService) VirtualMachineReadFileExecute(r ApiVirtualMachineReadFileRequest) (*VirtualMachineReadFileResponseContent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VirtualMachineReadFileResponseContent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.VirtualMachineReadFile")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nodes/{node}/qemu/{vmId}/agent/file-read"
+	localVarPath = strings.Replace(localVarPath, "{"+"node"+"}", url.PathEscape(parameterValueToString(r.node, "node")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"vmId"+"}", url.PathEscape(parameterValueToString(r.vmId, "vmId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.file == nil {
+		return localVarReturnValue, nil, reportError("file is required and must be specified")
+	}
+
+	parameterAddToQuery(localVarQueryParams, "file", r.file, "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidInputErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v NoGuestAgentErrorResponseContent
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiWipeDiskRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
