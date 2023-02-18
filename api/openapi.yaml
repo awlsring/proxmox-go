@@ -3036,6 +3036,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
           description: NoGuestAgentError 500 response
+  /nodes/{node}/qemu/{vmId}/agent/file-write:
+    post:
+      description: Write a file on the virtual machine. Requries the guest agent to
+        be installed and active.
+      operationId: VirtualMachineWriteFile
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualMachineWriteFileRequestContent'
+        required: true
+      responses:
+        "200":
+          description: VirtualMachineWriteFile 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoGuestAgentErrorResponseContent'
+          description: NoGuestAgentError 500 response
   /nodes/{node}/qemu/{vmId}/agent/get-fsinfo:
     get:
       description: Get the file system information on the virtual machine. Requries
@@ -7557,6 +7601,7 @@ components:
         usb1: usb1
         ivshmem: ivshmem
         vmid: vmid
+        pool: pool
         virtio13: virtio13
         virtio12: virtio12
         tpmstate0: tpmstate0
@@ -7980,6 +8025,8 @@ components:
           type: string
         parallel2:
           description: Host parallel device.
+          type: string
+        pool:
           type: string
         protection:
           description: The protection flag on the virtual machine. Disables remove
@@ -14869,6 +14916,19 @@ components:
       required:
       - status
       - vmid
+      type: object
+    VirtualMachineWriteFileRequestContent:
+      example:
+        file: file
+        content: content
+      properties:
+        file:
+          type: string
+        content:
+          type: string
+      required:
+      - content
+      - file
       type: object
     VirtualNetworkInterfaceSummary:
       example:

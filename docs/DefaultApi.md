@@ -132,6 +132,7 @@ Method | HTTP request | Description
 [**UploadToStorage**](DefaultApi.md#UploadToStorage) | **Post** /nodes/{node}/storage/{storage}/upload | 
 [**VirtualMachineExecuteCommand**](DefaultApi.md#VirtualMachineExecuteCommand) | **Post** /nodes/{node}/qemu/{vmId}/agent/exec | 
 [**VirtualMachineReadFile**](DefaultApi.md#VirtualMachineReadFile) | **Get** /nodes/{node}/qemu/{vmId}/agent/file-read | 
+[**VirtualMachineWriteFile**](DefaultApi.md#VirtualMachineWriteFile) | **Post** /nodes/{node}/qemu/{vmId}/agent/file-write | 
 [**WipeDisk**](DefaultApi.md#WipeDisk) | **Put** /nodes/{node}/disks/smart | 
 
 
@@ -9059,6 +9060,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualMachineWriteFile
+
+> VirtualMachineWriteFile(ctx, node, vmId).VirtualMachineWriteFileRequestContent(virtualMachineWriteFileRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    virtualMachineWriteFileRequestContent := *openapiclient.NewVirtualMachineWriteFileRequestContent("File_example", "Content_example") // VirtualMachineWriteFileRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.VirtualMachineWriteFile(context.Background(), node, vmId).VirtualMachineWriteFileRequestContent(virtualMachineWriteFileRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.VirtualMachineWriteFile``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualMachineWriteFileRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **virtualMachineWriteFileRequestContent** | [**VirtualMachineWriteFileRequestContent**](VirtualMachineWriteFileRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

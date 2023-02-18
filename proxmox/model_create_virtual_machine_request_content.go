@@ -182,6 +182,7 @@ type CreateVirtualMachineRequestContent struct {
 	Parallel1 *string `json:"parallel1,omitempty"`
 	// Host parallel device.
 	Parallel2 *string `json:"parallel2,omitempty"`
+	Pool *string `json:"pool,omitempty"`
 	// The protection flag on the virtual machine. Disables remove VM and disk operations.
 	Protection *float32 `json:"protection,omitempty"`
 	// Allows reboot. False will have the virtual machine exit on reboot.
@@ -3101,6 +3102,38 @@ func (o *CreateVirtualMachineRequestContent) HasParallel2() bool {
 // SetParallel2 gets a reference to the given string and assigns it to the Parallel2 field.
 func (o *CreateVirtualMachineRequestContent) SetParallel2(v string) {
 	o.Parallel2 = &v
+}
+
+// GetPool returns the Pool field value if set, zero value otherwise.
+func (o *CreateVirtualMachineRequestContent) GetPool() string {
+	if o == nil || isNil(o.Pool) {
+		var ret string
+		return ret
+	}
+	return *o.Pool
+}
+
+// GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateVirtualMachineRequestContent) GetPoolOk() (*string, bool) {
+	if o == nil || isNil(o.Pool) {
+		return nil, false
+	}
+	return o.Pool, true
+}
+
+// HasPool returns a boolean if a field has been set.
+func (o *CreateVirtualMachineRequestContent) HasPool() bool {
+	if o != nil && !isNil(o.Pool) {
+		return true
+	}
+
+	return false
+}
+
+// SetPool gets a reference to the given string and assigns it to the Pool field.
+func (o *CreateVirtualMachineRequestContent) SetPool(v string) {
+	o.Pool = &v
 }
 
 // GetProtection returns the Protection field value if set, zero value otherwise.
@@ -6405,6 +6438,9 @@ func (o CreateVirtualMachineRequestContent) ToMap() (map[string]interface{}, err
 	}
 	if !isNil(o.Parallel2) {
 		toSerialize["parallel2"] = o.Parallel2
+	}
+	if !isNil(o.Pool) {
+		toSerialize["pool"] = o.Pool
 	}
 	if !isNil(o.Protection) {
 		toSerialize["protection"] = o.Protection

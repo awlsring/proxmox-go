@@ -89,6 +89,7 @@ Name | Type | Description | Notes
 **Parallel0** | Pointer to **string** | Host parallel device. | [optional] 
 **Parallel1** | Pointer to **string** | Host parallel device. | [optional] 
 **Parallel2** | Pointer to **string** | Host parallel device. | [optional] 
+**Pool** | Pointer to **string** |  | [optional] 
 **Protection** | Pointer to **float32** | The protection flag on the virtual machine. Disables remove VM and disk operations. | [optional] 
 **Reboot** | Pointer to **float32** | Allows reboot. False will have the virtual machine exit on reboot. | [optional] 
 **Rng0** | Pointer to **string** | Virtio based random number generator. | [optional] 
@@ -2323,6 +2324,31 @@ SetParallel2 sets Parallel2 field to given value.
 `func (o *CreateVirtualMachineRequestContent) HasParallel2() bool`
 
 HasParallel2 returns a boolean if a field has been set.
+
+### GetPool
+
+`func (o *CreateVirtualMachineRequestContent) GetPool() string`
+
+GetPool returns the Pool field if non-nil, zero value otherwise.
+
+### GetPoolOk
+
+`func (o *CreateVirtualMachineRequestContent) GetPoolOk() (*string, bool)`
+
+GetPoolOk returns a tuple with the Pool field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPool
+
+`func (o *CreateVirtualMachineRequestContent) SetPool(v string)`
+
+SetPool sets Pool field to given value.
+
+### HasPool
+
+`func (o *CreateVirtualMachineRequestContent) HasPool() bool`
+
+HasPool returns a boolean if a field has been set.
 
 ### GetProtection
 
