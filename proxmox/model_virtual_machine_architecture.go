@@ -20,14 +20,14 @@ type VirtualMachineArchitecture string
 
 // List of VirtualMachineArchitecture
 const (
-	VIRTUALMACHINEARCHITECTURE_X86_64 VirtualMachineArchitecture = "X86_64"
-	VIRTUALMACHINEARCHITECTURE_AARCH64 VirtualMachineArchitecture = "AARCH64"
+	VIRTUALMACHINEARCHITECTURE_X86_64 VirtualMachineArchitecture = "x86_64"
+	VIRTUALMACHINEARCHITECTURE_AARCH64 VirtualMachineArchitecture = "aarch64"
 )
 
 // All allowed values of VirtualMachineArchitecture enum
 var AllowedVirtualMachineArchitectureEnumValues = []VirtualMachineArchitecture{
-	"X86_64",
-	"AARCH64",
+	"x86_64",
+	"aarch64",
 }
 
 func (v *VirtualMachineArchitecture) UnmarshalJSON(src []byte) error {

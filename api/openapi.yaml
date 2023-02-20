@@ -13582,8 +13582,8 @@ components:
       type: object
     VirtualMachineArchitecture:
       enum:
-      - X86_64
-      - AARCH64
+      - x86_64
+      - aarch64
       type: string
     VirtualMachineBalloonSummary:
       example:
