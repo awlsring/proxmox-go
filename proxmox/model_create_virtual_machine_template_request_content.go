@@ -41,7 +41,7 @@ func NewCreateVirtualMachineTemplateRequestContentWithDefaults() *CreateVirtualM
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
 func (o *CreateVirtualMachineTemplateRequestContent) GetDisk() VirtualMachineDiskTarget {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		var ret VirtualMachineDiskTarget
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *CreateVirtualMachineTemplateRequestContent) GetDisk() VirtualMachineDis
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineTemplateRequestContent) GetDiskOk() (*VirtualMachineDiskTarget, bool) {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		return nil, false
 	}
 	return o.Disk, true
@@ -59,7 +59,7 @@ func (o *CreateVirtualMachineTemplateRequestContent) GetDiskOk() (*VirtualMachin
 
 // HasDisk returns a boolean if a field has been set.
 func (o *CreateVirtualMachineTemplateRequestContent) HasDisk() bool {
-	if o != nil && !isNil(o.Disk) {
+	if o != nil && !IsNil(o.Disk) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o CreateVirtualMachineTemplateRequestContent) MarshalJSON() ([]byte, error
 
 func (o CreateVirtualMachineTemplateRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Disk) {
+	if !IsNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
 	return toSerialize, nil

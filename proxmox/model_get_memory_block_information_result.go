@@ -41,7 +41,7 @@ func NewGetMemoryBlockInformationResultWithDefaults() *GetMemoryBlockInformation
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *GetMemoryBlockInformationResult) GetSize() float32 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret float32
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *GetMemoryBlockInformationResult) GetSize() float32 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMemoryBlockInformationResult) GetSizeOk() (*float32, bool) {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
 	return o.Size, true
@@ -59,7 +59,7 @@ func (o *GetMemoryBlockInformationResult) GetSizeOk() (*float32, bool) {
 
 // HasSize returns a boolean if a field has been set.
 func (o *GetMemoryBlockInformationResult) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o GetMemoryBlockInformationResult) MarshalJSON() ([]byte, error) {
 
 func (o GetMemoryBlockInformationResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Size) {
+	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
 	return toSerialize, nil

@@ -41,7 +41,7 @@ func NewGetHostnameResultWithDefaults() *GetHostnameResult {
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
 func (o *GetHostnameResult) GetHostName() string {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		var ret string
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *GetHostnameResult) GetHostName() string {
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetHostnameResult) GetHostNameOk() (*string, bool) {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		return nil, false
 	}
 	return o.HostName, true
@@ -59,7 +59,7 @@ func (o *GetHostnameResult) GetHostNameOk() (*string, bool) {
 
 // HasHostName returns a boolean if a field has been set.
 func (o *GetHostnameResult) HasHostName() bool {
-	if o != nil && !isNil(o.HostName) {
+	if o != nil && !IsNil(o.HostName) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o GetHostnameResult) MarshalJSON() ([]byte, error) {
 
 func (o GetHostnameResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.HostName) {
+	if !IsNil(o.HostName) {
 		toSerialize["host-name"] = o.HostName
 	}
 	return toSerialize, nil

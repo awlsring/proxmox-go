@@ -172,7 +172,7 @@ func (o *ZFSPoolStatusChild) SetState(v string) {
 
 // GetMsg returns the Msg field value if set, zero value otherwise.
 func (o *ZFSPoolStatusChild) GetMsg() string {
-	if o == nil || isNil(o.Msg) {
+	if o == nil || IsNil(o.Msg) {
 		var ret string
 		return ret
 	}
@@ -182,7 +182,7 @@ func (o *ZFSPoolStatusChild) GetMsg() string {
 // GetMsgOk returns a tuple with the Msg field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetMsgOk() (*string, bool) {
-	if o == nil || isNil(o.Msg) {
+	if o == nil || IsNil(o.Msg) {
 		return nil, false
 	}
 	return o.Msg, true
@@ -190,7 +190,7 @@ func (o *ZFSPoolStatusChild) GetMsgOk() (*string, bool) {
 
 // HasMsg returns a boolean if a field has been set.
 func (o *ZFSPoolStatusChild) HasMsg() bool {
-	if o != nil && !isNil(o.Msg) {
+	if o != nil && !IsNil(o.Msg) {
 		return true
 	}
 
@@ -204,7 +204,7 @@ func (o *ZFSPoolStatusChild) SetMsg(v string) {
 
 // GetChildren returns the Children field value if set, zero value otherwise.
 func (o *ZFSPoolStatusChild) GetChildren() []ZFSPoolStatusChild {
-	if o == nil || isNil(o.Children) {
+	if o == nil || IsNil(o.Children) {
 		var ret []ZFSPoolStatusChild
 		return ret
 	}
@@ -214,7 +214,7 @@ func (o *ZFSPoolStatusChild) GetChildren() []ZFSPoolStatusChild {
 // GetChildrenOk returns a tuple with the Children field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusChild) GetChildrenOk() ([]ZFSPoolStatusChild, bool) {
-	if o == nil || isNil(o.Children) {
+	if o == nil || IsNil(o.Children) {
 		return nil, false
 	}
 	return o.Children, true
@@ -222,7 +222,7 @@ func (o *ZFSPoolStatusChild) GetChildrenOk() ([]ZFSPoolStatusChild, bool) {
 
 // HasChildren returns a boolean if a field has been set.
 func (o *ZFSPoolStatusChild) HasChildren() bool {
-	if o != nil && !isNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 
@@ -249,10 +249,10 @@ func (o ZFSPoolStatusChild) ToMap() (map[string]interface{}, error) {
 	toSerialize["write"] = o.Write
 	toSerialize["name"] = o.Name
 	toSerialize["state"] = o.State
-	if !isNil(o.Msg) {
+	if !IsNil(o.Msg) {
 		toSerialize["msg"] = o.Msg
 	}
-	if !isNil(o.Children) {
+	if !IsNil(o.Children) {
 		toSerialize["children"] = o.Children
 	}
 	return toSerialize, nil

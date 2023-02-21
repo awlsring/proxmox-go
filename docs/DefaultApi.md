@@ -117,6 +117,7 @@ Method | HTTP request | Description
 [**ModifyUserToken**](DefaultApi.md#ModifyUserToken) | **Put** /access/users/{userId}/token/{tokenId} | 
 [**OrderNodeCertificate**](DefaultApi.md#OrderNodeCertificate) | **Post** /nodes/{node}/certificates/acme/certificate | 
 [**PingVirtualMachine**](DefaultApi.md#PingVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/agent/ping | 
+[**RebootVirtualMachine**](DefaultApi.md#RebootVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/status/reboot | 
 [**RegenerateVirtualMachineCloudInit**](DefaultApi.md#RegenerateVirtualMachineCloudInit) | **Put** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**RemoveCorosyncNode**](DefaultApi.md#RemoveCorosyncNode) | **Delete** /cluster/config/nodes/{node} | 
 [**RenewNodeCertificate**](DefaultApi.md#RenewNodeCertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
@@ -152,7 +153,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -224,7 +225,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -294,7 +295,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -304,7 +305,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.AddRepository(context.Background(), node).Handle(handle).Digest(digest).Execute()
+    r, err := apiClient.DefaultApi.AddRepository(context.Background(), node).Handle(handle).Digest(digest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.AddRepository``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -364,7 +365,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -434,7 +435,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -509,7 +510,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -519,7 +520,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ApplyVirtualMachineConfigurationSync(context.Background(), node, vmId).ApplyVirtualMachineConfigurationSyncRequestContent(applyVirtualMachineConfigurationSyncRequestContent).Execute()
+    r, err := apiClient.DefaultApi.ApplyVirtualMachineConfigurationSync(context.Background(), node, vmId).ApplyVirtualMachineConfigurationSyncRequestContent(applyVirtualMachineConfigurationSyncRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApplyVirtualMachineConfigurationSync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -582,7 +583,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -590,7 +591,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ChangePassword(context.Background()).ChangePasswordRequestContent(changePasswordRequestContent).Execute()
+    r, err := apiClient.DefaultApi.ChangePassword(context.Background()).ChangePasswordRequestContent(changePasswordRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ChangePassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -644,7 +645,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -656,7 +657,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ChangeRepositoryProperties(context.Background(), node).Path(path).Index(index).Digest(digest).Enabled(enabled).Execute()
+    r, err := apiClient.DefaultApi.ChangeRepositoryProperties(context.Background(), node).Path(path).Index(index).Digest(digest).Enabled(enabled).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ChangeRepositoryProperties``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -720,7 +721,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -793,7 +794,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -859,7 +860,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -929,7 +930,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -937,7 +938,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreateGroup(context.Background()).CreateGroupRequestContent(createGroupRequestContent).Execute()
+    r, err := apiClient.DefaultApi.CreateGroup(context.Background()).CreateGroupRequestContent(createGroupRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateGroup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -993,7 +994,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1065,7 +1066,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1135,7 +1136,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1144,7 +1145,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreateNetworkInterface(context.Background(), node).CreateNetworkInterfaceRequestContent(createNetworkInterfaceRequestContent).Execute()
+    r, err := apiClient.DefaultApi.CreateNetworkInterface(context.Background(), node).CreateNetworkInterfaceRequestContent(createNetworkInterfaceRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateNetworkInterface``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1203,7 +1204,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1211,7 +1212,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreatePool(context.Background()).CreatePoolRequestContent(createPoolRequestContent).Execute()
+    r, err := apiClient.DefaultApi.CreatePool(context.Background()).CreatePoolRequestContent(createPoolRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreatePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1265,7 +1266,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1273,7 +1274,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreateRealm(context.Background()).CreateRealmRequestContent(createRealmRequestContent).Execute()
+    r, err := apiClient.DefaultApi.CreateRealm(context.Background()).CreateRealmRequestContent(createRealmRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateRealm``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1327,7 +1328,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1335,7 +1336,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreateRole(context.Background()).CreateRoleRequestContent(createRoleRequestContent).Execute()
+    r, err := apiClient.DefaultApi.CreateRole(context.Background()).CreateRoleRequestContent(createRoleRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateRole``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1389,7 +1390,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1453,7 +1454,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1526,7 +1527,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1592,7 +1593,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1600,7 +1601,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreateUser(context.Background()).CreateUserRequestContent(createUserRequestContent).Execute()
+    r, err := apiClient.DefaultApi.CreateUser(context.Background()).CreateUserRequestContent(createUserRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1656,7 +1657,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1731,7 +1732,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1803,7 +1804,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1878,7 +1879,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -1950,7 +1951,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2025,7 +2026,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2033,7 +2034,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteGroup(context.Background(), groupId).Execute()
+    r, err := apiClient.DefaultApi.DeleteGroup(context.Background(), groupId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteGroup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2093,7 +2094,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2170,7 +2171,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2247,7 +2248,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2256,7 +2257,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteNetworkInterface(context.Background(), node, interface_).Execute()
+    r, err := apiClient.DefaultApi.DeleteNetworkInterface(context.Background(), node, interface_).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteNetworkInterface``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2318,7 +2319,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2386,7 +2387,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2394,7 +2395,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeletePool(context.Background(), poolId).Execute()
+    r, err := apiClient.DefaultApi.DeletePool(context.Background(), poolId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeletePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2452,7 +2453,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2460,7 +2461,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteRealm(context.Background(), realm).Execute()
+    r, err := apiClient.DefaultApi.DeleteRealm(context.Background(), realm).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteRealm``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2518,7 +2519,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2526,7 +2527,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteRole(context.Background(), roleId).Execute()
+    r, err := apiClient.DefaultApi.DeleteRole(context.Background(), roleId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteRole``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2584,7 +2585,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2592,7 +2593,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteStorage(context.Background(), storage).Execute()
+    r, err := apiClient.DefaultApi.DeleteStorage(context.Background(), storage).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteStorage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2650,7 +2651,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2728,7 +2729,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2736,7 +2737,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteUser(context.Background(), userId).Execute()
+    r, err := apiClient.DefaultApi.DeleteUser(context.Background(), userId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2796,7 +2797,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2805,7 +2806,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.DeleteUserToken(context.Background(), userId, tokenId).Execute()
+    r, err := apiClient.DefaultApi.DeleteUserToken(context.Background(), userId, tokenId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteUserToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2867,7 +2868,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -2946,7 +2947,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3023,7 +3024,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3096,7 +3097,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3155,7 +3156,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3214,7 +3215,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3278,7 +3279,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3337,7 +3338,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3405,7 +3406,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3476,7 +3477,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3548,7 +3549,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3621,7 +3622,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3687,7 +3688,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3757,7 +3758,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3825,7 +3826,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3895,7 +3896,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -3967,7 +3968,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4035,7 +4036,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4108,7 +4109,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4178,7 +4179,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4249,7 +4250,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4310,7 +4311,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4383,7 +4384,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4458,7 +4459,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4533,7 +4534,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4610,7 +4611,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4687,7 +4688,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4760,7 +4761,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4833,7 +4834,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4906,7 +4907,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -4979,7 +4980,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5052,7 +5053,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5125,7 +5126,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5198,7 +5199,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5271,7 +5272,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5344,7 +5345,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5417,7 +5418,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5490,7 +5491,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5560,7 +5561,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5624,7 +5625,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5685,7 +5686,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5755,7 +5756,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5825,7 +5826,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5899,7 +5900,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -5960,7 +5961,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6030,7 +6031,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6100,7 +6101,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6168,7 +6169,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6240,7 +6241,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6308,7 +6309,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6384,7 +6385,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6443,7 +6444,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6511,7 +6512,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6582,7 +6583,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6656,7 +6657,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6727,7 +6728,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6786,7 +6787,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6845,7 +6846,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6913,7 +6914,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -6972,7 +6973,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7036,7 +7037,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7111,7 +7112,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7179,7 +7180,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7249,7 +7250,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7319,7 +7320,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7385,7 +7386,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7455,7 +7456,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7523,7 +7524,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7532,7 +7533,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ModifyPool(context.Background(), poolId).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
+    r, err := apiClient.DefaultApi.ModifyPool(context.Background(), poolId).ModifyPoolRequestContent(modifyPoolRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyPool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7591,7 +7592,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7600,7 +7601,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ModifyRole(context.Background(), roleId).ModifyRoleRequestContent(modifyRoleRequestContent).Execute()
+    r, err := apiClient.DefaultApi.ModifyRole(context.Background(), roleId).ModifyRoleRequestContent(modifyRoleRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyRole``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7659,7 +7660,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7731,7 +7732,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7740,7 +7741,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ModifyUser(context.Background(), userId).ModifyUserRequestContent(modifyUserRequestContent).Execute()
+    r, err := apiClient.DefaultApi.ModifyUser(context.Background(), userId).ModifyUserRequestContent(modifyUserRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ModifyUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7801,7 +7802,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7876,7 +7877,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -7948,7 +7949,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8004,6 +8005,81 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## RebootVirtualMachine
+
+> RebootVirtualMachineResponseContent RebootVirtualMachine(ctx, node, vmId).RebootVirtualMachineRequestContent(rebootVirtualMachineRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    rebootVirtualMachineRequestContent := *openapiclient.NewRebootVirtualMachineRequestContent() // RebootVirtualMachineRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.RebootVirtualMachine(context.Background(), node, vmId).RebootVirtualMachineRequestContent(rebootVirtualMachineRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RebootVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RebootVirtualMachine`: RebootVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.RebootVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRebootVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **rebootVirtualMachineRequestContent** | [**RebootVirtualMachineRequestContent**](RebootVirtualMachineRequestContent.md) |  | 
+
+### Return type
+
+[**RebootVirtualMachineResponseContent**](RebootVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RegenerateVirtualMachineCloudInit
 
 > RegenerateVirtualMachineCloudInit(ctx, node, vmId).Execute()
@@ -8021,7 +8097,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8030,7 +8106,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.RegenerateVirtualMachineCloudInit(context.Background(), node, vmId).Execute()
+    r, err := apiClient.DefaultApi.RegenerateVirtualMachineCloudInit(context.Background(), node, vmId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RegenerateVirtualMachineCloudInit``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8090,7 +8166,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8098,7 +8174,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.RemoveCorosyncNode(context.Background(), node).Execute()
+    r, err := apiClient.DefaultApi.RemoveCorosyncNode(context.Background(), node).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RemoveCorosyncNode``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8158,7 +8234,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8230,7 +8306,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8243,7 +8319,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.ResizeVirtualMachineDisk(context.Background(), node, vmId).Disk(disk).Size(size).Digest(digest).Skiplock(skiplock).Execute()
+    r, err := apiClient.DefaultApi.ResizeVirtualMachineDisk(context.Background(), node, vmId).Disk(disk).Size(size).Digest(digest).Skiplock(skiplock).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ResizeVirtualMachineDisk``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8307,7 +8383,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8315,7 +8391,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.RevertNetworkInterfaceConfiguration(context.Background(), node).Execute()
+    r, err := apiClient.DefaultApi.RevertNetworkInterfaceConfiguration(context.Background(), node).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RevertNetworkInterfaceConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8373,7 +8449,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8382,7 +8458,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.SyncRealm(context.Background(), realm).SyncRealmRequestContent(syncRealmRequestContent).Execute()
+    r, err := apiClient.DefaultApi.SyncRealm(context.Background(), realm).SyncRealmRequestContent(syncRealmRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SyncRealm``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8443,7 +8519,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8454,7 +8530,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.UnlinkVirtualMachineDisks(context.Background(), node, vmId).Idlist(idlist).Force(force).Execute()
+    r, err := apiClient.DefaultApi.UnlinkVirtualMachineDisks(context.Background(), node, vmId).Idlist(idlist).Force(force).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UnlinkVirtualMachineDisks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8516,7 +8592,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8524,7 +8600,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.UpdateAccessControlList(context.Background()).UpdateAccessControlListRequestContent(updateAccessControlListRequestContent).Execute()
+    r, err := apiClient.DefaultApi.UpdateAccessControlList(context.Background()).UpdateAccessControlListRequestContent(updateAccessControlListRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateAccessControlList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8578,7 +8654,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8587,7 +8663,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.UpdateGroup(context.Background(), groupId).UpdateGroupRequestContent(updateGroupRequestContent).Execute()
+    r, err := apiClient.DefaultApi.UpdateGroup(context.Background(), groupId).UpdateGroupRequestContent(updateGroupRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateGroup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8646,7 +8722,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8656,7 +8732,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.UpdateNetworkInterface(context.Background(), node, interface_).UpdateNetworkInterfaceRequestContent(updateNetworkInterfaceRequestContent).Execute()
+    r, err := apiClient.DefaultApi.UpdateNetworkInterface(context.Background(), node, interface_).UpdateNetworkInterfaceRequestContent(updateNetworkInterfaceRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateNetworkInterface``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8717,7 +8793,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8726,7 +8802,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.UpdateRealm(context.Background(), realm).UpdateRealmRequestContent(updateRealmRequestContent).Execute()
+    r, err := apiClient.DefaultApi.UpdateRealm(context.Background(), realm).UpdateRealmRequestContent(updateRealmRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateRealm``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8785,7 +8861,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8796,7 +8872,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.UpdateStorageVolume(context.Background(), node, storage, volume).UpdateStorageVolumeRequestContent(updateStorageVolumeRequestContent).Execute()
+    r, err := apiClient.DefaultApi.UpdateStorageVolume(context.Background(), node, storage, volume).UpdateStorageVolumeRequestContent(updateStorageVolumeRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateStorageVolume``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8859,7 +8935,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -8934,7 +9010,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -9009,7 +9085,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -9084,7 +9160,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -9094,7 +9170,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.VirtualMachineWriteFile(context.Background(), node, vmId).VirtualMachineWriteFileRequestContent(virtualMachineWriteFileRequestContent).Execute()
+    r, err := apiClient.DefaultApi.VirtualMachineWriteFile(context.Background(), node, vmId).VirtualMachineWriteFileRequestContent(virtualMachineWriteFileRequestContent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.VirtualMachineWriteFile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9157,7 +9233,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/awlsring/proxmox-go"
 )
 
 func main() {
@@ -9166,7 +9242,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.WipeDisk(context.Background(), node).Disk(disk).Execute()
+    r, err := apiClient.DefaultApi.WipeDisk(context.Background(), node).Disk(disk).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.WipeDisk``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

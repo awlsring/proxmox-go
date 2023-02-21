@@ -69,7 +69,7 @@ func (o *RoleSummary) SetRoleid(v string) {
 
 // GetPrivs returns the Privs field value if set, zero value otherwise.
 func (o *RoleSummary) GetPrivs() string {
-	if o == nil || isNil(o.Privs) {
+	if o == nil || IsNil(o.Privs) {
 		var ret string
 		return ret
 	}
@@ -79,7 +79,7 @@ func (o *RoleSummary) GetPrivs() string {
 // GetPrivsOk returns a tuple with the Privs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RoleSummary) GetPrivsOk() (*string, bool) {
-	if o == nil || isNil(o.Privs) {
+	if o == nil || IsNil(o.Privs) {
 		return nil, false
 	}
 	return o.Privs, true
@@ -87,7 +87,7 @@ func (o *RoleSummary) GetPrivsOk() (*string, bool) {
 
 // HasPrivs returns a boolean if a field has been set.
 func (o *RoleSummary) HasPrivs() bool {
-	if o != nil && !isNil(o.Privs) {
+	if o != nil && !IsNil(o.Privs) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o *RoleSummary) SetPrivs(v string) {
 
 // GetSpecial returns the Special field value if set, zero value otherwise.
 func (o *RoleSummary) GetSpecial() float32 {
-	if o == nil || isNil(o.Special) {
+	if o == nil || IsNil(o.Special) {
 		var ret float32
 		return ret
 	}
@@ -111,7 +111,7 @@ func (o *RoleSummary) GetSpecial() float32 {
 // GetSpecialOk returns a tuple with the Special field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RoleSummary) GetSpecialOk() (*float32, bool) {
-	if o == nil || isNil(o.Special) {
+	if o == nil || IsNil(o.Special) {
 		return nil, false
 	}
 	return o.Special, true
@@ -119,7 +119,7 @@ func (o *RoleSummary) GetSpecialOk() (*float32, bool) {
 
 // HasSpecial returns a boolean if a field has been set.
 func (o *RoleSummary) HasSpecial() bool {
-	if o != nil && !isNil(o.Special) {
+	if o != nil && !IsNil(o.Special) {
 		return true
 	}
 
@@ -142,10 +142,10 @@ func (o RoleSummary) MarshalJSON() ([]byte, error) {
 func (o RoleSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["roleid"] = o.Roleid
-	if !isNil(o.Privs) {
+	if !IsNil(o.Privs) {
 		toSerialize["privs"] = o.Privs
 	}
-	if !isNil(o.Special) {
+	if !IsNil(o.Special) {
 		toSerialize["special"] = o.Special
 	}
 	return toSerialize, nil

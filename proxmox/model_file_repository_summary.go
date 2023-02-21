@@ -47,7 +47,7 @@ func NewFileRepositorySummaryWithDefaults() *FileRepositorySummary {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetEnabled() float32 {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret float32
 		return ret
 	}
@@ -57,7 +57,7 @@ func (o *FileRepositorySummary) GetEnabled() float32 {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetEnabledOk() (*float32, bool) {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
 	return o.Enabled, true
@@ -65,7 +65,7 @@ func (o *FileRepositorySummary) GetEnabledOk() (*float32, bool) {
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -79,7 +79,7 @@ func (o *FileRepositorySummary) SetEnabled(v float32) {
 
 // GetComponents returns the Components field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetComponents() []string {
-	if o == nil || isNil(o.Components) {
+	if o == nil || IsNil(o.Components) {
 		var ret []string
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *FileRepositorySummary) GetComponents() []string {
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetComponentsOk() ([]string, bool) {
-	if o == nil || isNil(o.Components) {
+	if o == nil || IsNil(o.Components) {
 		return nil, false
 	}
 	return o.Components, true
@@ -97,7 +97,7 @@ func (o *FileRepositorySummary) GetComponentsOk() ([]string, bool) {
 
 // HasComponents returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasComponents() bool {
-	if o != nil && !isNil(o.Components) {
+	if o != nil && !IsNil(o.Components) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *FileRepositorySummary) SetComponents(v []string) {
 
 // GetFileType returns the FileType field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetFileType() string {
-	if o == nil || isNil(o.FileType) {
+	if o == nil || IsNil(o.FileType) {
 		var ret string
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *FileRepositorySummary) GetFileType() string {
 // GetFileTypeOk returns a tuple with the FileType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetFileTypeOk() (*string, bool) {
-	if o == nil || isNil(o.FileType) {
+	if o == nil || IsNil(o.FileType) {
 		return nil, false
 	}
 	return o.FileType, true
@@ -129,7 +129,7 @@ func (o *FileRepositorySummary) GetFileTypeOk() (*string, bool) {
 
 // HasFileType returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasFileType() bool {
-	if o != nil && !isNil(o.FileType) {
+	if o != nil && !IsNil(o.FileType) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *FileRepositorySummary) SetFileType(v string) {
 
 // GetURIs returns the URIs field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetURIs() []string {
-	if o == nil || isNil(o.URIs) {
+	if o == nil || IsNil(o.URIs) {
 		var ret []string
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *FileRepositorySummary) GetURIs() []string {
 // GetURIsOk returns a tuple with the URIs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetURIsOk() ([]string, bool) {
-	if o == nil || isNil(o.URIs) {
+	if o == nil || IsNil(o.URIs) {
 		return nil, false
 	}
 	return o.URIs, true
@@ -161,7 +161,7 @@ func (o *FileRepositorySummary) GetURIsOk() ([]string, bool) {
 
 // HasURIs returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasURIs() bool {
-	if o != nil && !isNil(o.URIs) {
+	if o != nil && !IsNil(o.URIs) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *FileRepositorySummary) SetURIs(v []string) {
 
 // GetTypes returns the Types field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetTypes() []string {
-	if o == nil || isNil(o.Types) {
+	if o == nil || IsNil(o.Types) {
 		var ret []string
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *FileRepositorySummary) GetTypes() []string {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetTypesOk() ([]string, bool) {
-	if o == nil || isNil(o.Types) {
+	if o == nil || IsNil(o.Types) {
 		return nil, false
 	}
 	return o.Types, true
@@ -193,7 +193,7 @@ func (o *FileRepositorySummary) GetTypesOk() ([]string, bool) {
 
 // HasTypes returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasTypes() bool {
-	if o != nil && !isNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *FileRepositorySummary) SetTypes(v []string) {
 
 // GetSuites returns the Suites field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetSuites() []string {
-	if o == nil || isNil(o.Suites) {
+	if o == nil || IsNil(o.Suites) {
 		var ret []string
 		return ret
 	}
@@ -217,7 +217,7 @@ func (o *FileRepositorySummary) GetSuites() []string {
 // GetSuitesOk returns a tuple with the Suites field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetSuitesOk() ([]string, bool) {
-	if o == nil || isNil(o.Suites) {
+	if o == nil || IsNil(o.Suites) {
 		return nil, false
 	}
 	return o.Suites, true
@@ -225,7 +225,7 @@ func (o *FileRepositorySummary) GetSuitesOk() ([]string, bool) {
 
 // HasSuites returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasSuites() bool {
-	if o != nil && !isNil(o.Suites) {
+	if o != nil && !IsNil(o.Suites) {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *FileRepositorySummary) SetSuites(v []string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *FileRepositorySummary) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -249,7 +249,7 @@ func (o *FileRepositorySummary) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileRepositorySummary) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -257,7 +257,7 @@ func (o *FileRepositorySummary) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *FileRepositorySummary) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -279,25 +279,25 @@ func (o FileRepositorySummary) MarshalJSON() ([]byte, error) {
 
 func (o FileRepositorySummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["Enabled"] = o.Enabled
 	}
-	if !isNil(o.Components) {
+	if !IsNil(o.Components) {
 		toSerialize["Components"] = o.Components
 	}
-	if !isNil(o.FileType) {
+	if !IsNil(o.FileType) {
 		toSerialize["FileType"] = o.FileType
 	}
-	if !isNil(o.URIs) {
+	if !IsNil(o.URIs) {
 		toSerialize["URIs"] = o.URIs
 	}
-	if !isNil(o.Types) {
+	if !IsNil(o.Types) {
 		toSerialize["Types"] = o.Types
 	}
-	if !isNil(o.Suites) {
+	if !IsNil(o.Suites) {
 		toSerialize["Suites"] = o.Suites
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["Comment"] = o.Comment
 	}
 	return toSerialize, nil

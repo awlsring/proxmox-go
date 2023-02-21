@@ -41,7 +41,7 @@ func NewUpdateGroupRequestContentWithDefaults() *UpdateGroupRequestContent {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *UpdateGroupRequestContent) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *UpdateGroupRequestContent) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateGroupRequestContent) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -59,7 +59,7 @@ func (o *UpdateGroupRequestContent) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *UpdateGroupRequestContent) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o UpdateGroupRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o UpdateGroupRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
 	return toSerialize, nil

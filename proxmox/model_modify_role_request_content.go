@@ -43,7 +43,7 @@ func NewModifyRoleRequestContentWithDefaults() *ModifyRoleRequestContent {
 
 // GetPrivs returns the Privs field value if set, zero value otherwise.
 func (o *ModifyRoleRequestContent) GetPrivs() string {
-	if o == nil || isNil(o.Privs) {
+	if o == nil || IsNil(o.Privs) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *ModifyRoleRequestContent) GetPrivs() string {
 // GetPrivsOk returns a tuple with the Privs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyRoleRequestContent) GetPrivsOk() (*string, bool) {
-	if o == nil || isNil(o.Privs) {
+	if o == nil || IsNil(o.Privs) {
 		return nil, false
 	}
 	return o.Privs, true
@@ -61,7 +61,7 @@ func (o *ModifyRoleRequestContent) GetPrivsOk() (*string, bool) {
 
 // HasPrivs returns a boolean if a field has been set.
 func (o *ModifyRoleRequestContent) HasPrivs() bool {
-	if o != nil && !isNil(o.Privs) {
+	if o != nil && !IsNil(o.Privs) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *ModifyRoleRequestContent) SetPrivs(v string) {
 
 // GetAppend returns the Append field value if set, zero value otherwise.
 func (o *ModifyRoleRequestContent) GetAppend() float32 {
-	if o == nil || isNil(o.Append) {
+	if o == nil || IsNil(o.Append) {
 		var ret float32
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *ModifyRoleRequestContent) GetAppend() float32 {
 // GetAppendOk returns a tuple with the Append field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyRoleRequestContent) GetAppendOk() (*float32, bool) {
-	if o == nil || isNil(o.Append) {
+	if o == nil || IsNil(o.Append) {
 		return nil, false
 	}
 	return o.Append, true
@@ -93,7 +93,7 @@ func (o *ModifyRoleRequestContent) GetAppendOk() (*float32, bool) {
 
 // HasAppend returns a boolean if a field has been set.
 func (o *ModifyRoleRequestContent) HasAppend() bool {
-	if o != nil && !isNil(o.Append) {
+	if o != nil && !IsNil(o.Append) {
 		return true
 	}
 
@@ -115,10 +115,10 @@ func (o ModifyRoleRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o ModifyRoleRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Privs) {
+	if !IsNil(o.Privs) {
 		toSerialize["privs"] = o.Privs
 	}
-	if !isNil(o.Append) {
+	if !IsNil(o.Append) {
 		toSerialize["append"] = o.Append
 	}
 	return toSerialize, nil

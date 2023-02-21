@@ -59,7 +59,7 @@ func NewNodeCertificateWithDefaults() *NodeCertificate {
 
 // GetFilename returns the Filename field value if set, zero value otherwise.
 func (o *NodeCertificate) GetFilename() string {
-	if o == nil || isNil(o.Filename) {
+	if o == nil || IsNil(o.Filename) {
 		var ret string
 		return ret
 	}
@@ -69,7 +69,7 @@ func (o *NodeCertificate) GetFilename() string {
 // GetFilenameOk returns a tuple with the Filename field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetFilenameOk() (*string, bool) {
-	if o == nil || isNil(o.Filename) {
+	if o == nil || IsNil(o.Filename) {
 		return nil, false
 	}
 	return o.Filename, true
@@ -77,7 +77,7 @@ func (o *NodeCertificate) GetFilenameOk() (*string, bool) {
 
 // HasFilename returns a boolean if a field has been set.
 func (o *NodeCertificate) HasFilename() bool {
-	if o != nil && !isNil(o.Filename) {
+	if o != nil && !IsNil(o.Filename) {
 		return true
 	}
 
@@ -91,7 +91,7 @@ func (o *NodeCertificate) SetFilename(v string) {
 
 // GetFingerprint returns the Fingerprint field value if set, zero value otherwise.
 func (o *NodeCertificate) GetFingerprint() string {
-	if o == nil || isNil(o.Fingerprint) {
+	if o == nil || IsNil(o.Fingerprint) {
 		var ret string
 		return ret
 	}
@@ -101,7 +101,7 @@ func (o *NodeCertificate) GetFingerprint() string {
 // GetFingerprintOk returns a tuple with the Fingerprint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetFingerprintOk() (*string, bool) {
-	if o == nil || isNil(o.Fingerprint) {
+	if o == nil || IsNil(o.Fingerprint) {
 		return nil, false
 	}
 	return o.Fingerprint, true
@@ -109,7 +109,7 @@ func (o *NodeCertificate) GetFingerprintOk() (*string, bool) {
 
 // HasFingerprint returns a boolean if a field has been set.
 func (o *NodeCertificate) HasFingerprint() bool {
-	if o != nil && !isNil(o.Fingerprint) {
+	if o != nil && !IsNil(o.Fingerprint) {
 		return true
 	}
 
@@ -123,7 +123,7 @@ func (o *NodeCertificate) SetFingerprint(v string) {
 
 // GetIssuer returns the Issuer field value if set, zero value otherwise.
 func (o *NodeCertificate) GetIssuer() string {
-	if o == nil || isNil(o.Issuer) {
+	if o == nil || IsNil(o.Issuer) {
 		var ret string
 		return ret
 	}
@@ -133,7 +133,7 @@ func (o *NodeCertificate) GetIssuer() string {
 // GetIssuerOk returns a tuple with the Issuer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetIssuerOk() (*string, bool) {
-	if o == nil || isNil(o.Issuer) {
+	if o == nil || IsNil(o.Issuer) {
 		return nil, false
 	}
 	return o.Issuer, true
@@ -141,7 +141,7 @@ func (o *NodeCertificate) GetIssuerOk() (*string, bool) {
 
 // HasIssuer returns a boolean if a field has been set.
 func (o *NodeCertificate) HasIssuer() bool {
-	if o != nil && !isNil(o.Issuer) {
+	if o != nil && !IsNil(o.Issuer) {
 		return true
 	}
 
@@ -155,7 +155,7 @@ func (o *NodeCertificate) SetIssuer(v string) {
 
 // GetNotAfter returns the NotAfter field value if set, zero value otherwise.
 func (o *NodeCertificate) GetNotAfter() float32 {
-	if o == nil || isNil(o.NotAfter) {
+	if o == nil || IsNil(o.NotAfter) {
 		var ret float32
 		return ret
 	}
@@ -165,7 +165,7 @@ func (o *NodeCertificate) GetNotAfter() float32 {
 // GetNotAfterOk returns a tuple with the NotAfter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetNotAfterOk() (*float32, bool) {
-	if o == nil || isNil(o.NotAfter) {
+	if o == nil || IsNil(o.NotAfter) {
 		return nil, false
 	}
 	return o.NotAfter, true
@@ -173,7 +173,7 @@ func (o *NodeCertificate) GetNotAfterOk() (*float32, bool) {
 
 // HasNotAfter returns a boolean if a field has been set.
 func (o *NodeCertificate) HasNotAfter() bool {
-	if o != nil && !isNil(o.NotAfter) {
+	if o != nil && !IsNil(o.NotAfter) {
 		return true
 	}
 
@@ -187,7 +187,7 @@ func (o *NodeCertificate) SetNotAfter(v float32) {
 
 // GetNotBefore returns the NotBefore field value if set, zero value otherwise.
 func (o *NodeCertificate) GetNotBefore() float32 {
-	if o == nil || isNil(o.NotBefore) {
+	if o == nil || IsNil(o.NotBefore) {
 		var ret float32
 		return ret
 	}
@@ -197,7 +197,7 @@ func (o *NodeCertificate) GetNotBefore() float32 {
 // GetNotBeforeOk returns a tuple with the NotBefore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetNotBeforeOk() (*float32, bool) {
-	if o == nil || isNil(o.NotBefore) {
+	if o == nil || IsNil(o.NotBefore) {
 		return nil, false
 	}
 	return o.NotBefore, true
@@ -205,7 +205,7 @@ func (o *NodeCertificate) GetNotBeforeOk() (*float32, bool) {
 
 // HasNotBefore returns a boolean if a field has been set.
 func (o *NodeCertificate) HasNotBefore() bool {
-	if o != nil && !isNil(o.NotBefore) {
+	if o != nil && !IsNil(o.NotBefore) {
 		return true
 	}
 
@@ -219,7 +219,7 @@ func (o *NodeCertificate) SetNotBefore(v float32) {
 
 // GetPem returns the Pem field value if set, zero value otherwise.
 func (o *NodeCertificate) GetPem() string {
-	if o == nil || isNil(o.Pem) {
+	if o == nil || IsNil(o.Pem) {
 		var ret string
 		return ret
 	}
@@ -229,7 +229,7 @@ func (o *NodeCertificate) GetPem() string {
 // GetPemOk returns a tuple with the Pem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetPemOk() (*string, bool) {
-	if o == nil || isNil(o.Pem) {
+	if o == nil || IsNil(o.Pem) {
 		return nil, false
 	}
 	return o.Pem, true
@@ -237,7 +237,7 @@ func (o *NodeCertificate) GetPemOk() (*string, bool) {
 
 // HasPem returns a boolean if a field has been set.
 func (o *NodeCertificate) HasPem() bool {
-	if o != nil && !isNil(o.Pem) {
+	if o != nil && !IsNil(o.Pem) {
 		return true
 	}
 
@@ -251,7 +251,7 @@ func (o *NodeCertificate) SetPem(v string) {
 
 // GetPublicKeyBits returns the PublicKeyBits field value if set, zero value otherwise.
 func (o *NodeCertificate) GetPublicKeyBits() string {
-	if o == nil || isNil(o.PublicKeyBits) {
+	if o == nil || IsNil(o.PublicKeyBits) {
 		var ret string
 		return ret
 	}
@@ -261,7 +261,7 @@ func (o *NodeCertificate) GetPublicKeyBits() string {
 // GetPublicKeyBitsOk returns a tuple with the PublicKeyBits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetPublicKeyBitsOk() (*string, bool) {
-	if o == nil || isNil(o.PublicKeyBits) {
+	if o == nil || IsNil(o.PublicKeyBits) {
 		return nil, false
 	}
 	return o.PublicKeyBits, true
@@ -269,7 +269,7 @@ func (o *NodeCertificate) GetPublicKeyBitsOk() (*string, bool) {
 
 // HasPublicKeyBits returns a boolean if a field has been set.
 func (o *NodeCertificate) HasPublicKeyBits() bool {
-	if o != nil && !isNil(o.PublicKeyBits) {
+	if o != nil && !IsNil(o.PublicKeyBits) {
 		return true
 	}
 
@@ -283,7 +283,7 @@ func (o *NodeCertificate) SetPublicKeyBits(v string) {
 
 // GetPublicKeyType returns the PublicKeyType field value if set, zero value otherwise.
 func (o *NodeCertificate) GetPublicKeyType() string {
-	if o == nil || isNil(o.PublicKeyType) {
+	if o == nil || IsNil(o.PublicKeyType) {
 		var ret string
 		return ret
 	}
@@ -293,7 +293,7 @@ func (o *NodeCertificate) GetPublicKeyType() string {
 // GetPublicKeyTypeOk returns a tuple with the PublicKeyType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetPublicKeyTypeOk() (*string, bool) {
-	if o == nil || isNil(o.PublicKeyType) {
+	if o == nil || IsNil(o.PublicKeyType) {
 		return nil, false
 	}
 	return o.PublicKeyType, true
@@ -301,7 +301,7 @@ func (o *NodeCertificate) GetPublicKeyTypeOk() (*string, bool) {
 
 // HasPublicKeyType returns a boolean if a field has been set.
 func (o *NodeCertificate) HasPublicKeyType() bool {
-	if o != nil && !isNil(o.PublicKeyType) {
+	if o != nil && !IsNil(o.PublicKeyType) {
 		return true
 	}
 
@@ -315,7 +315,7 @@ func (o *NodeCertificate) SetPublicKeyType(v string) {
 
 // GetSans returns the Sans field value if set, zero value otherwise.
 func (o *NodeCertificate) GetSans() []string {
-	if o == nil || isNil(o.Sans) {
+	if o == nil || IsNil(o.Sans) {
 		var ret []string
 		return ret
 	}
@@ -325,7 +325,7 @@ func (o *NodeCertificate) GetSans() []string {
 // GetSansOk returns a tuple with the Sans field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetSansOk() ([]string, bool) {
-	if o == nil || isNil(o.Sans) {
+	if o == nil || IsNil(o.Sans) {
 		return nil, false
 	}
 	return o.Sans, true
@@ -333,7 +333,7 @@ func (o *NodeCertificate) GetSansOk() ([]string, bool) {
 
 // HasSans returns a boolean if a field has been set.
 func (o *NodeCertificate) HasSans() bool {
-	if o != nil && !isNil(o.Sans) {
+	if o != nil && !IsNil(o.Sans) {
 		return true
 	}
 
@@ -347,7 +347,7 @@ func (o *NodeCertificate) SetSans(v []string) {
 
 // GetSubject returns the Subject field value if set, zero value otherwise.
 func (o *NodeCertificate) GetSubject() string {
-	if o == nil || isNil(o.Subject) {
+	if o == nil || IsNil(o.Subject) {
 		var ret string
 		return ret
 	}
@@ -357,7 +357,7 @@ func (o *NodeCertificate) GetSubject() string {
 // GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeCertificate) GetSubjectOk() (*string, bool) {
-	if o == nil || isNil(o.Subject) {
+	if o == nil || IsNil(o.Subject) {
 		return nil, false
 	}
 	return o.Subject, true
@@ -365,7 +365,7 @@ func (o *NodeCertificate) GetSubjectOk() (*string, bool) {
 
 // HasSubject returns a boolean if a field has been set.
 func (o *NodeCertificate) HasSubject() bool {
-	if o != nil && !isNil(o.Subject) {
+	if o != nil && !IsNil(o.Subject) {
 		return true
 	}
 
@@ -387,34 +387,34 @@ func (o NodeCertificate) MarshalJSON() ([]byte, error) {
 
 func (o NodeCertificate) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Filename) {
+	if !IsNil(o.Filename) {
 		toSerialize["filename"] = o.Filename
 	}
-	if !isNil(o.Fingerprint) {
+	if !IsNil(o.Fingerprint) {
 		toSerialize["fingerprint"] = o.Fingerprint
 	}
-	if !isNil(o.Issuer) {
+	if !IsNil(o.Issuer) {
 		toSerialize["issuer"] = o.Issuer
 	}
-	if !isNil(o.NotAfter) {
+	if !IsNil(o.NotAfter) {
 		toSerialize["notAfter"] = o.NotAfter
 	}
-	if !isNil(o.NotBefore) {
+	if !IsNil(o.NotBefore) {
 		toSerialize["notBefore"] = o.NotBefore
 	}
-	if !isNil(o.Pem) {
+	if !IsNil(o.Pem) {
 		toSerialize["pem"] = o.Pem
 	}
-	if !isNil(o.PublicKeyBits) {
+	if !IsNil(o.PublicKeyBits) {
 		toSerialize["public-key-bits"] = o.PublicKeyBits
 	}
-	if !isNil(o.PublicKeyType) {
+	if !IsNil(o.PublicKeyType) {
 		toSerialize["public-key-type"] = o.PublicKeyType
 	}
-	if !isNil(o.Sans) {
+	if !IsNil(o.Sans) {
 		toSerialize["sans"] = o.Sans
 	}
-	if !isNil(o.Subject) {
+	if !IsNil(o.Subject) {
 		toSerialize["subject"] = o.Subject
 	}
 	return toSerialize, nil

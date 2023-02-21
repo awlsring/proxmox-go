@@ -79,7 +79,7 @@ func (o *CreateClusterConfigRequestContent) SetClustername(v string) {
 
 // GetLink0 returns the Link0 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink0() string {
-	if o == nil || isNil(o.Link0) {
+	if o == nil || IsNil(o.Link0) {
 		var ret string
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *CreateClusterConfigRequestContent) GetLink0() string {
 // GetLink0Ok returns a tuple with the Link0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink0Ok() (*string, bool) {
-	if o == nil || isNil(o.Link0) {
+	if o == nil || IsNil(o.Link0) {
 		return nil, false
 	}
 	return o.Link0, true
@@ -97,7 +97,7 @@ func (o *CreateClusterConfigRequestContent) GetLink0Ok() (*string, bool) {
 
 // HasLink0 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink0() bool {
-	if o != nil && !isNil(o.Link0) {
+	if o != nil && !IsNil(o.Link0) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *CreateClusterConfigRequestContent) SetLink0(v string) {
 
 // GetLink1 returns the Link1 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink1() string {
-	if o == nil || isNil(o.Link1) {
+	if o == nil || IsNil(o.Link1) {
 		var ret string
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *CreateClusterConfigRequestContent) GetLink1() string {
 // GetLink1Ok returns a tuple with the Link1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink1Ok() (*string, bool) {
-	if o == nil || isNil(o.Link1) {
+	if o == nil || IsNil(o.Link1) {
 		return nil, false
 	}
 	return o.Link1, true
@@ -129,7 +129,7 @@ func (o *CreateClusterConfigRequestContent) GetLink1Ok() (*string, bool) {
 
 // HasLink1 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink1() bool {
-	if o != nil && !isNil(o.Link1) {
+	if o != nil && !IsNil(o.Link1) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *CreateClusterConfigRequestContent) SetLink1(v string) {
 
 // GetLink2 returns the Link2 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink2() string {
-	if o == nil || isNil(o.Link2) {
+	if o == nil || IsNil(o.Link2) {
 		var ret string
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *CreateClusterConfigRequestContent) GetLink2() string {
 // GetLink2Ok returns a tuple with the Link2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink2Ok() (*string, bool) {
-	if o == nil || isNil(o.Link2) {
+	if o == nil || IsNil(o.Link2) {
 		return nil, false
 	}
 	return o.Link2, true
@@ -161,7 +161,7 @@ func (o *CreateClusterConfigRequestContent) GetLink2Ok() (*string, bool) {
 
 // HasLink2 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink2() bool {
-	if o != nil && !isNil(o.Link2) {
+	if o != nil && !IsNil(o.Link2) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *CreateClusterConfigRequestContent) SetLink2(v string) {
 
 // GetLink3 returns the Link3 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink3() string {
-	if o == nil || isNil(o.Link3) {
+	if o == nil || IsNil(o.Link3) {
 		var ret string
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *CreateClusterConfigRequestContent) GetLink3() string {
 // GetLink3Ok returns a tuple with the Link3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink3Ok() (*string, bool) {
-	if o == nil || isNil(o.Link3) {
+	if o == nil || IsNil(o.Link3) {
 		return nil, false
 	}
 	return o.Link3, true
@@ -193,7 +193,7 @@ func (o *CreateClusterConfigRequestContent) GetLink3Ok() (*string, bool) {
 
 // HasLink3 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink3() bool {
-	if o != nil && !isNil(o.Link3) {
+	if o != nil && !IsNil(o.Link3) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *CreateClusterConfigRequestContent) SetLink3(v string) {
 
 // GetLink4 returns the Link4 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink4() string {
-	if o == nil || isNil(o.Link4) {
+	if o == nil || IsNil(o.Link4) {
 		var ret string
 		return ret
 	}
@@ -217,7 +217,7 @@ func (o *CreateClusterConfigRequestContent) GetLink4() string {
 // GetLink4Ok returns a tuple with the Link4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink4Ok() (*string, bool) {
-	if o == nil || isNil(o.Link4) {
+	if o == nil || IsNil(o.Link4) {
 		return nil, false
 	}
 	return o.Link4, true
@@ -225,7 +225,7 @@ func (o *CreateClusterConfigRequestContent) GetLink4Ok() (*string, bool) {
 
 // HasLink4 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink4() bool {
-	if o != nil && !isNil(o.Link4) {
+	if o != nil && !IsNil(o.Link4) {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *CreateClusterConfigRequestContent) SetLink4(v string) {
 
 // GetLink5 returns the Link5 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink5() string {
-	if o == nil || isNil(o.Link5) {
+	if o == nil || IsNil(o.Link5) {
 		var ret string
 		return ret
 	}
@@ -249,7 +249,7 @@ func (o *CreateClusterConfigRequestContent) GetLink5() string {
 // GetLink5Ok returns a tuple with the Link5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink5Ok() (*string, bool) {
-	if o == nil || isNil(o.Link5) {
+	if o == nil || IsNil(o.Link5) {
 		return nil, false
 	}
 	return o.Link5, true
@@ -257,7 +257,7 @@ func (o *CreateClusterConfigRequestContent) GetLink5Ok() (*string, bool) {
 
 // HasLink5 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink5() bool {
-	if o != nil && !isNil(o.Link5) {
+	if o != nil && !IsNil(o.Link5) {
 		return true
 	}
 
@@ -271,7 +271,7 @@ func (o *CreateClusterConfigRequestContent) SetLink5(v string) {
 
 // GetLink6 returns the Link6 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink6() string {
-	if o == nil || isNil(o.Link6) {
+	if o == nil || IsNil(o.Link6) {
 		var ret string
 		return ret
 	}
@@ -281,7 +281,7 @@ func (o *CreateClusterConfigRequestContent) GetLink6() string {
 // GetLink6Ok returns a tuple with the Link6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink6Ok() (*string, bool) {
-	if o == nil || isNil(o.Link6) {
+	if o == nil || IsNil(o.Link6) {
 		return nil, false
 	}
 	return o.Link6, true
@@ -289,7 +289,7 @@ func (o *CreateClusterConfigRequestContent) GetLink6Ok() (*string, bool) {
 
 // HasLink6 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink6() bool {
-	if o != nil && !isNil(o.Link6) {
+	if o != nil && !IsNil(o.Link6) {
 		return true
 	}
 
@@ -303,7 +303,7 @@ func (o *CreateClusterConfigRequestContent) SetLink6(v string) {
 
 // GetLink7 returns the Link7 field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetLink7() string {
-	if o == nil || isNil(o.Link7) {
+	if o == nil || IsNil(o.Link7) {
 		var ret string
 		return ret
 	}
@@ -313,7 +313,7 @@ func (o *CreateClusterConfigRequestContent) GetLink7() string {
 // GetLink7Ok returns a tuple with the Link7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetLink7Ok() (*string, bool) {
-	if o == nil || isNil(o.Link7) {
+	if o == nil || IsNil(o.Link7) {
 		return nil, false
 	}
 	return o.Link7, true
@@ -321,7 +321,7 @@ func (o *CreateClusterConfigRequestContent) GetLink7Ok() (*string, bool) {
 
 // HasLink7 returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasLink7() bool {
-	if o != nil && !isNil(o.Link7) {
+	if o != nil && !IsNil(o.Link7) {
 		return true
 	}
 
@@ -335,7 +335,7 @@ func (o *CreateClusterConfigRequestContent) SetLink7(v string) {
 
 // GetNodeid returns the Nodeid field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetNodeid() float32 {
-	if o == nil || isNil(o.Nodeid) {
+	if o == nil || IsNil(o.Nodeid) {
 		var ret float32
 		return ret
 	}
@@ -345,7 +345,7 @@ func (o *CreateClusterConfigRequestContent) GetNodeid() float32 {
 // GetNodeidOk returns a tuple with the Nodeid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetNodeidOk() (*float32, bool) {
-	if o == nil || isNil(o.Nodeid) {
+	if o == nil || IsNil(o.Nodeid) {
 		return nil, false
 	}
 	return o.Nodeid, true
@@ -353,7 +353,7 @@ func (o *CreateClusterConfigRequestContent) GetNodeidOk() (*float32, bool) {
 
 // HasNodeid returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasNodeid() bool {
-	if o != nil && !isNil(o.Nodeid) {
+	if o != nil && !IsNil(o.Nodeid) {
 		return true
 	}
 
@@ -367,7 +367,7 @@ func (o *CreateClusterConfigRequestContent) SetNodeid(v float32) {
 
 // GetVotes returns the Votes field value if set, zero value otherwise.
 func (o *CreateClusterConfigRequestContent) GetVotes() float32 {
-	if o == nil || isNil(o.Votes) {
+	if o == nil || IsNil(o.Votes) {
 		var ret float32
 		return ret
 	}
@@ -377,7 +377,7 @@ func (o *CreateClusterConfigRequestContent) GetVotes() float32 {
 // GetVotesOk returns a tuple with the Votes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateClusterConfigRequestContent) GetVotesOk() (*float32, bool) {
-	if o == nil || isNil(o.Votes) {
+	if o == nil || IsNil(o.Votes) {
 		return nil, false
 	}
 	return o.Votes, true
@@ -385,7 +385,7 @@ func (o *CreateClusterConfigRequestContent) GetVotesOk() (*float32, bool) {
 
 // HasVotes returns a boolean if a field has been set.
 func (o *CreateClusterConfigRequestContent) HasVotes() bool {
-	if o != nil && !isNil(o.Votes) {
+	if o != nil && !IsNil(o.Votes) {
 		return true
 	}
 
@@ -408,34 +408,34 @@ func (o CreateClusterConfigRequestContent) MarshalJSON() ([]byte, error) {
 func (o CreateClusterConfigRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["clustername"] = o.Clustername
-	if !isNil(o.Link0) {
+	if !IsNil(o.Link0) {
 		toSerialize["link0"] = o.Link0
 	}
-	if !isNil(o.Link1) {
+	if !IsNil(o.Link1) {
 		toSerialize["link1"] = o.Link1
 	}
-	if !isNil(o.Link2) {
+	if !IsNil(o.Link2) {
 		toSerialize["link2"] = o.Link2
 	}
-	if !isNil(o.Link3) {
+	if !IsNil(o.Link3) {
 		toSerialize["link3"] = o.Link3
 	}
-	if !isNil(o.Link4) {
+	if !IsNil(o.Link4) {
 		toSerialize["link4"] = o.Link4
 	}
-	if !isNil(o.Link5) {
+	if !IsNil(o.Link5) {
 		toSerialize["link5"] = o.Link5
 	}
-	if !isNil(o.Link6) {
+	if !IsNil(o.Link6) {
 		toSerialize["link6"] = o.Link6
 	}
-	if !isNil(o.Link7) {
+	if !IsNil(o.Link7) {
 		toSerialize["link7"] = o.Link7
 	}
-	if !isNil(o.Nodeid) {
+	if !IsNil(o.Nodeid) {
 		toSerialize["nodeid"] = o.Nodeid
 	}
-	if !isNil(o.Votes) {
+	if !IsNil(o.Votes) {
 		toSerialize["votes"] = o.Votes
 	}
 	return toSerialize, nil

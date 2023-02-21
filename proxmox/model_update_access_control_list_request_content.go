@@ -102,7 +102,7 @@ func (o *UpdateAccessControlListRequestContent) SetRoles(v string) {
 
 // GetDelete returns the Delete field value if set, zero value otherwise.
 func (o *UpdateAccessControlListRequestContent) GetDelete() bool {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		var ret bool
 		return ret
 	}
@@ -112,7 +112,7 @@ func (o *UpdateAccessControlListRequestContent) GetDelete() bool {
 // GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetDeleteOk() (*bool, bool) {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		return nil, false
 	}
 	return o.Delete, true
@@ -120,7 +120,7 @@ func (o *UpdateAccessControlListRequestContent) GetDeleteOk() (*bool, bool) {
 
 // HasDelete returns a boolean if a field has been set.
 func (o *UpdateAccessControlListRequestContent) HasDelete() bool {
-	if o != nil && !isNil(o.Delete) {
+	if o != nil && !IsNil(o.Delete) {
 		return true
 	}
 
@@ -134,7 +134,7 @@ func (o *UpdateAccessControlListRequestContent) SetDelete(v bool) {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *UpdateAccessControlListRequestContent) GetGroups() string {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret string
 		return ret
 	}
@@ -144,7 +144,7 @@ func (o *UpdateAccessControlListRequestContent) GetGroups() string {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetGroupsOk() (*string, bool) {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		return nil, false
 	}
 	return o.Groups, true
@@ -152,7 +152,7 @@ func (o *UpdateAccessControlListRequestContent) GetGroupsOk() (*string, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *UpdateAccessControlListRequestContent) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -166,7 +166,7 @@ func (o *UpdateAccessControlListRequestContent) SetGroups(v string) {
 
 // GetPropagate returns the Propagate field value if set, zero value otherwise.
 func (o *UpdateAccessControlListRequestContent) GetPropagate() bool {
-	if o == nil || isNil(o.Propagate) {
+	if o == nil || IsNil(o.Propagate) {
 		var ret bool
 		return ret
 	}
@@ -176,7 +176,7 @@ func (o *UpdateAccessControlListRequestContent) GetPropagate() bool {
 // GetPropagateOk returns a tuple with the Propagate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetPropagateOk() (*bool, bool) {
-	if o == nil || isNil(o.Propagate) {
+	if o == nil || IsNil(o.Propagate) {
 		return nil, false
 	}
 	return o.Propagate, true
@@ -184,7 +184,7 @@ func (o *UpdateAccessControlListRequestContent) GetPropagateOk() (*bool, bool) {
 
 // HasPropagate returns a boolean if a field has been set.
 func (o *UpdateAccessControlListRequestContent) HasPropagate() bool {
-	if o != nil && !isNil(o.Propagate) {
+	if o != nil && !IsNil(o.Propagate) {
 		return true
 	}
 
@@ -198,7 +198,7 @@ func (o *UpdateAccessControlListRequestContent) SetPropagate(v bool) {
 
 // GetTokens returns the Tokens field value if set, zero value otherwise.
 func (o *UpdateAccessControlListRequestContent) GetTokens() string {
-	if o == nil || isNil(o.Tokens) {
+	if o == nil || IsNil(o.Tokens) {
 		var ret string
 		return ret
 	}
@@ -208,7 +208,7 @@ func (o *UpdateAccessControlListRequestContent) GetTokens() string {
 // GetTokensOk returns a tuple with the Tokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetTokensOk() (*string, bool) {
-	if o == nil || isNil(o.Tokens) {
+	if o == nil || IsNil(o.Tokens) {
 		return nil, false
 	}
 	return o.Tokens, true
@@ -216,7 +216,7 @@ func (o *UpdateAccessControlListRequestContent) GetTokensOk() (*string, bool) {
 
 // HasTokens returns a boolean if a field has been set.
 func (o *UpdateAccessControlListRequestContent) HasTokens() bool {
-	if o != nil && !isNil(o.Tokens) {
+	if o != nil && !IsNil(o.Tokens) {
 		return true
 	}
 
@@ -230,7 +230,7 @@ func (o *UpdateAccessControlListRequestContent) SetTokens(v string) {
 
 // GetUsers returns the Users field value if set, zero value otherwise.
 func (o *UpdateAccessControlListRequestContent) GetUsers() string {
-	if o == nil || isNil(o.Users) {
+	if o == nil || IsNil(o.Users) {
 		var ret string
 		return ret
 	}
@@ -240,7 +240,7 @@ func (o *UpdateAccessControlListRequestContent) GetUsers() string {
 // GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAccessControlListRequestContent) GetUsersOk() (*string, bool) {
-	if o == nil || isNil(o.Users) {
+	if o == nil || IsNil(o.Users) {
 		return nil, false
 	}
 	return o.Users, true
@@ -248,7 +248,7 @@ func (o *UpdateAccessControlListRequestContent) GetUsersOk() (*string, bool) {
 
 // HasUsers returns a boolean if a field has been set.
 func (o *UpdateAccessControlListRequestContent) HasUsers() bool {
-	if o != nil && !isNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -272,19 +272,19 @@ func (o UpdateAccessControlListRequestContent) ToMap() (map[string]interface{}, 
 	toSerialize := map[string]interface{}{}
 	toSerialize["path"] = o.Path
 	toSerialize["roles"] = o.Roles
-	if !isNil(o.Delete) {
+	if !IsNil(o.Delete) {
 		toSerialize["delete"] = o.Delete
 	}
-	if !isNil(o.Groups) {
+	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
-	if !isNil(o.Propagate) {
+	if !IsNil(o.Propagate) {
 		toSerialize["propagate"] = o.Propagate
 	}
-	if !isNil(o.Tokens) {
+	if !IsNil(o.Tokens) {
 		toSerialize["tokens"] = o.Tokens
 	}
-	if !isNil(o.Users) {
+	if !IsNil(o.Users) {
 		toSerialize["users"] = o.Users
 	}
 	return toSerialize, nil

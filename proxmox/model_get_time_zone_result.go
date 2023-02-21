@@ -41,7 +41,7 @@ func NewGetTimeZoneResultWithDefaults() *GetTimeZoneResult {
 
 // GetResult returns the Result field value if set, zero value otherwise.
 func (o *GetTimeZoneResult) GetResult() TimeZoneSummary {
-	if o == nil || isNil(o.Result) {
+	if o == nil || IsNil(o.Result) {
 		var ret TimeZoneSummary
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *GetTimeZoneResult) GetResult() TimeZoneSummary {
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetTimeZoneResult) GetResultOk() (*TimeZoneSummary, bool) {
-	if o == nil || isNil(o.Result) {
+	if o == nil || IsNil(o.Result) {
 		return nil, false
 	}
 	return o.Result, true
@@ -59,7 +59,7 @@ func (o *GetTimeZoneResult) GetResultOk() (*TimeZoneSummary, bool) {
 
 // HasResult returns a boolean if a field has been set.
 func (o *GetTimeZoneResult) HasResult() bool {
-	if o != nil && !isNil(o.Result) {
+	if o != nil && !IsNil(o.Result) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o GetTimeZoneResult) MarshalJSON() ([]byte, error) {
 
 func (o GetTimeZoneResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Result) {
+	if !IsNil(o.Result) {
 		toSerialize["result"] = o.Result
 	}
 	return toSerialize, nil

@@ -45,7 +45,7 @@ func NewFileSummaryWithDefaults() *FileSummary {
 
 // GetPath returns the Path field value if set, zero value otherwise.
 func (o *FileSummary) GetPath() string {
-	if o == nil || isNil(o.Path) {
+	if o == nil || IsNil(o.Path) {
 		var ret string
 		return ret
 	}
@@ -55,7 +55,7 @@ func (o *FileSummary) GetPath() string {
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetPathOk() (*string, bool) {
-	if o == nil || isNil(o.Path) {
+	if o == nil || IsNil(o.Path) {
 		return nil, false
 	}
 	return o.Path, true
@@ -63,7 +63,7 @@ func (o *FileSummary) GetPathOk() (*string, bool) {
 
 // HasPath returns a boolean if a field has been set.
 func (o *FileSummary) HasPath() bool {
-	if o != nil && !isNil(o.Path) {
+	if o != nil && !IsNil(o.Path) {
 		return true
 	}
 
@@ -77,7 +77,7 @@ func (o *FileSummary) SetPath(v string) {
 
 // GetContent returns the Content field value if set, zero value otherwise.
 func (o *FileSummary) GetContent() string {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
@@ -87,7 +87,7 @@ func (o *FileSummary) GetContent() string {
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetContentOk() (*string, bool) {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
 	return o.Content, true
@@ -95,7 +95,7 @@ func (o *FileSummary) GetContentOk() (*string, bool) {
 
 // HasContent returns a boolean if a field has been set.
 func (o *FileSummary) HasContent() bool {
-	if o != nil && !isNil(o.Content) {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o *FileSummary) SetContent(v string) {
 
 // GetRepositories returns the Repositories field value if set, zero value otherwise.
 func (o *FileSummary) GetRepositories() []FileRepositorySummary {
-	if o == nil || isNil(o.Repositories) {
+	if o == nil || IsNil(o.Repositories) {
 		var ret []FileRepositorySummary
 		return ret
 	}
@@ -119,7 +119,7 @@ func (o *FileSummary) GetRepositories() []FileRepositorySummary {
 // GetRepositoriesOk returns a tuple with the Repositories field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetRepositoriesOk() ([]FileRepositorySummary, bool) {
-	if o == nil || isNil(o.Repositories) {
+	if o == nil || IsNil(o.Repositories) {
 		return nil, false
 	}
 	return o.Repositories, true
@@ -127,7 +127,7 @@ func (o *FileSummary) GetRepositoriesOk() ([]FileRepositorySummary, bool) {
 
 // HasRepositories returns a boolean if a field has been set.
 func (o *FileSummary) HasRepositories() bool {
-	if o != nil && !isNil(o.Repositories) {
+	if o != nil && !IsNil(o.Repositories) {
 		return true
 	}
 
@@ -141,7 +141,7 @@ func (o *FileSummary) SetRepositories(v []FileRepositorySummary) {
 
 // GetDigest returns the Digest field value if set, zero value otherwise.
 func (o *FileSummary) GetDigest() []float32 {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		var ret []float32
 		return ret
 	}
@@ -151,7 +151,7 @@ func (o *FileSummary) GetDigest() []float32 {
 // GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetDigestOk() ([]float32, bool) {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		return nil, false
 	}
 	return o.Digest, true
@@ -159,7 +159,7 @@ func (o *FileSummary) GetDigestOk() ([]float32, bool) {
 
 // HasDigest returns a boolean if a field has been set.
 func (o *FileSummary) HasDigest() bool {
-	if o != nil && !isNil(o.Digest) {
+	if o != nil && !IsNil(o.Digest) {
 		return true
 	}
 
@@ -173,7 +173,7 @@ func (o *FileSummary) SetDigest(v []float32) {
 
 // GetFileType returns the FileType field value if set, zero value otherwise.
 func (o *FileSummary) GetFileType() string {
-	if o == nil || isNil(o.FileType) {
+	if o == nil || IsNil(o.FileType) {
 		var ret string
 		return ret
 	}
@@ -183,7 +183,7 @@ func (o *FileSummary) GetFileType() string {
 // GetFileTypeOk returns a tuple with the FileType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSummary) GetFileTypeOk() (*string, bool) {
-	if o == nil || isNil(o.FileType) {
+	if o == nil || IsNil(o.FileType) {
 		return nil, false
 	}
 	return o.FileType, true
@@ -191,7 +191,7 @@ func (o *FileSummary) GetFileTypeOk() (*string, bool) {
 
 // HasFileType returns a boolean if a field has been set.
 func (o *FileSummary) HasFileType() bool {
-	if o != nil && !isNil(o.FileType) {
+	if o != nil && !IsNil(o.FileType) {
 		return true
 	}
 
@@ -213,19 +213,19 @@ func (o FileSummary) MarshalJSON() ([]byte, error) {
 
 func (o FileSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Path) {
+	if !IsNil(o.Path) {
 		toSerialize["path"] = o.Path
 	}
-	if !isNil(o.Content) {
+	if !IsNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
-	if !isNil(o.Repositories) {
+	if !IsNil(o.Repositories) {
 		toSerialize["repositories"] = o.Repositories
 	}
-	if !isNil(o.Digest) {
+	if !IsNil(o.Digest) {
 		toSerialize["digest"] = o.Digest
 	}
-	if !isNil(o.FileType) {
+	if !IsNil(o.FileType) {
 		toSerialize["file-type"] = o.FileType
 	}
 	return toSerialize, nil

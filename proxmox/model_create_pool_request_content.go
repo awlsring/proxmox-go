@@ -67,7 +67,7 @@ func (o *CreatePoolRequestContent) SetPoolid(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *CreatePoolRequestContent) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -77,7 +77,7 @@ func (o *CreatePoolRequestContent) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePoolRequestContent) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -85,7 +85,7 @@ func (o *CreatePoolRequestContent) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *CreatePoolRequestContent) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o CreatePoolRequestContent) MarshalJSON() ([]byte, error) {
 func (o CreatePoolRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["poolid"] = o.Poolid
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
 	return toSerialize, nil

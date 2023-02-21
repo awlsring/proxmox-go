@@ -41,7 +41,7 @@ func NewCreateVirtualMachineTemplateResponseContentWithDefaults() *CreateVirtual
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *CreateVirtualMachineTemplateResponseContent) GetData() string {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret string
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *CreateVirtualMachineTemplateResponseContent) GetData() string {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineTemplateResponseContent) GetDataOk() (*string, bool) {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
@@ -59,7 +59,7 @@ func (o *CreateVirtualMachineTemplateResponseContent) GetDataOk() (*string, bool
 
 // HasData returns a boolean if a field has been set.
 func (o *CreateVirtualMachineTemplateResponseContent) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o CreateVirtualMachineTemplateResponseContent) MarshalJSON() ([]byte, erro
 
 func (o CreateVirtualMachineTemplateResponseContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Data) {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 	return toSerialize, nil

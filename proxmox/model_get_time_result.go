@@ -41,7 +41,7 @@ func NewGetTimeResultWithDefaults() *GetTimeResult {
 
 // GetResult returns the Result field value if set, zero value otherwise.
 func (o *GetTimeResult) GetResult() float32 {
-	if o == nil || isNil(o.Result) {
+	if o == nil || IsNil(o.Result) {
 		var ret float32
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *GetTimeResult) GetResult() float32 {
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetTimeResult) GetResultOk() (*float32, bool) {
-	if o == nil || isNil(o.Result) {
+	if o == nil || IsNil(o.Result) {
 		return nil, false
 	}
 	return o.Result, true
@@ -59,7 +59,7 @@ func (o *GetTimeResult) GetResultOk() (*float32, bool) {
 
 // HasResult returns a boolean if a field has been set.
 func (o *GetTimeResult) HasResult() bool {
-	if o != nil && !isNil(o.Result) {
+	if o != nil && !IsNil(o.Result) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o GetTimeResult) MarshalJSON() ([]byte, error) {
 
 func (o GetTimeResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Result) {
+	if !IsNil(o.Result) {
 		toSerialize["result"] = o.Result
 	}
 	return toSerialize, nil

@@ -73,7 +73,7 @@ func (o *AddCustomNodeCertificateRequestContent) SetCertificates(v string) {
 
 // GetForce returns the Force field value if set, zero value otherwise.
 func (o *AddCustomNodeCertificateRequestContent) GetForce() float32 {
-	if o == nil || isNil(o.Force) {
+	if o == nil || IsNil(o.Force) {
 		var ret float32
 		return ret
 	}
@@ -83,7 +83,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetForce() float32 {
 // GetForceOk returns a tuple with the Force field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
-	if o == nil || isNil(o.Force) {
+	if o == nil || IsNil(o.Force) {
 		return nil, false
 	}
 	return o.Force, true
@@ -91,7 +91,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
 
 // HasForce returns a boolean if a field has been set.
 func (o *AddCustomNodeCertificateRequestContent) HasForce() bool {
-	if o != nil && !isNil(o.Force) {
+	if o != nil && !IsNil(o.Force) {
 		return true
 	}
 
@@ -105,7 +105,7 @@ func (o *AddCustomNodeCertificateRequestContent) SetForce(v float32) {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *AddCustomNodeCertificateRequestContent) GetKey() string {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -115,7 +115,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetKeyOk() (*string, bool) {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		return nil, false
 	}
 	return o.Key, true
@@ -123,7 +123,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetKeyOk() (*string, bool) {
 
 // HasKey returns a boolean if a field has been set.
 func (o *AddCustomNodeCertificateRequestContent) HasKey() bool {
-	if o != nil && !isNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
@@ -137,7 +137,7 @@ func (o *AddCustomNodeCertificateRequestContent) SetKey(v string) {
 
 // GetRestart returns the Restart field value if set, zero value otherwise.
 func (o *AddCustomNodeCertificateRequestContent) GetRestart() float32 {
-	if o == nil || isNil(o.Restart) {
+	if o == nil || IsNil(o.Restart) {
 		var ret float32
 		return ret
 	}
@@ -147,7 +147,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetRestart() float32 {
 // GetRestartOk returns a tuple with the Restart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AddCustomNodeCertificateRequestContent) GetRestartOk() (*float32, bool) {
-	if o == nil || isNil(o.Restart) {
+	if o == nil || IsNil(o.Restart) {
 		return nil, false
 	}
 	return o.Restart, true
@@ -155,7 +155,7 @@ func (o *AddCustomNodeCertificateRequestContent) GetRestartOk() (*float32, bool)
 
 // HasRestart returns a boolean if a field has been set.
 func (o *AddCustomNodeCertificateRequestContent) HasRestart() bool {
-	if o != nil && !isNil(o.Restart) {
+	if o != nil && !IsNil(o.Restart) {
 		return true
 	}
 
@@ -178,13 +178,13 @@ func (o AddCustomNodeCertificateRequestContent) MarshalJSON() ([]byte, error) {
 func (o AddCustomNodeCertificateRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["certificates"] = o.Certificates
-	if !isNil(o.Force) {
+	if !IsNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
-	if !isNil(o.Key) {
+	if !IsNil(o.Key) {
 		toSerialize["key"] = o.Key
 	}
-	if !isNil(o.Restart) {
+	if !IsNil(o.Restart) {
 		toSerialize["restart"] = o.Restart
 	}
 	return toSerialize, nil

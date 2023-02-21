@@ -68,7 +68,7 @@ func (o *GroupSummary) SetGroupid(v string) {
 
 // GetUsers returns the Users field value if set, zero value otherwise.
 func (o *GroupSummary) GetUsers() string {
-	if o == nil || isNil(o.Users) {
+	if o == nil || IsNil(o.Users) {
 		var ret string
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *GroupSummary) GetUsers() string {
 // GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GroupSummary) GetUsersOk() (*string, bool) {
-	if o == nil || isNil(o.Users) {
+	if o == nil || IsNil(o.Users) {
 		return nil, false
 	}
 	return o.Users, true
@@ -86,7 +86,7 @@ func (o *GroupSummary) GetUsersOk() (*string, bool) {
 
 // HasUsers returns a boolean if a field has been set.
 func (o *GroupSummary) HasUsers() bool {
-	if o != nil && !isNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *GroupSummary) SetUsers(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *GroupSummary) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -110,7 +110,7 @@ func (o *GroupSummary) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GroupSummary) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -118,7 +118,7 @@ func (o *GroupSummary) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *GroupSummary) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -141,10 +141,10 @@ func (o GroupSummary) MarshalJSON() ([]byte, error) {
 func (o GroupSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["groupid"] = o.Groupid
-	if !isNil(o.Users) {
+	if !IsNil(o.Users) {
 		toSerialize["users"] = o.Users
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
 	return toSerialize, nil

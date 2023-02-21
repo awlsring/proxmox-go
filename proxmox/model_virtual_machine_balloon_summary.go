@@ -49,7 +49,7 @@ func NewVirtualMachineBalloonSummaryWithDefaults() *VirtualMachineBalloonSummary
 
 // GetMaxMem returns the MaxMem field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetMaxMem() float32 {
-	if o == nil || isNil(o.MaxMem) {
+	if o == nil || IsNil(o.MaxMem) {
 		var ret float32
 		return ret
 	}
@@ -59,7 +59,7 @@ func (o *VirtualMachineBalloonSummary) GetMaxMem() float32 {
 // GetMaxMemOk returns a tuple with the MaxMem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMaxMemOk() (*float32, bool) {
-	if o == nil || isNil(o.MaxMem) {
+	if o == nil || IsNil(o.MaxMem) {
 		return nil, false
 	}
 	return o.MaxMem, true
@@ -67,7 +67,7 @@ func (o *VirtualMachineBalloonSummary) GetMaxMemOk() (*float32, bool) {
 
 // HasMaxMem returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasMaxMem() bool {
-	if o != nil && !isNil(o.MaxMem) {
+	if o != nil && !IsNil(o.MaxMem) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o *VirtualMachineBalloonSummary) SetMaxMem(v float32) {
 
 // GetFreeMem returns the FreeMem field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetFreeMem() float32 {
-	if o == nil || isNil(o.FreeMem) {
+	if o == nil || IsNil(o.FreeMem) {
 		var ret float32
 		return ret
 	}
@@ -91,7 +91,7 @@ func (o *VirtualMachineBalloonSummary) GetFreeMem() float32 {
 // GetFreeMemOk returns a tuple with the FreeMem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetFreeMemOk() (*float32, bool) {
-	if o == nil || isNil(o.FreeMem) {
+	if o == nil || IsNil(o.FreeMem) {
 		return nil, false
 	}
 	return o.FreeMem, true
@@ -99,7 +99,7 @@ func (o *VirtualMachineBalloonSummary) GetFreeMemOk() (*float32, bool) {
 
 // HasFreeMem returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasFreeMem() bool {
-	if o != nil && !isNil(o.FreeMem) {
+	if o != nil && !IsNil(o.FreeMem) {
 		return true
 	}
 
@@ -113,7 +113,7 @@ func (o *VirtualMachineBalloonSummary) SetFreeMem(v float32) {
 
 // GetMemSwappedOut returns the MemSwappedOut field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetMemSwappedOut() float32 {
-	if o == nil || isNil(o.MemSwappedOut) {
+	if o == nil || IsNil(o.MemSwappedOut) {
 		var ret float32
 		return ret
 	}
@@ -123,7 +123,7 @@ func (o *VirtualMachineBalloonSummary) GetMemSwappedOut() float32 {
 // GetMemSwappedOutOk returns a tuple with the MemSwappedOut field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMemSwappedOutOk() (*float32, bool) {
-	if o == nil || isNil(o.MemSwappedOut) {
+	if o == nil || IsNil(o.MemSwappedOut) {
 		return nil, false
 	}
 	return o.MemSwappedOut, true
@@ -131,7 +131,7 @@ func (o *VirtualMachineBalloonSummary) GetMemSwappedOutOk() (*float32, bool) {
 
 // HasMemSwappedOut returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasMemSwappedOut() bool {
-	if o != nil && !isNil(o.MemSwappedOut) {
+	if o != nil && !IsNil(o.MemSwappedOut) {
 		return true
 	}
 
@@ -145,7 +145,7 @@ func (o *VirtualMachineBalloonSummary) SetMemSwappedOut(v float32) {
 
 // GetMemSwappedIn returns the MemSwappedIn field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetMemSwappedIn() float32 {
-	if o == nil || isNil(o.MemSwappedIn) {
+	if o == nil || IsNil(o.MemSwappedIn) {
 		var ret float32
 		return ret
 	}
@@ -155,7 +155,7 @@ func (o *VirtualMachineBalloonSummary) GetMemSwappedIn() float32 {
 // GetMemSwappedInOk returns a tuple with the MemSwappedIn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMemSwappedInOk() (*float32, bool) {
-	if o == nil || isNil(o.MemSwappedIn) {
+	if o == nil || IsNil(o.MemSwappedIn) {
 		return nil, false
 	}
 	return o.MemSwappedIn, true
@@ -163,7 +163,7 @@ func (o *VirtualMachineBalloonSummary) GetMemSwappedInOk() (*float32, bool) {
 
 // HasMemSwappedIn returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasMemSwappedIn() bool {
-	if o != nil && !isNil(o.MemSwappedIn) {
+	if o != nil && !IsNil(o.MemSwappedIn) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *VirtualMachineBalloonSummary) SetMemSwappedIn(v float32) {
 
 // GetTotalMem returns the TotalMem field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetTotalMem() float32 {
-	if o == nil || isNil(o.TotalMem) {
+	if o == nil || IsNil(o.TotalMem) {
 		var ret float32
 		return ret
 	}
@@ -187,7 +187,7 @@ func (o *VirtualMachineBalloonSummary) GetTotalMem() float32 {
 // GetTotalMemOk returns a tuple with the TotalMem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetTotalMemOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalMem) {
+	if o == nil || IsNil(o.TotalMem) {
 		return nil, false
 	}
 	return o.TotalMem, true
@@ -195,7 +195,7 @@ func (o *VirtualMachineBalloonSummary) GetTotalMemOk() (*float32, bool) {
 
 // HasTotalMem returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasTotalMem() bool {
-	if o != nil && !isNil(o.TotalMem) {
+	if o != nil && !IsNil(o.TotalMem) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *VirtualMachineBalloonSummary) SetTotalMem(v float32) {
 
 // GetActual returns the Actual field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetActual() float32 {
-	if o == nil || isNil(o.Actual) {
+	if o == nil || IsNil(o.Actual) {
 		var ret float32
 		return ret
 	}
@@ -219,7 +219,7 @@ func (o *VirtualMachineBalloonSummary) GetActual() float32 {
 // GetActualOk returns a tuple with the Actual field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetActualOk() (*float32, bool) {
-	if o == nil || isNil(o.Actual) {
+	if o == nil || IsNil(o.Actual) {
 		return nil, false
 	}
 	return o.Actual, true
@@ -227,7 +227,7 @@ func (o *VirtualMachineBalloonSummary) GetActualOk() (*float32, bool) {
 
 // HasActual returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasActual() bool {
-	if o != nil && !isNil(o.Actual) {
+	if o != nil && !IsNil(o.Actual) {
 		return true
 	}
 
@@ -241,7 +241,7 @@ func (o *VirtualMachineBalloonSummary) SetActual(v float32) {
 
 // GetLastUpdate returns the LastUpdate field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetLastUpdate() float32 {
-	if o == nil || isNil(o.LastUpdate) {
+	if o == nil || IsNil(o.LastUpdate) {
 		var ret float32
 		return ret
 	}
@@ -251,7 +251,7 @@ func (o *VirtualMachineBalloonSummary) GetLastUpdate() float32 {
 // GetLastUpdateOk returns a tuple with the LastUpdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetLastUpdateOk() (*float32, bool) {
-	if o == nil || isNil(o.LastUpdate) {
+	if o == nil || IsNil(o.LastUpdate) {
 		return nil, false
 	}
 	return o.LastUpdate, true
@@ -259,7 +259,7 @@ func (o *VirtualMachineBalloonSummary) GetLastUpdateOk() (*float32, bool) {
 
 // HasLastUpdate returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasLastUpdate() bool {
-	if o != nil && !isNil(o.LastUpdate) {
+	if o != nil && !IsNil(o.LastUpdate) {
 		return true
 	}
 
@@ -273,7 +273,7 @@ func (o *VirtualMachineBalloonSummary) SetLastUpdate(v float32) {
 
 // GetMinorPageFaults returns the MinorPageFaults field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetMinorPageFaults() float32 {
-	if o == nil || isNil(o.MinorPageFaults) {
+	if o == nil || IsNil(o.MinorPageFaults) {
 		var ret float32
 		return ret
 	}
@@ -283,7 +283,7 @@ func (o *VirtualMachineBalloonSummary) GetMinorPageFaults() float32 {
 // GetMinorPageFaultsOk returns a tuple with the MinorPageFaults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMinorPageFaultsOk() (*float32, bool) {
-	if o == nil || isNil(o.MinorPageFaults) {
+	if o == nil || IsNil(o.MinorPageFaults) {
 		return nil, false
 	}
 	return o.MinorPageFaults, true
@@ -291,7 +291,7 @@ func (o *VirtualMachineBalloonSummary) GetMinorPageFaultsOk() (*float32, bool) {
 
 // HasMinorPageFaults returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasMinorPageFaults() bool {
-	if o != nil && !isNil(o.MinorPageFaults) {
+	if o != nil && !IsNil(o.MinorPageFaults) {
 		return true
 	}
 
@@ -305,7 +305,7 @@ func (o *VirtualMachineBalloonSummary) SetMinorPageFaults(v float32) {
 
 // GetMajorPageFaults returns the MajorPageFaults field value if set, zero value otherwise.
 func (o *VirtualMachineBalloonSummary) GetMajorPageFaults() float32 {
-	if o == nil || isNil(o.MajorPageFaults) {
+	if o == nil || IsNil(o.MajorPageFaults) {
 		var ret float32
 		return ret
 	}
@@ -315,7 +315,7 @@ func (o *VirtualMachineBalloonSummary) GetMajorPageFaults() float32 {
 // GetMajorPageFaultsOk returns a tuple with the MajorPageFaults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineBalloonSummary) GetMajorPageFaultsOk() (*float32, bool) {
-	if o == nil || isNil(o.MajorPageFaults) {
+	if o == nil || IsNil(o.MajorPageFaults) {
 		return nil, false
 	}
 	return o.MajorPageFaults, true
@@ -323,7 +323,7 @@ func (o *VirtualMachineBalloonSummary) GetMajorPageFaultsOk() (*float32, bool) {
 
 // HasMajorPageFaults returns a boolean if a field has been set.
 func (o *VirtualMachineBalloonSummary) HasMajorPageFaults() bool {
-	if o != nil && !isNil(o.MajorPageFaults) {
+	if o != nil && !IsNil(o.MajorPageFaults) {
 		return true
 	}
 
@@ -345,31 +345,31 @@ func (o VirtualMachineBalloonSummary) MarshalJSON() ([]byte, error) {
 
 func (o VirtualMachineBalloonSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.MaxMem) {
+	if !IsNil(o.MaxMem) {
 		toSerialize["max_mem"] = o.MaxMem
 	}
-	if !isNil(o.FreeMem) {
+	if !IsNil(o.FreeMem) {
 		toSerialize["free_mem"] = o.FreeMem
 	}
-	if !isNil(o.MemSwappedOut) {
+	if !IsNil(o.MemSwappedOut) {
 		toSerialize["mem_swapped_out"] = o.MemSwappedOut
 	}
-	if !isNil(o.MemSwappedIn) {
+	if !IsNil(o.MemSwappedIn) {
 		toSerialize["mem_swapped_in"] = o.MemSwappedIn
 	}
-	if !isNil(o.TotalMem) {
+	if !IsNil(o.TotalMem) {
 		toSerialize["total_mem"] = o.TotalMem
 	}
-	if !isNil(o.Actual) {
+	if !IsNil(o.Actual) {
 		toSerialize["actual"] = o.Actual
 	}
-	if !isNil(o.LastUpdate) {
+	if !IsNil(o.LastUpdate) {
 		toSerialize["last_update"] = o.LastUpdate
 	}
-	if !isNil(o.MinorPageFaults) {
+	if !IsNil(o.MinorPageFaults) {
 		toSerialize["minor_page_faults"] = o.MinorPageFaults
 	}
-	if !isNil(o.MajorPageFaults) {
+	if !IsNil(o.MajorPageFaults) {
 		toSerialize["major_page_faults"] = o.MajorPageFaults
 	}
 	return toSerialize, nil

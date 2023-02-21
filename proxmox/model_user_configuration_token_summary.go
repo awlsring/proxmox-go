@@ -44,7 +44,7 @@ func NewUserConfigurationTokenSummaryWithDefaults() *UserConfigurationTokenSumma
 
 // GetPrivsep returns the Privsep field value if set, zero value otherwise.
 func (o *UserConfigurationTokenSummary) GetPrivsep() float32 {
-	if o == nil || isNil(o.Privsep) {
+	if o == nil || IsNil(o.Privsep) {
 		var ret float32
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *UserConfigurationTokenSummary) GetPrivsep() float32 {
 // GetPrivsepOk returns a tuple with the Privsep field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationTokenSummary) GetPrivsepOk() (*float32, bool) {
-	if o == nil || isNil(o.Privsep) {
+	if o == nil || IsNil(o.Privsep) {
 		return nil, false
 	}
 	return o.Privsep, true
@@ -62,7 +62,7 @@ func (o *UserConfigurationTokenSummary) GetPrivsepOk() (*float32, bool) {
 
 // HasPrivsep returns a boolean if a field has been set.
 func (o *UserConfigurationTokenSummary) HasPrivsep() bool {
-	if o != nil && !isNil(o.Privsep) {
+	if o != nil && !IsNil(o.Privsep) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *UserConfigurationTokenSummary) SetPrivsep(v float32) {
 
 // GetExpire returns the Expire field value if set, zero value otherwise.
 func (o *UserConfigurationTokenSummary) GetExpire() float32 {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		var ret float32
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *UserConfigurationTokenSummary) GetExpire() float32 {
 // GetExpireOk returns a tuple with the Expire field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationTokenSummary) GetExpireOk() (*float32, bool) {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		return nil, false
 	}
 	return o.Expire, true
@@ -94,7 +94,7 @@ func (o *UserConfigurationTokenSummary) GetExpireOk() (*float32, bool) {
 
 // HasExpire returns a boolean if a field has been set.
 func (o *UserConfigurationTokenSummary) HasExpire() bool {
-	if o != nil && !isNil(o.Expire) {
+	if o != nil && !IsNil(o.Expire) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *UserConfigurationTokenSummary) SetExpire(v float32) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *UserConfigurationTokenSummary) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *UserConfigurationTokenSummary) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationTokenSummary) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -126,7 +126,7 @@ func (o *UserConfigurationTokenSummary) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *UserConfigurationTokenSummary) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -148,13 +148,13 @@ func (o UserConfigurationTokenSummary) MarshalJSON() ([]byte, error) {
 
 func (o UserConfigurationTokenSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Privsep) {
+	if !IsNil(o.Privsep) {
 		toSerialize["privsep"] = o.Privsep
 	}
-	if !isNil(o.Expire) {
+	if !IsNil(o.Expire) {
 		toSerialize["expire"] = o.Expire
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
 	return toSerialize, nil

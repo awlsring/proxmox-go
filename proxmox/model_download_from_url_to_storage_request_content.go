@@ -125,7 +125,7 @@ func (o *DownloadFromUrlToStorageRequestContent) SetUrl(v string) {
 
 // GetChecksum returns the Checksum field value if set, zero value otherwise.
 func (o *DownloadFromUrlToStorageRequestContent) GetChecksum() string {
-	if o == nil || isNil(o.Checksum) {
+	if o == nil || IsNil(o.Checksum) {
 		var ret string
 		return ret
 	}
@@ -135,7 +135,7 @@ func (o *DownloadFromUrlToStorageRequestContent) GetChecksum() string {
 // GetChecksumOk returns a tuple with the Checksum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DownloadFromUrlToStorageRequestContent) GetChecksumOk() (*string, bool) {
-	if o == nil || isNil(o.Checksum) {
+	if o == nil || IsNil(o.Checksum) {
 		return nil, false
 	}
 	return o.Checksum, true
@@ -143,7 +143,7 @@ func (o *DownloadFromUrlToStorageRequestContent) GetChecksumOk() (*string, bool)
 
 // HasChecksum returns a boolean if a field has been set.
 func (o *DownloadFromUrlToStorageRequestContent) HasChecksum() bool {
-	if o != nil && !isNil(o.Checksum) {
+	if o != nil && !IsNil(o.Checksum) {
 		return true
 	}
 
@@ -157,7 +157,7 @@ func (o *DownloadFromUrlToStorageRequestContent) SetChecksum(v string) {
 
 // GetChecksumAlgorithm returns the ChecksumAlgorithm field value if set, zero value otherwise.
 func (o *DownloadFromUrlToStorageRequestContent) GetChecksumAlgorithm() ChecksumAlgorithm {
-	if o == nil || isNil(o.ChecksumAlgorithm) {
+	if o == nil || IsNil(o.ChecksumAlgorithm) {
 		var ret ChecksumAlgorithm
 		return ret
 	}
@@ -167,7 +167,7 @@ func (o *DownloadFromUrlToStorageRequestContent) GetChecksumAlgorithm() Checksum
 // GetChecksumAlgorithmOk returns a tuple with the ChecksumAlgorithm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DownloadFromUrlToStorageRequestContent) GetChecksumAlgorithmOk() (*ChecksumAlgorithm, bool) {
-	if o == nil || isNil(o.ChecksumAlgorithm) {
+	if o == nil || IsNil(o.ChecksumAlgorithm) {
 		return nil, false
 	}
 	return o.ChecksumAlgorithm, true
@@ -175,7 +175,7 @@ func (o *DownloadFromUrlToStorageRequestContent) GetChecksumAlgorithmOk() (*Chec
 
 // HasChecksumAlgorithm returns a boolean if a field has been set.
 func (o *DownloadFromUrlToStorageRequestContent) HasChecksumAlgorithm() bool {
-	if o != nil && !isNil(o.ChecksumAlgorithm) {
+	if o != nil && !IsNil(o.ChecksumAlgorithm) {
 		return true
 	}
 
@@ -189,7 +189,7 @@ func (o *DownloadFromUrlToStorageRequestContent) SetChecksumAlgorithm(v Checksum
 
 // GetTmpfilename returns the Tmpfilename field value if set, zero value otherwise.
 func (o *DownloadFromUrlToStorageRequestContent) GetTmpfilename() string {
-	if o == nil || isNil(o.Tmpfilename) {
+	if o == nil || IsNil(o.Tmpfilename) {
 		var ret string
 		return ret
 	}
@@ -199,7 +199,7 @@ func (o *DownloadFromUrlToStorageRequestContent) GetTmpfilename() string {
 // GetTmpfilenameOk returns a tuple with the Tmpfilename field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DownloadFromUrlToStorageRequestContent) GetTmpfilenameOk() (*string, bool) {
-	if o == nil || isNil(o.Tmpfilename) {
+	if o == nil || IsNil(o.Tmpfilename) {
 		return nil, false
 	}
 	return o.Tmpfilename, true
@@ -207,7 +207,7 @@ func (o *DownloadFromUrlToStorageRequestContent) GetTmpfilenameOk() (*string, bo
 
 // HasTmpfilename returns a boolean if a field has been set.
 func (o *DownloadFromUrlToStorageRequestContent) HasTmpfilename() bool {
-	if o != nil && !isNil(o.Tmpfilename) {
+	if o != nil && !IsNil(o.Tmpfilename) {
 		return true
 	}
 
@@ -232,13 +232,13 @@ func (o DownloadFromUrlToStorageRequestContent) ToMap() (map[string]interface{},
 	toSerialize["content"] = o.Content
 	toSerialize["filename"] = o.Filename
 	toSerialize["url"] = o.Url
-	if !isNil(o.Checksum) {
+	if !IsNil(o.Checksum) {
 		toSerialize["checksum"] = o.Checksum
 	}
-	if !isNil(o.ChecksumAlgorithm) {
+	if !IsNil(o.ChecksumAlgorithm) {
 		toSerialize["checksum-algorithm"] = o.ChecksumAlgorithm
 	}
-	if !isNil(o.Tmpfilename) {
+	if !IsNil(o.Tmpfilename) {
 		toSerialize["tmpfilename"] = o.Tmpfilename
 	}
 	return toSerialize, nil

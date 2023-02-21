@@ -89,7 +89,7 @@ func (o *NodeSummary) SetNode(v string) {
 
 // GetMaxmem returns the Maxmem field value if set, zero value otherwise.
 func (o *NodeSummary) GetMaxmem() float32 {
-	if o == nil || isNil(o.Maxmem) {
+	if o == nil || IsNil(o.Maxmem) {
 		var ret float32
 		return ret
 	}
@@ -99,7 +99,7 @@ func (o *NodeSummary) GetMaxmem() float32 {
 // GetMaxmemOk returns a tuple with the Maxmem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMaxmemOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxmem) {
+	if o == nil || IsNil(o.Maxmem) {
 		return nil, false
 	}
 	return o.Maxmem, true
@@ -107,7 +107,7 @@ func (o *NodeSummary) GetMaxmemOk() (*float32, bool) {
 
 // HasMaxmem returns a boolean if a field has been set.
 func (o *NodeSummary) HasMaxmem() bool {
-	if o != nil && !isNil(o.Maxmem) {
+	if o != nil && !IsNil(o.Maxmem) {
 		return true
 	}
 
@@ -121,7 +121,7 @@ func (o *NodeSummary) SetMaxmem(v float32) {
 
 // GetMem returns the Mem field value if set, zero value otherwise.
 func (o *NodeSummary) GetMem() float32 {
-	if o == nil || isNil(o.Mem) {
+	if o == nil || IsNil(o.Mem) {
 		var ret float32
 		return ret
 	}
@@ -131,7 +131,7 @@ func (o *NodeSummary) GetMem() float32 {
 // GetMemOk returns a tuple with the Mem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMemOk() (*float32, bool) {
-	if o == nil || isNil(o.Mem) {
+	if o == nil || IsNil(o.Mem) {
 		return nil, false
 	}
 	return o.Mem, true
@@ -139,7 +139,7 @@ func (o *NodeSummary) GetMemOk() (*float32, bool) {
 
 // HasMem returns a boolean if a field has been set.
 func (o *NodeSummary) HasMem() bool {
-	if o != nil && !isNil(o.Mem) {
+	if o != nil && !IsNil(o.Mem) {
 		return true
 	}
 
@@ -153,7 +153,7 @@ func (o *NodeSummary) SetMem(v float32) {
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
 func (o *NodeSummary) GetDisk() float32 {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		var ret float32
 		return ret
 	}
@@ -163,7 +163,7 @@ func (o *NodeSummary) GetDisk() float32 {
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetDiskOk() (*float32, bool) {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		return nil, false
 	}
 	return o.Disk, true
@@ -171,7 +171,7 @@ func (o *NodeSummary) GetDiskOk() (*float32, bool) {
 
 // HasDisk returns a boolean if a field has been set.
 func (o *NodeSummary) HasDisk() bool {
-	if o != nil && !isNil(o.Disk) {
+	if o != nil && !IsNil(o.Disk) {
 		return true
 	}
 
@@ -185,7 +185,7 @@ func (o *NodeSummary) SetDisk(v float32) {
 
 // GetMaxdisk returns the Maxdisk field value if set, zero value otherwise.
 func (o *NodeSummary) GetMaxdisk() float32 {
-	if o == nil || isNil(o.Maxdisk) {
+	if o == nil || IsNil(o.Maxdisk) {
 		var ret float32
 		return ret
 	}
@@ -195,7 +195,7 @@ func (o *NodeSummary) GetMaxdisk() float32 {
 // GetMaxdiskOk returns a tuple with the Maxdisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMaxdiskOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxdisk) {
+	if o == nil || IsNil(o.Maxdisk) {
 		return nil, false
 	}
 	return o.Maxdisk, true
@@ -203,7 +203,7 @@ func (o *NodeSummary) GetMaxdiskOk() (*float32, bool) {
 
 // HasMaxdisk returns a boolean if a field has been set.
 func (o *NodeSummary) HasMaxdisk() bool {
-	if o != nil && !isNil(o.Maxdisk) {
+	if o != nil && !IsNil(o.Maxdisk) {
 		return true
 	}
 
@@ -217,7 +217,7 @@ func (o *NodeSummary) SetMaxdisk(v float32) {
 
 // GetMaxcpu returns the Maxcpu field value if set, zero value otherwise.
 func (o *NodeSummary) GetMaxcpu() float32 {
-	if o == nil || isNil(o.Maxcpu) {
+	if o == nil || IsNil(o.Maxcpu) {
 		var ret float32
 		return ret
 	}
@@ -227,7 +227,7 @@ func (o *NodeSummary) GetMaxcpu() float32 {
 // GetMaxcpuOk returns a tuple with the Maxcpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetMaxcpuOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxcpu) {
+	if o == nil || IsNil(o.Maxcpu) {
 		return nil, false
 	}
 	return o.Maxcpu, true
@@ -235,7 +235,7 @@ func (o *NodeSummary) GetMaxcpuOk() (*float32, bool) {
 
 // HasMaxcpu returns a boolean if a field has been set.
 func (o *NodeSummary) HasMaxcpu() bool {
-	if o != nil && !isNil(o.Maxcpu) {
+	if o != nil && !IsNil(o.Maxcpu) {
 		return true
 	}
 
@@ -249,7 +249,7 @@ func (o *NodeSummary) SetMaxcpu(v float32) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *NodeSummary) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -259,7 +259,7 @@ func (o *NodeSummary) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -267,7 +267,7 @@ func (o *NodeSummary) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *NodeSummary) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -281,7 +281,7 @@ func (o *NodeSummary) SetId(v string) {
 
 // GetLevel returns the Level field value if set, zero value otherwise.
 func (o *NodeSummary) GetLevel() string {
-	if o == nil || isNil(o.Level) {
+	if o == nil || IsNil(o.Level) {
 		var ret string
 		return ret
 	}
@@ -291,7 +291,7 @@ func (o *NodeSummary) GetLevel() string {
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetLevelOk() (*string, bool) {
-	if o == nil || isNil(o.Level) {
+	if o == nil || IsNil(o.Level) {
 		return nil, false
 	}
 	return o.Level, true
@@ -299,7 +299,7 @@ func (o *NodeSummary) GetLevelOk() (*string, bool) {
 
 // HasLevel returns a boolean if a field has been set.
 func (o *NodeSummary) HasLevel() bool {
-	if o != nil && !isNil(o.Level) {
+	if o != nil && !IsNil(o.Level) {
 		return true
 	}
 
@@ -313,7 +313,7 @@ func (o *NodeSummary) SetLevel(v string) {
 
 // GetSslFingerprint returns the SslFingerprint field value if set, zero value otherwise.
 func (o *NodeSummary) GetSslFingerprint() string {
-	if o == nil || isNil(o.SslFingerprint) {
+	if o == nil || IsNil(o.SslFingerprint) {
 		var ret string
 		return ret
 	}
@@ -323,7 +323,7 @@ func (o *NodeSummary) GetSslFingerprint() string {
 // GetSslFingerprintOk returns a tuple with the SslFingerprint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetSslFingerprintOk() (*string, bool) {
-	if o == nil || isNil(o.SslFingerprint) {
+	if o == nil || IsNil(o.SslFingerprint) {
 		return nil, false
 	}
 	return o.SslFingerprint, true
@@ -331,7 +331,7 @@ func (o *NodeSummary) GetSslFingerprintOk() (*string, bool) {
 
 // HasSslFingerprint returns a boolean if a field has been set.
 func (o *NodeSummary) HasSslFingerprint() bool {
-	if o != nil && !isNil(o.SslFingerprint) {
+	if o != nil && !IsNil(o.SslFingerprint) {
 		return true
 	}
 
@@ -345,7 +345,7 @@ func (o *NodeSummary) SetSslFingerprint(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *NodeSummary) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -355,7 +355,7 @@ func (o *NodeSummary) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -363,7 +363,7 @@ func (o *NodeSummary) GetTypeOk() (*string, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *NodeSummary) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -377,7 +377,7 @@ func (o *NodeSummary) SetType(v string) {
 
 // GetCpu returns the Cpu field value if set, zero value otherwise.
 func (o *NodeSummary) GetCpu() float32 {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		var ret float32
 		return ret
 	}
@@ -387,7 +387,7 @@ func (o *NodeSummary) GetCpu() float32 {
 // GetCpuOk returns a tuple with the Cpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetCpuOk() (*float32, bool) {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		return nil, false
 	}
 	return o.Cpu, true
@@ -395,7 +395,7 @@ func (o *NodeSummary) GetCpuOk() (*float32, bool) {
 
 // HasCpu returns a boolean if a field has been set.
 func (o *NodeSummary) HasCpu() bool {
-	if o != nil && !isNil(o.Cpu) {
+	if o != nil && !IsNil(o.Cpu) {
 		return true
 	}
 
@@ -409,7 +409,7 @@ func (o *NodeSummary) SetCpu(v float32) {
 
 // GetUptime returns the Uptime field value if set, zero value otherwise.
 func (o *NodeSummary) GetUptime() float32 {
-	if o == nil || isNil(o.Uptime) {
+	if o == nil || IsNil(o.Uptime) {
 		var ret float32
 		return ret
 	}
@@ -419,7 +419,7 @@ func (o *NodeSummary) GetUptime() float32 {
 // GetUptimeOk returns a tuple with the Uptime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetUptimeOk() (*float32, bool) {
-	if o == nil || isNil(o.Uptime) {
+	if o == nil || IsNil(o.Uptime) {
 		return nil, false
 	}
 	return o.Uptime, true
@@ -427,7 +427,7 @@ func (o *NodeSummary) GetUptimeOk() (*float32, bool) {
 
 // HasUptime returns a boolean if a field has been set.
 func (o *NodeSummary) HasUptime() bool {
-	if o != nil && !isNil(o.Uptime) {
+	if o != nil && !IsNil(o.Uptime) {
 		return true
 	}
 
@@ -441,7 +441,7 @@ func (o *NodeSummary) SetUptime(v float32) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *NodeSummary) GetStatus() NodeStatus {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret NodeStatus
 		return ret
 	}
@@ -451,7 +451,7 @@ func (o *NodeSummary) GetStatus() NodeStatus {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeSummary) GetStatusOk() (*NodeStatus, bool) {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -459,7 +459,7 @@ func (o *NodeSummary) GetStatusOk() (*NodeStatus, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *NodeSummary) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -482,40 +482,40 @@ func (o NodeSummary) MarshalJSON() ([]byte, error) {
 func (o NodeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["node"] = o.Node
-	if !isNil(o.Maxmem) {
+	if !IsNil(o.Maxmem) {
 		toSerialize["maxmem"] = o.Maxmem
 	}
-	if !isNil(o.Mem) {
+	if !IsNil(o.Mem) {
 		toSerialize["mem"] = o.Mem
 	}
-	if !isNil(o.Disk) {
+	if !IsNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
-	if !isNil(o.Maxdisk) {
+	if !IsNil(o.Maxdisk) {
 		toSerialize["maxdisk"] = o.Maxdisk
 	}
-	if !isNil(o.Maxcpu) {
+	if !IsNil(o.Maxcpu) {
 		toSerialize["maxcpu"] = o.Maxcpu
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Level) {
+	if !IsNil(o.Level) {
 		toSerialize["level"] = o.Level
 	}
-	if !isNil(o.SslFingerprint) {
+	if !IsNil(o.SslFingerprint) {
 		toSerialize["ssl_fingerprint"] = o.SslFingerprint
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.Cpu) {
+	if !IsNil(o.Cpu) {
 		toSerialize["cpu"] = o.Cpu
 	}
-	if !isNil(o.Uptime) {
+	if !IsNil(o.Uptime) {
 		toSerialize["uptime"] = o.Uptime
 	}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil

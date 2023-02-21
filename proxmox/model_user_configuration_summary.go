@@ -50,7 +50,7 @@ func NewUserConfigurationSummaryWithDefaults() *UserConfigurationSummary {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -60,7 +60,7 @@ func (o *UserConfigurationSummary) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
 	return o.Email, true
@@ -68,7 +68,7 @@ func (o *UserConfigurationSummary) GetEmailOk() (*string, bool) {
 
 // HasEmail returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o *UserConfigurationSummary) SetEmail(v string) {
 
 // GetFirstname returns the Firstname field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetFirstname() string {
-	if o == nil || isNil(o.Firstname) {
+	if o == nil || IsNil(o.Firstname) {
 		var ret string
 		return ret
 	}
@@ -92,7 +92,7 @@ func (o *UserConfigurationSummary) GetFirstname() string {
 // GetFirstnameOk returns a tuple with the Firstname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetFirstnameOk() (*string, bool) {
-	if o == nil || isNil(o.Firstname) {
+	if o == nil || IsNil(o.Firstname) {
 		return nil, false
 	}
 	return o.Firstname, true
@@ -100,7 +100,7 @@ func (o *UserConfigurationSummary) GetFirstnameOk() (*string, bool) {
 
 // HasFirstname returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasFirstname() bool {
-	if o != nil && !isNil(o.Firstname) {
+	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
 
@@ -114,7 +114,7 @@ func (o *UserConfigurationSummary) SetFirstname(v string) {
 
 // GetLastname returns the Lastname field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetLastname() string {
-	if o == nil || isNil(o.Lastname) {
+	if o == nil || IsNil(o.Lastname) {
 		var ret string
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *UserConfigurationSummary) GetLastname() string {
 // GetLastnameOk returns a tuple with the Lastname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetLastnameOk() (*string, bool) {
-	if o == nil || isNil(o.Lastname) {
+	if o == nil || IsNil(o.Lastname) {
 		return nil, false
 	}
 	return o.Lastname, true
@@ -132,7 +132,7 @@ func (o *UserConfigurationSummary) GetLastnameOk() (*string, bool) {
 
 // HasLastname returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasLastname() bool {
-	if o != nil && !isNil(o.Lastname) {
+	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *UserConfigurationSummary) SetLastname(v string) {
 
 // GetEnable returns the Enable field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetEnable() float32 {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		var ret float32
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *UserConfigurationSummary) GetEnable() float32 {
 // GetEnableOk returns a tuple with the Enable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetEnableOk() (*float32, bool) {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		return nil, false
 	}
 	return o.Enable, true
@@ -164,7 +164,7 @@ func (o *UserConfigurationSummary) GetEnableOk() (*float32, bool) {
 
 // HasEnable returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasEnable() bool {
-	if o != nil && !isNil(o.Enable) {
+	if o != nil && !IsNil(o.Enable) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *UserConfigurationSummary) SetEnable(v float32) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -188,7 +188,7 @@ func (o *UserConfigurationSummary) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -196,7 +196,7 @@ func (o *UserConfigurationSummary) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -210,7 +210,7 @@ func (o *UserConfigurationSummary) SetComment(v string) {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetGroups() []string {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret []string
 		return ret
 	}
@@ -220,7 +220,7 @@ func (o *UserConfigurationSummary) GetGroups() []string {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetGroupsOk() ([]string, bool) {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		return nil, false
 	}
 	return o.Groups, true
@@ -228,7 +228,7 @@ func (o *UserConfigurationSummary) GetGroupsOk() ([]string, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *UserConfigurationSummary) SetGroups(v []string) {
 
 // GetKeys returns the Keys field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetKeys() string {
-	if o == nil || isNil(o.Keys) {
+	if o == nil || IsNil(o.Keys) {
 		var ret string
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *UserConfigurationSummary) GetKeys() string {
 // GetKeysOk returns a tuple with the Keys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetKeysOk() (*string, bool) {
-	if o == nil || isNil(o.Keys) {
+	if o == nil || IsNil(o.Keys) {
 		return nil, false
 	}
 	return o.Keys, true
@@ -260,7 +260,7 @@ func (o *UserConfigurationSummary) GetKeysOk() (*string, bool) {
 
 // HasKeys returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasKeys() bool {
-	if o != nil && !isNil(o.Keys) {
+	if o != nil && !IsNil(o.Keys) {
 		return true
 	}
 
@@ -274,7 +274,7 @@ func (o *UserConfigurationSummary) SetKeys(v string) {
 
 // GetExpire returns the Expire field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetExpire() float32 {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		var ret float32
 		return ret
 	}
@@ -284,7 +284,7 @@ func (o *UserConfigurationSummary) GetExpire() float32 {
 // GetExpireOk returns a tuple with the Expire field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetExpireOk() (*float32, bool) {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		return nil, false
 	}
 	return o.Expire, true
@@ -292,7 +292,7 @@ func (o *UserConfigurationSummary) GetExpireOk() (*float32, bool) {
 
 // HasExpire returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasExpire() bool {
-	if o != nil && !isNil(o.Expire) {
+	if o != nil && !IsNil(o.Expire) {
 		return true
 	}
 
@@ -306,7 +306,7 @@ func (o *UserConfigurationSummary) SetExpire(v float32) {
 
 // GetTokens returns the Tokens field value if set, zero value otherwise.
 func (o *UserConfigurationSummary) GetTokens() map[string]UserConfigurationTokenSummary {
-	if o == nil || isNil(o.Tokens) {
+	if o == nil || IsNil(o.Tokens) {
 		var ret map[string]UserConfigurationTokenSummary
 		return ret
 	}
@@ -316,7 +316,7 @@ func (o *UserConfigurationSummary) GetTokens() map[string]UserConfigurationToken
 // GetTokensOk returns a tuple with the Tokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserConfigurationSummary) GetTokensOk() (*map[string]UserConfigurationTokenSummary, bool) {
-	if o == nil || isNil(o.Tokens) {
+	if o == nil || IsNil(o.Tokens) {
 		return nil, false
 	}
 	return o.Tokens, true
@@ -324,7 +324,7 @@ func (o *UserConfigurationSummary) GetTokensOk() (*map[string]UserConfigurationT
 
 // HasTokens returns a boolean if a field has been set.
 func (o *UserConfigurationSummary) HasTokens() bool {
-	if o != nil && !isNil(o.Tokens) {
+	if o != nil && !IsNil(o.Tokens) {
 		return true
 	}
 
@@ -346,31 +346,31 @@ func (o UserConfigurationSummary) MarshalJSON() ([]byte, error) {
 
 func (o UserConfigurationSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Email) {
+	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !isNil(o.Firstname) {
+	if !IsNil(o.Firstname) {
 		toSerialize["firstname"] = o.Firstname
 	}
-	if !isNil(o.Lastname) {
+	if !IsNil(o.Lastname) {
 		toSerialize["lastname"] = o.Lastname
 	}
-	if !isNil(o.Enable) {
+	if !IsNil(o.Enable) {
 		toSerialize["enable"] = o.Enable
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Groups) {
+	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
-	if !isNil(o.Keys) {
+	if !IsNil(o.Keys) {
 		toSerialize["keys"] = o.Keys
 	}
-	if !isNil(o.Expire) {
+	if !IsNil(o.Expire) {
 		toSerialize["expire"] = o.Expire
 	}
-	if !isNil(o.Tokens) {
+	if !IsNil(o.Tokens) {
 		toSerialize["tokens"] = o.Tokens
 	}
 	return toSerialize, nil

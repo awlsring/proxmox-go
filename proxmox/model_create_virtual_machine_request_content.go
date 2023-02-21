@@ -418,7 +418,7 @@ func (o *CreateVirtualMachineRequestContent) SetVmid(v string) {
 
 // GetAcpi returns the Acpi field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetAcpi() float32 {
-	if o == nil || isNil(o.Acpi) {
+	if o == nil || IsNil(o.Acpi) {
 		var ret float32
 		return ret
 	}
@@ -428,7 +428,7 @@ func (o *CreateVirtualMachineRequestContent) GetAcpi() float32 {
 // GetAcpiOk returns a tuple with the Acpi field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetAcpiOk() (*float32, bool) {
-	if o == nil || isNil(o.Acpi) {
+	if o == nil || IsNil(o.Acpi) {
 		return nil, false
 	}
 	return o.Acpi, true
@@ -436,7 +436,7 @@ func (o *CreateVirtualMachineRequestContent) GetAcpiOk() (*float32, bool) {
 
 // HasAcpi returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasAcpi() bool {
-	if o != nil && !isNil(o.Acpi) {
+	if o != nil && !IsNil(o.Acpi) {
 		return true
 	}
 
@@ -450,7 +450,7 @@ func (o *CreateVirtualMachineRequestContent) SetAcpi(v float32) {
 
 // GetAffinity returns the Affinity field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetAffinity() string {
-	if o == nil || isNil(o.Affinity) {
+	if o == nil || IsNil(o.Affinity) {
 		var ret string
 		return ret
 	}
@@ -460,7 +460,7 @@ func (o *CreateVirtualMachineRequestContent) GetAffinity() string {
 // GetAffinityOk returns a tuple with the Affinity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetAffinityOk() (*string, bool) {
-	if o == nil || isNil(o.Affinity) {
+	if o == nil || IsNil(o.Affinity) {
 		return nil, false
 	}
 	return o.Affinity, true
@@ -468,7 +468,7 @@ func (o *CreateVirtualMachineRequestContent) GetAffinityOk() (*string, bool) {
 
 // HasAffinity returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasAffinity() bool {
-	if o != nil && !isNil(o.Affinity) {
+	if o != nil && !IsNil(o.Affinity) {
 		return true
 	}
 
@@ -482,7 +482,7 @@ func (o *CreateVirtualMachineRequestContent) SetAffinity(v string) {
 
 // GetAgent returns the Agent field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetAgent() string {
-	if o == nil || isNil(o.Agent) {
+	if o == nil || IsNil(o.Agent) {
 		var ret string
 		return ret
 	}
@@ -492,7 +492,7 @@ func (o *CreateVirtualMachineRequestContent) GetAgent() string {
 // GetAgentOk returns a tuple with the Agent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetAgentOk() (*string, bool) {
-	if o == nil || isNil(o.Agent) {
+	if o == nil || IsNil(o.Agent) {
 		return nil, false
 	}
 	return o.Agent, true
@@ -500,7 +500,7 @@ func (o *CreateVirtualMachineRequestContent) GetAgentOk() (*string, bool) {
 
 // HasAgent returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasAgent() bool {
-	if o != nil && !isNil(o.Agent) {
+	if o != nil && !IsNil(o.Agent) {
 		return true
 	}
 
@@ -514,7 +514,7 @@ func (o *CreateVirtualMachineRequestContent) SetAgent(v string) {
 
 // GetArchive returns the Archive field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetArchive() string {
-	if o == nil || isNil(o.Archive) {
+	if o == nil || IsNil(o.Archive) {
 		var ret string
 		return ret
 	}
@@ -524,7 +524,7 @@ func (o *CreateVirtualMachineRequestContent) GetArchive() string {
 // GetArchiveOk returns a tuple with the Archive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetArchiveOk() (*string, bool) {
-	if o == nil || isNil(o.Archive) {
+	if o == nil || IsNil(o.Archive) {
 		return nil, false
 	}
 	return o.Archive, true
@@ -532,7 +532,7 @@ func (o *CreateVirtualMachineRequestContent) GetArchiveOk() (*string, bool) {
 
 // HasArchive returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasArchive() bool {
-	if o != nil && !isNil(o.Archive) {
+	if o != nil && !IsNil(o.Archive) {
 		return true
 	}
 
@@ -546,7 +546,7 @@ func (o *CreateVirtualMachineRequestContent) SetArchive(v string) {
 
 // GetArch returns the Arch field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetArch() VirtualMachineArchitecture {
-	if o == nil || isNil(o.Arch) {
+	if o == nil || IsNil(o.Arch) {
 		var ret VirtualMachineArchitecture
 		return ret
 	}
@@ -556,7 +556,7 @@ func (o *CreateVirtualMachineRequestContent) GetArch() VirtualMachineArchitectur
 // GetArchOk returns a tuple with the Arch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetArchOk() (*VirtualMachineArchitecture, bool) {
-	if o == nil || isNil(o.Arch) {
+	if o == nil || IsNil(o.Arch) {
 		return nil, false
 	}
 	return o.Arch, true
@@ -564,7 +564,7 @@ func (o *CreateVirtualMachineRequestContent) GetArchOk() (*VirtualMachineArchite
 
 // HasArch returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasArch() bool {
-	if o != nil && !isNil(o.Arch) {
+	if o != nil && !IsNil(o.Arch) {
 		return true
 	}
 
@@ -578,7 +578,7 @@ func (o *CreateVirtualMachineRequestContent) SetArch(v VirtualMachineArchitectur
 
 // GetArgs returns the Args field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetArgs() string {
-	if o == nil || isNil(o.Args) {
+	if o == nil || IsNil(o.Args) {
 		var ret string
 		return ret
 	}
@@ -588,7 +588,7 @@ func (o *CreateVirtualMachineRequestContent) GetArgs() string {
 // GetArgsOk returns a tuple with the Args field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetArgsOk() (*string, bool) {
-	if o == nil || isNil(o.Args) {
+	if o == nil || IsNil(o.Args) {
 		return nil, false
 	}
 	return o.Args, true
@@ -596,7 +596,7 @@ func (o *CreateVirtualMachineRequestContent) GetArgsOk() (*string, bool) {
 
 // HasArgs returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasArgs() bool {
-	if o != nil && !isNil(o.Args) {
+	if o != nil && !IsNil(o.Args) {
 		return true
 	}
 
@@ -610,7 +610,7 @@ func (o *CreateVirtualMachineRequestContent) SetArgs(v string) {
 
 // GetAudio0 returns the Audio0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetAudio0() string {
-	if o == nil || isNil(o.Audio0) {
+	if o == nil || IsNil(o.Audio0) {
 		var ret string
 		return ret
 	}
@@ -620,7 +620,7 @@ func (o *CreateVirtualMachineRequestContent) GetAudio0() string {
 // GetAudio0Ok returns a tuple with the Audio0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetAudio0Ok() (*string, bool) {
-	if o == nil || isNil(o.Audio0) {
+	if o == nil || IsNil(o.Audio0) {
 		return nil, false
 	}
 	return o.Audio0, true
@@ -628,7 +628,7 @@ func (o *CreateVirtualMachineRequestContent) GetAudio0Ok() (*string, bool) {
 
 // HasAudio0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasAudio0() bool {
-	if o != nil && !isNil(o.Audio0) {
+	if o != nil && !IsNil(o.Audio0) {
 		return true
 	}
 
@@ -642,7 +642,7 @@ func (o *CreateVirtualMachineRequestContent) SetAudio0(v string) {
 
 // GetAutostart returns the Autostart field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetAutostart() float32 {
-	if o == nil || isNil(o.Autostart) {
+	if o == nil || IsNil(o.Autostart) {
 		var ret float32
 		return ret
 	}
@@ -652,7 +652,7 @@ func (o *CreateVirtualMachineRequestContent) GetAutostart() float32 {
 // GetAutostartOk returns a tuple with the Autostart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetAutostartOk() (*float32, bool) {
-	if o == nil || isNil(o.Autostart) {
+	if o == nil || IsNil(o.Autostart) {
 		return nil, false
 	}
 	return o.Autostart, true
@@ -660,7 +660,7 @@ func (o *CreateVirtualMachineRequestContent) GetAutostartOk() (*float32, bool) {
 
 // HasAutostart returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasAutostart() bool {
-	if o != nil && !isNil(o.Autostart) {
+	if o != nil && !IsNil(o.Autostart) {
 		return true
 	}
 
@@ -674,7 +674,7 @@ func (o *CreateVirtualMachineRequestContent) SetAutostart(v float32) {
 
 // GetBallon returns the Ballon field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetBallon() float32 {
-	if o == nil || isNil(o.Ballon) {
+	if o == nil || IsNil(o.Ballon) {
 		var ret float32
 		return ret
 	}
@@ -684,7 +684,7 @@ func (o *CreateVirtualMachineRequestContent) GetBallon() float32 {
 // GetBallonOk returns a tuple with the Ballon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetBallonOk() (*float32, bool) {
-	if o == nil || isNil(o.Ballon) {
+	if o == nil || IsNil(o.Ballon) {
 		return nil, false
 	}
 	return o.Ballon, true
@@ -692,7 +692,7 @@ func (o *CreateVirtualMachineRequestContent) GetBallonOk() (*float32, bool) {
 
 // HasBallon returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasBallon() bool {
-	if o != nil && !isNil(o.Ballon) {
+	if o != nil && !IsNil(o.Ballon) {
 		return true
 	}
 
@@ -706,7 +706,7 @@ func (o *CreateVirtualMachineRequestContent) SetBallon(v float32) {
 
 // GetBios returns the Bios field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetBios() VirtualMachineBios {
-	if o == nil || isNil(o.Bios) {
+	if o == nil || IsNil(o.Bios) {
 		var ret VirtualMachineBios
 		return ret
 	}
@@ -716,7 +716,7 @@ func (o *CreateVirtualMachineRequestContent) GetBios() VirtualMachineBios {
 // GetBiosOk returns a tuple with the Bios field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetBiosOk() (*VirtualMachineBios, bool) {
-	if o == nil || isNil(o.Bios) {
+	if o == nil || IsNil(o.Bios) {
 		return nil, false
 	}
 	return o.Bios, true
@@ -724,7 +724,7 @@ func (o *CreateVirtualMachineRequestContent) GetBiosOk() (*VirtualMachineBios, b
 
 // HasBios returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasBios() bool {
-	if o != nil && !isNil(o.Bios) {
+	if o != nil && !IsNil(o.Bios) {
 		return true
 	}
 
@@ -738,7 +738,7 @@ func (o *CreateVirtualMachineRequestContent) SetBios(v VirtualMachineBios) {
 
 // GetBoot returns the Boot field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetBoot() string {
-	if o == nil || isNil(o.Boot) {
+	if o == nil || IsNil(o.Boot) {
 		var ret string
 		return ret
 	}
@@ -748,7 +748,7 @@ func (o *CreateVirtualMachineRequestContent) GetBoot() string {
 // GetBootOk returns a tuple with the Boot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetBootOk() (*string, bool) {
-	if o == nil || isNil(o.Boot) {
+	if o == nil || IsNil(o.Boot) {
 		return nil, false
 	}
 	return o.Boot, true
@@ -756,7 +756,7 @@ func (o *CreateVirtualMachineRequestContent) GetBootOk() (*string, bool) {
 
 // HasBoot returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasBoot() bool {
-	if o != nil && !isNil(o.Boot) {
+	if o != nil && !IsNil(o.Boot) {
 		return true
 	}
 
@@ -770,7 +770,7 @@ func (o *CreateVirtualMachineRequestContent) SetBoot(v string) {
 
 // GetBootdisk returns the Bootdisk field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetBootdisk() string {
-	if o == nil || isNil(o.Bootdisk) {
+	if o == nil || IsNil(o.Bootdisk) {
 		var ret string
 		return ret
 	}
@@ -780,7 +780,7 @@ func (o *CreateVirtualMachineRequestContent) GetBootdisk() string {
 // GetBootdiskOk returns a tuple with the Bootdisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetBootdiskOk() (*string, bool) {
-	if o == nil || isNil(o.Bootdisk) {
+	if o == nil || IsNil(o.Bootdisk) {
 		return nil, false
 	}
 	return o.Bootdisk, true
@@ -788,7 +788,7 @@ func (o *CreateVirtualMachineRequestContent) GetBootdiskOk() (*string, bool) {
 
 // HasBootdisk returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasBootdisk() bool {
-	if o != nil && !isNil(o.Bootdisk) {
+	if o != nil && !IsNil(o.Bootdisk) {
 		return true
 	}
 
@@ -802,7 +802,7 @@ func (o *CreateVirtualMachineRequestContent) SetBootdisk(v string) {
 
 // GetCdrom returns the Cdrom field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCdrom() string {
-	if o == nil || isNil(o.Cdrom) {
+	if o == nil || IsNil(o.Cdrom) {
 		var ret string
 		return ret
 	}
@@ -812,7 +812,7 @@ func (o *CreateVirtualMachineRequestContent) GetCdrom() string {
 // GetCdromOk returns a tuple with the Cdrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCdromOk() (*string, bool) {
-	if o == nil || isNil(o.Cdrom) {
+	if o == nil || IsNil(o.Cdrom) {
 		return nil, false
 	}
 	return o.Cdrom, true
@@ -820,7 +820,7 @@ func (o *CreateVirtualMachineRequestContent) GetCdromOk() (*string, bool) {
 
 // HasCdrom returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCdrom() bool {
-	if o != nil && !isNil(o.Cdrom) {
+	if o != nil && !IsNil(o.Cdrom) {
 		return true
 	}
 
@@ -834,7 +834,7 @@ func (o *CreateVirtualMachineRequestContent) SetCdrom(v string) {
 
 // GetCicustom returns the Cicustom field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCicustom() string {
-	if o == nil || isNil(o.Cicustom) {
+	if o == nil || IsNil(o.Cicustom) {
 		var ret string
 		return ret
 	}
@@ -844,7 +844,7 @@ func (o *CreateVirtualMachineRequestContent) GetCicustom() string {
 // GetCicustomOk returns a tuple with the Cicustom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCicustomOk() (*string, bool) {
-	if o == nil || isNil(o.Cicustom) {
+	if o == nil || IsNil(o.Cicustom) {
 		return nil, false
 	}
 	return o.Cicustom, true
@@ -852,7 +852,7 @@ func (o *CreateVirtualMachineRequestContent) GetCicustomOk() (*string, bool) {
 
 // HasCicustom returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCicustom() bool {
-	if o != nil && !isNil(o.Cicustom) {
+	if o != nil && !IsNil(o.Cicustom) {
 		return true
 	}
 
@@ -866,7 +866,7 @@ func (o *CreateVirtualMachineRequestContent) SetCicustom(v string) {
 
 // GetCipassword returns the Cipassword field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCipassword() string {
-	if o == nil || isNil(o.Cipassword) {
+	if o == nil || IsNil(o.Cipassword) {
 		var ret string
 		return ret
 	}
@@ -876,7 +876,7 @@ func (o *CreateVirtualMachineRequestContent) GetCipassword() string {
 // GetCipasswordOk returns a tuple with the Cipassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCipasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Cipassword) {
+	if o == nil || IsNil(o.Cipassword) {
 		return nil, false
 	}
 	return o.Cipassword, true
@@ -884,7 +884,7 @@ func (o *CreateVirtualMachineRequestContent) GetCipasswordOk() (*string, bool) {
 
 // HasCipassword returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCipassword() bool {
-	if o != nil && !isNil(o.Cipassword) {
+	if o != nil && !IsNil(o.Cipassword) {
 		return true
 	}
 
@@ -898,7 +898,7 @@ func (o *CreateVirtualMachineRequestContent) SetCipassword(v string) {
 
 // GetCitype returns the Citype field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCitype() VirtualMachineCloudInitType {
-	if o == nil || isNil(o.Citype) {
+	if o == nil || IsNil(o.Citype) {
 		var ret VirtualMachineCloudInitType
 		return ret
 	}
@@ -908,7 +908,7 @@ func (o *CreateVirtualMachineRequestContent) GetCitype() VirtualMachineCloudInit
 // GetCitypeOk returns a tuple with the Citype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCitypeOk() (*VirtualMachineCloudInitType, bool) {
-	if o == nil || isNil(o.Citype) {
+	if o == nil || IsNil(o.Citype) {
 		return nil, false
 	}
 	return o.Citype, true
@@ -916,7 +916,7 @@ func (o *CreateVirtualMachineRequestContent) GetCitypeOk() (*VirtualMachineCloud
 
 // HasCitype returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCitype() bool {
-	if o != nil && !isNil(o.Citype) {
+	if o != nil && !IsNil(o.Citype) {
 		return true
 	}
 
@@ -930,7 +930,7 @@ func (o *CreateVirtualMachineRequestContent) SetCitype(v VirtualMachineCloudInit
 
 // GetCiuser returns the Ciuser field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCiuser() string {
-	if o == nil || isNil(o.Ciuser) {
+	if o == nil || IsNil(o.Ciuser) {
 		var ret string
 		return ret
 	}
@@ -940,7 +940,7 @@ func (o *CreateVirtualMachineRequestContent) GetCiuser() string {
 // GetCiuserOk returns a tuple with the Ciuser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCiuserOk() (*string, bool) {
-	if o == nil || isNil(o.Ciuser) {
+	if o == nil || IsNil(o.Ciuser) {
 		return nil, false
 	}
 	return o.Ciuser, true
@@ -948,7 +948,7 @@ func (o *CreateVirtualMachineRequestContent) GetCiuserOk() (*string, bool) {
 
 // HasCiuser returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCiuser() bool {
-	if o != nil && !isNil(o.Ciuser) {
+	if o != nil && !IsNil(o.Ciuser) {
 		return true
 	}
 
@@ -962,7 +962,7 @@ func (o *CreateVirtualMachineRequestContent) SetCiuser(v string) {
 
 // GetCores returns the Cores field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCores() float32 {
-	if o == nil || isNil(o.Cores) {
+	if o == nil || IsNil(o.Cores) {
 		var ret float32
 		return ret
 	}
@@ -972,7 +972,7 @@ func (o *CreateVirtualMachineRequestContent) GetCores() float32 {
 // GetCoresOk returns a tuple with the Cores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCoresOk() (*float32, bool) {
-	if o == nil || isNil(o.Cores) {
+	if o == nil || IsNil(o.Cores) {
 		return nil, false
 	}
 	return o.Cores, true
@@ -980,7 +980,7 @@ func (o *CreateVirtualMachineRequestContent) GetCoresOk() (*float32, bool) {
 
 // HasCores returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCores() bool {
-	if o != nil && !isNil(o.Cores) {
+	if o != nil && !IsNil(o.Cores) {
 		return true
 	}
 
@@ -994,7 +994,7 @@ func (o *CreateVirtualMachineRequestContent) SetCores(v float32) {
 
 // GetCpu returns the Cpu field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCpu() string {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		var ret string
 		return ret
 	}
@@ -1004,7 +1004,7 @@ func (o *CreateVirtualMachineRequestContent) GetCpu() string {
 // GetCpuOk returns a tuple with the Cpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCpuOk() (*string, bool) {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		return nil, false
 	}
 	return o.Cpu, true
@@ -1012,7 +1012,7 @@ func (o *CreateVirtualMachineRequestContent) GetCpuOk() (*string, bool) {
 
 // HasCpu returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCpu() bool {
-	if o != nil && !isNil(o.Cpu) {
+	if o != nil && !IsNil(o.Cpu) {
 		return true
 	}
 
@@ -1026,7 +1026,7 @@ func (o *CreateVirtualMachineRequestContent) SetCpu(v string) {
 
 // GetCpulimit returns the Cpulimit field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCpulimit() float32 {
-	if o == nil || isNil(o.Cpulimit) {
+	if o == nil || IsNil(o.Cpulimit) {
 		var ret float32
 		return ret
 	}
@@ -1036,7 +1036,7 @@ func (o *CreateVirtualMachineRequestContent) GetCpulimit() float32 {
 // GetCpulimitOk returns a tuple with the Cpulimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCpulimitOk() (*float32, bool) {
-	if o == nil || isNil(o.Cpulimit) {
+	if o == nil || IsNil(o.Cpulimit) {
 		return nil, false
 	}
 	return o.Cpulimit, true
@@ -1044,7 +1044,7 @@ func (o *CreateVirtualMachineRequestContent) GetCpulimitOk() (*float32, bool) {
 
 // HasCpulimit returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCpulimit() bool {
-	if o != nil && !isNil(o.Cpulimit) {
+	if o != nil && !IsNil(o.Cpulimit) {
 		return true
 	}
 
@@ -1058,7 +1058,7 @@ func (o *CreateVirtualMachineRequestContent) SetCpulimit(v float32) {
 
 // GetCpuunits returns the Cpuunits field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetCpuunits() float32 {
-	if o == nil || isNil(o.Cpuunits) {
+	if o == nil || IsNil(o.Cpuunits) {
 		var ret float32
 		return ret
 	}
@@ -1068,7 +1068,7 @@ func (o *CreateVirtualMachineRequestContent) GetCpuunits() float32 {
 // GetCpuunitsOk returns a tuple with the Cpuunits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetCpuunitsOk() (*float32, bool) {
-	if o == nil || isNil(o.Cpuunits) {
+	if o == nil || IsNil(o.Cpuunits) {
 		return nil, false
 	}
 	return o.Cpuunits, true
@@ -1076,7 +1076,7 @@ func (o *CreateVirtualMachineRequestContent) GetCpuunitsOk() (*float32, bool) {
 
 // HasCpuunits returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasCpuunits() bool {
-	if o != nil && !isNil(o.Cpuunits) {
+	if o != nil && !IsNil(o.Cpuunits) {
 		return true
 	}
 
@@ -1090,7 +1090,7 @@ func (o *CreateVirtualMachineRequestContent) SetCpuunits(v float32) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -1100,7 +1100,7 @@ func (o *CreateVirtualMachineRequestContent) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -1108,7 +1108,7 @@ func (o *CreateVirtualMachineRequestContent) GetDescriptionOk() (*string, bool) 
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -1122,7 +1122,7 @@ func (o *CreateVirtualMachineRequestContent) SetDescription(v string) {
 
 // GetDigest returns the Digest field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetDigest() string {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		var ret string
 		return ret
 	}
@@ -1132,7 +1132,7 @@ func (o *CreateVirtualMachineRequestContent) GetDigest() string {
 // GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetDigestOk() (*string, bool) {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		return nil, false
 	}
 	return o.Digest, true
@@ -1140,7 +1140,7 @@ func (o *CreateVirtualMachineRequestContent) GetDigestOk() (*string, bool) {
 
 // HasDigest returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasDigest() bool {
-	if o != nil && !isNil(o.Digest) {
+	if o != nil && !IsNil(o.Digest) {
 		return true
 	}
 
@@ -1154,7 +1154,7 @@ func (o *CreateVirtualMachineRequestContent) SetDigest(v string) {
 
 // GetEfidisk0 returns the Efidisk0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetEfidisk0() string {
-	if o == nil || isNil(o.Efidisk0) {
+	if o == nil || IsNil(o.Efidisk0) {
 		var ret string
 		return ret
 	}
@@ -1164,7 +1164,7 @@ func (o *CreateVirtualMachineRequestContent) GetEfidisk0() string {
 // GetEfidisk0Ok returns a tuple with the Efidisk0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetEfidisk0Ok() (*string, bool) {
-	if o == nil || isNil(o.Efidisk0) {
+	if o == nil || IsNil(o.Efidisk0) {
 		return nil, false
 	}
 	return o.Efidisk0, true
@@ -1172,7 +1172,7 @@ func (o *CreateVirtualMachineRequestContent) GetEfidisk0Ok() (*string, bool) {
 
 // HasEfidisk0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasEfidisk0() bool {
-	if o != nil && !isNil(o.Efidisk0) {
+	if o != nil && !IsNil(o.Efidisk0) {
 		return true
 	}
 
@@ -1186,7 +1186,7 @@ func (o *CreateVirtualMachineRequestContent) SetEfidisk0(v string) {
 
 // GetFreeze returns the Freeze field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetFreeze() bool {
-	if o == nil || isNil(o.Freeze) {
+	if o == nil || IsNil(o.Freeze) {
 		var ret bool
 		return ret
 	}
@@ -1196,7 +1196,7 @@ func (o *CreateVirtualMachineRequestContent) GetFreeze() bool {
 // GetFreezeOk returns a tuple with the Freeze field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetFreezeOk() (*bool, bool) {
-	if o == nil || isNil(o.Freeze) {
+	if o == nil || IsNil(o.Freeze) {
 		return nil, false
 	}
 	return o.Freeze, true
@@ -1204,7 +1204,7 @@ func (o *CreateVirtualMachineRequestContent) GetFreezeOk() (*bool, bool) {
 
 // HasFreeze returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasFreeze() bool {
-	if o != nil && !isNil(o.Freeze) {
+	if o != nil && !IsNil(o.Freeze) {
 		return true
 	}
 
@@ -1218,7 +1218,7 @@ func (o *CreateVirtualMachineRequestContent) SetFreeze(v bool) {
 
 // GetHookscript returns the Hookscript field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHookscript() string {
-	if o == nil || isNil(o.Hookscript) {
+	if o == nil || IsNil(o.Hookscript) {
 		var ret string
 		return ret
 	}
@@ -1228,7 +1228,7 @@ func (o *CreateVirtualMachineRequestContent) GetHookscript() string {
 // GetHookscriptOk returns a tuple with the Hookscript field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHookscriptOk() (*string, bool) {
-	if o == nil || isNil(o.Hookscript) {
+	if o == nil || IsNil(o.Hookscript) {
 		return nil, false
 	}
 	return o.Hookscript, true
@@ -1236,7 +1236,7 @@ func (o *CreateVirtualMachineRequestContent) GetHookscriptOk() (*string, bool) {
 
 // HasHookscript returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHookscript() bool {
-	if o != nil && !isNil(o.Hookscript) {
+	if o != nil && !IsNil(o.Hookscript) {
 		return true
 	}
 
@@ -1250,7 +1250,7 @@ func (o *CreateVirtualMachineRequestContent) SetHookscript(v string) {
 
 // GetHostpci0 returns the Hostpci0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci0() string {
-	if o == nil || isNil(o.Hostpci0) {
+	if o == nil || IsNil(o.Hostpci0) {
 		var ret string
 		return ret
 	}
@@ -1260,7 +1260,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci0() string {
 // GetHostpci0Ok returns a tuple with the Hostpci0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci0Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci0) {
+	if o == nil || IsNil(o.Hostpci0) {
 		return nil, false
 	}
 	return o.Hostpci0, true
@@ -1268,7 +1268,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci0Ok() (*string, bool) {
 
 // HasHostpci0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci0() bool {
-	if o != nil && !isNil(o.Hostpci0) {
+	if o != nil && !IsNil(o.Hostpci0) {
 		return true
 	}
 
@@ -1282,7 +1282,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci0(v string) {
 
 // GetHostpci1 returns the Hostpci1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci1() string {
-	if o == nil || isNil(o.Hostpci1) {
+	if o == nil || IsNil(o.Hostpci1) {
 		var ret string
 		return ret
 	}
@@ -1292,7 +1292,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci1() string {
 // GetHostpci1Ok returns a tuple with the Hostpci1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci1Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci1) {
+	if o == nil || IsNil(o.Hostpci1) {
 		return nil, false
 	}
 	return o.Hostpci1, true
@@ -1300,7 +1300,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci1Ok() (*string, bool) {
 
 // HasHostpci1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci1() bool {
-	if o != nil && !isNil(o.Hostpci1) {
+	if o != nil && !IsNil(o.Hostpci1) {
 		return true
 	}
 
@@ -1314,7 +1314,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci1(v string) {
 
 // GetHostpci2 returns the Hostpci2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci2() string {
-	if o == nil || isNil(o.Hostpci2) {
+	if o == nil || IsNil(o.Hostpci2) {
 		var ret string
 		return ret
 	}
@@ -1324,7 +1324,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci2() string {
 // GetHostpci2Ok returns a tuple with the Hostpci2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci2Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci2) {
+	if o == nil || IsNil(o.Hostpci2) {
 		return nil, false
 	}
 	return o.Hostpci2, true
@@ -1332,7 +1332,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci2Ok() (*string, bool) {
 
 // HasHostpci2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci2() bool {
-	if o != nil && !isNil(o.Hostpci2) {
+	if o != nil && !IsNil(o.Hostpci2) {
 		return true
 	}
 
@@ -1346,7 +1346,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci2(v string) {
 
 // GetHostpci3 returns the Hostpci3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci3() string {
-	if o == nil || isNil(o.Hostpci3) {
+	if o == nil || IsNil(o.Hostpci3) {
 		var ret string
 		return ret
 	}
@@ -1356,7 +1356,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci3() string {
 // GetHostpci3Ok returns a tuple with the Hostpci3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci3Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci3) {
+	if o == nil || IsNil(o.Hostpci3) {
 		return nil, false
 	}
 	return o.Hostpci3, true
@@ -1364,7 +1364,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci3Ok() (*string, bool) {
 
 // HasHostpci3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci3() bool {
-	if o != nil && !isNil(o.Hostpci3) {
+	if o != nil && !IsNil(o.Hostpci3) {
 		return true
 	}
 
@@ -1378,7 +1378,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci3(v string) {
 
 // GetHostpci4 returns the Hostpci4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci4() string {
-	if o == nil || isNil(o.Hostpci4) {
+	if o == nil || IsNil(o.Hostpci4) {
 		var ret string
 		return ret
 	}
@@ -1388,7 +1388,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci4() string {
 // GetHostpci4Ok returns a tuple with the Hostpci4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci4Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci4) {
+	if o == nil || IsNil(o.Hostpci4) {
 		return nil, false
 	}
 	return o.Hostpci4, true
@@ -1396,7 +1396,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci4Ok() (*string, bool) {
 
 // HasHostpci4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci4() bool {
-	if o != nil && !isNil(o.Hostpci4) {
+	if o != nil && !IsNil(o.Hostpci4) {
 		return true
 	}
 
@@ -1410,7 +1410,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci4(v string) {
 
 // GetHostpci5 returns the Hostpci5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci5() string {
-	if o == nil || isNil(o.Hostpci5) {
+	if o == nil || IsNil(o.Hostpci5) {
 		var ret string
 		return ret
 	}
@@ -1420,7 +1420,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci5() string {
 // GetHostpci5Ok returns a tuple with the Hostpci5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci5Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci5) {
+	if o == nil || IsNil(o.Hostpci5) {
 		return nil, false
 	}
 	return o.Hostpci5, true
@@ -1428,7 +1428,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci5Ok() (*string, bool) {
 
 // HasHostpci5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci5() bool {
-	if o != nil && !isNil(o.Hostpci5) {
+	if o != nil && !IsNil(o.Hostpci5) {
 		return true
 	}
 
@@ -1442,7 +1442,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci5(v string) {
 
 // GetHostpci6 returns the Hostpci6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci6() string {
-	if o == nil || isNil(o.Hostpci6) {
+	if o == nil || IsNil(o.Hostpci6) {
 		var ret string
 		return ret
 	}
@@ -1452,7 +1452,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci6() string {
 // GetHostpci6Ok returns a tuple with the Hostpci6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci6Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci6) {
+	if o == nil || IsNil(o.Hostpci6) {
 		return nil, false
 	}
 	return o.Hostpci6, true
@@ -1460,7 +1460,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci6Ok() (*string, bool) {
 
 // HasHostpci6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci6() bool {
-	if o != nil && !isNil(o.Hostpci6) {
+	if o != nil && !IsNil(o.Hostpci6) {
 		return true
 	}
 
@@ -1474,7 +1474,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci6(v string) {
 
 // GetHostpci7 returns the Hostpci7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci7() string {
-	if o == nil || isNil(o.Hostpci7) {
+	if o == nil || IsNil(o.Hostpci7) {
 		var ret string
 		return ret
 	}
@@ -1484,7 +1484,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci7() string {
 // GetHostpci7Ok returns a tuple with the Hostpci7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci7Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci7) {
+	if o == nil || IsNil(o.Hostpci7) {
 		return nil, false
 	}
 	return o.Hostpci7, true
@@ -1492,7 +1492,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci7Ok() (*string, bool) {
 
 // HasHostpci7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci7() bool {
-	if o != nil && !isNil(o.Hostpci7) {
+	if o != nil && !IsNil(o.Hostpci7) {
 		return true
 	}
 
@@ -1506,7 +1506,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci7(v string) {
 
 // GetHostpci8 returns the Hostpci8 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci8() string {
-	if o == nil || isNil(o.Hostpci8) {
+	if o == nil || IsNil(o.Hostpci8) {
 		var ret string
 		return ret
 	}
@@ -1516,7 +1516,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci8() string {
 // GetHostpci8Ok returns a tuple with the Hostpci8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci8Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci8) {
+	if o == nil || IsNil(o.Hostpci8) {
 		return nil, false
 	}
 	return o.Hostpci8, true
@@ -1524,7 +1524,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci8Ok() (*string, bool) {
 
 // HasHostpci8 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci8() bool {
-	if o != nil && !isNil(o.Hostpci8) {
+	if o != nil && !IsNil(o.Hostpci8) {
 		return true
 	}
 
@@ -1538,7 +1538,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci8(v string) {
 
 // GetHostpci9 returns the Hostpci9 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHostpci9() string {
-	if o == nil || isNil(o.Hostpci9) {
+	if o == nil || IsNil(o.Hostpci9) {
 		var ret string
 		return ret
 	}
@@ -1548,7 +1548,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci9() string {
 // GetHostpci9Ok returns a tuple with the Hostpci9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHostpci9Ok() (*string, bool) {
-	if o == nil || isNil(o.Hostpci9) {
+	if o == nil || IsNil(o.Hostpci9) {
 		return nil, false
 	}
 	return o.Hostpci9, true
@@ -1556,7 +1556,7 @@ func (o *CreateVirtualMachineRequestContent) GetHostpci9Ok() (*string, bool) {
 
 // HasHostpci9 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHostpci9() bool {
-	if o != nil && !isNil(o.Hostpci9) {
+	if o != nil && !IsNil(o.Hostpci9) {
 		return true
 	}
 
@@ -1570,7 +1570,7 @@ func (o *CreateVirtualMachineRequestContent) SetHostpci9(v string) {
 
 // GetHugepages returns the Hugepages field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHugepages() VirtualMachineHugePages {
-	if o == nil || isNil(o.Hugepages) {
+	if o == nil || IsNil(o.Hugepages) {
 		var ret VirtualMachineHugePages
 		return ret
 	}
@@ -1580,7 +1580,7 @@ func (o *CreateVirtualMachineRequestContent) GetHugepages() VirtualMachineHugePa
 // GetHugepagesOk returns a tuple with the Hugepages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHugepagesOk() (*VirtualMachineHugePages, bool) {
-	if o == nil || isNil(o.Hugepages) {
+	if o == nil || IsNil(o.Hugepages) {
 		return nil, false
 	}
 	return o.Hugepages, true
@@ -1588,7 +1588,7 @@ func (o *CreateVirtualMachineRequestContent) GetHugepagesOk() (*VirtualMachineHu
 
 // HasHugepages returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHugepages() bool {
-	if o != nil && !isNil(o.Hugepages) {
+	if o != nil && !IsNil(o.Hugepages) {
 		return true
 	}
 
@@ -1602,7 +1602,7 @@ func (o *CreateVirtualMachineRequestContent) SetHugepages(v VirtualMachineHugePa
 
 // GetIde0 returns the Ide0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIde0() string {
-	if o == nil || isNil(o.Ide0) {
+	if o == nil || IsNil(o.Ide0) {
 		var ret string
 		return ret
 	}
@@ -1612,7 +1612,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde0() string {
 // GetIde0Ok returns a tuple with the Ide0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIde0Ok() (*string, bool) {
-	if o == nil || isNil(o.Ide0) {
+	if o == nil || IsNil(o.Ide0) {
 		return nil, false
 	}
 	return o.Ide0, true
@@ -1620,7 +1620,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde0Ok() (*string, bool) {
 
 // HasIde0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIde0() bool {
-	if o != nil && !isNil(o.Ide0) {
+	if o != nil && !IsNil(o.Ide0) {
 		return true
 	}
 
@@ -1634,7 +1634,7 @@ func (o *CreateVirtualMachineRequestContent) SetIde0(v string) {
 
 // GetIde1 returns the Ide1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIde1() string {
-	if o == nil || isNil(o.Ide1) {
+	if o == nil || IsNil(o.Ide1) {
 		var ret string
 		return ret
 	}
@@ -1644,7 +1644,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde1() string {
 // GetIde1Ok returns a tuple with the Ide1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIde1Ok() (*string, bool) {
-	if o == nil || isNil(o.Ide1) {
+	if o == nil || IsNil(o.Ide1) {
 		return nil, false
 	}
 	return o.Ide1, true
@@ -1652,7 +1652,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde1Ok() (*string, bool) {
 
 // HasIde1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIde1() bool {
-	if o != nil && !isNil(o.Ide1) {
+	if o != nil && !IsNil(o.Ide1) {
 		return true
 	}
 
@@ -1666,7 +1666,7 @@ func (o *CreateVirtualMachineRequestContent) SetIde1(v string) {
 
 // GetIde2 returns the Ide2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIde2() string {
-	if o == nil || isNil(o.Ide2) {
+	if o == nil || IsNil(o.Ide2) {
 		var ret string
 		return ret
 	}
@@ -1676,7 +1676,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde2() string {
 // GetIde2Ok returns a tuple with the Ide2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIde2Ok() (*string, bool) {
-	if o == nil || isNil(o.Ide2) {
+	if o == nil || IsNil(o.Ide2) {
 		return nil, false
 	}
 	return o.Ide2, true
@@ -1684,7 +1684,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde2Ok() (*string, bool) {
 
 // HasIde2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIde2() bool {
-	if o != nil && !isNil(o.Ide2) {
+	if o != nil && !IsNil(o.Ide2) {
 		return true
 	}
 
@@ -1698,7 +1698,7 @@ func (o *CreateVirtualMachineRequestContent) SetIde2(v string) {
 
 // GetIde3 returns the Ide3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIde3() string {
-	if o == nil || isNil(o.Ide3) {
+	if o == nil || IsNil(o.Ide3) {
 		var ret string
 		return ret
 	}
@@ -1708,7 +1708,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde3() string {
 // GetIde3Ok returns a tuple with the Ide3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIde3Ok() (*string, bool) {
-	if o == nil || isNil(o.Ide3) {
+	if o == nil || IsNil(o.Ide3) {
 		return nil, false
 	}
 	return o.Ide3, true
@@ -1716,7 +1716,7 @@ func (o *CreateVirtualMachineRequestContent) GetIde3Ok() (*string, bool) {
 
 // HasIde3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIde3() bool {
-	if o != nil && !isNil(o.Ide3) {
+	if o != nil && !IsNil(o.Ide3) {
 		return true
 	}
 
@@ -1730,7 +1730,7 @@ func (o *CreateVirtualMachineRequestContent) SetIde3(v string) {
 
 // GetIpconfig0 returns the Ipconfig0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig0() string {
-	if o == nil || isNil(o.Ipconfig0) {
+	if o == nil || IsNil(o.Ipconfig0) {
 		var ret string
 		return ret
 	}
@@ -1740,7 +1740,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig0() string {
 // GetIpconfig0Ok returns a tuple with the Ipconfig0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig0Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig0) {
+	if o == nil || IsNil(o.Ipconfig0) {
 		return nil, false
 	}
 	return o.Ipconfig0, true
@@ -1748,7 +1748,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig0Ok() (*string, bool) {
 
 // HasIpconfig0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig0() bool {
-	if o != nil && !isNil(o.Ipconfig0) {
+	if o != nil && !IsNil(o.Ipconfig0) {
 		return true
 	}
 
@@ -1762,7 +1762,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig0(v string) {
 
 // GetIpconfig1 returns the Ipconfig1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig1() string {
-	if o == nil || isNil(o.Ipconfig1) {
+	if o == nil || IsNil(o.Ipconfig1) {
 		var ret string
 		return ret
 	}
@@ -1772,7 +1772,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig1() string {
 // GetIpconfig1Ok returns a tuple with the Ipconfig1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig1Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig1) {
+	if o == nil || IsNil(o.Ipconfig1) {
 		return nil, false
 	}
 	return o.Ipconfig1, true
@@ -1780,7 +1780,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig1Ok() (*string, bool) {
 
 // HasIpconfig1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig1() bool {
-	if o != nil && !isNil(o.Ipconfig1) {
+	if o != nil && !IsNil(o.Ipconfig1) {
 		return true
 	}
 
@@ -1794,7 +1794,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig1(v string) {
 
 // GetIpconfig2 returns the Ipconfig2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig2() string {
-	if o == nil || isNil(o.Ipconfig2) {
+	if o == nil || IsNil(o.Ipconfig2) {
 		var ret string
 		return ret
 	}
@@ -1804,7 +1804,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig2() string {
 // GetIpconfig2Ok returns a tuple with the Ipconfig2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig2Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig2) {
+	if o == nil || IsNil(o.Ipconfig2) {
 		return nil, false
 	}
 	return o.Ipconfig2, true
@@ -1812,7 +1812,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig2Ok() (*string, bool) {
 
 // HasIpconfig2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig2() bool {
-	if o != nil && !isNil(o.Ipconfig2) {
+	if o != nil && !IsNil(o.Ipconfig2) {
 		return true
 	}
 
@@ -1826,7 +1826,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig2(v string) {
 
 // GetIpconfig3 returns the Ipconfig3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig3() string {
-	if o == nil || isNil(o.Ipconfig3) {
+	if o == nil || IsNil(o.Ipconfig3) {
 		var ret string
 		return ret
 	}
@@ -1836,7 +1836,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig3() string {
 // GetIpconfig3Ok returns a tuple with the Ipconfig3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig3Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig3) {
+	if o == nil || IsNil(o.Ipconfig3) {
 		return nil, false
 	}
 	return o.Ipconfig3, true
@@ -1844,7 +1844,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig3Ok() (*string, bool) {
 
 // HasIpconfig3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig3() bool {
-	if o != nil && !isNil(o.Ipconfig3) {
+	if o != nil && !IsNil(o.Ipconfig3) {
 		return true
 	}
 
@@ -1858,7 +1858,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig3(v string) {
 
 // GetIpconfig4 returns the Ipconfig4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig4() string {
-	if o == nil || isNil(o.Ipconfig4) {
+	if o == nil || IsNil(o.Ipconfig4) {
 		var ret string
 		return ret
 	}
@@ -1868,7 +1868,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig4() string {
 // GetIpconfig4Ok returns a tuple with the Ipconfig4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig4Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig4) {
+	if o == nil || IsNil(o.Ipconfig4) {
 		return nil, false
 	}
 	return o.Ipconfig4, true
@@ -1876,7 +1876,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig4Ok() (*string, bool) {
 
 // HasIpconfig4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig4() bool {
-	if o != nil && !isNil(o.Ipconfig4) {
+	if o != nil && !IsNil(o.Ipconfig4) {
 		return true
 	}
 
@@ -1890,7 +1890,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig4(v string) {
 
 // GetIpconfig5 returns the Ipconfig5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig5() string {
-	if o == nil || isNil(o.Ipconfig5) {
+	if o == nil || IsNil(o.Ipconfig5) {
 		var ret string
 		return ret
 	}
@@ -1900,7 +1900,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig5() string {
 // GetIpconfig5Ok returns a tuple with the Ipconfig5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig5Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig5) {
+	if o == nil || IsNil(o.Ipconfig5) {
 		return nil, false
 	}
 	return o.Ipconfig5, true
@@ -1908,7 +1908,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig5Ok() (*string, bool) {
 
 // HasIpconfig5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig5() bool {
-	if o != nil && !isNil(o.Ipconfig5) {
+	if o != nil && !IsNil(o.Ipconfig5) {
 		return true
 	}
 
@@ -1922,7 +1922,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig5(v string) {
 
 // GetIpconfig6 returns the Ipconfig6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig6() string {
-	if o == nil || isNil(o.Ipconfig6) {
+	if o == nil || IsNil(o.Ipconfig6) {
 		var ret string
 		return ret
 	}
@@ -1932,7 +1932,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig6() string {
 // GetIpconfig6Ok returns a tuple with the Ipconfig6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig6Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig6) {
+	if o == nil || IsNil(o.Ipconfig6) {
 		return nil, false
 	}
 	return o.Ipconfig6, true
@@ -1940,7 +1940,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig6Ok() (*string, bool) {
 
 // HasIpconfig6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig6() bool {
-	if o != nil && !isNil(o.Ipconfig6) {
+	if o != nil && !IsNil(o.Ipconfig6) {
 		return true
 	}
 
@@ -1954,7 +1954,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig6(v string) {
 
 // GetIpconfig7 returns the Ipconfig7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig7() string {
-	if o == nil || isNil(o.Ipconfig7) {
+	if o == nil || IsNil(o.Ipconfig7) {
 		var ret string
 		return ret
 	}
@@ -1964,7 +1964,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig7() string {
 // GetIpconfig7Ok returns a tuple with the Ipconfig7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIpconfig7Ok() (*string, bool) {
-	if o == nil || isNil(o.Ipconfig7) {
+	if o == nil || IsNil(o.Ipconfig7) {
 		return nil, false
 	}
 	return o.Ipconfig7, true
@@ -1972,7 +1972,7 @@ func (o *CreateVirtualMachineRequestContent) GetIpconfig7Ok() (*string, bool) {
 
 // HasIpconfig7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIpconfig7() bool {
-	if o != nil && !isNil(o.Ipconfig7) {
+	if o != nil && !IsNil(o.Ipconfig7) {
 		return true
 	}
 
@@ -1986,7 +1986,7 @@ func (o *CreateVirtualMachineRequestContent) SetIpconfig7(v string) {
 
 // GetIvshmem returns the Ivshmem field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetIvshmem() string {
-	if o == nil || isNil(o.Ivshmem) {
+	if o == nil || IsNil(o.Ivshmem) {
 		var ret string
 		return ret
 	}
@@ -1996,7 +1996,7 @@ func (o *CreateVirtualMachineRequestContent) GetIvshmem() string {
 // GetIvshmemOk returns a tuple with the Ivshmem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetIvshmemOk() (*string, bool) {
-	if o == nil || isNil(o.Ivshmem) {
+	if o == nil || IsNil(o.Ivshmem) {
 		return nil, false
 	}
 	return o.Ivshmem, true
@@ -2004,7 +2004,7 @@ func (o *CreateVirtualMachineRequestContent) GetIvshmemOk() (*string, bool) {
 
 // HasIvshmem returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasIvshmem() bool {
-	if o != nil && !isNil(o.Ivshmem) {
+	if o != nil && !IsNil(o.Ivshmem) {
 		return true
 	}
 
@@ -2018,7 +2018,7 @@ func (o *CreateVirtualMachineRequestContent) SetIvshmem(v string) {
 
 // GetKeephugepages returns the Keephugepages field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetKeephugepages() float32 {
-	if o == nil || isNil(o.Keephugepages) {
+	if o == nil || IsNil(o.Keephugepages) {
 		var ret float32
 		return ret
 	}
@@ -2028,7 +2028,7 @@ func (o *CreateVirtualMachineRequestContent) GetKeephugepages() float32 {
 // GetKeephugepagesOk returns a tuple with the Keephugepages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetKeephugepagesOk() (*float32, bool) {
-	if o == nil || isNil(o.Keephugepages) {
+	if o == nil || IsNil(o.Keephugepages) {
 		return nil, false
 	}
 	return o.Keephugepages, true
@@ -2036,7 +2036,7 @@ func (o *CreateVirtualMachineRequestContent) GetKeephugepagesOk() (*float32, boo
 
 // HasKeephugepages returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasKeephugepages() bool {
-	if o != nil && !isNil(o.Keephugepages) {
+	if o != nil && !IsNil(o.Keephugepages) {
 		return true
 	}
 
@@ -2050,7 +2050,7 @@ func (o *CreateVirtualMachineRequestContent) SetKeephugepages(v float32) {
 
 // GetKeyboard returns the Keyboard field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetKeyboard() VirtualMachineKeyboard {
-	if o == nil || isNil(o.Keyboard) {
+	if o == nil || IsNil(o.Keyboard) {
 		var ret VirtualMachineKeyboard
 		return ret
 	}
@@ -2060,7 +2060,7 @@ func (o *CreateVirtualMachineRequestContent) GetKeyboard() VirtualMachineKeyboar
 // GetKeyboardOk returns a tuple with the Keyboard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetKeyboardOk() (*VirtualMachineKeyboard, bool) {
-	if o == nil || isNil(o.Keyboard) {
+	if o == nil || IsNil(o.Keyboard) {
 		return nil, false
 	}
 	return o.Keyboard, true
@@ -2068,7 +2068,7 @@ func (o *CreateVirtualMachineRequestContent) GetKeyboardOk() (*VirtualMachineKey
 
 // HasKeyboard returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasKeyboard() bool {
-	if o != nil && !isNil(o.Keyboard) {
+	if o != nil && !IsNil(o.Keyboard) {
 		return true
 	}
 
@@ -2082,7 +2082,7 @@ func (o *CreateVirtualMachineRequestContent) SetKeyboard(v VirtualMachineKeyboar
 
 // GetKvm returns the Kvm field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetKvm() float32 {
-	if o == nil || isNil(o.Kvm) {
+	if o == nil || IsNil(o.Kvm) {
 		var ret float32
 		return ret
 	}
@@ -2092,7 +2092,7 @@ func (o *CreateVirtualMachineRequestContent) GetKvm() float32 {
 // GetKvmOk returns a tuple with the Kvm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetKvmOk() (*float32, bool) {
-	if o == nil || isNil(o.Kvm) {
+	if o == nil || IsNil(o.Kvm) {
 		return nil, false
 	}
 	return o.Kvm, true
@@ -2100,7 +2100,7 @@ func (o *CreateVirtualMachineRequestContent) GetKvmOk() (*float32, bool) {
 
 // HasKvm returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasKvm() bool {
-	if o != nil && !isNil(o.Kvm) {
+	if o != nil && !IsNil(o.Kvm) {
 		return true
 	}
 
@@ -2114,7 +2114,7 @@ func (o *CreateVirtualMachineRequestContent) SetKvm(v float32) {
 
 // GetLocaltime returns the Localtime field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetLocaltime() float32 {
-	if o == nil || isNil(o.Localtime) {
+	if o == nil || IsNil(o.Localtime) {
 		var ret float32
 		return ret
 	}
@@ -2124,7 +2124,7 @@ func (o *CreateVirtualMachineRequestContent) GetLocaltime() float32 {
 // GetLocaltimeOk returns a tuple with the Localtime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetLocaltimeOk() (*float32, bool) {
-	if o == nil || isNil(o.Localtime) {
+	if o == nil || IsNil(o.Localtime) {
 		return nil, false
 	}
 	return o.Localtime, true
@@ -2132,7 +2132,7 @@ func (o *CreateVirtualMachineRequestContent) GetLocaltimeOk() (*float32, bool) {
 
 // HasLocaltime returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasLocaltime() bool {
-	if o != nil && !isNil(o.Localtime) {
+	if o != nil && !IsNil(o.Localtime) {
 		return true
 	}
 
@@ -2146,7 +2146,7 @@ func (o *CreateVirtualMachineRequestContent) SetLocaltime(v float32) {
 
 // GetLiveRestore returns the LiveRestore field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetLiveRestore() float32 {
-	if o == nil || isNil(o.LiveRestore) {
+	if o == nil || IsNil(o.LiveRestore) {
 		var ret float32
 		return ret
 	}
@@ -2156,7 +2156,7 @@ func (o *CreateVirtualMachineRequestContent) GetLiveRestore() float32 {
 // GetLiveRestoreOk returns a tuple with the LiveRestore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetLiveRestoreOk() (*float32, bool) {
-	if o == nil || isNil(o.LiveRestore) {
+	if o == nil || IsNil(o.LiveRestore) {
 		return nil, false
 	}
 	return o.LiveRestore, true
@@ -2164,7 +2164,7 @@ func (o *CreateVirtualMachineRequestContent) GetLiveRestoreOk() (*float32, bool)
 
 // HasLiveRestore returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasLiveRestore() bool {
-	if o != nil && !isNil(o.LiveRestore) {
+	if o != nil && !IsNil(o.LiveRestore) {
 		return true
 	}
 
@@ -2178,7 +2178,7 @@ func (o *CreateVirtualMachineRequestContent) SetLiveRestore(v float32) {
 
 // GetLock returns the Lock field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetLock() VirtualMachineConfigLock {
-	if o == nil || isNil(o.Lock) {
+	if o == nil || IsNil(o.Lock) {
 		var ret VirtualMachineConfigLock
 		return ret
 	}
@@ -2188,7 +2188,7 @@ func (o *CreateVirtualMachineRequestContent) GetLock() VirtualMachineConfigLock 
 // GetLockOk returns a tuple with the Lock field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetLockOk() (*VirtualMachineConfigLock, bool) {
-	if o == nil || isNil(o.Lock) {
+	if o == nil || IsNil(o.Lock) {
 		return nil, false
 	}
 	return o.Lock, true
@@ -2196,7 +2196,7 @@ func (o *CreateVirtualMachineRequestContent) GetLockOk() (*VirtualMachineConfigL
 
 // HasLock returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasLock() bool {
-	if o != nil && !isNil(o.Lock) {
+	if o != nil && !IsNil(o.Lock) {
 		return true
 	}
 
@@ -2210,7 +2210,7 @@ func (o *CreateVirtualMachineRequestContent) SetLock(v VirtualMachineConfigLock)
 
 // GetMachine returns the Machine field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetMachine() string {
-	if o == nil || isNil(o.Machine) {
+	if o == nil || IsNil(o.Machine) {
 		var ret string
 		return ret
 	}
@@ -2220,7 +2220,7 @@ func (o *CreateVirtualMachineRequestContent) GetMachine() string {
 // GetMachineOk returns a tuple with the Machine field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetMachineOk() (*string, bool) {
-	if o == nil || isNil(o.Machine) {
+	if o == nil || IsNil(o.Machine) {
 		return nil, false
 	}
 	return o.Machine, true
@@ -2228,7 +2228,7 @@ func (o *CreateVirtualMachineRequestContent) GetMachineOk() (*string, bool) {
 
 // HasMachine returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasMachine() bool {
-	if o != nil && !isNil(o.Machine) {
+	if o != nil && !IsNil(o.Machine) {
 		return true
 	}
 
@@ -2242,7 +2242,7 @@ func (o *CreateVirtualMachineRequestContent) SetMachine(v string) {
 
 // GetMemory returns the Memory field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetMemory() float32 {
-	if o == nil || isNil(o.Memory) {
+	if o == nil || IsNil(o.Memory) {
 		var ret float32
 		return ret
 	}
@@ -2252,7 +2252,7 @@ func (o *CreateVirtualMachineRequestContent) GetMemory() float32 {
 // GetMemoryOk returns a tuple with the Memory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetMemoryOk() (*float32, bool) {
-	if o == nil || isNil(o.Memory) {
+	if o == nil || IsNil(o.Memory) {
 		return nil, false
 	}
 	return o.Memory, true
@@ -2260,7 +2260,7 @@ func (o *CreateVirtualMachineRequestContent) GetMemoryOk() (*float32, bool) {
 
 // HasMemory returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasMemory() bool {
-	if o != nil && !isNil(o.Memory) {
+	if o != nil && !IsNil(o.Memory) {
 		return true
 	}
 
@@ -2274,7 +2274,7 @@ func (o *CreateVirtualMachineRequestContent) SetMemory(v float32) {
 
 // GetMigrateDowntime returns the MigrateDowntime field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetMigrateDowntime() float32 {
-	if o == nil || isNil(o.MigrateDowntime) {
+	if o == nil || IsNil(o.MigrateDowntime) {
 		var ret float32
 		return ret
 	}
@@ -2284,7 +2284,7 @@ func (o *CreateVirtualMachineRequestContent) GetMigrateDowntime() float32 {
 // GetMigrateDowntimeOk returns a tuple with the MigrateDowntime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetMigrateDowntimeOk() (*float32, bool) {
-	if o == nil || isNil(o.MigrateDowntime) {
+	if o == nil || IsNil(o.MigrateDowntime) {
 		return nil, false
 	}
 	return o.MigrateDowntime, true
@@ -2292,7 +2292,7 @@ func (o *CreateVirtualMachineRequestContent) GetMigrateDowntimeOk() (*float32, b
 
 // HasMigrateDowntime returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasMigrateDowntime() bool {
-	if o != nil && !isNil(o.MigrateDowntime) {
+	if o != nil && !IsNil(o.MigrateDowntime) {
 		return true
 	}
 
@@ -2306,7 +2306,7 @@ func (o *CreateVirtualMachineRequestContent) SetMigrateDowntime(v float32) {
 
 // GetMigrateSpeed returns the MigrateSpeed field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetMigrateSpeed() float32 {
-	if o == nil || isNil(o.MigrateSpeed) {
+	if o == nil || IsNil(o.MigrateSpeed) {
 		var ret float32
 		return ret
 	}
@@ -2316,7 +2316,7 @@ func (o *CreateVirtualMachineRequestContent) GetMigrateSpeed() float32 {
 // GetMigrateSpeedOk returns a tuple with the MigrateSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetMigrateSpeedOk() (*float32, bool) {
-	if o == nil || isNil(o.MigrateSpeed) {
+	if o == nil || IsNil(o.MigrateSpeed) {
 		return nil, false
 	}
 	return o.MigrateSpeed, true
@@ -2324,7 +2324,7 @@ func (o *CreateVirtualMachineRequestContent) GetMigrateSpeedOk() (*float32, bool
 
 // HasMigrateSpeed returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasMigrateSpeed() bool {
-	if o != nil && !isNil(o.MigrateSpeed) {
+	if o != nil && !IsNil(o.MigrateSpeed) {
 		return true
 	}
 
@@ -2338,7 +2338,7 @@ func (o *CreateVirtualMachineRequestContent) SetMigrateSpeed(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -2348,7 +2348,7 @@ func (o *CreateVirtualMachineRequestContent) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -2356,7 +2356,7 @@ func (o *CreateVirtualMachineRequestContent) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -2370,7 +2370,7 @@ func (o *CreateVirtualMachineRequestContent) SetName(v string) {
 
 // GetNameserver returns the Nameserver field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNameserver() string {
-	if o == nil || isNil(o.Nameserver) {
+	if o == nil || IsNil(o.Nameserver) {
 		var ret string
 		return ret
 	}
@@ -2380,7 +2380,7 @@ func (o *CreateVirtualMachineRequestContent) GetNameserver() string {
 // GetNameserverOk returns a tuple with the Nameserver field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNameserverOk() (*string, bool) {
-	if o == nil || isNil(o.Nameserver) {
+	if o == nil || IsNil(o.Nameserver) {
 		return nil, false
 	}
 	return o.Nameserver, true
@@ -2388,7 +2388,7 @@ func (o *CreateVirtualMachineRequestContent) GetNameserverOk() (*string, bool) {
 
 // HasNameserver returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNameserver() bool {
-	if o != nil && !isNil(o.Nameserver) {
+	if o != nil && !IsNil(o.Nameserver) {
 		return true
 	}
 
@@ -2402,7 +2402,7 @@ func (o *CreateVirtualMachineRequestContent) SetNameserver(v string) {
 
 // GetNet0 returns the Net0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet0() string {
-	if o == nil || isNil(o.Net0) {
+	if o == nil || IsNil(o.Net0) {
 		var ret string
 		return ret
 	}
@@ -2412,7 +2412,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet0() string {
 // GetNet0Ok returns a tuple with the Net0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet0Ok() (*string, bool) {
-	if o == nil || isNil(o.Net0) {
+	if o == nil || IsNil(o.Net0) {
 		return nil, false
 	}
 	return o.Net0, true
@@ -2420,7 +2420,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet0Ok() (*string, bool) {
 
 // HasNet0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet0() bool {
-	if o != nil && !isNil(o.Net0) {
+	if o != nil && !IsNil(o.Net0) {
 		return true
 	}
 
@@ -2434,7 +2434,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet0(v string) {
 
 // GetNet1 returns the Net1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet1() string {
-	if o == nil || isNil(o.Net1) {
+	if o == nil || IsNil(o.Net1) {
 		var ret string
 		return ret
 	}
@@ -2444,7 +2444,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet1() string {
 // GetNet1Ok returns a tuple with the Net1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet1Ok() (*string, bool) {
-	if o == nil || isNil(o.Net1) {
+	if o == nil || IsNil(o.Net1) {
 		return nil, false
 	}
 	return o.Net1, true
@@ -2452,7 +2452,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet1Ok() (*string, bool) {
 
 // HasNet1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet1() bool {
-	if o != nil && !isNil(o.Net1) {
+	if o != nil && !IsNil(o.Net1) {
 		return true
 	}
 
@@ -2466,7 +2466,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet1(v string) {
 
 // GetNet2 returns the Net2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet2() string {
-	if o == nil || isNil(o.Net2) {
+	if o == nil || IsNil(o.Net2) {
 		var ret string
 		return ret
 	}
@@ -2476,7 +2476,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet2() string {
 // GetNet2Ok returns a tuple with the Net2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet2Ok() (*string, bool) {
-	if o == nil || isNil(o.Net2) {
+	if o == nil || IsNil(o.Net2) {
 		return nil, false
 	}
 	return o.Net2, true
@@ -2484,7 +2484,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet2Ok() (*string, bool) {
 
 // HasNet2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet2() bool {
-	if o != nil && !isNil(o.Net2) {
+	if o != nil && !IsNil(o.Net2) {
 		return true
 	}
 
@@ -2498,7 +2498,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet2(v string) {
 
 // GetNet3 returns the Net3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet3() string {
-	if o == nil || isNil(o.Net3) {
+	if o == nil || IsNil(o.Net3) {
 		var ret string
 		return ret
 	}
@@ -2508,7 +2508,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet3() string {
 // GetNet3Ok returns a tuple with the Net3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet3Ok() (*string, bool) {
-	if o == nil || isNil(o.Net3) {
+	if o == nil || IsNil(o.Net3) {
 		return nil, false
 	}
 	return o.Net3, true
@@ -2516,7 +2516,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet3Ok() (*string, bool) {
 
 // HasNet3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet3() bool {
-	if o != nil && !isNil(o.Net3) {
+	if o != nil && !IsNil(o.Net3) {
 		return true
 	}
 
@@ -2530,7 +2530,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet3(v string) {
 
 // GetNet4 returns the Net4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet4() string {
-	if o == nil || isNil(o.Net4) {
+	if o == nil || IsNil(o.Net4) {
 		var ret string
 		return ret
 	}
@@ -2540,7 +2540,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet4() string {
 // GetNet4Ok returns a tuple with the Net4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet4Ok() (*string, bool) {
-	if o == nil || isNil(o.Net4) {
+	if o == nil || IsNil(o.Net4) {
 		return nil, false
 	}
 	return o.Net4, true
@@ -2548,7 +2548,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet4Ok() (*string, bool) {
 
 // HasNet4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet4() bool {
-	if o != nil && !isNil(o.Net4) {
+	if o != nil && !IsNil(o.Net4) {
 		return true
 	}
 
@@ -2562,7 +2562,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet4(v string) {
 
 // GetNet5 returns the Net5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet5() string {
-	if o == nil || isNil(o.Net5) {
+	if o == nil || IsNil(o.Net5) {
 		var ret string
 		return ret
 	}
@@ -2572,7 +2572,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet5() string {
 // GetNet5Ok returns a tuple with the Net5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet5Ok() (*string, bool) {
-	if o == nil || isNil(o.Net5) {
+	if o == nil || IsNil(o.Net5) {
 		return nil, false
 	}
 	return o.Net5, true
@@ -2580,7 +2580,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet5Ok() (*string, bool) {
 
 // HasNet5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet5() bool {
-	if o != nil && !isNil(o.Net5) {
+	if o != nil && !IsNil(o.Net5) {
 		return true
 	}
 
@@ -2594,7 +2594,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet5(v string) {
 
 // GetNet6 returns the Net6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet6() string {
-	if o == nil || isNil(o.Net6) {
+	if o == nil || IsNil(o.Net6) {
 		var ret string
 		return ret
 	}
@@ -2604,7 +2604,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet6() string {
 // GetNet6Ok returns a tuple with the Net6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet6Ok() (*string, bool) {
-	if o == nil || isNil(o.Net6) {
+	if o == nil || IsNil(o.Net6) {
 		return nil, false
 	}
 	return o.Net6, true
@@ -2612,7 +2612,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet6Ok() (*string, bool) {
 
 // HasNet6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet6() bool {
-	if o != nil && !isNil(o.Net6) {
+	if o != nil && !IsNil(o.Net6) {
 		return true
 	}
 
@@ -2626,7 +2626,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet6(v string) {
 
 // GetNet7 returns the Net7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNet7() string {
-	if o == nil || isNil(o.Net7) {
+	if o == nil || IsNil(o.Net7) {
 		var ret string
 		return ret
 	}
@@ -2636,7 +2636,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet7() string {
 // GetNet7Ok returns a tuple with the Net7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNet7Ok() (*string, bool) {
-	if o == nil || isNil(o.Net7) {
+	if o == nil || IsNil(o.Net7) {
 		return nil, false
 	}
 	return o.Net7, true
@@ -2644,7 +2644,7 @@ func (o *CreateVirtualMachineRequestContent) GetNet7Ok() (*string, bool) {
 
 // HasNet7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNet7() bool {
-	if o != nil && !isNil(o.Net7) {
+	if o != nil && !IsNil(o.Net7) {
 		return true
 	}
 
@@ -2658,7 +2658,7 @@ func (o *CreateVirtualMachineRequestContent) SetNet7(v string) {
 
 // GetNuma returns the Numa field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma() float32 {
-	if o == nil || isNil(o.Numa) {
+	if o == nil || IsNil(o.Numa) {
 		var ret float32
 		return ret
 	}
@@ -2668,7 +2668,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma() float32 {
 // GetNumaOk returns a tuple with the Numa field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNumaOk() (*float32, bool) {
-	if o == nil || isNil(o.Numa) {
+	if o == nil || IsNil(o.Numa) {
 		return nil, false
 	}
 	return o.Numa, true
@@ -2676,7 +2676,7 @@ func (o *CreateVirtualMachineRequestContent) GetNumaOk() (*float32, bool) {
 
 // HasNuma returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma() bool {
-	if o != nil && !isNil(o.Numa) {
+	if o != nil && !IsNil(o.Numa) {
 		return true
 	}
 
@@ -2690,7 +2690,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma(v float32) {
 
 // GetNuma0 returns the Numa0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma0() string {
-	if o == nil || isNil(o.Numa0) {
+	if o == nil || IsNil(o.Numa0) {
 		var ret string
 		return ret
 	}
@@ -2700,7 +2700,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma0() string {
 // GetNuma0Ok returns a tuple with the Numa0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma0Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa0) {
+	if o == nil || IsNil(o.Numa0) {
 		return nil, false
 	}
 	return o.Numa0, true
@@ -2708,7 +2708,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma0Ok() (*string, bool) {
 
 // HasNuma0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma0() bool {
-	if o != nil && !isNil(o.Numa0) {
+	if o != nil && !IsNil(o.Numa0) {
 		return true
 	}
 
@@ -2722,7 +2722,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma0(v string) {
 
 // GetNuma1 returns the Numa1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma1() string {
-	if o == nil || isNil(o.Numa1) {
+	if o == nil || IsNil(o.Numa1) {
 		var ret string
 		return ret
 	}
@@ -2732,7 +2732,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma1() string {
 // GetNuma1Ok returns a tuple with the Numa1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma1Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa1) {
+	if o == nil || IsNil(o.Numa1) {
 		return nil, false
 	}
 	return o.Numa1, true
@@ -2740,7 +2740,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma1Ok() (*string, bool) {
 
 // HasNuma1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma1() bool {
-	if o != nil && !isNil(o.Numa1) {
+	if o != nil && !IsNil(o.Numa1) {
 		return true
 	}
 
@@ -2754,7 +2754,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma1(v string) {
 
 // GetNuma2 returns the Numa2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma2() string {
-	if o == nil || isNil(o.Numa2) {
+	if o == nil || IsNil(o.Numa2) {
 		var ret string
 		return ret
 	}
@@ -2764,7 +2764,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma2() string {
 // GetNuma2Ok returns a tuple with the Numa2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma2Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa2) {
+	if o == nil || IsNil(o.Numa2) {
 		return nil, false
 	}
 	return o.Numa2, true
@@ -2772,7 +2772,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma2Ok() (*string, bool) {
 
 // HasNuma2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma2() bool {
-	if o != nil && !isNil(o.Numa2) {
+	if o != nil && !IsNil(o.Numa2) {
 		return true
 	}
 
@@ -2786,7 +2786,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma2(v string) {
 
 // GetNuma3 returns the Numa3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma3() string {
-	if o == nil || isNil(o.Numa3) {
+	if o == nil || IsNil(o.Numa3) {
 		var ret string
 		return ret
 	}
@@ -2796,7 +2796,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma3() string {
 // GetNuma3Ok returns a tuple with the Numa3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma3Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa3) {
+	if o == nil || IsNil(o.Numa3) {
 		return nil, false
 	}
 	return o.Numa3, true
@@ -2804,7 +2804,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma3Ok() (*string, bool) {
 
 // HasNuma3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma3() bool {
-	if o != nil && !isNil(o.Numa3) {
+	if o != nil && !IsNil(o.Numa3) {
 		return true
 	}
 
@@ -2818,7 +2818,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma3(v string) {
 
 // GetNuma4 returns the Numa4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma4() string {
-	if o == nil || isNil(o.Numa4) {
+	if o == nil || IsNil(o.Numa4) {
 		var ret string
 		return ret
 	}
@@ -2828,7 +2828,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma4() string {
 // GetNuma4Ok returns a tuple with the Numa4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma4Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa4) {
+	if o == nil || IsNil(o.Numa4) {
 		return nil, false
 	}
 	return o.Numa4, true
@@ -2836,7 +2836,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma4Ok() (*string, bool) {
 
 // HasNuma4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma4() bool {
-	if o != nil && !isNil(o.Numa4) {
+	if o != nil && !IsNil(o.Numa4) {
 		return true
 	}
 
@@ -2850,7 +2850,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma4(v string) {
 
 // GetNuma5 returns the Numa5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma5() string {
-	if o == nil || isNil(o.Numa5) {
+	if o == nil || IsNil(o.Numa5) {
 		var ret string
 		return ret
 	}
@@ -2860,7 +2860,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma5() string {
 // GetNuma5Ok returns a tuple with the Numa5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma5Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa5) {
+	if o == nil || IsNil(o.Numa5) {
 		return nil, false
 	}
 	return o.Numa5, true
@@ -2868,7 +2868,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma5Ok() (*string, bool) {
 
 // HasNuma5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma5() bool {
-	if o != nil && !isNil(o.Numa5) {
+	if o != nil && !IsNil(o.Numa5) {
 		return true
 	}
 
@@ -2882,7 +2882,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma5(v string) {
 
 // GetNuma6 returns the Numa6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma6() string {
-	if o == nil || isNil(o.Numa6) {
+	if o == nil || IsNil(o.Numa6) {
 		var ret string
 		return ret
 	}
@@ -2892,7 +2892,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma6() string {
 // GetNuma6Ok returns a tuple with the Numa6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma6Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa6) {
+	if o == nil || IsNil(o.Numa6) {
 		return nil, false
 	}
 	return o.Numa6, true
@@ -2900,7 +2900,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma6Ok() (*string, bool) {
 
 // HasNuma6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma6() bool {
-	if o != nil && !isNil(o.Numa6) {
+	if o != nil && !IsNil(o.Numa6) {
 		return true
 	}
 
@@ -2914,7 +2914,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma6(v string) {
 
 // GetNuma7 returns the Numa7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetNuma7() string {
-	if o == nil || isNil(o.Numa7) {
+	if o == nil || IsNil(o.Numa7) {
 		var ret string
 		return ret
 	}
@@ -2924,7 +2924,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma7() string {
 // GetNuma7Ok returns a tuple with the Numa7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetNuma7Ok() (*string, bool) {
-	if o == nil || isNil(o.Numa7) {
+	if o == nil || IsNil(o.Numa7) {
 		return nil, false
 	}
 	return o.Numa7, true
@@ -2932,7 +2932,7 @@ func (o *CreateVirtualMachineRequestContent) GetNuma7Ok() (*string, bool) {
 
 // HasNuma7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasNuma7() bool {
-	if o != nil && !isNil(o.Numa7) {
+	if o != nil && !IsNil(o.Numa7) {
 		return true
 	}
 
@@ -2946,7 +2946,7 @@ func (o *CreateVirtualMachineRequestContent) SetNuma7(v string) {
 
 // GetOnboot returns the Onboot field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetOnboot() float32 {
-	if o == nil || isNil(o.Onboot) {
+	if o == nil || IsNil(o.Onboot) {
 		var ret float32
 		return ret
 	}
@@ -2956,7 +2956,7 @@ func (o *CreateVirtualMachineRequestContent) GetOnboot() float32 {
 // GetOnbootOk returns a tuple with the Onboot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetOnbootOk() (*float32, bool) {
-	if o == nil || isNil(o.Onboot) {
+	if o == nil || IsNil(o.Onboot) {
 		return nil, false
 	}
 	return o.Onboot, true
@@ -2964,7 +2964,7 @@ func (o *CreateVirtualMachineRequestContent) GetOnbootOk() (*float32, bool) {
 
 // HasOnboot returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasOnboot() bool {
-	if o != nil && !isNil(o.Onboot) {
+	if o != nil && !IsNil(o.Onboot) {
 		return true
 	}
 
@@ -2978,7 +2978,7 @@ func (o *CreateVirtualMachineRequestContent) SetOnboot(v float32) {
 
 // GetOstype returns the Ostype field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetOstype() VirtualMachineOperatingSystem {
-	if o == nil || isNil(o.Ostype) {
+	if o == nil || IsNil(o.Ostype) {
 		var ret VirtualMachineOperatingSystem
 		return ret
 	}
@@ -2988,7 +2988,7 @@ func (o *CreateVirtualMachineRequestContent) GetOstype() VirtualMachineOperating
 // GetOstypeOk returns a tuple with the Ostype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetOstypeOk() (*VirtualMachineOperatingSystem, bool) {
-	if o == nil || isNil(o.Ostype) {
+	if o == nil || IsNil(o.Ostype) {
 		return nil, false
 	}
 	return o.Ostype, true
@@ -2996,7 +2996,7 @@ func (o *CreateVirtualMachineRequestContent) GetOstypeOk() (*VirtualMachineOpera
 
 // HasOstype returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasOstype() bool {
-	if o != nil && !isNil(o.Ostype) {
+	if o != nil && !IsNil(o.Ostype) {
 		return true
 	}
 
@@ -3010,7 +3010,7 @@ func (o *CreateVirtualMachineRequestContent) SetOstype(v VirtualMachineOperating
 
 // GetParallel0 returns the Parallel0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetParallel0() string {
-	if o == nil || isNil(o.Parallel0) {
+	if o == nil || IsNil(o.Parallel0) {
 		var ret string
 		return ret
 	}
@@ -3020,7 +3020,7 @@ func (o *CreateVirtualMachineRequestContent) GetParallel0() string {
 // GetParallel0Ok returns a tuple with the Parallel0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetParallel0Ok() (*string, bool) {
-	if o == nil || isNil(o.Parallel0) {
+	if o == nil || IsNil(o.Parallel0) {
 		return nil, false
 	}
 	return o.Parallel0, true
@@ -3028,7 +3028,7 @@ func (o *CreateVirtualMachineRequestContent) GetParallel0Ok() (*string, bool) {
 
 // HasParallel0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasParallel0() bool {
-	if o != nil && !isNil(o.Parallel0) {
+	if o != nil && !IsNil(o.Parallel0) {
 		return true
 	}
 
@@ -3042,7 +3042,7 @@ func (o *CreateVirtualMachineRequestContent) SetParallel0(v string) {
 
 // GetParallel1 returns the Parallel1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetParallel1() string {
-	if o == nil || isNil(o.Parallel1) {
+	if o == nil || IsNil(o.Parallel1) {
 		var ret string
 		return ret
 	}
@@ -3052,7 +3052,7 @@ func (o *CreateVirtualMachineRequestContent) GetParallel1() string {
 // GetParallel1Ok returns a tuple with the Parallel1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetParallel1Ok() (*string, bool) {
-	if o == nil || isNil(o.Parallel1) {
+	if o == nil || IsNil(o.Parallel1) {
 		return nil, false
 	}
 	return o.Parallel1, true
@@ -3060,7 +3060,7 @@ func (o *CreateVirtualMachineRequestContent) GetParallel1Ok() (*string, bool) {
 
 // HasParallel1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasParallel1() bool {
-	if o != nil && !isNil(o.Parallel1) {
+	if o != nil && !IsNil(o.Parallel1) {
 		return true
 	}
 
@@ -3074,7 +3074,7 @@ func (o *CreateVirtualMachineRequestContent) SetParallel1(v string) {
 
 // GetParallel2 returns the Parallel2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetParallel2() string {
-	if o == nil || isNil(o.Parallel2) {
+	if o == nil || IsNil(o.Parallel2) {
 		var ret string
 		return ret
 	}
@@ -3084,7 +3084,7 @@ func (o *CreateVirtualMachineRequestContent) GetParallel2() string {
 // GetParallel2Ok returns a tuple with the Parallel2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetParallel2Ok() (*string, bool) {
-	if o == nil || isNil(o.Parallel2) {
+	if o == nil || IsNil(o.Parallel2) {
 		return nil, false
 	}
 	return o.Parallel2, true
@@ -3092,7 +3092,7 @@ func (o *CreateVirtualMachineRequestContent) GetParallel2Ok() (*string, bool) {
 
 // HasParallel2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasParallel2() bool {
-	if o != nil && !isNil(o.Parallel2) {
+	if o != nil && !IsNil(o.Parallel2) {
 		return true
 	}
 
@@ -3106,7 +3106,7 @@ func (o *CreateVirtualMachineRequestContent) SetParallel2(v string) {
 
 // GetPool returns the Pool field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetPool() string {
-	if o == nil || isNil(o.Pool) {
+	if o == nil || IsNil(o.Pool) {
 		var ret string
 		return ret
 	}
@@ -3116,7 +3116,7 @@ func (o *CreateVirtualMachineRequestContent) GetPool() string {
 // GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetPoolOk() (*string, bool) {
-	if o == nil || isNil(o.Pool) {
+	if o == nil || IsNil(o.Pool) {
 		return nil, false
 	}
 	return o.Pool, true
@@ -3124,7 +3124,7 @@ func (o *CreateVirtualMachineRequestContent) GetPoolOk() (*string, bool) {
 
 // HasPool returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasPool() bool {
-	if o != nil && !isNil(o.Pool) {
+	if o != nil && !IsNil(o.Pool) {
 		return true
 	}
 
@@ -3138,7 +3138,7 @@ func (o *CreateVirtualMachineRequestContent) SetPool(v string) {
 
 // GetProtection returns the Protection field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetProtection() float32 {
-	if o == nil || isNil(o.Protection) {
+	if o == nil || IsNil(o.Protection) {
 		var ret float32
 		return ret
 	}
@@ -3148,7 +3148,7 @@ func (o *CreateVirtualMachineRequestContent) GetProtection() float32 {
 // GetProtectionOk returns a tuple with the Protection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetProtectionOk() (*float32, bool) {
-	if o == nil || isNil(o.Protection) {
+	if o == nil || IsNil(o.Protection) {
 		return nil, false
 	}
 	return o.Protection, true
@@ -3156,7 +3156,7 @@ func (o *CreateVirtualMachineRequestContent) GetProtectionOk() (*float32, bool) 
 
 // HasProtection returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasProtection() bool {
-	if o != nil && !isNil(o.Protection) {
+	if o != nil && !IsNil(o.Protection) {
 		return true
 	}
 
@@ -3170,7 +3170,7 @@ func (o *CreateVirtualMachineRequestContent) SetProtection(v float32) {
 
 // GetReboot returns the Reboot field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetReboot() float32 {
-	if o == nil || isNil(o.Reboot) {
+	if o == nil || IsNil(o.Reboot) {
 		var ret float32
 		return ret
 	}
@@ -3180,7 +3180,7 @@ func (o *CreateVirtualMachineRequestContent) GetReboot() float32 {
 // GetRebootOk returns a tuple with the Reboot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetRebootOk() (*float32, bool) {
-	if o == nil || isNil(o.Reboot) {
+	if o == nil || IsNil(o.Reboot) {
 		return nil, false
 	}
 	return o.Reboot, true
@@ -3188,7 +3188,7 @@ func (o *CreateVirtualMachineRequestContent) GetRebootOk() (*float32, bool) {
 
 // HasReboot returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasReboot() bool {
-	if o != nil && !isNil(o.Reboot) {
+	if o != nil && !IsNil(o.Reboot) {
 		return true
 	}
 
@@ -3202,7 +3202,7 @@ func (o *CreateVirtualMachineRequestContent) SetReboot(v float32) {
 
 // GetRng0 returns the Rng0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetRng0() string {
-	if o == nil || isNil(o.Rng0) {
+	if o == nil || IsNil(o.Rng0) {
 		var ret string
 		return ret
 	}
@@ -3212,7 +3212,7 @@ func (o *CreateVirtualMachineRequestContent) GetRng0() string {
 // GetRng0Ok returns a tuple with the Rng0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetRng0Ok() (*string, bool) {
-	if o == nil || isNil(o.Rng0) {
+	if o == nil || IsNil(o.Rng0) {
 		return nil, false
 	}
 	return o.Rng0, true
@@ -3220,7 +3220,7 @@ func (o *CreateVirtualMachineRequestContent) GetRng0Ok() (*string, bool) {
 
 // HasRng0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasRng0() bool {
-	if o != nil && !isNil(o.Rng0) {
+	if o != nil && !IsNil(o.Rng0) {
 		return true
 	}
 
@@ -3234,7 +3234,7 @@ func (o *CreateVirtualMachineRequestContent) SetRng0(v string) {
 
 // GetSata0 returns the Sata0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSata0() string {
-	if o == nil || isNil(o.Sata0) {
+	if o == nil || IsNil(o.Sata0) {
 		var ret string
 		return ret
 	}
@@ -3244,7 +3244,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata0() string {
 // GetSata0Ok returns a tuple with the Sata0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSata0Ok() (*string, bool) {
-	if o == nil || isNil(o.Sata0) {
+	if o == nil || IsNil(o.Sata0) {
 		return nil, false
 	}
 	return o.Sata0, true
@@ -3252,7 +3252,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata0Ok() (*string, bool) {
 
 // HasSata0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSata0() bool {
-	if o != nil && !isNil(o.Sata0) {
+	if o != nil && !IsNil(o.Sata0) {
 		return true
 	}
 
@@ -3266,7 +3266,7 @@ func (o *CreateVirtualMachineRequestContent) SetSata0(v string) {
 
 // GetSata1 returns the Sata1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSata1() string {
-	if o == nil || isNil(o.Sata1) {
+	if o == nil || IsNil(o.Sata1) {
 		var ret string
 		return ret
 	}
@@ -3276,7 +3276,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata1() string {
 // GetSata1Ok returns a tuple with the Sata1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSata1Ok() (*string, bool) {
-	if o == nil || isNil(o.Sata1) {
+	if o == nil || IsNil(o.Sata1) {
 		return nil, false
 	}
 	return o.Sata1, true
@@ -3284,7 +3284,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata1Ok() (*string, bool) {
 
 // HasSata1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSata1() bool {
-	if o != nil && !isNil(o.Sata1) {
+	if o != nil && !IsNil(o.Sata1) {
 		return true
 	}
 
@@ -3298,7 +3298,7 @@ func (o *CreateVirtualMachineRequestContent) SetSata1(v string) {
 
 // GetSata2 returns the Sata2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSata2() string {
-	if o == nil || isNil(o.Sata2) {
+	if o == nil || IsNil(o.Sata2) {
 		var ret string
 		return ret
 	}
@@ -3308,7 +3308,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata2() string {
 // GetSata2Ok returns a tuple with the Sata2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSata2Ok() (*string, bool) {
-	if o == nil || isNil(o.Sata2) {
+	if o == nil || IsNil(o.Sata2) {
 		return nil, false
 	}
 	return o.Sata2, true
@@ -3316,7 +3316,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata2Ok() (*string, bool) {
 
 // HasSata2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSata2() bool {
-	if o != nil && !isNil(o.Sata2) {
+	if o != nil && !IsNil(o.Sata2) {
 		return true
 	}
 
@@ -3330,7 +3330,7 @@ func (o *CreateVirtualMachineRequestContent) SetSata2(v string) {
 
 // GetSata3 returns the Sata3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSata3() string {
-	if o == nil || isNil(o.Sata3) {
+	if o == nil || IsNil(o.Sata3) {
 		var ret string
 		return ret
 	}
@@ -3340,7 +3340,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata3() string {
 // GetSata3Ok returns a tuple with the Sata3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSata3Ok() (*string, bool) {
-	if o == nil || isNil(o.Sata3) {
+	if o == nil || IsNil(o.Sata3) {
 		return nil, false
 	}
 	return o.Sata3, true
@@ -3348,7 +3348,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata3Ok() (*string, bool) {
 
 // HasSata3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSata3() bool {
-	if o != nil && !isNil(o.Sata3) {
+	if o != nil && !IsNil(o.Sata3) {
 		return true
 	}
 
@@ -3362,7 +3362,7 @@ func (o *CreateVirtualMachineRequestContent) SetSata3(v string) {
 
 // GetSata4 returns the Sata4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSata4() string {
-	if o == nil || isNil(o.Sata4) {
+	if o == nil || IsNil(o.Sata4) {
 		var ret string
 		return ret
 	}
@@ -3372,7 +3372,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata4() string {
 // GetSata4Ok returns a tuple with the Sata4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSata4Ok() (*string, bool) {
-	if o == nil || isNil(o.Sata4) {
+	if o == nil || IsNil(o.Sata4) {
 		return nil, false
 	}
 	return o.Sata4, true
@@ -3380,7 +3380,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata4Ok() (*string, bool) {
 
 // HasSata4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSata4() bool {
-	if o != nil && !isNil(o.Sata4) {
+	if o != nil && !IsNil(o.Sata4) {
 		return true
 	}
 
@@ -3394,7 +3394,7 @@ func (o *CreateVirtualMachineRequestContent) SetSata4(v string) {
 
 // GetSata5 returns the Sata5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSata5() string {
-	if o == nil || isNil(o.Sata5) {
+	if o == nil || IsNil(o.Sata5) {
 		var ret string
 		return ret
 	}
@@ -3404,7 +3404,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata5() string {
 // GetSata5Ok returns a tuple with the Sata5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSata5Ok() (*string, bool) {
-	if o == nil || isNil(o.Sata5) {
+	if o == nil || IsNil(o.Sata5) {
 		return nil, false
 	}
 	return o.Sata5, true
@@ -3412,7 +3412,7 @@ func (o *CreateVirtualMachineRequestContent) GetSata5Ok() (*string, bool) {
 
 // HasSata5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSata5() bool {
-	if o != nil && !isNil(o.Sata5) {
+	if o != nil && !IsNil(o.Sata5) {
 		return true
 	}
 
@@ -3426,7 +3426,7 @@ func (o *CreateVirtualMachineRequestContent) SetSata5(v string) {
 
 // GetScsi0 returns the Scsi0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi0() string {
-	if o == nil || isNil(o.Scsi0) {
+	if o == nil || IsNil(o.Scsi0) {
 		var ret string
 		return ret
 	}
@@ -3436,7 +3436,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi0() string {
 // GetScsi0Ok returns a tuple with the Scsi0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi0Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi0) {
+	if o == nil || IsNil(o.Scsi0) {
 		return nil, false
 	}
 	return o.Scsi0, true
@@ -3444,7 +3444,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi0Ok() (*string, bool) {
 
 // HasScsi0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi0() bool {
-	if o != nil && !isNil(o.Scsi0) {
+	if o != nil && !IsNil(o.Scsi0) {
 		return true
 	}
 
@@ -3458,7 +3458,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi0(v string) {
 
 // GetScsi1 returns the Scsi1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi1() string {
-	if o == nil || isNil(o.Scsi1) {
+	if o == nil || IsNil(o.Scsi1) {
 		var ret string
 		return ret
 	}
@@ -3468,7 +3468,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi1() string {
 // GetScsi1Ok returns a tuple with the Scsi1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi1Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi1) {
+	if o == nil || IsNil(o.Scsi1) {
 		return nil, false
 	}
 	return o.Scsi1, true
@@ -3476,7 +3476,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi1Ok() (*string, bool) {
 
 // HasScsi1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi1() bool {
-	if o != nil && !isNil(o.Scsi1) {
+	if o != nil && !IsNil(o.Scsi1) {
 		return true
 	}
 
@@ -3490,7 +3490,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi1(v string) {
 
 // GetScsi2 returns the Scsi2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi2() string {
-	if o == nil || isNil(o.Scsi2) {
+	if o == nil || IsNil(o.Scsi2) {
 		var ret string
 		return ret
 	}
@@ -3500,7 +3500,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi2() string {
 // GetScsi2Ok returns a tuple with the Scsi2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi2Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi2) {
+	if o == nil || IsNil(o.Scsi2) {
 		return nil, false
 	}
 	return o.Scsi2, true
@@ -3508,7 +3508,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi2Ok() (*string, bool) {
 
 // HasScsi2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi2() bool {
-	if o != nil && !isNil(o.Scsi2) {
+	if o != nil && !IsNil(o.Scsi2) {
 		return true
 	}
 
@@ -3522,7 +3522,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi2(v string) {
 
 // GetScsi3 returns the Scsi3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi3() string {
-	if o == nil || isNil(o.Scsi3) {
+	if o == nil || IsNil(o.Scsi3) {
 		var ret string
 		return ret
 	}
@@ -3532,7 +3532,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi3() string {
 // GetScsi3Ok returns a tuple with the Scsi3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi3Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi3) {
+	if o == nil || IsNil(o.Scsi3) {
 		return nil, false
 	}
 	return o.Scsi3, true
@@ -3540,7 +3540,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi3Ok() (*string, bool) {
 
 // HasScsi3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi3() bool {
-	if o != nil && !isNil(o.Scsi3) {
+	if o != nil && !IsNil(o.Scsi3) {
 		return true
 	}
 
@@ -3554,7 +3554,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi3(v string) {
 
 // GetScsi4 returns the Scsi4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi4() string {
-	if o == nil || isNil(o.Scsi4) {
+	if o == nil || IsNil(o.Scsi4) {
 		var ret string
 		return ret
 	}
@@ -3564,7 +3564,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi4() string {
 // GetScsi4Ok returns a tuple with the Scsi4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi4Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi4) {
+	if o == nil || IsNil(o.Scsi4) {
 		return nil, false
 	}
 	return o.Scsi4, true
@@ -3572,7 +3572,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi4Ok() (*string, bool) {
 
 // HasScsi4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi4() bool {
-	if o != nil && !isNil(o.Scsi4) {
+	if o != nil && !IsNil(o.Scsi4) {
 		return true
 	}
 
@@ -3586,7 +3586,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi4(v string) {
 
 // GetScsi5 returns the Scsi5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi5() string {
-	if o == nil || isNil(o.Scsi5) {
+	if o == nil || IsNil(o.Scsi5) {
 		var ret string
 		return ret
 	}
@@ -3596,7 +3596,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi5() string {
 // GetScsi5Ok returns a tuple with the Scsi5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi5Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi5) {
+	if o == nil || IsNil(o.Scsi5) {
 		return nil, false
 	}
 	return o.Scsi5, true
@@ -3604,7 +3604,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi5Ok() (*string, bool) {
 
 // HasScsi5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi5() bool {
-	if o != nil && !isNil(o.Scsi5) {
+	if o != nil && !IsNil(o.Scsi5) {
 		return true
 	}
 
@@ -3618,7 +3618,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi5(v string) {
 
 // GetScsi6 returns the Scsi6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi6() string {
-	if o == nil || isNil(o.Scsi6) {
+	if o == nil || IsNil(o.Scsi6) {
 		var ret string
 		return ret
 	}
@@ -3628,7 +3628,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi6() string {
 // GetScsi6Ok returns a tuple with the Scsi6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi6Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi6) {
+	if o == nil || IsNil(o.Scsi6) {
 		return nil, false
 	}
 	return o.Scsi6, true
@@ -3636,7 +3636,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi6Ok() (*string, bool) {
 
 // HasScsi6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi6() bool {
-	if o != nil && !isNil(o.Scsi6) {
+	if o != nil && !IsNil(o.Scsi6) {
 		return true
 	}
 
@@ -3650,7 +3650,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi6(v string) {
 
 // GetScsi7 returns the Scsi7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi7() string {
-	if o == nil || isNil(o.Scsi7) {
+	if o == nil || IsNil(o.Scsi7) {
 		var ret string
 		return ret
 	}
@@ -3660,7 +3660,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi7() string {
 // GetScsi7Ok returns a tuple with the Scsi7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi7Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi7) {
+	if o == nil || IsNil(o.Scsi7) {
 		return nil, false
 	}
 	return o.Scsi7, true
@@ -3668,7 +3668,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi7Ok() (*string, bool) {
 
 // HasScsi7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi7() bool {
-	if o != nil && !isNil(o.Scsi7) {
+	if o != nil && !IsNil(o.Scsi7) {
 		return true
 	}
 
@@ -3682,7 +3682,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi7(v string) {
 
 // GetScsi8 returns the Scsi8 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi8() string {
-	if o == nil || isNil(o.Scsi8) {
+	if o == nil || IsNil(o.Scsi8) {
 		var ret string
 		return ret
 	}
@@ -3692,7 +3692,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi8() string {
 // GetScsi8Ok returns a tuple with the Scsi8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi8Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi8) {
+	if o == nil || IsNil(o.Scsi8) {
 		return nil, false
 	}
 	return o.Scsi8, true
@@ -3700,7 +3700,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi8Ok() (*string, bool) {
 
 // HasScsi8 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi8() bool {
-	if o != nil && !isNil(o.Scsi8) {
+	if o != nil && !IsNil(o.Scsi8) {
 		return true
 	}
 
@@ -3714,7 +3714,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi8(v string) {
 
 // GetScsi9 returns the Scsi9 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi9() string {
-	if o == nil || isNil(o.Scsi9) {
+	if o == nil || IsNil(o.Scsi9) {
 		var ret string
 		return ret
 	}
@@ -3724,7 +3724,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi9() string {
 // GetScsi9Ok returns a tuple with the Scsi9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi9Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi9) {
+	if o == nil || IsNil(o.Scsi9) {
 		return nil, false
 	}
 	return o.Scsi9, true
@@ -3732,7 +3732,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi9Ok() (*string, bool) {
 
 // HasScsi9 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi9() bool {
-	if o != nil && !isNil(o.Scsi9) {
+	if o != nil && !IsNil(o.Scsi9) {
 		return true
 	}
 
@@ -3746,7 +3746,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi9(v string) {
 
 // GetScsi10 returns the Scsi10 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi10() string {
-	if o == nil || isNil(o.Scsi10) {
+	if o == nil || IsNil(o.Scsi10) {
 		var ret string
 		return ret
 	}
@@ -3756,7 +3756,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi10() string {
 // GetScsi10Ok returns a tuple with the Scsi10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi10Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi10) {
+	if o == nil || IsNil(o.Scsi10) {
 		return nil, false
 	}
 	return o.Scsi10, true
@@ -3764,7 +3764,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi10Ok() (*string, bool) {
 
 // HasScsi10 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi10() bool {
-	if o != nil && !isNil(o.Scsi10) {
+	if o != nil && !IsNil(o.Scsi10) {
 		return true
 	}
 
@@ -3778,7 +3778,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi10(v string) {
 
 // GetScsi11 returns the Scsi11 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi11() string {
-	if o == nil || isNil(o.Scsi11) {
+	if o == nil || IsNil(o.Scsi11) {
 		var ret string
 		return ret
 	}
@@ -3788,7 +3788,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi11() string {
 // GetScsi11Ok returns a tuple with the Scsi11 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi11Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi11) {
+	if o == nil || IsNil(o.Scsi11) {
 		return nil, false
 	}
 	return o.Scsi11, true
@@ -3796,7 +3796,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi11Ok() (*string, bool) {
 
 // HasScsi11 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi11() bool {
-	if o != nil && !isNil(o.Scsi11) {
+	if o != nil && !IsNil(o.Scsi11) {
 		return true
 	}
 
@@ -3810,7 +3810,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi11(v string) {
 
 // GetScsi12 returns the Scsi12 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi12() string {
-	if o == nil || isNil(o.Scsi12) {
+	if o == nil || IsNil(o.Scsi12) {
 		var ret string
 		return ret
 	}
@@ -3820,7 +3820,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi12() string {
 // GetScsi12Ok returns a tuple with the Scsi12 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi12Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi12) {
+	if o == nil || IsNil(o.Scsi12) {
 		return nil, false
 	}
 	return o.Scsi12, true
@@ -3828,7 +3828,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi12Ok() (*string, bool) {
 
 // HasScsi12 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi12() bool {
-	if o != nil && !isNil(o.Scsi12) {
+	if o != nil && !IsNil(o.Scsi12) {
 		return true
 	}
 
@@ -3842,7 +3842,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi12(v string) {
 
 // GetScsi13 returns the Scsi13 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi13() string {
-	if o == nil || isNil(o.Scsi13) {
+	if o == nil || IsNil(o.Scsi13) {
 		var ret string
 		return ret
 	}
@@ -3852,7 +3852,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi13() string {
 // GetScsi13Ok returns a tuple with the Scsi13 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi13Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi13) {
+	if o == nil || IsNil(o.Scsi13) {
 		return nil, false
 	}
 	return o.Scsi13, true
@@ -3860,7 +3860,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi13Ok() (*string, bool) {
 
 // HasScsi13 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi13() bool {
-	if o != nil && !isNil(o.Scsi13) {
+	if o != nil && !IsNil(o.Scsi13) {
 		return true
 	}
 
@@ -3874,7 +3874,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi13(v string) {
 
 // GetScsi14 returns the Scsi14 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi14() string {
-	if o == nil || isNil(o.Scsi14) {
+	if o == nil || IsNil(o.Scsi14) {
 		var ret string
 		return ret
 	}
@@ -3884,7 +3884,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi14() string {
 // GetScsi14Ok returns a tuple with the Scsi14 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi14Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi14) {
+	if o == nil || IsNil(o.Scsi14) {
 		return nil, false
 	}
 	return o.Scsi14, true
@@ -3892,7 +3892,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi14Ok() (*string, bool) {
 
 // HasScsi14 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi14() bool {
-	if o != nil && !isNil(o.Scsi14) {
+	if o != nil && !IsNil(o.Scsi14) {
 		return true
 	}
 
@@ -3906,7 +3906,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi14(v string) {
 
 // GetScsi15 returns the Scsi15 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi15() string {
-	if o == nil || isNil(o.Scsi15) {
+	if o == nil || IsNil(o.Scsi15) {
 		var ret string
 		return ret
 	}
@@ -3916,7 +3916,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi15() string {
 // GetScsi15Ok returns a tuple with the Scsi15 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi15Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi15) {
+	if o == nil || IsNil(o.Scsi15) {
 		return nil, false
 	}
 	return o.Scsi15, true
@@ -3924,7 +3924,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi15Ok() (*string, bool) {
 
 // HasScsi15 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi15() bool {
-	if o != nil && !isNil(o.Scsi15) {
+	if o != nil && !IsNil(o.Scsi15) {
 		return true
 	}
 
@@ -3938,7 +3938,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi15(v string) {
 
 // GetScsi16 returns the Scsi16 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi16() string {
-	if o == nil || isNil(o.Scsi16) {
+	if o == nil || IsNil(o.Scsi16) {
 		var ret string
 		return ret
 	}
@@ -3948,7 +3948,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi16() string {
 // GetScsi16Ok returns a tuple with the Scsi16 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi16Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi16) {
+	if o == nil || IsNil(o.Scsi16) {
 		return nil, false
 	}
 	return o.Scsi16, true
@@ -3956,7 +3956,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi16Ok() (*string, bool) {
 
 // HasScsi16 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi16() bool {
-	if o != nil && !isNil(o.Scsi16) {
+	if o != nil && !IsNil(o.Scsi16) {
 		return true
 	}
 
@@ -3970,7 +3970,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi16(v string) {
 
 // GetScsi17 returns the Scsi17 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi17() string {
-	if o == nil || isNil(o.Scsi17) {
+	if o == nil || IsNil(o.Scsi17) {
 		var ret string
 		return ret
 	}
@@ -3980,7 +3980,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi17() string {
 // GetScsi17Ok returns a tuple with the Scsi17 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi17Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi17) {
+	if o == nil || IsNil(o.Scsi17) {
 		return nil, false
 	}
 	return o.Scsi17, true
@@ -3988,7 +3988,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi17Ok() (*string, bool) {
 
 // HasScsi17 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi17() bool {
-	if o != nil && !isNil(o.Scsi17) {
+	if o != nil && !IsNil(o.Scsi17) {
 		return true
 	}
 
@@ -4002,7 +4002,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi17(v string) {
 
 // GetScsi18 returns the Scsi18 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi18() string {
-	if o == nil || isNil(o.Scsi18) {
+	if o == nil || IsNil(o.Scsi18) {
 		var ret string
 		return ret
 	}
@@ -4012,7 +4012,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi18() string {
 // GetScsi18Ok returns a tuple with the Scsi18 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi18Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi18) {
+	if o == nil || IsNil(o.Scsi18) {
 		return nil, false
 	}
 	return o.Scsi18, true
@@ -4020,7 +4020,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi18Ok() (*string, bool) {
 
 // HasScsi18 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi18() bool {
-	if o != nil && !isNil(o.Scsi18) {
+	if o != nil && !IsNil(o.Scsi18) {
 		return true
 	}
 
@@ -4034,7 +4034,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi18(v string) {
 
 // GetScsi19 returns the Scsi19 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi19() string {
-	if o == nil || isNil(o.Scsi19) {
+	if o == nil || IsNil(o.Scsi19) {
 		var ret string
 		return ret
 	}
@@ -4044,7 +4044,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi19() string {
 // GetScsi19Ok returns a tuple with the Scsi19 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi19Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi19) {
+	if o == nil || IsNil(o.Scsi19) {
 		return nil, false
 	}
 	return o.Scsi19, true
@@ -4052,7 +4052,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi19Ok() (*string, bool) {
 
 // HasScsi19 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi19() bool {
-	if o != nil && !isNil(o.Scsi19) {
+	if o != nil && !IsNil(o.Scsi19) {
 		return true
 	}
 
@@ -4066,7 +4066,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi19(v string) {
 
 // GetScsi20 returns the Scsi20 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi20() string {
-	if o == nil || isNil(o.Scsi20) {
+	if o == nil || IsNil(o.Scsi20) {
 		var ret string
 		return ret
 	}
@@ -4076,7 +4076,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi20() string {
 // GetScsi20Ok returns a tuple with the Scsi20 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi20Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi20) {
+	if o == nil || IsNil(o.Scsi20) {
 		return nil, false
 	}
 	return o.Scsi20, true
@@ -4084,7 +4084,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi20Ok() (*string, bool) {
 
 // HasScsi20 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi20() bool {
-	if o != nil && !isNil(o.Scsi20) {
+	if o != nil && !IsNil(o.Scsi20) {
 		return true
 	}
 
@@ -4098,7 +4098,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi20(v string) {
 
 // GetScsi21 returns the Scsi21 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi21() string {
-	if o == nil || isNil(o.Scsi21) {
+	if o == nil || IsNil(o.Scsi21) {
 		var ret string
 		return ret
 	}
@@ -4108,7 +4108,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi21() string {
 // GetScsi21Ok returns a tuple with the Scsi21 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi21Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi21) {
+	if o == nil || IsNil(o.Scsi21) {
 		return nil, false
 	}
 	return o.Scsi21, true
@@ -4116,7 +4116,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi21Ok() (*string, bool) {
 
 // HasScsi21 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi21() bool {
-	if o != nil && !isNil(o.Scsi21) {
+	if o != nil && !IsNil(o.Scsi21) {
 		return true
 	}
 
@@ -4130,7 +4130,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi21(v string) {
 
 // GetScsi22 returns the Scsi22 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi22() string {
-	if o == nil || isNil(o.Scsi22) {
+	if o == nil || IsNil(o.Scsi22) {
 		var ret string
 		return ret
 	}
@@ -4140,7 +4140,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi22() string {
 // GetScsi22Ok returns a tuple with the Scsi22 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi22Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi22) {
+	if o == nil || IsNil(o.Scsi22) {
 		return nil, false
 	}
 	return o.Scsi22, true
@@ -4148,7 +4148,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi22Ok() (*string, bool) {
 
 // HasScsi22 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi22() bool {
-	if o != nil && !isNil(o.Scsi22) {
+	if o != nil && !IsNil(o.Scsi22) {
 		return true
 	}
 
@@ -4162,7 +4162,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi22(v string) {
 
 // GetScsi23 returns the Scsi23 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi23() string {
-	if o == nil || isNil(o.Scsi23) {
+	if o == nil || IsNil(o.Scsi23) {
 		var ret string
 		return ret
 	}
@@ -4172,7 +4172,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi23() string {
 // GetScsi23Ok returns a tuple with the Scsi23 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi23Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi23) {
+	if o == nil || IsNil(o.Scsi23) {
 		return nil, false
 	}
 	return o.Scsi23, true
@@ -4180,7 +4180,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi23Ok() (*string, bool) {
 
 // HasScsi23 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi23() bool {
-	if o != nil && !isNil(o.Scsi23) {
+	if o != nil && !IsNil(o.Scsi23) {
 		return true
 	}
 
@@ -4194,7 +4194,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi23(v string) {
 
 // GetScsi24 returns the Scsi24 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi24() string {
-	if o == nil || isNil(o.Scsi24) {
+	if o == nil || IsNil(o.Scsi24) {
 		var ret string
 		return ret
 	}
@@ -4204,7 +4204,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi24() string {
 // GetScsi24Ok returns a tuple with the Scsi24 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi24Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi24) {
+	if o == nil || IsNil(o.Scsi24) {
 		return nil, false
 	}
 	return o.Scsi24, true
@@ -4212,7 +4212,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi24Ok() (*string, bool) {
 
 // HasScsi24 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi24() bool {
-	if o != nil && !isNil(o.Scsi24) {
+	if o != nil && !IsNil(o.Scsi24) {
 		return true
 	}
 
@@ -4226,7 +4226,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi24(v string) {
 
 // GetScsi25 returns the Scsi25 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi25() string {
-	if o == nil || isNil(o.Scsi25) {
+	if o == nil || IsNil(o.Scsi25) {
 		var ret string
 		return ret
 	}
@@ -4236,7 +4236,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi25() string {
 // GetScsi25Ok returns a tuple with the Scsi25 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi25Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi25) {
+	if o == nil || IsNil(o.Scsi25) {
 		return nil, false
 	}
 	return o.Scsi25, true
@@ -4244,7 +4244,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi25Ok() (*string, bool) {
 
 // HasScsi25 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi25() bool {
-	if o != nil && !isNil(o.Scsi25) {
+	if o != nil && !IsNil(o.Scsi25) {
 		return true
 	}
 
@@ -4258,7 +4258,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi25(v string) {
 
 // GetScsi26 returns the Scsi26 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi26() string {
-	if o == nil || isNil(o.Scsi26) {
+	if o == nil || IsNil(o.Scsi26) {
 		var ret string
 		return ret
 	}
@@ -4268,7 +4268,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi26() string {
 // GetScsi26Ok returns a tuple with the Scsi26 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi26Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi26) {
+	if o == nil || IsNil(o.Scsi26) {
 		return nil, false
 	}
 	return o.Scsi26, true
@@ -4276,7 +4276,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi26Ok() (*string, bool) {
 
 // HasScsi26 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi26() bool {
-	if o != nil && !isNil(o.Scsi26) {
+	if o != nil && !IsNil(o.Scsi26) {
 		return true
 	}
 
@@ -4290,7 +4290,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi26(v string) {
 
 // GetScsi27 returns the Scsi27 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi27() string {
-	if o == nil || isNil(o.Scsi27) {
+	if o == nil || IsNil(o.Scsi27) {
 		var ret string
 		return ret
 	}
@@ -4300,7 +4300,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi27() string {
 // GetScsi27Ok returns a tuple with the Scsi27 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi27Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi27) {
+	if o == nil || IsNil(o.Scsi27) {
 		return nil, false
 	}
 	return o.Scsi27, true
@@ -4308,7 +4308,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi27Ok() (*string, bool) {
 
 // HasScsi27 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi27() bool {
-	if o != nil && !isNil(o.Scsi27) {
+	if o != nil && !IsNil(o.Scsi27) {
 		return true
 	}
 
@@ -4322,7 +4322,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi27(v string) {
 
 // GetScsi28 returns the Scsi28 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi28() string {
-	if o == nil || isNil(o.Scsi28) {
+	if o == nil || IsNil(o.Scsi28) {
 		var ret string
 		return ret
 	}
@@ -4332,7 +4332,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi28() string {
 // GetScsi28Ok returns a tuple with the Scsi28 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi28Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi28) {
+	if o == nil || IsNil(o.Scsi28) {
 		return nil, false
 	}
 	return o.Scsi28, true
@@ -4340,7 +4340,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi28Ok() (*string, bool) {
 
 // HasScsi28 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi28() bool {
-	if o != nil && !isNil(o.Scsi28) {
+	if o != nil && !IsNil(o.Scsi28) {
 		return true
 	}
 
@@ -4354,7 +4354,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi28(v string) {
 
 // GetScsi29 returns the Scsi29 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi29() string {
-	if o == nil || isNil(o.Scsi29) {
+	if o == nil || IsNil(o.Scsi29) {
 		var ret string
 		return ret
 	}
@@ -4364,7 +4364,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi29() string {
 // GetScsi29Ok returns a tuple with the Scsi29 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi29Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi29) {
+	if o == nil || IsNil(o.Scsi29) {
 		return nil, false
 	}
 	return o.Scsi29, true
@@ -4372,7 +4372,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi29Ok() (*string, bool) {
 
 // HasScsi29 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi29() bool {
-	if o != nil && !isNil(o.Scsi29) {
+	if o != nil && !IsNil(o.Scsi29) {
 		return true
 	}
 
@@ -4386,7 +4386,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi29(v string) {
 
 // GetScsi30 returns the Scsi30 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsi30() string {
-	if o == nil || isNil(o.Scsi30) {
+	if o == nil || IsNil(o.Scsi30) {
 		var ret string
 		return ret
 	}
@@ -4396,7 +4396,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi30() string {
 // GetScsi30Ok returns a tuple with the Scsi30 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsi30Ok() (*string, bool) {
-	if o == nil || isNil(o.Scsi30) {
+	if o == nil || IsNil(o.Scsi30) {
 		return nil, false
 	}
 	return o.Scsi30, true
@@ -4404,7 +4404,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsi30Ok() (*string, bool) {
 
 // HasScsi30 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsi30() bool {
-	if o != nil && !isNil(o.Scsi30) {
+	if o != nil && !IsNil(o.Scsi30) {
 		return true
 	}
 
@@ -4418,7 +4418,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsi30(v string) {
 
 // GetScsihw returns the Scsihw field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetScsihw() VirtualMachineScsiControllerType {
-	if o == nil || isNil(o.Scsihw) {
+	if o == nil || IsNil(o.Scsihw) {
 		var ret VirtualMachineScsiControllerType
 		return ret
 	}
@@ -4428,7 +4428,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsihw() VirtualMachineScsiContr
 // GetScsihwOk returns a tuple with the Scsihw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetScsihwOk() (*VirtualMachineScsiControllerType, bool) {
-	if o == nil || isNil(o.Scsihw) {
+	if o == nil || IsNil(o.Scsihw) {
 		return nil, false
 	}
 	return o.Scsihw, true
@@ -4436,7 +4436,7 @@ func (o *CreateVirtualMachineRequestContent) GetScsihwOk() (*VirtualMachineScsiC
 
 // HasScsihw returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasScsihw() bool {
-	if o != nil && !isNil(o.Scsihw) {
+	if o != nil && !IsNil(o.Scsihw) {
 		return true
 	}
 
@@ -4450,7 +4450,7 @@ func (o *CreateVirtualMachineRequestContent) SetScsihw(v VirtualMachineScsiContr
 
 // GetSearchdomain returns the Searchdomain field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSearchdomain() string {
-	if o == nil || isNil(o.Searchdomain) {
+	if o == nil || IsNil(o.Searchdomain) {
 		var ret string
 		return ret
 	}
@@ -4460,7 +4460,7 @@ func (o *CreateVirtualMachineRequestContent) GetSearchdomain() string {
 // GetSearchdomainOk returns a tuple with the Searchdomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSearchdomainOk() (*string, bool) {
-	if o == nil || isNil(o.Searchdomain) {
+	if o == nil || IsNil(o.Searchdomain) {
 		return nil, false
 	}
 	return o.Searchdomain, true
@@ -4468,7 +4468,7 @@ func (o *CreateVirtualMachineRequestContent) GetSearchdomainOk() (*string, bool)
 
 // HasSearchdomain returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSearchdomain() bool {
-	if o != nil && !isNil(o.Searchdomain) {
+	if o != nil && !IsNil(o.Searchdomain) {
 		return true
 	}
 
@@ -4482,7 +4482,7 @@ func (o *CreateVirtualMachineRequestContent) SetSearchdomain(v string) {
 
 // GetSerial0 returns the Serial0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSerial0() string {
-	if o == nil || isNil(o.Serial0) {
+	if o == nil || IsNil(o.Serial0) {
 		var ret string
 		return ret
 	}
@@ -4492,7 +4492,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial0() string {
 // GetSerial0Ok returns a tuple with the Serial0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSerial0Ok() (*string, bool) {
-	if o == nil || isNil(o.Serial0) {
+	if o == nil || IsNil(o.Serial0) {
 		return nil, false
 	}
 	return o.Serial0, true
@@ -4500,7 +4500,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial0Ok() (*string, bool) {
 
 // HasSerial0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSerial0() bool {
-	if o != nil && !isNil(o.Serial0) {
+	if o != nil && !IsNil(o.Serial0) {
 		return true
 	}
 
@@ -4514,7 +4514,7 @@ func (o *CreateVirtualMachineRequestContent) SetSerial0(v string) {
 
 // GetSerial1 returns the Serial1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSerial1() string {
-	if o == nil || isNil(o.Serial1) {
+	if o == nil || IsNil(o.Serial1) {
 		var ret string
 		return ret
 	}
@@ -4524,7 +4524,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial1() string {
 // GetSerial1Ok returns a tuple with the Serial1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSerial1Ok() (*string, bool) {
-	if o == nil || isNil(o.Serial1) {
+	if o == nil || IsNil(o.Serial1) {
 		return nil, false
 	}
 	return o.Serial1, true
@@ -4532,7 +4532,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial1Ok() (*string, bool) {
 
 // HasSerial1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSerial1() bool {
-	if o != nil && !isNil(o.Serial1) {
+	if o != nil && !IsNil(o.Serial1) {
 		return true
 	}
 
@@ -4546,7 +4546,7 @@ func (o *CreateVirtualMachineRequestContent) SetSerial1(v string) {
 
 // GetSerial2 returns the Serial2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSerial2() string {
-	if o == nil || isNil(o.Serial2) {
+	if o == nil || IsNil(o.Serial2) {
 		var ret string
 		return ret
 	}
@@ -4556,7 +4556,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial2() string {
 // GetSerial2Ok returns a tuple with the Serial2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSerial2Ok() (*string, bool) {
-	if o == nil || isNil(o.Serial2) {
+	if o == nil || IsNil(o.Serial2) {
 		return nil, false
 	}
 	return o.Serial2, true
@@ -4564,7 +4564,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial2Ok() (*string, bool) {
 
 // HasSerial2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSerial2() bool {
-	if o != nil && !isNil(o.Serial2) {
+	if o != nil && !IsNil(o.Serial2) {
 		return true
 	}
 
@@ -4578,7 +4578,7 @@ func (o *CreateVirtualMachineRequestContent) SetSerial2(v string) {
 
 // GetSerial3 returns the Serial3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSerial3() string {
-	if o == nil || isNil(o.Serial3) {
+	if o == nil || IsNil(o.Serial3) {
 		var ret string
 		return ret
 	}
@@ -4588,7 +4588,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial3() string {
 // GetSerial3Ok returns a tuple with the Serial3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSerial3Ok() (*string, bool) {
-	if o == nil || isNil(o.Serial3) {
+	if o == nil || IsNil(o.Serial3) {
 		return nil, false
 	}
 	return o.Serial3, true
@@ -4596,7 +4596,7 @@ func (o *CreateVirtualMachineRequestContent) GetSerial3Ok() (*string, bool) {
 
 // HasSerial3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSerial3() bool {
-	if o != nil && !isNil(o.Serial3) {
+	if o != nil && !IsNil(o.Serial3) {
 		return true
 	}
 
@@ -4610,7 +4610,7 @@ func (o *CreateVirtualMachineRequestContent) SetSerial3(v string) {
 
 // GetShares returns the Shares field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetShares() float32 {
-	if o == nil || isNil(o.Shares) {
+	if o == nil || IsNil(o.Shares) {
 		var ret float32
 		return ret
 	}
@@ -4620,7 +4620,7 @@ func (o *CreateVirtualMachineRequestContent) GetShares() float32 {
 // GetSharesOk returns a tuple with the Shares field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSharesOk() (*float32, bool) {
-	if o == nil || isNil(o.Shares) {
+	if o == nil || IsNil(o.Shares) {
 		return nil, false
 	}
 	return o.Shares, true
@@ -4628,7 +4628,7 @@ func (o *CreateVirtualMachineRequestContent) GetSharesOk() (*float32, bool) {
 
 // HasShares returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasShares() bool {
-	if o != nil && !isNil(o.Shares) {
+	if o != nil && !IsNil(o.Shares) {
 		return true
 	}
 
@@ -4642,7 +4642,7 @@ func (o *CreateVirtualMachineRequestContent) SetShares(v float32) {
 
 // GetSmbios1 returns the Smbios1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSmbios1() string {
-	if o == nil || isNil(o.Smbios1) {
+	if o == nil || IsNil(o.Smbios1) {
 		var ret string
 		return ret
 	}
@@ -4652,7 +4652,7 @@ func (o *CreateVirtualMachineRequestContent) GetSmbios1() string {
 // GetSmbios1Ok returns a tuple with the Smbios1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSmbios1Ok() (*string, bool) {
-	if o == nil || isNil(o.Smbios1) {
+	if o == nil || IsNil(o.Smbios1) {
 		return nil, false
 	}
 	return o.Smbios1, true
@@ -4660,7 +4660,7 @@ func (o *CreateVirtualMachineRequestContent) GetSmbios1Ok() (*string, bool) {
 
 // HasSmbios1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSmbios1() bool {
-	if o != nil && !isNil(o.Smbios1) {
+	if o != nil && !IsNil(o.Smbios1) {
 		return true
 	}
 
@@ -4674,7 +4674,7 @@ func (o *CreateVirtualMachineRequestContent) SetSmbios1(v string) {
 
 // GetSockets returns the Sockets field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSockets() float32 {
-	if o == nil || isNil(o.Sockets) {
+	if o == nil || IsNil(o.Sockets) {
 		var ret float32
 		return ret
 	}
@@ -4684,7 +4684,7 @@ func (o *CreateVirtualMachineRequestContent) GetSockets() float32 {
 // GetSocketsOk returns a tuple with the Sockets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSocketsOk() (*float32, bool) {
-	if o == nil || isNil(o.Sockets) {
+	if o == nil || IsNil(o.Sockets) {
 		return nil, false
 	}
 	return o.Sockets, true
@@ -4692,7 +4692,7 @@ func (o *CreateVirtualMachineRequestContent) GetSocketsOk() (*float32, bool) {
 
 // HasSockets returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSockets() bool {
-	if o != nil && !isNil(o.Sockets) {
+	if o != nil && !IsNil(o.Sockets) {
 		return true
 	}
 
@@ -4706,7 +4706,7 @@ func (o *CreateVirtualMachineRequestContent) SetSockets(v float32) {
 
 // GetSpiceEnhancements returns the SpiceEnhancements field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSpiceEnhancements() string {
-	if o == nil || isNil(o.SpiceEnhancements) {
+	if o == nil || IsNil(o.SpiceEnhancements) {
 		var ret string
 		return ret
 	}
@@ -4716,7 +4716,7 @@ func (o *CreateVirtualMachineRequestContent) GetSpiceEnhancements() string {
 // GetSpiceEnhancementsOk returns a tuple with the SpiceEnhancements field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSpiceEnhancementsOk() (*string, bool) {
-	if o == nil || isNil(o.SpiceEnhancements) {
+	if o == nil || IsNil(o.SpiceEnhancements) {
 		return nil, false
 	}
 	return o.SpiceEnhancements, true
@@ -4724,7 +4724,7 @@ func (o *CreateVirtualMachineRequestContent) GetSpiceEnhancementsOk() (*string, 
 
 // HasSpiceEnhancements returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSpiceEnhancements() bool {
-	if o != nil && !isNil(o.SpiceEnhancements) {
+	if o != nil && !IsNil(o.SpiceEnhancements) {
 		return true
 	}
 
@@ -4738,7 +4738,7 @@ func (o *CreateVirtualMachineRequestContent) SetSpiceEnhancements(v string) {
 
 // GetSshkeys returns the Sshkeys field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetSshkeys() string {
-	if o == nil || isNil(o.Sshkeys) {
+	if o == nil || IsNil(o.Sshkeys) {
 		var ret string
 		return ret
 	}
@@ -4748,7 +4748,7 @@ func (o *CreateVirtualMachineRequestContent) GetSshkeys() string {
 // GetSshkeysOk returns a tuple with the Sshkeys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetSshkeysOk() (*string, bool) {
-	if o == nil || isNil(o.Sshkeys) {
+	if o == nil || IsNil(o.Sshkeys) {
 		return nil, false
 	}
 	return o.Sshkeys, true
@@ -4756,7 +4756,7 @@ func (o *CreateVirtualMachineRequestContent) GetSshkeysOk() (*string, bool) {
 
 // HasSshkeys returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasSshkeys() bool {
-	if o != nil && !isNil(o.Sshkeys) {
+	if o != nil && !IsNil(o.Sshkeys) {
 		return true
 	}
 
@@ -4770,7 +4770,7 @@ func (o *CreateVirtualMachineRequestContent) SetSshkeys(v string) {
 
 // GetStartdate returns the Startdate field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetStartdate() string {
-	if o == nil || isNil(o.Startdate) {
+	if o == nil || IsNil(o.Startdate) {
 		var ret string
 		return ret
 	}
@@ -4780,7 +4780,7 @@ func (o *CreateVirtualMachineRequestContent) GetStartdate() string {
 // GetStartdateOk returns a tuple with the Startdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetStartdateOk() (*string, bool) {
-	if o == nil || isNil(o.Startdate) {
+	if o == nil || IsNil(o.Startdate) {
 		return nil, false
 	}
 	return o.Startdate, true
@@ -4788,7 +4788,7 @@ func (o *CreateVirtualMachineRequestContent) GetStartdateOk() (*string, bool) {
 
 // HasStartdate returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasStartdate() bool {
-	if o != nil && !isNil(o.Startdate) {
+	if o != nil && !IsNil(o.Startdate) {
 		return true
 	}
 
@@ -4802,7 +4802,7 @@ func (o *CreateVirtualMachineRequestContent) SetStartdate(v string) {
 
 // GetStartup returns the Startup field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetStartup() string {
-	if o == nil || isNil(o.Startup) {
+	if o == nil || IsNil(o.Startup) {
 		var ret string
 		return ret
 	}
@@ -4812,7 +4812,7 @@ func (o *CreateVirtualMachineRequestContent) GetStartup() string {
 // GetStartupOk returns a tuple with the Startup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetStartupOk() (*string, bool) {
-	if o == nil || isNil(o.Startup) {
+	if o == nil || IsNil(o.Startup) {
 		return nil, false
 	}
 	return o.Startup, true
@@ -4820,7 +4820,7 @@ func (o *CreateVirtualMachineRequestContent) GetStartupOk() (*string, bool) {
 
 // HasStartup returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasStartup() bool {
-	if o != nil && !isNil(o.Startup) {
+	if o != nil && !IsNil(o.Startup) {
 		return true
 	}
 
@@ -4834,7 +4834,7 @@ func (o *CreateVirtualMachineRequestContent) SetStartup(v string) {
 
 // GetTablet returns the Tablet field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetTablet() float32 {
-	if o == nil || isNil(o.Tablet) {
+	if o == nil || IsNil(o.Tablet) {
 		var ret float32
 		return ret
 	}
@@ -4844,7 +4844,7 @@ func (o *CreateVirtualMachineRequestContent) GetTablet() float32 {
 // GetTabletOk returns a tuple with the Tablet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetTabletOk() (*float32, bool) {
-	if o == nil || isNil(o.Tablet) {
+	if o == nil || IsNil(o.Tablet) {
 		return nil, false
 	}
 	return o.Tablet, true
@@ -4852,7 +4852,7 @@ func (o *CreateVirtualMachineRequestContent) GetTabletOk() (*float32, bool) {
 
 // HasTablet returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasTablet() bool {
-	if o != nil && !isNil(o.Tablet) {
+	if o != nil && !IsNil(o.Tablet) {
 		return true
 	}
 
@@ -4866,7 +4866,7 @@ func (o *CreateVirtualMachineRequestContent) SetTablet(v float32) {
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetTags() string {
-	if o == nil || isNil(o.Tags) {
+	if o == nil || IsNil(o.Tags) {
 		var ret string
 		return ret
 	}
@@ -4876,7 +4876,7 @@ func (o *CreateVirtualMachineRequestContent) GetTags() string {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetTagsOk() (*string, bool) {
-	if o == nil || isNil(o.Tags) {
+	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
 	return o.Tags, true
@@ -4884,7 +4884,7 @@ func (o *CreateVirtualMachineRequestContent) GetTagsOk() (*string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasTags() bool {
-	if o != nil && !isNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -4898,7 +4898,7 @@ func (o *CreateVirtualMachineRequestContent) SetTags(v string) {
 
 // GetTemplate returns the Template field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetTemplate() float32 {
-	if o == nil || isNil(o.Template) {
+	if o == nil || IsNil(o.Template) {
 		var ret float32
 		return ret
 	}
@@ -4908,7 +4908,7 @@ func (o *CreateVirtualMachineRequestContent) GetTemplate() float32 {
 // GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetTemplateOk() (*float32, bool) {
-	if o == nil || isNil(o.Template) {
+	if o == nil || IsNil(o.Template) {
 		return nil, false
 	}
 	return o.Template, true
@@ -4916,7 +4916,7 @@ func (o *CreateVirtualMachineRequestContent) GetTemplateOk() (*float32, bool) {
 
 // HasTemplate returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasTemplate() bool {
-	if o != nil && !isNil(o.Template) {
+	if o != nil && !IsNil(o.Template) {
 		return true
 	}
 
@@ -4930,7 +4930,7 @@ func (o *CreateVirtualMachineRequestContent) SetTemplate(v float32) {
 
 // GetTpmstate0 returns the Tpmstate0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetTpmstate0() string {
-	if o == nil || isNil(o.Tpmstate0) {
+	if o == nil || IsNil(o.Tpmstate0) {
 		var ret string
 		return ret
 	}
@@ -4940,7 +4940,7 @@ func (o *CreateVirtualMachineRequestContent) GetTpmstate0() string {
 // GetTpmstate0Ok returns a tuple with the Tpmstate0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetTpmstate0Ok() (*string, bool) {
-	if o == nil || isNil(o.Tpmstate0) {
+	if o == nil || IsNil(o.Tpmstate0) {
 		return nil, false
 	}
 	return o.Tpmstate0, true
@@ -4948,7 +4948,7 @@ func (o *CreateVirtualMachineRequestContent) GetTpmstate0Ok() (*string, bool) {
 
 // HasTpmstate0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasTpmstate0() bool {
-	if o != nil && !isNil(o.Tpmstate0) {
+	if o != nil && !IsNil(o.Tpmstate0) {
 		return true
 	}
 
@@ -4962,7 +4962,7 @@ func (o *CreateVirtualMachineRequestContent) SetTpmstate0(v string) {
 
 // GetUnqiue returns the Unqiue field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUnqiue() float32 {
-	if o == nil || isNil(o.Unqiue) {
+	if o == nil || IsNil(o.Unqiue) {
 		var ret float32
 		return ret
 	}
@@ -4972,7 +4972,7 @@ func (o *CreateVirtualMachineRequestContent) GetUnqiue() float32 {
 // GetUnqiueOk returns a tuple with the Unqiue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUnqiueOk() (*float32, bool) {
-	if o == nil || isNil(o.Unqiue) {
+	if o == nil || IsNil(o.Unqiue) {
 		return nil, false
 	}
 	return o.Unqiue, true
@@ -4980,7 +4980,7 @@ func (o *CreateVirtualMachineRequestContent) GetUnqiueOk() (*float32, bool) {
 
 // HasUnqiue returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUnqiue() bool {
-	if o != nil && !isNil(o.Unqiue) {
+	if o != nil && !IsNil(o.Unqiue) {
 		return true
 	}
 
@@ -4994,7 +4994,7 @@ func (o *CreateVirtualMachineRequestContent) SetUnqiue(v float32) {
 
 // GetUsb0 returns the Usb0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb0() string {
-	if o == nil || isNil(o.Usb0) {
+	if o == nil || IsNil(o.Usb0) {
 		var ret string
 		return ret
 	}
@@ -5004,7 +5004,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb0() string {
 // GetUsb0Ok returns a tuple with the Usb0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb0Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb0) {
+	if o == nil || IsNil(o.Usb0) {
 		return nil, false
 	}
 	return o.Usb0, true
@@ -5012,7 +5012,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb0Ok() (*string, bool) {
 
 // HasUsb0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb0() bool {
-	if o != nil && !isNil(o.Usb0) {
+	if o != nil && !IsNil(o.Usb0) {
 		return true
 	}
 
@@ -5026,7 +5026,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb0(v string) {
 
 // GetUsb1 returns the Usb1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb1() string {
-	if o == nil || isNil(o.Usb1) {
+	if o == nil || IsNil(o.Usb1) {
 		var ret string
 		return ret
 	}
@@ -5036,7 +5036,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb1() string {
 // GetUsb1Ok returns a tuple with the Usb1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb1Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb1) {
+	if o == nil || IsNil(o.Usb1) {
 		return nil, false
 	}
 	return o.Usb1, true
@@ -5044,7 +5044,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb1Ok() (*string, bool) {
 
 // HasUsb1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb1() bool {
-	if o != nil && !isNil(o.Usb1) {
+	if o != nil && !IsNil(o.Usb1) {
 		return true
 	}
 
@@ -5058,7 +5058,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb1(v string) {
 
 // GetUsb2 returns the Usb2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb2() string {
-	if o == nil || isNil(o.Usb2) {
+	if o == nil || IsNil(o.Usb2) {
 		var ret string
 		return ret
 	}
@@ -5068,7 +5068,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb2() string {
 // GetUsb2Ok returns a tuple with the Usb2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb2Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb2) {
+	if o == nil || IsNil(o.Usb2) {
 		return nil, false
 	}
 	return o.Usb2, true
@@ -5076,7 +5076,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb2Ok() (*string, bool) {
 
 // HasUsb2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb2() bool {
-	if o != nil && !isNil(o.Usb2) {
+	if o != nil && !IsNil(o.Usb2) {
 		return true
 	}
 
@@ -5090,7 +5090,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb2(v string) {
 
 // GetUsb3 returns the Usb3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb3() string {
-	if o == nil || isNil(o.Usb3) {
+	if o == nil || IsNil(o.Usb3) {
 		var ret string
 		return ret
 	}
@@ -5100,7 +5100,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb3() string {
 // GetUsb3Ok returns a tuple with the Usb3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb3Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb3) {
+	if o == nil || IsNil(o.Usb3) {
 		return nil, false
 	}
 	return o.Usb3, true
@@ -5108,7 +5108,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb3Ok() (*string, bool) {
 
 // HasUsb3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb3() bool {
-	if o != nil && !isNil(o.Usb3) {
+	if o != nil && !IsNil(o.Usb3) {
 		return true
 	}
 
@@ -5122,7 +5122,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb3(v string) {
 
 // GetUsb4 returns the Usb4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb4() string {
-	if o == nil || isNil(o.Usb4) {
+	if o == nil || IsNil(o.Usb4) {
 		var ret string
 		return ret
 	}
@@ -5132,7 +5132,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb4() string {
 // GetUsb4Ok returns a tuple with the Usb4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb4Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb4) {
+	if o == nil || IsNil(o.Usb4) {
 		return nil, false
 	}
 	return o.Usb4, true
@@ -5140,7 +5140,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb4Ok() (*string, bool) {
 
 // HasUsb4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb4() bool {
-	if o != nil && !isNil(o.Usb4) {
+	if o != nil && !IsNil(o.Usb4) {
 		return true
 	}
 
@@ -5154,7 +5154,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb4(v string) {
 
 // GetUsb5 returns the Usb5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb5() string {
-	if o == nil || isNil(o.Usb5) {
+	if o == nil || IsNil(o.Usb5) {
 		var ret string
 		return ret
 	}
@@ -5164,7 +5164,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb5() string {
 // GetUsb5Ok returns a tuple with the Usb5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb5Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb5) {
+	if o == nil || IsNil(o.Usb5) {
 		return nil, false
 	}
 	return o.Usb5, true
@@ -5172,7 +5172,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb5Ok() (*string, bool) {
 
 // HasUsb5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb5() bool {
-	if o != nil && !isNil(o.Usb5) {
+	if o != nil && !IsNil(o.Usb5) {
 		return true
 	}
 
@@ -5186,7 +5186,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb5(v string) {
 
 // GetUsb6 returns the Usb6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb6() string {
-	if o == nil || isNil(o.Usb6) {
+	if o == nil || IsNil(o.Usb6) {
 		var ret string
 		return ret
 	}
@@ -5196,7 +5196,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb6() string {
 // GetUsb6Ok returns a tuple with the Usb6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb6Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb6) {
+	if o == nil || IsNil(o.Usb6) {
 		return nil, false
 	}
 	return o.Usb6, true
@@ -5204,7 +5204,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb6Ok() (*string, bool) {
 
 // HasUsb6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb6() bool {
-	if o != nil && !isNil(o.Usb6) {
+	if o != nil && !IsNil(o.Usb6) {
 		return true
 	}
 
@@ -5218,7 +5218,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb6(v string) {
 
 // GetUsb7 returns the Usb7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb7() string {
-	if o == nil || isNil(o.Usb7) {
+	if o == nil || IsNil(o.Usb7) {
 		var ret string
 		return ret
 	}
@@ -5228,7 +5228,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb7() string {
 // GetUsb7Ok returns a tuple with the Usb7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb7Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb7) {
+	if o == nil || IsNil(o.Usb7) {
 		return nil, false
 	}
 	return o.Usb7, true
@@ -5236,7 +5236,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb7Ok() (*string, bool) {
 
 // HasUsb7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb7() bool {
-	if o != nil && !isNil(o.Usb7) {
+	if o != nil && !IsNil(o.Usb7) {
 		return true
 	}
 
@@ -5250,7 +5250,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb7(v string) {
 
 // GetUsb8 returns the Usb8 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb8() string {
-	if o == nil || isNil(o.Usb8) {
+	if o == nil || IsNil(o.Usb8) {
 		var ret string
 		return ret
 	}
@@ -5260,7 +5260,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb8() string {
 // GetUsb8Ok returns a tuple with the Usb8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb8Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb8) {
+	if o == nil || IsNil(o.Usb8) {
 		return nil, false
 	}
 	return o.Usb8, true
@@ -5268,7 +5268,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb8Ok() (*string, bool) {
 
 // HasUsb8 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb8() bool {
-	if o != nil && !isNil(o.Usb8) {
+	if o != nil && !IsNil(o.Usb8) {
 		return true
 	}
 
@@ -5282,7 +5282,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb8(v string) {
 
 // GetUsb9 returns the Usb9 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb9() string {
-	if o == nil || isNil(o.Usb9) {
+	if o == nil || IsNil(o.Usb9) {
 		var ret string
 		return ret
 	}
@@ -5292,7 +5292,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb9() string {
 // GetUsb9Ok returns a tuple with the Usb9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb9Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb9) {
+	if o == nil || IsNil(o.Usb9) {
 		return nil, false
 	}
 	return o.Usb9, true
@@ -5300,7 +5300,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb9Ok() (*string, bool) {
 
 // HasUsb9 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb9() bool {
-	if o != nil && !isNil(o.Usb9) {
+	if o != nil && !IsNil(o.Usb9) {
 		return true
 	}
 
@@ -5314,7 +5314,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb9(v string) {
 
 // GetUsb10 returns the Usb10 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb10() string {
-	if o == nil || isNil(o.Usb10) {
+	if o == nil || IsNil(o.Usb10) {
 		var ret string
 		return ret
 	}
@@ -5324,7 +5324,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb10() string {
 // GetUsb10Ok returns a tuple with the Usb10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb10Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb10) {
+	if o == nil || IsNil(o.Usb10) {
 		return nil, false
 	}
 	return o.Usb10, true
@@ -5332,7 +5332,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb10Ok() (*string, bool) {
 
 // HasUsb10 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb10() bool {
-	if o != nil && !isNil(o.Usb10) {
+	if o != nil && !IsNil(o.Usb10) {
 		return true
 	}
 
@@ -5346,7 +5346,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb10(v string) {
 
 // GetUsb11 returns the Usb11 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb11() string {
-	if o == nil || isNil(o.Usb11) {
+	if o == nil || IsNil(o.Usb11) {
 		var ret string
 		return ret
 	}
@@ -5356,7 +5356,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb11() string {
 // GetUsb11Ok returns a tuple with the Usb11 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb11Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb11) {
+	if o == nil || IsNil(o.Usb11) {
 		return nil, false
 	}
 	return o.Usb11, true
@@ -5364,7 +5364,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb11Ok() (*string, bool) {
 
 // HasUsb11 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb11() bool {
-	if o != nil && !isNil(o.Usb11) {
+	if o != nil && !IsNil(o.Usb11) {
 		return true
 	}
 
@@ -5378,7 +5378,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb11(v string) {
 
 // GetUsb12 returns the Usb12 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb12() string {
-	if o == nil || isNil(o.Usb12) {
+	if o == nil || IsNil(o.Usb12) {
 		var ret string
 		return ret
 	}
@@ -5388,7 +5388,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb12() string {
 // GetUsb12Ok returns a tuple with the Usb12 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb12Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb12) {
+	if o == nil || IsNil(o.Usb12) {
 		return nil, false
 	}
 	return o.Usb12, true
@@ -5396,7 +5396,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb12Ok() (*string, bool) {
 
 // HasUsb12 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb12() bool {
-	if o != nil && !isNil(o.Usb12) {
+	if o != nil && !IsNil(o.Usb12) {
 		return true
 	}
 
@@ -5410,7 +5410,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb12(v string) {
 
 // GetUsb13 returns the Usb13 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb13() string {
-	if o == nil || isNil(o.Usb13) {
+	if o == nil || IsNil(o.Usb13) {
 		var ret string
 		return ret
 	}
@@ -5420,7 +5420,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb13() string {
 // GetUsb13Ok returns a tuple with the Usb13 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb13Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb13) {
+	if o == nil || IsNil(o.Usb13) {
 		return nil, false
 	}
 	return o.Usb13, true
@@ -5428,7 +5428,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb13Ok() (*string, bool) {
 
 // HasUsb13 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb13() bool {
-	if o != nil && !isNil(o.Usb13) {
+	if o != nil && !IsNil(o.Usb13) {
 		return true
 	}
 
@@ -5442,7 +5442,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb13(v string) {
 
 // GetUsb14 returns the Usb14 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetUsb14() string {
-	if o == nil || isNil(o.Usb14) {
+	if o == nil || IsNil(o.Usb14) {
 		var ret string
 		return ret
 	}
@@ -5452,7 +5452,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb14() string {
 // GetUsb14Ok returns a tuple with the Usb14 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetUsb14Ok() (*string, bool) {
-	if o == nil || isNil(o.Usb14) {
+	if o == nil || IsNil(o.Usb14) {
 		return nil, false
 	}
 	return o.Usb14, true
@@ -5460,7 +5460,7 @@ func (o *CreateVirtualMachineRequestContent) GetUsb14Ok() (*string, bool) {
 
 // HasUsb14 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasUsb14() bool {
-	if o != nil && !isNil(o.Usb14) {
+	if o != nil && !IsNil(o.Usb14) {
 		return true
 	}
 
@@ -5474,7 +5474,7 @@ func (o *CreateVirtualMachineRequestContent) SetUsb14(v string) {
 
 // GetHotplug returns the Hotplug field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetHotplug() string {
-	if o == nil || isNil(o.Hotplug) {
+	if o == nil || IsNil(o.Hotplug) {
 		var ret string
 		return ret
 	}
@@ -5484,7 +5484,7 @@ func (o *CreateVirtualMachineRequestContent) GetHotplug() string {
 // GetHotplugOk returns a tuple with the Hotplug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetHotplugOk() (*string, bool) {
-	if o == nil || isNil(o.Hotplug) {
+	if o == nil || IsNil(o.Hotplug) {
 		return nil, false
 	}
 	return o.Hotplug, true
@@ -5492,7 +5492,7 @@ func (o *CreateVirtualMachineRequestContent) GetHotplugOk() (*string, bool) {
 
 // HasHotplug returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasHotplug() bool {
-	if o != nil && !isNil(o.Hotplug) {
+	if o != nil && !IsNil(o.Hotplug) {
 		return true
 	}
 
@@ -5506,7 +5506,7 @@ func (o *CreateVirtualMachineRequestContent) SetHotplug(v string) {
 
 // GetVcpus returns the Vcpus field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVcpus() float32 {
-	if o == nil || isNil(o.Vcpus) {
+	if o == nil || IsNil(o.Vcpus) {
 		var ret float32
 		return ret
 	}
@@ -5516,7 +5516,7 @@ func (o *CreateVirtualMachineRequestContent) GetVcpus() float32 {
 // GetVcpusOk returns a tuple with the Vcpus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVcpusOk() (*float32, bool) {
-	if o == nil || isNil(o.Vcpus) {
+	if o == nil || IsNil(o.Vcpus) {
 		return nil, false
 	}
 	return o.Vcpus, true
@@ -5524,7 +5524,7 @@ func (o *CreateVirtualMachineRequestContent) GetVcpusOk() (*float32, bool) {
 
 // HasVcpus returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVcpus() bool {
-	if o != nil && !isNil(o.Vcpus) {
+	if o != nil && !IsNil(o.Vcpus) {
 		return true
 	}
 
@@ -5538,7 +5538,7 @@ func (o *CreateVirtualMachineRequestContent) SetVcpus(v float32) {
 
 // GetVga returns the Vga field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVga() string {
-	if o == nil || isNil(o.Vga) {
+	if o == nil || IsNil(o.Vga) {
 		var ret string
 		return ret
 	}
@@ -5548,7 +5548,7 @@ func (o *CreateVirtualMachineRequestContent) GetVga() string {
 // GetVgaOk returns a tuple with the Vga field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVgaOk() (*string, bool) {
-	if o == nil || isNil(o.Vga) {
+	if o == nil || IsNil(o.Vga) {
 		return nil, false
 	}
 	return o.Vga, true
@@ -5556,7 +5556,7 @@ func (o *CreateVirtualMachineRequestContent) GetVgaOk() (*string, bool) {
 
 // HasVga returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVga() bool {
-	if o != nil && !isNil(o.Vga) {
+	if o != nil && !IsNil(o.Vga) {
 		return true
 	}
 
@@ -5570,7 +5570,7 @@ func (o *CreateVirtualMachineRequestContent) SetVga(v string) {
 
 // GetVirtio0 returns the Virtio0 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio0() string {
-	if o == nil || isNil(o.Virtio0) {
+	if o == nil || IsNil(o.Virtio0) {
 		var ret string
 		return ret
 	}
@@ -5580,7 +5580,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio0() string {
 // GetVirtio0Ok returns a tuple with the Virtio0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio0Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio0) {
+	if o == nil || IsNil(o.Virtio0) {
 		return nil, false
 	}
 	return o.Virtio0, true
@@ -5588,7 +5588,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio0Ok() (*string, bool) {
 
 // HasVirtio0 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio0() bool {
-	if o != nil && !isNil(o.Virtio0) {
+	if o != nil && !IsNil(o.Virtio0) {
 		return true
 	}
 
@@ -5602,7 +5602,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio0(v string) {
 
 // GetVirtio1 returns the Virtio1 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio1() string {
-	if o == nil || isNil(o.Virtio1) {
+	if o == nil || IsNil(o.Virtio1) {
 		var ret string
 		return ret
 	}
@@ -5612,7 +5612,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio1() string {
 // GetVirtio1Ok returns a tuple with the Virtio1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio1Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio1) {
+	if o == nil || IsNil(o.Virtio1) {
 		return nil, false
 	}
 	return o.Virtio1, true
@@ -5620,7 +5620,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio1Ok() (*string, bool) {
 
 // HasVirtio1 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio1() bool {
-	if o != nil && !isNil(o.Virtio1) {
+	if o != nil && !IsNil(o.Virtio1) {
 		return true
 	}
 
@@ -5634,7 +5634,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio1(v string) {
 
 // GetVirtio2 returns the Virtio2 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio2() string {
-	if o == nil || isNil(o.Virtio2) {
+	if o == nil || IsNil(o.Virtio2) {
 		var ret string
 		return ret
 	}
@@ -5644,7 +5644,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio2() string {
 // GetVirtio2Ok returns a tuple with the Virtio2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio2Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio2) {
+	if o == nil || IsNil(o.Virtio2) {
 		return nil, false
 	}
 	return o.Virtio2, true
@@ -5652,7 +5652,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio2Ok() (*string, bool) {
 
 // HasVirtio2 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio2() bool {
-	if o != nil && !isNil(o.Virtio2) {
+	if o != nil && !IsNil(o.Virtio2) {
 		return true
 	}
 
@@ -5666,7 +5666,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio2(v string) {
 
 // GetVirtio3 returns the Virtio3 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio3() string {
-	if o == nil || isNil(o.Virtio3) {
+	if o == nil || IsNil(o.Virtio3) {
 		var ret string
 		return ret
 	}
@@ -5676,7 +5676,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio3() string {
 // GetVirtio3Ok returns a tuple with the Virtio3 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio3Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio3) {
+	if o == nil || IsNil(o.Virtio3) {
 		return nil, false
 	}
 	return o.Virtio3, true
@@ -5684,7 +5684,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio3Ok() (*string, bool) {
 
 // HasVirtio3 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio3() bool {
-	if o != nil && !isNil(o.Virtio3) {
+	if o != nil && !IsNil(o.Virtio3) {
 		return true
 	}
 
@@ -5698,7 +5698,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio3(v string) {
 
 // GetVirtio4 returns the Virtio4 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio4() string {
-	if o == nil || isNil(o.Virtio4) {
+	if o == nil || IsNil(o.Virtio4) {
 		var ret string
 		return ret
 	}
@@ -5708,7 +5708,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio4() string {
 // GetVirtio4Ok returns a tuple with the Virtio4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio4Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio4) {
+	if o == nil || IsNil(o.Virtio4) {
 		return nil, false
 	}
 	return o.Virtio4, true
@@ -5716,7 +5716,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio4Ok() (*string, bool) {
 
 // HasVirtio4 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio4() bool {
-	if o != nil && !isNil(o.Virtio4) {
+	if o != nil && !IsNil(o.Virtio4) {
 		return true
 	}
 
@@ -5730,7 +5730,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio4(v string) {
 
 // GetVirtio5 returns the Virtio5 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio5() string {
-	if o == nil || isNil(o.Virtio5) {
+	if o == nil || IsNil(o.Virtio5) {
 		var ret string
 		return ret
 	}
@@ -5740,7 +5740,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio5() string {
 // GetVirtio5Ok returns a tuple with the Virtio5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio5Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio5) {
+	if o == nil || IsNil(o.Virtio5) {
 		return nil, false
 	}
 	return o.Virtio5, true
@@ -5748,7 +5748,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio5Ok() (*string, bool) {
 
 // HasVirtio5 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio5() bool {
-	if o != nil && !isNil(o.Virtio5) {
+	if o != nil && !IsNil(o.Virtio5) {
 		return true
 	}
 
@@ -5762,7 +5762,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio5(v string) {
 
 // GetVirtio6 returns the Virtio6 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio6() string {
-	if o == nil || isNil(o.Virtio6) {
+	if o == nil || IsNil(o.Virtio6) {
 		var ret string
 		return ret
 	}
@@ -5772,7 +5772,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio6() string {
 // GetVirtio6Ok returns a tuple with the Virtio6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio6Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio6) {
+	if o == nil || IsNil(o.Virtio6) {
 		return nil, false
 	}
 	return o.Virtio6, true
@@ -5780,7 +5780,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio6Ok() (*string, bool) {
 
 // HasVirtio6 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio6() bool {
-	if o != nil && !isNil(o.Virtio6) {
+	if o != nil && !IsNil(o.Virtio6) {
 		return true
 	}
 
@@ -5794,7 +5794,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio6(v string) {
 
 // GetVirtio7 returns the Virtio7 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio7() string {
-	if o == nil || isNil(o.Virtio7) {
+	if o == nil || IsNil(o.Virtio7) {
 		var ret string
 		return ret
 	}
@@ -5804,7 +5804,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio7() string {
 // GetVirtio7Ok returns a tuple with the Virtio7 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio7Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio7) {
+	if o == nil || IsNil(o.Virtio7) {
 		return nil, false
 	}
 	return o.Virtio7, true
@@ -5812,7 +5812,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio7Ok() (*string, bool) {
 
 // HasVirtio7 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio7() bool {
-	if o != nil && !isNil(o.Virtio7) {
+	if o != nil && !IsNil(o.Virtio7) {
 		return true
 	}
 
@@ -5826,7 +5826,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio7(v string) {
 
 // GetVirtio8 returns the Virtio8 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio8() string {
-	if o == nil || isNil(o.Virtio8) {
+	if o == nil || IsNil(o.Virtio8) {
 		var ret string
 		return ret
 	}
@@ -5836,7 +5836,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio8() string {
 // GetVirtio8Ok returns a tuple with the Virtio8 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio8Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio8) {
+	if o == nil || IsNil(o.Virtio8) {
 		return nil, false
 	}
 	return o.Virtio8, true
@@ -5844,7 +5844,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio8Ok() (*string, bool) {
 
 // HasVirtio8 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio8() bool {
-	if o != nil && !isNil(o.Virtio8) {
+	if o != nil && !IsNil(o.Virtio8) {
 		return true
 	}
 
@@ -5858,7 +5858,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio8(v string) {
 
 // GetVirtio9 returns the Virtio9 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio9() string {
-	if o == nil || isNil(o.Virtio9) {
+	if o == nil || IsNil(o.Virtio9) {
 		var ret string
 		return ret
 	}
@@ -5868,7 +5868,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio9() string {
 // GetVirtio9Ok returns a tuple with the Virtio9 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio9Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio9) {
+	if o == nil || IsNil(o.Virtio9) {
 		return nil, false
 	}
 	return o.Virtio9, true
@@ -5876,7 +5876,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio9Ok() (*string, bool) {
 
 // HasVirtio9 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio9() bool {
-	if o != nil && !isNil(o.Virtio9) {
+	if o != nil && !IsNil(o.Virtio9) {
 		return true
 	}
 
@@ -5890,7 +5890,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio9(v string) {
 
 // GetVirtio10 returns the Virtio10 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio10() string {
-	if o == nil || isNil(o.Virtio10) {
+	if o == nil || IsNil(o.Virtio10) {
 		var ret string
 		return ret
 	}
@@ -5900,7 +5900,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio10() string {
 // GetVirtio10Ok returns a tuple with the Virtio10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio10Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio10) {
+	if o == nil || IsNil(o.Virtio10) {
 		return nil, false
 	}
 	return o.Virtio10, true
@@ -5908,7 +5908,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio10Ok() (*string, bool) {
 
 // HasVirtio10 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio10() bool {
-	if o != nil && !isNil(o.Virtio10) {
+	if o != nil && !IsNil(o.Virtio10) {
 		return true
 	}
 
@@ -5922,7 +5922,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio10(v string) {
 
 // GetVirtio11 returns the Virtio11 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio11() string {
-	if o == nil || isNil(o.Virtio11) {
+	if o == nil || IsNil(o.Virtio11) {
 		var ret string
 		return ret
 	}
@@ -5932,7 +5932,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio11() string {
 // GetVirtio11Ok returns a tuple with the Virtio11 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio11Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio11) {
+	if o == nil || IsNil(o.Virtio11) {
 		return nil, false
 	}
 	return o.Virtio11, true
@@ -5940,7 +5940,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio11Ok() (*string, bool) {
 
 // HasVirtio11 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio11() bool {
-	if o != nil && !isNil(o.Virtio11) {
+	if o != nil && !IsNil(o.Virtio11) {
 		return true
 	}
 
@@ -5954,7 +5954,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio11(v string) {
 
 // GetVirtio12 returns the Virtio12 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio12() string {
-	if o == nil || isNil(o.Virtio12) {
+	if o == nil || IsNil(o.Virtio12) {
 		var ret string
 		return ret
 	}
@@ -5964,7 +5964,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio12() string {
 // GetVirtio12Ok returns a tuple with the Virtio12 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio12Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio12) {
+	if o == nil || IsNil(o.Virtio12) {
 		return nil, false
 	}
 	return o.Virtio12, true
@@ -5972,7 +5972,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio12Ok() (*string, bool) {
 
 // HasVirtio12 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio12() bool {
-	if o != nil && !isNil(o.Virtio12) {
+	if o != nil && !IsNil(o.Virtio12) {
 		return true
 	}
 
@@ -5986,7 +5986,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio12(v string) {
 
 // GetVirtio13 returns the Virtio13 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio13() string {
-	if o == nil || isNil(o.Virtio13) {
+	if o == nil || IsNil(o.Virtio13) {
 		var ret string
 		return ret
 	}
@@ -5996,7 +5996,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio13() string {
 // GetVirtio13Ok returns a tuple with the Virtio13 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio13Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio13) {
+	if o == nil || IsNil(o.Virtio13) {
 		return nil, false
 	}
 	return o.Virtio13, true
@@ -6004,7 +6004,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio13Ok() (*string, bool) {
 
 // HasVirtio13 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio13() bool {
-	if o != nil && !isNil(o.Virtio13) {
+	if o != nil && !IsNil(o.Virtio13) {
 		return true
 	}
 
@@ -6018,7 +6018,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio13(v string) {
 
 // GetVirtio14 returns the Virtio14 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio14() string {
-	if o == nil || isNil(o.Virtio14) {
+	if o == nil || IsNil(o.Virtio14) {
 		var ret string
 		return ret
 	}
@@ -6028,7 +6028,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio14() string {
 // GetVirtio14Ok returns a tuple with the Virtio14 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio14Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio14) {
+	if o == nil || IsNil(o.Virtio14) {
 		return nil, false
 	}
 	return o.Virtio14, true
@@ -6036,7 +6036,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio14Ok() (*string, bool) {
 
 // HasVirtio14 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio14() bool {
-	if o != nil && !isNil(o.Virtio14) {
+	if o != nil && !IsNil(o.Virtio14) {
 		return true
 	}
 
@@ -6050,7 +6050,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio14(v string) {
 
 // GetVirtio15 returns the Virtio15 field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVirtio15() string {
-	if o == nil || isNil(o.Virtio15) {
+	if o == nil || IsNil(o.Virtio15) {
 		var ret string
 		return ret
 	}
@@ -6060,7 +6060,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio15() string {
 // GetVirtio15Ok returns a tuple with the Virtio15 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVirtio15Ok() (*string, bool) {
-	if o == nil || isNil(o.Virtio15) {
+	if o == nil || IsNil(o.Virtio15) {
 		return nil, false
 	}
 	return o.Virtio15, true
@@ -6068,7 +6068,7 @@ func (o *CreateVirtualMachineRequestContent) GetVirtio15Ok() (*string, bool) {
 
 // HasVirtio15 returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVirtio15() bool {
-	if o != nil && !isNil(o.Virtio15) {
+	if o != nil && !IsNil(o.Virtio15) {
 		return true
 	}
 
@@ -6082,7 +6082,7 @@ func (o *CreateVirtualMachineRequestContent) SetVirtio15(v string) {
 
 // GetVmgenid returns the Vmgenid field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVmgenid() string {
-	if o == nil || isNil(o.Vmgenid) {
+	if o == nil || IsNil(o.Vmgenid) {
 		var ret string
 		return ret
 	}
@@ -6092,7 +6092,7 @@ func (o *CreateVirtualMachineRequestContent) GetVmgenid() string {
 // GetVmgenidOk returns a tuple with the Vmgenid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVmgenidOk() (*string, bool) {
-	if o == nil || isNil(o.Vmgenid) {
+	if o == nil || IsNil(o.Vmgenid) {
 		return nil, false
 	}
 	return o.Vmgenid, true
@@ -6100,7 +6100,7 @@ func (o *CreateVirtualMachineRequestContent) GetVmgenidOk() (*string, bool) {
 
 // HasVmgenid returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVmgenid() bool {
-	if o != nil && !isNil(o.Vmgenid) {
+	if o != nil && !IsNil(o.Vmgenid) {
 		return true
 	}
 
@@ -6114,7 +6114,7 @@ func (o *CreateVirtualMachineRequestContent) SetVmgenid(v string) {
 
 // GetVmstatestorage returns the Vmstatestorage field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetVmstatestorage() string {
-	if o == nil || isNil(o.Vmstatestorage) {
+	if o == nil || IsNil(o.Vmstatestorage) {
 		var ret string
 		return ret
 	}
@@ -6124,7 +6124,7 @@ func (o *CreateVirtualMachineRequestContent) GetVmstatestorage() string {
 // GetVmstatestorageOk returns a tuple with the Vmstatestorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetVmstatestorageOk() (*string, bool) {
-	if o == nil || isNil(o.Vmstatestorage) {
+	if o == nil || IsNil(o.Vmstatestorage) {
 		return nil, false
 	}
 	return o.Vmstatestorage, true
@@ -6132,7 +6132,7 @@ func (o *CreateVirtualMachineRequestContent) GetVmstatestorageOk() (*string, boo
 
 // HasVmstatestorage returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasVmstatestorage() bool {
-	if o != nil && !isNil(o.Vmstatestorage) {
+	if o != nil && !IsNil(o.Vmstatestorage) {
 		return true
 	}
 
@@ -6146,7 +6146,7 @@ func (o *CreateVirtualMachineRequestContent) SetVmstatestorage(v string) {
 
 // GetWatchdog returns the Watchdog field value if set, zero value otherwise.
 func (o *CreateVirtualMachineRequestContent) GetWatchdog() string {
-	if o == nil || isNil(o.Watchdog) {
+	if o == nil || IsNil(o.Watchdog) {
 		var ret string
 		return ret
 	}
@@ -6156,7 +6156,7 @@ func (o *CreateVirtualMachineRequestContent) GetWatchdog() string {
 // GetWatchdogOk returns a tuple with the Watchdog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateVirtualMachineRequestContent) GetWatchdogOk() (*string, bool) {
-	if o == nil || isNil(o.Watchdog) {
+	if o == nil || IsNil(o.Watchdog) {
 		return nil, false
 	}
 	return o.Watchdog, true
@@ -6164,7 +6164,7 @@ func (o *CreateVirtualMachineRequestContent) GetWatchdogOk() (*string, bool) {
 
 // HasWatchdog returns a boolean if a field has been set.
 func (o *CreateVirtualMachineRequestContent) HasWatchdog() bool {
-	if o != nil && !isNil(o.Watchdog) {
+	if o != nil && !IsNil(o.Watchdog) {
 		return true
 	}
 
@@ -6187,544 +6187,544 @@ func (o CreateVirtualMachineRequestContent) MarshalJSON() ([]byte, error) {
 func (o CreateVirtualMachineRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["vmid"] = o.Vmid
-	if !isNil(o.Acpi) {
+	if !IsNil(o.Acpi) {
 		toSerialize["acpi"] = o.Acpi
 	}
-	if !isNil(o.Affinity) {
+	if !IsNil(o.Affinity) {
 		toSerialize["affinity"] = o.Affinity
 	}
-	if !isNil(o.Agent) {
+	if !IsNil(o.Agent) {
 		toSerialize["agent"] = o.Agent
 	}
-	if !isNil(o.Archive) {
+	if !IsNil(o.Archive) {
 		toSerialize["archive"] = o.Archive
 	}
-	if !isNil(o.Arch) {
+	if !IsNil(o.Arch) {
 		toSerialize["arch"] = o.Arch
 	}
-	if !isNil(o.Args) {
+	if !IsNil(o.Args) {
 		toSerialize["args"] = o.Args
 	}
-	if !isNil(o.Audio0) {
+	if !IsNil(o.Audio0) {
 		toSerialize["audio0"] = o.Audio0
 	}
-	if !isNil(o.Autostart) {
+	if !IsNil(o.Autostart) {
 		toSerialize["autostart"] = o.Autostart
 	}
-	if !isNil(o.Ballon) {
+	if !IsNil(o.Ballon) {
 		toSerialize["ballon"] = o.Ballon
 	}
-	if !isNil(o.Bios) {
+	if !IsNil(o.Bios) {
 		toSerialize["bios"] = o.Bios
 	}
-	if !isNil(o.Boot) {
+	if !IsNil(o.Boot) {
 		toSerialize["boot"] = o.Boot
 	}
-	if !isNil(o.Bootdisk) {
+	if !IsNil(o.Bootdisk) {
 		toSerialize["bootdisk"] = o.Bootdisk
 	}
-	if !isNil(o.Cdrom) {
+	if !IsNil(o.Cdrom) {
 		toSerialize["cdrom"] = o.Cdrom
 	}
-	if !isNil(o.Cicustom) {
+	if !IsNil(o.Cicustom) {
 		toSerialize["cicustom"] = o.Cicustom
 	}
-	if !isNil(o.Cipassword) {
+	if !IsNil(o.Cipassword) {
 		toSerialize["cipassword"] = o.Cipassword
 	}
-	if !isNil(o.Citype) {
+	if !IsNil(o.Citype) {
 		toSerialize["citype"] = o.Citype
 	}
-	if !isNil(o.Ciuser) {
+	if !IsNil(o.Ciuser) {
 		toSerialize["ciuser"] = o.Ciuser
 	}
-	if !isNil(o.Cores) {
+	if !IsNil(o.Cores) {
 		toSerialize["cores"] = o.Cores
 	}
-	if !isNil(o.Cpu) {
+	if !IsNil(o.Cpu) {
 		toSerialize["cpu"] = o.Cpu
 	}
-	if !isNil(o.Cpulimit) {
+	if !IsNil(o.Cpulimit) {
 		toSerialize["cpulimit"] = o.Cpulimit
 	}
-	if !isNil(o.Cpuunits) {
+	if !IsNil(o.Cpuunits) {
 		toSerialize["cpuunits"] = o.Cpuunits
 	}
-	if !isNil(o.Description) {
+	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !isNil(o.Digest) {
+	if !IsNil(o.Digest) {
 		toSerialize["digest"] = o.Digest
 	}
-	if !isNil(o.Efidisk0) {
+	if !IsNil(o.Efidisk0) {
 		toSerialize["efidisk0"] = o.Efidisk0
 	}
-	if !isNil(o.Freeze) {
+	if !IsNil(o.Freeze) {
 		toSerialize["freeze"] = o.Freeze
 	}
-	if !isNil(o.Hookscript) {
+	if !IsNil(o.Hookscript) {
 		toSerialize["hookscript"] = o.Hookscript
 	}
-	if !isNil(o.Hostpci0) {
+	if !IsNil(o.Hostpci0) {
 		toSerialize["hostpci0"] = o.Hostpci0
 	}
-	if !isNil(o.Hostpci1) {
+	if !IsNil(o.Hostpci1) {
 		toSerialize["hostpci1"] = o.Hostpci1
 	}
-	if !isNil(o.Hostpci2) {
+	if !IsNil(o.Hostpci2) {
 		toSerialize["hostpci2"] = o.Hostpci2
 	}
-	if !isNil(o.Hostpci3) {
+	if !IsNil(o.Hostpci3) {
 		toSerialize["hostpci3"] = o.Hostpci3
 	}
-	if !isNil(o.Hostpci4) {
+	if !IsNil(o.Hostpci4) {
 		toSerialize["hostpci4"] = o.Hostpci4
 	}
-	if !isNil(o.Hostpci5) {
+	if !IsNil(o.Hostpci5) {
 		toSerialize["hostpci5"] = o.Hostpci5
 	}
-	if !isNil(o.Hostpci6) {
+	if !IsNil(o.Hostpci6) {
 		toSerialize["hostpci6"] = o.Hostpci6
 	}
-	if !isNil(o.Hostpci7) {
+	if !IsNil(o.Hostpci7) {
 		toSerialize["hostpci7"] = o.Hostpci7
 	}
-	if !isNil(o.Hostpci8) {
+	if !IsNil(o.Hostpci8) {
 		toSerialize["hostpci8"] = o.Hostpci8
 	}
-	if !isNil(o.Hostpci9) {
+	if !IsNil(o.Hostpci9) {
 		toSerialize["hostpci9"] = o.Hostpci9
 	}
-	if !isNil(o.Hugepages) {
+	if !IsNil(o.Hugepages) {
 		toSerialize["hugepages"] = o.Hugepages
 	}
-	if !isNil(o.Ide0) {
+	if !IsNil(o.Ide0) {
 		toSerialize["ide0"] = o.Ide0
 	}
-	if !isNil(o.Ide1) {
+	if !IsNil(o.Ide1) {
 		toSerialize["ide1"] = o.Ide1
 	}
-	if !isNil(o.Ide2) {
+	if !IsNil(o.Ide2) {
 		toSerialize["ide2"] = o.Ide2
 	}
-	if !isNil(o.Ide3) {
+	if !IsNil(o.Ide3) {
 		toSerialize["ide3"] = o.Ide3
 	}
-	if !isNil(o.Ipconfig0) {
+	if !IsNil(o.Ipconfig0) {
 		toSerialize["ipconfig0"] = o.Ipconfig0
 	}
-	if !isNil(o.Ipconfig1) {
+	if !IsNil(o.Ipconfig1) {
 		toSerialize["ipconfig1"] = o.Ipconfig1
 	}
-	if !isNil(o.Ipconfig2) {
+	if !IsNil(o.Ipconfig2) {
 		toSerialize["ipconfig2"] = o.Ipconfig2
 	}
-	if !isNil(o.Ipconfig3) {
+	if !IsNil(o.Ipconfig3) {
 		toSerialize["ipconfig3"] = o.Ipconfig3
 	}
-	if !isNil(o.Ipconfig4) {
+	if !IsNil(o.Ipconfig4) {
 		toSerialize["ipconfig4"] = o.Ipconfig4
 	}
-	if !isNil(o.Ipconfig5) {
+	if !IsNil(o.Ipconfig5) {
 		toSerialize["ipconfig5"] = o.Ipconfig5
 	}
-	if !isNil(o.Ipconfig6) {
+	if !IsNil(o.Ipconfig6) {
 		toSerialize["ipconfig6"] = o.Ipconfig6
 	}
-	if !isNil(o.Ipconfig7) {
+	if !IsNil(o.Ipconfig7) {
 		toSerialize["ipconfig7"] = o.Ipconfig7
 	}
-	if !isNil(o.Ivshmem) {
+	if !IsNil(o.Ivshmem) {
 		toSerialize["ivshmem"] = o.Ivshmem
 	}
-	if !isNil(o.Keephugepages) {
+	if !IsNil(o.Keephugepages) {
 		toSerialize["keephugepages"] = o.Keephugepages
 	}
-	if !isNil(o.Keyboard) {
+	if !IsNil(o.Keyboard) {
 		toSerialize["keyboard"] = o.Keyboard
 	}
-	if !isNil(o.Kvm) {
+	if !IsNil(o.Kvm) {
 		toSerialize["kvm"] = o.Kvm
 	}
-	if !isNil(o.Localtime) {
+	if !IsNil(o.Localtime) {
 		toSerialize["localtime"] = o.Localtime
 	}
-	if !isNil(o.LiveRestore) {
+	if !IsNil(o.LiveRestore) {
 		toSerialize["live-restore"] = o.LiveRestore
 	}
-	if !isNil(o.Lock) {
+	if !IsNil(o.Lock) {
 		toSerialize["lock"] = o.Lock
 	}
-	if !isNil(o.Machine) {
+	if !IsNil(o.Machine) {
 		toSerialize["machine"] = o.Machine
 	}
-	if !isNil(o.Memory) {
+	if !IsNil(o.Memory) {
 		toSerialize["memory"] = o.Memory
 	}
-	if !isNil(o.MigrateDowntime) {
+	if !IsNil(o.MigrateDowntime) {
 		toSerialize["migrate_downtime"] = o.MigrateDowntime
 	}
-	if !isNil(o.MigrateSpeed) {
+	if !IsNil(o.MigrateSpeed) {
 		toSerialize["migrate_speed"] = o.MigrateSpeed
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Nameserver) {
+	if !IsNil(o.Nameserver) {
 		toSerialize["nameserver"] = o.Nameserver
 	}
-	if !isNil(o.Net0) {
+	if !IsNil(o.Net0) {
 		toSerialize["net0"] = o.Net0
 	}
-	if !isNil(o.Net1) {
+	if !IsNil(o.Net1) {
 		toSerialize["net1"] = o.Net1
 	}
-	if !isNil(o.Net2) {
+	if !IsNil(o.Net2) {
 		toSerialize["net2"] = o.Net2
 	}
-	if !isNil(o.Net3) {
+	if !IsNil(o.Net3) {
 		toSerialize["net3"] = o.Net3
 	}
-	if !isNil(o.Net4) {
+	if !IsNil(o.Net4) {
 		toSerialize["net4"] = o.Net4
 	}
-	if !isNil(o.Net5) {
+	if !IsNil(o.Net5) {
 		toSerialize["net5"] = o.Net5
 	}
-	if !isNil(o.Net6) {
+	if !IsNil(o.Net6) {
 		toSerialize["net6"] = o.Net6
 	}
-	if !isNil(o.Net7) {
+	if !IsNil(o.Net7) {
 		toSerialize["net7"] = o.Net7
 	}
-	if !isNil(o.Numa) {
+	if !IsNil(o.Numa) {
 		toSerialize["numa"] = o.Numa
 	}
-	if !isNil(o.Numa0) {
+	if !IsNil(o.Numa0) {
 		toSerialize["numa0"] = o.Numa0
 	}
-	if !isNil(o.Numa1) {
+	if !IsNil(o.Numa1) {
 		toSerialize["numa1"] = o.Numa1
 	}
-	if !isNil(o.Numa2) {
+	if !IsNil(o.Numa2) {
 		toSerialize["numa2"] = o.Numa2
 	}
-	if !isNil(o.Numa3) {
+	if !IsNil(o.Numa3) {
 		toSerialize["numa3"] = o.Numa3
 	}
-	if !isNil(o.Numa4) {
+	if !IsNil(o.Numa4) {
 		toSerialize["numa4"] = o.Numa4
 	}
-	if !isNil(o.Numa5) {
+	if !IsNil(o.Numa5) {
 		toSerialize["numa5"] = o.Numa5
 	}
-	if !isNil(o.Numa6) {
+	if !IsNil(o.Numa6) {
 		toSerialize["numa6"] = o.Numa6
 	}
-	if !isNil(o.Numa7) {
+	if !IsNil(o.Numa7) {
 		toSerialize["numa7"] = o.Numa7
 	}
-	if !isNil(o.Onboot) {
+	if !IsNil(o.Onboot) {
 		toSerialize["onboot"] = o.Onboot
 	}
-	if !isNil(o.Ostype) {
+	if !IsNil(o.Ostype) {
 		toSerialize["ostype"] = o.Ostype
 	}
-	if !isNil(o.Parallel0) {
+	if !IsNil(o.Parallel0) {
 		toSerialize["parallel0"] = o.Parallel0
 	}
-	if !isNil(o.Parallel1) {
+	if !IsNil(o.Parallel1) {
 		toSerialize["parallel1"] = o.Parallel1
 	}
-	if !isNil(o.Parallel2) {
+	if !IsNil(o.Parallel2) {
 		toSerialize["parallel2"] = o.Parallel2
 	}
-	if !isNil(o.Pool) {
+	if !IsNil(o.Pool) {
 		toSerialize["pool"] = o.Pool
 	}
-	if !isNil(o.Protection) {
+	if !IsNil(o.Protection) {
 		toSerialize["protection"] = o.Protection
 	}
-	if !isNil(o.Reboot) {
+	if !IsNil(o.Reboot) {
 		toSerialize["reboot"] = o.Reboot
 	}
-	if !isNil(o.Rng0) {
+	if !IsNil(o.Rng0) {
 		toSerialize["rng0"] = o.Rng0
 	}
-	if !isNil(o.Sata0) {
+	if !IsNil(o.Sata0) {
 		toSerialize["sata0"] = o.Sata0
 	}
-	if !isNil(o.Sata1) {
+	if !IsNil(o.Sata1) {
 		toSerialize["sata1"] = o.Sata1
 	}
-	if !isNil(o.Sata2) {
+	if !IsNil(o.Sata2) {
 		toSerialize["sata2"] = o.Sata2
 	}
-	if !isNil(o.Sata3) {
+	if !IsNil(o.Sata3) {
 		toSerialize["sata3"] = o.Sata3
 	}
-	if !isNil(o.Sata4) {
+	if !IsNil(o.Sata4) {
 		toSerialize["sata4"] = o.Sata4
 	}
-	if !isNil(o.Sata5) {
+	if !IsNil(o.Sata5) {
 		toSerialize["sata5"] = o.Sata5
 	}
-	if !isNil(o.Scsi0) {
+	if !IsNil(o.Scsi0) {
 		toSerialize["scsi0"] = o.Scsi0
 	}
-	if !isNil(o.Scsi1) {
+	if !IsNil(o.Scsi1) {
 		toSerialize["scsi1"] = o.Scsi1
 	}
-	if !isNil(o.Scsi2) {
+	if !IsNil(o.Scsi2) {
 		toSerialize["scsi2"] = o.Scsi2
 	}
-	if !isNil(o.Scsi3) {
+	if !IsNil(o.Scsi3) {
 		toSerialize["scsi3"] = o.Scsi3
 	}
-	if !isNil(o.Scsi4) {
+	if !IsNil(o.Scsi4) {
 		toSerialize["scsi4"] = o.Scsi4
 	}
-	if !isNil(o.Scsi5) {
+	if !IsNil(o.Scsi5) {
 		toSerialize["scsi5"] = o.Scsi5
 	}
-	if !isNil(o.Scsi6) {
+	if !IsNil(o.Scsi6) {
 		toSerialize["scsi6"] = o.Scsi6
 	}
-	if !isNil(o.Scsi7) {
+	if !IsNil(o.Scsi7) {
 		toSerialize["scsi7"] = o.Scsi7
 	}
-	if !isNil(o.Scsi8) {
+	if !IsNil(o.Scsi8) {
 		toSerialize["scsi8"] = o.Scsi8
 	}
-	if !isNil(o.Scsi9) {
+	if !IsNil(o.Scsi9) {
 		toSerialize["scsi9"] = o.Scsi9
 	}
-	if !isNil(o.Scsi10) {
+	if !IsNil(o.Scsi10) {
 		toSerialize["scsi10"] = o.Scsi10
 	}
-	if !isNil(o.Scsi11) {
+	if !IsNil(o.Scsi11) {
 		toSerialize["scsi11"] = o.Scsi11
 	}
-	if !isNil(o.Scsi12) {
+	if !IsNil(o.Scsi12) {
 		toSerialize["scsi12"] = o.Scsi12
 	}
-	if !isNil(o.Scsi13) {
+	if !IsNil(o.Scsi13) {
 		toSerialize["scsi13"] = o.Scsi13
 	}
-	if !isNil(o.Scsi14) {
+	if !IsNil(o.Scsi14) {
 		toSerialize["scsi14"] = o.Scsi14
 	}
-	if !isNil(o.Scsi15) {
+	if !IsNil(o.Scsi15) {
 		toSerialize["scsi15"] = o.Scsi15
 	}
-	if !isNil(o.Scsi16) {
+	if !IsNil(o.Scsi16) {
 		toSerialize["scsi16"] = o.Scsi16
 	}
-	if !isNil(o.Scsi17) {
+	if !IsNil(o.Scsi17) {
 		toSerialize["scsi17"] = o.Scsi17
 	}
-	if !isNil(o.Scsi18) {
+	if !IsNil(o.Scsi18) {
 		toSerialize["scsi18"] = o.Scsi18
 	}
-	if !isNil(o.Scsi19) {
+	if !IsNil(o.Scsi19) {
 		toSerialize["scsi19"] = o.Scsi19
 	}
-	if !isNil(o.Scsi20) {
+	if !IsNil(o.Scsi20) {
 		toSerialize["scsi20"] = o.Scsi20
 	}
-	if !isNil(o.Scsi21) {
+	if !IsNil(o.Scsi21) {
 		toSerialize["scsi21"] = o.Scsi21
 	}
-	if !isNil(o.Scsi22) {
+	if !IsNil(o.Scsi22) {
 		toSerialize["scsi22"] = o.Scsi22
 	}
-	if !isNil(o.Scsi23) {
+	if !IsNil(o.Scsi23) {
 		toSerialize["scsi23"] = o.Scsi23
 	}
-	if !isNil(o.Scsi24) {
+	if !IsNil(o.Scsi24) {
 		toSerialize["scsi24"] = o.Scsi24
 	}
-	if !isNil(o.Scsi25) {
+	if !IsNil(o.Scsi25) {
 		toSerialize["scsi25"] = o.Scsi25
 	}
-	if !isNil(o.Scsi26) {
+	if !IsNil(o.Scsi26) {
 		toSerialize["scsi26"] = o.Scsi26
 	}
-	if !isNil(o.Scsi27) {
+	if !IsNil(o.Scsi27) {
 		toSerialize["scsi27"] = o.Scsi27
 	}
-	if !isNil(o.Scsi28) {
+	if !IsNil(o.Scsi28) {
 		toSerialize["scsi28"] = o.Scsi28
 	}
-	if !isNil(o.Scsi29) {
+	if !IsNil(o.Scsi29) {
 		toSerialize["scsi29"] = o.Scsi29
 	}
-	if !isNil(o.Scsi30) {
+	if !IsNil(o.Scsi30) {
 		toSerialize["scsi30"] = o.Scsi30
 	}
-	if !isNil(o.Scsihw) {
+	if !IsNil(o.Scsihw) {
 		toSerialize["scsihw"] = o.Scsihw
 	}
-	if !isNil(o.Searchdomain) {
+	if !IsNil(o.Searchdomain) {
 		toSerialize["searchdomain"] = o.Searchdomain
 	}
-	if !isNil(o.Serial0) {
+	if !IsNil(o.Serial0) {
 		toSerialize["serial0"] = o.Serial0
 	}
-	if !isNil(o.Serial1) {
+	if !IsNil(o.Serial1) {
 		toSerialize["serial1"] = o.Serial1
 	}
-	if !isNil(o.Serial2) {
+	if !IsNil(o.Serial2) {
 		toSerialize["serial2"] = o.Serial2
 	}
-	if !isNil(o.Serial3) {
+	if !IsNil(o.Serial3) {
 		toSerialize["serial3"] = o.Serial3
 	}
-	if !isNil(o.Shares) {
+	if !IsNil(o.Shares) {
 		toSerialize["shares"] = o.Shares
 	}
-	if !isNil(o.Smbios1) {
+	if !IsNil(o.Smbios1) {
 		toSerialize["smbios1"] = o.Smbios1
 	}
-	if !isNil(o.Sockets) {
+	if !IsNil(o.Sockets) {
 		toSerialize["sockets"] = o.Sockets
 	}
-	if !isNil(o.SpiceEnhancements) {
+	if !IsNil(o.SpiceEnhancements) {
 		toSerialize["spice_enhancements"] = o.SpiceEnhancements
 	}
-	if !isNil(o.Sshkeys) {
+	if !IsNil(o.Sshkeys) {
 		toSerialize["sshkeys"] = o.Sshkeys
 	}
-	if !isNil(o.Startdate) {
+	if !IsNil(o.Startdate) {
 		toSerialize["startdate"] = o.Startdate
 	}
-	if !isNil(o.Startup) {
+	if !IsNil(o.Startup) {
 		toSerialize["startup"] = o.Startup
 	}
-	if !isNil(o.Tablet) {
+	if !IsNil(o.Tablet) {
 		toSerialize["tablet"] = o.Tablet
 	}
-	if !isNil(o.Tags) {
+	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if !isNil(o.Template) {
+	if !IsNil(o.Template) {
 		toSerialize["template"] = o.Template
 	}
-	if !isNil(o.Tpmstate0) {
+	if !IsNil(o.Tpmstate0) {
 		toSerialize["tpmstate0"] = o.Tpmstate0
 	}
-	if !isNil(o.Unqiue) {
+	if !IsNil(o.Unqiue) {
 		toSerialize["unqiue"] = o.Unqiue
 	}
-	if !isNil(o.Usb0) {
+	if !IsNil(o.Usb0) {
 		toSerialize["usb0"] = o.Usb0
 	}
-	if !isNil(o.Usb1) {
+	if !IsNil(o.Usb1) {
 		toSerialize["usb1"] = o.Usb1
 	}
-	if !isNil(o.Usb2) {
+	if !IsNil(o.Usb2) {
 		toSerialize["usb2"] = o.Usb2
 	}
-	if !isNil(o.Usb3) {
+	if !IsNil(o.Usb3) {
 		toSerialize["usb3"] = o.Usb3
 	}
-	if !isNil(o.Usb4) {
+	if !IsNil(o.Usb4) {
 		toSerialize["usb4"] = o.Usb4
 	}
-	if !isNil(o.Usb5) {
+	if !IsNil(o.Usb5) {
 		toSerialize["usb5"] = o.Usb5
 	}
-	if !isNil(o.Usb6) {
+	if !IsNil(o.Usb6) {
 		toSerialize["usb6"] = o.Usb6
 	}
-	if !isNil(o.Usb7) {
+	if !IsNil(o.Usb7) {
 		toSerialize["usb7"] = o.Usb7
 	}
-	if !isNil(o.Usb8) {
+	if !IsNil(o.Usb8) {
 		toSerialize["usb8"] = o.Usb8
 	}
-	if !isNil(o.Usb9) {
+	if !IsNil(o.Usb9) {
 		toSerialize["usb9"] = o.Usb9
 	}
-	if !isNil(o.Usb10) {
+	if !IsNil(o.Usb10) {
 		toSerialize["usb10"] = o.Usb10
 	}
-	if !isNil(o.Usb11) {
+	if !IsNil(o.Usb11) {
 		toSerialize["usb11"] = o.Usb11
 	}
-	if !isNil(o.Usb12) {
+	if !IsNil(o.Usb12) {
 		toSerialize["usb12"] = o.Usb12
 	}
-	if !isNil(o.Usb13) {
+	if !IsNil(o.Usb13) {
 		toSerialize["usb13"] = o.Usb13
 	}
-	if !isNil(o.Usb14) {
+	if !IsNil(o.Usb14) {
 		toSerialize["usb14"] = o.Usb14
 	}
-	if !isNil(o.Hotplug) {
+	if !IsNil(o.Hotplug) {
 		toSerialize["hotplug"] = o.Hotplug
 	}
-	if !isNil(o.Vcpus) {
+	if !IsNil(o.Vcpus) {
 		toSerialize["vcpus"] = o.Vcpus
 	}
-	if !isNil(o.Vga) {
+	if !IsNil(o.Vga) {
 		toSerialize["vga"] = o.Vga
 	}
-	if !isNil(o.Virtio0) {
+	if !IsNil(o.Virtio0) {
 		toSerialize["virtio0"] = o.Virtio0
 	}
-	if !isNil(o.Virtio1) {
+	if !IsNil(o.Virtio1) {
 		toSerialize["virtio1"] = o.Virtio1
 	}
-	if !isNil(o.Virtio2) {
+	if !IsNil(o.Virtio2) {
 		toSerialize["virtio2"] = o.Virtio2
 	}
-	if !isNil(o.Virtio3) {
+	if !IsNil(o.Virtio3) {
 		toSerialize["virtio3"] = o.Virtio3
 	}
-	if !isNil(o.Virtio4) {
+	if !IsNil(o.Virtio4) {
 		toSerialize["virtio4"] = o.Virtio4
 	}
-	if !isNil(o.Virtio5) {
+	if !IsNil(o.Virtio5) {
 		toSerialize["virtio5"] = o.Virtio5
 	}
-	if !isNil(o.Virtio6) {
+	if !IsNil(o.Virtio6) {
 		toSerialize["virtio6"] = o.Virtio6
 	}
-	if !isNil(o.Virtio7) {
+	if !IsNil(o.Virtio7) {
 		toSerialize["virtio7"] = o.Virtio7
 	}
-	if !isNil(o.Virtio8) {
+	if !IsNil(o.Virtio8) {
 		toSerialize["virtio8"] = o.Virtio8
 	}
-	if !isNil(o.Virtio9) {
+	if !IsNil(o.Virtio9) {
 		toSerialize["virtio9"] = o.Virtio9
 	}
-	if !isNil(o.Virtio10) {
+	if !IsNil(o.Virtio10) {
 		toSerialize["virtio10"] = o.Virtio10
 	}
-	if !isNil(o.Virtio11) {
+	if !IsNil(o.Virtio11) {
 		toSerialize["virtio11"] = o.Virtio11
 	}
-	if !isNil(o.Virtio12) {
+	if !IsNil(o.Virtio12) {
 		toSerialize["virtio12"] = o.Virtio12
 	}
-	if !isNil(o.Virtio13) {
+	if !IsNil(o.Virtio13) {
 		toSerialize["virtio13"] = o.Virtio13
 	}
-	if !isNil(o.Virtio14) {
+	if !IsNil(o.Virtio14) {
 		toSerialize["virtio14"] = o.Virtio14
 	}
-	if !isNil(o.Virtio15) {
+	if !IsNil(o.Virtio15) {
 		toSerialize["virtio15"] = o.Virtio15
 	}
-	if !isNil(o.Vmgenid) {
+	if !IsNil(o.Vmgenid) {
 		toSerialize["vmgenid"] = o.Vmgenid
 	}
-	if !isNil(o.Vmstatestorage) {
+	if !IsNil(o.Vmstatestorage) {
 		toSerialize["vmstatestorage"] = o.Vmstatestorage
 	}
-	if !isNil(o.Watchdog) {
+	if !IsNil(o.Watchdog) {
 		toSerialize["watchdog"] = o.Watchdog
 	}
 	return toSerialize, nil

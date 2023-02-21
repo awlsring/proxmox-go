@@ -147,7 +147,7 @@ func (o *VirtualMachineStatusSummary) SetVmid(v float32) {
 
 // GetAgent returns the Agent field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetAgent() float32 {
-	if o == nil || isNil(o.Agent) {
+	if o == nil || IsNil(o.Agent) {
 		var ret float32
 		return ret
 	}
@@ -157,7 +157,7 @@ func (o *VirtualMachineStatusSummary) GetAgent() float32 {
 // GetAgentOk returns a tuple with the Agent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetAgentOk() (*float32, bool) {
-	if o == nil || isNil(o.Agent) {
+	if o == nil || IsNil(o.Agent) {
 		return nil, false
 	}
 	return o.Agent, true
@@ -165,7 +165,7 @@ func (o *VirtualMachineStatusSummary) GetAgentOk() (*float32, bool) {
 
 // HasAgent returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasAgent() bool {
-	if o != nil && !isNil(o.Agent) {
+	if o != nil && !IsNil(o.Agent) {
 		return true
 	}
 
@@ -179,7 +179,7 @@ func (o *VirtualMachineStatusSummary) SetAgent(v float32) {
 
 // GetCpus returns the Cpus field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetCpus() float32 {
-	if o == nil || isNil(o.Cpus) {
+	if o == nil || IsNil(o.Cpus) {
 		var ret float32
 		return ret
 	}
@@ -189,7 +189,7 @@ func (o *VirtualMachineStatusSummary) GetCpus() float32 {
 // GetCpusOk returns a tuple with the Cpus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetCpusOk() (*float32, bool) {
-	if o == nil || isNil(o.Cpus) {
+	if o == nil || IsNil(o.Cpus) {
 		return nil, false
 	}
 	return o.Cpus, true
@@ -197,7 +197,7 @@ func (o *VirtualMachineStatusSummary) GetCpusOk() (*float32, bool) {
 
 // HasCpus returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasCpus() bool {
-	if o != nil && !isNil(o.Cpus) {
+	if o != nil && !IsNil(o.Cpus) {
 		return true
 	}
 
@@ -211,7 +211,7 @@ func (o *VirtualMachineStatusSummary) SetCpus(v float32) {
 
 // GetLock returns the Lock field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetLock() string {
-	if o == nil || isNil(o.Lock) {
+	if o == nil || IsNil(o.Lock) {
 		var ret string
 		return ret
 	}
@@ -221,7 +221,7 @@ func (o *VirtualMachineStatusSummary) GetLock() string {
 // GetLockOk returns a tuple with the Lock field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetLockOk() (*string, bool) {
-	if o == nil || isNil(o.Lock) {
+	if o == nil || IsNil(o.Lock) {
 		return nil, false
 	}
 	return o.Lock, true
@@ -229,7 +229,7 @@ func (o *VirtualMachineStatusSummary) GetLockOk() (*string, bool) {
 
 // HasLock returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasLock() bool {
-	if o != nil && !isNil(o.Lock) {
+	if o != nil && !IsNil(o.Lock) {
 		return true
 	}
 
@@ -243,7 +243,7 @@ func (o *VirtualMachineStatusSummary) SetLock(v string) {
 
 // GetMaxdisk returns the Maxdisk field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetMaxdisk() float32 {
-	if o == nil || isNil(o.Maxdisk) {
+	if o == nil || IsNil(o.Maxdisk) {
 		var ret float32
 		return ret
 	}
@@ -253,7 +253,7 @@ func (o *VirtualMachineStatusSummary) GetMaxdisk() float32 {
 // GetMaxdiskOk returns a tuple with the Maxdisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetMaxdiskOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxdisk) {
+	if o == nil || IsNil(o.Maxdisk) {
 		return nil, false
 	}
 	return o.Maxdisk, true
@@ -261,7 +261,7 @@ func (o *VirtualMachineStatusSummary) GetMaxdiskOk() (*float32, bool) {
 
 // HasMaxdisk returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasMaxdisk() bool {
-	if o != nil && !isNil(o.Maxdisk) {
+	if o != nil && !IsNil(o.Maxdisk) {
 		return true
 	}
 
@@ -275,7 +275,7 @@ func (o *VirtualMachineStatusSummary) SetMaxdisk(v float32) {
 
 // GetMaxmem returns the Maxmem field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetMaxmem() float32 {
-	if o == nil || isNil(o.Maxmem) {
+	if o == nil || IsNil(o.Maxmem) {
 		var ret float32
 		return ret
 	}
@@ -285,7 +285,7 @@ func (o *VirtualMachineStatusSummary) GetMaxmem() float32 {
 // GetMaxmemOk returns a tuple with the Maxmem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetMaxmemOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxmem) {
+	if o == nil || IsNil(o.Maxmem) {
 		return nil, false
 	}
 	return o.Maxmem, true
@@ -293,7 +293,7 @@ func (o *VirtualMachineStatusSummary) GetMaxmemOk() (*float32, bool) {
 
 // HasMaxmem returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasMaxmem() bool {
-	if o != nil && !isNil(o.Maxmem) {
+	if o != nil && !IsNil(o.Maxmem) {
 		return true
 	}
 
@@ -307,7 +307,7 @@ func (o *VirtualMachineStatusSummary) SetMaxmem(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -317,7 +317,7 @@ func (o *VirtualMachineStatusSummary) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -325,7 +325,7 @@ func (o *VirtualMachineStatusSummary) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -339,7 +339,7 @@ func (o *VirtualMachineStatusSummary) SetName(v string) {
 
 // GetPid returns the Pid field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetPid() float32 {
-	if o == nil || isNil(o.Pid) {
+	if o == nil || IsNil(o.Pid) {
 		var ret float32
 		return ret
 	}
@@ -349,7 +349,7 @@ func (o *VirtualMachineStatusSummary) GetPid() float32 {
 // GetPidOk returns a tuple with the Pid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetPidOk() (*float32, bool) {
-	if o == nil || isNil(o.Pid) {
+	if o == nil || IsNil(o.Pid) {
 		return nil, false
 	}
 	return o.Pid, true
@@ -357,7 +357,7 @@ func (o *VirtualMachineStatusSummary) GetPidOk() (*float32, bool) {
 
 // HasPid returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasPid() bool {
-	if o != nil && !isNil(o.Pid) {
+	if o != nil && !IsNil(o.Pid) {
 		return true
 	}
 
@@ -371,7 +371,7 @@ func (o *VirtualMachineStatusSummary) SetPid(v float32) {
 
 // GetQmpstatus returns the Qmpstatus field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetQmpstatus() string {
-	if o == nil || isNil(o.Qmpstatus) {
+	if o == nil || IsNil(o.Qmpstatus) {
 		var ret string
 		return ret
 	}
@@ -381,7 +381,7 @@ func (o *VirtualMachineStatusSummary) GetQmpstatus() string {
 // GetQmpstatusOk returns a tuple with the Qmpstatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetQmpstatusOk() (*string, bool) {
-	if o == nil || isNil(o.Qmpstatus) {
+	if o == nil || IsNil(o.Qmpstatus) {
 		return nil, false
 	}
 	return o.Qmpstatus, true
@@ -389,7 +389,7 @@ func (o *VirtualMachineStatusSummary) GetQmpstatusOk() (*string, bool) {
 
 // HasQmpstatus returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasQmpstatus() bool {
-	if o != nil && !isNil(o.Qmpstatus) {
+	if o != nil && !IsNil(o.Qmpstatus) {
 		return true
 	}
 
@@ -403,7 +403,7 @@ func (o *VirtualMachineStatusSummary) SetQmpstatus(v string) {
 
 // GetRunningMachine returns the RunningMachine field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetRunningMachine() string {
-	if o == nil || isNil(o.RunningMachine) {
+	if o == nil || IsNil(o.RunningMachine) {
 		var ret string
 		return ret
 	}
@@ -413,7 +413,7 @@ func (o *VirtualMachineStatusSummary) GetRunningMachine() string {
 // GetRunningMachineOk returns a tuple with the RunningMachine field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetRunningMachineOk() (*string, bool) {
-	if o == nil || isNil(o.RunningMachine) {
+	if o == nil || IsNil(o.RunningMachine) {
 		return nil, false
 	}
 	return o.RunningMachine, true
@@ -421,7 +421,7 @@ func (o *VirtualMachineStatusSummary) GetRunningMachineOk() (*string, bool) {
 
 // HasRunningMachine returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasRunningMachine() bool {
-	if o != nil && !isNil(o.RunningMachine) {
+	if o != nil && !IsNil(o.RunningMachine) {
 		return true
 	}
 
@@ -435,7 +435,7 @@ func (o *VirtualMachineStatusSummary) SetRunningMachine(v string) {
 
 // GetRunningQemu returns the RunningQemu field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetRunningQemu() string {
-	if o == nil || isNil(o.RunningQemu) {
+	if o == nil || IsNil(o.RunningQemu) {
 		var ret string
 		return ret
 	}
@@ -445,7 +445,7 @@ func (o *VirtualMachineStatusSummary) GetRunningQemu() string {
 // GetRunningQemuOk returns a tuple with the RunningQemu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetRunningQemuOk() (*string, bool) {
-	if o == nil || isNil(o.RunningQemu) {
+	if o == nil || IsNil(o.RunningQemu) {
 		return nil, false
 	}
 	return o.RunningQemu, true
@@ -453,7 +453,7 @@ func (o *VirtualMachineStatusSummary) GetRunningQemuOk() (*string, bool) {
 
 // HasRunningQemu returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasRunningQemu() bool {
-	if o != nil && !isNil(o.RunningQemu) {
+	if o != nil && !IsNil(o.RunningQemu) {
 		return true
 	}
 
@@ -467,7 +467,7 @@ func (o *VirtualMachineStatusSummary) SetRunningQemu(v string) {
 
 // GetSpice returns the Spice field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetSpice() float32 {
-	if o == nil || isNil(o.Spice) {
+	if o == nil || IsNil(o.Spice) {
 		var ret float32
 		return ret
 	}
@@ -477,7 +477,7 @@ func (o *VirtualMachineStatusSummary) GetSpice() float32 {
 // GetSpiceOk returns a tuple with the Spice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetSpiceOk() (*float32, bool) {
-	if o == nil || isNil(o.Spice) {
+	if o == nil || IsNil(o.Spice) {
 		return nil, false
 	}
 	return o.Spice, true
@@ -485,7 +485,7 @@ func (o *VirtualMachineStatusSummary) GetSpiceOk() (*float32, bool) {
 
 // HasSpice returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasSpice() bool {
-	if o != nil && !isNil(o.Spice) {
+	if o != nil && !IsNil(o.Spice) {
 		return true
 	}
 
@@ -499,7 +499,7 @@ func (o *VirtualMachineStatusSummary) SetSpice(v float32) {
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetTags() string {
-	if o == nil || isNil(o.Tags) {
+	if o == nil || IsNil(o.Tags) {
 		var ret string
 		return ret
 	}
@@ -509,7 +509,7 @@ func (o *VirtualMachineStatusSummary) GetTags() string {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetTagsOk() (*string, bool) {
-	if o == nil || isNil(o.Tags) {
+	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
 	return o.Tags, true
@@ -517,7 +517,7 @@ func (o *VirtualMachineStatusSummary) GetTagsOk() (*string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasTags() bool {
-	if o != nil && !isNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -531,7 +531,7 @@ func (o *VirtualMachineStatusSummary) SetTags(v string) {
 
 // GetUptime returns the Uptime field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetUptime() float32 {
-	if o == nil || isNil(o.Uptime) {
+	if o == nil || IsNil(o.Uptime) {
 		var ret float32
 		return ret
 	}
@@ -541,7 +541,7 @@ func (o *VirtualMachineStatusSummary) GetUptime() float32 {
 // GetUptimeOk returns a tuple with the Uptime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetUptimeOk() (*float32, bool) {
-	if o == nil || isNil(o.Uptime) {
+	if o == nil || IsNil(o.Uptime) {
 		return nil, false
 	}
 	return o.Uptime, true
@@ -549,7 +549,7 @@ func (o *VirtualMachineStatusSummary) GetUptimeOk() (*float32, bool) {
 
 // HasUptime returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasUptime() bool {
-	if o != nil && !isNil(o.Uptime) {
+	if o != nil && !IsNil(o.Uptime) {
 		return true
 	}
 
@@ -563,7 +563,7 @@ func (o *VirtualMachineStatusSummary) SetUptime(v float32) {
 
 // GetCpu returns the Cpu field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetCpu() float32 {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		var ret float32
 		return ret
 	}
@@ -573,7 +573,7 @@ func (o *VirtualMachineStatusSummary) GetCpu() float32 {
 // GetCpuOk returns a tuple with the Cpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetCpuOk() (*float32, bool) {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		return nil, false
 	}
 	return o.Cpu, true
@@ -581,7 +581,7 @@ func (o *VirtualMachineStatusSummary) GetCpuOk() (*float32, bool) {
 
 // HasCpu returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasCpu() bool {
-	if o != nil && !isNil(o.Cpu) {
+	if o != nil && !IsNil(o.Cpu) {
 		return true
 	}
 
@@ -595,7 +595,7 @@ func (o *VirtualMachineStatusSummary) SetCpu(v float32) {
 
 // GetMem returns the Mem field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetMem() float32 {
-	if o == nil || isNil(o.Mem) {
+	if o == nil || IsNil(o.Mem) {
 		var ret float32
 		return ret
 	}
@@ -605,7 +605,7 @@ func (o *VirtualMachineStatusSummary) GetMem() float32 {
 // GetMemOk returns a tuple with the Mem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetMemOk() (*float32, bool) {
-	if o == nil || isNil(o.Mem) {
+	if o == nil || IsNil(o.Mem) {
 		return nil, false
 	}
 	return o.Mem, true
@@ -613,7 +613,7 @@ func (o *VirtualMachineStatusSummary) GetMemOk() (*float32, bool) {
 
 // HasMem returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasMem() bool {
-	if o != nil && !isNil(o.Mem) {
+	if o != nil && !IsNil(o.Mem) {
 		return true
 	}
 
@@ -627,7 +627,7 @@ func (o *VirtualMachineStatusSummary) SetMem(v float32) {
 
 // GetBalloon returns the Balloon field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetBalloon() float32 {
-	if o == nil || isNil(o.Balloon) {
+	if o == nil || IsNil(o.Balloon) {
 		var ret float32
 		return ret
 	}
@@ -637,7 +637,7 @@ func (o *VirtualMachineStatusSummary) GetBalloon() float32 {
 // GetBalloonOk returns a tuple with the Balloon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetBalloonOk() (*float32, bool) {
-	if o == nil || isNil(o.Balloon) {
+	if o == nil || IsNil(o.Balloon) {
 		return nil, false
 	}
 	return o.Balloon, true
@@ -645,7 +645,7 @@ func (o *VirtualMachineStatusSummary) GetBalloonOk() (*float32, bool) {
 
 // HasBalloon returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasBalloon() bool {
-	if o != nil && !isNil(o.Balloon) {
+	if o != nil && !IsNil(o.Balloon) {
 		return true
 	}
 
@@ -659,7 +659,7 @@ func (o *VirtualMachineStatusSummary) SetBalloon(v float32) {
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetDisk() float32 {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		var ret float32
 		return ret
 	}
@@ -669,7 +669,7 @@ func (o *VirtualMachineStatusSummary) GetDisk() float32 {
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetDiskOk() (*float32, bool) {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		return nil, false
 	}
 	return o.Disk, true
@@ -677,7 +677,7 @@ func (o *VirtualMachineStatusSummary) GetDiskOk() (*float32, bool) {
 
 // HasDisk returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasDisk() bool {
-	if o != nil && !isNil(o.Disk) {
+	if o != nil && !IsNil(o.Disk) {
 		return true
 	}
 
@@ -691,7 +691,7 @@ func (o *VirtualMachineStatusSummary) SetDisk(v float32) {
 
 // GetNetin returns the Netin field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetNetin() float32 {
-	if o == nil || isNil(o.Netin) {
+	if o == nil || IsNil(o.Netin) {
 		var ret float32
 		return ret
 	}
@@ -701,7 +701,7 @@ func (o *VirtualMachineStatusSummary) GetNetin() float32 {
 // GetNetinOk returns a tuple with the Netin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetNetinOk() (*float32, bool) {
-	if o == nil || isNil(o.Netin) {
+	if o == nil || IsNil(o.Netin) {
 		return nil, false
 	}
 	return o.Netin, true
@@ -709,7 +709,7 @@ func (o *VirtualMachineStatusSummary) GetNetinOk() (*float32, bool) {
 
 // HasNetin returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasNetin() bool {
-	if o != nil && !isNil(o.Netin) {
+	if o != nil && !IsNil(o.Netin) {
 		return true
 	}
 
@@ -723,7 +723,7 @@ func (o *VirtualMachineStatusSummary) SetNetin(v float32) {
 
 // GetNetout returns the Netout field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetNetout() float32 {
-	if o == nil || isNil(o.Netout) {
+	if o == nil || IsNil(o.Netout) {
 		var ret float32
 		return ret
 	}
@@ -733,7 +733,7 @@ func (o *VirtualMachineStatusSummary) GetNetout() float32 {
 // GetNetoutOk returns a tuple with the Netout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetNetoutOk() (*float32, bool) {
-	if o == nil || isNil(o.Netout) {
+	if o == nil || IsNil(o.Netout) {
 		return nil, false
 	}
 	return o.Netout, true
@@ -741,7 +741,7 @@ func (o *VirtualMachineStatusSummary) GetNetoutOk() (*float32, bool) {
 
 // HasNetout returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasNetout() bool {
-	if o != nil && !isNil(o.Netout) {
+	if o != nil && !IsNil(o.Netout) {
 		return true
 	}
 
@@ -755,7 +755,7 @@ func (o *VirtualMachineStatusSummary) SetNetout(v float32) {
 
 // GetDiskwrite returns the Diskwrite field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetDiskwrite() float32 {
-	if o == nil || isNil(o.Diskwrite) {
+	if o == nil || IsNil(o.Diskwrite) {
 		var ret float32
 		return ret
 	}
@@ -765,7 +765,7 @@ func (o *VirtualMachineStatusSummary) GetDiskwrite() float32 {
 // GetDiskwriteOk returns a tuple with the Diskwrite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetDiskwriteOk() (*float32, bool) {
-	if o == nil || isNil(o.Diskwrite) {
+	if o == nil || IsNil(o.Diskwrite) {
 		return nil, false
 	}
 	return o.Diskwrite, true
@@ -773,7 +773,7 @@ func (o *VirtualMachineStatusSummary) GetDiskwriteOk() (*float32, bool) {
 
 // HasDiskwrite returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasDiskwrite() bool {
-	if o != nil && !isNil(o.Diskwrite) {
+	if o != nil && !IsNil(o.Diskwrite) {
 		return true
 	}
 
@@ -787,7 +787,7 @@ func (o *VirtualMachineStatusSummary) SetDiskwrite(v float32) {
 
 // GetDiskread returns the Diskread field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetDiskread() float32 {
-	if o == nil || isNil(o.Diskread) {
+	if o == nil || IsNil(o.Diskread) {
 		var ret float32
 		return ret
 	}
@@ -797,7 +797,7 @@ func (o *VirtualMachineStatusSummary) GetDiskread() float32 {
 // GetDiskreadOk returns a tuple with the Diskread field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetDiskreadOk() (*float32, bool) {
-	if o == nil || isNil(o.Diskread) {
+	if o == nil || IsNil(o.Diskread) {
 		return nil, false
 	}
 	return o.Diskread, true
@@ -805,7 +805,7 @@ func (o *VirtualMachineStatusSummary) GetDiskreadOk() (*float32, bool) {
 
 // HasDiskread returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasDiskread() bool {
-	if o != nil && !isNil(o.Diskread) {
+	if o != nil && !IsNil(o.Diskread) {
 		return true
 	}
 
@@ -819,7 +819,7 @@ func (o *VirtualMachineStatusSummary) SetDiskread(v float32) {
 
 // GetFreemem returns the Freemem field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetFreemem() float32 {
-	if o == nil || isNil(o.Freemem) {
+	if o == nil || IsNil(o.Freemem) {
 		var ret float32
 		return ret
 	}
@@ -829,7 +829,7 @@ func (o *VirtualMachineStatusSummary) GetFreemem() float32 {
 // GetFreememOk returns a tuple with the Freemem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetFreememOk() (*float32, bool) {
-	if o == nil || isNil(o.Freemem) {
+	if o == nil || IsNil(o.Freemem) {
 		return nil, false
 	}
 	return o.Freemem, true
@@ -837,7 +837,7 @@ func (o *VirtualMachineStatusSummary) GetFreememOk() (*float32, bool) {
 
 // HasFreemem returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasFreemem() bool {
-	if o != nil && !isNil(o.Freemem) {
+	if o != nil && !IsNil(o.Freemem) {
 		return true
 	}
 
@@ -851,7 +851,7 @@ func (o *VirtualMachineStatusSummary) SetFreemem(v float32) {
 
 // GetNics returns the Nics field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetNics() map[string]VirtualMachineNicStatus {
-	if o == nil || isNil(o.Nics) {
+	if o == nil || IsNil(o.Nics) {
 		var ret map[string]VirtualMachineNicStatus
 		return ret
 	}
@@ -861,7 +861,7 @@ func (o *VirtualMachineStatusSummary) GetNics() map[string]VirtualMachineNicStat
 // GetNicsOk returns a tuple with the Nics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetNicsOk() (*map[string]VirtualMachineNicStatus, bool) {
-	if o == nil || isNil(o.Nics) {
+	if o == nil || IsNil(o.Nics) {
 		return nil, false
 	}
 	return o.Nics, true
@@ -869,7 +869,7 @@ func (o *VirtualMachineStatusSummary) GetNicsOk() (*map[string]VirtualMachineNic
 
 // HasNics returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasNics() bool {
-	if o != nil && !isNil(o.Nics) {
+	if o != nil && !IsNil(o.Nics) {
 		return true
 	}
 
@@ -883,7 +883,7 @@ func (o *VirtualMachineStatusSummary) SetNics(v map[string]VirtualMachineNicStat
 
 // GetBallooninfo returns the Ballooninfo field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetBallooninfo() VirtualMachineBalloonSummary {
-	if o == nil || isNil(o.Ballooninfo) {
+	if o == nil || IsNil(o.Ballooninfo) {
 		var ret VirtualMachineBalloonSummary
 		return ret
 	}
@@ -893,7 +893,7 @@ func (o *VirtualMachineStatusSummary) GetBallooninfo() VirtualMachineBalloonSumm
 // GetBallooninfoOk returns a tuple with the Ballooninfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetBallooninfoOk() (*VirtualMachineBalloonSummary, bool) {
-	if o == nil || isNil(o.Ballooninfo) {
+	if o == nil || IsNil(o.Ballooninfo) {
 		return nil, false
 	}
 	return o.Ballooninfo, true
@@ -901,7 +901,7 @@ func (o *VirtualMachineStatusSummary) GetBallooninfoOk() (*VirtualMachineBalloon
 
 // HasBallooninfo returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasBallooninfo() bool {
-	if o != nil && !isNil(o.Ballooninfo) {
+	if o != nil && !IsNil(o.Ballooninfo) {
 		return true
 	}
 
@@ -915,7 +915,7 @@ func (o *VirtualMachineStatusSummary) SetBallooninfo(v VirtualMachineBalloonSumm
 
 // GetBlockstat returns the Blockstat field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetBlockstat() map[string]VirtualMachineNicBlockStatistics {
-	if o == nil || isNil(o.Blockstat) {
+	if o == nil || IsNil(o.Blockstat) {
 		var ret map[string]VirtualMachineNicBlockStatistics
 		return ret
 	}
@@ -925,7 +925,7 @@ func (o *VirtualMachineStatusSummary) GetBlockstat() map[string]VirtualMachineNi
 // GetBlockstatOk returns a tuple with the Blockstat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetBlockstatOk() (*map[string]VirtualMachineNicBlockStatistics, bool) {
-	if o == nil || isNil(o.Blockstat) {
+	if o == nil || IsNil(o.Blockstat) {
 		return nil, false
 	}
 	return o.Blockstat, true
@@ -933,7 +933,7 @@ func (o *VirtualMachineStatusSummary) GetBlockstatOk() (*map[string]VirtualMachi
 
 // HasBlockstat returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasBlockstat() bool {
-	if o != nil && !isNil(o.Blockstat) {
+	if o != nil && !IsNil(o.Blockstat) {
 		return true
 	}
 
@@ -947,7 +947,7 @@ func (o *VirtualMachineStatusSummary) SetBlockstat(v map[string]VirtualMachineNi
 
 // GetProxmoxSupport returns the ProxmoxSupport field value if set, zero value otherwise.
 func (o *VirtualMachineStatusSummary) GetProxmoxSupport() ProxmoxSupportSummary {
-	if o == nil || isNil(o.ProxmoxSupport) {
+	if o == nil || IsNil(o.ProxmoxSupport) {
 		var ret ProxmoxSupportSummary
 		return ret
 	}
@@ -957,7 +957,7 @@ func (o *VirtualMachineStatusSummary) GetProxmoxSupport() ProxmoxSupportSummary 
 // GetProxmoxSupportOk returns a tuple with the ProxmoxSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineStatusSummary) GetProxmoxSupportOk() (*ProxmoxSupportSummary, bool) {
-	if o == nil || isNil(o.ProxmoxSupport) {
+	if o == nil || IsNil(o.ProxmoxSupport) {
 		return nil, false
 	}
 	return o.ProxmoxSupport, true
@@ -965,7 +965,7 @@ func (o *VirtualMachineStatusSummary) GetProxmoxSupportOk() (*ProxmoxSupportSumm
 
 // HasProxmoxSupport returns a boolean if a field has been set.
 func (o *VirtualMachineStatusSummary) HasProxmoxSupport() bool {
-	if o != nil && !isNil(o.ProxmoxSupport) {
+	if o != nil && !IsNil(o.ProxmoxSupport) {
 		return true
 	}
 
@@ -990,82 +990,82 @@ func (o VirtualMachineStatusSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["ha"] = o.Ha
 	toSerialize["vmid"] = o.Vmid
-	if !isNil(o.Agent) {
+	if !IsNil(o.Agent) {
 		toSerialize["agent"] = o.Agent
 	}
-	if !isNil(o.Cpus) {
+	if !IsNil(o.Cpus) {
 		toSerialize["cpus"] = o.Cpus
 	}
-	if !isNil(o.Lock) {
+	if !IsNil(o.Lock) {
 		toSerialize["lock"] = o.Lock
 	}
-	if !isNil(o.Maxdisk) {
+	if !IsNil(o.Maxdisk) {
 		toSerialize["maxdisk"] = o.Maxdisk
 	}
-	if !isNil(o.Maxmem) {
+	if !IsNil(o.Maxmem) {
 		toSerialize["maxmem"] = o.Maxmem
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Pid) {
+	if !IsNil(o.Pid) {
 		toSerialize["pid"] = o.Pid
 	}
-	if !isNil(o.Qmpstatus) {
+	if !IsNil(o.Qmpstatus) {
 		toSerialize["qmpstatus"] = o.Qmpstatus
 	}
-	if !isNil(o.RunningMachine) {
+	if !IsNil(o.RunningMachine) {
 		toSerialize["running-machine"] = o.RunningMachine
 	}
-	if !isNil(o.RunningQemu) {
+	if !IsNil(o.RunningQemu) {
 		toSerialize["running-qemu"] = o.RunningQemu
 	}
-	if !isNil(o.Spice) {
+	if !IsNil(o.Spice) {
 		toSerialize["spice"] = o.Spice
 	}
-	if !isNil(o.Tags) {
+	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if !isNil(o.Uptime) {
+	if !IsNil(o.Uptime) {
 		toSerialize["uptime"] = o.Uptime
 	}
-	if !isNil(o.Cpu) {
+	if !IsNil(o.Cpu) {
 		toSerialize["cpu"] = o.Cpu
 	}
-	if !isNil(o.Mem) {
+	if !IsNil(o.Mem) {
 		toSerialize["mem"] = o.Mem
 	}
-	if !isNil(o.Balloon) {
+	if !IsNil(o.Balloon) {
 		toSerialize["balloon"] = o.Balloon
 	}
-	if !isNil(o.Disk) {
+	if !IsNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
-	if !isNil(o.Netin) {
+	if !IsNil(o.Netin) {
 		toSerialize["netin"] = o.Netin
 	}
-	if !isNil(o.Netout) {
+	if !IsNil(o.Netout) {
 		toSerialize["netout"] = o.Netout
 	}
-	if !isNil(o.Diskwrite) {
+	if !IsNil(o.Diskwrite) {
 		toSerialize["diskwrite"] = o.Diskwrite
 	}
-	if !isNil(o.Diskread) {
+	if !IsNil(o.Diskread) {
 		toSerialize["diskread"] = o.Diskread
 	}
-	if !isNil(o.Freemem) {
+	if !IsNil(o.Freemem) {
 		toSerialize["freemem"] = o.Freemem
 	}
-	if !isNil(o.Nics) {
+	if !IsNil(o.Nics) {
 		toSerialize["nics"] = o.Nics
 	}
-	if !isNil(o.Ballooninfo) {
+	if !IsNil(o.Ballooninfo) {
 		toSerialize["ballooninfo"] = o.Ballooninfo
 	}
-	if !isNil(o.Blockstat) {
+	if !IsNil(o.Blockstat) {
 		toSerialize["blockstat"] = o.Blockstat
 	}
-	if !isNil(o.ProxmoxSupport) {
+	if !IsNil(o.ProxmoxSupport) {
 		toSerialize["proxmox-support"] = o.ProxmoxSupport
 	}
 	return toSerialize, nil

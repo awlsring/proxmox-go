@@ -48,7 +48,7 @@ func NewOperatingSystemInformationSummaryWithDefaults() *OperatingSystemInformat
 
 // GetPrettyName returns the PrettyName field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetPrettyName() string {
-	if o == nil || isNil(o.PrettyName) {
+	if o == nil || IsNil(o.PrettyName) {
 		var ret string
 		return ret
 	}
@@ -58,7 +58,7 @@ func (o *OperatingSystemInformationSummary) GetPrettyName() string {
 // GetPrettyNameOk returns a tuple with the PrettyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetPrettyNameOk() (*string, bool) {
-	if o == nil || isNil(o.PrettyName) {
+	if o == nil || IsNil(o.PrettyName) {
 		return nil, false
 	}
 	return o.PrettyName, true
@@ -66,7 +66,7 @@ func (o *OperatingSystemInformationSummary) GetPrettyNameOk() (*string, bool) {
 
 // HasPrettyName returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasPrettyName() bool {
-	if o != nil && !isNil(o.PrettyName) {
+	if o != nil && !IsNil(o.PrettyName) {
 		return true
 	}
 
@@ -80,7 +80,7 @@ func (o *OperatingSystemInformationSummary) SetPrettyName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -90,7 +90,7 @@ func (o *OperatingSystemInformationSummary) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -98,7 +98,7 @@ func (o *OperatingSystemInformationSummary) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -112,7 +112,7 @@ func (o *OperatingSystemInformationSummary) SetName(v string) {
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetVersion() string {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
@@ -122,7 +122,7 @@ func (o *OperatingSystemInformationSummary) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetVersionOk() (*string, bool) {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
 	return o.Version, true
@@ -130,7 +130,7 @@ func (o *OperatingSystemInformationSummary) GetVersionOk() (*string, bool) {
 
 // HasVersion returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
@@ -144,7 +144,7 @@ func (o *OperatingSystemInformationSummary) SetVersion(v string) {
 
 // GetVersionId returns the VersionId field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetVersionId() string {
-	if o == nil || isNil(o.VersionId) {
+	if o == nil || IsNil(o.VersionId) {
 		var ret string
 		return ret
 	}
@@ -154,7 +154,7 @@ func (o *OperatingSystemInformationSummary) GetVersionId() string {
 // GetVersionIdOk returns a tuple with the VersionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetVersionIdOk() (*string, bool) {
-	if o == nil || isNil(o.VersionId) {
+	if o == nil || IsNil(o.VersionId) {
 		return nil, false
 	}
 	return o.VersionId, true
@@ -162,7 +162,7 @@ func (o *OperatingSystemInformationSummary) GetVersionIdOk() (*string, bool) {
 
 // HasVersionId returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasVersionId() bool {
-	if o != nil && !isNil(o.VersionId) {
+	if o != nil && !IsNil(o.VersionId) {
 		return true
 	}
 
@@ -176,7 +176,7 @@ func (o *OperatingSystemInformationSummary) SetVersionId(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -186,7 +186,7 @@ func (o *OperatingSystemInformationSummary) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -194,7 +194,7 @@ func (o *OperatingSystemInformationSummary) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -208,7 +208,7 @@ func (o *OperatingSystemInformationSummary) SetId(v string) {
 
 // GetKernelVersion returns the KernelVersion field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetKernelVersion() string {
-	if o == nil || isNil(o.KernelVersion) {
+	if o == nil || IsNil(o.KernelVersion) {
 		var ret string
 		return ret
 	}
@@ -218,7 +218,7 @@ func (o *OperatingSystemInformationSummary) GetKernelVersion() string {
 // GetKernelVersionOk returns a tuple with the KernelVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetKernelVersionOk() (*string, bool) {
-	if o == nil || isNil(o.KernelVersion) {
+	if o == nil || IsNil(o.KernelVersion) {
 		return nil, false
 	}
 	return o.KernelVersion, true
@@ -226,7 +226,7 @@ func (o *OperatingSystemInformationSummary) GetKernelVersionOk() (*string, bool)
 
 // HasKernelVersion returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasKernelVersion() bool {
-	if o != nil && !isNil(o.KernelVersion) {
+	if o != nil && !IsNil(o.KernelVersion) {
 		return true
 	}
 
@@ -240,7 +240,7 @@ func (o *OperatingSystemInformationSummary) SetKernelVersion(v string) {
 
 // GetKernelRelease returns the KernelRelease field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetKernelRelease() string {
-	if o == nil || isNil(o.KernelRelease) {
+	if o == nil || IsNil(o.KernelRelease) {
 		var ret string
 		return ret
 	}
@@ -250,7 +250,7 @@ func (o *OperatingSystemInformationSummary) GetKernelRelease() string {
 // GetKernelReleaseOk returns a tuple with the KernelRelease field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetKernelReleaseOk() (*string, bool) {
-	if o == nil || isNil(o.KernelRelease) {
+	if o == nil || IsNil(o.KernelRelease) {
 		return nil, false
 	}
 	return o.KernelRelease, true
@@ -258,7 +258,7 @@ func (o *OperatingSystemInformationSummary) GetKernelReleaseOk() (*string, bool)
 
 // HasKernelRelease returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasKernelRelease() bool {
-	if o != nil && !isNil(o.KernelRelease) {
+	if o != nil && !IsNil(o.KernelRelease) {
 		return true
 	}
 
@@ -272,7 +272,7 @@ func (o *OperatingSystemInformationSummary) SetKernelRelease(v string) {
 
 // GetMachine returns the Machine field value if set, zero value otherwise.
 func (o *OperatingSystemInformationSummary) GetMachine() string {
-	if o == nil || isNil(o.Machine) {
+	if o == nil || IsNil(o.Machine) {
 		var ret string
 		return ret
 	}
@@ -282,7 +282,7 @@ func (o *OperatingSystemInformationSummary) GetMachine() string {
 // GetMachineOk returns a tuple with the Machine field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OperatingSystemInformationSummary) GetMachineOk() (*string, bool) {
-	if o == nil || isNil(o.Machine) {
+	if o == nil || IsNil(o.Machine) {
 		return nil, false
 	}
 	return o.Machine, true
@@ -290,7 +290,7 @@ func (o *OperatingSystemInformationSummary) GetMachineOk() (*string, bool) {
 
 // HasMachine returns a boolean if a field has been set.
 func (o *OperatingSystemInformationSummary) HasMachine() bool {
-	if o != nil && !isNil(o.Machine) {
+	if o != nil && !IsNil(o.Machine) {
 		return true
 	}
 
@@ -312,28 +312,28 @@ func (o OperatingSystemInformationSummary) MarshalJSON() ([]byte, error) {
 
 func (o OperatingSystemInformationSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.PrettyName) {
+	if !IsNil(o.PrettyName) {
 		toSerialize["pretty-name"] = o.PrettyName
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Version) {
+	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
-	if !isNil(o.VersionId) {
+	if !IsNil(o.VersionId) {
 		toSerialize["version-id"] = o.VersionId
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.KernelVersion) {
+	if !IsNil(o.KernelVersion) {
 		toSerialize["kernel-version"] = o.KernelVersion
 	}
-	if !isNil(o.KernelRelease) {
+	if !IsNil(o.KernelRelease) {
 		toSerialize["kernel-release"] = o.KernelRelease
 	}
-	if !isNil(o.Machine) {
+	if !IsNil(o.Machine) {
 		toSerialize["machine"] = o.Machine
 	}
 	return toSerialize, nil

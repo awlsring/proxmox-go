@@ -226,7 +226,7 @@ func (o *UsbDeviceSummary) SetSpeed(v string) {
 
 // GetManufacturer returns the Manufacturer field value if set, zero value otherwise.
 func (o *UsbDeviceSummary) GetManufacturer() string {
-	if o == nil || isNil(o.Manufacturer) {
+	if o == nil || IsNil(o.Manufacturer) {
 		var ret string
 		return ret
 	}
@@ -236,7 +236,7 @@ func (o *UsbDeviceSummary) GetManufacturer() string {
 // GetManufacturerOk returns a tuple with the Manufacturer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetManufacturerOk() (*string, bool) {
-	if o == nil || isNil(o.Manufacturer) {
+	if o == nil || IsNil(o.Manufacturer) {
 		return nil, false
 	}
 	return o.Manufacturer, true
@@ -244,7 +244,7 @@ func (o *UsbDeviceSummary) GetManufacturerOk() (*string, bool) {
 
 // HasManufacturer returns a boolean if a field has been set.
 func (o *UsbDeviceSummary) HasManufacturer() bool {
-	if o != nil && !isNil(o.Manufacturer) {
+	if o != nil && !IsNil(o.Manufacturer) {
 		return true
 	}
 
@@ -258,7 +258,7 @@ func (o *UsbDeviceSummary) SetManufacturer(v string) {
 
 // GetProduct returns the Product field value if set, zero value otherwise.
 func (o *UsbDeviceSummary) GetProduct() string {
-	if o == nil || isNil(o.Product) {
+	if o == nil || IsNil(o.Product) {
 		var ret string
 		return ret
 	}
@@ -268,7 +268,7 @@ func (o *UsbDeviceSummary) GetProduct() string {
 // GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetProductOk() (*string, bool) {
-	if o == nil || isNil(o.Product) {
+	if o == nil || IsNil(o.Product) {
 		return nil, false
 	}
 	return o.Product, true
@@ -276,7 +276,7 @@ func (o *UsbDeviceSummary) GetProductOk() (*string, bool) {
 
 // HasProduct returns a boolean if a field has been set.
 func (o *UsbDeviceSummary) HasProduct() bool {
-	if o != nil && !isNil(o.Product) {
+	if o != nil && !IsNil(o.Product) {
 		return true
 	}
 
@@ -290,7 +290,7 @@ func (o *UsbDeviceSummary) SetProduct(v string) {
 
 // GetSerial returns the Serial field value if set, zero value otherwise.
 func (o *UsbDeviceSummary) GetSerial() string {
-	if o == nil || isNil(o.Serial) {
+	if o == nil || IsNil(o.Serial) {
 		var ret string
 		return ret
 	}
@@ -300,7 +300,7 @@ func (o *UsbDeviceSummary) GetSerial() string {
 // GetSerialOk returns a tuple with the Serial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetSerialOk() (*string, bool) {
-	if o == nil || isNil(o.Serial) {
+	if o == nil || IsNil(o.Serial) {
 		return nil, false
 	}
 	return o.Serial, true
@@ -308,7 +308,7 @@ func (o *UsbDeviceSummary) GetSerialOk() (*string, bool) {
 
 // HasSerial returns a boolean if a field has been set.
 func (o *UsbDeviceSummary) HasSerial() bool {
-	if o != nil && !isNil(o.Serial) {
+	if o != nil && !IsNil(o.Serial) {
 		return true
 	}
 
@@ -322,7 +322,7 @@ func (o *UsbDeviceSummary) SetSerial(v string) {
 
 // GetUsbpath returns the Usbpath field value if set, zero value otherwise.
 func (o *UsbDeviceSummary) GetUsbpath() string {
-	if o == nil || isNil(o.Usbpath) {
+	if o == nil || IsNil(o.Usbpath) {
 		var ret string
 		return ret
 	}
@@ -332,7 +332,7 @@ func (o *UsbDeviceSummary) GetUsbpath() string {
 // GetUsbpathOk returns a tuple with the Usbpath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsbDeviceSummary) GetUsbpathOk() (*string, bool) {
-	if o == nil || isNil(o.Usbpath) {
+	if o == nil || IsNil(o.Usbpath) {
 		return nil, false
 	}
 	return o.Usbpath, true
@@ -340,7 +340,7 @@ func (o *UsbDeviceSummary) GetUsbpathOk() (*string, bool) {
 
 // HasUsbpath returns a boolean if a field has been set.
 func (o *UsbDeviceSummary) HasUsbpath() bool {
-	if o != nil && !isNil(o.Usbpath) {
+	if o != nil && !IsNil(o.Usbpath) {
 		return true
 	}
 
@@ -369,16 +369,16 @@ func (o UsbDeviceSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["prodid"] = o.Prodid
 	toSerialize["vendid"] = o.Vendid
 	toSerialize["speed"] = o.Speed
-	if !isNil(o.Manufacturer) {
+	if !IsNil(o.Manufacturer) {
 		toSerialize["manufacturer"] = o.Manufacturer
 	}
-	if !isNil(o.Product) {
+	if !IsNil(o.Product) {
 		toSerialize["product"] = o.Product
 	}
-	if !isNil(o.Serial) {
+	if !IsNil(o.Serial) {
 		toSerialize["serial"] = o.Serial
 	}
-	if !isNil(o.Usbpath) {
+	if !IsNil(o.Usbpath) {
 		toSerialize["usbpath"] = o.Usbpath
 	}
 	return toSerialize, nil

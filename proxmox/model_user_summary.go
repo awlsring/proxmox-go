@@ -76,7 +76,7 @@ func (o *UserSummary) SetUserid(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *UserSummary) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *UserSummary) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
 	return o.Email, true
@@ -94,7 +94,7 @@ func (o *UserSummary) GetEmailOk() (*string, bool) {
 
 // HasEmail returns a boolean if a field has been set.
 func (o *UserSummary) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *UserSummary) SetEmail(v string) {
 
 // GetFirstname returns the Firstname field value if set, zero value otherwise.
 func (o *UserSummary) GetFirstname() string {
-	if o == nil || isNil(o.Firstname) {
+	if o == nil || IsNil(o.Firstname) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *UserSummary) GetFirstname() string {
 // GetFirstnameOk returns a tuple with the Firstname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetFirstnameOk() (*string, bool) {
-	if o == nil || isNil(o.Firstname) {
+	if o == nil || IsNil(o.Firstname) {
 		return nil, false
 	}
 	return o.Firstname, true
@@ -126,7 +126,7 @@ func (o *UserSummary) GetFirstnameOk() (*string, bool) {
 
 // HasFirstname returns a boolean if a field has been set.
 func (o *UserSummary) HasFirstname() bool {
-	if o != nil && !isNil(o.Firstname) {
+	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
 
@@ -140,7 +140,7 @@ func (o *UserSummary) SetFirstname(v string) {
 
 // GetLastname returns the Lastname field value if set, zero value otherwise.
 func (o *UserSummary) GetLastname() string {
-	if o == nil || isNil(o.Lastname) {
+	if o == nil || IsNil(o.Lastname) {
 		var ret string
 		return ret
 	}
@@ -150,7 +150,7 @@ func (o *UserSummary) GetLastname() string {
 // GetLastnameOk returns a tuple with the Lastname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetLastnameOk() (*string, bool) {
-	if o == nil || isNil(o.Lastname) {
+	if o == nil || IsNil(o.Lastname) {
 		return nil, false
 	}
 	return o.Lastname, true
@@ -158,7 +158,7 @@ func (o *UserSummary) GetLastnameOk() (*string, bool) {
 
 // HasLastname returns a boolean if a field has been set.
 func (o *UserSummary) HasLastname() bool {
-	if o != nil && !isNil(o.Lastname) {
+	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
 
@@ -172,7 +172,7 @@ func (o *UserSummary) SetLastname(v string) {
 
 // GetEnable returns the Enable field value if set, zero value otherwise.
 func (o *UserSummary) GetEnable() float32 {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		var ret float32
 		return ret
 	}
@@ -182,7 +182,7 @@ func (o *UserSummary) GetEnable() float32 {
 // GetEnableOk returns a tuple with the Enable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetEnableOk() (*float32, bool) {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		return nil, false
 	}
 	return o.Enable, true
@@ -190,7 +190,7 @@ func (o *UserSummary) GetEnableOk() (*float32, bool) {
 
 // HasEnable returns a boolean if a field has been set.
 func (o *UserSummary) HasEnable() bool {
-	if o != nil && !isNil(o.Enable) {
+	if o != nil && !IsNil(o.Enable) {
 		return true
 	}
 
@@ -204,7 +204,7 @@ func (o *UserSummary) SetEnable(v float32) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *UserSummary) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -214,7 +214,7 @@ func (o *UserSummary) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -222,7 +222,7 @@ func (o *UserSummary) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *UserSummary) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -236,7 +236,7 @@ func (o *UserSummary) SetComment(v string) {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *UserSummary) GetGroups() string {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret string
 		return ret
 	}
@@ -246,7 +246,7 @@ func (o *UserSummary) GetGroups() string {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetGroupsOk() (*string, bool) {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		return nil, false
 	}
 	return o.Groups, true
@@ -254,7 +254,7 @@ func (o *UserSummary) GetGroupsOk() (*string, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *UserSummary) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -268,7 +268,7 @@ func (o *UserSummary) SetGroups(v string) {
 
 // GetExpire returns the Expire field value if set, zero value otherwise.
 func (o *UserSummary) GetExpire() float32 {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		var ret float32
 		return ret
 	}
@@ -278,7 +278,7 @@ func (o *UserSummary) GetExpire() float32 {
 // GetExpireOk returns a tuple with the Expire field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetExpireOk() (*float32, bool) {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		return nil, false
 	}
 	return o.Expire, true
@@ -286,7 +286,7 @@ func (o *UserSummary) GetExpireOk() (*float32, bool) {
 
 // HasExpire returns a boolean if a field has been set.
 func (o *UserSummary) HasExpire() bool {
-	if o != nil && !isNil(o.Expire) {
+	if o != nil && !IsNil(o.Expire) {
 		return true
 	}
 
@@ -300,7 +300,7 @@ func (o *UserSummary) SetExpire(v float32) {
 
 // GetRealmType returns the RealmType field value if set, zero value otherwise.
 func (o *UserSummary) GetRealmType() string {
-	if o == nil || isNil(o.RealmType) {
+	if o == nil || IsNil(o.RealmType) {
 		var ret string
 		return ret
 	}
@@ -310,7 +310,7 @@ func (o *UserSummary) GetRealmType() string {
 // GetRealmTypeOk returns a tuple with the RealmType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetRealmTypeOk() (*string, bool) {
-	if o == nil || isNil(o.RealmType) {
+	if o == nil || IsNil(o.RealmType) {
 		return nil, false
 	}
 	return o.RealmType, true
@@ -318,7 +318,7 @@ func (o *UserSummary) GetRealmTypeOk() (*string, bool) {
 
 // HasRealmType returns a boolean if a field has been set.
 func (o *UserSummary) HasRealmType() bool {
-	if o != nil && !isNil(o.RealmType) {
+	if o != nil && !IsNil(o.RealmType) {
 		return true
 	}
 
@@ -332,7 +332,7 @@ func (o *UserSummary) SetRealmType(v string) {
 
 // GetTokens returns the Tokens field value if set, zero value otherwise.
 func (o *UserSummary) GetTokens() []UserTokenSummary {
-	if o == nil || isNil(o.Tokens) {
+	if o == nil || IsNil(o.Tokens) {
 		var ret []UserTokenSummary
 		return ret
 	}
@@ -342,7 +342,7 @@ func (o *UserSummary) GetTokens() []UserTokenSummary {
 // GetTokensOk returns a tuple with the Tokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSummary) GetTokensOk() ([]UserTokenSummary, bool) {
-	if o == nil || isNil(o.Tokens) {
+	if o == nil || IsNil(o.Tokens) {
 		return nil, false
 	}
 	return o.Tokens, true
@@ -350,7 +350,7 @@ func (o *UserSummary) GetTokensOk() ([]UserTokenSummary, bool) {
 
 // HasTokens returns a boolean if a field has been set.
 func (o *UserSummary) HasTokens() bool {
-	if o != nil && !isNil(o.Tokens) {
+	if o != nil && !IsNil(o.Tokens) {
 		return true
 	}
 
@@ -373,31 +373,31 @@ func (o UserSummary) MarshalJSON() ([]byte, error) {
 func (o UserSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["userid"] = o.Userid
-	if !isNil(o.Email) {
+	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !isNil(o.Firstname) {
+	if !IsNil(o.Firstname) {
 		toSerialize["firstname"] = o.Firstname
 	}
-	if !isNil(o.Lastname) {
+	if !IsNil(o.Lastname) {
 		toSerialize["lastname"] = o.Lastname
 	}
-	if !isNil(o.Enable) {
+	if !IsNil(o.Enable) {
 		toSerialize["enable"] = o.Enable
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Groups) {
+	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
-	if !isNil(o.Expire) {
+	if !IsNil(o.Expire) {
 		toSerialize["expire"] = o.Expire
 	}
-	if !isNil(o.RealmType) {
+	if !IsNil(o.RealmType) {
 		toSerialize["realm-type"] = o.RealmType
 	}
-	if !isNil(o.Tokens) {
+	if !IsNil(o.Tokens) {
 		toSerialize["tokens"] = o.Tokens
 	}
 	return toSerialize, nil

@@ -47,7 +47,7 @@ func NewDiskInformationSummaryWithDefaults() *DiskInformationSummary {
 
 // GetTarget returns the Target field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetTarget() float32 {
-	if o == nil || isNil(o.Target) {
+	if o == nil || IsNil(o.Target) {
 		var ret float32
 		return ret
 	}
@@ -57,7 +57,7 @@ func (o *DiskInformationSummary) GetTarget() float32 {
 // GetTargetOk returns a tuple with the Target field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetTargetOk() (*float32, bool) {
-	if o == nil || isNil(o.Target) {
+	if o == nil || IsNil(o.Target) {
 		return nil, false
 	}
 	return o.Target, true
@@ -65,7 +65,7 @@ func (o *DiskInformationSummary) GetTargetOk() (*float32, bool) {
 
 // HasTarget returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasTarget() bool {
-	if o != nil && !isNil(o.Target) {
+	if o != nil && !IsNil(o.Target) {
 		return true
 	}
 
@@ -79,7 +79,7 @@ func (o *DiskInformationSummary) SetTarget(v float32) {
 
 // GetBus returns the Bus field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetBus() float32 {
-	if o == nil || isNil(o.Bus) {
+	if o == nil || IsNil(o.Bus) {
 		var ret float32
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *DiskInformationSummary) GetBus() float32 {
 // GetBusOk returns a tuple with the Bus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetBusOk() (*float32, bool) {
-	if o == nil || isNil(o.Bus) {
+	if o == nil || IsNil(o.Bus) {
 		return nil, false
 	}
 	return o.Bus, true
@@ -97,7 +97,7 @@ func (o *DiskInformationSummary) GetBusOk() (*float32, bool) {
 
 // HasBus returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasBus() bool {
-	if o != nil && !isNil(o.Bus) {
+	if o != nil && !IsNil(o.Bus) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *DiskInformationSummary) SetBus(v float32) {
 
 // GetPciController returns the PciController field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetPciController() PciControllerSummary {
-	if o == nil || isNil(o.PciController) {
+	if o == nil || IsNil(o.PciController) {
 		var ret PciControllerSummary
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *DiskInformationSummary) GetPciController() PciControllerSummary {
 // GetPciControllerOk returns a tuple with the PciController field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetPciControllerOk() (*PciControllerSummary, bool) {
-	if o == nil || isNil(o.PciController) {
+	if o == nil || IsNil(o.PciController) {
 		return nil, false
 	}
 	return o.PciController, true
@@ -129,7 +129,7 @@ func (o *DiskInformationSummary) GetPciControllerOk() (*PciControllerSummary, bo
 
 // HasPciController returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasPciController() bool {
-	if o != nil && !isNil(o.PciController) {
+	if o != nil && !IsNil(o.PciController) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *DiskInformationSummary) SetPciController(v PciControllerSummary) {
 
 // GetUnit returns the Unit field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetUnit() float32 {
-	if o == nil || isNil(o.Unit) {
+	if o == nil || IsNil(o.Unit) {
 		var ret float32
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *DiskInformationSummary) GetUnit() float32 {
 // GetUnitOk returns a tuple with the Unit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetUnitOk() (*float32, bool) {
-	if o == nil || isNil(o.Unit) {
+	if o == nil || IsNil(o.Unit) {
 		return nil, false
 	}
 	return o.Unit, true
@@ -161,7 +161,7 @@ func (o *DiskInformationSummary) GetUnitOk() (*float32, bool) {
 
 // HasUnit returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasUnit() bool {
-	if o != nil && !isNil(o.Unit) {
+	if o != nil && !IsNil(o.Unit) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *DiskInformationSummary) SetUnit(v float32) {
 
 // GetDev returns the Dev field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetDev() string {
-	if o == nil || isNil(o.Dev) {
+	if o == nil || IsNil(o.Dev) {
 		var ret string
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *DiskInformationSummary) GetDev() string {
 // GetDevOk returns a tuple with the Dev field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetDevOk() (*string, bool) {
-	if o == nil || isNil(o.Dev) {
+	if o == nil || IsNil(o.Dev) {
 		return nil, false
 	}
 	return o.Dev, true
@@ -193,7 +193,7 @@ func (o *DiskInformationSummary) GetDevOk() (*string, bool) {
 
 // HasDev returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasDev() bool {
-	if o != nil && !isNil(o.Dev) {
+	if o != nil && !IsNil(o.Dev) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *DiskInformationSummary) SetDev(v string) {
 
 // GetBusType returns the BusType field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetBusType() string {
-	if o == nil || isNil(o.BusType) {
+	if o == nil || IsNil(o.BusType) {
 		var ret string
 		return ret
 	}
@@ -217,7 +217,7 @@ func (o *DiskInformationSummary) GetBusType() string {
 // GetBusTypeOk returns a tuple with the BusType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetBusTypeOk() (*string, bool) {
-	if o == nil || isNil(o.BusType) {
+	if o == nil || IsNil(o.BusType) {
 		return nil, false
 	}
 	return o.BusType, true
@@ -225,7 +225,7 @@ func (o *DiskInformationSummary) GetBusTypeOk() (*string, bool) {
 
 // HasBusType returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasBusType() bool {
-	if o != nil && !isNil(o.BusType) {
+	if o != nil && !IsNil(o.BusType) {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *DiskInformationSummary) SetBusType(v string) {
 
 // GetSerial returns the Serial field value if set, zero value otherwise.
 func (o *DiskInformationSummary) GetSerial() string {
-	if o == nil || isNil(o.Serial) {
+	if o == nil || IsNil(o.Serial) {
 		var ret string
 		return ret
 	}
@@ -249,7 +249,7 @@ func (o *DiskInformationSummary) GetSerial() string {
 // GetSerialOk returns a tuple with the Serial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskInformationSummary) GetSerialOk() (*string, bool) {
-	if o == nil || isNil(o.Serial) {
+	if o == nil || IsNil(o.Serial) {
 		return nil, false
 	}
 	return o.Serial, true
@@ -257,7 +257,7 @@ func (o *DiskInformationSummary) GetSerialOk() (*string, bool) {
 
 // HasSerial returns a boolean if a field has been set.
 func (o *DiskInformationSummary) HasSerial() bool {
-	if o != nil && !isNil(o.Serial) {
+	if o != nil && !IsNil(o.Serial) {
 		return true
 	}
 
@@ -279,25 +279,25 @@ func (o DiskInformationSummary) MarshalJSON() ([]byte, error) {
 
 func (o DiskInformationSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Target) {
+	if !IsNil(o.Target) {
 		toSerialize["target"] = o.Target
 	}
-	if !isNil(o.Bus) {
+	if !IsNil(o.Bus) {
 		toSerialize["bus"] = o.Bus
 	}
-	if !isNil(o.PciController) {
+	if !IsNil(o.PciController) {
 		toSerialize["pci-controller"] = o.PciController
 	}
-	if !isNil(o.Unit) {
+	if !IsNil(o.Unit) {
 		toSerialize["unit"] = o.Unit
 	}
-	if !isNil(o.Dev) {
+	if !IsNil(o.Dev) {
 		toSerialize["dev"] = o.Dev
 	}
-	if !isNil(o.BusType) {
+	if !IsNil(o.BusType) {
 		toSerialize["bus-type"] = o.BusType
 	}
-	if !isNil(o.Serial) {
+	if !IsNil(o.Serial) {
 		toSerialize["serial"] = o.Serial
 	}
 	return toSerialize, nil

@@ -44,7 +44,7 @@ func NewPciControllerSummaryWithDefaults() *PciControllerSummary {
 
 // GetBus returns the Bus field value if set, zero value otherwise.
 func (o *PciControllerSummary) GetBus() float32 {
-	if o == nil || isNil(o.Bus) {
+	if o == nil || IsNil(o.Bus) {
 		var ret float32
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *PciControllerSummary) GetBus() float32 {
 // GetBusOk returns a tuple with the Bus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetBusOk() (*float32, bool) {
-	if o == nil || isNil(o.Bus) {
+	if o == nil || IsNil(o.Bus) {
 		return nil, false
 	}
 	return o.Bus, true
@@ -62,7 +62,7 @@ func (o *PciControllerSummary) GetBusOk() (*float32, bool) {
 
 // HasBus returns a boolean if a field has been set.
 func (o *PciControllerSummary) HasBus() bool {
-	if o != nil && !isNil(o.Bus) {
+	if o != nil && !IsNil(o.Bus) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *PciControllerSummary) SetBus(v float32) {
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *PciControllerSummary) GetDomain() float32 {
-	if o == nil || isNil(o.Domain) {
+	if o == nil || IsNil(o.Domain) {
 		var ret float32
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *PciControllerSummary) GetDomain() float32 {
 // GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetDomainOk() (*float32, bool) {
-	if o == nil || isNil(o.Domain) {
+	if o == nil || IsNil(o.Domain) {
 		return nil, false
 	}
 	return o.Domain, true
@@ -94,7 +94,7 @@ func (o *PciControllerSummary) GetDomainOk() (*float32, bool) {
 
 // HasDomain returns a boolean if a field has been set.
 func (o *PciControllerSummary) HasDomain() bool {
-	if o != nil && !isNil(o.Domain) {
+	if o != nil && !IsNil(o.Domain) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *PciControllerSummary) SetDomain(v float32) {
 
 // GetFunction returns the Function field value if set, zero value otherwise.
 func (o *PciControllerSummary) GetFunction() float32 {
-	if o == nil || isNil(o.Function) {
+	if o == nil || IsNil(o.Function) {
 		var ret float32
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *PciControllerSummary) GetFunction() float32 {
 // GetFunctionOk returns a tuple with the Function field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetFunctionOk() (*float32, bool) {
-	if o == nil || isNil(o.Function) {
+	if o == nil || IsNil(o.Function) {
 		return nil, false
 	}
 	return o.Function, true
@@ -126,7 +126,7 @@ func (o *PciControllerSummary) GetFunctionOk() (*float32, bool) {
 
 // HasFunction returns a boolean if a field has been set.
 func (o *PciControllerSummary) HasFunction() bool {
-	if o != nil && !isNil(o.Function) {
+	if o != nil && !IsNil(o.Function) {
 		return true
 	}
 
@@ -140,7 +140,7 @@ func (o *PciControllerSummary) SetFunction(v float32) {
 
 // GetSlot returns the Slot field value if set, zero value otherwise.
 func (o *PciControllerSummary) GetSlot() float32 {
-	if o == nil || isNil(o.Slot) {
+	if o == nil || IsNil(o.Slot) {
 		var ret float32
 		return ret
 	}
@@ -150,7 +150,7 @@ func (o *PciControllerSummary) GetSlot() float32 {
 // GetSlotOk returns a tuple with the Slot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PciControllerSummary) GetSlotOk() (*float32, bool) {
-	if o == nil || isNil(o.Slot) {
+	if o == nil || IsNil(o.Slot) {
 		return nil, false
 	}
 	return o.Slot, true
@@ -158,7 +158,7 @@ func (o *PciControllerSummary) GetSlotOk() (*float32, bool) {
 
 // HasSlot returns a boolean if a field has been set.
 func (o *PciControllerSummary) HasSlot() bool {
-	if o != nil && !isNil(o.Slot) {
+	if o != nil && !IsNil(o.Slot) {
 		return true
 	}
 
@@ -180,16 +180,16 @@ func (o PciControllerSummary) MarshalJSON() ([]byte, error) {
 
 func (o PciControllerSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Bus) {
+	if !IsNil(o.Bus) {
 		toSerialize["bus"] = o.Bus
 	}
-	if !isNil(o.Domain) {
+	if !IsNil(o.Domain) {
 		toSerialize["domain"] = o.Domain
 	}
-	if !isNil(o.Function) {
+	if !IsNil(o.Function) {
 		toSerialize["function"] = o.Function
 	}
-	if !isNil(o.Slot) {
+	if !IsNil(o.Slot) {
 		toSerialize["slot"] = o.Slot
 	}
 	return toSerialize, nil

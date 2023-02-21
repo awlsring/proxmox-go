@@ -68,7 +68,7 @@ func (o *PendingVirtualMachineCloudInitField) SetKey(v string) {
 
 // GetNew returns the New field value if set, zero value otherwise.
 func (o *PendingVirtualMachineCloudInitField) GetNew() string {
-	if o == nil || isNil(o.New) {
+	if o == nil || IsNil(o.New) {
 		var ret string
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *PendingVirtualMachineCloudInitField) GetNew() string {
 // GetNewOk returns a tuple with the New field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingVirtualMachineCloudInitField) GetNewOk() (*string, bool) {
-	if o == nil || isNil(o.New) {
+	if o == nil || IsNil(o.New) {
 		return nil, false
 	}
 	return o.New, true
@@ -86,7 +86,7 @@ func (o *PendingVirtualMachineCloudInitField) GetNewOk() (*string, bool) {
 
 // HasNew returns a boolean if a field has been set.
 func (o *PendingVirtualMachineCloudInitField) HasNew() bool {
-	if o != nil && !isNil(o.New) {
+	if o != nil && !IsNil(o.New) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *PendingVirtualMachineCloudInitField) SetNew(v string) {
 
 // GetOld returns the Old field value if set, zero value otherwise.
 func (o *PendingVirtualMachineCloudInitField) GetOld() string {
-	if o == nil || isNil(o.Old) {
+	if o == nil || IsNil(o.Old) {
 		var ret string
 		return ret
 	}
@@ -110,7 +110,7 @@ func (o *PendingVirtualMachineCloudInitField) GetOld() string {
 // GetOldOk returns a tuple with the Old field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingVirtualMachineCloudInitField) GetOldOk() (*string, bool) {
-	if o == nil || isNil(o.Old) {
+	if o == nil || IsNil(o.Old) {
 		return nil, false
 	}
 	return o.Old, true
@@ -118,7 +118,7 @@ func (o *PendingVirtualMachineCloudInitField) GetOldOk() (*string, bool) {
 
 // HasOld returns a boolean if a field has been set.
 func (o *PendingVirtualMachineCloudInitField) HasOld() bool {
-	if o != nil && !isNil(o.Old) {
+	if o != nil && !IsNil(o.Old) {
 		return true
 	}
 
@@ -141,10 +141,10 @@ func (o PendingVirtualMachineCloudInitField) MarshalJSON() ([]byte, error) {
 func (o PendingVirtualMachineCloudInitField) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
-	if !isNil(o.New) {
+	if !IsNil(o.New) {
 		toSerialize["new"] = o.New
 	}
-	if !isNil(o.Old) {
+	if !IsNil(o.Old) {
 		toSerialize["old"] = o.Old
 	}
 	return toSerialize, nil

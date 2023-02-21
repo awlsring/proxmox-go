@@ -43,7 +43,7 @@ func NewVcpuSummaryWithDefaults() *VcpuSummary {
 
 // GetOnline returns the Online field value if set, zero value otherwise.
 func (o *VcpuSummary) GetOnline() bool {
-	if o == nil || isNil(o.Online) {
+	if o == nil || IsNil(o.Online) {
 		var ret bool
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *VcpuSummary) GetOnline() bool {
 // GetOnlineOk returns a tuple with the Online field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VcpuSummary) GetOnlineOk() (*bool, bool) {
-	if o == nil || isNil(o.Online) {
+	if o == nil || IsNil(o.Online) {
 		return nil, false
 	}
 	return o.Online, true
@@ -61,7 +61,7 @@ func (o *VcpuSummary) GetOnlineOk() (*bool, bool) {
 
 // HasOnline returns a boolean if a field has been set.
 func (o *VcpuSummary) HasOnline() bool {
-	if o != nil && !isNil(o.Online) {
+	if o != nil && !IsNil(o.Online) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *VcpuSummary) SetOnline(v bool) {
 
 // GetCanOffline returns the CanOffline field value if set, zero value otherwise.
 func (o *VcpuSummary) GetCanOffline() bool {
-	if o == nil || isNil(o.CanOffline) {
+	if o == nil || IsNil(o.CanOffline) {
 		var ret bool
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *VcpuSummary) GetCanOffline() bool {
 // GetCanOfflineOk returns a tuple with the CanOffline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VcpuSummary) GetCanOfflineOk() (*bool, bool) {
-	if o == nil || isNil(o.CanOffline) {
+	if o == nil || IsNil(o.CanOffline) {
 		return nil, false
 	}
 	return o.CanOffline, true
@@ -93,7 +93,7 @@ func (o *VcpuSummary) GetCanOfflineOk() (*bool, bool) {
 
 // HasCanOffline returns a boolean if a field has been set.
 func (o *VcpuSummary) HasCanOffline() bool {
-	if o != nil && !isNil(o.CanOffline) {
+	if o != nil && !IsNil(o.CanOffline) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *VcpuSummary) SetCanOffline(v bool) {
 
 // GetLogicalId returns the LogicalId field value if set, zero value otherwise.
 func (o *VcpuSummary) GetLogicalId() float32 {
-	if o == nil || isNil(o.LogicalId) {
+	if o == nil || IsNil(o.LogicalId) {
 		var ret float32
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *VcpuSummary) GetLogicalId() float32 {
 // GetLogicalIdOk returns a tuple with the LogicalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VcpuSummary) GetLogicalIdOk() (*float32, bool) {
-	if o == nil || isNil(o.LogicalId) {
+	if o == nil || IsNil(o.LogicalId) {
 		return nil, false
 	}
 	return o.LogicalId, true
@@ -125,7 +125,7 @@ func (o *VcpuSummary) GetLogicalIdOk() (*float32, bool) {
 
 // HasLogicalId returns a boolean if a field has been set.
 func (o *VcpuSummary) HasLogicalId() bool {
-	if o != nil && !isNil(o.LogicalId) {
+	if o != nil && !IsNil(o.LogicalId) {
 		return true
 	}
 
@@ -147,13 +147,13 @@ func (o VcpuSummary) MarshalJSON() ([]byte, error) {
 
 func (o VcpuSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Online) {
+	if !IsNil(o.Online) {
 		toSerialize["online"] = o.Online
 	}
-	if !isNil(o.CanOffline) {
+	if !IsNil(o.CanOffline) {
 		toSerialize["can-offline"] = o.CanOffline
 	}
-	if !isNil(o.LogicalId) {
+	if !IsNil(o.LogicalId) {
 		toSerialize["logical-id"] = o.LogicalId
 	}
 	return toSerialize, nil

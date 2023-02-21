@@ -51,7 +51,7 @@ func NewLVMChildWithDefaults() *LVMChild {
 
 // GetChildren returns the Children field value if set, zero value otherwise.
 func (o *LVMChild) GetChildren() []LVMChild {
-	if o == nil || isNil(o.Children) {
+	if o == nil || IsNil(o.Children) {
 		var ret []LVMChild
 		return ret
 	}
@@ -61,7 +61,7 @@ func (o *LVMChild) GetChildren() []LVMChild {
 // GetChildrenOk returns a tuple with the Children field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LVMChild) GetChildrenOk() ([]LVMChild, bool) {
-	if o == nil || isNil(o.Children) {
+	if o == nil || IsNil(o.Children) {
 		return nil, false
 	}
 	return o.Children, true
@@ -69,7 +69,7 @@ func (o *LVMChild) GetChildrenOk() ([]LVMChild, bool) {
 
 // HasChildren returns a boolean if a field has been set.
 func (o *LVMChild) HasChildren() bool {
-	if o != nil && !isNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *LVMChild) SetLeaf(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *LVMChild) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *LVMChild) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LVMChild) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -125,7 +125,7 @@ func (o *LVMChild) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *LVMChild) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -139,7 +139,7 @@ func (o *LVMChild) SetName(v string) {
 
 // GetFree returns the Free field value if set, zero value otherwise.
 func (o *LVMChild) GetFree() float32 {
-	if o == nil || isNil(o.Free) {
+	if o == nil || IsNil(o.Free) {
 		var ret float32
 		return ret
 	}
@@ -149,7 +149,7 @@ func (o *LVMChild) GetFree() float32 {
 // GetFreeOk returns a tuple with the Free field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LVMChild) GetFreeOk() (*float32, bool) {
-	if o == nil || isNil(o.Free) {
+	if o == nil || IsNil(o.Free) {
 		return nil, false
 	}
 	return o.Free, true
@@ -157,7 +157,7 @@ func (o *LVMChild) GetFreeOk() (*float32, bool) {
 
 // HasFree returns a boolean if a field has been set.
 func (o *LVMChild) HasFree() bool {
-	if o != nil && !isNil(o.Free) {
+	if o != nil && !IsNil(o.Free) {
 		return true
 	}
 
@@ -171,7 +171,7 @@ func (o *LVMChild) SetFree(v float32) {
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *LVMChild) GetSize() float32 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret float32
 		return ret
 	}
@@ -181,7 +181,7 @@ func (o *LVMChild) GetSize() float32 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LVMChild) GetSizeOk() (*float32, bool) {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
 	return o.Size, true
@@ -189,7 +189,7 @@ func (o *LVMChild) GetSizeOk() (*float32, bool) {
 
 // HasSize returns a boolean if a field has been set.
 func (o *LVMChild) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -203,7 +203,7 @@ func (o *LVMChild) SetSize(v float32) {
 
 // GetLvcount returns the Lvcount field value if set, zero value otherwise.
 func (o *LVMChild) GetLvcount() float32 {
-	if o == nil || isNil(o.Lvcount) {
+	if o == nil || IsNil(o.Lvcount) {
 		var ret float32
 		return ret
 	}
@@ -213,7 +213,7 @@ func (o *LVMChild) GetLvcount() float32 {
 // GetLvcountOk returns a tuple with the Lvcount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LVMChild) GetLvcountOk() (*float32, bool) {
-	if o == nil || isNil(o.Lvcount) {
+	if o == nil || IsNil(o.Lvcount) {
 		return nil, false
 	}
 	return o.Lvcount, true
@@ -221,7 +221,7 @@ func (o *LVMChild) GetLvcountOk() (*float32, bool) {
 
 // HasLvcount returns a boolean if a field has been set.
 func (o *LVMChild) HasLvcount() bool {
-	if o != nil && !isNil(o.Lvcount) {
+	if o != nil && !IsNil(o.Lvcount) {
 		return true
 	}
 
@@ -243,20 +243,20 @@ func (o LVMChild) MarshalJSON() ([]byte, error) {
 
 func (o LVMChild) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Children) {
+	if !IsNil(o.Children) {
 		toSerialize["children"] = o.Children
 	}
 	toSerialize["leaf"] = o.Leaf
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Free) {
+	if !IsNil(o.Free) {
 		toSerialize["free"] = o.Free
 	}
-	if !isNil(o.Size) {
+	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
-	if !isNil(o.Lvcount) {
+	if !IsNil(o.Lvcount) {
 		toSerialize["lvcount"] = o.Lvcount
 	}
 	return toSerialize, nil

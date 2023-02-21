@@ -301,7 +301,7 @@ func (o *PackageSummary) SetCurrentState(v string) {
 
 // GetRunningKernel returns the RunningKernel field value if set, zero value otherwise.
 func (o *PackageSummary) GetRunningKernel() string {
-	if o == nil || isNil(o.RunningKernel) {
+	if o == nil || IsNil(o.RunningKernel) {
 		var ret string
 		return ret
 	}
@@ -311,7 +311,7 @@ func (o *PackageSummary) GetRunningKernel() string {
 // GetRunningKernelOk returns a tuple with the RunningKernel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PackageSummary) GetRunningKernelOk() (*string, bool) {
-	if o == nil || isNil(o.RunningKernel) {
+	if o == nil || IsNil(o.RunningKernel) {
 		return nil, false
 	}
 	return o.RunningKernel, true
@@ -319,7 +319,7 @@ func (o *PackageSummary) GetRunningKernelOk() (*string, bool) {
 
 // HasRunningKernel returns a boolean if a field has been set.
 func (o *PackageSummary) HasRunningKernel() bool {
-	if o != nil && !isNil(o.RunningKernel) {
+	if o != nil && !IsNil(o.RunningKernel) {
 		return true
 	}
 
@@ -351,7 +351,7 @@ func (o PackageSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["Version"] = o.Version
 	toSerialize["Origin"] = o.Origin
 	toSerialize["CurrentState"] = o.CurrentState
-	if !isNil(o.RunningKernel) {
+	if !IsNil(o.RunningKernel) {
 		toSerialize["RunningKernel"] = o.RunningKernel
 	}
 	return toSerialize, nil

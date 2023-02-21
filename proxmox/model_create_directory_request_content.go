@@ -97,7 +97,7 @@ func (o *CreateDirectoryRequestContent) SetName(v string) {
 
 // GetAddStorage returns the AddStorage field value if set, zero value otherwise.
 func (o *CreateDirectoryRequestContent) GetAddStorage() float32 {
-	if o == nil || isNil(o.AddStorage) {
+	if o == nil || IsNil(o.AddStorage) {
 		var ret float32
 		return ret
 	}
@@ -107,7 +107,7 @@ func (o *CreateDirectoryRequestContent) GetAddStorage() float32 {
 // GetAddStorageOk returns a tuple with the AddStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateDirectoryRequestContent) GetAddStorageOk() (*float32, bool) {
-	if o == nil || isNil(o.AddStorage) {
+	if o == nil || IsNil(o.AddStorage) {
 		return nil, false
 	}
 	return o.AddStorage, true
@@ -115,7 +115,7 @@ func (o *CreateDirectoryRequestContent) GetAddStorageOk() (*float32, bool) {
 
 // HasAddStorage returns a boolean if a field has been set.
 func (o *CreateDirectoryRequestContent) HasAddStorage() bool {
-	if o != nil && !isNil(o.AddStorage) {
+	if o != nil && !IsNil(o.AddStorage) {
 		return true
 	}
 
@@ -129,7 +129,7 @@ func (o *CreateDirectoryRequestContent) SetAddStorage(v float32) {
 
 // GetFilesystem returns the Filesystem field value if set, zero value otherwise.
 func (o *CreateDirectoryRequestContent) GetFilesystem() DirectoryFileSystem {
-	if o == nil || isNil(o.Filesystem) {
+	if o == nil || IsNil(o.Filesystem) {
 		var ret DirectoryFileSystem
 		return ret
 	}
@@ -139,7 +139,7 @@ func (o *CreateDirectoryRequestContent) GetFilesystem() DirectoryFileSystem {
 // GetFilesystemOk returns a tuple with the Filesystem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateDirectoryRequestContent) GetFilesystemOk() (*DirectoryFileSystem, bool) {
-	if o == nil || isNil(o.Filesystem) {
+	if o == nil || IsNil(o.Filesystem) {
 		return nil, false
 	}
 	return o.Filesystem, true
@@ -147,7 +147,7 @@ func (o *CreateDirectoryRequestContent) GetFilesystemOk() (*DirectoryFileSystem,
 
 // HasFilesystem returns a boolean if a field has been set.
 func (o *CreateDirectoryRequestContent) HasFilesystem() bool {
-	if o != nil && !isNil(o.Filesystem) {
+	if o != nil && !IsNil(o.Filesystem) {
 		return true
 	}
 
@@ -171,10 +171,10 @@ func (o CreateDirectoryRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["device"] = o.Device
 	toSerialize["name"] = o.Name
-	if !isNil(o.AddStorage) {
+	if !IsNil(o.AddStorage) {
 		toSerialize["add_storage"] = o.AddStorage
 	}
-	if !isNil(o.Filesystem) {
+	if !IsNil(o.Filesystem) {
 		toSerialize["filesystem"] = o.Filesystem
 	}
 	return toSerialize, nil

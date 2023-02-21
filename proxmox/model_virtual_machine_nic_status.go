@@ -42,7 +42,7 @@ func NewVirtualMachineNicStatusWithDefaults() *VirtualMachineNicStatus {
 
 // GetNetin returns the Netin field value if set, zero value otherwise.
 func (o *VirtualMachineNicStatus) GetNetin() float32 {
-	if o == nil || isNil(o.Netin) {
+	if o == nil || IsNil(o.Netin) {
 		var ret float32
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *VirtualMachineNicStatus) GetNetin() float32 {
 // GetNetinOk returns a tuple with the Netin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicStatus) GetNetinOk() (*float32, bool) {
-	if o == nil || isNil(o.Netin) {
+	if o == nil || IsNil(o.Netin) {
 		return nil, false
 	}
 	return o.Netin, true
@@ -60,7 +60,7 @@ func (o *VirtualMachineNicStatus) GetNetinOk() (*float32, bool) {
 
 // HasNetin returns a boolean if a field has been set.
 func (o *VirtualMachineNicStatus) HasNetin() bool {
-	if o != nil && !isNil(o.Netin) {
+	if o != nil && !IsNil(o.Netin) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *VirtualMachineNicStatus) SetNetin(v float32) {
 
 // GetNetout returns the Netout field value if set, zero value otherwise.
 func (o *VirtualMachineNicStatus) GetNetout() float32 {
-	if o == nil || isNil(o.Netout) {
+	if o == nil || IsNil(o.Netout) {
 		var ret float32
 		return ret
 	}
@@ -84,7 +84,7 @@ func (o *VirtualMachineNicStatus) GetNetout() float32 {
 // GetNetoutOk returns a tuple with the Netout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicStatus) GetNetoutOk() (*float32, bool) {
-	if o == nil || isNil(o.Netout) {
+	if o == nil || IsNil(o.Netout) {
 		return nil, false
 	}
 	return o.Netout, true
@@ -92,7 +92,7 @@ func (o *VirtualMachineNicStatus) GetNetoutOk() (*float32, bool) {
 
 // HasNetout returns a boolean if a field has been set.
 func (o *VirtualMachineNicStatus) HasNetout() bool {
-	if o != nil && !isNil(o.Netout) {
+	if o != nil && !IsNil(o.Netout) {
 		return true
 	}
 
@@ -114,10 +114,10 @@ func (o VirtualMachineNicStatus) MarshalJSON() ([]byte, error) {
 
 func (o VirtualMachineNicStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Netin) {
+	if !IsNil(o.Netin) {
 		toSerialize["netin"] = o.Netin
 	}
-	if !isNil(o.Netout) {
+	if !IsNil(o.Netout) {
 		toSerialize["netout"] = o.Netout
 	}
 	return toSerialize, nil

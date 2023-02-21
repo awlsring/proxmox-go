@@ -67,7 +67,7 @@ func (o *CreateRoleRequestContent) SetRoleid(v string) {
 
 // GetPrivs returns the Privs field value if set, zero value otherwise.
 func (o *CreateRoleRequestContent) GetPrivs() string {
-	if o == nil || isNil(o.Privs) {
+	if o == nil || IsNil(o.Privs) {
 		var ret string
 		return ret
 	}
@@ -77,7 +77,7 @@ func (o *CreateRoleRequestContent) GetPrivs() string {
 // GetPrivsOk returns a tuple with the Privs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRoleRequestContent) GetPrivsOk() (*string, bool) {
-	if o == nil || isNil(o.Privs) {
+	if o == nil || IsNil(o.Privs) {
 		return nil, false
 	}
 	return o.Privs, true
@@ -85,7 +85,7 @@ func (o *CreateRoleRequestContent) GetPrivsOk() (*string, bool) {
 
 // HasPrivs returns a boolean if a field has been set.
 func (o *CreateRoleRequestContent) HasPrivs() bool {
-	if o != nil && !isNil(o.Privs) {
+	if o != nil && !IsNil(o.Privs) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o CreateRoleRequestContent) MarshalJSON() ([]byte, error) {
 func (o CreateRoleRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["roleid"] = o.Roleid
-	if !isNil(o.Privs) {
+	if !IsNil(o.Privs) {
 		toSerialize["privs"] = o.Privs
 	}
 	return toSerialize, nil

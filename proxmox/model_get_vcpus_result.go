@@ -41,7 +41,7 @@ func NewGetVcpusResultWithDefaults() *GetVcpusResult {
 
 // GetResult returns the Result field value if set, zero value otherwise.
 func (o *GetVcpusResult) GetResult() []VcpuSummary {
-	if o == nil || isNil(o.Result) {
+	if o == nil || IsNil(o.Result) {
 		var ret []VcpuSummary
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *GetVcpusResult) GetResult() []VcpuSummary {
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetVcpusResult) GetResultOk() ([]VcpuSummary, bool) {
-	if o == nil || isNil(o.Result) {
+	if o == nil || IsNil(o.Result) {
 		return nil, false
 	}
 	return o.Result, true
@@ -59,7 +59,7 @@ func (o *GetVcpusResult) GetResultOk() ([]VcpuSummary, bool) {
 
 // HasResult returns a boolean if a field has been set.
 func (o *GetVcpusResult) HasResult() bool {
-	if o != nil && !isNil(o.Result) {
+	if o != nil && !IsNil(o.Result) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o GetVcpusResult) MarshalJSON() ([]byte, error) {
 
 func (o GetVcpusResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Result) {
+	if !IsNil(o.Result) {
 		toSerialize["result"] = o.Result
 	}
 	return toSerialize, nil

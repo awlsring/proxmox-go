@@ -47,7 +47,7 @@ func NewModifyPoolRequestContentWithDefaults() *ModifyPoolRequestContent {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *ModifyPoolRequestContent) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -57,7 +57,7 @@ func (o *ModifyPoolRequestContent) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -65,7 +65,7 @@ func (o *ModifyPoolRequestContent) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *ModifyPoolRequestContent) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -79,7 +79,7 @@ func (o *ModifyPoolRequestContent) SetComment(v string) {
 
 // GetDelete returns the Delete field value if set, zero value otherwise.
 func (o *ModifyPoolRequestContent) GetDelete() bool {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		var ret bool
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *ModifyPoolRequestContent) GetDelete() bool {
 // GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetDeleteOk() (*bool, bool) {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		return nil, false
 	}
 	return o.Delete, true
@@ -97,7 +97,7 @@ func (o *ModifyPoolRequestContent) GetDeleteOk() (*bool, bool) {
 
 // HasDelete returns a boolean if a field has been set.
 func (o *ModifyPoolRequestContent) HasDelete() bool {
-	if o != nil && !isNil(o.Delete) {
+	if o != nil && !IsNil(o.Delete) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *ModifyPoolRequestContent) SetDelete(v bool) {
 
 // GetStorage returns the Storage field value if set, zero value otherwise.
 func (o *ModifyPoolRequestContent) GetStorage() string {
-	if o == nil || isNil(o.Storage) {
+	if o == nil || IsNil(o.Storage) {
 		var ret string
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *ModifyPoolRequestContent) GetStorage() string {
 // GetStorageOk returns a tuple with the Storage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetStorageOk() (*string, bool) {
-	if o == nil || isNil(o.Storage) {
+	if o == nil || IsNil(o.Storage) {
 		return nil, false
 	}
 	return o.Storage, true
@@ -129,7 +129,7 @@ func (o *ModifyPoolRequestContent) GetStorageOk() (*string, bool) {
 
 // HasStorage returns a boolean if a field has been set.
 func (o *ModifyPoolRequestContent) HasStorage() bool {
-	if o != nil && !isNil(o.Storage) {
+	if o != nil && !IsNil(o.Storage) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *ModifyPoolRequestContent) SetStorage(v string) {
 
 // GetVms returns the Vms field value if set, zero value otherwise.
 func (o *ModifyPoolRequestContent) GetVms() string {
-	if o == nil || isNil(o.Vms) {
+	if o == nil || IsNil(o.Vms) {
 		var ret string
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *ModifyPoolRequestContent) GetVms() string {
 // GetVmsOk returns a tuple with the Vms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyPoolRequestContent) GetVmsOk() (*string, bool) {
-	if o == nil || isNil(o.Vms) {
+	if o == nil || IsNil(o.Vms) {
 		return nil, false
 	}
 	return o.Vms, true
@@ -161,7 +161,7 @@ func (o *ModifyPoolRequestContent) GetVmsOk() (*string, bool) {
 
 // HasVms returns a boolean if a field has been set.
 func (o *ModifyPoolRequestContent) HasVms() bool {
-	if o != nil && !isNil(o.Vms) {
+	if o != nil && !IsNil(o.Vms) {
 		return true
 	}
 
@@ -183,16 +183,16 @@ func (o ModifyPoolRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o ModifyPoolRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Delete) {
+	if !IsNil(o.Delete) {
 		toSerialize["delete"] = o.Delete
 	}
-	if !isNil(o.Storage) {
+	if !IsNil(o.Storage) {
 		toSerialize["storage"] = o.Storage
 	}
-	if !isNil(o.Vms) {
+	if !IsNil(o.Vms) {
 		toSerialize["vms"] = o.Vms
 	}
 	return toSerialize, nil

@@ -46,7 +46,7 @@ func NewFileSystemInformationSummaryWithDefaults() *FileSystemInformationSummary
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
 func (o *FileSystemInformationSummary) GetDisk() []DiskInformationSummary {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		var ret []DiskInformationSummary
 		return ret
 	}
@@ -56,7 +56,7 @@ func (o *FileSystemInformationSummary) GetDisk() []DiskInformationSummary {
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetDiskOk() ([]DiskInformationSummary, bool) {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		return nil, false
 	}
 	return o.Disk, true
@@ -64,7 +64,7 @@ func (o *FileSystemInformationSummary) GetDiskOk() ([]DiskInformationSummary, bo
 
 // HasDisk returns a boolean if a field has been set.
 func (o *FileSystemInformationSummary) HasDisk() bool {
-	if o != nil && !isNil(o.Disk) {
+	if o != nil && !IsNil(o.Disk) {
 		return true
 	}
 
@@ -78,7 +78,7 @@ func (o *FileSystemInformationSummary) SetDisk(v []DiskInformationSummary) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FileSystemInformationSummary) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -88,7 +88,7 @@ func (o *FileSystemInformationSummary) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -96,7 +96,7 @@ func (o *FileSystemInformationSummary) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *FileSystemInformationSummary) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -110,7 +110,7 @@ func (o *FileSystemInformationSummary) SetName(v string) {
 
 // GetMountpoint returns the Mountpoint field value if set, zero value otherwise.
 func (o *FileSystemInformationSummary) GetMountpoint() string {
-	if o == nil || isNil(o.Mountpoint) {
+	if o == nil || IsNil(o.Mountpoint) {
 		var ret string
 		return ret
 	}
@@ -120,7 +120,7 @@ func (o *FileSystemInformationSummary) GetMountpoint() string {
 // GetMountpointOk returns a tuple with the Mountpoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetMountpointOk() (*string, bool) {
-	if o == nil || isNil(o.Mountpoint) {
+	if o == nil || IsNil(o.Mountpoint) {
 		return nil, false
 	}
 	return o.Mountpoint, true
@@ -128,7 +128,7 @@ func (o *FileSystemInformationSummary) GetMountpointOk() (*string, bool) {
 
 // HasMountpoint returns a boolean if a field has been set.
 func (o *FileSystemInformationSummary) HasMountpoint() bool {
-	if o != nil && !isNil(o.Mountpoint) {
+	if o != nil && !IsNil(o.Mountpoint) {
 		return true
 	}
 
@@ -142,7 +142,7 @@ func (o *FileSystemInformationSummary) SetMountpoint(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *FileSystemInformationSummary) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -152,7 +152,7 @@ func (o *FileSystemInformationSummary) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -160,7 +160,7 @@ func (o *FileSystemInformationSummary) GetTypeOk() (*string, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *FileSystemInformationSummary) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -174,7 +174,7 @@ func (o *FileSystemInformationSummary) SetType(v string) {
 
 // GetUsedBytes returns the UsedBytes field value if set, zero value otherwise.
 func (o *FileSystemInformationSummary) GetUsedBytes() float32 {
-	if o == nil || isNil(o.UsedBytes) {
+	if o == nil || IsNil(o.UsedBytes) {
 		var ret float32
 		return ret
 	}
@@ -184,7 +184,7 @@ func (o *FileSystemInformationSummary) GetUsedBytes() float32 {
 // GetUsedBytesOk returns a tuple with the UsedBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetUsedBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.UsedBytes) {
+	if o == nil || IsNil(o.UsedBytes) {
 		return nil, false
 	}
 	return o.UsedBytes, true
@@ -192,7 +192,7 @@ func (o *FileSystemInformationSummary) GetUsedBytesOk() (*float32, bool) {
 
 // HasUsedBytes returns a boolean if a field has been set.
 func (o *FileSystemInformationSummary) HasUsedBytes() bool {
-	if o != nil && !isNil(o.UsedBytes) {
+	if o != nil && !IsNil(o.UsedBytes) {
 		return true
 	}
 
@@ -206,7 +206,7 @@ func (o *FileSystemInformationSummary) SetUsedBytes(v float32) {
 
 // GetTotalBytes returns the TotalBytes field value if set, zero value otherwise.
 func (o *FileSystemInformationSummary) GetTotalBytes() float32 {
-	if o == nil || isNil(o.TotalBytes) {
+	if o == nil || IsNil(o.TotalBytes) {
 		var ret float32
 		return ret
 	}
@@ -216,7 +216,7 @@ func (o *FileSystemInformationSummary) GetTotalBytes() float32 {
 // GetTotalBytesOk returns a tuple with the TotalBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileSystemInformationSummary) GetTotalBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalBytes) {
+	if o == nil || IsNil(o.TotalBytes) {
 		return nil, false
 	}
 	return o.TotalBytes, true
@@ -224,7 +224,7 @@ func (o *FileSystemInformationSummary) GetTotalBytesOk() (*float32, bool) {
 
 // HasTotalBytes returns a boolean if a field has been set.
 func (o *FileSystemInformationSummary) HasTotalBytes() bool {
-	if o != nil && !isNil(o.TotalBytes) {
+	if o != nil && !IsNil(o.TotalBytes) {
 		return true
 	}
 
@@ -246,22 +246,22 @@ func (o FileSystemInformationSummary) MarshalJSON() ([]byte, error) {
 
 func (o FileSystemInformationSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Disk) {
+	if !IsNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Mountpoint) {
+	if !IsNil(o.Mountpoint) {
 		toSerialize["mountpoint"] = o.Mountpoint
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.UsedBytes) {
+	if !IsNil(o.UsedBytes) {
 		toSerialize["used-bytes"] = o.UsedBytes
 	}
-	if !isNil(o.TotalBytes) {
+	if !IsNil(o.TotalBytes) {
 		toSerialize["total-bytes"] = o.TotalBytes
 	}
 	return toSerialize, nil

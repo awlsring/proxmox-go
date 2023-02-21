@@ -96,7 +96,7 @@ func (o *CreateLVMRequestContent) SetName(v string) {
 
 // GetAddStorage returns the AddStorage field value if set, zero value otherwise.
 func (o *CreateLVMRequestContent) GetAddStorage() float32 {
-	if o == nil || isNil(o.AddStorage) {
+	if o == nil || IsNil(o.AddStorage) {
 		var ret float32
 		return ret
 	}
@@ -106,7 +106,7 @@ func (o *CreateLVMRequestContent) GetAddStorage() float32 {
 // GetAddStorageOk returns a tuple with the AddStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateLVMRequestContent) GetAddStorageOk() (*float32, bool) {
-	if o == nil || isNil(o.AddStorage) {
+	if o == nil || IsNil(o.AddStorage) {
 		return nil, false
 	}
 	return o.AddStorage, true
@@ -114,7 +114,7 @@ func (o *CreateLVMRequestContent) GetAddStorageOk() (*float32, bool) {
 
 // HasAddStorage returns a boolean if a field has been set.
 func (o *CreateLVMRequestContent) HasAddStorage() bool {
-	if o != nil && !isNil(o.AddStorage) {
+	if o != nil && !IsNil(o.AddStorage) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o CreateLVMRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["device"] = o.Device
 	toSerialize["name"] = o.Name
-	if !isNil(o.AddStorage) {
+	if !IsNil(o.AddStorage) {
 		toSerialize["add_storage"] = o.AddStorage
 	}
 	return toSerialize, nil

@@ -50,7 +50,7 @@ func NewSyncRealmRequestContentWithDefaults() *SyncRealmRequestContent {
 
 // GetDryRun returns the DryRun field value if set, zero value otherwise.
 func (o *SyncRealmRequestContent) GetDryRun() float32 {
-	if o == nil || isNil(o.DryRun) {
+	if o == nil || IsNil(o.DryRun) {
 		var ret float32
 		return ret
 	}
@@ -60,7 +60,7 @@ func (o *SyncRealmRequestContent) GetDryRun() float32 {
 // GetDryRunOk returns a tuple with the DryRun field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncRealmRequestContent) GetDryRunOk() (*float32, bool) {
-	if o == nil || isNil(o.DryRun) {
+	if o == nil || IsNil(o.DryRun) {
 		return nil, false
 	}
 	return o.DryRun, true
@@ -68,7 +68,7 @@ func (o *SyncRealmRequestContent) GetDryRunOk() (*float32, bool) {
 
 // HasDryRun returns a boolean if a field has been set.
 func (o *SyncRealmRequestContent) HasDryRun() bool {
-	if o != nil && !isNil(o.DryRun) {
+	if o != nil && !IsNil(o.DryRun) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o *SyncRealmRequestContent) SetDryRun(v float32) {
 
 // GetEnableNew returns the EnableNew field value if set, zero value otherwise.
 func (o *SyncRealmRequestContent) GetEnableNew() float32 {
-	if o == nil || isNil(o.EnableNew) {
+	if o == nil || IsNil(o.EnableNew) {
 		var ret float32
 		return ret
 	}
@@ -92,7 +92,7 @@ func (o *SyncRealmRequestContent) GetEnableNew() float32 {
 // GetEnableNewOk returns a tuple with the EnableNew field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncRealmRequestContent) GetEnableNewOk() (*float32, bool) {
-	if o == nil || isNil(o.EnableNew) {
+	if o == nil || IsNil(o.EnableNew) {
 		return nil, false
 	}
 	return o.EnableNew, true
@@ -100,7 +100,7 @@ func (o *SyncRealmRequestContent) GetEnableNewOk() (*float32, bool) {
 
 // HasEnableNew returns a boolean if a field has been set.
 func (o *SyncRealmRequestContent) HasEnableNew() bool {
-	if o != nil && !isNil(o.EnableNew) {
+	if o != nil && !IsNil(o.EnableNew) {
 		return true
 	}
 
@@ -114,7 +114,7 @@ func (o *SyncRealmRequestContent) SetEnableNew(v float32) {
 
 // GetFull returns the Full field value if set, zero value otherwise.
 func (o *SyncRealmRequestContent) GetFull() float32 {
-	if o == nil || isNil(o.Full) {
+	if o == nil || IsNil(o.Full) {
 		var ret float32
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *SyncRealmRequestContent) GetFull() float32 {
 // GetFullOk returns a tuple with the Full field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncRealmRequestContent) GetFullOk() (*float32, bool) {
-	if o == nil || isNil(o.Full) {
+	if o == nil || IsNil(o.Full) {
 		return nil, false
 	}
 	return o.Full, true
@@ -132,7 +132,7 @@ func (o *SyncRealmRequestContent) GetFullOk() (*float32, bool) {
 
 // HasFull returns a boolean if a field has been set.
 func (o *SyncRealmRequestContent) HasFull() bool {
-	if o != nil && !isNil(o.Full) {
+	if o != nil && !IsNil(o.Full) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *SyncRealmRequestContent) SetFull(v float32) {
 
 // GetPurge returns the Purge field value if set, zero value otherwise.
 func (o *SyncRealmRequestContent) GetPurge() float32 {
-	if o == nil || isNil(o.Purge) {
+	if o == nil || IsNil(o.Purge) {
 		var ret float32
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *SyncRealmRequestContent) GetPurge() float32 {
 // GetPurgeOk returns a tuple with the Purge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncRealmRequestContent) GetPurgeOk() (*float32, bool) {
-	if o == nil || isNil(o.Purge) {
+	if o == nil || IsNil(o.Purge) {
 		return nil, false
 	}
 	return o.Purge, true
@@ -164,7 +164,7 @@ func (o *SyncRealmRequestContent) GetPurgeOk() (*float32, bool) {
 
 // HasPurge returns a boolean if a field has been set.
 func (o *SyncRealmRequestContent) HasPurge() bool {
-	if o != nil && !isNil(o.Purge) {
+	if o != nil && !IsNil(o.Purge) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *SyncRealmRequestContent) SetPurge(v float32) {
 
 // GetRemoveVanished returns the RemoveVanished field value if set, zero value otherwise.
 func (o *SyncRealmRequestContent) GetRemoveVanished() string {
-	if o == nil || isNil(o.RemoveVanished) {
+	if o == nil || IsNil(o.RemoveVanished) {
 		var ret string
 		return ret
 	}
@@ -188,7 +188,7 @@ func (o *SyncRealmRequestContent) GetRemoveVanished() string {
 // GetRemoveVanishedOk returns a tuple with the RemoveVanished field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncRealmRequestContent) GetRemoveVanishedOk() (*string, bool) {
-	if o == nil || isNil(o.RemoveVanished) {
+	if o == nil || IsNil(o.RemoveVanished) {
 		return nil, false
 	}
 	return o.RemoveVanished, true
@@ -196,7 +196,7 @@ func (o *SyncRealmRequestContent) GetRemoveVanishedOk() (*string, bool) {
 
 // HasRemoveVanished returns a boolean if a field has been set.
 func (o *SyncRealmRequestContent) HasRemoveVanished() bool {
-	if o != nil && !isNil(o.RemoveVanished) {
+	if o != nil && !IsNil(o.RemoveVanished) {
 		return true
 	}
 
@@ -210,7 +210,7 @@ func (o *SyncRealmRequestContent) SetRemoveVanished(v string) {
 
 // GetScope returns the Scope field value if set, zero value otherwise.
 func (o *SyncRealmRequestContent) GetScope() RealmSyncScope {
-	if o == nil || isNil(o.Scope) {
+	if o == nil || IsNil(o.Scope) {
 		var ret RealmSyncScope
 		return ret
 	}
@@ -220,7 +220,7 @@ func (o *SyncRealmRequestContent) GetScope() RealmSyncScope {
 // GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncRealmRequestContent) GetScopeOk() (*RealmSyncScope, bool) {
-	if o == nil || isNil(o.Scope) {
+	if o == nil || IsNil(o.Scope) {
 		return nil, false
 	}
 	return o.Scope, true
@@ -228,7 +228,7 @@ func (o *SyncRealmRequestContent) GetScopeOk() (*RealmSyncScope, bool) {
 
 // HasScope returns a boolean if a field has been set.
 func (o *SyncRealmRequestContent) HasScope() bool {
-	if o != nil && !isNil(o.Scope) {
+	if o != nil && !IsNil(o.Scope) {
 		return true
 	}
 
@@ -250,22 +250,22 @@ func (o SyncRealmRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o SyncRealmRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DryRun) {
+	if !IsNil(o.DryRun) {
 		toSerialize["dry-run"] = o.DryRun
 	}
-	if !isNil(o.EnableNew) {
+	if !IsNil(o.EnableNew) {
 		toSerialize["enable-new"] = o.EnableNew
 	}
-	if !isNil(o.Full) {
+	if !IsNil(o.Full) {
 		toSerialize["full"] = o.Full
 	}
-	if !isNil(o.Purge) {
+	if !IsNil(o.Purge) {
 		toSerialize["purge"] = o.Purge
 	}
-	if !isNil(o.RemoveVanished) {
+	if !IsNil(o.RemoveVanished) {
 		toSerialize["remove-vanished"] = o.RemoveVanished
 	}
-	if !isNil(o.Scope) {
+	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
 	}
 	return toSerialize, nil

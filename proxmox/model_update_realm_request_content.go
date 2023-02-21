@@ -81,7 +81,7 @@ func NewUpdateRealmRequestContentWithDefaults() *UpdateRealmRequestContent {
 
 // GetAutocreate returns the Autocreate field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetAutocreate() float32 {
-	if o == nil || isNil(o.Autocreate) {
+	if o == nil || IsNil(o.Autocreate) {
 		var ret float32
 		return ret
 	}
@@ -91,7 +91,7 @@ func (o *UpdateRealmRequestContent) GetAutocreate() float32 {
 // GetAutocreateOk returns a tuple with the Autocreate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetAutocreateOk() (*float32, bool) {
-	if o == nil || isNil(o.Autocreate) {
+	if o == nil || IsNil(o.Autocreate) {
 		return nil, false
 	}
 	return o.Autocreate, true
@@ -99,7 +99,7 @@ func (o *UpdateRealmRequestContent) GetAutocreateOk() (*float32, bool) {
 
 // HasAutocreate returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasAutocreate() bool {
-	if o != nil && !isNil(o.Autocreate) {
+	if o != nil && !IsNil(o.Autocreate) {
 		return true
 	}
 
@@ -113,7 +113,7 @@ func (o *UpdateRealmRequestContent) SetAutocreate(v float32) {
 
 // GetBaseDn returns the BaseDn field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetBaseDn() string {
-	if o == nil || isNil(o.BaseDn) {
+	if o == nil || IsNil(o.BaseDn) {
 		var ret string
 		return ret
 	}
@@ -123,7 +123,7 @@ func (o *UpdateRealmRequestContent) GetBaseDn() string {
 // GetBaseDnOk returns a tuple with the BaseDn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetBaseDnOk() (*string, bool) {
-	if o == nil || isNil(o.BaseDn) {
+	if o == nil || IsNil(o.BaseDn) {
 		return nil, false
 	}
 	return o.BaseDn, true
@@ -131,7 +131,7 @@ func (o *UpdateRealmRequestContent) GetBaseDnOk() (*string, bool) {
 
 // HasBaseDn returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasBaseDn() bool {
-	if o != nil && !isNil(o.BaseDn) {
+	if o != nil && !IsNil(o.BaseDn) {
 		return true
 	}
 
@@ -145,7 +145,7 @@ func (o *UpdateRealmRequestContent) SetBaseDn(v string) {
 
 // GetBindDn returns the BindDn field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetBindDn() string {
-	if o == nil || isNil(o.BindDn) {
+	if o == nil || IsNil(o.BindDn) {
 		var ret string
 		return ret
 	}
@@ -155,7 +155,7 @@ func (o *UpdateRealmRequestContent) GetBindDn() string {
 // GetBindDnOk returns a tuple with the BindDn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetBindDnOk() (*string, bool) {
-	if o == nil || isNil(o.BindDn) {
+	if o == nil || IsNil(o.BindDn) {
 		return nil, false
 	}
 	return o.BindDn, true
@@ -163,7 +163,7 @@ func (o *UpdateRealmRequestContent) GetBindDnOk() (*string, bool) {
 
 // HasBindDn returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasBindDn() bool {
-	if o != nil && !isNil(o.BindDn) {
+	if o != nil && !IsNil(o.BindDn) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *UpdateRealmRequestContent) SetBindDn(v string) {
 
 // GetCapath returns the Capath field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetCapath() string {
-	if o == nil || isNil(o.Capath) {
+	if o == nil || IsNil(o.Capath) {
 		var ret string
 		return ret
 	}
@@ -187,7 +187,7 @@ func (o *UpdateRealmRequestContent) GetCapath() string {
 // GetCapathOk returns a tuple with the Capath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetCapathOk() (*string, bool) {
-	if o == nil || isNil(o.Capath) {
+	if o == nil || IsNil(o.Capath) {
 		return nil, false
 	}
 	return o.Capath, true
@@ -195,7 +195,7 @@ func (o *UpdateRealmRequestContent) GetCapathOk() (*string, bool) {
 
 // HasCapath returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasCapath() bool {
-	if o != nil && !isNil(o.Capath) {
+	if o != nil && !IsNil(o.Capath) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *UpdateRealmRequestContent) SetCapath(v string) {
 
 // GetCaseSensitive returns the CaseSensitive field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetCaseSensitive() float32 {
-	if o == nil || isNil(o.CaseSensitive) {
+	if o == nil || IsNil(o.CaseSensitive) {
 		var ret float32
 		return ret
 	}
@@ -219,7 +219,7 @@ func (o *UpdateRealmRequestContent) GetCaseSensitive() float32 {
 // GetCaseSensitiveOk returns a tuple with the CaseSensitive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetCaseSensitiveOk() (*float32, bool) {
-	if o == nil || isNil(o.CaseSensitive) {
+	if o == nil || IsNil(o.CaseSensitive) {
 		return nil, false
 	}
 	return o.CaseSensitive, true
@@ -227,7 +227,7 @@ func (o *UpdateRealmRequestContent) GetCaseSensitiveOk() (*float32, bool) {
 
 // HasCaseSensitive returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasCaseSensitive() bool {
-	if o != nil && !isNil(o.CaseSensitive) {
+	if o != nil && !IsNil(o.CaseSensitive) {
 		return true
 	}
 
@@ -241,7 +241,7 @@ func (o *UpdateRealmRequestContent) SetCaseSensitive(v float32) {
 
 // GetCert returns the Cert field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetCert() string {
-	if o == nil || isNil(o.Cert) {
+	if o == nil || IsNil(o.Cert) {
 		var ret string
 		return ret
 	}
@@ -251,7 +251,7 @@ func (o *UpdateRealmRequestContent) GetCert() string {
 // GetCertOk returns a tuple with the Cert field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetCertOk() (*string, bool) {
-	if o == nil || isNil(o.Cert) {
+	if o == nil || IsNil(o.Cert) {
 		return nil, false
 	}
 	return o.Cert, true
@@ -259,7 +259,7 @@ func (o *UpdateRealmRequestContent) GetCertOk() (*string, bool) {
 
 // HasCert returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasCert() bool {
-	if o != nil && !isNil(o.Cert) {
+	if o != nil && !IsNil(o.Cert) {
 		return true
 	}
 
@@ -273,7 +273,7 @@ func (o *UpdateRealmRequestContent) SetCert(v string) {
 
 // GetCertkey returns the Certkey field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetCertkey() string {
-	if o == nil || isNil(o.Certkey) {
+	if o == nil || IsNil(o.Certkey) {
 		var ret string
 		return ret
 	}
@@ -283,7 +283,7 @@ func (o *UpdateRealmRequestContent) GetCertkey() string {
 // GetCertkeyOk returns a tuple with the Certkey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetCertkeyOk() (*string, bool) {
-	if o == nil || isNil(o.Certkey) {
+	if o == nil || IsNil(o.Certkey) {
 		return nil, false
 	}
 	return o.Certkey, true
@@ -291,7 +291,7 @@ func (o *UpdateRealmRequestContent) GetCertkeyOk() (*string, bool) {
 
 // HasCertkey returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasCertkey() bool {
-	if o != nil && !isNil(o.Certkey) {
+	if o != nil && !IsNil(o.Certkey) {
 		return true
 	}
 
@@ -305,7 +305,7 @@ func (o *UpdateRealmRequestContent) SetCertkey(v string) {
 
 // GetClientId returns the ClientId field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetClientId() string {
-	if o == nil || isNil(o.ClientId) {
+	if o == nil || IsNil(o.ClientId) {
 		var ret string
 		return ret
 	}
@@ -315,7 +315,7 @@ func (o *UpdateRealmRequestContent) GetClientId() string {
 // GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetClientIdOk() (*string, bool) {
-	if o == nil || isNil(o.ClientId) {
+	if o == nil || IsNil(o.ClientId) {
 		return nil, false
 	}
 	return o.ClientId, true
@@ -323,7 +323,7 @@ func (o *UpdateRealmRequestContent) GetClientIdOk() (*string, bool) {
 
 // HasClientId returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasClientId() bool {
-	if o != nil && !isNil(o.ClientId) {
+	if o != nil && !IsNil(o.ClientId) {
 		return true
 	}
 
@@ -337,7 +337,7 @@ func (o *UpdateRealmRequestContent) SetClientId(v string) {
 
 // GetClientKey returns the ClientKey field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetClientKey() string {
-	if o == nil || isNil(o.ClientKey) {
+	if o == nil || IsNil(o.ClientKey) {
 		var ret string
 		return ret
 	}
@@ -347,7 +347,7 @@ func (o *UpdateRealmRequestContent) GetClientKey() string {
 // GetClientKeyOk returns a tuple with the ClientKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetClientKeyOk() (*string, bool) {
-	if o == nil || isNil(o.ClientKey) {
+	if o == nil || IsNil(o.ClientKey) {
 		return nil, false
 	}
 	return o.ClientKey, true
@@ -355,7 +355,7 @@ func (o *UpdateRealmRequestContent) GetClientKeyOk() (*string, bool) {
 
 // HasClientKey returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasClientKey() bool {
-	if o != nil && !isNil(o.ClientKey) {
+	if o != nil && !IsNil(o.ClientKey) {
 		return true
 	}
 
@@ -369,7 +369,7 @@ func (o *UpdateRealmRequestContent) SetClientKey(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -379,7 +379,7 @@ func (o *UpdateRealmRequestContent) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -387,7 +387,7 @@ func (o *UpdateRealmRequestContent) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -401,7 +401,7 @@ func (o *UpdateRealmRequestContent) SetComment(v string) {
 
 // GetDelete returns the Delete field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetDelete() float32 {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		var ret float32
 		return ret
 	}
@@ -411,7 +411,7 @@ func (o *UpdateRealmRequestContent) GetDelete() float32 {
 // GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetDeleteOk() (*float32, bool) {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		return nil, false
 	}
 	return o.Delete, true
@@ -419,7 +419,7 @@ func (o *UpdateRealmRequestContent) GetDeleteOk() (*float32, bool) {
 
 // HasDelete returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasDelete() bool {
-	if o != nil && !isNil(o.Delete) {
+	if o != nil && !IsNil(o.Delete) {
 		return true
 	}
 
@@ -433,7 +433,7 @@ func (o *UpdateRealmRequestContent) SetDelete(v float32) {
 
 // GetDigest returns the Digest field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetDigest() string {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		var ret string
 		return ret
 	}
@@ -443,7 +443,7 @@ func (o *UpdateRealmRequestContent) GetDigest() string {
 // GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetDigestOk() (*string, bool) {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		return nil, false
 	}
 	return o.Digest, true
@@ -451,7 +451,7 @@ func (o *UpdateRealmRequestContent) GetDigestOk() (*string, bool) {
 
 // HasDigest returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasDigest() bool {
-	if o != nil && !isNil(o.Digest) {
+	if o != nil && !IsNil(o.Digest) {
 		return true
 	}
 
@@ -465,7 +465,7 @@ func (o *UpdateRealmRequestContent) SetDigest(v string) {
 
 // GetDefault returns the Default field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetDefault() float32 {
-	if o == nil || isNil(o.Default) {
+	if o == nil || IsNil(o.Default) {
 		var ret float32
 		return ret
 	}
@@ -475,7 +475,7 @@ func (o *UpdateRealmRequestContent) GetDefault() float32 {
 // GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetDefaultOk() (*float32, bool) {
-	if o == nil || isNil(o.Default) {
+	if o == nil || IsNil(o.Default) {
 		return nil, false
 	}
 	return o.Default, true
@@ -483,7 +483,7 @@ func (o *UpdateRealmRequestContent) GetDefaultOk() (*float32, bool) {
 
 // HasDefault returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasDefault() bool {
-	if o != nil && !isNil(o.Default) {
+	if o != nil && !IsNil(o.Default) {
 		return true
 	}
 
@@ -497,7 +497,7 @@ func (o *UpdateRealmRequestContent) SetDefault(v float32) {
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetDomain() string {
-	if o == nil || isNil(o.Domain) {
+	if o == nil || IsNil(o.Domain) {
 		var ret string
 		return ret
 	}
@@ -507,7 +507,7 @@ func (o *UpdateRealmRequestContent) GetDomain() string {
 // GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetDomainOk() (*string, bool) {
-	if o == nil || isNil(o.Domain) {
+	if o == nil || IsNil(o.Domain) {
 		return nil, false
 	}
 	return o.Domain, true
@@ -515,7 +515,7 @@ func (o *UpdateRealmRequestContent) GetDomainOk() (*string, bool) {
 
 // HasDomain returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasDomain() bool {
-	if o != nil && !isNil(o.Domain) {
+	if o != nil && !IsNil(o.Domain) {
 		return true
 	}
 
@@ -529,7 +529,7 @@ func (o *UpdateRealmRequestContent) SetDomain(v string) {
 
 // GetFilter returns the Filter field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetFilter() string {
-	if o == nil || isNil(o.Filter) {
+	if o == nil || IsNil(o.Filter) {
 		var ret string
 		return ret
 	}
@@ -539,7 +539,7 @@ func (o *UpdateRealmRequestContent) GetFilter() string {
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetFilterOk() (*string, bool) {
-	if o == nil || isNil(o.Filter) {
+	if o == nil || IsNil(o.Filter) {
 		return nil, false
 	}
 	return o.Filter, true
@@ -547,7 +547,7 @@ func (o *UpdateRealmRequestContent) GetFilterOk() (*string, bool) {
 
 // HasFilter returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasFilter() bool {
-	if o != nil && !isNil(o.Filter) {
+	if o != nil && !IsNil(o.Filter) {
 		return true
 	}
 
@@ -561,7 +561,7 @@ func (o *UpdateRealmRequestContent) SetFilter(v string) {
 
 // GetGroupClasses returns the GroupClasses field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetGroupClasses() string {
-	if o == nil || isNil(o.GroupClasses) {
+	if o == nil || IsNil(o.GroupClasses) {
 		var ret string
 		return ret
 	}
@@ -571,7 +571,7 @@ func (o *UpdateRealmRequestContent) GetGroupClasses() string {
 // GetGroupClassesOk returns a tuple with the GroupClasses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetGroupClassesOk() (*string, bool) {
-	if o == nil || isNil(o.GroupClasses) {
+	if o == nil || IsNil(o.GroupClasses) {
 		return nil, false
 	}
 	return o.GroupClasses, true
@@ -579,7 +579,7 @@ func (o *UpdateRealmRequestContent) GetGroupClassesOk() (*string, bool) {
 
 // HasGroupClasses returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasGroupClasses() bool {
-	if o != nil && !isNil(o.GroupClasses) {
+	if o != nil && !IsNil(o.GroupClasses) {
 		return true
 	}
 
@@ -593,7 +593,7 @@ func (o *UpdateRealmRequestContent) SetGroupClasses(v string) {
 
 // GetGroupFilter returns the GroupFilter field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetGroupFilter() string {
-	if o == nil || isNil(o.GroupFilter) {
+	if o == nil || IsNil(o.GroupFilter) {
 		var ret string
 		return ret
 	}
@@ -603,7 +603,7 @@ func (o *UpdateRealmRequestContent) GetGroupFilter() string {
 // GetGroupFilterOk returns a tuple with the GroupFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetGroupFilterOk() (*string, bool) {
-	if o == nil || isNil(o.GroupFilter) {
+	if o == nil || IsNil(o.GroupFilter) {
 		return nil, false
 	}
 	return o.GroupFilter, true
@@ -611,7 +611,7 @@ func (o *UpdateRealmRequestContent) GetGroupFilterOk() (*string, bool) {
 
 // HasGroupFilter returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasGroupFilter() bool {
-	if o != nil && !isNil(o.GroupFilter) {
+	if o != nil && !IsNil(o.GroupFilter) {
 		return true
 	}
 
@@ -625,7 +625,7 @@ func (o *UpdateRealmRequestContent) SetGroupFilter(v string) {
 
 // GetGroupDn returns the GroupDn field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetGroupDn() string {
-	if o == nil || isNil(o.GroupDn) {
+	if o == nil || IsNil(o.GroupDn) {
 		var ret string
 		return ret
 	}
@@ -635,7 +635,7 @@ func (o *UpdateRealmRequestContent) GetGroupDn() string {
 // GetGroupDnOk returns a tuple with the GroupDn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetGroupDnOk() (*string, bool) {
-	if o == nil || isNil(o.GroupDn) {
+	if o == nil || IsNil(o.GroupDn) {
 		return nil, false
 	}
 	return o.GroupDn, true
@@ -643,7 +643,7 @@ func (o *UpdateRealmRequestContent) GetGroupDnOk() (*string, bool) {
 
 // HasGroupDn returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasGroupDn() bool {
-	if o != nil && !isNil(o.GroupDn) {
+	if o != nil && !IsNil(o.GroupDn) {
 		return true
 	}
 
@@ -657,7 +657,7 @@ func (o *UpdateRealmRequestContent) SetGroupDn(v string) {
 
 // GetGroupNameAttr returns the GroupNameAttr field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetGroupNameAttr() string {
-	if o == nil || isNil(o.GroupNameAttr) {
+	if o == nil || IsNil(o.GroupNameAttr) {
 		var ret string
 		return ret
 	}
@@ -667,7 +667,7 @@ func (o *UpdateRealmRequestContent) GetGroupNameAttr() string {
 // GetGroupNameAttrOk returns a tuple with the GroupNameAttr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetGroupNameAttrOk() (*string, bool) {
-	if o == nil || isNil(o.GroupNameAttr) {
+	if o == nil || IsNil(o.GroupNameAttr) {
 		return nil, false
 	}
 	return o.GroupNameAttr, true
@@ -675,7 +675,7 @@ func (o *UpdateRealmRequestContent) GetGroupNameAttrOk() (*string, bool) {
 
 // HasGroupNameAttr returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasGroupNameAttr() bool {
-	if o != nil && !isNil(o.GroupNameAttr) {
+	if o != nil && !IsNil(o.GroupNameAttr) {
 		return true
 	}
 
@@ -689,7 +689,7 @@ func (o *UpdateRealmRequestContent) SetGroupNameAttr(v string) {
 
 // GetIssuerUrl returns the IssuerUrl field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetIssuerUrl() string {
-	if o == nil || isNil(o.IssuerUrl) {
+	if o == nil || IsNil(o.IssuerUrl) {
 		var ret string
 		return ret
 	}
@@ -699,7 +699,7 @@ func (o *UpdateRealmRequestContent) GetIssuerUrl() string {
 // GetIssuerUrlOk returns a tuple with the IssuerUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetIssuerUrlOk() (*string, bool) {
-	if o == nil || isNil(o.IssuerUrl) {
+	if o == nil || IsNil(o.IssuerUrl) {
 		return nil, false
 	}
 	return o.IssuerUrl, true
@@ -707,7 +707,7 @@ func (o *UpdateRealmRequestContent) GetIssuerUrlOk() (*string, bool) {
 
 // HasIssuerUrl returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasIssuerUrl() bool {
-	if o != nil && !isNil(o.IssuerUrl) {
+	if o != nil && !IsNil(o.IssuerUrl) {
 		return true
 	}
 
@@ -721,7 +721,7 @@ func (o *UpdateRealmRequestContent) SetIssuerUrl(v string) {
 
 // GetMode returns the Mode field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetMode() RealmMode {
-	if o == nil || isNil(o.Mode) {
+	if o == nil || IsNil(o.Mode) {
 		var ret RealmMode
 		return ret
 	}
@@ -731,7 +731,7 @@ func (o *UpdateRealmRequestContent) GetMode() RealmMode {
 // GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetModeOk() (*RealmMode, bool) {
-	if o == nil || isNil(o.Mode) {
+	if o == nil || IsNil(o.Mode) {
 		return nil, false
 	}
 	return o.Mode, true
@@ -739,7 +739,7 @@ func (o *UpdateRealmRequestContent) GetModeOk() (*RealmMode, bool) {
 
 // HasMode returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasMode() bool {
-	if o != nil && !isNil(o.Mode) {
+	if o != nil && !IsNil(o.Mode) {
 		return true
 	}
 
@@ -753,7 +753,7 @@ func (o *UpdateRealmRequestContent) SetMode(v RealmMode) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -763,7 +763,7 @@ func (o *UpdateRealmRequestContent) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		return nil, false
 	}
 	return o.Password, true
@@ -771,7 +771,7 @@ func (o *UpdateRealmRequestContent) GetPasswordOk() (*string, bool) {
 
 // HasPassword returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -785,7 +785,7 @@ func (o *UpdateRealmRequestContent) SetPassword(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetPort() float32 {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret float32
 		return ret
 	}
@@ -795,7 +795,7 @@ func (o *UpdateRealmRequestContent) GetPort() float32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetPortOk() (*float32, bool) {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		return nil, false
 	}
 	return o.Port, true
@@ -803,7 +803,7 @@ func (o *UpdateRealmRequestContent) GetPortOk() (*float32, bool) {
 
 // HasPort returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -817,7 +817,7 @@ func (o *UpdateRealmRequestContent) SetPort(v float32) {
 
 // GetPrompt returns the Prompt field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetPrompt() string {
-	if o == nil || isNil(o.Prompt) {
+	if o == nil || IsNil(o.Prompt) {
 		var ret string
 		return ret
 	}
@@ -827,7 +827,7 @@ func (o *UpdateRealmRequestContent) GetPrompt() string {
 // GetPromptOk returns a tuple with the Prompt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetPromptOk() (*string, bool) {
-	if o == nil || isNil(o.Prompt) {
+	if o == nil || IsNil(o.Prompt) {
 		return nil, false
 	}
 	return o.Prompt, true
@@ -835,7 +835,7 @@ func (o *UpdateRealmRequestContent) GetPromptOk() (*string, bool) {
 
 // HasPrompt returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasPrompt() bool {
-	if o != nil && !isNil(o.Prompt) {
+	if o != nil && !IsNil(o.Prompt) {
 		return true
 	}
 
@@ -849,7 +849,7 @@ func (o *UpdateRealmRequestContent) SetPrompt(v string) {
 
 // GetScopes returns the Scopes field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetScopes() string {
-	if o == nil || isNil(o.Scopes) {
+	if o == nil || IsNil(o.Scopes) {
 		var ret string
 		return ret
 	}
@@ -859,7 +859,7 @@ func (o *UpdateRealmRequestContent) GetScopes() string {
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetScopesOk() (*string, bool) {
-	if o == nil || isNil(o.Scopes) {
+	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
 	return o.Scopes, true
@@ -867,7 +867,7 @@ func (o *UpdateRealmRequestContent) GetScopesOk() (*string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasScopes() bool {
-	if o != nil && !isNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -881,7 +881,7 @@ func (o *UpdateRealmRequestContent) SetScopes(v string) {
 
 // GetSecure returns the Secure field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetSecure() float32 {
-	if o == nil || isNil(o.Secure) {
+	if o == nil || IsNil(o.Secure) {
 		var ret float32
 		return ret
 	}
@@ -891,7 +891,7 @@ func (o *UpdateRealmRequestContent) GetSecure() float32 {
 // GetSecureOk returns a tuple with the Secure field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetSecureOk() (*float32, bool) {
-	if o == nil || isNil(o.Secure) {
+	if o == nil || IsNil(o.Secure) {
 		return nil, false
 	}
 	return o.Secure, true
@@ -899,7 +899,7 @@ func (o *UpdateRealmRequestContent) GetSecureOk() (*float32, bool) {
 
 // HasSecure returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasSecure() bool {
-	if o != nil && !isNil(o.Secure) {
+	if o != nil && !IsNil(o.Secure) {
 		return true
 	}
 
@@ -913,7 +913,7 @@ func (o *UpdateRealmRequestContent) SetSecure(v float32) {
 
 // GetServer1 returns the Server1 field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetServer1() string {
-	if o == nil || isNil(o.Server1) {
+	if o == nil || IsNil(o.Server1) {
 		var ret string
 		return ret
 	}
@@ -923,7 +923,7 @@ func (o *UpdateRealmRequestContent) GetServer1() string {
 // GetServer1Ok returns a tuple with the Server1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetServer1Ok() (*string, bool) {
-	if o == nil || isNil(o.Server1) {
+	if o == nil || IsNil(o.Server1) {
 		return nil, false
 	}
 	return o.Server1, true
@@ -931,7 +931,7 @@ func (o *UpdateRealmRequestContent) GetServer1Ok() (*string, bool) {
 
 // HasServer1 returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasServer1() bool {
-	if o != nil && !isNil(o.Server1) {
+	if o != nil && !IsNil(o.Server1) {
 		return true
 	}
 
@@ -945,7 +945,7 @@ func (o *UpdateRealmRequestContent) SetServer1(v string) {
 
 // GetServer2 returns the Server2 field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetServer2() string {
-	if o == nil || isNil(o.Server2) {
+	if o == nil || IsNil(o.Server2) {
 		var ret string
 		return ret
 	}
@@ -955,7 +955,7 @@ func (o *UpdateRealmRequestContent) GetServer2() string {
 // GetServer2Ok returns a tuple with the Server2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetServer2Ok() (*string, bool) {
-	if o == nil || isNil(o.Server2) {
+	if o == nil || IsNil(o.Server2) {
 		return nil, false
 	}
 	return o.Server2, true
@@ -963,7 +963,7 @@ func (o *UpdateRealmRequestContent) GetServer2Ok() (*string, bool) {
 
 // HasServer2 returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasServer2() bool {
-	if o != nil && !isNil(o.Server2) {
+	if o != nil && !IsNil(o.Server2) {
 		return true
 	}
 
@@ -977,7 +977,7 @@ func (o *UpdateRealmRequestContent) SetServer2(v string) {
 
 // GetSslversion returns the Sslversion field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetSslversion() RealmSslVersion {
-	if o == nil || isNil(o.Sslversion) {
+	if o == nil || IsNil(o.Sslversion) {
 		var ret RealmSslVersion
 		return ret
 	}
@@ -987,7 +987,7 @@ func (o *UpdateRealmRequestContent) GetSslversion() RealmSslVersion {
 // GetSslversionOk returns a tuple with the Sslversion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetSslversionOk() (*RealmSslVersion, bool) {
-	if o == nil || isNil(o.Sslversion) {
+	if o == nil || IsNil(o.Sslversion) {
 		return nil, false
 	}
 	return o.Sslversion, true
@@ -995,7 +995,7 @@ func (o *UpdateRealmRequestContent) GetSslversionOk() (*RealmSslVersion, bool) {
 
 // HasSslversion returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasSslversion() bool {
-	if o != nil && !isNil(o.Sslversion) {
+	if o != nil && !IsNil(o.Sslversion) {
 		return true
 	}
 
@@ -1009,7 +1009,7 @@ func (o *UpdateRealmRequestContent) SetSslversion(v RealmSslVersion) {
 
 // GetSyncDefaultsOptions returns the SyncDefaultsOptions field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetSyncDefaultsOptions() string {
-	if o == nil || isNil(o.SyncDefaultsOptions) {
+	if o == nil || IsNil(o.SyncDefaultsOptions) {
 		var ret string
 		return ret
 	}
@@ -1019,7 +1019,7 @@ func (o *UpdateRealmRequestContent) GetSyncDefaultsOptions() string {
 // GetSyncDefaultsOptionsOk returns a tuple with the SyncDefaultsOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetSyncDefaultsOptionsOk() (*string, bool) {
-	if o == nil || isNil(o.SyncDefaultsOptions) {
+	if o == nil || IsNil(o.SyncDefaultsOptions) {
 		return nil, false
 	}
 	return o.SyncDefaultsOptions, true
@@ -1027,7 +1027,7 @@ func (o *UpdateRealmRequestContent) GetSyncDefaultsOptionsOk() (*string, bool) {
 
 // HasSyncDefaultsOptions returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasSyncDefaultsOptions() bool {
-	if o != nil && !isNil(o.SyncDefaultsOptions) {
+	if o != nil && !IsNil(o.SyncDefaultsOptions) {
 		return true
 	}
 
@@ -1041,7 +1041,7 @@ func (o *UpdateRealmRequestContent) SetSyncDefaultsOptions(v string) {
 
 // GetSyncAttributes returns the SyncAttributes field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetSyncAttributes() string {
-	if o == nil || isNil(o.SyncAttributes) {
+	if o == nil || IsNil(o.SyncAttributes) {
 		var ret string
 		return ret
 	}
@@ -1051,7 +1051,7 @@ func (o *UpdateRealmRequestContent) GetSyncAttributes() string {
 // GetSyncAttributesOk returns a tuple with the SyncAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetSyncAttributesOk() (*string, bool) {
-	if o == nil || isNil(o.SyncAttributes) {
+	if o == nil || IsNil(o.SyncAttributes) {
 		return nil, false
 	}
 	return o.SyncAttributes, true
@@ -1059,7 +1059,7 @@ func (o *UpdateRealmRequestContent) GetSyncAttributesOk() (*string, bool) {
 
 // HasSyncAttributes returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasSyncAttributes() bool {
-	if o != nil && !isNil(o.SyncAttributes) {
+	if o != nil && !IsNil(o.SyncAttributes) {
 		return true
 	}
 
@@ -1073,7 +1073,7 @@ func (o *UpdateRealmRequestContent) SetSyncAttributes(v string) {
 
 // GetTfa returns the Tfa field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetTfa() string {
-	if o == nil || isNil(o.Tfa) {
+	if o == nil || IsNil(o.Tfa) {
 		var ret string
 		return ret
 	}
@@ -1083,7 +1083,7 @@ func (o *UpdateRealmRequestContent) GetTfa() string {
 // GetTfaOk returns a tuple with the Tfa field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetTfaOk() (*string, bool) {
-	if o == nil || isNil(o.Tfa) {
+	if o == nil || IsNil(o.Tfa) {
 		return nil, false
 	}
 	return o.Tfa, true
@@ -1091,7 +1091,7 @@ func (o *UpdateRealmRequestContent) GetTfaOk() (*string, bool) {
 
 // HasTfa returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasTfa() bool {
-	if o != nil && !isNil(o.Tfa) {
+	if o != nil && !IsNil(o.Tfa) {
 		return true
 	}
 
@@ -1105,7 +1105,7 @@ func (o *UpdateRealmRequestContent) SetTfa(v string) {
 
 // GetUserAttr returns the UserAttr field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetUserAttr() string {
-	if o == nil || isNil(o.UserAttr) {
+	if o == nil || IsNil(o.UserAttr) {
 		var ret string
 		return ret
 	}
@@ -1115,7 +1115,7 @@ func (o *UpdateRealmRequestContent) GetUserAttr() string {
 // GetUserAttrOk returns a tuple with the UserAttr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetUserAttrOk() (*string, bool) {
-	if o == nil || isNil(o.UserAttr) {
+	if o == nil || IsNil(o.UserAttr) {
 		return nil, false
 	}
 	return o.UserAttr, true
@@ -1123,7 +1123,7 @@ func (o *UpdateRealmRequestContent) GetUserAttrOk() (*string, bool) {
 
 // HasUserAttr returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasUserAttr() bool {
-	if o != nil && !isNil(o.UserAttr) {
+	if o != nil && !IsNil(o.UserAttr) {
 		return true
 	}
 
@@ -1137,7 +1137,7 @@ func (o *UpdateRealmRequestContent) SetUserAttr(v string) {
 
 // GetUserClasses returns the UserClasses field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetUserClasses() string {
-	if o == nil || isNil(o.UserClasses) {
+	if o == nil || IsNil(o.UserClasses) {
 		var ret string
 		return ret
 	}
@@ -1147,7 +1147,7 @@ func (o *UpdateRealmRequestContent) GetUserClasses() string {
 // GetUserClassesOk returns a tuple with the UserClasses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetUserClassesOk() (*string, bool) {
-	if o == nil || isNil(o.UserClasses) {
+	if o == nil || IsNil(o.UserClasses) {
 		return nil, false
 	}
 	return o.UserClasses, true
@@ -1155,7 +1155,7 @@ func (o *UpdateRealmRequestContent) GetUserClassesOk() (*string, bool) {
 
 // HasUserClasses returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasUserClasses() bool {
-	if o != nil && !isNil(o.UserClasses) {
+	if o != nil && !IsNil(o.UserClasses) {
 		return true
 	}
 
@@ -1169,7 +1169,7 @@ func (o *UpdateRealmRequestContent) SetUserClasses(v string) {
 
 // GetVerify returns the Verify field value if set, zero value otherwise.
 func (o *UpdateRealmRequestContent) GetVerify() float32 {
-	if o == nil || isNil(o.Verify) {
+	if o == nil || IsNil(o.Verify) {
 		var ret float32
 		return ret
 	}
@@ -1179,7 +1179,7 @@ func (o *UpdateRealmRequestContent) GetVerify() float32 {
 // GetVerifyOk returns a tuple with the Verify field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRealmRequestContent) GetVerifyOk() (*float32, bool) {
-	if o == nil || isNil(o.Verify) {
+	if o == nil || IsNil(o.Verify) {
 		return nil, false
 	}
 	return o.Verify, true
@@ -1187,7 +1187,7 @@ func (o *UpdateRealmRequestContent) GetVerifyOk() (*float32, bool) {
 
 // HasVerify returns a boolean if a field has been set.
 func (o *UpdateRealmRequestContent) HasVerify() bool {
-	if o != nil && !isNil(o.Verify) {
+	if o != nil && !IsNil(o.Verify) {
 		return true
 	}
 
@@ -1209,109 +1209,109 @@ func (o UpdateRealmRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o UpdateRealmRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Autocreate) {
+	if !IsNil(o.Autocreate) {
 		toSerialize["autocreate"] = o.Autocreate
 	}
-	if !isNil(o.BaseDn) {
+	if !IsNil(o.BaseDn) {
 		toSerialize["base_dn"] = o.BaseDn
 	}
-	if !isNil(o.BindDn) {
+	if !IsNil(o.BindDn) {
 		toSerialize["bind_dn"] = o.BindDn
 	}
-	if !isNil(o.Capath) {
+	if !IsNil(o.Capath) {
 		toSerialize["capath"] = o.Capath
 	}
-	if !isNil(o.CaseSensitive) {
+	if !IsNil(o.CaseSensitive) {
 		toSerialize["case-sensitive"] = o.CaseSensitive
 	}
-	if !isNil(o.Cert) {
+	if !IsNil(o.Cert) {
 		toSerialize["cert"] = o.Cert
 	}
-	if !isNil(o.Certkey) {
+	if !IsNil(o.Certkey) {
 		toSerialize["certkey"] = o.Certkey
 	}
-	if !isNil(o.ClientId) {
+	if !IsNil(o.ClientId) {
 		toSerialize["client-id"] = o.ClientId
 	}
-	if !isNil(o.ClientKey) {
+	if !IsNil(o.ClientKey) {
 		toSerialize["client-key"] = o.ClientKey
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Delete) {
+	if !IsNil(o.Delete) {
 		toSerialize["delete"] = o.Delete
 	}
-	if !isNil(o.Digest) {
+	if !IsNil(o.Digest) {
 		toSerialize["digest"] = o.Digest
 	}
-	if !isNil(o.Default) {
+	if !IsNil(o.Default) {
 		toSerialize["default"] = o.Default
 	}
-	if !isNil(o.Domain) {
+	if !IsNil(o.Domain) {
 		toSerialize["domain"] = o.Domain
 	}
-	if !isNil(o.Filter) {
+	if !IsNil(o.Filter) {
 		toSerialize["filter"] = o.Filter
 	}
-	if !isNil(o.GroupClasses) {
+	if !IsNil(o.GroupClasses) {
 		toSerialize["group_classes"] = o.GroupClasses
 	}
-	if !isNil(o.GroupFilter) {
+	if !IsNil(o.GroupFilter) {
 		toSerialize["group_filter"] = o.GroupFilter
 	}
-	if !isNil(o.GroupDn) {
+	if !IsNil(o.GroupDn) {
 		toSerialize["group_dn"] = o.GroupDn
 	}
-	if !isNil(o.GroupNameAttr) {
+	if !IsNil(o.GroupNameAttr) {
 		toSerialize["group_name_attr"] = o.GroupNameAttr
 	}
-	if !isNil(o.IssuerUrl) {
+	if !IsNil(o.IssuerUrl) {
 		toSerialize["issuer-url"] = o.IssuerUrl
 	}
-	if !isNil(o.Mode) {
+	if !IsNil(o.Mode) {
 		toSerialize["mode"] = o.Mode
 	}
-	if !isNil(o.Password) {
+	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
-	if !isNil(o.Port) {
+	if !IsNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
-	if !isNil(o.Prompt) {
+	if !IsNil(o.Prompt) {
 		toSerialize["prompt"] = o.Prompt
 	}
-	if !isNil(o.Scopes) {
+	if !IsNil(o.Scopes) {
 		toSerialize["scopes"] = o.Scopes
 	}
-	if !isNil(o.Secure) {
+	if !IsNil(o.Secure) {
 		toSerialize["secure"] = o.Secure
 	}
-	if !isNil(o.Server1) {
+	if !IsNil(o.Server1) {
 		toSerialize["server1"] = o.Server1
 	}
-	if !isNil(o.Server2) {
+	if !IsNil(o.Server2) {
 		toSerialize["server2"] = o.Server2
 	}
-	if !isNil(o.Sslversion) {
+	if !IsNil(o.Sslversion) {
 		toSerialize["sslversion"] = o.Sslversion
 	}
-	if !isNil(o.SyncDefaultsOptions) {
+	if !IsNil(o.SyncDefaultsOptions) {
 		toSerialize["sync-defaults-options"] = o.SyncDefaultsOptions
 	}
-	if !isNil(o.SyncAttributes) {
+	if !IsNil(o.SyncAttributes) {
 		toSerialize["sync_attributes"] = o.SyncAttributes
 	}
-	if !isNil(o.Tfa) {
+	if !IsNil(o.Tfa) {
 		toSerialize["tfa"] = o.Tfa
 	}
-	if !isNil(o.UserAttr) {
+	if !IsNil(o.UserAttr) {
 		toSerialize["user_attr"] = o.UserAttr
 	}
-	if !isNil(o.UserClasses) {
+	if !IsNil(o.UserClasses) {
 		toSerialize["user_classes"] = o.UserClasses
 	}
-	if !isNil(o.Verify) {
+	if !IsNil(o.Verify) {
 		toSerialize["verify"] = o.Verify
 	}
 	return toSerialize, nil

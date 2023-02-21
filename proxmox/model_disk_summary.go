@@ -156,7 +156,7 @@ func (o *DiskSummary) SetSize(v float32) {
 
 // GetByIdLink returns the ByIdLink field value if set, zero value otherwise.
 func (o *DiskSummary) GetByIdLink() string {
-	if o == nil || isNil(o.ByIdLink) {
+	if o == nil || IsNil(o.ByIdLink) {
 		var ret string
 		return ret
 	}
@@ -166,7 +166,7 @@ func (o *DiskSummary) GetByIdLink() string {
 // GetByIdLinkOk returns a tuple with the ByIdLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetByIdLinkOk() (*string, bool) {
-	if o == nil || isNil(o.ByIdLink) {
+	if o == nil || IsNil(o.ByIdLink) {
 		return nil, false
 	}
 	return o.ByIdLink, true
@@ -174,7 +174,7 @@ func (o *DiskSummary) GetByIdLinkOk() (*string, bool) {
 
 // HasByIdLink returns a boolean if a field has been set.
 func (o *DiskSummary) HasByIdLink() bool {
-	if o != nil && !isNil(o.ByIdLink) {
+	if o != nil && !IsNil(o.ByIdLink) {
 		return true
 	}
 
@@ -188,7 +188,7 @@ func (o *DiskSummary) SetByIdLink(v string) {
 
 // GetModel returns the Model field value if set, zero value otherwise.
 func (o *DiskSummary) GetModel() string {
-	if o == nil || isNil(o.Model) {
+	if o == nil || IsNil(o.Model) {
 		var ret string
 		return ret
 	}
@@ -198,7 +198,7 @@ func (o *DiskSummary) GetModel() string {
 // GetModelOk returns a tuple with the Model field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetModelOk() (*string, bool) {
-	if o == nil || isNil(o.Model) {
+	if o == nil || IsNil(o.Model) {
 		return nil, false
 	}
 	return o.Model, true
@@ -206,7 +206,7 @@ func (o *DiskSummary) GetModelOk() (*string, bool) {
 
 // HasModel returns a boolean if a field has been set.
 func (o *DiskSummary) HasModel() bool {
-	if o != nil && !isNil(o.Model) {
+	if o != nil && !IsNil(o.Model) {
 		return true
 	}
 
@@ -220,7 +220,7 @@ func (o *DiskSummary) SetModel(v string) {
 
 // GetParent returns the Parent field value if set, zero value otherwise.
 func (o *DiskSummary) GetParent() string {
-	if o == nil || isNil(o.Parent) {
+	if o == nil || IsNil(o.Parent) {
 		var ret string
 		return ret
 	}
@@ -230,7 +230,7 @@ func (o *DiskSummary) GetParent() string {
 // GetParentOk returns a tuple with the Parent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetParentOk() (*string, bool) {
-	if o == nil || isNil(o.Parent) {
+	if o == nil || IsNil(o.Parent) {
 		return nil, false
 	}
 	return o.Parent, true
@@ -238,7 +238,7 @@ func (o *DiskSummary) GetParentOk() (*string, bool) {
 
 // HasParent returns a boolean if a field has been set.
 func (o *DiskSummary) HasParent() bool {
-	if o != nil && !isNil(o.Parent) {
+	if o != nil && !IsNil(o.Parent) {
 		return true
 	}
 
@@ -252,7 +252,7 @@ func (o *DiskSummary) SetParent(v string) {
 
 // GetHealth returns the Health field value if set, zero value otherwise.
 func (o *DiskSummary) GetHealth() string {
-	if o == nil || isNil(o.Health) {
+	if o == nil || IsNil(o.Health) {
 		var ret string
 		return ret
 	}
@@ -262,7 +262,7 @@ func (o *DiskSummary) GetHealth() string {
 // GetHealthOk returns a tuple with the Health field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetHealthOk() (*string, bool) {
-	if o == nil || isNil(o.Health) {
+	if o == nil || IsNil(o.Health) {
 		return nil, false
 	}
 	return o.Health, true
@@ -270,7 +270,7 @@ func (o *DiskSummary) GetHealthOk() (*string, bool) {
 
 // HasHealth returns a boolean if a field has been set.
 func (o *DiskSummary) HasHealth() bool {
-	if o != nil && !isNil(o.Health) {
+	if o != nil && !IsNil(o.Health) {
 		return true
 	}
 
@@ -284,7 +284,7 @@ func (o *DiskSummary) SetHealth(v string) {
 
 // GetSerial returns the Serial field value if set, zero value otherwise.
 func (o *DiskSummary) GetSerial() string {
-	if o == nil || isNil(o.Serial) {
+	if o == nil || IsNil(o.Serial) {
 		var ret string
 		return ret
 	}
@@ -294,7 +294,7 @@ func (o *DiskSummary) GetSerial() string {
 // GetSerialOk returns a tuple with the Serial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetSerialOk() (*string, bool) {
-	if o == nil || isNil(o.Serial) {
+	if o == nil || IsNil(o.Serial) {
 		return nil, false
 	}
 	return o.Serial, true
@@ -302,7 +302,7 @@ func (o *DiskSummary) GetSerialOk() (*string, bool) {
 
 // HasSerial returns a boolean if a field has been set.
 func (o *DiskSummary) HasSerial() bool {
-	if o != nil && !isNil(o.Serial) {
+	if o != nil && !IsNil(o.Serial) {
 		return true
 	}
 
@@ -327,7 +327,7 @@ func (o *DiskSummary) GetRpm() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiskSummary) GetRpmOk() (*interface{}, bool) {
-	if o == nil || isNil(o.Rpm) {
+	if o == nil || IsNil(o.Rpm) {
 		return nil, false
 	}
 	return &o.Rpm, true
@@ -335,7 +335,7 @@ func (o *DiskSummary) GetRpmOk() (*interface{}, bool) {
 
 // HasRpm returns a boolean if a field has been set.
 func (o *DiskSummary) HasRpm() bool {
-	if o != nil && isNil(o.Rpm) {
+	if o != nil && IsNil(o.Rpm) {
 		return true
 	}
 
@@ -349,7 +349,7 @@ func (o *DiskSummary) SetRpm(v interface{}) {
 
 // GetWwn returns the Wwn field value if set, zero value otherwise.
 func (o *DiskSummary) GetWwn() string {
-	if o == nil || isNil(o.Wwn) {
+	if o == nil || IsNil(o.Wwn) {
 		var ret string
 		return ret
 	}
@@ -359,7 +359,7 @@ func (o *DiskSummary) GetWwn() string {
 // GetWwnOk returns a tuple with the Wwn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetWwnOk() (*string, bool) {
-	if o == nil || isNil(o.Wwn) {
+	if o == nil || IsNil(o.Wwn) {
 		return nil, false
 	}
 	return o.Wwn, true
@@ -367,7 +367,7 @@ func (o *DiskSummary) GetWwnOk() (*string, bool) {
 
 // HasWwn returns a boolean if a field has been set.
 func (o *DiskSummary) HasWwn() bool {
-	if o != nil && !isNil(o.Wwn) {
+	if o != nil && !IsNil(o.Wwn) {
 		return true
 	}
 
@@ -381,7 +381,7 @@ func (o *DiskSummary) SetWwn(v string) {
 
 // GetVendor returns the Vendor field value if set, zero value otherwise.
 func (o *DiskSummary) GetVendor() string {
-	if o == nil || isNil(o.Vendor) {
+	if o == nil || IsNil(o.Vendor) {
 		var ret string
 		return ret
 	}
@@ -391,7 +391,7 @@ func (o *DiskSummary) GetVendor() string {
 // GetVendorOk returns a tuple with the Vendor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetVendorOk() (*string, bool) {
-	if o == nil || isNil(o.Vendor) {
+	if o == nil || IsNil(o.Vendor) {
 		return nil, false
 	}
 	return o.Vendor, true
@@ -399,7 +399,7 @@ func (o *DiskSummary) GetVendorOk() (*string, bool) {
 
 // HasVendor returns a boolean if a field has been set.
 func (o *DiskSummary) HasVendor() bool {
-	if o != nil && !isNil(o.Vendor) {
+	if o != nil && !IsNil(o.Vendor) {
 		return true
 	}
 
@@ -424,7 +424,7 @@ func (o *DiskSummary) GetWearout() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiskSummary) GetWearoutOk() (*interface{}, bool) {
-	if o == nil || isNil(o.Wearout) {
+	if o == nil || IsNil(o.Wearout) {
 		return nil, false
 	}
 	return &o.Wearout, true
@@ -432,7 +432,7 @@ func (o *DiskSummary) GetWearoutOk() (*interface{}, bool) {
 
 // HasWearout returns a boolean if a field has been set.
 func (o *DiskSummary) HasWearout() bool {
-	if o != nil && isNil(o.Wearout) {
+	if o != nil && IsNil(o.Wearout) {
 		return true
 	}
 
@@ -446,7 +446,7 @@ func (o *DiskSummary) SetWearout(v interface{}) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *DiskSummary) GetType() DiskType {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret DiskType
 		return ret
 	}
@@ -456,7 +456,7 @@ func (o *DiskSummary) GetType() DiskType {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetTypeOk() (*DiskType, bool) {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -464,7 +464,7 @@ func (o *DiskSummary) GetTypeOk() (*DiskType, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *DiskSummary) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -478,7 +478,7 @@ func (o *DiskSummary) SetType(v DiskType) {
 
 // GetMounted returns the Mounted field value if set, zero value otherwise.
 func (o *DiskSummary) GetMounted() float32 {
-	if o == nil || isNil(o.Mounted) {
+	if o == nil || IsNil(o.Mounted) {
 		var ret float32
 		return ret
 	}
@@ -488,7 +488,7 @@ func (o *DiskSummary) GetMounted() float32 {
 // GetMountedOk returns a tuple with the Mounted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiskSummary) GetMountedOk() (*float32, bool) {
-	if o == nil || isNil(o.Mounted) {
+	if o == nil || IsNil(o.Mounted) {
 		return nil, false
 	}
 	return o.Mounted, true
@@ -496,7 +496,7 @@ func (o *DiskSummary) GetMountedOk() (*float32, bool) {
 
 // HasMounted returns a boolean if a field has been set.
 func (o *DiskSummary) HasMounted() bool {
-	if o != nil && !isNil(o.Mounted) {
+	if o != nil && !IsNil(o.Mounted) {
 		return true
 	}
 
@@ -522,37 +522,37 @@ func (o DiskSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["gpt"] = o.Gpt
 	toSerialize["osdid"] = o.Osdid
 	toSerialize["size"] = o.Size
-	if !isNil(o.ByIdLink) {
+	if !IsNil(o.ByIdLink) {
 		toSerialize["by_id_link"] = o.ByIdLink
 	}
-	if !isNil(o.Model) {
+	if !IsNil(o.Model) {
 		toSerialize["model"] = o.Model
 	}
-	if !isNil(o.Parent) {
+	if !IsNil(o.Parent) {
 		toSerialize["parent"] = o.Parent
 	}
-	if !isNil(o.Health) {
+	if !IsNil(o.Health) {
 		toSerialize["health"] = o.Health
 	}
-	if !isNil(o.Serial) {
+	if !IsNil(o.Serial) {
 		toSerialize["serial"] = o.Serial
 	}
 	if o.Rpm != nil {
 		toSerialize["rpm"] = o.Rpm
 	}
-	if !isNil(o.Wwn) {
+	if !IsNil(o.Wwn) {
 		toSerialize["wwn"] = o.Wwn
 	}
-	if !isNil(o.Vendor) {
+	if !IsNil(o.Vendor) {
 		toSerialize["vendor"] = o.Vendor
 	}
 	if o.Wearout != nil {
 		toSerialize["wearout"] = o.Wearout
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.Mounted) {
+	if !IsNil(o.Mounted) {
 		toSerialize["mounted"] = o.Mounted
 	}
 	return toSerialize, nil

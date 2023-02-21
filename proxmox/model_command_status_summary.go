@@ -72,7 +72,7 @@ func (o *CommandStatusSummary) SetExited(v bool) {
 
 // GetErrData returns the ErrData field value if set, zero value otherwise.
 func (o *CommandStatusSummary) GetErrData() string {
-	if o == nil || isNil(o.ErrData) {
+	if o == nil || IsNil(o.ErrData) {
 		var ret string
 		return ret
 	}
@@ -82,7 +82,7 @@ func (o *CommandStatusSummary) GetErrData() string {
 // GetErrDataOk returns a tuple with the ErrData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommandStatusSummary) GetErrDataOk() (*string, bool) {
-	if o == nil || isNil(o.ErrData) {
+	if o == nil || IsNil(o.ErrData) {
 		return nil, false
 	}
 	return o.ErrData, true
@@ -90,7 +90,7 @@ func (o *CommandStatusSummary) GetErrDataOk() (*string, bool) {
 
 // HasErrData returns a boolean if a field has been set.
 func (o *CommandStatusSummary) HasErrData() bool {
-	if o != nil && !isNil(o.ErrData) {
+	if o != nil && !IsNil(o.ErrData) {
 		return true
 	}
 
@@ -104,7 +104,7 @@ func (o *CommandStatusSummary) SetErrData(v string) {
 
 // GetErrTruncated returns the ErrTruncated field value if set, zero value otherwise.
 func (o *CommandStatusSummary) GetErrTruncated() bool {
-	if o == nil || isNil(o.ErrTruncated) {
+	if o == nil || IsNil(o.ErrTruncated) {
 		var ret bool
 		return ret
 	}
@@ -114,7 +114,7 @@ func (o *CommandStatusSummary) GetErrTruncated() bool {
 // GetErrTruncatedOk returns a tuple with the ErrTruncated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommandStatusSummary) GetErrTruncatedOk() (*bool, bool) {
-	if o == nil || isNil(o.ErrTruncated) {
+	if o == nil || IsNil(o.ErrTruncated) {
 		return nil, false
 	}
 	return o.ErrTruncated, true
@@ -122,7 +122,7 @@ func (o *CommandStatusSummary) GetErrTruncatedOk() (*bool, bool) {
 
 // HasErrTruncated returns a boolean if a field has been set.
 func (o *CommandStatusSummary) HasErrTruncated() bool {
-	if o != nil && !isNil(o.ErrTruncated) {
+	if o != nil && !IsNil(o.ErrTruncated) {
 		return true
 	}
 
@@ -136,7 +136,7 @@ func (o *CommandStatusSummary) SetErrTruncated(v bool) {
 
 // GetExitcode returns the Exitcode field value if set, zero value otherwise.
 func (o *CommandStatusSummary) GetExitcode() float32 {
-	if o == nil || isNil(o.Exitcode) {
+	if o == nil || IsNil(o.Exitcode) {
 		var ret float32
 		return ret
 	}
@@ -146,7 +146,7 @@ func (o *CommandStatusSummary) GetExitcode() float32 {
 // GetExitcodeOk returns a tuple with the Exitcode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommandStatusSummary) GetExitcodeOk() (*float32, bool) {
-	if o == nil || isNil(o.Exitcode) {
+	if o == nil || IsNil(o.Exitcode) {
 		return nil, false
 	}
 	return o.Exitcode, true
@@ -154,7 +154,7 @@ func (o *CommandStatusSummary) GetExitcodeOk() (*float32, bool) {
 
 // HasExitcode returns a boolean if a field has been set.
 func (o *CommandStatusSummary) HasExitcode() bool {
-	if o != nil && !isNil(o.Exitcode) {
+	if o != nil && !IsNil(o.Exitcode) {
 		return true
 	}
 
@@ -168,7 +168,7 @@ func (o *CommandStatusSummary) SetExitcode(v float32) {
 
 // GetOutData returns the OutData field value if set, zero value otherwise.
 func (o *CommandStatusSummary) GetOutData() string {
-	if o == nil || isNil(o.OutData) {
+	if o == nil || IsNil(o.OutData) {
 		var ret string
 		return ret
 	}
@@ -178,7 +178,7 @@ func (o *CommandStatusSummary) GetOutData() string {
 // GetOutDataOk returns a tuple with the OutData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommandStatusSummary) GetOutDataOk() (*string, bool) {
-	if o == nil || isNil(o.OutData) {
+	if o == nil || IsNil(o.OutData) {
 		return nil, false
 	}
 	return o.OutData, true
@@ -186,7 +186,7 @@ func (o *CommandStatusSummary) GetOutDataOk() (*string, bool) {
 
 // HasOutData returns a boolean if a field has been set.
 func (o *CommandStatusSummary) HasOutData() bool {
-	if o != nil && !isNil(o.OutData) {
+	if o != nil && !IsNil(o.OutData) {
 		return true
 	}
 
@@ -200,7 +200,7 @@ func (o *CommandStatusSummary) SetOutData(v string) {
 
 // GetOutTruncated returns the OutTruncated field value if set, zero value otherwise.
 func (o *CommandStatusSummary) GetOutTruncated() bool {
-	if o == nil || isNil(o.OutTruncated) {
+	if o == nil || IsNil(o.OutTruncated) {
 		var ret bool
 		return ret
 	}
@@ -210,7 +210,7 @@ func (o *CommandStatusSummary) GetOutTruncated() bool {
 // GetOutTruncatedOk returns a tuple with the OutTruncated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommandStatusSummary) GetOutTruncatedOk() (*bool, bool) {
-	if o == nil || isNil(o.OutTruncated) {
+	if o == nil || IsNil(o.OutTruncated) {
 		return nil, false
 	}
 	return o.OutTruncated, true
@@ -218,7 +218,7 @@ func (o *CommandStatusSummary) GetOutTruncatedOk() (*bool, bool) {
 
 // HasOutTruncated returns a boolean if a field has been set.
 func (o *CommandStatusSummary) HasOutTruncated() bool {
-	if o != nil && !isNil(o.OutTruncated) {
+	if o != nil && !IsNil(o.OutTruncated) {
 		return true
 	}
 
@@ -232,7 +232,7 @@ func (o *CommandStatusSummary) SetOutTruncated(v bool) {
 
 // GetSignal returns the Signal field value if set, zero value otherwise.
 func (o *CommandStatusSummary) GetSignal() float32 {
-	if o == nil || isNil(o.Signal) {
+	if o == nil || IsNil(o.Signal) {
 		var ret float32
 		return ret
 	}
@@ -242,7 +242,7 @@ func (o *CommandStatusSummary) GetSignal() float32 {
 // GetSignalOk returns a tuple with the Signal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommandStatusSummary) GetSignalOk() (*float32, bool) {
-	if o == nil || isNil(o.Signal) {
+	if o == nil || IsNil(o.Signal) {
 		return nil, false
 	}
 	return o.Signal, true
@@ -250,7 +250,7 @@ func (o *CommandStatusSummary) GetSignalOk() (*float32, bool) {
 
 // HasSignal returns a boolean if a field has been set.
 func (o *CommandStatusSummary) HasSignal() bool {
-	if o != nil && !isNil(o.Signal) {
+	if o != nil && !IsNil(o.Signal) {
 		return true
 	}
 
@@ -273,22 +273,22 @@ func (o CommandStatusSummary) MarshalJSON() ([]byte, error) {
 func (o CommandStatusSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["exited"] = o.Exited
-	if !isNil(o.ErrData) {
+	if !IsNil(o.ErrData) {
 		toSerialize["err-data"] = o.ErrData
 	}
-	if !isNil(o.ErrTruncated) {
+	if !IsNil(o.ErrTruncated) {
 		toSerialize["err-truncated"] = o.ErrTruncated
 	}
-	if !isNil(o.Exitcode) {
+	if !IsNil(o.Exitcode) {
 		toSerialize["exitcode"] = o.Exitcode
 	}
-	if !isNil(o.OutData) {
+	if !IsNil(o.OutData) {
 		toSerialize["out-data"] = o.OutData
 	}
-	if !isNil(o.OutTruncated) {
+	if !IsNil(o.OutTruncated) {
 		toSerialize["out-truncated"] = o.OutTruncated
 	}
-	if !isNil(o.Signal) {
+	if !IsNil(o.Signal) {
 		toSerialize["signal"] = o.Signal
 	}
 	return toSerialize, nil

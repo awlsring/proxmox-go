@@ -127,7 +127,7 @@ func (o *CreateZFSPoolRequestContent) SetRaidlevel(v ZFSRaidLevel) {
 
 // GetAddStorage returns the AddStorage field value if set, zero value otherwise.
 func (o *CreateZFSPoolRequestContent) GetAddStorage() float32 {
-	if o == nil || isNil(o.AddStorage) {
+	if o == nil || IsNil(o.AddStorage) {
 		var ret float32
 		return ret
 	}
@@ -137,7 +137,7 @@ func (o *CreateZFSPoolRequestContent) GetAddStorage() float32 {
 // GetAddStorageOk returns a tuple with the AddStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetAddStorageOk() (*float32, bool) {
-	if o == nil || isNil(o.AddStorage) {
+	if o == nil || IsNil(o.AddStorage) {
 		return nil, false
 	}
 	return o.AddStorage, true
@@ -145,7 +145,7 @@ func (o *CreateZFSPoolRequestContent) GetAddStorageOk() (*float32, bool) {
 
 // HasAddStorage returns a boolean if a field has been set.
 func (o *CreateZFSPoolRequestContent) HasAddStorage() bool {
-	if o != nil && !isNil(o.AddStorage) {
+	if o != nil && !IsNil(o.AddStorage) {
 		return true
 	}
 
@@ -159,7 +159,7 @@ func (o *CreateZFSPoolRequestContent) SetAddStorage(v float32) {
 
 // GetAshift returns the Ashift field value if set, zero value otherwise.
 func (o *CreateZFSPoolRequestContent) GetAshift() float32 {
-	if o == nil || isNil(o.Ashift) {
+	if o == nil || IsNil(o.Ashift) {
 		var ret float32
 		return ret
 	}
@@ -169,7 +169,7 @@ func (o *CreateZFSPoolRequestContent) GetAshift() float32 {
 // GetAshiftOk returns a tuple with the Ashift field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetAshiftOk() (*float32, bool) {
-	if o == nil || isNil(o.Ashift) {
+	if o == nil || IsNil(o.Ashift) {
 		return nil, false
 	}
 	return o.Ashift, true
@@ -177,7 +177,7 @@ func (o *CreateZFSPoolRequestContent) GetAshiftOk() (*float32, bool) {
 
 // HasAshift returns a boolean if a field has been set.
 func (o *CreateZFSPoolRequestContent) HasAshift() bool {
-	if o != nil && !isNil(o.Ashift) {
+	if o != nil && !IsNil(o.Ashift) {
 		return true
 	}
 
@@ -191,7 +191,7 @@ func (o *CreateZFSPoolRequestContent) SetAshift(v float32) {
 
 // GetCompression returns the Compression field value if set, zero value otherwise.
 func (o *CreateZFSPoolRequestContent) GetCompression() ZFSCompression {
-	if o == nil || isNil(o.Compression) {
+	if o == nil || IsNil(o.Compression) {
 		var ret ZFSCompression
 		return ret
 	}
@@ -201,7 +201,7 @@ func (o *CreateZFSPoolRequestContent) GetCompression() ZFSCompression {
 // GetCompressionOk returns a tuple with the Compression field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetCompressionOk() (*ZFSCompression, bool) {
-	if o == nil || isNil(o.Compression) {
+	if o == nil || IsNil(o.Compression) {
 		return nil, false
 	}
 	return o.Compression, true
@@ -209,7 +209,7 @@ func (o *CreateZFSPoolRequestContent) GetCompressionOk() (*ZFSCompression, bool)
 
 // HasCompression returns a boolean if a field has been set.
 func (o *CreateZFSPoolRequestContent) HasCompression() bool {
-	if o != nil && !isNil(o.Compression) {
+	if o != nil && !IsNil(o.Compression) {
 		return true
 	}
 
@@ -223,7 +223,7 @@ func (o *CreateZFSPoolRequestContent) SetCompression(v ZFSCompression) {
 
 // GetDraidConfig returns the DraidConfig field value if set, zero value otherwise.
 func (o *CreateZFSPoolRequestContent) GetDraidConfig() string {
-	if o == nil || isNil(o.DraidConfig) {
+	if o == nil || IsNil(o.DraidConfig) {
 		var ret string
 		return ret
 	}
@@ -233,7 +233,7 @@ func (o *CreateZFSPoolRequestContent) GetDraidConfig() string {
 // GetDraidConfigOk returns a tuple with the DraidConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateZFSPoolRequestContent) GetDraidConfigOk() (*string, bool) {
-	if o == nil || isNil(o.DraidConfig) {
+	if o == nil || IsNil(o.DraidConfig) {
 		return nil, false
 	}
 	return o.DraidConfig, true
@@ -241,7 +241,7 @@ func (o *CreateZFSPoolRequestContent) GetDraidConfigOk() (*string, bool) {
 
 // HasDraidConfig returns a boolean if a field has been set.
 func (o *CreateZFSPoolRequestContent) HasDraidConfig() bool {
-	if o != nil && !isNil(o.DraidConfig) {
+	if o != nil && !IsNil(o.DraidConfig) {
 		return true
 	}
 
@@ -266,16 +266,16 @@ func (o CreateZFSPoolRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize["devices"] = o.Devices
 	toSerialize["name"] = o.Name
 	toSerialize["raidlevel"] = o.Raidlevel
-	if !isNil(o.AddStorage) {
+	if !IsNil(o.AddStorage) {
 		toSerialize["add_storage"] = o.AddStorage
 	}
-	if !isNil(o.Ashift) {
+	if !IsNil(o.Ashift) {
 		toSerialize["ashift"] = o.Ashift
 	}
-	if !isNil(o.Compression) {
+	if !IsNil(o.Compression) {
 		toSerialize["compression"] = o.Compression
 	}
-	if !isNil(o.DraidConfig) {
+	if !IsNil(o.DraidConfig) {
 		toSerialize["draid-config"] = o.DraidConfig
 	}
 	return toSerialize, nil

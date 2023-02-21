@@ -43,7 +43,7 @@ func NewNetworkInterfaceIpAddressSummaryWithDefaults() *NetworkInterfaceIpAddres
 
 // GetIpAddress returns the IpAddress field value if set, zero value otherwise.
 func (o *NetworkInterfaceIpAddressSummary) GetIpAddress() string {
-	if o == nil || isNil(o.IpAddress) {
+	if o == nil || IsNil(o.IpAddress) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *NetworkInterfaceIpAddressSummary) GetIpAddress() string {
 // GetIpAddressOk returns a tuple with the IpAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceIpAddressSummary) GetIpAddressOk() (*string, bool) {
-	if o == nil || isNil(o.IpAddress) {
+	if o == nil || IsNil(o.IpAddress) {
 		return nil, false
 	}
 	return o.IpAddress, true
@@ -61,7 +61,7 @@ func (o *NetworkInterfaceIpAddressSummary) GetIpAddressOk() (*string, bool) {
 
 // HasIpAddress returns a boolean if a field has been set.
 func (o *NetworkInterfaceIpAddressSummary) HasIpAddress() bool {
-	if o != nil && !isNil(o.IpAddress) {
+	if o != nil && !IsNil(o.IpAddress) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *NetworkInterfaceIpAddressSummary) SetIpAddress(v string) {
 
 // GetIpAddressType returns the IpAddressType field value if set, zero value otherwise.
 func (o *NetworkInterfaceIpAddressSummary) GetIpAddressType() string {
-	if o == nil || isNil(o.IpAddressType) {
+	if o == nil || IsNil(o.IpAddressType) {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *NetworkInterfaceIpAddressSummary) GetIpAddressType() string {
 // GetIpAddressTypeOk returns a tuple with the IpAddressType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceIpAddressSummary) GetIpAddressTypeOk() (*string, bool) {
-	if o == nil || isNil(o.IpAddressType) {
+	if o == nil || IsNil(o.IpAddressType) {
 		return nil, false
 	}
 	return o.IpAddressType, true
@@ -93,7 +93,7 @@ func (o *NetworkInterfaceIpAddressSummary) GetIpAddressTypeOk() (*string, bool) 
 
 // HasIpAddressType returns a boolean if a field has been set.
 func (o *NetworkInterfaceIpAddressSummary) HasIpAddressType() bool {
-	if o != nil && !isNil(o.IpAddressType) {
+	if o != nil && !IsNil(o.IpAddressType) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *NetworkInterfaceIpAddressSummary) SetIpAddressType(v string) {
 
 // GetPrefix returns the Prefix field value if set, zero value otherwise.
 func (o *NetworkInterfaceIpAddressSummary) GetPrefix() float32 {
-	if o == nil || isNil(o.Prefix) {
+	if o == nil || IsNil(o.Prefix) {
 		var ret float32
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *NetworkInterfaceIpAddressSummary) GetPrefix() float32 {
 // GetPrefixOk returns a tuple with the Prefix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceIpAddressSummary) GetPrefixOk() (*float32, bool) {
-	if o == nil || isNil(o.Prefix) {
+	if o == nil || IsNil(o.Prefix) {
 		return nil, false
 	}
 	return o.Prefix, true
@@ -125,7 +125,7 @@ func (o *NetworkInterfaceIpAddressSummary) GetPrefixOk() (*float32, bool) {
 
 // HasPrefix returns a boolean if a field has been set.
 func (o *NetworkInterfaceIpAddressSummary) HasPrefix() bool {
-	if o != nil && !isNil(o.Prefix) {
+	if o != nil && !IsNil(o.Prefix) {
 		return true
 	}
 
@@ -147,13 +147,13 @@ func (o NetworkInterfaceIpAddressSummary) MarshalJSON() ([]byte, error) {
 
 func (o NetworkInterfaceIpAddressSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.IpAddress) {
+	if !IsNil(o.IpAddress) {
 		toSerialize["ip-address"] = o.IpAddress
 	}
-	if !isNil(o.IpAddressType) {
+	if !IsNil(o.IpAddressType) {
 		toSerialize["ip-address-type"] = o.IpAddressType
 	}
-	if !isNil(o.Prefix) {
+	if !IsNil(o.Prefix) {
 		toSerialize["prefix"] = o.Prefix
 	}
 	return toSerialize, nil

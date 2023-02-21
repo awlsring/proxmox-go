@@ -42,7 +42,7 @@ func NewGetClusterApiVersionResponseContentWithDefaults() *GetClusterApiVersionR
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *GetClusterApiVersionResponseContent) GetData() string {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret string
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *GetClusterApiVersionResponseContent) GetData() string {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetClusterApiVersionResponseContent) GetDataOk() (*string, bool) {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
@@ -60,7 +60,7 @@ func (o *GetClusterApiVersionResponseContent) GetDataOk() (*string, bool) {
 
 // HasData returns a boolean if a field has been set.
 func (o *GetClusterApiVersionResponseContent) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o GetClusterApiVersionResponseContent) MarshalJSON() ([]byte, error) {
 
 func (o GetClusterApiVersionResponseContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Data) {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 	return toSerialize, nil

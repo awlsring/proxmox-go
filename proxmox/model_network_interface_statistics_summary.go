@@ -48,7 +48,7 @@ func NewNetworkInterfaceStatisticsSummaryWithDefaults() *NetworkInterfaceStatist
 
 // GetRxBytes returns the RxBytes field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetRxBytes() float32 {
-	if o == nil || isNil(o.RxBytes) {
+	if o == nil || IsNil(o.RxBytes) {
 		var ret float32
 		return ret
 	}
@@ -58,7 +58,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxBytes() float32 {
 // GetRxBytesOk returns a tuple with the RxBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetRxBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.RxBytes) {
+	if o == nil || IsNil(o.RxBytes) {
 		return nil, false
 	}
 	return o.RxBytes, true
@@ -66,7 +66,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxBytesOk() (*float32, bool) {
 
 // HasRxBytes returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasRxBytes() bool {
-	if o != nil && !isNil(o.RxBytes) {
+	if o != nil && !IsNil(o.RxBytes) {
 		return true
 	}
 
@@ -80,7 +80,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetRxBytes(v float32) {
 
 // GetRxDropped returns the RxDropped field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetRxDropped() float32 {
-	if o == nil || isNil(o.RxDropped) {
+	if o == nil || IsNil(o.RxDropped) {
 		var ret float32
 		return ret
 	}
@@ -90,7 +90,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxDropped() float32 {
 // GetRxDroppedOk returns a tuple with the RxDropped field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetRxDroppedOk() (*float32, bool) {
-	if o == nil || isNil(o.RxDropped) {
+	if o == nil || IsNil(o.RxDropped) {
 		return nil, false
 	}
 	return o.RxDropped, true
@@ -98,7 +98,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxDroppedOk() (*float32, bool) {
 
 // HasRxDropped returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasRxDropped() bool {
-	if o != nil && !isNil(o.RxDropped) {
+	if o != nil && !IsNil(o.RxDropped) {
 		return true
 	}
 
@@ -112,7 +112,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetRxDropped(v float32) {
 
 // GetRxErrs returns the RxErrs field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetRxErrs() float32 {
-	if o == nil || isNil(o.RxErrs) {
+	if o == nil || IsNil(o.RxErrs) {
 		var ret float32
 		return ret
 	}
@@ -122,7 +122,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxErrs() float32 {
 // GetRxErrsOk returns a tuple with the RxErrs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetRxErrsOk() (*float32, bool) {
-	if o == nil || isNil(o.RxErrs) {
+	if o == nil || IsNil(o.RxErrs) {
 		return nil, false
 	}
 	return o.RxErrs, true
@@ -130,7 +130,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxErrsOk() (*float32, bool) {
 
 // HasRxErrs returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasRxErrs() bool {
-	if o != nil && !isNil(o.RxErrs) {
+	if o != nil && !IsNil(o.RxErrs) {
 		return true
 	}
 
@@ -144,7 +144,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetRxErrs(v float32) {
 
 // GetRxPackets returns the RxPackets field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetRxPackets() float32 {
-	if o == nil || isNil(o.RxPackets) {
+	if o == nil || IsNil(o.RxPackets) {
 		var ret float32
 		return ret
 	}
@@ -154,7 +154,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxPackets() float32 {
 // GetRxPacketsOk returns a tuple with the RxPackets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetRxPacketsOk() (*float32, bool) {
-	if o == nil || isNil(o.RxPackets) {
+	if o == nil || IsNil(o.RxPackets) {
 		return nil, false
 	}
 	return o.RxPackets, true
@@ -162,7 +162,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetRxPacketsOk() (*float32, bool) {
 
 // HasRxPackets returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasRxPackets() bool {
-	if o != nil && !isNil(o.RxPackets) {
+	if o != nil && !IsNil(o.RxPackets) {
 		return true
 	}
 
@@ -176,7 +176,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetRxPackets(v float32) {
 
 // GetTxBytes returns the TxBytes field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetTxBytes() float32 {
-	if o == nil || isNil(o.TxBytes) {
+	if o == nil || IsNil(o.TxBytes) {
 		var ret float32
 		return ret
 	}
@@ -186,7 +186,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxBytes() float32 {
 // GetTxBytesOk returns a tuple with the TxBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetTxBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.TxBytes) {
+	if o == nil || IsNil(o.TxBytes) {
 		return nil, false
 	}
 	return o.TxBytes, true
@@ -194,7 +194,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxBytesOk() (*float32, bool) {
 
 // HasTxBytes returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasTxBytes() bool {
-	if o != nil && !isNil(o.TxBytes) {
+	if o != nil && !IsNil(o.TxBytes) {
 		return true
 	}
 
@@ -208,7 +208,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetTxBytes(v float32) {
 
 // GetTxDropped returns the TxDropped field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetTxDropped() float32 {
-	if o == nil || isNil(o.TxDropped) {
+	if o == nil || IsNil(o.TxDropped) {
 		var ret float32
 		return ret
 	}
@@ -218,7 +218,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxDropped() float32 {
 // GetTxDroppedOk returns a tuple with the TxDropped field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetTxDroppedOk() (*float32, bool) {
-	if o == nil || isNil(o.TxDropped) {
+	if o == nil || IsNil(o.TxDropped) {
 		return nil, false
 	}
 	return o.TxDropped, true
@@ -226,7 +226,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxDroppedOk() (*float32, bool) {
 
 // HasTxDropped returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasTxDropped() bool {
-	if o != nil && !isNil(o.TxDropped) {
+	if o != nil && !IsNil(o.TxDropped) {
 		return true
 	}
 
@@ -240,7 +240,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetTxDropped(v float32) {
 
 // GetTxErrs returns the TxErrs field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetTxErrs() float32 {
-	if o == nil || isNil(o.TxErrs) {
+	if o == nil || IsNil(o.TxErrs) {
 		var ret float32
 		return ret
 	}
@@ -250,7 +250,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxErrs() float32 {
 // GetTxErrsOk returns a tuple with the TxErrs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetTxErrsOk() (*float32, bool) {
-	if o == nil || isNil(o.TxErrs) {
+	if o == nil || IsNil(o.TxErrs) {
 		return nil, false
 	}
 	return o.TxErrs, true
@@ -258,7 +258,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxErrsOk() (*float32, bool) {
 
 // HasTxErrs returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasTxErrs() bool {
-	if o != nil && !isNil(o.TxErrs) {
+	if o != nil && !IsNil(o.TxErrs) {
 		return true
 	}
 
@@ -272,7 +272,7 @@ func (o *NetworkInterfaceStatisticsSummary) SetTxErrs(v float32) {
 
 // GetTxPackets returns the TxPackets field value if set, zero value otherwise.
 func (o *NetworkInterfaceStatisticsSummary) GetTxPackets() float32 {
-	if o == nil || isNil(o.TxPackets) {
+	if o == nil || IsNil(o.TxPackets) {
 		var ret float32
 		return ret
 	}
@@ -282,7 +282,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxPackets() float32 {
 // GetTxPacketsOk returns a tuple with the TxPackets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceStatisticsSummary) GetTxPacketsOk() (*float32, bool) {
-	if o == nil || isNil(o.TxPackets) {
+	if o == nil || IsNil(o.TxPackets) {
 		return nil, false
 	}
 	return o.TxPackets, true
@@ -290,7 +290,7 @@ func (o *NetworkInterfaceStatisticsSummary) GetTxPacketsOk() (*float32, bool) {
 
 // HasTxPackets returns a boolean if a field has been set.
 func (o *NetworkInterfaceStatisticsSummary) HasTxPackets() bool {
-	if o != nil && !isNil(o.TxPackets) {
+	if o != nil && !IsNil(o.TxPackets) {
 		return true
 	}
 
@@ -312,28 +312,28 @@ func (o NetworkInterfaceStatisticsSummary) MarshalJSON() ([]byte, error) {
 
 func (o NetworkInterfaceStatisticsSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.RxBytes) {
+	if !IsNil(o.RxBytes) {
 		toSerialize["rx-bytes"] = o.RxBytes
 	}
-	if !isNil(o.RxDropped) {
+	if !IsNil(o.RxDropped) {
 		toSerialize["rx-dropped"] = o.RxDropped
 	}
-	if !isNil(o.RxErrs) {
+	if !IsNil(o.RxErrs) {
 		toSerialize["rx-errs"] = o.RxErrs
 	}
-	if !isNil(o.RxPackets) {
+	if !IsNil(o.RxPackets) {
 		toSerialize["rx-packets"] = o.RxPackets
 	}
-	if !isNil(o.TxBytes) {
+	if !IsNil(o.TxBytes) {
 		toSerialize["tx-bytes"] = o.TxBytes
 	}
-	if !isNil(o.TxDropped) {
+	if !IsNil(o.TxDropped) {
 		toSerialize["tx-dropped"] = o.TxDropped
 	}
-	if !isNil(o.TxErrs) {
+	if !IsNil(o.TxErrs) {
 		toSerialize["tx-errs"] = o.TxErrs
 	}
-	if !isNil(o.TxPackets) {
+	if !IsNil(o.TxPackets) {
 		toSerialize["tx-packets"] = o.TxPackets
 	}
 	return toSerialize, nil

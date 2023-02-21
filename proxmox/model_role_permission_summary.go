@@ -114,7 +114,7 @@ func NewRolePermissionSummaryWithDefaults() *RolePermissionSummary {
 
 // GetDatastoreAllocate returns the DatastoreAllocate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetDatastoreAllocate() float32 {
-	if o == nil || isNil(o.DatastoreAllocate) {
+	if o == nil || IsNil(o.DatastoreAllocate) {
 		var ret float32
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *RolePermissionSummary) GetDatastoreAllocate() float32 {
 // GetDatastoreAllocateOk returns a tuple with the DatastoreAllocate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetDatastoreAllocateOk() (*float32, bool) {
-	if o == nil || isNil(o.DatastoreAllocate) {
+	if o == nil || IsNil(o.DatastoreAllocate) {
 		return nil, false
 	}
 	return o.DatastoreAllocate, true
@@ -132,7 +132,7 @@ func (o *RolePermissionSummary) GetDatastoreAllocateOk() (*float32, bool) {
 
 // HasDatastoreAllocate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasDatastoreAllocate() bool {
-	if o != nil && !isNil(o.DatastoreAllocate) {
+	if o != nil && !IsNil(o.DatastoreAllocate) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *RolePermissionSummary) SetDatastoreAllocate(v float32) {
 
 // GetDatastoreAllocateSpace returns the DatastoreAllocateSpace field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetDatastoreAllocateSpace() float32 {
-	if o == nil || isNil(o.DatastoreAllocateSpace) {
+	if o == nil || IsNil(o.DatastoreAllocateSpace) {
 		var ret float32
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *RolePermissionSummary) GetDatastoreAllocateSpace() float32 {
 // GetDatastoreAllocateSpaceOk returns a tuple with the DatastoreAllocateSpace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetDatastoreAllocateSpaceOk() (*float32, bool) {
-	if o == nil || isNil(o.DatastoreAllocateSpace) {
+	if o == nil || IsNil(o.DatastoreAllocateSpace) {
 		return nil, false
 	}
 	return o.DatastoreAllocateSpace, true
@@ -164,7 +164,7 @@ func (o *RolePermissionSummary) GetDatastoreAllocateSpaceOk() (*float32, bool) {
 
 // HasDatastoreAllocateSpace returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasDatastoreAllocateSpace() bool {
-	if o != nil && !isNil(o.DatastoreAllocateSpace) {
+	if o != nil && !IsNil(o.DatastoreAllocateSpace) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *RolePermissionSummary) SetDatastoreAllocateSpace(v float32) {
 
 // GetDatastoreAudit returns the DatastoreAudit field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetDatastoreAudit() float32 {
-	if o == nil || isNil(o.DatastoreAudit) {
+	if o == nil || IsNil(o.DatastoreAudit) {
 		var ret float32
 		return ret
 	}
@@ -188,7 +188,7 @@ func (o *RolePermissionSummary) GetDatastoreAudit() float32 {
 // GetDatastoreAuditOk returns a tuple with the DatastoreAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetDatastoreAuditOk() (*float32, bool) {
-	if o == nil || isNil(o.DatastoreAudit) {
+	if o == nil || IsNil(o.DatastoreAudit) {
 		return nil, false
 	}
 	return o.DatastoreAudit, true
@@ -196,7 +196,7 @@ func (o *RolePermissionSummary) GetDatastoreAuditOk() (*float32, bool) {
 
 // HasDatastoreAudit returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasDatastoreAudit() bool {
-	if o != nil && !isNil(o.DatastoreAudit) {
+	if o != nil && !IsNil(o.DatastoreAudit) {
 		return true
 	}
 
@@ -210,7 +210,7 @@ func (o *RolePermissionSummary) SetDatastoreAudit(v float32) {
 
 // GetDatastoreAllocateTemplate returns the DatastoreAllocateTemplate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetDatastoreAllocateTemplate() float32 {
-	if o == nil || isNil(o.DatastoreAllocateTemplate) {
+	if o == nil || IsNil(o.DatastoreAllocateTemplate) {
 		var ret float32
 		return ret
 	}
@@ -220,7 +220,7 @@ func (o *RolePermissionSummary) GetDatastoreAllocateTemplate() float32 {
 // GetDatastoreAllocateTemplateOk returns a tuple with the DatastoreAllocateTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetDatastoreAllocateTemplateOk() (*float32, bool) {
-	if o == nil || isNil(o.DatastoreAllocateTemplate) {
+	if o == nil || IsNil(o.DatastoreAllocateTemplate) {
 		return nil, false
 	}
 	return o.DatastoreAllocateTemplate, true
@@ -228,7 +228,7 @@ func (o *RolePermissionSummary) GetDatastoreAllocateTemplateOk() (*float32, bool
 
 // HasDatastoreAllocateTemplate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasDatastoreAllocateTemplate() bool {
-	if o != nil && !isNil(o.DatastoreAllocateTemplate) {
+	if o != nil && !IsNil(o.DatastoreAllocateTemplate) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *RolePermissionSummary) SetDatastoreAllocateTemplate(v float32) {
 
 // GetGroupAllocate returns the GroupAllocate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetGroupAllocate() float32 {
-	if o == nil || isNil(o.GroupAllocate) {
+	if o == nil || IsNil(o.GroupAllocate) {
 		var ret float32
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *RolePermissionSummary) GetGroupAllocate() float32 {
 // GetGroupAllocateOk returns a tuple with the GroupAllocate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetGroupAllocateOk() (*float32, bool) {
-	if o == nil || isNil(o.GroupAllocate) {
+	if o == nil || IsNil(o.GroupAllocate) {
 		return nil, false
 	}
 	return o.GroupAllocate, true
@@ -260,7 +260,7 @@ func (o *RolePermissionSummary) GetGroupAllocateOk() (*float32, bool) {
 
 // HasGroupAllocate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasGroupAllocate() bool {
-	if o != nil && !isNil(o.GroupAllocate) {
+	if o != nil && !IsNil(o.GroupAllocate) {
 		return true
 	}
 
@@ -274,7 +274,7 @@ func (o *RolePermissionSummary) SetGroupAllocate(v float32) {
 
 // GetPermissionModify returns the PermissionModify field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetPermissionModify() float32 {
-	if o == nil || isNil(o.PermissionModify) {
+	if o == nil || IsNil(o.PermissionModify) {
 		var ret float32
 		return ret
 	}
@@ -284,7 +284,7 @@ func (o *RolePermissionSummary) GetPermissionModify() float32 {
 // GetPermissionModifyOk returns a tuple with the PermissionModify field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetPermissionModifyOk() (*float32, bool) {
-	if o == nil || isNil(o.PermissionModify) {
+	if o == nil || IsNil(o.PermissionModify) {
 		return nil, false
 	}
 	return o.PermissionModify, true
@@ -292,7 +292,7 @@ func (o *RolePermissionSummary) GetPermissionModifyOk() (*float32, bool) {
 
 // HasPermissionModify returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasPermissionModify() bool {
-	if o != nil && !isNil(o.PermissionModify) {
+	if o != nil && !IsNil(o.PermissionModify) {
 		return true
 	}
 
@@ -306,7 +306,7 @@ func (o *RolePermissionSummary) SetPermissionModify(v float32) {
 
 // GetPoolAllocate returns the PoolAllocate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetPoolAllocate() float32 {
-	if o == nil || isNil(o.PoolAllocate) {
+	if o == nil || IsNil(o.PoolAllocate) {
 		var ret float32
 		return ret
 	}
@@ -316,7 +316,7 @@ func (o *RolePermissionSummary) GetPoolAllocate() float32 {
 // GetPoolAllocateOk returns a tuple with the PoolAllocate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetPoolAllocateOk() (*float32, bool) {
-	if o == nil || isNil(o.PoolAllocate) {
+	if o == nil || IsNil(o.PoolAllocate) {
 		return nil, false
 	}
 	return o.PoolAllocate, true
@@ -324,7 +324,7 @@ func (o *RolePermissionSummary) GetPoolAllocateOk() (*float32, bool) {
 
 // HasPoolAllocate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasPoolAllocate() bool {
-	if o != nil && !isNil(o.PoolAllocate) {
+	if o != nil && !IsNil(o.PoolAllocate) {
 		return true
 	}
 
@@ -338,7 +338,7 @@ func (o *RolePermissionSummary) SetPoolAllocate(v float32) {
 
 // GetPoolAudit returns the PoolAudit field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetPoolAudit() float32 {
-	if o == nil || isNil(o.PoolAudit) {
+	if o == nil || IsNil(o.PoolAudit) {
 		var ret float32
 		return ret
 	}
@@ -348,7 +348,7 @@ func (o *RolePermissionSummary) GetPoolAudit() float32 {
 // GetPoolAuditOk returns a tuple with the PoolAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetPoolAuditOk() (*float32, bool) {
-	if o == nil || isNil(o.PoolAudit) {
+	if o == nil || IsNil(o.PoolAudit) {
 		return nil, false
 	}
 	return o.PoolAudit, true
@@ -356,7 +356,7 @@ func (o *RolePermissionSummary) GetPoolAuditOk() (*float32, bool) {
 
 // HasPoolAudit returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasPoolAudit() bool {
-	if o != nil && !isNil(o.PoolAudit) {
+	if o != nil && !IsNil(o.PoolAudit) {
 		return true
 	}
 
@@ -370,7 +370,7 @@ func (o *RolePermissionSummary) SetPoolAudit(v float32) {
 
 // GetRealmAllocate returns the RealmAllocate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetRealmAllocate() float32 {
-	if o == nil || isNil(o.RealmAllocate) {
+	if o == nil || IsNil(o.RealmAllocate) {
 		var ret float32
 		return ret
 	}
@@ -380,7 +380,7 @@ func (o *RolePermissionSummary) GetRealmAllocate() float32 {
 // GetRealmAllocateOk returns a tuple with the RealmAllocate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetRealmAllocateOk() (*float32, bool) {
-	if o == nil || isNil(o.RealmAllocate) {
+	if o == nil || IsNil(o.RealmAllocate) {
 		return nil, false
 	}
 	return o.RealmAllocate, true
@@ -388,7 +388,7 @@ func (o *RolePermissionSummary) GetRealmAllocateOk() (*float32, bool) {
 
 // HasRealmAllocate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasRealmAllocate() bool {
-	if o != nil && !isNil(o.RealmAllocate) {
+	if o != nil && !IsNil(o.RealmAllocate) {
 		return true
 	}
 
@@ -402,7 +402,7 @@ func (o *RolePermissionSummary) SetRealmAllocate(v float32) {
 
 // GetRealmAllocateUser returns the RealmAllocateUser field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetRealmAllocateUser() float32 {
-	if o == nil || isNil(o.RealmAllocateUser) {
+	if o == nil || IsNil(o.RealmAllocateUser) {
 		var ret float32
 		return ret
 	}
@@ -412,7 +412,7 @@ func (o *RolePermissionSummary) GetRealmAllocateUser() float32 {
 // GetRealmAllocateUserOk returns a tuple with the RealmAllocateUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetRealmAllocateUserOk() (*float32, bool) {
-	if o == nil || isNil(o.RealmAllocateUser) {
+	if o == nil || IsNil(o.RealmAllocateUser) {
 		return nil, false
 	}
 	return o.RealmAllocateUser, true
@@ -420,7 +420,7 @@ func (o *RolePermissionSummary) GetRealmAllocateUserOk() (*float32, bool) {
 
 // HasRealmAllocateUser returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasRealmAllocateUser() bool {
-	if o != nil && !isNil(o.RealmAllocateUser) {
+	if o != nil && !IsNil(o.RealmAllocateUser) {
 		return true
 	}
 
@@ -434,7 +434,7 @@ func (o *RolePermissionSummary) SetRealmAllocateUser(v float32) {
 
 // GetSDNAllocate returns the SDNAllocate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSDNAllocate() float32 {
-	if o == nil || isNil(o.SDNAllocate) {
+	if o == nil || IsNil(o.SDNAllocate) {
 		var ret float32
 		return ret
 	}
@@ -444,7 +444,7 @@ func (o *RolePermissionSummary) GetSDNAllocate() float32 {
 // GetSDNAllocateOk returns a tuple with the SDNAllocate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSDNAllocateOk() (*float32, bool) {
-	if o == nil || isNil(o.SDNAllocate) {
+	if o == nil || IsNil(o.SDNAllocate) {
 		return nil, false
 	}
 	return o.SDNAllocate, true
@@ -452,7 +452,7 @@ func (o *RolePermissionSummary) GetSDNAllocateOk() (*float32, bool) {
 
 // HasSDNAllocate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSDNAllocate() bool {
-	if o != nil && !isNil(o.SDNAllocate) {
+	if o != nil && !IsNil(o.SDNAllocate) {
 		return true
 	}
 
@@ -466,7 +466,7 @@ func (o *RolePermissionSummary) SetSDNAllocate(v float32) {
 
 // GetSDNAudit returns the SDNAudit field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSDNAudit() float32 {
-	if o == nil || isNil(o.SDNAudit) {
+	if o == nil || IsNil(o.SDNAudit) {
 		var ret float32
 		return ret
 	}
@@ -476,7 +476,7 @@ func (o *RolePermissionSummary) GetSDNAudit() float32 {
 // GetSDNAuditOk returns a tuple with the SDNAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSDNAuditOk() (*float32, bool) {
-	if o == nil || isNil(o.SDNAudit) {
+	if o == nil || IsNil(o.SDNAudit) {
 		return nil, false
 	}
 	return o.SDNAudit, true
@@ -484,7 +484,7 @@ func (o *RolePermissionSummary) GetSDNAuditOk() (*float32, bool) {
 
 // HasSDNAudit returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSDNAudit() bool {
-	if o != nil && !isNil(o.SDNAudit) {
+	if o != nil && !IsNil(o.SDNAudit) {
 		return true
 	}
 
@@ -498,7 +498,7 @@ func (o *RolePermissionSummary) SetSDNAudit(v float32) {
 
 // GetSysAudit returns the SysAudit field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSysAudit() float32 {
-	if o == nil || isNil(o.SysAudit) {
+	if o == nil || IsNil(o.SysAudit) {
 		var ret float32
 		return ret
 	}
@@ -508,7 +508,7 @@ func (o *RolePermissionSummary) GetSysAudit() float32 {
 // GetSysAuditOk returns a tuple with the SysAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSysAuditOk() (*float32, bool) {
-	if o == nil || isNil(o.SysAudit) {
+	if o == nil || IsNil(o.SysAudit) {
 		return nil, false
 	}
 	return o.SysAudit, true
@@ -516,7 +516,7 @@ func (o *RolePermissionSummary) GetSysAuditOk() (*float32, bool) {
 
 // HasSysAudit returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSysAudit() bool {
-	if o != nil && !isNil(o.SysAudit) {
+	if o != nil && !IsNil(o.SysAudit) {
 		return true
 	}
 
@@ -530,7 +530,7 @@ func (o *RolePermissionSummary) SetSysAudit(v float32) {
 
 // GetSysModify returns the SysModify field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSysModify() float32 {
-	if o == nil || isNil(o.SysModify) {
+	if o == nil || IsNil(o.SysModify) {
 		var ret float32
 		return ret
 	}
@@ -540,7 +540,7 @@ func (o *RolePermissionSummary) GetSysModify() float32 {
 // GetSysModifyOk returns a tuple with the SysModify field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSysModifyOk() (*float32, bool) {
-	if o == nil || isNil(o.SysModify) {
+	if o == nil || IsNil(o.SysModify) {
 		return nil, false
 	}
 	return o.SysModify, true
@@ -548,7 +548,7 @@ func (o *RolePermissionSummary) GetSysModifyOk() (*float32, bool) {
 
 // HasSysModify returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSysModify() bool {
-	if o != nil && !isNil(o.SysModify) {
+	if o != nil && !IsNil(o.SysModify) {
 		return true
 	}
 
@@ -562,7 +562,7 @@ func (o *RolePermissionSummary) SetSysModify(v float32) {
 
 // GetSysConsole returns the SysConsole field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSysConsole() float32 {
-	if o == nil || isNil(o.SysConsole) {
+	if o == nil || IsNil(o.SysConsole) {
 		var ret float32
 		return ret
 	}
@@ -572,7 +572,7 @@ func (o *RolePermissionSummary) GetSysConsole() float32 {
 // GetSysConsoleOk returns a tuple with the SysConsole field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSysConsoleOk() (*float32, bool) {
-	if o == nil || isNil(o.SysConsole) {
+	if o == nil || IsNil(o.SysConsole) {
 		return nil, false
 	}
 	return o.SysConsole, true
@@ -580,7 +580,7 @@ func (o *RolePermissionSummary) GetSysConsoleOk() (*float32, bool) {
 
 // HasSysConsole returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSysConsole() bool {
-	if o != nil && !isNil(o.SysConsole) {
+	if o != nil && !IsNil(o.SysConsole) {
 		return true
 	}
 
@@ -594,7 +594,7 @@ func (o *RolePermissionSummary) SetSysConsole(v float32) {
 
 // GetSysIncoming returns the SysIncoming field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSysIncoming() float32 {
-	if o == nil || isNil(o.SysIncoming) {
+	if o == nil || IsNil(o.SysIncoming) {
 		var ret float32
 		return ret
 	}
@@ -604,7 +604,7 @@ func (o *RolePermissionSummary) GetSysIncoming() float32 {
 // GetSysIncomingOk returns a tuple with the SysIncoming field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSysIncomingOk() (*float32, bool) {
-	if o == nil || isNil(o.SysIncoming) {
+	if o == nil || IsNil(o.SysIncoming) {
 		return nil, false
 	}
 	return o.SysIncoming, true
@@ -612,7 +612,7 @@ func (o *RolePermissionSummary) GetSysIncomingOk() (*float32, bool) {
 
 // HasSysIncoming returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSysIncoming() bool {
-	if o != nil && !isNil(o.SysIncoming) {
+	if o != nil && !IsNil(o.SysIncoming) {
 		return true
 	}
 
@@ -626,7 +626,7 @@ func (o *RolePermissionSummary) SetSysIncoming(v float32) {
 
 // GetSysPowerMgmt returns the SysPowerMgmt field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSysPowerMgmt() float32 {
-	if o == nil || isNil(o.SysPowerMgmt) {
+	if o == nil || IsNil(o.SysPowerMgmt) {
 		var ret float32
 		return ret
 	}
@@ -636,7 +636,7 @@ func (o *RolePermissionSummary) GetSysPowerMgmt() float32 {
 // GetSysPowerMgmtOk returns a tuple with the SysPowerMgmt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSysPowerMgmtOk() (*float32, bool) {
-	if o == nil || isNil(o.SysPowerMgmt) {
+	if o == nil || IsNil(o.SysPowerMgmt) {
 		return nil, false
 	}
 	return o.SysPowerMgmt, true
@@ -644,7 +644,7 @@ func (o *RolePermissionSummary) GetSysPowerMgmtOk() (*float32, bool) {
 
 // HasSysPowerMgmt returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSysPowerMgmt() bool {
-	if o != nil && !isNil(o.SysPowerMgmt) {
+	if o != nil && !IsNil(o.SysPowerMgmt) {
 		return true
 	}
 
@@ -658,7 +658,7 @@ func (o *RolePermissionSummary) SetSysPowerMgmt(v float32) {
 
 // GetSysSyslog returns the SysSyslog field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetSysSyslog() float32 {
-	if o == nil || isNil(o.SysSyslog) {
+	if o == nil || IsNil(o.SysSyslog) {
 		var ret float32
 		return ret
 	}
@@ -668,7 +668,7 @@ func (o *RolePermissionSummary) GetSysSyslog() float32 {
 // GetSysSyslogOk returns a tuple with the SysSyslog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetSysSyslogOk() (*float32, bool) {
-	if o == nil || isNil(o.SysSyslog) {
+	if o == nil || IsNil(o.SysSyslog) {
 		return nil, false
 	}
 	return o.SysSyslog, true
@@ -676,7 +676,7 @@ func (o *RolePermissionSummary) GetSysSyslogOk() (*float32, bool) {
 
 // HasSysSyslog returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasSysSyslog() bool {
-	if o != nil && !isNil(o.SysSyslog) {
+	if o != nil && !IsNil(o.SysSyslog) {
 		return true
 	}
 
@@ -690,7 +690,7 @@ func (o *RolePermissionSummary) SetSysSyslog(v float32) {
 
 // GetUserModify returns the UserModify field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetUserModify() float32 {
-	if o == nil || isNil(o.UserModify) {
+	if o == nil || IsNil(o.UserModify) {
 		var ret float32
 		return ret
 	}
@@ -700,7 +700,7 @@ func (o *RolePermissionSummary) GetUserModify() float32 {
 // GetUserModifyOk returns a tuple with the UserModify field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetUserModifyOk() (*float32, bool) {
-	if o == nil || isNil(o.UserModify) {
+	if o == nil || IsNil(o.UserModify) {
 		return nil, false
 	}
 	return o.UserModify, true
@@ -708,7 +708,7 @@ func (o *RolePermissionSummary) GetUserModifyOk() (*float32, bool) {
 
 // HasUserModify returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasUserModify() bool {
-	if o != nil && !isNil(o.UserModify) {
+	if o != nil && !IsNil(o.UserModify) {
 		return true
 	}
 
@@ -722,7 +722,7 @@ func (o *RolePermissionSummary) SetUserModify(v float32) {
 
 // GetVMAllocate returns the VMAllocate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMAllocate() float32 {
-	if o == nil || isNil(o.VMAllocate) {
+	if o == nil || IsNil(o.VMAllocate) {
 		var ret float32
 		return ret
 	}
@@ -732,7 +732,7 @@ func (o *RolePermissionSummary) GetVMAllocate() float32 {
 // GetVMAllocateOk returns a tuple with the VMAllocate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMAllocateOk() (*float32, bool) {
-	if o == nil || isNil(o.VMAllocate) {
+	if o == nil || IsNil(o.VMAllocate) {
 		return nil, false
 	}
 	return o.VMAllocate, true
@@ -740,7 +740,7 @@ func (o *RolePermissionSummary) GetVMAllocateOk() (*float32, bool) {
 
 // HasVMAllocate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMAllocate() bool {
-	if o != nil && !isNil(o.VMAllocate) {
+	if o != nil && !IsNil(o.VMAllocate) {
 		return true
 	}
 
@@ -754,7 +754,7 @@ func (o *RolePermissionSummary) SetVMAllocate(v float32) {
 
 // GetVMAudit returns the VMAudit field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMAudit() float32 {
-	if o == nil || isNil(o.VMAudit) {
+	if o == nil || IsNil(o.VMAudit) {
 		var ret float32
 		return ret
 	}
@@ -764,7 +764,7 @@ func (o *RolePermissionSummary) GetVMAudit() float32 {
 // GetVMAuditOk returns a tuple with the VMAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMAuditOk() (*float32, bool) {
-	if o == nil || isNil(o.VMAudit) {
+	if o == nil || IsNil(o.VMAudit) {
 		return nil, false
 	}
 	return o.VMAudit, true
@@ -772,7 +772,7 @@ func (o *RolePermissionSummary) GetVMAuditOk() (*float32, bool) {
 
 // HasVMAudit returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMAudit() bool {
-	if o != nil && !isNil(o.VMAudit) {
+	if o != nil && !IsNil(o.VMAudit) {
 		return true
 	}
 
@@ -786,7 +786,7 @@ func (o *RolePermissionSummary) SetVMAudit(v float32) {
 
 // GetVMBackup returns the VMBackup field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMBackup() float32 {
-	if o == nil || isNil(o.VMBackup) {
+	if o == nil || IsNil(o.VMBackup) {
 		var ret float32
 		return ret
 	}
@@ -796,7 +796,7 @@ func (o *RolePermissionSummary) GetVMBackup() float32 {
 // GetVMBackupOk returns a tuple with the VMBackup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMBackupOk() (*float32, bool) {
-	if o == nil || isNil(o.VMBackup) {
+	if o == nil || IsNil(o.VMBackup) {
 		return nil, false
 	}
 	return o.VMBackup, true
@@ -804,7 +804,7 @@ func (o *RolePermissionSummary) GetVMBackupOk() (*float32, bool) {
 
 // HasVMBackup returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMBackup() bool {
-	if o != nil && !isNil(o.VMBackup) {
+	if o != nil && !IsNil(o.VMBackup) {
 		return true
 	}
 
@@ -818,7 +818,7 @@ func (o *RolePermissionSummary) SetVMBackup(v float32) {
 
 // GetVMClone returns the VMClone field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMClone() float32 {
-	if o == nil || isNil(o.VMClone) {
+	if o == nil || IsNil(o.VMClone) {
 		var ret float32
 		return ret
 	}
@@ -828,7 +828,7 @@ func (o *RolePermissionSummary) GetVMClone() float32 {
 // GetVMCloneOk returns a tuple with the VMClone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMCloneOk() (*float32, bool) {
-	if o == nil || isNil(o.VMClone) {
+	if o == nil || IsNil(o.VMClone) {
 		return nil, false
 	}
 	return o.VMClone, true
@@ -836,7 +836,7 @@ func (o *RolePermissionSummary) GetVMCloneOk() (*float32, bool) {
 
 // HasVMClone returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMClone() bool {
-	if o != nil && !isNil(o.VMClone) {
+	if o != nil && !IsNil(o.VMClone) {
 		return true
 	}
 
@@ -850,7 +850,7 @@ func (o *RolePermissionSummary) SetVMClone(v float32) {
 
 // GetVMConfigCDROM returns the VMConfigCDROM field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigCDROM() float32 {
-	if o == nil || isNil(o.VMConfigCDROM) {
+	if o == nil || IsNil(o.VMConfigCDROM) {
 		var ret float32
 		return ret
 	}
@@ -860,7 +860,7 @@ func (o *RolePermissionSummary) GetVMConfigCDROM() float32 {
 // GetVMConfigCDROMOk returns a tuple with the VMConfigCDROM field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigCDROMOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigCDROM) {
+	if o == nil || IsNil(o.VMConfigCDROM) {
 		return nil, false
 	}
 	return o.VMConfigCDROM, true
@@ -868,7 +868,7 @@ func (o *RolePermissionSummary) GetVMConfigCDROMOk() (*float32, bool) {
 
 // HasVMConfigCDROM returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigCDROM() bool {
-	if o != nil && !isNil(o.VMConfigCDROM) {
+	if o != nil && !IsNil(o.VMConfigCDROM) {
 		return true
 	}
 
@@ -882,7 +882,7 @@ func (o *RolePermissionSummary) SetVMConfigCDROM(v float32) {
 
 // GetVMConfigCPU returns the VMConfigCPU field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigCPU() float32 {
-	if o == nil || isNil(o.VMConfigCPU) {
+	if o == nil || IsNil(o.VMConfigCPU) {
 		var ret float32
 		return ret
 	}
@@ -892,7 +892,7 @@ func (o *RolePermissionSummary) GetVMConfigCPU() float32 {
 // GetVMConfigCPUOk returns a tuple with the VMConfigCPU field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigCPUOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigCPU) {
+	if o == nil || IsNil(o.VMConfigCPU) {
 		return nil, false
 	}
 	return o.VMConfigCPU, true
@@ -900,7 +900,7 @@ func (o *RolePermissionSummary) GetVMConfigCPUOk() (*float32, bool) {
 
 // HasVMConfigCPU returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigCPU() bool {
-	if o != nil && !isNil(o.VMConfigCPU) {
+	if o != nil && !IsNil(o.VMConfigCPU) {
 		return true
 	}
 
@@ -914,7 +914,7 @@ func (o *RolePermissionSummary) SetVMConfigCPU(v float32) {
 
 // GetVMConfigCloudinit returns the VMConfigCloudinit field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigCloudinit() float32 {
-	if o == nil || isNil(o.VMConfigCloudinit) {
+	if o == nil || IsNil(o.VMConfigCloudinit) {
 		var ret float32
 		return ret
 	}
@@ -924,7 +924,7 @@ func (o *RolePermissionSummary) GetVMConfigCloudinit() float32 {
 // GetVMConfigCloudinitOk returns a tuple with the VMConfigCloudinit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigCloudinitOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigCloudinit) {
+	if o == nil || IsNil(o.VMConfigCloudinit) {
 		return nil, false
 	}
 	return o.VMConfigCloudinit, true
@@ -932,7 +932,7 @@ func (o *RolePermissionSummary) GetVMConfigCloudinitOk() (*float32, bool) {
 
 // HasVMConfigCloudinit returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigCloudinit() bool {
-	if o != nil && !isNil(o.VMConfigCloudinit) {
+	if o != nil && !IsNil(o.VMConfigCloudinit) {
 		return true
 	}
 
@@ -946,7 +946,7 @@ func (o *RolePermissionSummary) SetVMConfigCloudinit(v float32) {
 
 // GetVMConfigDisk returns the VMConfigDisk field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigDisk() float32 {
-	if o == nil || isNil(o.VMConfigDisk) {
+	if o == nil || IsNil(o.VMConfigDisk) {
 		var ret float32
 		return ret
 	}
@@ -956,7 +956,7 @@ func (o *RolePermissionSummary) GetVMConfigDisk() float32 {
 // GetVMConfigDiskOk returns a tuple with the VMConfigDisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigDiskOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigDisk) {
+	if o == nil || IsNil(o.VMConfigDisk) {
 		return nil, false
 	}
 	return o.VMConfigDisk, true
@@ -964,7 +964,7 @@ func (o *RolePermissionSummary) GetVMConfigDiskOk() (*float32, bool) {
 
 // HasVMConfigDisk returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigDisk() bool {
-	if o != nil && !isNil(o.VMConfigDisk) {
+	if o != nil && !IsNil(o.VMConfigDisk) {
 		return true
 	}
 
@@ -978,7 +978,7 @@ func (o *RolePermissionSummary) SetVMConfigDisk(v float32) {
 
 // GetVMConfigHWType returns the VMConfigHWType field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigHWType() float32 {
-	if o == nil || isNil(o.VMConfigHWType) {
+	if o == nil || IsNil(o.VMConfigHWType) {
 		var ret float32
 		return ret
 	}
@@ -988,7 +988,7 @@ func (o *RolePermissionSummary) GetVMConfigHWType() float32 {
 // GetVMConfigHWTypeOk returns a tuple with the VMConfigHWType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigHWTypeOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigHWType) {
+	if o == nil || IsNil(o.VMConfigHWType) {
 		return nil, false
 	}
 	return o.VMConfigHWType, true
@@ -996,7 +996,7 @@ func (o *RolePermissionSummary) GetVMConfigHWTypeOk() (*float32, bool) {
 
 // HasVMConfigHWType returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigHWType() bool {
-	if o != nil && !isNil(o.VMConfigHWType) {
+	if o != nil && !IsNil(o.VMConfigHWType) {
 		return true
 	}
 
@@ -1010,7 +1010,7 @@ func (o *RolePermissionSummary) SetVMConfigHWType(v float32) {
 
 // GetVMConfigMemory returns the VMConfigMemory field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigMemory() float32 {
-	if o == nil || isNil(o.VMConfigMemory) {
+	if o == nil || IsNil(o.VMConfigMemory) {
 		var ret float32
 		return ret
 	}
@@ -1020,7 +1020,7 @@ func (o *RolePermissionSummary) GetVMConfigMemory() float32 {
 // GetVMConfigMemoryOk returns a tuple with the VMConfigMemory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigMemoryOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigMemory) {
+	if o == nil || IsNil(o.VMConfigMemory) {
 		return nil, false
 	}
 	return o.VMConfigMemory, true
@@ -1028,7 +1028,7 @@ func (o *RolePermissionSummary) GetVMConfigMemoryOk() (*float32, bool) {
 
 // HasVMConfigMemory returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigMemory() bool {
-	if o != nil && !isNil(o.VMConfigMemory) {
+	if o != nil && !IsNil(o.VMConfigMemory) {
 		return true
 	}
 
@@ -1042,7 +1042,7 @@ func (o *RolePermissionSummary) SetVMConfigMemory(v float32) {
 
 // GetVMConfigNetwork returns the VMConfigNetwork field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigNetwork() float32 {
-	if o == nil || isNil(o.VMConfigNetwork) {
+	if o == nil || IsNil(o.VMConfigNetwork) {
 		var ret float32
 		return ret
 	}
@@ -1052,7 +1052,7 @@ func (o *RolePermissionSummary) GetVMConfigNetwork() float32 {
 // GetVMConfigNetworkOk returns a tuple with the VMConfigNetwork field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigNetworkOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigNetwork) {
+	if o == nil || IsNil(o.VMConfigNetwork) {
 		return nil, false
 	}
 	return o.VMConfigNetwork, true
@@ -1060,7 +1060,7 @@ func (o *RolePermissionSummary) GetVMConfigNetworkOk() (*float32, bool) {
 
 // HasVMConfigNetwork returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigNetwork() bool {
-	if o != nil && !isNil(o.VMConfigNetwork) {
+	if o != nil && !IsNil(o.VMConfigNetwork) {
 		return true
 	}
 
@@ -1074,7 +1074,7 @@ func (o *RolePermissionSummary) SetVMConfigNetwork(v float32) {
 
 // GetVMConfigOptions returns the VMConfigOptions field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConfigOptions() float32 {
-	if o == nil || isNil(o.VMConfigOptions) {
+	if o == nil || IsNil(o.VMConfigOptions) {
 		var ret float32
 		return ret
 	}
@@ -1084,7 +1084,7 @@ func (o *RolePermissionSummary) GetVMConfigOptions() float32 {
 // GetVMConfigOptionsOk returns a tuple with the VMConfigOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConfigOptionsOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConfigOptions) {
+	if o == nil || IsNil(o.VMConfigOptions) {
 		return nil, false
 	}
 	return o.VMConfigOptions, true
@@ -1092,7 +1092,7 @@ func (o *RolePermissionSummary) GetVMConfigOptionsOk() (*float32, bool) {
 
 // HasVMConfigOptions returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConfigOptions() bool {
-	if o != nil && !isNil(o.VMConfigOptions) {
+	if o != nil && !IsNil(o.VMConfigOptions) {
 		return true
 	}
 
@@ -1106,7 +1106,7 @@ func (o *RolePermissionSummary) SetVMConfigOptions(v float32) {
 
 // GetVMConsole returns the VMConsole field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMConsole() float32 {
-	if o == nil || isNil(o.VMConsole) {
+	if o == nil || IsNil(o.VMConsole) {
 		var ret float32
 		return ret
 	}
@@ -1116,7 +1116,7 @@ func (o *RolePermissionSummary) GetVMConsole() float32 {
 // GetVMConsoleOk returns a tuple with the VMConsole field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMConsoleOk() (*float32, bool) {
-	if o == nil || isNil(o.VMConsole) {
+	if o == nil || IsNil(o.VMConsole) {
 		return nil, false
 	}
 	return o.VMConsole, true
@@ -1124,7 +1124,7 @@ func (o *RolePermissionSummary) GetVMConsoleOk() (*float32, bool) {
 
 // HasVMConsole returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMConsole() bool {
-	if o != nil && !isNil(o.VMConsole) {
+	if o != nil && !IsNil(o.VMConsole) {
 		return true
 	}
 
@@ -1138,7 +1138,7 @@ func (o *RolePermissionSummary) SetVMConsole(v float32) {
 
 // GetVMMigrate returns the VMMigrate field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMMigrate() float32 {
-	if o == nil || isNil(o.VMMigrate) {
+	if o == nil || IsNil(o.VMMigrate) {
 		var ret float32
 		return ret
 	}
@@ -1148,7 +1148,7 @@ func (o *RolePermissionSummary) GetVMMigrate() float32 {
 // GetVMMigrateOk returns a tuple with the VMMigrate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMMigrateOk() (*float32, bool) {
-	if o == nil || isNil(o.VMMigrate) {
+	if o == nil || IsNil(o.VMMigrate) {
 		return nil, false
 	}
 	return o.VMMigrate, true
@@ -1156,7 +1156,7 @@ func (o *RolePermissionSummary) GetVMMigrateOk() (*float32, bool) {
 
 // HasVMMigrate returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMMigrate() bool {
-	if o != nil && !isNil(o.VMMigrate) {
+	if o != nil && !IsNil(o.VMMigrate) {
 		return true
 	}
 
@@ -1170,7 +1170,7 @@ func (o *RolePermissionSummary) SetVMMigrate(v float32) {
 
 // GetVMMonitor returns the VMMonitor field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMMonitor() float32 {
-	if o == nil || isNil(o.VMMonitor) {
+	if o == nil || IsNil(o.VMMonitor) {
 		var ret float32
 		return ret
 	}
@@ -1180,7 +1180,7 @@ func (o *RolePermissionSummary) GetVMMonitor() float32 {
 // GetVMMonitorOk returns a tuple with the VMMonitor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMMonitorOk() (*float32, bool) {
-	if o == nil || isNil(o.VMMonitor) {
+	if o == nil || IsNil(o.VMMonitor) {
 		return nil, false
 	}
 	return o.VMMonitor, true
@@ -1188,7 +1188,7 @@ func (o *RolePermissionSummary) GetVMMonitorOk() (*float32, bool) {
 
 // HasVMMonitor returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMMonitor() bool {
-	if o != nil && !isNil(o.VMMonitor) {
+	if o != nil && !IsNil(o.VMMonitor) {
 		return true
 	}
 
@@ -1202,7 +1202,7 @@ func (o *RolePermissionSummary) SetVMMonitor(v float32) {
 
 // GetVMPowerMgmt returns the VMPowerMgmt field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMPowerMgmt() float32 {
-	if o == nil || isNil(o.VMPowerMgmt) {
+	if o == nil || IsNil(o.VMPowerMgmt) {
 		var ret float32
 		return ret
 	}
@@ -1212,7 +1212,7 @@ func (o *RolePermissionSummary) GetVMPowerMgmt() float32 {
 // GetVMPowerMgmtOk returns a tuple with the VMPowerMgmt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMPowerMgmtOk() (*float32, bool) {
-	if o == nil || isNil(o.VMPowerMgmt) {
+	if o == nil || IsNil(o.VMPowerMgmt) {
 		return nil, false
 	}
 	return o.VMPowerMgmt, true
@@ -1220,7 +1220,7 @@ func (o *RolePermissionSummary) GetVMPowerMgmtOk() (*float32, bool) {
 
 // HasVMPowerMgmt returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMPowerMgmt() bool {
-	if o != nil && !isNil(o.VMPowerMgmt) {
+	if o != nil && !IsNil(o.VMPowerMgmt) {
 		return true
 	}
 
@@ -1234,7 +1234,7 @@ func (o *RolePermissionSummary) SetVMPowerMgmt(v float32) {
 
 // GetVMSnapshot returns the VMSnapshot field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMSnapshot() float32 {
-	if o == nil || isNil(o.VMSnapshot) {
+	if o == nil || IsNil(o.VMSnapshot) {
 		var ret float32
 		return ret
 	}
@@ -1244,7 +1244,7 @@ func (o *RolePermissionSummary) GetVMSnapshot() float32 {
 // GetVMSnapshotOk returns a tuple with the VMSnapshot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMSnapshotOk() (*float32, bool) {
-	if o == nil || isNil(o.VMSnapshot) {
+	if o == nil || IsNil(o.VMSnapshot) {
 		return nil, false
 	}
 	return o.VMSnapshot, true
@@ -1252,7 +1252,7 @@ func (o *RolePermissionSummary) GetVMSnapshotOk() (*float32, bool) {
 
 // HasVMSnapshot returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMSnapshot() bool {
-	if o != nil && !isNil(o.VMSnapshot) {
+	if o != nil && !IsNil(o.VMSnapshot) {
 		return true
 	}
 
@@ -1266,7 +1266,7 @@ func (o *RolePermissionSummary) SetVMSnapshot(v float32) {
 
 // GetVMSnapshotRollback returns the VMSnapshotRollback field value if set, zero value otherwise.
 func (o *RolePermissionSummary) GetVMSnapshotRollback() float32 {
-	if o == nil || isNil(o.VMSnapshotRollback) {
+	if o == nil || IsNil(o.VMSnapshotRollback) {
 		var ret float32
 		return ret
 	}
@@ -1276,7 +1276,7 @@ func (o *RolePermissionSummary) GetVMSnapshotRollback() float32 {
 // GetVMSnapshotRollbackOk returns a tuple with the VMSnapshotRollback field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RolePermissionSummary) GetVMSnapshotRollbackOk() (*float32, bool) {
-	if o == nil || isNil(o.VMSnapshotRollback) {
+	if o == nil || IsNil(o.VMSnapshotRollback) {
 		return nil, false
 	}
 	return o.VMSnapshotRollback, true
@@ -1284,7 +1284,7 @@ func (o *RolePermissionSummary) GetVMSnapshotRollbackOk() (*float32, bool) {
 
 // HasVMSnapshotRollback returns a boolean if a field has been set.
 func (o *RolePermissionSummary) HasVMSnapshotRollback() bool {
-	if o != nil && !isNil(o.VMSnapshotRollback) {
+	if o != nil && !IsNil(o.VMSnapshotRollback) {
 		return true
 	}
 
@@ -1306,115 +1306,115 @@ func (o RolePermissionSummary) MarshalJSON() ([]byte, error) {
 
 func (o RolePermissionSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DatastoreAllocate) {
+	if !IsNil(o.DatastoreAllocate) {
 		toSerialize["Datastore.Allocate"] = o.DatastoreAllocate
 	}
-	if !isNil(o.DatastoreAllocateSpace) {
+	if !IsNil(o.DatastoreAllocateSpace) {
 		toSerialize["Datastore.AllocateSpace"] = o.DatastoreAllocateSpace
 	}
-	if !isNil(o.DatastoreAudit) {
+	if !IsNil(o.DatastoreAudit) {
 		toSerialize["Datastore.Audit"] = o.DatastoreAudit
 	}
-	if !isNil(o.DatastoreAllocateTemplate) {
+	if !IsNil(o.DatastoreAllocateTemplate) {
 		toSerialize["Datastore.AllocateTemplate"] = o.DatastoreAllocateTemplate
 	}
-	if !isNil(o.GroupAllocate) {
+	if !IsNil(o.GroupAllocate) {
 		toSerialize["Group.Allocate"] = o.GroupAllocate
 	}
-	if !isNil(o.PermissionModify) {
+	if !IsNil(o.PermissionModify) {
 		toSerialize["Permission.Modify"] = o.PermissionModify
 	}
-	if !isNil(o.PoolAllocate) {
+	if !IsNil(o.PoolAllocate) {
 		toSerialize["Pool.Allocate"] = o.PoolAllocate
 	}
-	if !isNil(o.PoolAudit) {
+	if !IsNil(o.PoolAudit) {
 		toSerialize["Pool.Audit"] = o.PoolAudit
 	}
-	if !isNil(o.RealmAllocate) {
+	if !IsNil(o.RealmAllocate) {
 		toSerialize["Realm.Allocate"] = o.RealmAllocate
 	}
-	if !isNil(o.RealmAllocateUser) {
+	if !IsNil(o.RealmAllocateUser) {
 		toSerialize["Realm.AllocateUser"] = o.RealmAllocateUser
 	}
-	if !isNil(o.SDNAllocate) {
+	if !IsNil(o.SDNAllocate) {
 		toSerialize["SDN.Allocate"] = o.SDNAllocate
 	}
-	if !isNil(o.SDNAudit) {
+	if !IsNil(o.SDNAudit) {
 		toSerialize["SDN.Audit"] = o.SDNAudit
 	}
-	if !isNil(o.SysAudit) {
+	if !IsNil(o.SysAudit) {
 		toSerialize["Sys.Audit"] = o.SysAudit
 	}
-	if !isNil(o.SysModify) {
+	if !IsNil(o.SysModify) {
 		toSerialize["Sys.Modify"] = o.SysModify
 	}
-	if !isNil(o.SysConsole) {
+	if !IsNil(o.SysConsole) {
 		toSerialize["Sys.Console"] = o.SysConsole
 	}
-	if !isNil(o.SysIncoming) {
+	if !IsNil(o.SysIncoming) {
 		toSerialize["Sys.Incoming"] = o.SysIncoming
 	}
-	if !isNil(o.SysPowerMgmt) {
+	if !IsNil(o.SysPowerMgmt) {
 		toSerialize["Sys.PowerMgmt"] = o.SysPowerMgmt
 	}
-	if !isNil(o.SysSyslog) {
+	if !IsNil(o.SysSyslog) {
 		toSerialize["Sys.Syslog"] = o.SysSyslog
 	}
-	if !isNil(o.UserModify) {
+	if !IsNil(o.UserModify) {
 		toSerialize["User.Modify"] = o.UserModify
 	}
-	if !isNil(o.VMAllocate) {
+	if !IsNil(o.VMAllocate) {
 		toSerialize["VM.Allocate"] = o.VMAllocate
 	}
-	if !isNil(o.VMAudit) {
+	if !IsNil(o.VMAudit) {
 		toSerialize["VM.Audit"] = o.VMAudit
 	}
-	if !isNil(o.VMBackup) {
+	if !IsNil(o.VMBackup) {
 		toSerialize["VM.Backup"] = o.VMBackup
 	}
-	if !isNil(o.VMClone) {
+	if !IsNil(o.VMClone) {
 		toSerialize["VM.Clone"] = o.VMClone
 	}
-	if !isNil(o.VMConfigCDROM) {
+	if !IsNil(o.VMConfigCDROM) {
 		toSerialize["VM.Config.CDROM"] = o.VMConfigCDROM
 	}
-	if !isNil(o.VMConfigCPU) {
+	if !IsNil(o.VMConfigCPU) {
 		toSerialize["VM.Config.CPU"] = o.VMConfigCPU
 	}
-	if !isNil(o.VMConfigCloudinit) {
+	if !IsNil(o.VMConfigCloudinit) {
 		toSerialize["VM.Config.Cloudinit"] = o.VMConfigCloudinit
 	}
-	if !isNil(o.VMConfigDisk) {
+	if !IsNil(o.VMConfigDisk) {
 		toSerialize["VM.Config.Disk"] = o.VMConfigDisk
 	}
-	if !isNil(o.VMConfigHWType) {
+	if !IsNil(o.VMConfigHWType) {
 		toSerialize["VM.Config.HWType"] = o.VMConfigHWType
 	}
-	if !isNil(o.VMConfigMemory) {
+	if !IsNil(o.VMConfigMemory) {
 		toSerialize["VM.Config.Memory"] = o.VMConfigMemory
 	}
-	if !isNil(o.VMConfigNetwork) {
+	if !IsNil(o.VMConfigNetwork) {
 		toSerialize["VM.Config.Network"] = o.VMConfigNetwork
 	}
-	if !isNil(o.VMConfigOptions) {
+	if !IsNil(o.VMConfigOptions) {
 		toSerialize["VM.Config.Options"] = o.VMConfigOptions
 	}
-	if !isNil(o.VMConsole) {
+	if !IsNil(o.VMConsole) {
 		toSerialize["VM.Console"] = o.VMConsole
 	}
-	if !isNil(o.VMMigrate) {
+	if !IsNil(o.VMMigrate) {
 		toSerialize["VM.Migrate"] = o.VMMigrate
 	}
-	if !isNil(o.VMMonitor) {
+	if !IsNil(o.VMMonitor) {
 		toSerialize["VM.Monitor"] = o.VMMonitor
 	}
-	if !isNil(o.VMPowerMgmt) {
+	if !IsNil(o.VMPowerMgmt) {
 		toSerialize["VM.PowerMgmt"] = o.VMPowerMgmt
 	}
-	if !isNil(o.VMSnapshot) {
+	if !IsNil(o.VMSnapshot) {
 		toSerialize["VM.Snapshot"] = o.VMSnapshot
 	}
-	if !isNil(o.VMSnapshotRollback) {
+	if !IsNil(o.VMSnapshotRollback) {
 		toSerialize["VM.Snapshot.Rollback"] = o.VMSnapshotRollback
 	}
 	return toSerialize, nil

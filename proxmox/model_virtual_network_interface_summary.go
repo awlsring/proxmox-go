@@ -44,7 +44,7 @@ func NewVirtualNetworkInterfaceSummaryWithDefaults() *VirtualNetworkInterfaceSum
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *VirtualNetworkInterfaceSummary) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *VirtualNetworkInterfaceSummary) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualNetworkInterfaceSummary) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -62,7 +62,7 @@ func (o *VirtualNetworkInterfaceSummary) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *VirtualNetworkInterfaceSummary) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *VirtualNetworkInterfaceSummary) SetName(v string) {
 
 // GetStatistics returns the Statistics field value if set, zero value otherwise.
 func (o *VirtualNetworkInterfaceSummary) GetStatistics() NetworkInterfaceStatisticsSummary {
-	if o == nil || isNil(o.Statistics) {
+	if o == nil || IsNil(o.Statistics) {
 		var ret NetworkInterfaceStatisticsSummary
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *VirtualNetworkInterfaceSummary) GetStatistics() NetworkInterfaceStatist
 // GetStatisticsOk returns a tuple with the Statistics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualNetworkInterfaceSummary) GetStatisticsOk() (*NetworkInterfaceStatisticsSummary, bool) {
-	if o == nil || isNil(o.Statistics) {
+	if o == nil || IsNil(o.Statistics) {
 		return nil, false
 	}
 	return o.Statistics, true
@@ -94,7 +94,7 @@ func (o *VirtualNetworkInterfaceSummary) GetStatisticsOk() (*NetworkInterfaceSta
 
 // HasStatistics returns a boolean if a field has been set.
 func (o *VirtualNetworkInterfaceSummary) HasStatistics() bool {
-	if o != nil && !isNil(o.Statistics) {
+	if o != nil && !IsNil(o.Statistics) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *VirtualNetworkInterfaceSummary) SetStatistics(v NetworkInterfaceStatist
 
 // GetIpAddresses returns the IpAddresses field value if set, zero value otherwise.
 func (o *VirtualNetworkInterfaceSummary) GetIpAddresses() []NetworkInterfaceIpAddressSummary {
-	if o == nil || isNil(o.IpAddresses) {
+	if o == nil || IsNil(o.IpAddresses) {
 		var ret []NetworkInterfaceIpAddressSummary
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *VirtualNetworkInterfaceSummary) GetIpAddresses() []NetworkInterfaceIpAd
 // GetIpAddressesOk returns a tuple with the IpAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualNetworkInterfaceSummary) GetIpAddressesOk() ([]NetworkInterfaceIpAddressSummary, bool) {
-	if o == nil || isNil(o.IpAddresses) {
+	if o == nil || IsNil(o.IpAddresses) {
 		return nil, false
 	}
 	return o.IpAddresses, true
@@ -126,7 +126,7 @@ func (o *VirtualNetworkInterfaceSummary) GetIpAddressesOk() ([]NetworkInterfaceI
 
 // HasIpAddresses returns a boolean if a field has been set.
 func (o *VirtualNetworkInterfaceSummary) HasIpAddresses() bool {
-	if o != nil && !isNil(o.IpAddresses) {
+	if o != nil && !IsNil(o.IpAddresses) {
 		return true
 	}
 
@@ -140,7 +140,7 @@ func (o *VirtualNetworkInterfaceSummary) SetIpAddresses(v []NetworkInterfaceIpAd
 
 // GetHardwareAddress returns the HardwareAddress field value if set, zero value otherwise.
 func (o *VirtualNetworkInterfaceSummary) GetHardwareAddress() string {
-	if o == nil || isNil(o.HardwareAddress) {
+	if o == nil || IsNil(o.HardwareAddress) {
 		var ret string
 		return ret
 	}
@@ -150,7 +150,7 @@ func (o *VirtualNetworkInterfaceSummary) GetHardwareAddress() string {
 // GetHardwareAddressOk returns a tuple with the HardwareAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualNetworkInterfaceSummary) GetHardwareAddressOk() (*string, bool) {
-	if o == nil || isNil(o.HardwareAddress) {
+	if o == nil || IsNil(o.HardwareAddress) {
 		return nil, false
 	}
 	return o.HardwareAddress, true
@@ -158,7 +158,7 @@ func (o *VirtualNetworkInterfaceSummary) GetHardwareAddressOk() (*string, bool) 
 
 // HasHardwareAddress returns a boolean if a field has been set.
 func (o *VirtualNetworkInterfaceSummary) HasHardwareAddress() bool {
-	if o != nil && !isNil(o.HardwareAddress) {
+	if o != nil && !IsNil(o.HardwareAddress) {
 		return true
 	}
 
@@ -180,16 +180,16 @@ func (o VirtualNetworkInterfaceSummary) MarshalJSON() ([]byte, error) {
 
 func (o VirtualNetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Statistics) {
+	if !IsNil(o.Statistics) {
 		toSerialize["statistics"] = o.Statistics
 	}
-	if !isNil(o.IpAddresses) {
+	if !IsNil(o.IpAddresses) {
 		toSerialize["ip-addresses"] = o.IpAddresses
 	}
-	if !isNil(o.HardwareAddress) {
+	if !IsNil(o.HardwareAddress) {
 		toSerialize["hardware-address"] = o.HardwareAddress
 	}
 	return toSerialize, nil

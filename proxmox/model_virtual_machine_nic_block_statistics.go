@@ -67,7 +67,7 @@ func NewVirtualMachineNicBlockStatisticsWithDefaults() *VirtualMachineNicBlockSt
 
 // GetFlushTotalTimeNs returns the FlushTotalTimeNs field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetFlushTotalTimeNs() float32 {
-	if o == nil || isNil(o.FlushTotalTimeNs) {
+	if o == nil || IsNil(o.FlushTotalTimeNs) {
 		var ret float32
 		return ret
 	}
@@ -77,7 +77,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFlushTotalTimeNs() float32 {
 // GetFlushTotalTimeNsOk returns a tuple with the FlushTotalTimeNs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFlushTotalTimeNsOk() (*float32, bool) {
-	if o == nil || isNil(o.FlushTotalTimeNs) {
+	if o == nil || IsNil(o.FlushTotalTimeNs) {
 		return nil, false
 	}
 	return o.FlushTotalTimeNs, true
@@ -85,7 +85,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFlushTotalTimeNsOk() (*float32, bo
 
 // HasFlushTotalTimeNs returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasFlushTotalTimeNs() bool {
-	if o != nil && !isNil(o.FlushTotalTimeNs) {
+	if o != nil && !IsNil(o.FlushTotalTimeNs) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o *VirtualMachineNicBlockStatistics) SetFlushTotalTimeNs(v float32) {
 
 // GetRdBytes returns the RdBytes field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetRdBytes() float32 {
-	if o == nil || isNil(o.RdBytes) {
+	if o == nil || IsNil(o.RdBytes) {
 		var ret float32
 		return ret
 	}
@@ -109,7 +109,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdBytes() float32 {
 // GetRdBytesOk returns a tuple with the RdBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.RdBytes) {
+	if o == nil || IsNil(o.RdBytes) {
 		return nil, false
 	}
 	return o.RdBytes, true
@@ -117,7 +117,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdBytesOk() (*float32, bool) {
 
 // HasRdBytes returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasRdBytes() bool {
-	if o != nil && !isNil(o.RdBytes) {
+	if o != nil && !IsNil(o.RdBytes) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *VirtualMachineNicBlockStatistics) SetRdBytes(v float32) {
 
 // GetTimedStats returns the TimedStats field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetTimedStats() []string {
-	if o == nil || isNil(o.TimedStats) {
+	if o == nil || IsNil(o.TimedStats) {
 		var ret []string
 		return ret
 	}
@@ -141,7 +141,7 @@ func (o *VirtualMachineNicBlockStatistics) GetTimedStats() []string {
 // GetTimedStatsOk returns a tuple with the TimedStats field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetTimedStatsOk() ([]string, bool) {
-	if o == nil || isNil(o.TimedStats) {
+	if o == nil || IsNil(o.TimedStats) {
 		return nil, false
 	}
 	return o.TimedStats, true
@@ -149,7 +149,7 @@ func (o *VirtualMachineNicBlockStatistics) GetTimedStatsOk() ([]string, bool) {
 
 // HasTimedStats returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasTimedStats() bool {
-	if o != nil && !isNil(o.TimedStats) {
+	if o != nil && !IsNil(o.TimedStats) {
 		return true
 	}
 
@@ -163,7 +163,7 @@ func (o *VirtualMachineNicBlockStatistics) SetTimedStats(v []string) {
 
 // GetWrHighestOffset returns the WrHighestOffset field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetWrHighestOffset() float32 {
-	if o == nil || isNil(o.WrHighestOffset) {
+	if o == nil || IsNil(o.WrHighestOffset) {
 		var ret float32
 		return ret
 	}
@@ -173,7 +173,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrHighestOffset() float32 {
 // GetWrHighestOffsetOk returns a tuple with the WrHighestOffset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrHighestOffsetOk() (*float32, bool) {
-	if o == nil || isNil(o.WrHighestOffset) {
+	if o == nil || IsNil(o.WrHighestOffset) {
 		return nil, false
 	}
 	return o.WrHighestOffset, true
@@ -181,7 +181,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrHighestOffsetOk() (*float32, boo
 
 // HasWrHighestOffset returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasWrHighestOffset() bool {
-	if o != nil && !isNil(o.WrHighestOffset) {
+	if o != nil && !IsNil(o.WrHighestOffset) {
 		return true
 	}
 
@@ -195,7 +195,7 @@ func (o *VirtualMachineNicBlockStatistics) SetWrHighestOffset(v float32) {
 
 // GetRdTotalTimeNs returns the RdTotalTimeNs field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetRdTotalTimeNs() float32 {
-	if o == nil || isNil(o.RdTotalTimeNs) {
+	if o == nil || IsNil(o.RdTotalTimeNs) {
 		var ret float32
 		return ret
 	}
@@ -205,7 +205,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdTotalTimeNs() float32 {
 // GetRdTotalTimeNsOk returns a tuple with the RdTotalTimeNs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdTotalTimeNsOk() (*float32, bool) {
-	if o == nil || isNil(o.RdTotalTimeNs) {
+	if o == nil || IsNil(o.RdTotalTimeNs) {
 		return nil, false
 	}
 	return o.RdTotalTimeNs, true
@@ -213,7 +213,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdTotalTimeNsOk() (*float32, bool)
 
 // HasRdTotalTimeNs returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasRdTotalTimeNs() bool {
-	if o != nil && !isNil(o.RdTotalTimeNs) {
+	if o != nil && !IsNil(o.RdTotalTimeNs) {
 		return true
 	}
 
@@ -227,7 +227,7 @@ func (o *VirtualMachineNicBlockStatistics) SetRdTotalTimeNs(v float32) {
 
 // GetFlushOperations returns the FlushOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetFlushOperations() float32 {
-	if o == nil || isNil(o.FlushOperations) {
+	if o == nil || IsNil(o.FlushOperations) {
 		var ret float32
 		return ret
 	}
@@ -237,7 +237,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFlushOperations() float32 {
 // GetFlushOperationsOk returns a tuple with the FlushOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFlushOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.FlushOperations) {
+	if o == nil || IsNil(o.FlushOperations) {
 		return nil, false
 	}
 	return o.FlushOperations, true
@@ -245,7 +245,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFlushOperationsOk() (*float32, boo
 
 // HasFlushOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasFlushOperations() bool {
-	if o != nil && !isNil(o.FlushOperations) {
+	if o != nil && !IsNil(o.FlushOperations) {
 		return true
 	}
 
@@ -259,7 +259,7 @@ func (o *VirtualMachineNicBlockStatistics) SetFlushOperations(v float32) {
 
 // GetWrOperations returns the WrOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetWrOperations() float32 {
-	if o == nil || isNil(o.WrOperations) {
+	if o == nil || IsNil(o.WrOperations) {
 		var ret float32
 		return ret
 	}
@@ -269,7 +269,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrOperations() float32 {
 // GetWrOperationsOk returns a tuple with the WrOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.WrOperations) {
+	if o == nil || IsNil(o.WrOperations) {
 		return nil, false
 	}
 	return o.WrOperations, true
@@ -277,7 +277,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrOperationsOk() (*float32, bool) 
 
 // HasWrOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasWrOperations() bool {
-	if o != nil && !isNil(o.WrOperations) {
+	if o != nil && !IsNil(o.WrOperations) {
 		return true
 	}
 
@@ -291,7 +291,7 @@ func (o *VirtualMachineNicBlockStatistics) SetWrOperations(v float32) {
 
 // GetIdleTimeNs returns the IdleTimeNs field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetIdleTimeNs() float32 {
-	if o == nil || isNil(o.IdleTimeNs) {
+	if o == nil || IsNil(o.IdleTimeNs) {
 		var ret float32
 		return ret
 	}
@@ -301,7 +301,7 @@ func (o *VirtualMachineNicBlockStatistics) GetIdleTimeNs() float32 {
 // GetIdleTimeNsOk returns a tuple with the IdleTimeNs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetIdleTimeNsOk() (*float32, bool) {
-	if o == nil || isNil(o.IdleTimeNs) {
+	if o == nil || IsNil(o.IdleTimeNs) {
 		return nil, false
 	}
 	return o.IdleTimeNs, true
@@ -309,7 +309,7 @@ func (o *VirtualMachineNicBlockStatistics) GetIdleTimeNsOk() (*float32, bool) {
 
 // HasIdleTimeNs returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasIdleTimeNs() bool {
-	if o != nil && !isNil(o.IdleTimeNs) {
+	if o != nil && !IsNil(o.IdleTimeNs) {
 		return true
 	}
 
@@ -323,7 +323,7 @@ func (o *VirtualMachineNicBlockStatistics) SetIdleTimeNs(v float32) {
 
 // GetWrMerged returns the WrMerged field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetWrMerged() float32 {
-	if o == nil || isNil(o.WrMerged) {
+	if o == nil || IsNil(o.WrMerged) {
 		var ret float32
 		return ret
 	}
@@ -333,7 +333,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrMerged() float32 {
 // GetWrMergedOk returns a tuple with the WrMerged field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrMergedOk() (*float32, bool) {
-	if o == nil || isNil(o.WrMerged) {
+	if o == nil || IsNil(o.WrMerged) {
 		return nil, false
 	}
 	return o.WrMerged, true
@@ -341,7 +341,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrMergedOk() (*float32, bool) {
 
 // HasWrMerged returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasWrMerged() bool {
-	if o != nil && !isNil(o.WrMerged) {
+	if o != nil && !IsNil(o.WrMerged) {
 		return true
 	}
 
@@ -355,7 +355,7 @@ func (o *VirtualMachineNicBlockStatistics) SetWrMerged(v float32) {
 
 // GetInvalidRdOperations returns the InvalidRdOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidRdOperations() float32 {
-	if o == nil || isNil(o.InvalidRdOperations) {
+	if o == nil || IsNil(o.InvalidRdOperations) {
 		var ret float32
 		return ret
 	}
@@ -365,7 +365,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidRdOperations() float32 {
 // GetInvalidRdOperationsOk returns a tuple with the InvalidRdOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidRdOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.InvalidRdOperations) {
+	if o == nil || IsNil(o.InvalidRdOperations) {
 		return nil, false
 	}
 	return o.InvalidRdOperations, true
@@ -373,7 +373,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidRdOperationsOk() (*float32,
 
 // HasInvalidRdOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasInvalidRdOperations() bool {
-	if o != nil && !isNil(o.InvalidRdOperations) {
+	if o != nil && !IsNil(o.InvalidRdOperations) {
 		return true
 	}
 
@@ -387,7 +387,7 @@ func (o *VirtualMachineNicBlockStatistics) SetInvalidRdOperations(v float32) {
 
 // GetFailedFlushOperations returns the FailedFlushOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetFailedFlushOperations() float32 {
-	if o == nil || isNil(o.FailedFlushOperations) {
+	if o == nil || IsNil(o.FailedFlushOperations) {
 		var ret float32
 		return ret
 	}
@@ -397,7 +397,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedFlushOperations() float32 {
 // GetFailedFlushOperationsOk returns a tuple with the FailedFlushOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedFlushOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.FailedFlushOperations) {
+	if o == nil || IsNil(o.FailedFlushOperations) {
 		return nil, false
 	}
 	return o.FailedFlushOperations, true
@@ -405,7 +405,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedFlushOperationsOk() (*float3
 
 // HasFailedFlushOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasFailedFlushOperations() bool {
-	if o != nil && !isNil(o.FailedFlushOperations) {
+	if o != nil && !IsNil(o.FailedFlushOperations) {
 		return true
 	}
 
@@ -419,7 +419,7 @@ func (o *VirtualMachineNicBlockStatistics) SetFailedFlushOperations(v float32) {
 
 // GetUnmapBytes returns the UnmapBytes field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapBytes() float32 {
-	if o == nil || isNil(o.UnmapBytes) {
+	if o == nil || IsNil(o.UnmapBytes) {
 		var ret float32
 		return ret
 	}
@@ -429,7 +429,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapBytes() float32 {
 // GetUnmapBytesOk returns a tuple with the UnmapBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.UnmapBytes) {
+	if o == nil || IsNil(o.UnmapBytes) {
 		return nil, false
 	}
 	return o.UnmapBytes, true
@@ -437,7 +437,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapBytesOk() (*float32, bool) {
 
 // HasUnmapBytes returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasUnmapBytes() bool {
-	if o != nil && !isNil(o.UnmapBytes) {
+	if o != nil && !IsNil(o.UnmapBytes) {
 		return true
 	}
 
@@ -451,7 +451,7 @@ func (o *VirtualMachineNicBlockStatistics) SetUnmapBytes(v float32) {
 
 // GetFailedRdOperations returns the FailedRdOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetFailedRdOperations() float32 {
-	if o == nil || isNil(o.FailedRdOperations) {
+	if o == nil || IsNil(o.FailedRdOperations) {
 		var ret float32
 		return ret
 	}
@@ -461,7 +461,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedRdOperations() float32 {
 // GetFailedRdOperationsOk returns a tuple with the FailedRdOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedRdOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.FailedRdOperations) {
+	if o == nil || IsNil(o.FailedRdOperations) {
 		return nil, false
 	}
 	return o.FailedRdOperations, true
@@ -469,7 +469,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedRdOperationsOk() (*float32, 
 
 // HasFailedRdOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasFailedRdOperations() bool {
-	if o != nil && !isNil(o.FailedRdOperations) {
+	if o != nil && !IsNil(o.FailedRdOperations) {
 		return true
 	}
 
@@ -483,7 +483,7 @@ func (o *VirtualMachineNicBlockStatistics) SetFailedRdOperations(v float32) {
 
 // GetWrBytes returns the WrBytes field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetWrBytes() float32 {
-	if o == nil || isNil(o.WrBytes) {
+	if o == nil || IsNil(o.WrBytes) {
 		var ret float32
 		return ret
 	}
@@ -493,7 +493,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrBytes() float32 {
 // GetWrBytesOk returns a tuple with the WrBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrBytesOk() (*float32, bool) {
-	if o == nil || isNil(o.WrBytes) {
+	if o == nil || IsNil(o.WrBytes) {
 		return nil, false
 	}
 	return o.WrBytes, true
@@ -501,7 +501,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrBytesOk() (*float32, bool) {
 
 // HasWrBytes returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasWrBytes() bool {
-	if o != nil && !isNil(o.WrBytes) {
+	if o != nil && !IsNil(o.WrBytes) {
 		return true
 	}
 
@@ -515,7 +515,7 @@ func (o *VirtualMachineNicBlockStatistics) SetWrBytes(v float32) {
 
 // GetInvalidFlushOperations returns the InvalidFlushOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidFlushOperations() float32 {
-	if o == nil || isNil(o.InvalidFlushOperations) {
+	if o == nil || IsNil(o.InvalidFlushOperations) {
 		var ret float32
 		return ret
 	}
@@ -525,7 +525,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidFlushOperations() float32 {
 // GetInvalidFlushOperationsOk returns a tuple with the InvalidFlushOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidFlushOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.InvalidFlushOperations) {
+	if o == nil || IsNil(o.InvalidFlushOperations) {
 		return nil, false
 	}
 	return o.InvalidFlushOperations, true
@@ -533,7 +533,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidFlushOperationsOk() (*float
 
 // HasInvalidFlushOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasInvalidFlushOperations() bool {
-	if o != nil && !isNil(o.InvalidFlushOperations) {
+	if o != nil && !IsNil(o.InvalidFlushOperations) {
 		return true
 	}
 
@@ -547,7 +547,7 @@ func (o *VirtualMachineNicBlockStatistics) SetInvalidFlushOperations(v float32) 
 
 // GetUnmapOperations returns the UnmapOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapOperations() float32 {
-	if o == nil || isNil(o.UnmapOperations) {
+	if o == nil || IsNil(o.UnmapOperations) {
 		var ret float32
 		return ret
 	}
@@ -557,7 +557,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapOperations() float32 {
 // GetUnmapOperationsOk returns a tuple with the UnmapOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.UnmapOperations) {
+	if o == nil || IsNil(o.UnmapOperations) {
 		return nil, false
 	}
 	return o.UnmapOperations, true
@@ -565,7 +565,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapOperationsOk() (*float32, boo
 
 // HasUnmapOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasUnmapOperations() bool {
-	if o != nil && !isNil(o.UnmapOperations) {
+	if o != nil && !IsNil(o.UnmapOperations) {
 		return true
 	}
 
@@ -579,7 +579,7 @@ func (o *VirtualMachineNicBlockStatistics) SetUnmapOperations(v float32) {
 
 // GetWrTotalTimeNs returns the WrTotalTimeNs field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetWrTotalTimeNs() float32 {
-	if o == nil || isNil(o.WrTotalTimeNs) {
+	if o == nil || IsNil(o.WrTotalTimeNs) {
 		var ret float32
 		return ret
 	}
@@ -589,7 +589,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrTotalTimeNs() float32 {
 // GetWrTotalTimeNsOk returns a tuple with the WrTotalTimeNs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetWrTotalTimeNsOk() (*float32, bool) {
-	if o == nil || isNil(o.WrTotalTimeNs) {
+	if o == nil || IsNil(o.WrTotalTimeNs) {
 		return nil, false
 	}
 	return o.WrTotalTimeNs, true
@@ -597,7 +597,7 @@ func (o *VirtualMachineNicBlockStatistics) GetWrTotalTimeNsOk() (*float32, bool)
 
 // HasWrTotalTimeNs returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasWrTotalTimeNs() bool {
-	if o != nil && !isNil(o.WrTotalTimeNs) {
+	if o != nil && !IsNil(o.WrTotalTimeNs) {
 		return true
 	}
 
@@ -611,7 +611,7 @@ func (o *VirtualMachineNicBlockStatistics) SetWrTotalTimeNs(v float32) {
 
 // GetFailedWrOperations returns the FailedWrOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetFailedWrOperations() float32 {
-	if o == nil || isNil(o.FailedWrOperations) {
+	if o == nil || IsNil(o.FailedWrOperations) {
 		var ret float32
 		return ret
 	}
@@ -621,7 +621,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedWrOperations() float32 {
 // GetFailedWrOperationsOk returns a tuple with the FailedWrOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedWrOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.FailedWrOperations) {
+	if o == nil || IsNil(o.FailedWrOperations) {
 		return nil, false
 	}
 	return o.FailedWrOperations, true
@@ -629,7 +629,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedWrOperationsOk() (*float32, 
 
 // HasFailedWrOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasFailedWrOperations() bool {
-	if o != nil && !isNil(o.FailedWrOperations) {
+	if o != nil && !IsNil(o.FailedWrOperations) {
 		return true
 	}
 
@@ -643,7 +643,7 @@ func (o *VirtualMachineNicBlockStatistics) SetFailedWrOperations(v float32) {
 
 // GetUnmapMerged returns the UnmapMerged field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapMerged() float32 {
-	if o == nil || isNil(o.UnmapMerged) {
+	if o == nil || IsNil(o.UnmapMerged) {
 		var ret float32
 		return ret
 	}
@@ -653,7 +653,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapMerged() float32 {
 // GetUnmapMergedOk returns a tuple with the UnmapMerged field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapMergedOk() (*float32, bool) {
-	if o == nil || isNil(o.UnmapMerged) {
+	if o == nil || IsNil(o.UnmapMerged) {
 		return nil, false
 	}
 	return o.UnmapMerged, true
@@ -661,7 +661,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapMergedOk() (*float32, bool) {
 
 // HasUnmapMerged returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasUnmapMerged() bool {
-	if o != nil && !isNil(o.UnmapMerged) {
+	if o != nil && !IsNil(o.UnmapMerged) {
 		return true
 	}
 
@@ -675,7 +675,7 @@ func (o *VirtualMachineNicBlockStatistics) SetUnmapMerged(v float32) {
 
 // GetInvalidWrOperations returns the InvalidWrOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidWrOperations() float32 {
-	if o == nil || isNil(o.InvalidWrOperations) {
+	if o == nil || IsNil(o.InvalidWrOperations) {
 		var ret float32
 		return ret
 	}
@@ -685,7 +685,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidWrOperations() float32 {
 // GetInvalidWrOperationsOk returns a tuple with the InvalidWrOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidWrOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.InvalidWrOperations) {
+	if o == nil || IsNil(o.InvalidWrOperations) {
 		return nil, false
 	}
 	return o.InvalidWrOperations, true
@@ -693,7 +693,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidWrOperationsOk() (*float32,
 
 // HasInvalidWrOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasInvalidWrOperations() bool {
-	if o != nil && !isNil(o.InvalidWrOperations) {
+	if o != nil && !IsNil(o.InvalidWrOperations) {
 		return true
 	}
 
@@ -707,7 +707,7 @@ func (o *VirtualMachineNicBlockStatistics) SetInvalidWrOperations(v float32) {
 
 // GetRdOperations returns the RdOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetRdOperations() float32 {
-	if o == nil || isNil(o.RdOperations) {
+	if o == nil || IsNil(o.RdOperations) {
 		var ret float32
 		return ret
 	}
@@ -717,7 +717,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdOperations() float32 {
 // GetRdOperationsOk returns a tuple with the RdOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.RdOperations) {
+	if o == nil || IsNil(o.RdOperations) {
 		return nil, false
 	}
 	return o.RdOperations, true
@@ -725,7 +725,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdOperationsOk() (*float32, bool) 
 
 // HasRdOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasRdOperations() bool {
-	if o != nil && !isNil(o.RdOperations) {
+	if o != nil && !IsNil(o.RdOperations) {
 		return true
 	}
 
@@ -739,7 +739,7 @@ func (o *VirtualMachineNicBlockStatistics) SetRdOperations(v float32) {
 
 // GetUnmapTotalTimeNs returns the UnmapTotalTimeNs field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapTotalTimeNs() float32 {
-	if o == nil || isNil(o.UnmapTotalTimeNs) {
+	if o == nil || IsNil(o.UnmapTotalTimeNs) {
 		var ret float32
 		return ret
 	}
@@ -749,7 +749,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapTotalTimeNs() float32 {
 // GetUnmapTotalTimeNsOk returns a tuple with the UnmapTotalTimeNs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetUnmapTotalTimeNsOk() (*float32, bool) {
-	if o == nil || isNil(o.UnmapTotalTimeNs) {
+	if o == nil || IsNil(o.UnmapTotalTimeNs) {
 		return nil, false
 	}
 	return o.UnmapTotalTimeNs, true
@@ -757,7 +757,7 @@ func (o *VirtualMachineNicBlockStatistics) GetUnmapTotalTimeNsOk() (*float32, bo
 
 // HasUnmapTotalTimeNs returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasUnmapTotalTimeNs() bool {
-	if o != nil && !isNil(o.UnmapTotalTimeNs) {
+	if o != nil && !IsNil(o.UnmapTotalTimeNs) {
 		return true
 	}
 
@@ -771,7 +771,7 @@ func (o *VirtualMachineNicBlockStatistics) SetUnmapTotalTimeNs(v float32) {
 
 // GetInvalidUnmapOperations returns the InvalidUnmapOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidUnmapOperations() float32 {
-	if o == nil || isNil(o.InvalidUnmapOperations) {
+	if o == nil || IsNil(o.InvalidUnmapOperations) {
 		var ret float32
 		return ret
 	}
@@ -781,7 +781,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidUnmapOperations() float32 {
 // GetInvalidUnmapOperationsOk returns a tuple with the InvalidUnmapOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetInvalidUnmapOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.InvalidUnmapOperations) {
+	if o == nil || IsNil(o.InvalidUnmapOperations) {
 		return nil, false
 	}
 	return o.InvalidUnmapOperations, true
@@ -789,7 +789,7 @@ func (o *VirtualMachineNicBlockStatistics) GetInvalidUnmapOperationsOk() (*float
 
 // HasInvalidUnmapOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasInvalidUnmapOperations() bool {
-	if o != nil && !isNil(o.InvalidUnmapOperations) {
+	if o != nil && !IsNil(o.InvalidUnmapOperations) {
 		return true
 	}
 
@@ -803,7 +803,7 @@ func (o *VirtualMachineNicBlockStatistics) SetInvalidUnmapOperations(v float32) 
 
 // GetAccountFailed returns the AccountFailed field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetAccountFailed() bool {
-	if o == nil || isNil(o.AccountFailed) {
+	if o == nil || IsNil(o.AccountFailed) {
 		var ret bool
 		return ret
 	}
@@ -813,7 +813,7 @@ func (o *VirtualMachineNicBlockStatistics) GetAccountFailed() bool {
 // GetAccountFailedOk returns a tuple with the AccountFailed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetAccountFailedOk() (*bool, bool) {
-	if o == nil || isNil(o.AccountFailed) {
+	if o == nil || IsNil(o.AccountFailed) {
 		return nil, false
 	}
 	return o.AccountFailed, true
@@ -821,7 +821,7 @@ func (o *VirtualMachineNicBlockStatistics) GetAccountFailedOk() (*bool, bool) {
 
 // HasAccountFailed returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasAccountFailed() bool {
-	if o != nil && !isNil(o.AccountFailed) {
+	if o != nil && !IsNil(o.AccountFailed) {
 		return true
 	}
 
@@ -835,7 +835,7 @@ func (o *VirtualMachineNicBlockStatistics) SetAccountFailed(v bool) {
 
 // GetAccountInvalid returns the AccountInvalid field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetAccountInvalid() bool {
-	if o == nil || isNil(o.AccountInvalid) {
+	if o == nil || IsNil(o.AccountInvalid) {
 		var ret bool
 		return ret
 	}
@@ -845,7 +845,7 @@ func (o *VirtualMachineNicBlockStatistics) GetAccountInvalid() bool {
 // GetAccountInvalidOk returns a tuple with the AccountInvalid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetAccountInvalidOk() (*bool, bool) {
-	if o == nil || isNil(o.AccountInvalid) {
+	if o == nil || IsNil(o.AccountInvalid) {
 		return nil, false
 	}
 	return o.AccountInvalid, true
@@ -853,7 +853,7 @@ func (o *VirtualMachineNicBlockStatistics) GetAccountInvalidOk() (*bool, bool) {
 
 // HasAccountInvalid returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasAccountInvalid() bool {
-	if o != nil && !isNil(o.AccountInvalid) {
+	if o != nil && !IsNil(o.AccountInvalid) {
 		return true
 	}
 
@@ -867,7 +867,7 @@ func (o *VirtualMachineNicBlockStatistics) SetAccountInvalid(v bool) {
 
 // GetRdMerged returns the RdMerged field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetRdMerged() float32 {
-	if o == nil || isNil(o.RdMerged) {
+	if o == nil || IsNil(o.RdMerged) {
 		var ret float32
 		return ret
 	}
@@ -877,7 +877,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdMerged() float32 {
 // GetRdMergedOk returns a tuple with the RdMerged field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetRdMergedOk() (*float32, bool) {
-	if o == nil || isNil(o.RdMerged) {
+	if o == nil || IsNil(o.RdMerged) {
 		return nil, false
 	}
 	return o.RdMerged, true
@@ -885,7 +885,7 @@ func (o *VirtualMachineNicBlockStatistics) GetRdMergedOk() (*float32, bool) {
 
 // HasRdMerged returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasRdMerged() bool {
-	if o != nil && !isNil(o.RdMerged) {
+	if o != nil && !IsNil(o.RdMerged) {
 		return true
 	}
 
@@ -899,7 +899,7 @@ func (o *VirtualMachineNicBlockStatistics) SetRdMerged(v float32) {
 
 // GetFailedUnmapOperations returns the FailedUnmapOperations field value if set, zero value otherwise.
 func (o *VirtualMachineNicBlockStatistics) GetFailedUnmapOperations() float32 {
-	if o == nil || isNil(o.FailedUnmapOperations) {
+	if o == nil || IsNil(o.FailedUnmapOperations) {
 		var ret float32
 		return ret
 	}
@@ -909,7 +909,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedUnmapOperations() float32 {
 // GetFailedUnmapOperationsOk returns a tuple with the FailedUnmapOperations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineNicBlockStatistics) GetFailedUnmapOperationsOk() (*float32, bool) {
-	if o == nil || isNil(o.FailedUnmapOperations) {
+	if o == nil || IsNil(o.FailedUnmapOperations) {
 		return nil, false
 	}
 	return o.FailedUnmapOperations, true
@@ -917,7 +917,7 @@ func (o *VirtualMachineNicBlockStatistics) GetFailedUnmapOperationsOk() (*float3
 
 // HasFailedUnmapOperations returns a boolean if a field has been set.
 func (o *VirtualMachineNicBlockStatistics) HasFailedUnmapOperations() bool {
-	if o != nil && !isNil(o.FailedUnmapOperations) {
+	if o != nil && !IsNil(o.FailedUnmapOperations) {
 		return true
 	}
 
@@ -939,85 +939,85 @@ func (o VirtualMachineNicBlockStatistics) MarshalJSON() ([]byte, error) {
 
 func (o VirtualMachineNicBlockStatistics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.FlushTotalTimeNs) {
+	if !IsNil(o.FlushTotalTimeNs) {
 		toSerialize["flush_total_time_ns"] = o.FlushTotalTimeNs
 	}
-	if !isNil(o.RdBytes) {
+	if !IsNil(o.RdBytes) {
 		toSerialize["rd_bytes"] = o.RdBytes
 	}
-	if !isNil(o.TimedStats) {
+	if !IsNil(o.TimedStats) {
 		toSerialize["timed_stats"] = o.TimedStats
 	}
-	if !isNil(o.WrHighestOffset) {
+	if !IsNil(o.WrHighestOffset) {
 		toSerialize["wr_highest_offset"] = o.WrHighestOffset
 	}
-	if !isNil(o.RdTotalTimeNs) {
+	if !IsNil(o.RdTotalTimeNs) {
 		toSerialize["rd_total_time_ns"] = o.RdTotalTimeNs
 	}
-	if !isNil(o.FlushOperations) {
+	if !IsNil(o.FlushOperations) {
 		toSerialize["flush_operations"] = o.FlushOperations
 	}
-	if !isNil(o.WrOperations) {
+	if !IsNil(o.WrOperations) {
 		toSerialize["wr_operations"] = o.WrOperations
 	}
-	if !isNil(o.IdleTimeNs) {
+	if !IsNil(o.IdleTimeNs) {
 		toSerialize["idle_time_ns"] = o.IdleTimeNs
 	}
-	if !isNil(o.WrMerged) {
+	if !IsNil(o.WrMerged) {
 		toSerialize["wr_merged"] = o.WrMerged
 	}
-	if !isNil(o.InvalidRdOperations) {
+	if !IsNil(o.InvalidRdOperations) {
 		toSerialize["invalid_rd_operations"] = o.InvalidRdOperations
 	}
-	if !isNil(o.FailedFlushOperations) {
+	if !IsNil(o.FailedFlushOperations) {
 		toSerialize["failed_flush_operations"] = o.FailedFlushOperations
 	}
-	if !isNil(o.UnmapBytes) {
+	if !IsNil(o.UnmapBytes) {
 		toSerialize["unmap_bytes"] = o.UnmapBytes
 	}
-	if !isNil(o.FailedRdOperations) {
+	if !IsNil(o.FailedRdOperations) {
 		toSerialize["failed_rd_operations"] = o.FailedRdOperations
 	}
-	if !isNil(o.WrBytes) {
+	if !IsNil(o.WrBytes) {
 		toSerialize["wr_bytes"] = o.WrBytes
 	}
-	if !isNil(o.InvalidFlushOperations) {
+	if !IsNil(o.InvalidFlushOperations) {
 		toSerialize["invalid_flush_operations"] = o.InvalidFlushOperations
 	}
-	if !isNil(o.UnmapOperations) {
+	if !IsNil(o.UnmapOperations) {
 		toSerialize["unmap_operations"] = o.UnmapOperations
 	}
-	if !isNil(o.WrTotalTimeNs) {
+	if !IsNil(o.WrTotalTimeNs) {
 		toSerialize["wr_total_time_ns"] = o.WrTotalTimeNs
 	}
-	if !isNil(o.FailedWrOperations) {
+	if !IsNil(o.FailedWrOperations) {
 		toSerialize["failed_wr_operations"] = o.FailedWrOperations
 	}
-	if !isNil(o.UnmapMerged) {
+	if !IsNil(o.UnmapMerged) {
 		toSerialize["unmap_merged"] = o.UnmapMerged
 	}
-	if !isNil(o.InvalidWrOperations) {
+	if !IsNil(o.InvalidWrOperations) {
 		toSerialize["invalid_wr_operations"] = o.InvalidWrOperations
 	}
-	if !isNil(o.RdOperations) {
+	if !IsNil(o.RdOperations) {
 		toSerialize["rd_operations"] = o.RdOperations
 	}
-	if !isNil(o.UnmapTotalTimeNs) {
+	if !IsNil(o.UnmapTotalTimeNs) {
 		toSerialize["unmap_total_time_ns"] = o.UnmapTotalTimeNs
 	}
-	if !isNil(o.InvalidUnmapOperations) {
+	if !IsNil(o.InvalidUnmapOperations) {
 		toSerialize["invalid_unmap_operations"] = o.InvalidUnmapOperations
 	}
-	if !isNil(o.AccountFailed) {
+	if !IsNil(o.AccountFailed) {
 		toSerialize["account_failed"] = o.AccountFailed
 	}
-	if !isNil(o.AccountInvalid) {
+	if !IsNil(o.AccountInvalid) {
 		toSerialize["account_invalid"] = o.AccountInvalid
 	}
-	if !isNil(o.RdMerged) {
+	if !IsNil(o.RdMerged) {
 		toSerialize["rd_merged"] = o.RdMerged
 	}
-	if !isNil(o.FailedUnmapOperations) {
+	if !IsNil(o.FailedUnmapOperations) {
 		toSerialize["failed_unmap_operations"] = o.FailedUnmapOperations
 	}
 	return toSerialize, nil

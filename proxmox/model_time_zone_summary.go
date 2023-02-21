@@ -42,7 +42,7 @@ func NewTimeZoneSummaryWithDefaults() *TimeZoneSummary {
 
 // GetZone returns the Zone field value if set, zero value otherwise.
 func (o *TimeZoneSummary) GetZone() string {
-	if o == nil || isNil(o.Zone) {
+	if o == nil || IsNil(o.Zone) {
 		var ret string
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *TimeZoneSummary) GetZone() string {
 // GetZoneOk returns a tuple with the Zone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeZoneSummary) GetZoneOk() (*string, bool) {
-	if o == nil || isNil(o.Zone) {
+	if o == nil || IsNil(o.Zone) {
 		return nil, false
 	}
 	return o.Zone, true
@@ -60,7 +60,7 @@ func (o *TimeZoneSummary) GetZoneOk() (*string, bool) {
 
 // HasZone returns a boolean if a field has been set.
 func (o *TimeZoneSummary) HasZone() bool {
-	if o != nil && !isNil(o.Zone) {
+	if o != nil && !IsNil(o.Zone) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *TimeZoneSummary) SetZone(v string) {
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
 func (o *TimeZoneSummary) GetOffset() float32 {
-	if o == nil || isNil(o.Offset) {
+	if o == nil || IsNil(o.Offset) {
 		var ret float32
 		return ret
 	}
@@ -84,7 +84,7 @@ func (o *TimeZoneSummary) GetOffset() float32 {
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeZoneSummary) GetOffsetOk() (*float32, bool) {
-	if o == nil || isNil(o.Offset) {
+	if o == nil || IsNil(o.Offset) {
 		return nil, false
 	}
 	return o.Offset, true
@@ -92,7 +92,7 @@ func (o *TimeZoneSummary) GetOffsetOk() (*float32, bool) {
 
 // HasOffset returns a boolean if a field has been set.
 func (o *TimeZoneSummary) HasOffset() bool {
-	if o != nil && !isNil(o.Offset) {
+	if o != nil && !IsNil(o.Offset) {
 		return true
 	}
 
@@ -114,10 +114,10 @@ func (o TimeZoneSummary) MarshalJSON() ([]byte, error) {
 
 func (o TimeZoneSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Zone) {
+	if !IsNil(o.Zone) {
 		toSerialize["zone"] = o.Zone
 	}
-	if !isNil(o.Offset) {
+	if !IsNil(o.Offset) {
 		toSerialize["offset"] = o.Offset
 	}
 	return toSerialize, nil

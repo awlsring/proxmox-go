@@ -130,7 +130,7 @@ func (o *StorageVolumeSummary) SetVolid(v string) {
 
 // GetCtime returns the Ctime field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetCtime() float32 {
-	if o == nil || isNil(o.Ctime) {
+	if o == nil || IsNil(o.Ctime) {
 		var ret float32
 		return ret
 	}
@@ -140,7 +140,7 @@ func (o *StorageVolumeSummary) GetCtime() float32 {
 // GetCtimeOk returns a tuple with the Ctime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetCtimeOk() (*float32, bool) {
-	if o == nil || isNil(o.Ctime) {
+	if o == nil || IsNil(o.Ctime) {
 		return nil, false
 	}
 	return o.Ctime, true
@@ -148,7 +148,7 @@ func (o *StorageVolumeSummary) GetCtimeOk() (*float32, bool) {
 
 // HasCtime returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasCtime() bool {
-	if o != nil && !isNil(o.Ctime) {
+	if o != nil && !IsNil(o.Ctime) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *StorageVolumeSummary) SetCtime(v float32) {
 
 // GetEncrypted returns the Encrypted field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetEncrypted() string {
-	if o == nil || isNil(o.Encrypted) {
+	if o == nil || IsNil(o.Encrypted) {
 		var ret string
 		return ret
 	}
@@ -172,7 +172,7 @@ func (o *StorageVolumeSummary) GetEncrypted() string {
 // GetEncryptedOk returns a tuple with the Encrypted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetEncryptedOk() (*string, bool) {
-	if o == nil || isNil(o.Encrypted) {
+	if o == nil || IsNil(o.Encrypted) {
 		return nil, false
 	}
 	return o.Encrypted, true
@@ -180,7 +180,7 @@ func (o *StorageVolumeSummary) GetEncryptedOk() (*string, bool) {
 
 // HasEncrypted returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasEncrypted() bool {
-	if o != nil && !isNil(o.Encrypted) {
+	if o != nil && !IsNil(o.Encrypted) {
 		return true
 	}
 
@@ -194,7 +194,7 @@ func (o *StorageVolumeSummary) SetEncrypted(v string) {
 
 // GetNotes returns the Notes field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetNotes() string {
-	if o == nil || isNil(o.Notes) {
+	if o == nil || IsNil(o.Notes) {
 		var ret string
 		return ret
 	}
@@ -204,7 +204,7 @@ func (o *StorageVolumeSummary) GetNotes() string {
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetNotesOk() (*string, bool) {
-	if o == nil || isNil(o.Notes) {
+	if o == nil || IsNil(o.Notes) {
 		return nil, false
 	}
 	return o.Notes, true
@@ -212,7 +212,7 @@ func (o *StorageVolumeSummary) GetNotesOk() (*string, bool) {
 
 // HasNotes returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasNotes() bool {
-	if o != nil && !isNil(o.Notes) {
+	if o != nil && !IsNil(o.Notes) {
 		return true
 	}
 
@@ -226,7 +226,7 @@ func (o *StorageVolumeSummary) SetNotes(v string) {
 
 // GetParent returns the Parent field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetParent() string {
-	if o == nil || isNil(o.Parent) {
+	if o == nil || IsNil(o.Parent) {
 		var ret string
 		return ret
 	}
@@ -236,7 +236,7 @@ func (o *StorageVolumeSummary) GetParent() string {
 // GetParentOk returns a tuple with the Parent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetParentOk() (*string, bool) {
-	if o == nil || isNil(o.Parent) {
+	if o == nil || IsNil(o.Parent) {
 		return nil, false
 	}
 	return o.Parent, true
@@ -244,7 +244,7 @@ func (o *StorageVolumeSummary) GetParentOk() (*string, bool) {
 
 // HasParent returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasParent() bool {
-	if o != nil && !isNil(o.Parent) {
+	if o != nil && !IsNil(o.Parent) {
 		return true
 	}
 
@@ -258,7 +258,7 @@ func (o *StorageVolumeSummary) SetParent(v string) {
 
 // GetProtected returns the Protected field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetProtected() float32 {
-	if o == nil || isNil(o.Protected) {
+	if o == nil || IsNil(o.Protected) {
 		var ret float32
 		return ret
 	}
@@ -268,7 +268,7 @@ func (o *StorageVolumeSummary) GetProtected() float32 {
 // GetProtectedOk returns a tuple with the Protected field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetProtectedOk() (*float32, bool) {
-	if o == nil || isNil(o.Protected) {
+	if o == nil || IsNil(o.Protected) {
 		return nil, false
 	}
 	return o.Protected, true
@@ -276,7 +276,7 @@ func (o *StorageVolumeSummary) GetProtectedOk() (*float32, bool) {
 
 // HasProtected returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasProtected() bool {
-	if o != nil && !isNil(o.Protected) {
+	if o != nil && !IsNil(o.Protected) {
 		return true
 	}
 
@@ -290,7 +290,7 @@ func (o *StorageVolumeSummary) SetProtected(v float32) {
 
 // GetUsed returns the Used field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetUsed() float32 {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		var ret float32
 		return ret
 	}
@@ -300,7 +300,7 @@ func (o *StorageVolumeSummary) GetUsed() float32 {
 // GetUsedOk returns a tuple with the Used field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetUsedOk() (*float32, bool) {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		return nil, false
 	}
 	return o.Used, true
@@ -308,7 +308,7 @@ func (o *StorageVolumeSummary) GetUsedOk() (*float32, bool) {
 
 // HasUsed returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasUsed() bool {
-	if o != nil && !isNil(o.Used) {
+	if o != nil && !IsNil(o.Used) {
 		return true
 	}
 
@@ -322,7 +322,7 @@ func (o *StorageVolumeSummary) SetUsed(v float32) {
 
 // GetVmid returns the Vmid field value if set, zero value otherwise.
 func (o *StorageVolumeSummary) GetVmid() string {
-	if o == nil || isNil(o.Vmid) {
+	if o == nil || IsNil(o.Vmid) {
 		var ret string
 		return ret
 	}
@@ -332,7 +332,7 @@ func (o *StorageVolumeSummary) GetVmid() string {
 // GetVmidOk returns a tuple with the Vmid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageVolumeSummary) GetVmidOk() (*string, bool) {
-	if o == nil || isNil(o.Vmid) {
+	if o == nil || IsNil(o.Vmid) {
 		return nil, false
 	}
 	return o.Vmid, true
@@ -340,7 +340,7 @@ func (o *StorageVolumeSummary) GetVmidOk() (*string, bool) {
 
 // HasVmid returns a boolean if a field has been set.
 func (o *StorageVolumeSummary) HasVmid() bool {
-	if o != nil && !isNil(o.Vmid) {
+	if o != nil && !IsNil(o.Vmid) {
 		return true
 	}
 
@@ -365,25 +365,25 @@ func (o StorageVolumeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["format"] = o.Format
 	toSerialize["size"] = o.Size
 	toSerialize["volid"] = o.Volid
-	if !isNil(o.Ctime) {
+	if !IsNil(o.Ctime) {
 		toSerialize["ctime"] = o.Ctime
 	}
-	if !isNil(o.Encrypted) {
+	if !IsNil(o.Encrypted) {
 		toSerialize["encrypted"] = o.Encrypted
 	}
-	if !isNil(o.Notes) {
+	if !IsNil(o.Notes) {
 		toSerialize["notes"] = o.Notes
 	}
-	if !isNil(o.Parent) {
+	if !IsNil(o.Parent) {
 		toSerialize["parent"] = o.Parent
 	}
-	if !isNil(o.Protected) {
+	if !IsNil(o.Protected) {
 		toSerialize["protected"] = o.Protected
 	}
-	if !isNil(o.Used) {
+	if !IsNil(o.Used) {
 		toSerialize["used"] = o.Used
 	}
-	if !isNil(o.Vmid) {
+	if !IsNil(o.Vmid) {
 		toSerialize["vmid"] = o.Vmid
 	}
 	return toSerialize, nil

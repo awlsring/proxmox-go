@@ -45,7 +45,7 @@ func NewUpdateStorageVolumeRequestContentWithDefaults() *UpdateStorageVolumeRequ
 
 // GetNotes returns the Notes field value if set, zero value otherwise.
 func (o *UpdateStorageVolumeRequestContent) GetNotes() string {
-	if o == nil || isNil(o.Notes) {
+	if o == nil || IsNil(o.Notes) {
 		var ret string
 		return ret
 	}
@@ -55,7 +55,7 @@ func (o *UpdateStorageVolumeRequestContent) GetNotes() string {
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateStorageVolumeRequestContent) GetNotesOk() (*string, bool) {
-	if o == nil || isNil(o.Notes) {
+	if o == nil || IsNil(o.Notes) {
 		return nil, false
 	}
 	return o.Notes, true
@@ -63,7 +63,7 @@ func (o *UpdateStorageVolumeRequestContent) GetNotesOk() (*string, bool) {
 
 // HasNotes returns a boolean if a field has been set.
 func (o *UpdateStorageVolumeRequestContent) HasNotes() bool {
-	if o != nil && !isNil(o.Notes) {
+	if o != nil && !IsNil(o.Notes) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o UpdateStorageVolumeRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o UpdateStorageVolumeRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Notes) {
+	if !IsNil(o.Notes) {
 		toSerialize["notes"] = o.Notes
 	}
 	toSerialize["protected"] = o.Protected

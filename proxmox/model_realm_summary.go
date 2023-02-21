@@ -94,7 +94,7 @@ func (o *RealmSummary) SetType(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *RealmSummary) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -104,7 +104,7 @@ func (o *RealmSummary) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RealmSummary) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -112,7 +112,7 @@ func (o *RealmSummary) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *RealmSummary) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -126,7 +126,7 @@ func (o *RealmSummary) SetComment(v string) {
 
 // GetTfa returns the Tfa field value if set, zero value otherwise.
 func (o *RealmSummary) GetTfa() TFAType {
-	if o == nil || isNil(o.Tfa) {
+	if o == nil || IsNil(o.Tfa) {
 		var ret TFAType
 		return ret
 	}
@@ -136,7 +136,7 @@ func (o *RealmSummary) GetTfa() TFAType {
 // GetTfaOk returns a tuple with the Tfa field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RealmSummary) GetTfaOk() (*TFAType, bool) {
-	if o == nil || isNil(o.Tfa) {
+	if o == nil || IsNil(o.Tfa) {
 		return nil, false
 	}
 	return o.Tfa, true
@@ -144,7 +144,7 @@ func (o *RealmSummary) GetTfaOk() (*TFAType, bool) {
 
 // HasTfa returns a boolean if a field has been set.
 func (o *RealmSummary) HasTfa() bool {
-	if o != nil && !isNil(o.Tfa) {
+	if o != nil && !IsNil(o.Tfa) {
 		return true
 	}
 
@@ -168,10 +168,10 @@ func (o RealmSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["realm"] = o.Realm
 	toSerialize["type"] = o.Type
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Tfa) {
+	if !IsNil(o.Tfa) {
 		toSerialize["tfa"] = o.Tfa
 	}
 	return toSerialize, nil

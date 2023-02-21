@@ -70,7 +70,7 @@ func (o *Ticket) SetUsername(v string) {
 
 // GetCap returns the Cap field value if set, zero value otherwise.
 func (o *Ticket) GetCap() map[string]map[string]float32 {
-	if o == nil || isNil(o.Cap) {
+	if o == nil || IsNil(o.Cap) {
 		var ret map[string]map[string]float32
 		return ret
 	}
@@ -80,7 +80,7 @@ func (o *Ticket) GetCap() map[string]map[string]float32 {
 // GetCapOk returns a tuple with the Cap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetCapOk() (*map[string]map[string]float32, bool) {
-	if o == nil || isNil(o.Cap) {
+	if o == nil || IsNil(o.Cap) {
 		return nil, false
 	}
 	return o.Cap, true
@@ -88,7 +88,7 @@ func (o *Ticket) GetCapOk() (*map[string]map[string]float32, bool) {
 
 // HasCap returns a boolean if a field has been set.
 func (o *Ticket) HasCap() bool {
-	if o != nil && !isNil(o.Cap) {
+	if o != nil && !IsNil(o.Cap) {
 		return true
 	}
 
@@ -102,7 +102,7 @@ func (o *Ticket) SetCap(v map[string]map[string]float32) {
 
 // GetCSRFPreventionToken returns the CSRFPreventionToken field value if set, zero value otherwise.
 func (o *Ticket) GetCSRFPreventionToken() string {
-	if o == nil || isNil(o.CSRFPreventionToken) {
+	if o == nil || IsNil(o.CSRFPreventionToken) {
 		var ret string
 		return ret
 	}
@@ -112,7 +112,7 @@ func (o *Ticket) GetCSRFPreventionToken() string {
 // GetCSRFPreventionTokenOk returns a tuple with the CSRFPreventionToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetCSRFPreventionTokenOk() (*string, bool) {
-	if o == nil || isNil(o.CSRFPreventionToken) {
+	if o == nil || IsNil(o.CSRFPreventionToken) {
 		return nil, false
 	}
 	return o.CSRFPreventionToken, true
@@ -120,7 +120,7 @@ func (o *Ticket) GetCSRFPreventionTokenOk() (*string, bool) {
 
 // HasCSRFPreventionToken returns a boolean if a field has been set.
 func (o *Ticket) HasCSRFPreventionToken() bool {
-	if o != nil && !isNil(o.CSRFPreventionToken) {
+	if o != nil && !IsNil(o.CSRFPreventionToken) {
 		return true
 	}
 
@@ -134,7 +134,7 @@ func (o *Ticket) SetCSRFPreventionToken(v string) {
 
 // GetTicket returns the Ticket field value if set, zero value otherwise.
 func (o *Ticket) GetTicket() string {
-	if o == nil || isNil(o.Ticket) {
+	if o == nil || IsNil(o.Ticket) {
 		var ret string
 		return ret
 	}
@@ -144,7 +144,7 @@ func (o *Ticket) GetTicket() string {
 // GetTicketOk returns a tuple with the Ticket field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetTicketOk() (*string, bool) {
-	if o == nil || isNil(o.Ticket) {
+	if o == nil || IsNil(o.Ticket) {
 		return nil, false
 	}
 	return o.Ticket, true
@@ -152,7 +152,7 @@ func (o *Ticket) GetTicketOk() (*string, bool) {
 
 // HasTicket returns a boolean if a field has been set.
 func (o *Ticket) HasTicket() bool {
-	if o != nil && !isNil(o.Ticket) {
+	if o != nil && !IsNil(o.Ticket) {
 		return true
 	}
 
@@ -166,7 +166,7 @@ func (o *Ticket) SetTicket(v string) {
 
 // GetClustername returns the Clustername field value if set, zero value otherwise.
 func (o *Ticket) GetClustername() string {
-	if o == nil || isNil(o.Clustername) {
+	if o == nil || IsNil(o.Clustername) {
 		var ret string
 		return ret
 	}
@@ -176,7 +176,7 @@ func (o *Ticket) GetClustername() string {
 // GetClusternameOk returns a tuple with the Clustername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Ticket) GetClusternameOk() (*string, bool) {
-	if o == nil || isNil(o.Clustername) {
+	if o == nil || IsNil(o.Clustername) {
 		return nil, false
 	}
 	return o.Clustername, true
@@ -184,7 +184,7 @@ func (o *Ticket) GetClusternameOk() (*string, bool) {
 
 // HasClustername returns a boolean if a field has been set.
 func (o *Ticket) HasClustername() bool {
-	if o != nil && !isNil(o.Clustername) {
+	if o != nil && !IsNil(o.Clustername) {
 		return true
 	}
 
@@ -207,16 +207,16 @@ func (o Ticket) MarshalJSON() ([]byte, error) {
 func (o Ticket) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["username"] = o.Username
-	if !isNil(o.Cap) {
+	if !IsNil(o.Cap) {
 		toSerialize["cap"] = o.Cap
 	}
-	if !isNil(o.CSRFPreventionToken) {
+	if !IsNil(o.CSRFPreventionToken) {
 		toSerialize["CSRFPreventionToken"] = o.CSRFPreventionToken
 	}
-	if !isNil(o.Ticket) {
+	if !IsNil(o.Ticket) {
 		toSerialize["ticket"] = o.Ticket
 	}
-	if !isNil(o.Clustername) {
+	if !IsNil(o.Clustername) {
 		toSerialize["clustername"] = o.Clustername
 	}
 	return toSerialize, nil

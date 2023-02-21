@@ -128,7 +128,7 @@ func (o *CorosyncNodeSummary) SetRing0Addr(v string) {
 
 // GetRing1Addr returns the Ring1Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing1Addr() string {
-	if o == nil || isNil(o.Ring1Addr) {
+	if o == nil || IsNil(o.Ring1Addr) {
 		var ret string
 		return ret
 	}
@@ -138,7 +138,7 @@ func (o *CorosyncNodeSummary) GetRing1Addr() string {
 // GetRing1AddrOk returns a tuple with the Ring1Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing1AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring1Addr) {
+	if o == nil || IsNil(o.Ring1Addr) {
 		return nil, false
 	}
 	return o.Ring1Addr, true
@@ -146,7 +146,7 @@ func (o *CorosyncNodeSummary) GetRing1AddrOk() (*string, bool) {
 
 // HasRing1Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing1Addr() bool {
-	if o != nil && !isNil(o.Ring1Addr) {
+	if o != nil && !IsNil(o.Ring1Addr) {
 		return true
 	}
 
@@ -160,7 +160,7 @@ func (o *CorosyncNodeSummary) SetRing1Addr(v string) {
 
 // GetRing2Addr returns the Ring2Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing2Addr() string {
-	if o == nil || isNil(o.Ring2Addr) {
+	if o == nil || IsNil(o.Ring2Addr) {
 		var ret string
 		return ret
 	}
@@ -170,7 +170,7 @@ func (o *CorosyncNodeSummary) GetRing2Addr() string {
 // GetRing2AddrOk returns a tuple with the Ring2Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing2AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring2Addr) {
+	if o == nil || IsNil(o.Ring2Addr) {
 		return nil, false
 	}
 	return o.Ring2Addr, true
@@ -178,7 +178,7 @@ func (o *CorosyncNodeSummary) GetRing2AddrOk() (*string, bool) {
 
 // HasRing2Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing2Addr() bool {
-	if o != nil && !isNil(o.Ring2Addr) {
+	if o != nil && !IsNil(o.Ring2Addr) {
 		return true
 	}
 
@@ -192,7 +192,7 @@ func (o *CorosyncNodeSummary) SetRing2Addr(v string) {
 
 // GetRing3Addr returns the Ring3Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing3Addr() string {
-	if o == nil || isNil(o.Ring3Addr) {
+	if o == nil || IsNil(o.Ring3Addr) {
 		var ret string
 		return ret
 	}
@@ -202,7 +202,7 @@ func (o *CorosyncNodeSummary) GetRing3Addr() string {
 // GetRing3AddrOk returns a tuple with the Ring3Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing3AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring3Addr) {
+	if o == nil || IsNil(o.Ring3Addr) {
 		return nil, false
 	}
 	return o.Ring3Addr, true
@@ -210,7 +210,7 @@ func (o *CorosyncNodeSummary) GetRing3AddrOk() (*string, bool) {
 
 // HasRing3Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing3Addr() bool {
-	if o != nil && !isNil(o.Ring3Addr) {
+	if o != nil && !IsNil(o.Ring3Addr) {
 		return true
 	}
 
@@ -224,7 +224,7 @@ func (o *CorosyncNodeSummary) SetRing3Addr(v string) {
 
 // GetRing4Addr returns the Ring4Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing4Addr() string {
-	if o == nil || isNil(o.Ring4Addr) {
+	if o == nil || IsNil(o.Ring4Addr) {
 		var ret string
 		return ret
 	}
@@ -234,7 +234,7 @@ func (o *CorosyncNodeSummary) GetRing4Addr() string {
 // GetRing4AddrOk returns a tuple with the Ring4Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing4AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring4Addr) {
+	if o == nil || IsNil(o.Ring4Addr) {
 		return nil, false
 	}
 	return o.Ring4Addr, true
@@ -242,7 +242,7 @@ func (o *CorosyncNodeSummary) GetRing4AddrOk() (*string, bool) {
 
 // HasRing4Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing4Addr() bool {
-	if o != nil && !isNil(o.Ring4Addr) {
+	if o != nil && !IsNil(o.Ring4Addr) {
 		return true
 	}
 
@@ -256,7 +256,7 @@ func (o *CorosyncNodeSummary) SetRing4Addr(v string) {
 
 // GetRing5Addr returns the Ring5Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing5Addr() string {
-	if o == nil || isNil(o.Ring5Addr) {
+	if o == nil || IsNil(o.Ring5Addr) {
 		var ret string
 		return ret
 	}
@@ -266,7 +266,7 @@ func (o *CorosyncNodeSummary) GetRing5Addr() string {
 // GetRing5AddrOk returns a tuple with the Ring5Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing5AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring5Addr) {
+	if o == nil || IsNil(o.Ring5Addr) {
 		return nil, false
 	}
 	return o.Ring5Addr, true
@@ -274,7 +274,7 @@ func (o *CorosyncNodeSummary) GetRing5AddrOk() (*string, bool) {
 
 // HasRing5Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing5Addr() bool {
-	if o != nil && !isNil(o.Ring5Addr) {
+	if o != nil && !IsNil(o.Ring5Addr) {
 		return true
 	}
 
@@ -288,7 +288,7 @@ func (o *CorosyncNodeSummary) SetRing5Addr(v string) {
 
 // GetRing6Addr returns the Ring6Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing6Addr() string {
-	if o == nil || isNil(o.Ring6Addr) {
+	if o == nil || IsNil(o.Ring6Addr) {
 		var ret string
 		return ret
 	}
@@ -298,7 +298,7 @@ func (o *CorosyncNodeSummary) GetRing6Addr() string {
 // GetRing6AddrOk returns a tuple with the Ring6Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing6AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring6Addr) {
+	if o == nil || IsNil(o.Ring6Addr) {
 		return nil, false
 	}
 	return o.Ring6Addr, true
@@ -306,7 +306,7 @@ func (o *CorosyncNodeSummary) GetRing6AddrOk() (*string, bool) {
 
 // HasRing6Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing6Addr() bool {
-	if o != nil && !isNil(o.Ring6Addr) {
+	if o != nil && !IsNil(o.Ring6Addr) {
 		return true
 	}
 
@@ -320,7 +320,7 @@ func (o *CorosyncNodeSummary) SetRing6Addr(v string) {
 
 // GetRing7Addr returns the Ring7Addr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetRing7Addr() string {
-	if o == nil || isNil(o.Ring7Addr) {
+	if o == nil || IsNil(o.Ring7Addr) {
 		var ret string
 		return ret
 	}
@@ -330,7 +330,7 @@ func (o *CorosyncNodeSummary) GetRing7Addr() string {
 // GetRing7AddrOk returns a tuple with the Ring7Addr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetRing7AddrOk() (*string, bool) {
-	if o == nil || isNil(o.Ring7Addr) {
+	if o == nil || IsNil(o.Ring7Addr) {
 		return nil, false
 	}
 	return o.Ring7Addr, true
@@ -338,7 +338,7 @@ func (o *CorosyncNodeSummary) GetRing7AddrOk() (*string, bool) {
 
 // HasRing7Addr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasRing7Addr() bool {
-	if o != nil && !isNil(o.Ring7Addr) {
+	if o != nil && !IsNil(o.Ring7Addr) {
 		return true
 	}
 
@@ -376,7 +376,7 @@ func (o *CorosyncNodeSummary) SetName(v string) {
 
 // GetPveAddr returns the PveAddr field value if set, zero value otherwise.
 func (o *CorosyncNodeSummary) GetPveAddr() string {
-	if o == nil || isNil(o.PveAddr) {
+	if o == nil || IsNil(o.PveAddr) {
 		var ret string
 		return ret
 	}
@@ -386,7 +386,7 @@ func (o *CorosyncNodeSummary) GetPveAddr() string {
 // GetPveAddrOk returns a tuple with the PveAddr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CorosyncNodeSummary) GetPveAddrOk() (*string, bool) {
-	if o == nil || isNil(o.PveAddr) {
+	if o == nil || IsNil(o.PveAddr) {
 		return nil, false
 	}
 	return o.PveAddr, true
@@ -394,7 +394,7 @@ func (o *CorosyncNodeSummary) GetPveAddrOk() (*string, bool) {
 
 // HasPveAddr returns a boolean if a field has been set.
 func (o *CorosyncNodeSummary) HasPveAddr() bool {
-	if o != nil && !isNil(o.PveAddr) {
+	if o != nil && !IsNil(o.PveAddr) {
 		return true
 	}
 
@@ -419,29 +419,29 @@ func (o CorosyncNodeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["nodeid"] = o.Nodeid
 	toSerialize["quorum_votes"] = o.QuorumVotes
 	toSerialize["ring0_addr"] = o.Ring0Addr
-	if !isNil(o.Ring1Addr) {
+	if !IsNil(o.Ring1Addr) {
 		toSerialize["ring1_addr"] = o.Ring1Addr
 	}
-	if !isNil(o.Ring2Addr) {
+	if !IsNil(o.Ring2Addr) {
 		toSerialize["ring2_addr"] = o.Ring2Addr
 	}
-	if !isNil(o.Ring3Addr) {
+	if !IsNil(o.Ring3Addr) {
 		toSerialize["ring3_addr"] = o.Ring3Addr
 	}
-	if !isNil(o.Ring4Addr) {
+	if !IsNil(o.Ring4Addr) {
 		toSerialize["ring4_addr"] = o.Ring4Addr
 	}
-	if !isNil(o.Ring5Addr) {
+	if !IsNil(o.Ring5Addr) {
 		toSerialize["ring5_addr"] = o.Ring5Addr
 	}
-	if !isNil(o.Ring6Addr) {
+	if !IsNil(o.Ring6Addr) {
 		toSerialize["ring6_addr"] = o.Ring6Addr
 	}
-	if !isNil(o.Ring7Addr) {
+	if !IsNil(o.Ring7Addr) {
 		toSerialize["ring7_addr"] = o.Ring7Addr
 	}
 	toSerialize["name"] = o.Name
-	if !isNil(o.PveAddr) {
+	if !IsNil(o.PveAddr) {
 		toSerialize["pve_addr"] = o.PveAddr
 	}
 	return toSerialize, nil

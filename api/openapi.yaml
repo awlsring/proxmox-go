@@ -4083,6 +4083,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/status/reboot:
+    post:
+      description: Reboot the specified virtual machine.
+      operationId: RebootVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RebootVirtualMachineRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RebootVirtualMachineResponseContent'
+          description: RebootVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/template:
     post:
       description: Create a copy of a virtual machine or template.
@@ -12300,6 +12346,22 @@ components:
       - pve
       - openid
       type: string
+    RebootVirtualMachineRequestContent:
+      example:
+        timeout: 0.8008281904610115
+      properties:
+        timeout:
+          type: number
+      type: object
+    RebootVirtualMachineResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     RenewNodeCertificateRequestContent:
       example:
         force: 0.08008281904610115

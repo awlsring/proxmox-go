@@ -41,7 +41,7 @@ func NewLinkSummaryWithDefaults() *LinkSummary {
 
 // GetLinknumber returns the Linknumber field value if set, zero value otherwise.
 func (o *LinkSummary) GetLinknumber() string {
-	if o == nil || isNil(o.Linknumber) {
+	if o == nil || IsNil(o.Linknumber) {
 		var ret string
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *LinkSummary) GetLinknumber() string {
 // GetLinknumberOk returns a tuple with the Linknumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LinkSummary) GetLinknumberOk() (*string, bool) {
-	if o == nil || isNil(o.Linknumber) {
+	if o == nil || IsNil(o.Linknumber) {
 		return nil, false
 	}
 	return o.Linknumber, true
@@ -59,7 +59,7 @@ func (o *LinkSummary) GetLinknumberOk() (*string, bool) {
 
 // HasLinknumber returns a boolean if a field has been set.
 func (o *LinkSummary) HasLinknumber() bool {
-	if o != nil && !isNil(o.Linknumber) {
+	if o != nil && !IsNil(o.Linknumber) {
 		return true
 	}
 
@@ -81,7 +81,7 @@ func (o LinkSummary) MarshalJSON() ([]byte, error) {
 
 func (o LinkSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Linknumber) {
+	if !IsNil(o.Linknumber) {
 		toSerialize["linknumber"] = o.Linknumber
 	}
 	return toSerialize, nil

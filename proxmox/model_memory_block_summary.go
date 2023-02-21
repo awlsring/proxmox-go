@@ -43,7 +43,7 @@ func NewMemoryBlockSummaryWithDefaults() *MemoryBlockSummary {
 
 // GetOnline returns the Online field value if set, zero value otherwise.
 func (o *MemoryBlockSummary) GetOnline() bool {
-	if o == nil || isNil(o.Online) {
+	if o == nil || IsNil(o.Online) {
 		var ret bool
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *MemoryBlockSummary) GetOnline() bool {
 // GetOnlineOk returns a tuple with the Online field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MemoryBlockSummary) GetOnlineOk() (*bool, bool) {
-	if o == nil || isNil(o.Online) {
+	if o == nil || IsNil(o.Online) {
 		return nil, false
 	}
 	return o.Online, true
@@ -61,7 +61,7 @@ func (o *MemoryBlockSummary) GetOnlineOk() (*bool, bool) {
 
 // HasOnline returns a boolean if a field has been set.
 func (o *MemoryBlockSummary) HasOnline() bool {
-	if o != nil && !isNil(o.Online) {
+	if o != nil && !IsNil(o.Online) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *MemoryBlockSummary) SetOnline(v bool) {
 
 // GetCanOffline returns the CanOffline field value if set, zero value otherwise.
 func (o *MemoryBlockSummary) GetCanOffline() bool {
-	if o == nil || isNil(o.CanOffline) {
+	if o == nil || IsNil(o.CanOffline) {
 		var ret bool
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *MemoryBlockSummary) GetCanOffline() bool {
 // GetCanOfflineOk returns a tuple with the CanOffline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MemoryBlockSummary) GetCanOfflineOk() (*bool, bool) {
-	if o == nil || isNil(o.CanOffline) {
+	if o == nil || IsNil(o.CanOffline) {
 		return nil, false
 	}
 	return o.CanOffline, true
@@ -93,7 +93,7 @@ func (o *MemoryBlockSummary) GetCanOfflineOk() (*bool, bool) {
 
 // HasCanOffline returns a boolean if a field has been set.
 func (o *MemoryBlockSummary) HasCanOffline() bool {
-	if o != nil && !isNil(o.CanOffline) {
+	if o != nil && !IsNil(o.CanOffline) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *MemoryBlockSummary) SetCanOffline(v bool) {
 
 // GetPhysIndex returns the PhysIndex field value if set, zero value otherwise.
 func (o *MemoryBlockSummary) GetPhysIndex() float32 {
-	if o == nil || isNil(o.PhysIndex) {
+	if o == nil || IsNil(o.PhysIndex) {
 		var ret float32
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *MemoryBlockSummary) GetPhysIndex() float32 {
 // GetPhysIndexOk returns a tuple with the PhysIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MemoryBlockSummary) GetPhysIndexOk() (*float32, bool) {
-	if o == nil || isNil(o.PhysIndex) {
+	if o == nil || IsNil(o.PhysIndex) {
 		return nil, false
 	}
 	return o.PhysIndex, true
@@ -125,7 +125,7 @@ func (o *MemoryBlockSummary) GetPhysIndexOk() (*float32, bool) {
 
 // HasPhysIndex returns a boolean if a field has been set.
 func (o *MemoryBlockSummary) HasPhysIndex() bool {
-	if o != nil && !isNil(o.PhysIndex) {
+	if o != nil && !IsNil(o.PhysIndex) {
 		return true
 	}
 
@@ -147,13 +147,13 @@ func (o MemoryBlockSummary) MarshalJSON() ([]byte, error) {
 
 func (o MemoryBlockSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Online) {
+	if !IsNil(o.Online) {
 		toSerialize["online"] = o.Online
 	}
-	if !isNil(o.CanOffline) {
+	if !IsNil(o.CanOffline) {
 		toSerialize["can-offline"] = o.CanOffline
 	}
-	if !isNil(o.PhysIndex) {
+	if !IsNil(o.PhysIndex) {
 		toSerialize["phys-index"] = o.PhysIndex
 	}
 	return toSerialize, nil

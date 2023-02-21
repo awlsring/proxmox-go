@@ -47,7 +47,7 @@ func NewTotemSummaryWithDefaults() *TotemSummary {
 
 // GetSecauth returns the Secauth field value if set, zero value otherwise.
 func (o *TotemSummary) GetSecauth() string {
-	if o == nil || isNil(o.Secauth) {
+	if o == nil || IsNil(o.Secauth) {
 		var ret string
 		return ret
 	}
@@ -57,7 +57,7 @@ func (o *TotemSummary) GetSecauth() string {
 // GetSecauthOk returns a tuple with the Secauth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetSecauthOk() (*string, bool) {
-	if o == nil || isNil(o.Secauth) {
+	if o == nil || IsNil(o.Secauth) {
 		return nil, false
 	}
 	return o.Secauth, true
@@ -65,7 +65,7 @@ func (o *TotemSummary) GetSecauthOk() (*string, bool) {
 
 // HasSecauth returns a boolean if a field has been set.
 func (o *TotemSummary) HasSecauth() bool {
-	if o != nil && !isNil(o.Secauth) {
+	if o != nil && !IsNil(o.Secauth) {
 		return true
 	}
 
@@ -79,7 +79,7 @@ func (o *TotemSummary) SetSecauth(v string) {
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *TotemSummary) GetVersion() string {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *TotemSummary) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetVersionOk() (*string, bool) {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
 	return o.Version, true
@@ -97,7 +97,7 @@ func (o *TotemSummary) GetVersionOk() (*string, bool) {
 
 // HasVersion returns a boolean if a field has been set.
 func (o *TotemSummary) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *TotemSummary) SetVersion(v string) {
 
 // GetInterface returns the Interface field value if set, zero value otherwise.
 func (o *TotemSummary) GetInterface() map[string]LinkSummary {
-	if o == nil || isNil(o.Interface) {
+	if o == nil || IsNil(o.Interface) {
 		var ret map[string]LinkSummary
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *TotemSummary) GetInterface() map[string]LinkSummary {
 // GetInterfaceOk returns a tuple with the Interface field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetInterfaceOk() (*map[string]LinkSummary, bool) {
-	if o == nil || isNil(o.Interface) {
+	if o == nil || IsNil(o.Interface) {
 		return nil, false
 	}
 	return o.Interface, true
@@ -129,7 +129,7 @@ func (o *TotemSummary) GetInterfaceOk() (*map[string]LinkSummary, bool) {
 
 // HasInterface returns a boolean if a field has been set.
 func (o *TotemSummary) HasInterface() bool {
-	if o != nil && !isNil(o.Interface) {
+	if o != nil && !IsNil(o.Interface) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *TotemSummary) SetInterface(v map[string]LinkSummary) {
 
 // GetLinkMode returns the LinkMode field value if set, zero value otherwise.
 func (o *TotemSummary) GetLinkMode() string {
-	if o == nil || isNil(o.LinkMode) {
+	if o == nil || IsNil(o.LinkMode) {
 		var ret string
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *TotemSummary) GetLinkMode() string {
 // GetLinkModeOk returns a tuple with the LinkMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetLinkModeOk() (*string, bool) {
-	if o == nil || isNil(o.LinkMode) {
+	if o == nil || IsNil(o.LinkMode) {
 		return nil, false
 	}
 	return o.LinkMode, true
@@ -161,7 +161,7 @@ func (o *TotemSummary) GetLinkModeOk() (*string, bool) {
 
 // HasLinkMode returns a boolean if a field has been set.
 func (o *TotemSummary) HasLinkMode() bool {
-	if o != nil && !isNil(o.LinkMode) {
+	if o != nil && !IsNil(o.LinkMode) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *TotemSummary) SetLinkMode(v string) {
 
 // GetIpVersion returns the IpVersion field value if set, zero value otherwise.
 func (o *TotemSummary) GetIpVersion() string {
-	if o == nil || isNil(o.IpVersion) {
+	if o == nil || IsNil(o.IpVersion) {
 		var ret string
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *TotemSummary) GetIpVersion() string {
 // GetIpVersionOk returns a tuple with the IpVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetIpVersionOk() (*string, bool) {
-	if o == nil || isNil(o.IpVersion) {
+	if o == nil || IsNil(o.IpVersion) {
 		return nil, false
 	}
 	return o.IpVersion, true
@@ -193,7 +193,7 @@ func (o *TotemSummary) GetIpVersionOk() (*string, bool) {
 
 // HasIpVersion returns a boolean if a field has been set.
 func (o *TotemSummary) HasIpVersion() bool {
-	if o != nil && !isNil(o.IpVersion) {
+	if o != nil && !IsNil(o.IpVersion) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *TotemSummary) SetIpVersion(v string) {
 
 // GetConfigVersion returns the ConfigVersion field value if set, zero value otherwise.
 func (o *TotemSummary) GetConfigVersion() string {
-	if o == nil || isNil(o.ConfigVersion) {
+	if o == nil || IsNil(o.ConfigVersion) {
 		var ret string
 		return ret
 	}
@@ -217,7 +217,7 @@ func (o *TotemSummary) GetConfigVersion() string {
 // GetConfigVersionOk returns a tuple with the ConfigVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetConfigVersionOk() (*string, bool) {
-	if o == nil || isNil(o.ConfigVersion) {
+	if o == nil || IsNil(o.ConfigVersion) {
 		return nil, false
 	}
 	return o.ConfigVersion, true
@@ -225,7 +225,7 @@ func (o *TotemSummary) GetConfigVersionOk() (*string, bool) {
 
 // HasConfigVersion returns a boolean if a field has been set.
 func (o *TotemSummary) HasConfigVersion() bool {
-	if o != nil && !isNil(o.ConfigVersion) {
+	if o != nil && !IsNil(o.ConfigVersion) {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *TotemSummary) SetConfigVersion(v string) {
 
 // GetClusterName returns the ClusterName field value if set, zero value otherwise.
 func (o *TotemSummary) GetClusterName() string {
-	if o == nil || isNil(o.ClusterName) {
+	if o == nil || IsNil(o.ClusterName) {
 		var ret string
 		return ret
 	}
@@ -249,7 +249,7 @@ func (o *TotemSummary) GetClusterName() string {
 // GetClusterNameOk returns a tuple with the ClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TotemSummary) GetClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClusterName) {
+	if o == nil || IsNil(o.ClusterName) {
 		return nil, false
 	}
 	return o.ClusterName, true
@@ -257,7 +257,7 @@ func (o *TotemSummary) GetClusterNameOk() (*string, bool) {
 
 // HasClusterName returns a boolean if a field has been set.
 func (o *TotemSummary) HasClusterName() bool {
-	if o != nil && !isNil(o.ClusterName) {
+	if o != nil && !IsNil(o.ClusterName) {
 		return true
 	}
 
@@ -279,25 +279,25 @@ func (o TotemSummary) MarshalJSON() ([]byte, error) {
 
 func (o TotemSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Secauth) {
+	if !IsNil(o.Secauth) {
 		toSerialize["secauth"] = o.Secauth
 	}
-	if !isNil(o.Version) {
+	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
-	if !isNil(o.Interface) {
+	if !IsNil(o.Interface) {
 		toSerialize["interface"] = o.Interface
 	}
-	if !isNil(o.LinkMode) {
+	if !IsNil(o.LinkMode) {
 		toSerialize["link_mode"] = o.LinkMode
 	}
-	if !isNil(o.IpVersion) {
+	if !IsNil(o.IpVersion) {
 		toSerialize["ip_version"] = o.IpVersion
 	}
-	if !isNil(o.ConfigVersion) {
+	if !IsNil(o.ConfigVersion) {
 		toSerialize["config_version"] = o.ConfigVersion
 	}
-	if !isNil(o.ClusterName) {
+	if !IsNil(o.ClusterName) {
 		toSerialize["cluster_name"] = o.ClusterName
 	}
 	return toSerialize, nil

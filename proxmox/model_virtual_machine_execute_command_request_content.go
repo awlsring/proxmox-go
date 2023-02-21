@@ -42,7 +42,7 @@ func NewVirtualMachineExecuteCommandRequestContentWithDefaults() *VirtualMachine
 
 // GetCommand returns the Command field value if set, zero value otherwise.
 func (o *VirtualMachineExecuteCommandRequestContent) GetCommand() string {
-	if o == nil || isNil(o.Command) {
+	if o == nil || IsNil(o.Command) {
 		var ret string
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *VirtualMachineExecuteCommandRequestContent) GetCommand() string {
 // GetCommandOk returns a tuple with the Command field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineExecuteCommandRequestContent) GetCommandOk() (*string, bool) {
-	if o == nil || isNil(o.Command) {
+	if o == nil || IsNil(o.Command) {
 		return nil, false
 	}
 	return o.Command, true
@@ -60,7 +60,7 @@ func (o *VirtualMachineExecuteCommandRequestContent) GetCommandOk() (*string, bo
 
 // HasCommand returns a boolean if a field has been set.
 func (o *VirtualMachineExecuteCommandRequestContent) HasCommand() bool {
-	if o != nil && !isNil(o.Command) {
+	if o != nil && !IsNil(o.Command) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *VirtualMachineExecuteCommandRequestContent) SetCommand(v string) {
 
 // GetInputData returns the InputData field value if set, zero value otherwise.
 func (o *VirtualMachineExecuteCommandRequestContent) GetInputData() string {
-	if o == nil || isNil(o.InputData) {
+	if o == nil || IsNil(o.InputData) {
 		var ret string
 		return ret
 	}
@@ -84,7 +84,7 @@ func (o *VirtualMachineExecuteCommandRequestContent) GetInputData() string {
 // GetInputDataOk returns a tuple with the InputData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineExecuteCommandRequestContent) GetInputDataOk() (*string, bool) {
-	if o == nil || isNil(o.InputData) {
+	if o == nil || IsNil(o.InputData) {
 		return nil, false
 	}
 	return o.InputData, true
@@ -92,7 +92,7 @@ func (o *VirtualMachineExecuteCommandRequestContent) GetInputDataOk() (*string, 
 
 // HasInputData returns a boolean if a field has been set.
 func (o *VirtualMachineExecuteCommandRequestContent) HasInputData() bool {
-	if o != nil && !isNil(o.InputData) {
+	if o != nil && !IsNil(o.InputData) {
 		return true
 	}
 
@@ -114,10 +114,10 @@ func (o VirtualMachineExecuteCommandRequestContent) MarshalJSON() ([]byte, error
 
 func (o VirtualMachineExecuteCommandRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Command) {
+	if !IsNil(o.Command) {
 		toSerialize["command"] = o.Command
 	}
-	if !isNil(o.InputData) {
+	if !IsNil(o.InputData) {
 		toSerialize["input-data"] = o.InputData
 	}
 	return toSerialize, nil

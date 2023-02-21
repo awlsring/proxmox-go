@@ -68,7 +68,7 @@ func (o *FileReadSummary) SetContent(v string) {
 
 // GetTruncated returns the Truncated field value if set, zero value otherwise.
 func (o *FileReadSummary) GetTruncated() float32 {
-	if o == nil || isNil(o.Truncated) {
+	if o == nil || IsNil(o.Truncated) {
 		var ret float32
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *FileReadSummary) GetTruncated() float32 {
 // GetTruncatedOk returns a tuple with the Truncated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FileReadSummary) GetTruncatedOk() (*float32, bool) {
-	if o == nil || isNil(o.Truncated) {
+	if o == nil || IsNil(o.Truncated) {
 		return nil, false
 	}
 	return o.Truncated, true
@@ -86,7 +86,7 @@ func (o *FileReadSummary) GetTruncatedOk() (*float32, bool) {
 
 // HasTruncated returns a boolean if a field has been set.
 func (o *FileReadSummary) HasTruncated() bool {
-	if o != nil && !isNil(o.Truncated) {
+	if o != nil && !IsNil(o.Truncated) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o FileReadSummary) MarshalJSON() ([]byte, error) {
 func (o FileReadSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["content"] = o.Content
-	if !isNil(o.Truncated) {
+	if !IsNil(o.Truncated) {
 		toSerialize["truncated"] = o.Truncated
 	}
 	return toSerialize, nil

@@ -122,7 +122,7 @@ func (o *CreateStorageVolumeRequestContent) SetVmid(v string) {
 
 // GetFormat returns the Format field value if set, zero value otherwise.
 func (o *CreateStorageVolumeRequestContent) GetFormat() StorageVolumeType {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		var ret StorageVolumeType
 		return ret
 	}
@@ -132,7 +132,7 @@ func (o *CreateStorageVolumeRequestContent) GetFormat() StorageVolumeType {
 // GetFormatOk returns a tuple with the Format field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateStorageVolumeRequestContent) GetFormatOk() (*StorageVolumeType, bool) {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		return nil, false
 	}
 	return o.Format, true
@@ -140,7 +140,7 @@ func (o *CreateStorageVolumeRequestContent) GetFormatOk() (*StorageVolumeType, b
 
 // HasFormat returns a boolean if a field has been set.
 func (o *CreateStorageVolumeRequestContent) HasFormat() bool {
-	if o != nil && !isNil(o.Format) {
+	if o != nil && !IsNil(o.Format) {
 		return true
 	}
 
@@ -165,7 +165,7 @@ func (o CreateStorageVolumeRequestContent) ToMap() (map[string]interface{}, erro
 	toSerialize["filename"] = o.Filename
 	toSerialize["size"] = o.Size
 	toSerialize["vmid"] = o.Vmid
-	if !isNil(o.Format) {
+	if !IsNil(o.Format) {
 		toSerialize["format"] = o.Format
 	}
 	return toSerialize, nil

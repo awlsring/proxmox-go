@@ -125,7 +125,7 @@ func NewModifyStorageRequestContentWithDefaults() *ModifyStorageRequestContent {
 
 // GetBlocksize returns the Blocksize field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetBlocksize() string {
-	if o == nil || isNil(o.Blocksize) {
+	if o == nil || IsNil(o.Blocksize) {
 		var ret string
 		return ret
 	}
@@ -135,7 +135,7 @@ func (o *ModifyStorageRequestContent) GetBlocksize() string {
 // GetBlocksizeOk returns a tuple with the Blocksize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetBlocksizeOk() (*string, bool) {
-	if o == nil || isNil(o.Blocksize) {
+	if o == nil || IsNil(o.Blocksize) {
 		return nil, false
 	}
 	return o.Blocksize, true
@@ -143,7 +143,7 @@ func (o *ModifyStorageRequestContent) GetBlocksizeOk() (*string, bool) {
 
 // HasBlocksize returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasBlocksize() bool {
-	if o != nil && !isNil(o.Blocksize) {
+	if o != nil && !IsNil(o.Blocksize) {
 		return true
 	}
 
@@ -157,7 +157,7 @@ func (o *ModifyStorageRequestContent) SetBlocksize(v string) {
 
 // GetBwlimit returns the Bwlimit field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetBwlimit() string {
-	if o == nil || isNil(o.Bwlimit) {
+	if o == nil || IsNil(o.Bwlimit) {
 		var ret string
 		return ret
 	}
@@ -167,7 +167,7 @@ func (o *ModifyStorageRequestContent) GetBwlimit() string {
 // GetBwlimitOk returns a tuple with the Bwlimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetBwlimitOk() (*string, bool) {
-	if o == nil || isNil(o.Bwlimit) {
+	if o == nil || IsNil(o.Bwlimit) {
 		return nil, false
 	}
 	return o.Bwlimit, true
@@ -175,7 +175,7 @@ func (o *ModifyStorageRequestContent) GetBwlimitOk() (*string, bool) {
 
 // HasBwlimit returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasBwlimit() bool {
-	if o != nil && !isNil(o.Bwlimit) {
+	if o != nil && !IsNil(o.Bwlimit) {
 		return true
 	}
 
@@ -189,7 +189,7 @@ func (o *ModifyStorageRequestContent) SetBwlimit(v string) {
 
 // GetComstarHg returns the ComstarHg field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetComstarHg() string {
-	if o == nil || isNil(o.ComstarHg) {
+	if o == nil || IsNil(o.ComstarHg) {
 		var ret string
 		return ret
 	}
@@ -199,7 +199,7 @@ func (o *ModifyStorageRequestContent) GetComstarHg() string {
 // GetComstarHgOk returns a tuple with the ComstarHg field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetComstarHgOk() (*string, bool) {
-	if o == nil || isNil(o.ComstarHg) {
+	if o == nil || IsNil(o.ComstarHg) {
 		return nil, false
 	}
 	return o.ComstarHg, true
@@ -207,7 +207,7 @@ func (o *ModifyStorageRequestContent) GetComstarHgOk() (*string, bool) {
 
 // HasComstarHg returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasComstarHg() bool {
-	if o != nil && !isNil(o.ComstarHg) {
+	if o != nil && !IsNil(o.ComstarHg) {
 		return true
 	}
 
@@ -221,7 +221,7 @@ func (o *ModifyStorageRequestContent) SetComstarHg(v string) {
 
 // GetComstarTg returns the ComstarTg field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetComstarTg() string {
-	if o == nil || isNil(o.ComstarTg) {
+	if o == nil || IsNil(o.ComstarTg) {
 		var ret string
 		return ret
 	}
@@ -231,7 +231,7 @@ func (o *ModifyStorageRequestContent) GetComstarTg() string {
 // GetComstarTgOk returns a tuple with the ComstarTg field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetComstarTgOk() (*string, bool) {
-	if o == nil || isNil(o.ComstarTg) {
+	if o == nil || IsNil(o.ComstarTg) {
 		return nil, false
 	}
 	return o.ComstarTg, true
@@ -239,7 +239,7 @@ func (o *ModifyStorageRequestContent) GetComstarTgOk() (*string, bool) {
 
 // HasComstarTg returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasComstarTg() bool {
-	if o != nil && !isNil(o.ComstarTg) {
+	if o != nil && !IsNil(o.ComstarTg) {
 		return true
 	}
 
@@ -253,7 +253,7 @@ func (o *ModifyStorageRequestContent) SetComstarTg(v string) {
 
 // GetContent returns the Content field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetContent() string {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
@@ -263,7 +263,7 @@ func (o *ModifyStorageRequestContent) GetContent() string {
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetContentOk() (*string, bool) {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
 	return o.Content, true
@@ -271,7 +271,7 @@ func (o *ModifyStorageRequestContent) GetContentOk() (*string, bool) {
 
 // HasContent returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasContent() bool {
-	if o != nil && !isNil(o.Content) {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
@@ -285,7 +285,7 @@ func (o *ModifyStorageRequestContent) SetContent(v string) {
 
 // GetDataPool returns the DataPool field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetDataPool() string {
-	if o == nil || isNil(o.DataPool) {
+	if o == nil || IsNil(o.DataPool) {
 		var ret string
 		return ret
 	}
@@ -295,7 +295,7 @@ func (o *ModifyStorageRequestContent) GetDataPool() string {
 // GetDataPoolOk returns a tuple with the DataPool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetDataPoolOk() (*string, bool) {
-	if o == nil || isNil(o.DataPool) {
+	if o == nil || IsNil(o.DataPool) {
 		return nil, false
 	}
 	return o.DataPool, true
@@ -303,7 +303,7 @@ func (o *ModifyStorageRequestContent) GetDataPoolOk() (*string, bool) {
 
 // HasDataPool returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasDataPool() bool {
-	if o != nil && !isNil(o.DataPool) {
+	if o != nil && !IsNil(o.DataPool) {
 		return true
 	}
 
@@ -317,7 +317,7 @@ func (o *ModifyStorageRequestContent) SetDataPool(v string) {
 
 // GetDelete returns the Delete field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetDelete() string {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		var ret string
 		return ret
 	}
@@ -327,7 +327,7 @@ func (o *ModifyStorageRequestContent) GetDelete() string {
 // GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetDeleteOk() (*string, bool) {
-	if o == nil || isNil(o.Delete) {
+	if o == nil || IsNil(o.Delete) {
 		return nil, false
 	}
 	return o.Delete, true
@@ -335,7 +335,7 @@ func (o *ModifyStorageRequestContent) GetDeleteOk() (*string, bool) {
 
 // HasDelete returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasDelete() bool {
-	if o != nil && !isNil(o.Delete) {
+	if o != nil && !IsNil(o.Delete) {
 		return true
 	}
 
@@ -349,7 +349,7 @@ func (o *ModifyStorageRequestContent) SetDelete(v string) {
 
 // GetDigest returns the Digest field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetDigest() string {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		var ret string
 		return ret
 	}
@@ -359,7 +359,7 @@ func (o *ModifyStorageRequestContent) GetDigest() string {
 // GetDigestOk returns a tuple with the Digest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetDigestOk() (*string, bool) {
-	if o == nil || isNil(o.Digest) {
+	if o == nil || IsNil(o.Digest) {
 		return nil, false
 	}
 	return o.Digest, true
@@ -367,7 +367,7 @@ func (o *ModifyStorageRequestContent) GetDigestOk() (*string, bool) {
 
 // HasDigest returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasDigest() bool {
-	if o != nil && !isNil(o.Digest) {
+	if o != nil && !IsNil(o.Digest) {
 		return true
 	}
 
@@ -381,7 +381,7 @@ func (o *ModifyStorageRequestContent) SetDigest(v string) {
 
 // GetDisable returns the Disable field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetDisable() bool {
-	if o == nil || isNil(o.Disable) {
+	if o == nil || IsNil(o.Disable) {
 		var ret bool
 		return ret
 	}
@@ -391,7 +391,7 @@ func (o *ModifyStorageRequestContent) GetDisable() bool {
 // GetDisableOk returns a tuple with the Disable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetDisableOk() (*bool, bool) {
-	if o == nil || isNil(o.Disable) {
+	if o == nil || IsNil(o.Disable) {
 		return nil, false
 	}
 	return o.Disable, true
@@ -399,7 +399,7 @@ func (o *ModifyStorageRequestContent) GetDisableOk() (*bool, bool) {
 
 // HasDisable returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasDisable() bool {
-	if o != nil && !isNil(o.Disable) {
+	if o != nil && !IsNil(o.Disable) {
 		return true
 	}
 
@@ -413,7 +413,7 @@ func (o *ModifyStorageRequestContent) SetDisable(v bool) {
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetDomain() string {
-	if o == nil || isNil(o.Domain) {
+	if o == nil || IsNil(o.Domain) {
 		var ret string
 		return ret
 	}
@@ -423,7 +423,7 @@ func (o *ModifyStorageRequestContent) GetDomain() string {
 // GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetDomainOk() (*string, bool) {
-	if o == nil || isNil(o.Domain) {
+	if o == nil || IsNil(o.Domain) {
 		return nil, false
 	}
 	return o.Domain, true
@@ -431,7 +431,7 @@ func (o *ModifyStorageRequestContent) GetDomainOk() (*string, bool) {
 
 // HasDomain returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasDomain() bool {
-	if o != nil && !isNil(o.Domain) {
+	if o != nil && !IsNil(o.Domain) {
 		return true
 	}
 
@@ -445,7 +445,7 @@ func (o *ModifyStorageRequestContent) SetDomain(v string) {
 
 // GetEncryptionKey returns the EncryptionKey field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetEncryptionKey() string {
-	if o == nil || isNil(o.EncryptionKey) {
+	if o == nil || IsNil(o.EncryptionKey) {
 		var ret string
 		return ret
 	}
@@ -455,7 +455,7 @@ func (o *ModifyStorageRequestContent) GetEncryptionKey() string {
 // GetEncryptionKeyOk returns a tuple with the EncryptionKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetEncryptionKeyOk() (*string, bool) {
-	if o == nil || isNil(o.EncryptionKey) {
+	if o == nil || IsNil(o.EncryptionKey) {
 		return nil, false
 	}
 	return o.EncryptionKey, true
@@ -463,7 +463,7 @@ func (o *ModifyStorageRequestContent) GetEncryptionKeyOk() (*string, bool) {
 
 // HasEncryptionKey returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasEncryptionKey() bool {
-	if o != nil && !isNil(o.EncryptionKey) {
+	if o != nil && !IsNil(o.EncryptionKey) {
 		return true
 	}
 
@@ -477,7 +477,7 @@ func (o *ModifyStorageRequestContent) SetEncryptionKey(v string) {
 
 // GetFingerprint returns the Fingerprint field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetFingerprint() string {
-	if o == nil || isNil(o.Fingerprint) {
+	if o == nil || IsNil(o.Fingerprint) {
 		var ret string
 		return ret
 	}
@@ -487,7 +487,7 @@ func (o *ModifyStorageRequestContent) GetFingerprint() string {
 // GetFingerprintOk returns a tuple with the Fingerprint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetFingerprintOk() (*string, bool) {
-	if o == nil || isNil(o.Fingerprint) {
+	if o == nil || IsNil(o.Fingerprint) {
 		return nil, false
 	}
 	return o.Fingerprint, true
@@ -495,7 +495,7 @@ func (o *ModifyStorageRequestContent) GetFingerprintOk() (*string, bool) {
 
 // HasFingerprint returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasFingerprint() bool {
-	if o != nil && !isNil(o.Fingerprint) {
+	if o != nil && !IsNil(o.Fingerprint) {
 		return true
 	}
 
@@ -509,7 +509,7 @@ func (o *ModifyStorageRequestContent) SetFingerprint(v string) {
 
 // GetFormat returns the Format field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetFormat() string {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		var ret string
 		return ret
 	}
@@ -519,7 +519,7 @@ func (o *ModifyStorageRequestContent) GetFormat() string {
 // GetFormatOk returns a tuple with the Format field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetFormatOk() (*string, bool) {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		return nil, false
 	}
 	return o.Format, true
@@ -527,7 +527,7 @@ func (o *ModifyStorageRequestContent) GetFormatOk() (*string, bool) {
 
 // HasFormat returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasFormat() bool {
-	if o != nil && !isNil(o.Format) {
+	if o != nil && !IsNil(o.Format) {
 		return true
 	}
 
@@ -541,7 +541,7 @@ func (o *ModifyStorageRequestContent) SetFormat(v string) {
 
 // GetFsName returns the FsName field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetFsName() string {
-	if o == nil || isNil(o.FsName) {
+	if o == nil || IsNil(o.FsName) {
 		var ret string
 		return ret
 	}
@@ -551,7 +551,7 @@ func (o *ModifyStorageRequestContent) GetFsName() string {
 // GetFsNameOk returns a tuple with the FsName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetFsNameOk() (*string, bool) {
-	if o == nil || isNil(o.FsName) {
+	if o == nil || IsNil(o.FsName) {
 		return nil, false
 	}
 	return o.FsName, true
@@ -559,7 +559,7 @@ func (o *ModifyStorageRequestContent) GetFsNameOk() (*string, bool) {
 
 // HasFsName returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasFsName() bool {
-	if o != nil && !isNil(o.FsName) {
+	if o != nil && !IsNil(o.FsName) {
 		return true
 	}
 
@@ -573,7 +573,7 @@ func (o *ModifyStorageRequestContent) SetFsName(v string) {
 
 // GetFuse returns the Fuse field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetFuse() bool {
-	if o == nil || isNil(o.Fuse) {
+	if o == nil || IsNil(o.Fuse) {
 		var ret bool
 		return ret
 	}
@@ -583,7 +583,7 @@ func (o *ModifyStorageRequestContent) GetFuse() bool {
 // GetFuseOk returns a tuple with the Fuse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetFuseOk() (*bool, bool) {
-	if o == nil || isNil(o.Fuse) {
+	if o == nil || IsNil(o.Fuse) {
 		return nil, false
 	}
 	return o.Fuse, true
@@ -591,7 +591,7 @@ func (o *ModifyStorageRequestContent) GetFuseOk() (*bool, bool) {
 
 // HasFuse returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasFuse() bool {
-	if o != nil && !isNil(o.Fuse) {
+	if o != nil && !IsNil(o.Fuse) {
 		return true
 	}
 
@@ -605,7 +605,7 @@ func (o *ModifyStorageRequestContent) SetFuse(v bool) {
 
 // GetIsMountpoint returns the IsMountpoint field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetIsMountpoint() string {
-	if o == nil || isNil(o.IsMountpoint) {
+	if o == nil || IsNil(o.IsMountpoint) {
 		var ret string
 		return ret
 	}
@@ -615,7 +615,7 @@ func (o *ModifyStorageRequestContent) GetIsMountpoint() string {
 // GetIsMountpointOk returns a tuple with the IsMountpoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetIsMountpointOk() (*string, bool) {
-	if o == nil || isNil(o.IsMountpoint) {
+	if o == nil || IsNil(o.IsMountpoint) {
 		return nil, false
 	}
 	return o.IsMountpoint, true
@@ -623,7 +623,7 @@ func (o *ModifyStorageRequestContent) GetIsMountpointOk() (*string, bool) {
 
 // HasIsMountpoint returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasIsMountpoint() bool {
-	if o != nil && !isNil(o.IsMountpoint) {
+	if o != nil && !IsNil(o.IsMountpoint) {
 		return true
 	}
 
@@ -637,7 +637,7 @@ func (o *ModifyStorageRequestContent) SetIsMountpoint(v string) {
 
 // GetKeyring returns the Keyring field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetKeyring() string {
-	if o == nil || isNil(o.Keyring) {
+	if o == nil || IsNil(o.Keyring) {
 		var ret string
 		return ret
 	}
@@ -647,7 +647,7 @@ func (o *ModifyStorageRequestContent) GetKeyring() string {
 // GetKeyringOk returns a tuple with the Keyring field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetKeyringOk() (*string, bool) {
-	if o == nil || isNil(o.Keyring) {
+	if o == nil || IsNil(o.Keyring) {
 		return nil, false
 	}
 	return o.Keyring, true
@@ -655,7 +655,7 @@ func (o *ModifyStorageRequestContent) GetKeyringOk() (*string, bool) {
 
 // HasKeyring returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasKeyring() bool {
-	if o != nil && !isNil(o.Keyring) {
+	if o != nil && !IsNil(o.Keyring) {
 		return true
 	}
 
@@ -669,7 +669,7 @@ func (o *ModifyStorageRequestContent) SetKeyring(v string) {
 
 // GetKrbd returns the Krbd field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetKrbd() bool {
-	if o == nil || isNil(o.Krbd) {
+	if o == nil || IsNil(o.Krbd) {
 		var ret bool
 		return ret
 	}
@@ -679,7 +679,7 @@ func (o *ModifyStorageRequestContent) GetKrbd() bool {
 // GetKrbdOk returns a tuple with the Krbd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetKrbdOk() (*bool, bool) {
-	if o == nil || isNil(o.Krbd) {
+	if o == nil || IsNil(o.Krbd) {
 		return nil, false
 	}
 	return o.Krbd, true
@@ -687,7 +687,7 @@ func (o *ModifyStorageRequestContent) GetKrbdOk() (*bool, bool) {
 
 // HasKrbd returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasKrbd() bool {
-	if o != nil && !isNil(o.Krbd) {
+	if o != nil && !IsNil(o.Krbd) {
 		return true
 	}
 
@@ -701,7 +701,7 @@ func (o *ModifyStorageRequestContent) SetKrbd(v bool) {
 
 // GetLioTpg returns the LioTpg field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetLioTpg() string {
-	if o == nil || isNil(o.LioTpg) {
+	if o == nil || IsNil(o.LioTpg) {
 		var ret string
 		return ret
 	}
@@ -711,7 +711,7 @@ func (o *ModifyStorageRequestContent) GetLioTpg() string {
 // GetLioTpgOk returns a tuple with the LioTpg field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetLioTpgOk() (*string, bool) {
-	if o == nil || isNil(o.LioTpg) {
+	if o == nil || IsNil(o.LioTpg) {
 		return nil, false
 	}
 	return o.LioTpg, true
@@ -719,7 +719,7 @@ func (o *ModifyStorageRequestContent) GetLioTpgOk() (*string, bool) {
 
 // HasLioTpg returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasLioTpg() bool {
-	if o != nil && !isNil(o.LioTpg) {
+	if o != nil && !IsNil(o.LioTpg) {
 		return true
 	}
 
@@ -733,7 +733,7 @@ func (o *ModifyStorageRequestContent) SetLioTpg(v string) {
 
 // GetMasterPubkey returns the MasterPubkey field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetMasterPubkey() string {
-	if o == nil || isNil(o.MasterPubkey) {
+	if o == nil || IsNil(o.MasterPubkey) {
 		var ret string
 		return ret
 	}
@@ -743,7 +743,7 @@ func (o *ModifyStorageRequestContent) GetMasterPubkey() string {
 // GetMasterPubkeyOk returns a tuple with the MasterPubkey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetMasterPubkeyOk() (*string, bool) {
-	if o == nil || isNil(o.MasterPubkey) {
+	if o == nil || IsNil(o.MasterPubkey) {
 		return nil, false
 	}
 	return o.MasterPubkey, true
@@ -751,7 +751,7 @@ func (o *ModifyStorageRequestContent) GetMasterPubkeyOk() (*string, bool) {
 
 // HasMasterPubkey returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasMasterPubkey() bool {
-	if o != nil && !isNil(o.MasterPubkey) {
+	if o != nil && !IsNil(o.MasterPubkey) {
 		return true
 	}
 
@@ -765,7 +765,7 @@ func (o *ModifyStorageRequestContent) SetMasterPubkey(v string) {
 
 // GetMaxProtectedBackups returns the MaxProtectedBackups field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetMaxProtectedBackups() float32 {
-	if o == nil || isNil(o.MaxProtectedBackups) {
+	if o == nil || IsNil(o.MaxProtectedBackups) {
 		var ret float32
 		return ret
 	}
@@ -775,7 +775,7 @@ func (o *ModifyStorageRequestContent) GetMaxProtectedBackups() float32 {
 // GetMaxProtectedBackupsOk returns a tuple with the MaxProtectedBackups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetMaxProtectedBackupsOk() (*float32, bool) {
-	if o == nil || isNil(o.MaxProtectedBackups) {
+	if o == nil || IsNil(o.MaxProtectedBackups) {
 		return nil, false
 	}
 	return o.MaxProtectedBackups, true
@@ -783,7 +783,7 @@ func (o *ModifyStorageRequestContent) GetMaxProtectedBackupsOk() (*float32, bool
 
 // HasMaxProtectedBackups returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasMaxProtectedBackups() bool {
-	if o != nil && !isNil(o.MaxProtectedBackups) {
+	if o != nil && !IsNil(o.MaxProtectedBackups) {
 		return true
 	}
 
@@ -797,7 +797,7 @@ func (o *ModifyStorageRequestContent) SetMaxProtectedBackups(v float32) {
 
 // GetMaxfiles returns the Maxfiles field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetMaxfiles() float32 {
-	if o == nil || isNil(o.Maxfiles) {
+	if o == nil || IsNil(o.Maxfiles) {
 		var ret float32
 		return ret
 	}
@@ -807,7 +807,7 @@ func (o *ModifyStorageRequestContent) GetMaxfiles() float32 {
 // GetMaxfilesOk returns a tuple with the Maxfiles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetMaxfilesOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxfiles) {
+	if o == nil || IsNil(o.Maxfiles) {
 		return nil, false
 	}
 	return o.Maxfiles, true
@@ -815,7 +815,7 @@ func (o *ModifyStorageRequestContent) GetMaxfilesOk() (*float32, bool) {
 
 // HasMaxfiles returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasMaxfiles() bool {
-	if o != nil && !isNil(o.Maxfiles) {
+	if o != nil && !IsNil(o.Maxfiles) {
 		return true
 	}
 
@@ -829,7 +829,7 @@ func (o *ModifyStorageRequestContent) SetMaxfiles(v float32) {
 
 // GetMkdir returns the Mkdir field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetMkdir() bool {
-	if o == nil || isNil(o.Mkdir) {
+	if o == nil || IsNil(o.Mkdir) {
 		var ret bool
 		return ret
 	}
@@ -839,7 +839,7 @@ func (o *ModifyStorageRequestContent) GetMkdir() bool {
 // GetMkdirOk returns a tuple with the Mkdir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetMkdirOk() (*bool, bool) {
-	if o == nil || isNil(o.Mkdir) {
+	if o == nil || IsNil(o.Mkdir) {
 		return nil, false
 	}
 	return o.Mkdir, true
@@ -847,7 +847,7 @@ func (o *ModifyStorageRequestContent) GetMkdirOk() (*bool, bool) {
 
 // HasMkdir returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasMkdir() bool {
-	if o != nil && !isNil(o.Mkdir) {
+	if o != nil && !IsNil(o.Mkdir) {
 		return true
 	}
 
@@ -861,7 +861,7 @@ func (o *ModifyStorageRequestContent) SetMkdir(v bool) {
 
 // GetMonhost returns the Monhost field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetMonhost() string {
-	if o == nil || isNil(o.Monhost) {
+	if o == nil || IsNil(o.Monhost) {
 		var ret string
 		return ret
 	}
@@ -871,7 +871,7 @@ func (o *ModifyStorageRequestContent) GetMonhost() string {
 // GetMonhostOk returns a tuple with the Monhost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetMonhostOk() (*string, bool) {
-	if o == nil || isNil(o.Monhost) {
+	if o == nil || IsNil(o.Monhost) {
 		return nil, false
 	}
 	return o.Monhost, true
@@ -879,7 +879,7 @@ func (o *ModifyStorageRequestContent) GetMonhostOk() (*string, bool) {
 
 // HasMonhost returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasMonhost() bool {
-	if o != nil && !isNil(o.Monhost) {
+	if o != nil && !IsNil(o.Monhost) {
 		return true
 	}
 
@@ -893,7 +893,7 @@ func (o *ModifyStorageRequestContent) SetMonhost(v string) {
 
 // GetMountpoint returns the Mountpoint field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetMountpoint() string {
-	if o == nil || isNil(o.Mountpoint) {
+	if o == nil || IsNil(o.Mountpoint) {
 		var ret string
 		return ret
 	}
@@ -903,7 +903,7 @@ func (o *ModifyStorageRequestContent) GetMountpoint() string {
 // GetMountpointOk returns a tuple with the Mountpoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetMountpointOk() (*string, bool) {
-	if o == nil || isNil(o.Mountpoint) {
+	if o == nil || IsNil(o.Mountpoint) {
 		return nil, false
 	}
 	return o.Mountpoint, true
@@ -911,7 +911,7 @@ func (o *ModifyStorageRequestContent) GetMountpointOk() (*string, bool) {
 
 // HasMountpoint returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasMountpoint() bool {
-	if o != nil && !isNil(o.Mountpoint) {
+	if o != nil && !IsNil(o.Mountpoint) {
 		return true
 	}
 
@@ -925,7 +925,7 @@ func (o *ModifyStorageRequestContent) SetMountpoint(v string) {
 
 // GetNamespace returns the Namespace field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetNamespace() string {
-	if o == nil || isNil(o.Namespace) {
+	if o == nil || IsNil(o.Namespace) {
 		var ret string
 		return ret
 	}
@@ -935,7 +935,7 @@ func (o *ModifyStorageRequestContent) GetNamespace() string {
 // GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetNamespaceOk() (*string, bool) {
-	if o == nil || isNil(o.Namespace) {
+	if o == nil || IsNil(o.Namespace) {
 		return nil, false
 	}
 	return o.Namespace, true
@@ -943,7 +943,7 @@ func (o *ModifyStorageRequestContent) GetNamespaceOk() (*string, bool) {
 
 // HasNamespace returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasNamespace() bool {
-	if o != nil && !isNil(o.Namespace) {
+	if o != nil && !IsNil(o.Namespace) {
 		return true
 	}
 
@@ -957,7 +957,7 @@ func (o *ModifyStorageRequestContent) SetNamespace(v string) {
 
 // GetNocow returns the Nocow field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetNocow() float32 {
-	if o == nil || isNil(o.Nocow) {
+	if o == nil || IsNil(o.Nocow) {
 		var ret float32
 		return ret
 	}
@@ -967,7 +967,7 @@ func (o *ModifyStorageRequestContent) GetNocow() float32 {
 // GetNocowOk returns a tuple with the Nocow field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetNocowOk() (*float32, bool) {
-	if o == nil || isNil(o.Nocow) {
+	if o == nil || IsNil(o.Nocow) {
 		return nil, false
 	}
 	return o.Nocow, true
@@ -975,7 +975,7 @@ func (o *ModifyStorageRequestContent) GetNocowOk() (*float32, bool) {
 
 // HasNocow returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasNocow() bool {
-	if o != nil && !isNil(o.Nocow) {
+	if o != nil && !IsNil(o.Nocow) {
 		return true
 	}
 
@@ -989,7 +989,7 @@ func (o *ModifyStorageRequestContent) SetNocow(v float32) {
 
 // GetNodes returns the Nodes field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetNodes() string {
-	if o == nil || isNil(o.Nodes) {
+	if o == nil || IsNil(o.Nodes) {
 		var ret string
 		return ret
 	}
@@ -999,7 +999,7 @@ func (o *ModifyStorageRequestContent) GetNodes() string {
 // GetNodesOk returns a tuple with the Nodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetNodesOk() (*string, bool) {
-	if o == nil || isNil(o.Nodes) {
+	if o == nil || IsNil(o.Nodes) {
 		return nil, false
 	}
 	return o.Nodes, true
@@ -1007,7 +1007,7 @@ func (o *ModifyStorageRequestContent) GetNodesOk() (*string, bool) {
 
 // HasNodes returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasNodes() bool {
-	if o != nil && !isNil(o.Nodes) {
+	if o != nil && !IsNil(o.Nodes) {
 		return true
 	}
 
@@ -1021,7 +1021,7 @@ func (o *ModifyStorageRequestContent) SetNodes(v string) {
 
 // GetNowritecache returns the Nowritecache field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetNowritecache() bool {
-	if o == nil || isNil(o.Nowritecache) {
+	if o == nil || IsNil(o.Nowritecache) {
 		var ret bool
 		return ret
 	}
@@ -1031,7 +1031,7 @@ func (o *ModifyStorageRequestContent) GetNowritecache() bool {
 // GetNowritecacheOk returns a tuple with the Nowritecache field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetNowritecacheOk() (*bool, bool) {
-	if o == nil || isNil(o.Nowritecache) {
+	if o == nil || IsNil(o.Nowritecache) {
 		return nil, false
 	}
 	return o.Nowritecache, true
@@ -1039,7 +1039,7 @@ func (o *ModifyStorageRequestContent) GetNowritecacheOk() (*bool, bool) {
 
 // HasNowritecache returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasNowritecache() bool {
-	if o != nil && !isNil(o.Nowritecache) {
+	if o != nil && !IsNil(o.Nowritecache) {
 		return true
 	}
 
@@ -1053,7 +1053,7 @@ func (o *ModifyStorageRequestContent) SetNowritecache(v bool) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetOptions() string {
-	if o == nil || isNil(o.Options) {
+	if o == nil || IsNil(o.Options) {
 		var ret string
 		return ret
 	}
@@ -1063,7 +1063,7 @@ func (o *ModifyStorageRequestContent) GetOptions() string {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetOptionsOk() (*string, bool) {
-	if o == nil || isNil(o.Options) {
+	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -1071,7 +1071,7 @@ func (o *ModifyStorageRequestContent) GetOptionsOk() (*string, bool) {
 
 // HasOptions returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasOptions() bool {
-	if o != nil && !isNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 
@@ -1085,7 +1085,7 @@ func (o *ModifyStorageRequestContent) SetOptions(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -1095,7 +1095,7 @@ func (o *ModifyStorageRequestContent) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		return nil, false
 	}
 	return o.Password, true
@@ -1103,7 +1103,7 @@ func (o *ModifyStorageRequestContent) GetPasswordOk() (*string, bool) {
 
 // HasPassword returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -1117,7 +1117,7 @@ func (o *ModifyStorageRequestContent) SetPassword(v string) {
 
 // GetPool returns the Pool field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetPool() string {
-	if o == nil || isNil(o.Pool) {
+	if o == nil || IsNil(o.Pool) {
 		var ret string
 		return ret
 	}
@@ -1127,7 +1127,7 @@ func (o *ModifyStorageRequestContent) GetPool() string {
 // GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetPoolOk() (*string, bool) {
-	if o == nil || isNil(o.Pool) {
+	if o == nil || IsNil(o.Pool) {
 		return nil, false
 	}
 	return o.Pool, true
@@ -1135,7 +1135,7 @@ func (o *ModifyStorageRequestContent) GetPoolOk() (*string, bool) {
 
 // HasPool returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasPool() bool {
-	if o != nil && !isNil(o.Pool) {
+	if o != nil && !IsNil(o.Pool) {
 		return true
 	}
 
@@ -1149,7 +1149,7 @@ func (o *ModifyStorageRequestContent) SetPool(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetPort() float32 {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret float32
 		return ret
 	}
@@ -1159,7 +1159,7 @@ func (o *ModifyStorageRequestContent) GetPort() float32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetPortOk() (*float32, bool) {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		return nil, false
 	}
 	return o.Port, true
@@ -1167,7 +1167,7 @@ func (o *ModifyStorageRequestContent) GetPortOk() (*float32, bool) {
 
 // HasPort returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -1181,7 +1181,7 @@ func (o *ModifyStorageRequestContent) SetPort(v float32) {
 
 // GetPreallocation returns the Preallocation field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetPreallocation() StoragePreallocation {
-	if o == nil || isNil(o.Preallocation) {
+	if o == nil || IsNil(o.Preallocation) {
 		var ret StoragePreallocation
 		return ret
 	}
@@ -1191,7 +1191,7 @@ func (o *ModifyStorageRequestContent) GetPreallocation() StoragePreallocation {
 // GetPreallocationOk returns a tuple with the Preallocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetPreallocationOk() (*StoragePreallocation, bool) {
-	if o == nil || isNil(o.Preallocation) {
+	if o == nil || IsNil(o.Preallocation) {
 		return nil, false
 	}
 	return o.Preallocation, true
@@ -1199,7 +1199,7 @@ func (o *ModifyStorageRequestContent) GetPreallocationOk() (*StoragePreallocatio
 
 // HasPreallocation returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasPreallocation() bool {
-	if o != nil && !isNil(o.Preallocation) {
+	if o != nil && !IsNil(o.Preallocation) {
 		return true
 	}
 
@@ -1213,7 +1213,7 @@ func (o *ModifyStorageRequestContent) SetPreallocation(v StoragePreallocation) {
 
 // GetPruneBackups returns the PruneBackups field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetPruneBackups() string {
-	if o == nil || isNil(o.PruneBackups) {
+	if o == nil || IsNil(o.PruneBackups) {
 		var ret string
 		return ret
 	}
@@ -1223,7 +1223,7 @@ func (o *ModifyStorageRequestContent) GetPruneBackups() string {
 // GetPruneBackupsOk returns a tuple with the PruneBackups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetPruneBackupsOk() (*string, bool) {
-	if o == nil || isNil(o.PruneBackups) {
+	if o == nil || IsNil(o.PruneBackups) {
 		return nil, false
 	}
 	return o.PruneBackups, true
@@ -1231,7 +1231,7 @@ func (o *ModifyStorageRequestContent) GetPruneBackupsOk() (*string, bool) {
 
 // HasPruneBackups returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasPruneBackups() bool {
-	if o != nil && !isNil(o.PruneBackups) {
+	if o != nil && !IsNil(o.PruneBackups) {
 		return true
 	}
 
@@ -1245,7 +1245,7 @@ func (o *ModifyStorageRequestContent) SetPruneBackups(v string) {
 
 // GetSaferemove returns the Saferemove field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetSaferemove() bool {
-	if o == nil || isNil(o.Saferemove) {
+	if o == nil || IsNil(o.Saferemove) {
 		var ret bool
 		return ret
 	}
@@ -1255,7 +1255,7 @@ func (o *ModifyStorageRequestContent) GetSaferemove() bool {
 // GetSaferemoveOk returns a tuple with the Saferemove field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetSaferemoveOk() (*bool, bool) {
-	if o == nil || isNil(o.Saferemove) {
+	if o == nil || IsNil(o.Saferemove) {
 		return nil, false
 	}
 	return o.Saferemove, true
@@ -1263,7 +1263,7 @@ func (o *ModifyStorageRequestContent) GetSaferemoveOk() (*bool, bool) {
 
 // HasSaferemove returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasSaferemove() bool {
-	if o != nil && !isNil(o.Saferemove) {
+	if o != nil && !IsNil(o.Saferemove) {
 		return true
 	}
 
@@ -1277,7 +1277,7 @@ func (o *ModifyStorageRequestContent) SetSaferemove(v bool) {
 
 // GetSaferemoveThroughput returns the SaferemoveThroughput field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetSaferemoveThroughput() string {
-	if o == nil || isNil(o.SaferemoveThroughput) {
+	if o == nil || IsNil(o.SaferemoveThroughput) {
 		var ret string
 		return ret
 	}
@@ -1287,7 +1287,7 @@ func (o *ModifyStorageRequestContent) GetSaferemoveThroughput() string {
 // GetSaferemoveThroughputOk returns a tuple with the SaferemoveThroughput field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetSaferemoveThroughputOk() (*string, bool) {
-	if o == nil || isNil(o.SaferemoveThroughput) {
+	if o == nil || IsNil(o.SaferemoveThroughput) {
 		return nil, false
 	}
 	return o.SaferemoveThroughput, true
@@ -1295,7 +1295,7 @@ func (o *ModifyStorageRequestContent) GetSaferemoveThroughputOk() (*string, bool
 
 // HasSaferemoveThroughput returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasSaferemoveThroughput() bool {
-	if o != nil && !isNil(o.SaferemoveThroughput) {
+	if o != nil && !IsNil(o.SaferemoveThroughput) {
 		return true
 	}
 
@@ -1309,7 +1309,7 @@ func (o *ModifyStorageRequestContent) SetSaferemoveThroughput(v string) {
 
 // GetServer returns the Server field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetServer() string {
-	if o == nil || isNil(o.Server) {
+	if o == nil || IsNil(o.Server) {
 		var ret string
 		return ret
 	}
@@ -1319,7 +1319,7 @@ func (o *ModifyStorageRequestContent) GetServer() string {
 // GetServerOk returns a tuple with the Server field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetServerOk() (*string, bool) {
-	if o == nil || isNil(o.Server) {
+	if o == nil || IsNil(o.Server) {
 		return nil, false
 	}
 	return o.Server, true
@@ -1327,7 +1327,7 @@ func (o *ModifyStorageRequestContent) GetServerOk() (*string, bool) {
 
 // HasServer returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasServer() bool {
-	if o != nil && !isNil(o.Server) {
+	if o != nil && !IsNil(o.Server) {
 		return true
 	}
 
@@ -1341,7 +1341,7 @@ func (o *ModifyStorageRequestContent) SetServer(v string) {
 
 // GetServer2 returns the Server2 field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetServer2() string {
-	if o == nil || isNil(o.Server2) {
+	if o == nil || IsNil(o.Server2) {
 		var ret string
 		return ret
 	}
@@ -1351,7 +1351,7 @@ func (o *ModifyStorageRequestContent) GetServer2() string {
 // GetServer2Ok returns a tuple with the Server2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetServer2Ok() (*string, bool) {
-	if o == nil || isNil(o.Server2) {
+	if o == nil || IsNil(o.Server2) {
 		return nil, false
 	}
 	return o.Server2, true
@@ -1359,7 +1359,7 @@ func (o *ModifyStorageRequestContent) GetServer2Ok() (*string, bool) {
 
 // HasServer2 returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasServer2() bool {
-	if o != nil && !isNil(o.Server2) {
+	if o != nil && !IsNil(o.Server2) {
 		return true
 	}
 
@@ -1373,7 +1373,7 @@ func (o *ModifyStorageRequestContent) SetServer2(v string) {
 
 // GetShared returns the Shared field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetShared() bool {
-	if o == nil || isNil(o.Shared) {
+	if o == nil || IsNil(o.Shared) {
 		var ret bool
 		return ret
 	}
@@ -1383,7 +1383,7 @@ func (o *ModifyStorageRequestContent) GetShared() bool {
 // GetSharedOk returns a tuple with the Shared field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetSharedOk() (*bool, bool) {
-	if o == nil || isNil(o.Shared) {
+	if o == nil || IsNil(o.Shared) {
 		return nil, false
 	}
 	return o.Shared, true
@@ -1391,7 +1391,7 @@ func (o *ModifyStorageRequestContent) GetSharedOk() (*bool, bool) {
 
 // HasShared returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasShared() bool {
-	if o != nil && !isNil(o.Shared) {
+	if o != nil && !IsNil(o.Shared) {
 		return true
 	}
 
@@ -1405,7 +1405,7 @@ func (o *ModifyStorageRequestContent) SetShared(v bool) {
 
 // GetSmbversion returns the Smbversion field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetSmbversion() StorageSMBVersion {
-	if o == nil || isNil(o.Smbversion) {
+	if o == nil || IsNil(o.Smbversion) {
 		var ret StorageSMBVersion
 		return ret
 	}
@@ -1415,7 +1415,7 @@ func (o *ModifyStorageRequestContent) GetSmbversion() StorageSMBVersion {
 // GetSmbversionOk returns a tuple with the Smbversion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetSmbversionOk() (*StorageSMBVersion, bool) {
-	if o == nil || isNil(o.Smbversion) {
+	if o == nil || IsNil(o.Smbversion) {
 		return nil, false
 	}
 	return o.Smbversion, true
@@ -1423,7 +1423,7 @@ func (o *ModifyStorageRequestContent) GetSmbversionOk() (*StorageSMBVersion, boo
 
 // HasSmbversion returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasSmbversion() bool {
-	if o != nil && !isNil(o.Smbversion) {
+	if o != nil && !IsNil(o.Smbversion) {
 		return true
 	}
 
@@ -1437,7 +1437,7 @@ func (o *ModifyStorageRequestContent) SetSmbversion(v StorageSMBVersion) {
 
 // GetSparse returns the Sparse field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetSparse() bool {
-	if o == nil || isNil(o.Sparse) {
+	if o == nil || IsNil(o.Sparse) {
 		var ret bool
 		return ret
 	}
@@ -1447,7 +1447,7 @@ func (o *ModifyStorageRequestContent) GetSparse() bool {
 // GetSparseOk returns a tuple with the Sparse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetSparseOk() (*bool, bool) {
-	if o == nil || isNil(o.Sparse) {
+	if o == nil || IsNil(o.Sparse) {
 		return nil, false
 	}
 	return o.Sparse, true
@@ -1455,7 +1455,7 @@ func (o *ModifyStorageRequestContent) GetSparseOk() (*bool, bool) {
 
 // HasSparse returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasSparse() bool {
-	if o != nil && !isNil(o.Sparse) {
+	if o != nil && !IsNil(o.Sparse) {
 		return true
 	}
 
@@ -1469,7 +1469,7 @@ func (o *ModifyStorageRequestContent) SetSparse(v bool) {
 
 // GetSubdir returns the Subdir field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetSubdir() string {
-	if o == nil || isNil(o.Subdir) {
+	if o == nil || IsNil(o.Subdir) {
 		var ret string
 		return ret
 	}
@@ -1479,7 +1479,7 @@ func (o *ModifyStorageRequestContent) GetSubdir() string {
 // GetSubdirOk returns a tuple with the Subdir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetSubdirOk() (*string, bool) {
-	if o == nil || isNil(o.Subdir) {
+	if o == nil || IsNil(o.Subdir) {
 		return nil, false
 	}
 	return o.Subdir, true
@@ -1487,7 +1487,7 @@ func (o *ModifyStorageRequestContent) GetSubdirOk() (*string, bool) {
 
 // HasSubdir returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasSubdir() bool {
-	if o != nil && !isNil(o.Subdir) {
+	if o != nil && !IsNil(o.Subdir) {
 		return true
 	}
 
@@ -1501,7 +1501,7 @@ func (o *ModifyStorageRequestContent) SetSubdir(v string) {
 
 // GetTaggedOnly returns the TaggedOnly field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetTaggedOnly() bool {
-	if o == nil || isNil(o.TaggedOnly) {
+	if o == nil || IsNil(o.TaggedOnly) {
 		var ret bool
 		return ret
 	}
@@ -1511,7 +1511,7 @@ func (o *ModifyStorageRequestContent) GetTaggedOnly() bool {
 // GetTaggedOnlyOk returns a tuple with the TaggedOnly field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetTaggedOnlyOk() (*bool, bool) {
-	if o == nil || isNil(o.TaggedOnly) {
+	if o == nil || IsNil(o.TaggedOnly) {
 		return nil, false
 	}
 	return o.TaggedOnly, true
@@ -1519,7 +1519,7 @@ func (o *ModifyStorageRequestContent) GetTaggedOnlyOk() (*bool, bool) {
 
 // HasTaggedOnly returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasTaggedOnly() bool {
-	if o != nil && !isNil(o.TaggedOnly) {
+	if o != nil && !IsNil(o.TaggedOnly) {
 		return true
 	}
 
@@ -1533,7 +1533,7 @@ func (o *ModifyStorageRequestContent) SetTaggedOnly(v bool) {
 
 // GetTransport returns the Transport field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetTransport() StorageTransport {
-	if o == nil || isNil(o.Transport) {
+	if o == nil || IsNil(o.Transport) {
 		var ret StorageTransport
 		return ret
 	}
@@ -1543,7 +1543,7 @@ func (o *ModifyStorageRequestContent) GetTransport() StorageTransport {
 // GetTransportOk returns a tuple with the Transport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetTransportOk() (*StorageTransport, bool) {
-	if o == nil || isNil(o.Transport) {
+	if o == nil || IsNil(o.Transport) {
 		return nil, false
 	}
 	return o.Transport, true
@@ -1551,7 +1551,7 @@ func (o *ModifyStorageRequestContent) GetTransportOk() (*StorageTransport, bool)
 
 // HasTransport returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasTransport() bool {
-	if o != nil && !isNil(o.Transport) {
+	if o != nil && !IsNil(o.Transport) {
 		return true
 	}
 
@@ -1565,7 +1565,7 @@ func (o *ModifyStorageRequestContent) SetTransport(v StorageTransport) {
 
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *ModifyStorageRequestContent) GetUsername() string {
-	if o == nil || isNil(o.Username) {
+	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
 	}
@@ -1575,7 +1575,7 @@ func (o *ModifyStorageRequestContent) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModifyStorageRequestContent) GetUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.Username) {
+	if o == nil || IsNil(o.Username) {
 		return nil, false
 	}
 	return o.Username, true
@@ -1583,7 +1583,7 @@ func (o *ModifyStorageRequestContent) GetUsernameOk() (*string, bool) {
 
 // HasUsername returns a boolean if a field has been set.
 func (o *ModifyStorageRequestContent) HasUsername() bool {
-	if o != nil && !isNil(o.Username) {
+	if o != nil && !IsNil(o.Username) {
 		return true
 	}
 
@@ -1605,142 +1605,142 @@ func (o ModifyStorageRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o ModifyStorageRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Blocksize) {
+	if !IsNil(o.Blocksize) {
 		toSerialize["blocksize"] = o.Blocksize
 	}
-	if !isNil(o.Bwlimit) {
+	if !IsNil(o.Bwlimit) {
 		toSerialize["bwlimit"] = o.Bwlimit
 	}
-	if !isNil(o.ComstarHg) {
+	if !IsNil(o.ComstarHg) {
 		toSerialize["comstar_hg"] = o.ComstarHg
 	}
-	if !isNil(o.ComstarTg) {
+	if !IsNil(o.ComstarTg) {
 		toSerialize["comstar_tg"] = o.ComstarTg
 	}
-	if !isNil(o.Content) {
+	if !IsNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
-	if !isNil(o.DataPool) {
+	if !IsNil(o.DataPool) {
 		toSerialize["data-pool"] = o.DataPool
 	}
-	if !isNil(o.Delete) {
+	if !IsNil(o.Delete) {
 		toSerialize["delete"] = o.Delete
 	}
-	if !isNil(o.Digest) {
+	if !IsNil(o.Digest) {
 		toSerialize["digest"] = o.Digest
 	}
-	if !isNil(o.Disable) {
+	if !IsNil(o.Disable) {
 		toSerialize["disable"] = o.Disable
 	}
-	if !isNil(o.Domain) {
+	if !IsNil(o.Domain) {
 		toSerialize["domain"] = o.Domain
 	}
-	if !isNil(o.EncryptionKey) {
+	if !IsNil(o.EncryptionKey) {
 		toSerialize["encryption-key"] = o.EncryptionKey
 	}
-	if !isNil(o.Fingerprint) {
+	if !IsNil(o.Fingerprint) {
 		toSerialize["fingerprint"] = o.Fingerprint
 	}
-	if !isNil(o.Format) {
+	if !IsNil(o.Format) {
 		toSerialize["format"] = o.Format
 	}
-	if !isNil(o.FsName) {
+	if !IsNil(o.FsName) {
 		toSerialize["fs-name"] = o.FsName
 	}
-	if !isNil(o.Fuse) {
+	if !IsNil(o.Fuse) {
 		toSerialize["fuse"] = o.Fuse
 	}
-	if !isNil(o.IsMountpoint) {
+	if !IsNil(o.IsMountpoint) {
 		toSerialize["is_mountpoint"] = o.IsMountpoint
 	}
-	if !isNil(o.Keyring) {
+	if !IsNil(o.Keyring) {
 		toSerialize["keyring"] = o.Keyring
 	}
-	if !isNil(o.Krbd) {
+	if !IsNil(o.Krbd) {
 		toSerialize["krbd"] = o.Krbd
 	}
-	if !isNil(o.LioTpg) {
+	if !IsNil(o.LioTpg) {
 		toSerialize["lio_tpg"] = o.LioTpg
 	}
-	if !isNil(o.MasterPubkey) {
+	if !IsNil(o.MasterPubkey) {
 		toSerialize["master-pubkey"] = o.MasterPubkey
 	}
-	if !isNil(o.MaxProtectedBackups) {
+	if !IsNil(o.MaxProtectedBackups) {
 		toSerialize["max-protected-backups"] = o.MaxProtectedBackups
 	}
-	if !isNil(o.Maxfiles) {
+	if !IsNil(o.Maxfiles) {
 		toSerialize["maxfiles"] = o.Maxfiles
 	}
-	if !isNil(o.Mkdir) {
+	if !IsNil(o.Mkdir) {
 		toSerialize["mkdir"] = o.Mkdir
 	}
-	if !isNil(o.Monhost) {
+	if !IsNil(o.Monhost) {
 		toSerialize["monhost"] = o.Monhost
 	}
-	if !isNil(o.Mountpoint) {
+	if !IsNil(o.Mountpoint) {
 		toSerialize["mountpoint"] = o.Mountpoint
 	}
-	if !isNil(o.Namespace) {
+	if !IsNil(o.Namespace) {
 		toSerialize["namespace"] = o.Namespace
 	}
-	if !isNil(o.Nocow) {
+	if !IsNil(o.Nocow) {
 		toSerialize["nocow"] = o.Nocow
 	}
-	if !isNil(o.Nodes) {
+	if !IsNil(o.Nodes) {
 		toSerialize["nodes"] = o.Nodes
 	}
-	if !isNil(o.Nowritecache) {
+	if !IsNil(o.Nowritecache) {
 		toSerialize["nowritecache"] = o.Nowritecache
 	}
-	if !isNil(o.Options) {
+	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
-	if !isNil(o.Password) {
+	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
-	if !isNil(o.Pool) {
+	if !IsNil(o.Pool) {
 		toSerialize["pool"] = o.Pool
 	}
-	if !isNil(o.Port) {
+	if !IsNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
-	if !isNil(o.Preallocation) {
+	if !IsNil(o.Preallocation) {
 		toSerialize["preallocation"] = o.Preallocation
 	}
-	if !isNil(o.PruneBackups) {
+	if !IsNil(o.PruneBackups) {
 		toSerialize["prune-backups"] = o.PruneBackups
 	}
-	if !isNil(o.Saferemove) {
+	if !IsNil(o.Saferemove) {
 		toSerialize["saferemove"] = o.Saferemove
 	}
-	if !isNil(o.SaferemoveThroughput) {
+	if !IsNil(o.SaferemoveThroughput) {
 		toSerialize["saferemove-throughput"] = o.SaferemoveThroughput
 	}
-	if !isNil(o.Server) {
+	if !IsNil(o.Server) {
 		toSerialize["server"] = o.Server
 	}
-	if !isNil(o.Server2) {
+	if !IsNil(o.Server2) {
 		toSerialize["server2"] = o.Server2
 	}
-	if !isNil(o.Shared) {
+	if !IsNil(o.Shared) {
 		toSerialize["shared"] = o.Shared
 	}
-	if !isNil(o.Smbversion) {
+	if !IsNil(o.Smbversion) {
 		toSerialize["smbversion"] = o.Smbversion
 	}
-	if !isNil(o.Sparse) {
+	if !IsNil(o.Sparse) {
 		toSerialize["sparse"] = o.Sparse
 	}
-	if !isNil(o.Subdir) {
+	if !IsNil(o.Subdir) {
 		toSerialize["subdir"] = o.Subdir
 	}
-	if !isNil(o.TaggedOnly) {
+	if !IsNil(o.TaggedOnly) {
 		toSerialize["tagged_only"] = o.TaggedOnly
 	}
-	if !isNil(o.Transport) {
+	if !IsNil(o.Transport) {
 		toSerialize["transport"] = o.Transport
 	}
-	if !isNil(o.Username) {
+	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
 	return toSerialize, nil

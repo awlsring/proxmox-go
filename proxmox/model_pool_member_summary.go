@@ -114,7 +114,7 @@ func (o *PoolMemberSummary) SetType(v PoolMemberType) {
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetDisk() float32 {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		var ret float32
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *PoolMemberSummary) GetDisk() float32 {
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetDiskOk() (*float32, bool) {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		return nil, false
 	}
 	return o.Disk, true
@@ -132,7 +132,7 @@ func (o *PoolMemberSummary) GetDiskOk() (*float32, bool) {
 
 // HasDisk returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasDisk() bool {
-	if o != nil && !isNil(o.Disk) {
+	if o != nil && !IsNil(o.Disk) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *PoolMemberSummary) SetDisk(v float32) {
 
 // GetUptime returns the Uptime field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetUptime() float32 {
-	if o == nil || isNil(o.Uptime) {
+	if o == nil || IsNil(o.Uptime) {
 		var ret float32
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *PoolMemberSummary) GetUptime() float32 {
 // GetUptimeOk returns a tuple with the Uptime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetUptimeOk() (*float32, bool) {
-	if o == nil || isNil(o.Uptime) {
+	if o == nil || IsNil(o.Uptime) {
 		return nil, false
 	}
 	return o.Uptime, true
@@ -164,7 +164,7 @@ func (o *PoolMemberSummary) GetUptimeOk() (*float32, bool) {
 
 // HasUptime returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasUptime() bool {
-	if o != nil && !isNil(o.Uptime) {
+	if o != nil && !IsNil(o.Uptime) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *PoolMemberSummary) SetUptime(v float32) {
 
 // GetMaxmem returns the Maxmem field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetMaxmem() float32 {
-	if o == nil || isNil(o.Maxmem) {
+	if o == nil || IsNil(o.Maxmem) {
 		var ret float32
 		return ret
 	}
@@ -188,7 +188,7 @@ func (o *PoolMemberSummary) GetMaxmem() float32 {
 // GetMaxmemOk returns a tuple with the Maxmem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetMaxmemOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxmem) {
+	if o == nil || IsNil(o.Maxmem) {
 		return nil, false
 	}
 	return o.Maxmem, true
@@ -196,7 +196,7 @@ func (o *PoolMemberSummary) GetMaxmemOk() (*float32, bool) {
 
 // HasMaxmem returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasMaxmem() bool {
-	if o != nil && !isNil(o.Maxmem) {
+	if o != nil && !IsNil(o.Maxmem) {
 		return true
 	}
 
@@ -210,7 +210,7 @@ func (o *PoolMemberSummary) SetMaxmem(v float32) {
 
 // GetNetin returns the Netin field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetNetin() float32 {
-	if o == nil || isNil(o.Netin) {
+	if o == nil || IsNil(o.Netin) {
 		var ret float32
 		return ret
 	}
@@ -220,7 +220,7 @@ func (o *PoolMemberSummary) GetNetin() float32 {
 // GetNetinOk returns a tuple with the Netin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetNetinOk() (*float32, bool) {
-	if o == nil || isNil(o.Netin) {
+	if o == nil || IsNil(o.Netin) {
 		return nil, false
 	}
 	return o.Netin, true
@@ -228,7 +228,7 @@ func (o *PoolMemberSummary) GetNetinOk() (*float32, bool) {
 
 // HasNetin returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasNetin() bool {
-	if o != nil && !isNil(o.Netin) {
+	if o != nil && !IsNil(o.Netin) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *PoolMemberSummary) SetNetin(v float32) {
 
 // GetNetout returns the Netout field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetNetout() float32 {
-	if o == nil || isNil(o.Netout) {
+	if o == nil || IsNil(o.Netout) {
 		var ret float32
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *PoolMemberSummary) GetNetout() float32 {
 // GetNetoutOk returns a tuple with the Netout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetNetoutOk() (*float32, bool) {
-	if o == nil || isNil(o.Netout) {
+	if o == nil || IsNil(o.Netout) {
 		return nil, false
 	}
 	return o.Netout, true
@@ -260,7 +260,7 @@ func (o *PoolMemberSummary) GetNetoutOk() (*float32, bool) {
 
 // HasNetout returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasNetout() bool {
-	if o != nil && !isNil(o.Netout) {
+	if o != nil && !IsNil(o.Netout) {
 		return true
 	}
 
@@ -274,7 +274,7 @@ func (o *PoolMemberSummary) SetNetout(v float32) {
 
 // GetDiskwrite returns the Diskwrite field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetDiskwrite() float32 {
-	if o == nil || isNil(o.Diskwrite) {
+	if o == nil || IsNil(o.Diskwrite) {
 		var ret float32
 		return ret
 	}
@@ -284,7 +284,7 @@ func (o *PoolMemberSummary) GetDiskwrite() float32 {
 // GetDiskwriteOk returns a tuple with the Diskwrite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetDiskwriteOk() (*float32, bool) {
-	if o == nil || isNil(o.Diskwrite) {
+	if o == nil || IsNil(o.Diskwrite) {
 		return nil, false
 	}
 	return o.Diskwrite, true
@@ -292,7 +292,7 @@ func (o *PoolMemberSummary) GetDiskwriteOk() (*float32, bool) {
 
 // HasDiskwrite returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasDiskwrite() bool {
-	if o != nil && !isNil(o.Diskwrite) {
+	if o != nil && !IsNil(o.Diskwrite) {
 		return true
 	}
 
@@ -306,7 +306,7 @@ func (o *PoolMemberSummary) SetDiskwrite(v float32) {
 
 // GetDiskread returns the Diskread field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetDiskread() float32 {
-	if o == nil || isNil(o.Diskread) {
+	if o == nil || IsNil(o.Diskread) {
 		var ret float32
 		return ret
 	}
@@ -316,7 +316,7 @@ func (o *PoolMemberSummary) GetDiskread() float32 {
 // GetDiskreadOk returns a tuple with the Diskread field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetDiskreadOk() (*float32, bool) {
-	if o == nil || isNil(o.Diskread) {
+	if o == nil || IsNil(o.Diskread) {
 		return nil, false
 	}
 	return o.Diskread, true
@@ -324,7 +324,7 @@ func (o *PoolMemberSummary) GetDiskreadOk() (*float32, bool) {
 
 // HasDiskread returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasDiskread() bool {
-	if o != nil && !isNil(o.Diskread) {
+	if o != nil && !IsNil(o.Diskread) {
 		return true
 	}
 
@@ -338,7 +338,7 @@ func (o *PoolMemberSummary) SetDiskread(v float32) {
 
 // GetMaxdisk returns the Maxdisk field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetMaxdisk() float32 {
-	if o == nil || isNil(o.Maxdisk) {
+	if o == nil || IsNil(o.Maxdisk) {
 		var ret float32
 		return ret
 	}
@@ -348,7 +348,7 @@ func (o *PoolMemberSummary) GetMaxdisk() float32 {
 // GetMaxdiskOk returns a tuple with the Maxdisk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetMaxdiskOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxdisk) {
+	if o == nil || IsNil(o.Maxdisk) {
 		return nil, false
 	}
 	return o.Maxdisk, true
@@ -356,7 +356,7 @@ func (o *PoolMemberSummary) GetMaxdiskOk() (*float32, bool) {
 
 // HasMaxdisk returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasMaxdisk() bool {
-	if o != nil && !isNil(o.Maxdisk) {
+	if o != nil && !IsNil(o.Maxdisk) {
 		return true
 	}
 
@@ -370,7 +370,7 @@ func (o *PoolMemberSummary) SetMaxdisk(v float32) {
 
 // GetCpu returns the Cpu field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetCpu() float32 {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		var ret float32
 		return ret
 	}
@@ -380,7 +380,7 @@ func (o *PoolMemberSummary) GetCpu() float32 {
 // GetCpuOk returns a tuple with the Cpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetCpuOk() (*float32, bool) {
-	if o == nil || isNil(o.Cpu) {
+	if o == nil || IsNil(o.Cpu) {
 		return nil, false
 	}
 	return o.Cpu, true
@@ -388,7 +388,7 @@ func (o *PoolMemberSummary) GetCpuOk() (*float32, bool) {
 
 // HasCpu returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasCpu() bool {
-	if o != nil && !isNil(o.Cpu) {
+	if o != nil && !IsNil(o.Cpu) {
 		return true
 	}
 
@@ -402,7 +402,7 @@ func (o *PoolMemberSummary) SetCpu(v float32) {
 
 // GetMaxcpu returns the Maxcpu field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetMaxcpu() float32 {
-	if o == nil || isNil(o.Maxcpu) {
+	if o == nil || IsNil(o.Maxcpu) {
 		var ret float32
 		return ret
 	}
@@ -412,7 +412,7 @@ func (o *PoolMemberSummary) GetMaxcpu() float32 {
 // GetMaxcpuOk returns a tuple with the Maxcpu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetMaxcpuOk() (*float32, bool) {
-	if o == nil || isNil(o.Maxcpu) {
+	if o == nil || IsNil(o.Maxcpu) {
 		return nil, false
 	}
 	return o.Maxcpu, true
@@ -420,7 +420,7 @@ func (o *PoolMemberSummary) GetMaxcpuOk() (*float32, bool) {
 
 // HasMaxcpu returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasMaxcpu() bool {
-	if o != nil && !isNil(o.Maxcpu) {
+	if o != nil && !IsNil(o.Maxcpu) {
 		return true
 	}
 
@@ -434,7 +434,7 @@ func (o *PoolMemberSummary) SetMaxcpu(v float32) {
 
 // GetVmid returns the Vmid field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetVmid() float32 {
-	if o == nil || isNil(o.Vmid) {
+	if o == nil || IsNil(o.Vmid) {
 		var ret float32
 		return ret
 	}
@@ -444,7 +444,7 @@ func (o *PoolMemberSummary) GetVmid() float32 {
 // GetVmidOk returns a tuple with the Vmid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetVmidOk() (*float32, bool) {
-	if o == nil || isNil(o.Vmid) {
+	if o == nil || IsNil(o.Vmid) {
 		return nil, false
 	}
 	return o.Vmid, true
@@ -452,7 +452,7 @@ func (o *PoolMemberSummary) GetVmidOk() (*float32, bool) {
 
 // HasVmid returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasVmid() bool {
-	if o != nil && !isNil(o.Vmid) {
+	if o != nil && !IsNil(o.Vmid) {
 		return true
 	}
 
@@ -466,7 +466,7 @@ func (o *PoolMemberSummary) SetVmid(v float32) {
 
 // GetMem returns the Mem field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetMem() float32 {
-	if o == nil || isNil(o.Mem) {
+	if o == nil || IsNil(o.Mem) {
 		var ret float32
 		return ret
 	}
@@ -476,7 +476,7 @@ func (o *PoolMemberSummary) GetMem() float32 {
 // GetMemOk returns a tuple with the Mem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetMemOk() (*float32, bool) {
-	if o == nil || isNil(o.Mem) {
+	if o == nil || IsNil(o.Mem) {
 		return nil, false
 	}
 	return o.Mem, true
@@ -484,7 +484,7 @@ func (o *PoolMemberSummary) GetMemOk() (*float32, bool) {
 
 // HasMem returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasMem() bool {
-	if o != nil && !isNil(o.Mem) {
+	if o != nil && !IsNil(o.Mem) {
 		return true
 	}
 
@@ -498,7 +498,7 @@ func (o *PoolMemberSummary) SetMem(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -508,7 +508,7 @@ func (o *PoolMemberSummary) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -516,7 +516,7 @@ func (o *PoolMemberSummary) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -530,7 +530,7 @@ func (o *PoolMemberSummary) SetName(v string) {
 
 // GetTemplate returns the Template field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetTemplate() float32 {
-	if o == nil || isNil(o.Template) {
+	if o == nil || IsNil(o.Template) {
 		var ret float32
 		return ret
 	}
@@ -540,7 +540,7 @@ func (o *PoolMemberSummary) GetTemplate() float32 {
 // GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetTemplateOk() (*float32, bool) {
-	if o == nil || isNil(o.Template) {
+	if o == nil || IsNil(o.Template) {
 		return nil, false
 	}
 	return o.Template, true
@@ -548,7 +548,7 @@ func (o *PoolMemberSummary) GetTemplateOk() (*float32, bool) {
 
 // HasTemplate returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasTemplate() bool {
-	if o != nil && !isNil(o.Template) {
+	if o != nil && !IsNil(o.Template) {
 		return true
 	}
 
@@ -562,7 +562,7 @@ func (o *PoolMemberSummary) SetTemplate(v float32) {
 
 // GetNode returns the Node field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetNode() string {
-	if o == nil || isNil(o.Node) {
+	if o == nil || IsNil(o.Node) {
 		var ret string
 		return ret
 	}
@@ -572,7 +572,7 @@ func (o *PoolMemberSummary) GetNode() string {
 // GetNodeOk returns a tuple with the Node field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetNodeOk() (*string, bool) {
-	if o == nil || isNil(o.Node) {
+	if o == nil || IsNil(o.Node) {
 		return nil, false
 	}
 	return o.Node, true
@@ -580,7 +580,7 @@ func (o *PoolMemberSummary) GetNodeOk() (*string, bool) {
 
 // HasNode returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasNode() bool {
-	if o != nil && !isNil(o.Node) {
+	if o != nil && !IsNil(o.Node) {
 		return true
 	}
 
@@ -594,7 +594,7 @@ func (o *PoolMemberSummary) SetNode(v string) {
 
 // GetStorage returns the Storage field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetStorage() string {
-	if o == nil || isNil(o.Storage) {
+	if o == nil || IsNil(o.Storage) {
 		var ret string
 		return ret
 	}
@@ -604,7 +604,7 @@ func (o *PoolMemberSummary) GetStorage() string {
 // GetStorageOk returns a tuple with the Storage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetStorageOk() (*string, bool) {
-	if o == nil || isNil(o.Storage) {
+	if o == nil || IsNil(o.Storage) {
 		return nil, false
 	}
 	return o.Storage, true
@@ -612,7 +612,7 @@ func (o *PoolMemberSummary) GetStorageOk() (*string, bool) {
 
 // HasStorage returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasStorage() bool {
-	if o != nil && !isNil(o.Storage) {
+	if o != nil && !IsNil(o.Storage) {
 		return true
 	}
 
@@ -626,7 +626,7 @@ func (o *PoolMemberSummary) SetStorage(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -636,7 +636,7 @@ func (o *PoolMemberSummary) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -644,7 +644,7 @@ func (o *PoolMemberSummary) GetStatusOk() (*string, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -658,7 +658,7 @@ func (o *PoolMemberSummary) SetStatus(v string) {
 
 // GetPlugintype returns the Plugintype field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetPlugintype() string {
-	if o == nil || isNil(o.Plugintype) {
+	if o == nil || IsNil(o.Plugintype) {
 		var ret string
 		return ret
 	}
@@ -668,7 +668,7 @@ func (o *PoolMemberSummary) GetPlugintype() string {
 // GetPlugintypeOk returns a tuple with the Plugintype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetPlugintypeOk() (*string, bool) {
-	if o == nil || isNil(o.Plugintype) {
+	if o == nil || IsNil(o.Plugintype) {
 		return nil, false
 	}
 	return o.Plugintype, true
@@ -676,7 +676,7 @@ func (o *PoolMemberSummary) GetPlugintypeOk() (*string, bool) {
 
 // HasPlugintype returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasPlugintype() bool {
-	if o != nil && !isNil(o.Plugintype) {
+	if o != nil && !IsNil(o.Plugintype) {
 		return true
 	}
 
@@ -690,7 +690,7 @@ func (o *PoolMemberSummary) SetPlugintype(v string) {
 
 // GetShared returns the Shared field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetShared() float32 {
-	if o == nil || isNil(o.Shared) {
+	if o == nil || IsNil(o.Shared) {
 		var ret float32
 		return ret
 	}
@@ -700,7 +700,7 @@ func (o *PoolMemberSummary) GetShared() float32 {
 // GetSharedOk returns a tuple with the Shared field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetSharedOk() (*float32, bool) {
-	if o == nil || isNil(o.Shared) {
+	if o == nil || IsNil(o.Shared) {
 		return nil, false
 	}
 	return o.Shared, true
@@ -708,7 +708,7 @@ func (o *PoolMemberSummary) GetSharedOk() (*float32, bool) {
 
 // HasShared returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasShared() bool {
-	if o != nil && !isNil(o.Shared) {
+	if o != nil && !IsNil(o.Shared) {
 		return true
 	}
 
@@ -722,7 +722,7 @@ func (o *PoolMemberSummary) SetShared(v float32) {
 
 // GetContent returns the Content field value if set, zero value otherwise.
 func (o *PoolMemberSummary) GetContent() string {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
@@ -732,7 +732,7 @@ func (o *PoolMemberSummary) GetContent() string {
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PoolMemberSummary) GetContentOk() (*string, bool) {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
 	return o.Content, true
@@ -740,7 +740,7 @@ func (o *PoolMemberSummary) GetContentOk() (*string, bool) {
 
 // HasContent returns a boolean if a field has been set.
 func (o *PoolMemberSummary) HasContent() bool {
-	if o != nil && !isNil(o.Content) {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
@@ -764,64 +764,64 @@ func (o PoolMemberSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["type"] = o.Type
-	if !isNil(o.Disk) {
+	if !IsNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
-	if !isNil(o.Uptime) {
+	if !IsNil(o.Uptime) {
 		toSerialize["uptime"] = o.Uptime
 	}
-	if !isNil(o.Maxmem) {
+	if !IsNil(o.Maxmem) {
 		toSerialize["maxmem"] = o.Maxmem
 	}
-	if !isNil(o.Netin) {
+	if !IsNil(o.Netin) {
 		toSerialize["netin"] = o.Netin
 	}
-	if !isNil(o.Netout) {
+	if !IsNil(o.Netout) {
 		toSerialize["netout"] = o.Netout
 	}
-	if !isNil(o.Diskwrite) {
+	if !IsNil(o.Diskwrite) {
 		toSerialize["diskwrite"] = o.Diskwrite
 	}
-	if !isNil(o.Diskread) {
+	if !IsNil(o.Diskread) {
 		toSerialize["diskread"] = o.Diskread
 	}
-	if !isNil(o.Maxdisk) {
+	if !IsNil(o.Maxdisk) {
 		toSerialize["maxdisk"] = o.Maxdisk
 	}
-	if !isNil(o.Cpu) {
+	if !IsNil(o.Cpu) {
 		toSerialize["cpu"] = o.Cpu
 	}
-	if !isNil(o.Maxcpu) {
+	if !IsNil(o.Maxcpu) {
 		toSerialize["maxcpu"] = o.Maxcpu
 	}
-	if !isNil(o.Vmid) {
+	if !IsNil(o.Vmid) {
 		toSerialize["vmid"] = o.Vmid
 	}
-	if !isNil(o.Mem) {
+	if !IsNil(o.Mem) {
 		toSerialize["mem"] = o.Mem
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Template) {
+	if !IsNil(o.Template) {
 		toSerialize["template"] = o.Template
 	}
-	if !isNil(o.Node) {
+	if !IsNil(o.Node) {
 		toSerialize["node"] = o.Node
 	}
-	if !isNil(o.Storage) {
+	if !IsNil(o.Storage) {
 		toSerialize["storage"] = o.Storage
 	}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !isNil(o.Plugintype) {
+	if !IsNil(o.Plugintype) {
 		toSerialize["plugintype"] = o.Plugintype
 	}
-	if !isNil(o.Shared) {
+	if !IsNil(o.Shared) {
 		toSerialize["shared"] = o.Shared
 	}
-	if !isNil(o.Content) {
+	if !IsNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
 	return toSerialize, nil

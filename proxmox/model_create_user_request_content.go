@@ -75,7 +75,7 @@ func (o *CreateUserRequestContent) SetUserid(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *CreateUserRequestContent) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
 	return o.Email, true
@@ -93,7 +93,7 @@ func (o *CreateUserRequestContent) GetEmailOk() (*string, bool) {
 
 // HasEmail returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *CreateUserRequestContent) SetEmail(v string) {
 
 // GetFirstname returns the Firstname field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetFirstname() string {
-	if o == nil || isNil(o.Firstname) {
+	if o == nil || IsNil(o.Firstname) {
 		var ret string
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *CreateUserRequestContent) GetFirstname() string {
 // GetFirstnameOk returns a tuple with the Firstname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetFirstnameOk() (*string, bool) {
-	if o == nil || isNil(o.Firstname) {
+	if o == nil || IsNil(o.Firstname) {
 		return nil, false
 	}
 	return o.Firstname, true
@@ -125,7 +125,7 @@ func (o *CreateUserRequestContent) GetFirstnameOk() (*string, bool) {
 
 // HasFirstname returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasFirstname() bool {
-	if o != nil && !isNil(o.Firstname) {
+	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
 
@@ -139,7 +139,7 @@ func (o *CreateUserRequestContent) SetFirstname(v string) {
 
 // GetLastname returns the Lastname field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetLastname() string {
-	if o == nil || isNil(o.Lastname) {
+	if o == nil || IsNil(o.Lastname) {
 		var ret string
 		return ret
 	}
@@ -149,7 +149,7 @@ func (o *CreateUserRequestContent) GetLastname() string {
 // GetLastnameOk returns a tuple with the Lastname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetLastnameOk() (*string, bool) {
-	if o == nil || isNil(o.Lastname) {
+	if o == nil || IsNil(o.Lastname) {
 		return nil, false
 	}
 	return o.Lastname, true
@@ -157,7 +157,7 @@ func (o *CreateUserRequestContent) GetLastnameOk() (*string, bool) {
 
 // HasLastname returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasLastname() bool {
-	if o != nil && !isNil(o.Lastname) {
+	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
 
@@ -171,7 +171,7 @@ func (o *CreateUserRequestContent) SetLastname(v string) {
 
 // GetEnable returns the Enable field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetEnable() float32 {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		var ret float32
 		return ret
 	}
@@ -181,7 +181,7 @@ func (o *CreateUserRequestContent) GetEnable() float32 {
 // GetEnableOk returns a tuple with the Enable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetEnableOk() (*float32, bool) {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		return nil, false
 	}
 	return o.Enable, true
@@ -189,7 +189,7 @@ func (o *CreateUserRequestContent) GetEnableOk() (*float32, bool) {
 
 // HasEnable returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasEnable() bool {
-	if o != nil && !isNil(o.Enable) {
+	if o != nil && !IsNil(o.Enable) {
 		return true
 	}
 
@@ -203,7 +203,7 @@ func (o *CreateUserRequestContent) SetEnable(v float32) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -213,7 +213,7 @@ func (o *CreateUserRequestContent) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -221,7 +221,7 @@ func (o *CreateUserRequestContent) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -235,7 +235,7 @@ func (o *CreateUserRequestContent) SetComment(v string) {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetGroups() string {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret string
 		return ret
 	}
@@ -245,7 +245,7 @@ func (o *CreateUserRequestContent) GetGroups() string {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetGroupsOk() (*string, bool) {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		return nil, false
 	}
 	return o.Groups, true
@@ -253,7 +253,7 @@ func (o *CreateUserRequestContent) GetGroupsOk() (*string, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -267,7 +267,7 @@ func (o *CreateUserRequestContent) SetGroups(v string) {
 
 // GetKeys returns the Keys field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetKeys() string {
-	if o == nil || isNil(o.Keys) {
+	if o == nil || IsNil(o.Keys) {
 		var ret string
 		return ret
 	}
@@ -277,7 +277,7 @@ func (o *CreateUserRequestContent) GetKeys() string {
 // GetKeysOk returns a tuple with the Keys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetKeysOk() (*string, bool) {
-	if o == nil || isNil(o.Keys) {
+	if o == nil || IsNil(o.Keys) {
 		return nil, false
 	}
 	return o.Keys, true
@@ -285,7 +285,7 @@ func (o *CreateUserRequestContent) GetKeysOk() (*string, bool) {
 
 // HasKeys returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasKeys() bool {
-	if o != nil && !isNil(o.Keys) {
+	if o != nil && !IsNil(o.Keys) {
 		return true
 	}
 
@@ -299,7 +299,7 @@ func (o *CreateUserRequestContent) SetKeys(v string) {
 
 // GetExpire returns the Expire field value if set, zero value otherwise.
 func (o *CreateUserRequestContent) GetExpire() float32 {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		var ret float32
 		return ret
 	}
@@ -309,7 +309,7 @@ func (o *CreateUserRequestContent) GetExpire() float32 {
 // GetExpireOk returns a tuple with the Expire field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequestContent) GetExpireOk() (*float32, bool) {
-	if o == nil || isNil(o.Expire) {
+	if o == nil || IsNil(o.Expire) {
 		return nil, false
 	}
 	return o.Expire, true
@@ -317,7 +317,7 @@ func (o *CreateUserRequestContent) GetExpireOk() (*float32, bool) {
 
 // HasExpire returns a boolean if a field has been set.
 func (o *CreateUserRequestContent) HasExpire() bool {
-	if o != nil && !isNil(o.Expire) {
+	if o != nil && !IsNil(o.Expire) {
 		return true
 	}
 
@@ -340,28 +340,28 @@ func (o CreateUserRequestContent) MarshalJSON() ([]byte, error) {
 func (o CreateUserRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["userid"] = o.Userid
-	if !isNil(o.Email) {
+	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !isNil(o.Firstname) {
+	if !IsNil(o.Firstname) {
 		toSerialize["firstname"] = o.Firstname
 	}
-	if !isNil(o.Lastname) {
+	if !IsNil(o.Lastname) {
 		toSerialize["lastname"] = o.Lastname
 	}
-	if !isNil(o.Enable) {
+	if !IsNil(o.Enable) {
 		toSerialize["enable"] = o.Enable
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Groups) {
+	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
-	if !isNil(o.Keys) {
+	if !IsNil(o.Keys) {
 		toSerialize["keys"] = o.Keys
 	}
-	if !isNil(o.Expire) {
+	if !IsNil(o.Expire) {
 		toSerialize["expire"] = o.Expire
 	}
 	return toSerialize, nil

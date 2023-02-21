@@ -154,7 +154,7 @@ func (o *ZFSPoolStatusSummary) SetState(v string) {
 
 // GetAction returns the Action field value if set, zero value otherwise.
 func (o *ZFSPoolStatusSummary) GetAction() string {
-	if o == nil || isNil(o.Action) {
+	if o == nil || IsNil(o.Action) {
 		var ret string
 		return ret
 	}
@@ -164,7 +164,7 @@ func (o *ZFSPoolStatusSummary) GetAction() string {
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetActionOk() (*string, bool) {
-	if o == nil || isNil(o.Action) {
+	if o == nil || IsNil(o.Action) {
 		return nil, false
 	}
 	return o.Action, true
@@ -172,7 +172,7 @@ func (o *ZFSPoolStatusSummary) GetActionOk() (*string, bool) {
 
 // HasAction returns a boolean if a field has been set.
 func (o *ZFSPoolStatusSummary) HasAction() bool {
-	if o != nil && !isNil(o.Action) {
+	if o != nil && !IsNil(o.Action) {
 		return true
 	}
 
@@ -186,7 +186,7 @@ func (o *ZFSPoolStatusSummary) SetAction(v string) {
 
 // GetScan returns the Scan field value if set, zero value otherwise.
 func (o *ZFSPoolStatusSummary) GetScan() string {
-	if o == nil || isNil(o.Scan) {
+	if o == nil || IsNil(o.Scan) {
 		var ret string
 		return ret
 	}
@@ -196,7 +196,7 @@ func (o *ZFSPoolStatusSummary) GetScan() string {
 // GetScanOk returns a tuple with the Scan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetScanOk() (*string, bool) {
-	if o == nil || isNil(o.Scan) {
+	if o == nil || IsNil(o.Scan) {
 		return nil, false
 	}
 	return o.Scan, true
@@ -204,7 +204,7 @@ func (o *ZFSPoolStatusSummary) GetScanOk() (*string, bool) {
 
 // HasScan returns a boolean if a field has been set.
 func (o *ZFSPoolStatusSummary) HasScan() bool {
-	if o != nil && !isNil(o.Scan) {
+	if o != nil && !IsNil(o.Scan) {
 		return true
 	}
 
@@ -218,7 +218,7 @@ func (o *ZFSPoolStatusSummary) SetScan(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ZFSPoolStatusSummary) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -228,7 +228,7 @@ func (o *ZFSPoolStatusSummary) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ZFSPoolStatusSummary) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -236,7 +236,7 @@ func (o *ZFSPoolStatusSummary) GetStatusOk() (*string, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *ZFSPoolStatusSummary) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -262,13 +262,13 @@ func (o ZFSPoolStatusSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["errors"] = o.Errors
 	toSerialize["name"] = o.Name
 	toSerialize["state"] = o.State
-	if !isNil(o.Action) {
+	if !IsNil(o.Action) {
 		toSerialize["action"] = o.Action
 	}
-	if !isNil(o.Scan) {
+	if !IsNil(o.Scan) {
 		toSerialize["scan"] = o.Scan
 	}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil

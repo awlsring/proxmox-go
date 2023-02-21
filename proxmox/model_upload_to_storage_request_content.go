@@ -98,7 +98,7 @@ func (o *UploadToStorageRequestContent) SetFilename(v string) {
 
 // GetChecksum returns the Checksum field value if set, zero value otherwise.
 func (o *UploadToStorageRequestContent) GetChecksum() string {
-	if o == nil || isNil(o.Checksum) {
+	if o == nil || IsNil(o.Checksum) {
 		var ret string
 		return ret
 	}
@@ -108,7 +108,7 @@ func (o *UploadToStorageRequestContent) GetChecksum() string {
 // GetChecksumOk returns a tuple with the Checksum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UploadToStorageRequestContent) GetChecksumOk() (*string, bool) {
-	if o == nil || isNil(o.Checksum) {
+	if o == nil || IsNil(o.Checksum) {
 		return nil, false
 	}
 	return o.Checksum, true
@@ -116,7 +116,7 @@ func (o *UploadToStorageRequestContent) GetChecksumOk() (*string, bool) {
 
 // HasChecksum returns a boolean if a field has been set.
 func (o *UploadToStorageRequestContent) HasChecksum() bool {
-	if o != nil && !isNil(o.Checksum) {
+	if o != nil && !IsNil(o.Checksum) {
 		return true
 	}
 
@@ -130,7 +130,7 @@ func (o *UploadToStorageRequestContent) SetChecksum(v string) {
 
 // GetChecksumAlgorithm returns the ChecksumAlgorithm field value if set, zero value otherwise.
 func (o *UploadToStorageRequestContent) GetChecksumAlgorithm() ChecksumAlgorithm {
-	if o == nil || isNil(o.ChecksumAlgorithm) {
+	if o == nil || IsNil(o.ChecksumAlgorithm) {
 		var ret ChecksumAlgorithm
 		return ret
 	}
@@ -140,7 +140,7 @@ func (o *UploadToStorageRequestContent) GetChecksumAlgorithm() ChecksumAlgorithm
 // GetChecksumAlgorithmOk returns a tuple with the ChecksumAlgorithm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UploadToStorageRequestContent) GetChecksumAlgorithmOk() (*ChecksumAlgorithm, bool) {
-	if o == nil || isNil(o.ChecksumAlgorithm) {
+	if o == nil || IsNil(o.ChecksumAlgorithm) {
 		return nil, false
 	}
 	return o.ChecksumAlgorithm, true
@@ -148,7 +148,7 @@ func (o *UploadToStorageRequestContent) GetChecksumAlgorithmOk() (*ChecksumAlgor
 
 // HasChecksumAlgorithm returns a boolean if a field has been set.
 func (o *UploadToStorageRequestContent) HasChecksumAlgorithm() bool {
-	if o != nil && !isNil(o.ChecksumAlgorithm) {
+	if o != nil && !IsNil(o.ChecksumAlgorithm) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *UploadToStorageRequestContent) SetChecksumAlgorithm(v ChecksumAlgorithm
 
 // GetTmpfilename returns the Tmpfilename field value if set, zero value otherwise.
 func (o *UploadToStorageRequestContent) GetTmpfilename() string {
-	if o == nil || isNil(o.Tmpfilename) {
+	if o == nil || IsNil(o.Tmpfilename) {
 		var ret string
 		return ret
 	}
@@ -172,7 +172,7 @@ func (o *UploadToStorageRequestContent) GetTmpfilename() string {
 // GetTmpfilenameOk returns a tuple with the Tmpfilename field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UploadToStorageRequestContent) GetTmpfilenameOk() (*string, bool) {
-	if o == nil || isNil(o.Tmpfilename) {
+	if o == nil || IsNil(o.Tmpfilename) {
 		return nil, false
 	}
 	return o.Tmpfilename, true
@@ -180,7 +180,7 @@ func (o *UploadToStorageRequestContent) GetTmpfilenameOk() (*string, bool) {
 
 // HasTmpfilename returns a boolean if a field has been set.
 func (o *UploadToStorageRequestContent) HasTmpfilename() bool {
-	if o != nil && !isNil(o.Tmpfilename) {
+	if o != nil && !IsNil(o.Tmpfilename) {
 		return true
 	}
 
@@ -204,13 +204,13 @@ func (o UploadToStorageRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["content"] = o.Content
 	toSerialize["filename"] = o.Filename
-	if !isNil(o.Checksum) {
+	if !IsNil(o.Checksum) {
 		toSerialize["checksum"] = o.Checksum
 	}
-	if !isNil(o.ChecksumAlgorithm) {
+	if !IsNil(o.ChecksumAlgorithm) {
 		toSerialize["checksum-algorithm"] = o.ChecksumAlgorithm
 	}
-	if !isNil(o.Tmpfilename) {
+	if !IsNil(o.Tmpfilename) {
 		toSerialize["tmpfilename"] = o.Tmpfilename
 	}
 	return toSerialize, nil

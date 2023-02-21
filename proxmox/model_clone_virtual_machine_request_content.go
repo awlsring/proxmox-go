@@ -84,7 +84,7 @@ func (o *CloneVirtualMachineRequestContent) SetNewid(v float32) {
 
 // GetBwlimit returns the Bwlimit field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetBwlimit() float32 {
-	if o == nil || isNil(o.Bwlimit) {
+	if o == nil || IsNil(o.Bwlimit) {
 		var ret float32
 		return ret
 	}
@@ -94,7 +94,7 @@ func (o *CloneVirtualMachineRequestContent) GetBwlimit() float32 {
 // GetBwlimitOk returns a tuple with the Bwlimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetBwlimitOk() (*float32, bool) {
-	if o == nil || isNil(o.Bwlimit) {
+	if o == nil || IsNil(o.Bwlimit) {
 		return nil, false
 	}
 	return o.Bwlimit, true
@@ -102,7 +102,7 @@ func (o *CloneVirtualMachineRequestContent) GetBwlimitOk() (*float32, bool) {
 
 // HasBwlimit returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasBwlimit() bool {
-	if o != nil && !isNil(o.Bwlimit) {
+	if o != nil && !IsNil(o.Bwlimit) {
 		return true
 	}
 
@@ -116,7 +116,7 @@ func (o *CloneVirtualMachineRequestContent) SetBwlimit(v float32) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -126,7 +126,7 @@ func (o *CloneVirtualMachineRequestContent) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -134,7 +134,7 @@ func (o *CloneVirtualMachineRequestContent) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -148,7 +148,7 @@ func (o *CloneVirtualMachineRequestContent) SetDescription(v string) {
 
 // GetFull returns the Full field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetFull() bool {
-	if o == nil || isNil(o.Full) {
+	if o == nil || IsNil(o.Full) {
 		var ret bool
 		return ret
 	}
@@ -158,7 +158,7 @@ func (o *CloneVirtualMachineRequestContent) GetFull() bool {
 // GetFullOk returns a tuple with the Full field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetFullOk() (*bool, bool) {
-	if o == nil || isNil(o.Full) {
+	if o == nil || IsNil(o.Full) {
 		return nil, false
 	}
 	return o.Full, true
@@ -166,7 +166,7 @@ func (o *CloneVirtualMachineRequestContent) GetFullOk() (*bool, bool) {
 
 // HasFull returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasFull() bool {
-	if o != nil && !isNil(o.Full) {
+	if o != nil && !IsNil(o.Full) {
 		return true
 	}
 
@@ -180,7 +180,7 @@ func (o *CloneVirtualMachineRequestContent) SetFull(v bool) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -190,7 +190,7 @@ func (o *CloneVirtualMachineRequestContent) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -198,7 +198,7 @@ func (o *CloneVirtualMachineRequestContent) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -212,7 +212,7 @@ func (o *CloneVirtualMachineRequestContent) SetName(v string) {
 
 // GetFormat returns the Format field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetFormat() CloneVirtualMachineDiskFormat {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		var ret CloneVirtualMachineDiskFormat
 		return ret
 	}
@@ -222,7 +222,7 @@ func (o *CloneVirtualMachineRequestContent) GetFormat() CloneVirtualMachineDiskF
 // GetFormatOk returns a tuple with the Format field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetFormatOk() (*CloneVirtualMachineDiskFormat, bool) {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		return nil, false
 	}
 	return o.Format, true
@@ -230,7 +230,7 @@ func (o *CloneVirtualMachineRequestContent) GetFormatOk() (*CloneVirtualMachineD
 
 // HasFormat returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasFormat() bool {
-	if o != nil && !isNil(o.Format) {
+	if o != nil && !IsNil(o.Format) {
 		return true
 	}
 
@@ -244,7 +244,7 @@ func (o *CloneVirtualMachineRequestContent) SetFormat(v CloneVirtualMachineDiskF
 
 // GetStorage returns the Storage field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetStorage() string {
-	if o == nil || isNil(o.Storage) {
+	if o == nil || IsNil(o.Storage) {
 		var ret string
 		return ret
 	}
@@ -254,7 +254,7 @@ func (o *CloneVirtualMachineRequestContent) GetStorage() string {
 // GetStorageOk returns a tuple with the Storage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetStorageOk() (*string, bool) {
-	if o == nil || isNil(o.Storage) {
+	if o == nil || IsNil(o.Storage) {
 		return nil, false
 	}
 	return o.Storage, true
@@ -262,7 +262,7 @@ func (o *CloneVirtualMachineRequestContent) GetStorageOk() (*string, bool) {
 
 // HasStorage returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasStorage() bool {
-	if o != nil && !isNil(o.Storage) {
+	if o != nil && !IsNil(o.Storage) {
 		return true
 	}
 
@@ -276,7 +276,7 @@ func (o *CloneVirtualMachineRequestContent) SetStorage(v string) {
 
 // GetTarget returns the Target field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetTarget() string {
-	if o == nil || isNil(o.Target) {
+	if o == nil || IsNil(o.Target) {
 		var ret string
 		return ret
 	}
@@ -286,7 +286,7 @@ func (o *CloneVirtualMachineRequestContent) GetTarget() string {
 // GetTargetOk returns a tuple with the Target field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetTargetOk() (*string, bool) {
-	if o == nil || isNil(o.Target) {
+	if o == nil || IsNil(o.Target) {
 		return nil, false
 	}
 	return o.Target, true
@@ -294,7 +294,7 @@ func (o *CloneVirtualMachineRequestContent) GetTargetOk() (*string, bool) {
 
 // HasTarget returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasTarget() bool {
-	if o != nil && !isNil(o.Target) {
+	if o != nil && !IsNil(o.Target) {
 		return true
 	}
 
@@ -308,7 +308,7 @@ func (o *CloneVirtualMachineRequestContent) SetTarget(v string) {
 
 // GetSnapname returns the Snapname field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetSnapname() string {
-	if o == nil || isNil(o.Snapname) {
+	if o == nil || IsNil(o.Snapname) {
 		var ret string
 		return ret
 	}
@@ -318,7 +318,7 @@ func (o *CloneVirtualMachineRequestContent) GetSnapname() string {
 // GetSnapnameOk returns a tuple with the Snapname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetSnapnameOk() (*string, bool) {
-	if o == nil || isNil(o.Snapname) {
+	if o == nil || IsNil(o.Snapname) {
 		return nil, false
 	}
 	return o.Snapname, true
@@ -326,7 +326,7 @@ func (o *CloneVirtualMachineRequestContent) GetSnapnameOk() (*string, bool) {
 
 // HasSnapname returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasSnapname() bool {
-	if o != nil && !isNil(o.Snapname) {
+	if o != nil && !IsNil(o.Snapname) {
 		return true
 	}
 
@@ -340,7 +340,7 @@ func (o *CloneVirtualMachineRequestContent) SetSnapname(v string) {
 
 // GetPool returns the Pool field value if set, zero value otherwise.
 func (o *CloneVirtualMachineRequestContent) GetPool() string {
-	if o == nil || isNil(o.Pool) {
+	if o == nil || IsNil(o.Pool) {
 		var ret string
 		return ret
 	}
@@ -350,7 +350,7 @@ func (o *CloneVirtualMachineRequestContent) GetPool() string {
 // GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloneVirtualMachineRequestContent) GetPoolOk() (*string, bool) {
-	if o == nil || isNil(o.Pool) {
+	if o == nil || IsNil(o.Pool) {
 		return nil, false
 	}
 	return o.Pool, true
@@ -358,7 +358,7 @@ func (o *CloneVirtualMachineRequestContent) GetPoolOk() (*string, bool) {
 
 // HasPool returns a boolean if a field has been set.
 func (o *CloneVirtualMachineRequestContent) HasPool() bool {
-	if o != nil && !isNil(o.Pool) {
+	if o != nil && !IsNil(o.Pool) {
 		return true
 	}
 
@@ -381,31 +381,31 @@ func (o CloneVirtualMachineRequestContent) MarshalJSON() ([]byte, error) {
 func (o CloneVirtualMachineRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["newid"] = o.Newid
-	if !isNil(o.Bwlimit) {
+	if !IsNil(o.Bwlimit) {
 		toSerialize["bwlimit"] = o.Bwlimit
 	}
-	if !isNil(o.Description) {
+	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !isNil(o.Full) {
+	if !IsNil(o.Full) {
 		toSerialize["full"] = o.Full
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Format) {
+	if !IsNil(o.Format) {
 		toSerialize["format"] = o.Format
 	}
-	if !isNil(o.Storage) {
+	if !IsNil(o.Storage) {
 		toSerialize["storage"] = o.Storage
 	}
-	if !isNil(o.Target) {
+	if !IsNil(o.Target) {
 		toSerialize["target"] = o.Target
 	}
-	if !isNil(o.Snapname) {
+	if !IsNil(o.Snapname) {
 		toSerialize["snapname"] = o.Snapname
 	}
-	if !isNil(o.Pool) {
+	if !IsNil(o.Pool) {
 		toSerialize["pool"] = o.Pool
 	}
 	return toSerialize, nil

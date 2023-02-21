@@ -118,7 +118,7 @@ func (o *NetworkInterfaceSummary) SetType(v NetworkInterfaceType) {
 
 // GetMethod returns the Method field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetMethod() NetworkInterfaceMethod {
-	if o == nil || isNil(o.Method) {
+	if o == nil || IsNil(o.Method) {
 		var ret NetworkInterfaceMethod
 		return ret
 	}
@@ -128,7 +128,7 @@ func (o *NetworkInterfaceSummary) GetMethod() NetworkInterfaceMethod {
 // GetMethodOk returns a tuple with the Method field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetMethodOk() (*NetworkInterfaceMethod, bool) {
-	if o == nil || isNil(o.Method) {
+	if o == nil || IsNil(o.Method) {
 		return nil, false
 	}
 	return o.Method, true
@@ -136,7 +136,7 @@ func (o *NetworkInterfaceSummary) GetMethodOk() (*NetworkInterfaceMethod, bool) 
 
 // HasMethod returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasMethod() bool {
-	if o != nil && !isNil(o.Method) {
+	if o != nil && !IsNil(o.Method) {
 		return true
 	}
 
@@ -150,7 +150,7 @@ func (o *NetworkInterfaceSummary) SetMethod(v NetworkInterfaceMethod) {
 
 // GetMethod6 returns the Method6 field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetMethod6() NetworkInterfaceMethod {
-	if o == nil || isNil(o.Method6) {
+	if o == nil || IsNil(o.Method6) {
 		var ret NetworkInterfaceMethod
 		return ret
 	}
@@ -160,7 +160,7 @@ func (o *NetworkInterfaceSummary) GetMethod6() NetworkInterfaceMethod {
 // GetMethod6Ok returns a tuple with the Method6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetMethod6Ok() (*NetworkInterfaceMethod, bool) {
-	if o == nil || isNil(o.Method6) {
+	if o == nil || IsNil(o.Method6) {
 		return nil, false
 	}
 	return o.Method6, true
@@ -168,7 +168,7 @@ func (o *NetworkInterfaceSummary) GetMethod6Ok() (*NetworkInterfaceMethod, bool)
 
 // HasMethod6 returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasMethod6() bool {
-	if o != nil && !isNil(o.Method6) {
+	if o != nil && !IsNil(o.Method6) {
 		return true
 	}
 
@@ -182,7 +182,7 @@ func (o *NetworkInterfaceSummary) SetMethod6(v NetworkInterfaceMethod) {
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetPriority() float32 {
-	if o == nil || isNil(o.Priority) {
+	if o == nil || IsNil(o.Priority) {
 		var ret float32
 		return ret
 	}
@@ -192,7 +192,7 @@ func (o *NetworkInterfaceSummary) GetPriority() float32 {
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetPriorityOk() (*float32, bool) {
-	if o == nil || isNil(o.Priority) {
+	if o == nil || IsNil(o.Priority) {
 		return nil, false
 	}
 	return o.Priority, true
@@ -200,7 +200,7 @@ func (o *NetworkInterfaceSummary) GetPriorityOk() (*float32, bool) {
 
 // HasPriority returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasPriority() bool {
-	if o != nil && !isNil(o.Priority) {
+	if o != nil && !IsNil(o.Priority) {
 		return true
 	}
 
@@ -214,7 +214,7 @@ func (o *NetworkInterfaceSummary) SetPriority(v float32) {
 
 // GetFamilies returns the Families field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetFamilies() []string {
-	if o == nil || isNil(o.Families) {
+	if o == nil || IsNil(o.Families) {
 		var ret []string
 		return ret
 	}
@@ -224,7 +224,7 @@ func (o *NetworkInterfaceSummary) GetFamilies() []string {
 // GetFamiliesOk returns a tuple with the Families field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetFamiliesOk() ([]string, bool) {
-	if o == nil || isNil(o.Families) {
+	if o == nil || IsNil(o.Families) {
 		return nil, false
 	}
 	return o.Families, true
@@ -232,7 +232,7 @@ func (o *NetworkInterfaceSummary) GetFamiliesOk() ([]string, bool) {
 
 // HasFamilies returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasFamilies() bool {
-	if o != nil && !isNil(o.Families) {
+	if o != nil && !IsNil(o.Families) {
 		return true
 	}
 
@@ -246,7 +246,7 @@ func (o *NetworkInterfaceSummary) SetFamilies(v []string) {
 
 // GetBondPrimary returns the BondPrimary field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBondPrimary() string {
-	if o == nil || isNil(o.BondPrimary) {
+	if o == nil || IsNil(o.BondPrimary) {
 		var ret string
 		return ret
 	}
@@ -256,7 +256,7 @@ func (o *NetworkInterfaceSummary) GetBondPrimary() string {
 // GetBondPrimaryOk returns a tuple with the BondPrimary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondPrimaryOk() (*string, bool) {
-	if o == nil || isNil(o.BondPrimary) {
+	if o == nil || IsNil(o.BondPrimary) {
 		return nil, false
 	}
 	return o.BondPrimary, true
@@ -264,7 +264,7 @@ func (o *NetworkInterfaceSummary) GetBondPrimaryOk() (*string, bool) {
 
 // HasBondPrimary returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBondPrimary() bool {
-	if o != nil && !isNil(o.BondPrimary) {
+	if o != nil && !IsNil(o.BondPrimary) {
 		return true
 	}
 
@@ -278,7 +278,7 @@ func (o *NetworkInterfaceSummary) SetBondPrimary(v string) {
 
 // GetBondMode returns the BondMode field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBondMode() NetworkInterfaceBondMode {
-	if o == nil || isNil(o.BondMode) {
+	if o == nil || IsNil(o.BondMode) {
 		var ret NetworkInterfaceBondMode
 		return ret
 	}
@@ -288,7 +288,7 @@ func (o *NetworkInterfaceSummary) GetBondMode() NetworkInterfaceBondMode {
 // GetBondModeOk returns a tuple with the BondMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondModeOk() (*NetworkInterfaceBondMode, bool) {
-	if o == nil || isNil(o.BondMode) {
+	if o == nil || IsNil(o.BondMode) {
 		return nil, false
 	}
 	return o.BondMode, true
@@ -296,7 +296,7 @@ func (o *NetworkInterfaceSummary) GetBondModeOk() (*NetworkInterfaceBondMode, bo
 
 // HasBondMode returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBondMode() bool {
-	if o != nil && !isNil(o.BondMode) {
+	if o != nil && !IsNil(o.BondMode) {
 		return true
 	}
 
@@ -310,7 +310,7 @@ func (o *NetworkInterfaceSummary) SetBondMode(v NetworkInterfaceBondMode) {
 
 // GetBondXmitHashPolicy returns the BondXmitHashPolicy field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBondXmitHashPolicy() NetworkInterfaceBondHashPolicy {
-	if o == nil || isNil(o.BondXmitHashPolicy) {
+	if o == nil || IsNil(o.BondXmitHashPolicy) {
 		var ret NetworkInterfaceBondHashPolicy
 		return ret
 	}
@@ -320,7 +320,7 @@ func (o *NetworkInterfaceSummary) GetBondXmitHashPolicy() NetworkInterfaceBondHa
 // GetBondXmitHashPolicyOk returns a tuple with the BondXmitHashPolicy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondXmitHashPolicyOk() (*NetworkInterfaceBondHashPolicy, bool) {
-	if o == nil || isNil(o.BondXmitHashPolicy) {
+	if o == nil || IsNil(o.BondXmitHashPolicy) {
 		return nil, false
 	}
 	return o.BondXmitHashPolicy, true
@@ -328,7 +328,7 @@ func (o *NetworkInterfaceSummary) GetBondXmitHashPolicyOk() (*NetworkInterfaceBo
 
 // HasBondXmitHashPolicy returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBondXmitHashPolicy() bool {
-	if o != nil && !isNil(o.BondXmitHashPolicy) {
+	if o != nil && !IsNil(o.BondXmitHashPolicy) {
 		return true
 	}
 
@@ -342,7 +342,7 @@ func (o *NetworkInterfaceSummary) SetBondXmitHashPolicy(v NetworkInterfaceBondHa
 
 // GetBondMiimon returns the BondMiimon field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBondMiimon() string {
-	if o == nil || isNil(o.BondMiimon) {
+	if o == nil || IsNil(o.BondMiimon) {
 		var ret string
 		return ret
 	}
@@ -352,7 +352,7 @@ func (o *NetworkInterfaceSummary) GetBondMiimon() string {
 // GetBondMiimonOk returns a tuple with the BondMiimon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBondMiimonOk() (*string, bool) {
-	if o == nil || isNil(o.BondMiimon) {
+	if o == nil || IsNil(o.BondMiimon) {
 		return nil, false
 	}
 	return o.BondMiimon, true
@@ -360,7 +360,7 @@ func (o *NetworkInterfaceSummary) GetBondMiimonOk() (*string, bool) {
 
 // HasBondMiimon returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBondMiimon() bool {
-	if o != nil && !isNil(o.BondMiimon) {
+	if o != nil && !IsNil(o.BondMiimon) {
 		return true
 	}
 
@@ -374,7 +374,7 @@ func (o *NetworkInterfaceSummary) SetBondMiimon(v string) {
 
 // GetSlaves returns the Slaves field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetSlaves() string {
-	if o == nil || isNil(o.Slaves) {
+	if o == nil || IsNil(o.Slaves) {
 		var ret string
 		return ret
 	}
@@ -384,7 +384,7 @@ func (o *NetworkInterfaceSummary) GetSlaves() string {
 // GetSlavesOk returns a tuple with the Slaves field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetSlavesOk() (*string, bool) {
-	if o == nil || isNil(o.Slaves) {
+	if o == nil || IsNil(o.Slaves) {
 		return nil, false
 	}
 	return o.Slaves, true
@@ -392,7 +392,7 @@ func (o *NetworkInterfaceSummary) GetSlavesOk() (*string, bool) {
 
 // HasSlaves returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasSlaves() bool {
-	if o != nil && !isNil(o.Slaves) {
+	if o != nil && !IsNil(o.Slaves) {
 		return true
 	}
 
@@ -406,7 +406,7 @@ func (o *NetworkInterfaceSummary) SetSlaves(v string) {
 
 // GetAutostart returns the Autostart field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetAutostart() float32 {
-	if o == nil || isNil(o.Autostart) {
+	if o == nil || IsNil(o.Autostart) {
 		var ret float32
 		return ret
 	}
@@ -416,7 +416,7 @@ func (o *NetworkInterfaceSummary) GetAutostart() float32 {
 // GetAutostartOk returns a tuple with the Autostart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetAutostartOk() (*float32, bool) {
-	if o == nil || isNil(o.Autostart) {
+	if o == nil || IsNil(o.Autostart) {
 		return nil, false
 	}
 	return o.Autostart, true
@@ -424,7 +424,7 @@ func (o *NetworkInterfaceSummary) GetAutostartOk() (*float32, bool) {
 
 // HasAutostart returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasAutostart() bool {
-	if o != nil && !isNil(o.Autostart) {
+	if o != nil && !IsNil(o.Autostart) {
 		return true
 	}
 
@@ -438,7 +438,7 @@ func (o *NetworkInterfaceSummary) SetAutostart(v float32) {
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetComments() string {
-	if o == nil || isNil(o.Comments) {
+	if o == nil || IsNil(o.Comments) {
 		var ret string
 		return ret
 	}
@@ -448,7 +448,7 @@ func (o *NetworkInterfaceSummary) GetComments() string {
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetCommentsOk() (*string, bool) {
-	if o == nil || isNil(o.Comments) {
+	if o == nil || IsNil(o.Comments) {
 		return nil, false
 	}
 	return o.Comments, true
@@ -456,7 +456,7 @@ func (o *NetworkInterfaceSummary) GetCommentsOk() (*string, bool) {
 
 // HasComments returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasComments() bool {
-	if o != nil && !isNil(o.Comments) {
+	if o != nil && !IsNil(o.Comments) {
 		return true
 	}
 
@@ -470,7 +470,7 @@ func (o *NetworkInterfaceSummary) SetComments(v string) {
 
 // GetActive returns the Active field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetActive() float32 {
-	if o == nil || isNil(o.Active) {
+	if o == nil || IsNil(o.Active) {
 		var ret float32
 		return ret
 	}
@@ -480,7 +480,7 @@ func (o *NetworkInterfaceSummary) GetActive() float32 {
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetActiveOk() (*float32, bool) {
-	if o == nil || isNil(o.Active) {
+	if o == nil || IsNil(o.Active) {
 		return nil, false
 	}
 	return o.Active, true
@@ -488,7 +488,7 @@ func (o *NetworkInterfaceSummary) GetActiveOk() (*float32, bool) {
 
 // HasActive returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasActive() bool {
-	if o != nil && !isNil(o.Active) {
+	if o != nil && !IsNil(o.Active) {
 		return true
 	}
 
@@ -502,7 +502,7 @@ func (o *NetworkInterfaceSummary) SetActive(v float32) {
 
 // GetExists returns the Exists field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetExists() float32 {
-	if o == nil || isNil(o.Exists) {
+	if o == nil || IsNil(o.Exists) {
 		var ret float32
 		return ret
 	}
@@ -512,7 +512,7 @@ func (o *NetworkInterfaceSummary) GetExists() float32 {
 // GetExistsOk returns a tuple with the Exists field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetExistsOk() (*float32, bool) {
-	if o == nil || isNil(o.Exists) {
+	if o == nil || IsNil(o.Exists) {
 		return nil, false
 	}
 	return o.Exists, true
@@ -520,7 +520,7 @@ func (o *NetworkInterfaceSummary) GetExistsOk() (*float32, bool) {
 
 // HasExists returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasExists() bool {
-	if o != nil && !isNil(o.Exists) {
+	if o != nil && !IsNil(o.Exists) {
 		return true
 	}
 
@@ -534,7 +534,7 @@ func (o *NetworkInterfaceSummary) SetExists(v float32) {
 
 // GetBridgeVids returns the BridgeVids field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBridgeVids() string {
-	if o == nil || isNil(o.BridgeVids) {
+	if o == nil || IsNil(o.BridgeVids) {
 		var ret string
 		return ret
 	}
@@ -544,7 +544,7 @@ func (o *NetworkInterfaceSummary) GetBridgeVids() string {
 // GetBridgeVidsOk returns a tuple with the BridgeVids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeVidsOk() (*string, bool) {
-	if o == nil || isNil(o.BridgeVids) {
+	if o == nil || IsNil(o.BridgeVids) {
 		return nil, false
 	}
 	return o.BridgeVids, true
@@ -552,7 +552,7 @@ func (o *NetworkInterfaceSummary) GetBridgeVidsOk() (*string, bool) {
 
 // HasBridgeVids returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBridgeVids() bool {
-	if o != nil && !isNil(o.BridgeVids) {
+	if o != nil && !IsNil(o.BridgeVids) {
 		return true
 	}
 
@@ -566,7 +566,7 @@ func (o *NetworkInterfaceSummary) SetBridgeVids(v string) {
 
 // GetBridgePorts returns the BridgePorts field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBridgePorts() string {
-	if o == nil || isNil(o.BridgePorts) {
+	if o == nil || IsNil(o.BridgePorts) {
 		var ret string
 		return ret
 	}
@@ -576,7 +576,7 @@ func (o *NetworkInterfaceSummary) GetBridgePorts() string {
 // GetBridgePortsOk returns a tuple with the BridgePorts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgePortsOk() (*string, bool) {
-	if o == nil || isNil(o.BridgePorts) {
+	if o == nil || IsNil(o.BridgePorts) {
 		return nil, false
 	}
 	return o.BridgePorts, true
@@ -584,7 +584,7 @@ func (o *NetworkInterfaceSummary) GetBridgePortsOk() (*string, bool) {
 
 // HasBridgePorts returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBridgePorts() bool {
-	if o != nil && !isNil(o.BridgePorts) {
+	if o != nil && !IsNil(o.BridgePorts) {
 		return true
 	}
 
@@ -598,7 +598,7 @@ func (o *NetworkInterfaceSummary) SetBridgePorts(v string) {
 
 // GetBridgeFd returns the BridgeFd field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBridgeFd() string {
-	if o == nil || isNil(o.BridgeFd) {
+	if o == nil || IsNil(o.BridgeFd) {
 		var ret string
 		return ret
 	}
@@ -608,7 +608,7 @@ func (o *NetworkInterfaceSummary) GetBridgeFd() string {
 // GetBridgeFdOk returns a tuple with the BridgeFd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeFdOk() (*string, bool) {
-	if o == nil || isNil(o.BridgeFd) {
+	if o == nil || IsNil(o.BridgeFd) {
 		return nil, false
 	}
 	return o.BridgeFd, true
@@ -616,7 +616,7 @@ func (o *NetworkInterfaceSummary) GetBridgeFdOk() (*string, bool) {
 
 // HasBridgeFd returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBridgeFd() bool {
-	if o != nil && !isNil(o.BridgeFd) {
+	if o != nil && !IsNil(o.BridgeFd) {
 		return true
 	}
 
@@ -630,7 +630,7 @@ func (o *NetworkInterfaceSummary) SetBridgeFd(v string) {
 
 // GetBridgeStp returns the BridgeStp field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBridgeStp() string {
-	if o == nil || isNil(o.BridgeStp) {
+	if o == nil || IsNil(o.BridgeStp) {
 		var ret string
 		return ret
 	}
@@ -640,7 +640,7 @@ func (o *NetworkInterfaceSummary) GetBridgeStp() string {
 // GetBridgeStpOk returns a tuple with the BridgeStp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeStpOk() (*string, bool) {
-	if o == nil || isNil(o.BridgeStp) {
+	if o == nil || IsNil(o.BridgeStp) {
 		return nil, false
 	}
 	return o.BridgeStp, true
@@ -648,7 +648,7 @@ func (o *NetworkInterfaceSummary) GetBridgeStpOk() (*string, bool) {
 
 // HasBridgeStp returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBridgeStp() bool {
-	if o != nil && !isNil(o.BridgeStp) {
+	if o != nil && !IsNil(o.BridgeStp) {
 		return true
 	}
 
@@ -662,7 +662,7 @@ func (o *NetworkInterfaceSummary) SetBridgeStp(v string) {
 
 // GetBridgeVlanAware returns the BridgeVlanAware field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetBridgeVlanAware() float32 {
-	if o == nil || isNil(o.BridgeVlanAware) {
+	if o == nil || IsNil(o.BridgeVlanAware) {
 		var ret float32
 		return ret
 	}
@@ -672,7 +672,7 @@ func (o *NetworkInterfaceSummary) GetBridgeVlanAware() float32 {
 // GetBridgeVlanAwareOk returns a tuple with the BridgeVlanAware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetBridgeVlanAwareOk() (*float32, bool) {
-	if o == nil || isNil(o.BridgeVlanAware) {
+	if o == nil || IsNil(o.BridgeVlanAware) {
 		return nil, false
 	}
 	return o.BridgeVlanAware, true
@@ -680,7 +680,7 @@ func (o *NetworkInterfaceSummary) GetBridgeVlanAwareOk() (*float32, bool) {
 
 // HasBridgeVlanAware returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasBridgeVlanAware() bool {
-	if o != nil && !isNil(o.BridgeVlanAware) {
+	if o != nil && !IsNil(o.BridgeVlanAware) {
 		return true
 	}
 
@@ -694,7 +694,7 @@ func (o *NetworkInterfaceSummary) SetBridgeVlanAware(v float32) {
 
 // GetAddress returns the Address field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetAddress() string {
-	if o == nil || isNil(o.Address) {
+	if o == nil || IsNil(o.Address) {
 		var ret string
 		return ret
 	}
@@ -704,7 +704,7 @@ func (o *NetworkInterfaceSummary) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetAddressOk() (*string, bool) {
-	if o == nil || isNil(o.Address) {
+	if o == nil || IsNil(o.Address) {
 		return nil, false
 	}
 	return o.Address, true
@@ -712,7 +712,7 @@ func (o *NetworkInterfaceSummary) GetAddressOk() (*string, bool) {
 
 // HasAddress returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasAddress() bool {
-	if o != nil && !isNil(o.Address) {
+	if o != nil && !IsNil(o.Address) {
 		return true
 	}
 
@@ -726,7 +726,7 @@ func (o *NetworkInterfaceSummary) SetAddress(v string) {
 
 // GetGateway returns the Gateway field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetGateway() string {
-	if o == nil || isNil(o.Gateway) {
+	if o == nil || IsNil(o.Gateway) {
 		var ret string
 		return ret
 	}
@@ -736,7 +736,7 @@ func (o *NetworkInterfaceSummary) GetGateway() string {
 // GetGatewayOk returns a tuple with the Gateway field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetGatewayOk() (*string, bool) {
-	if o == nil || isNil(o.Gateway) {
+	if o == nil || IsNil(o.Gateway) {
 		return nil, false
 	}
 	return o.Gateway, true
@@ -744,7 +744,7 @@ func (o *NetworkInterfaceSummary) GetGatewayOk() (*string, bool) {
 
 // HasGateway returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasGateway() bool {
-	if o != nil && !isNil(o.Gateway) {
+	if o != nil && !IsNil(o.Gateway) {
 		return true
 	}
 
@@ -758,7 +758,7 @@ func (o *NetworkInterfaceSummary) SetGateway(v string) {
 
 // GetGateway6 returns the Gateway6 field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetGateway6() string {
-	if o == nil || isNil(o.Gateway6) {
+	if o == nil || IsNil(o.Gateway6) {
 		var ret string
 		return ret
 	}
@@ -768,7 +768,7 @@ func (o *NetworkInterfaceSummary) GetGateway6() string {
 // GetGateway6Ok returns a tuple with the Gateway6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetGateway6Ok() (*string, bool) {
-	if o == nil || isNil(o.Gateway6) {
+	if o == nil || IsNil(o.Gateway6) {
 		return nil, false
 	}
 	return o.Gateway6, true
@@ -776,7 +776,7 @@ func (o *NetworkInterfaceSummary) GetGateway6Ok() (*string, bool) {
 
 // HasGateway6 returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasGateway6() bool {
-	if o != nil && !isNil(o.Gateway6) {
+	if o != nil && !IsNil(o.Gateway6) {
 		return true
 	}
 
@@ -790,7 +790,7 @@ func (o *NetworkInterfaceSummary) SetGateway6(v string) {
 
 // GetNetmask returns the Netmask field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetNetmask() string {
-	if o == nil || isNil(o.Netmask) {
+	if o == nil || IsNil(o.Netmask) {
 		var ret string
 		return ret
 	}
@@ -800,7 +800,7 @@ func (o *NetworkInterfaceSummary) GetNetmask() string {
 // GetNetmaskOk returns a tuple with the Netmask field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetNetmaskOk() (*string, bool) {
-	if o == nil || isNil(o.Netmask) {
+	if o == nil || IsNil(o.Netmask) {
 		return nil, false
 	}
 	return o.Netmask, true
@@ -808,7 +808,7 @@ func (o *NetworkInterfaceSummary) GetNetmaskOk() (*string, bool) {
 
 // HasNetmask returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasNetmask() bool {
-	if o != nil && !isNil(o.Netmask) {
+	if o != nil && !IsNil(o.Netmask) {
 		return true
 	}
 
@@ -822,7 +822,7 @@ func (o *NetworkInterfaceSummary) SetNetmask(v string) {
 
 // GetNetmask6 returns the Netmask6 field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetNetmask6() string {
-	if o == nil || isNil(o.Netmask6) {
+	if o == nil || IsNil(o.Netmask6) {
 		var ret string
 		return ret
 	}
@@ -832,7 +832,7 @@ func (o *NetworkInterfaceSummary) GetNetmask6() string {
 // GetNetmask6Ok returns a tuple with the Netmask6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetNetmask6Ok() (*string, bool) {
-	if o == nil || isNil(o.Netmask6) {
+	if o == nil || IsNil(o.Netmask6) {
 		return nil, false
 	}
 	return o.Netmask6, true
@@ -840,7 +840,7 @@ func (o *NetworkInterfaceSummary) GetNetmask6Ok() (*string, bool) {
 
 // HasNetmask6 returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasNetmask6() bool {
-	if o != nil && !isNil(o.Netmask6) {
+	if o != nil && !IsNil(o.Netmask6) {
 		return true
 	}
 
@@ -854,7 +854,7 @@ func (o *NetworkInterfaceSummary) SetNetmask6(v string) {
 
 // GetCidr returns the Cidr field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetCidr() string {
-	if o == nil || isNil(o.Cidr) {
+	if o == nil || IsNil(o.Cidr) {
 		var ret string
 		return ret
 	}
@@ -864,7 +864,7 @@ func (o *NetworkInterfaceSummary) GetCidr() string {
 // GetCidrOk returns a tuple with the Cidr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetCidrOk() (*string, bool) {
-	if o == nil || isNil(o.Cidr) {
+	if o == nil || IsNil(o.Cidr) {
 		return nil, false
 	}
 	return o.Cidr, true
@@ -872,7 +872,7 @@ func (o *NetworkInterfaceSummary) GetCidrOk() (*string, bool) {
 
 // HasCidr returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasCidr() bool {
-	if o != nil && !isNil(o.Cidr) {
+	if o != nil && !IsNil(o.Cidr) {
 		return true
 	}
 
@@ -886,7 +886,7 @@ func (o *NetworkInterfaceSummary) SetCidr(v string) {
 
 // GetCidr6 returns the Cidr6 field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetCidr6() string {
-	if o == nil || isNil(o.Cidr6) {
+	if o == nil || IsNil(o.Cidr6) {
 		var ret string
 		return ret
 	}
@@ -896,7 +896,7 @@ func (o *NetworkInterfaceSummary) GetCidr6() string {
 // GetCidr6Ok returns a tuple with the Cidr6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetCidr6Ok() (*string, bool) {
-	if o == nil || isNil(o.Cidr6) {
+	if o == nil || IsNil(o.Cidr6) {
 		return nil, false
 	}
 	return o.Cidr6, true
@@ -904,7 +904,7 @@ func (o *NetworkInterfaceSummary) GetCidr6Ok() (*string, bool) {
 
 // HasCidr6 returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasCidr6() bool {
-	if o != nil && !isNil(o.Cidr6) {
+	if o != nil && !IsNil(o.Cidr6) {
 		return true
 	}
 
@@ -918,7 +918,7 @@ func (o *NetworkInterfaceSummary) SetCidr6(v string) {
 
 // GetAddress6 returns the Address6 field value if set, zero value otherwise.
 func (o *NetworkInterfaceSummary) GetAddress6() string {
-	if o == nil || isNil(o.Address6) {
+	if o == nil || IsNil(o.Address6) {
 		var ret string
 		return ret
 	}
@@ -928,7 +928,7 @@ func (o *NetworkInterfaceSummary) GetAddress6() string {
 // GetAddress6Ok returns a tuple with the Address6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkInterfaceSummary) GetAddress6Ok() (*string, bool) {
-	if o == nil || isNil(o.Address6) {
+	if o == nil || IsNil(o.Address6) {
 		return nil, false
 	}
 	return o.Address6, true
@@ -936,7 +936,7 @@ func (o *NetworkInterfaceSummary) GetAddress6Ok() (*string, bool) {
 
 // HasAddress6 returns a boolean if a field has been set.
 func (o *NetworkInterfaceSummary) HasAddress6() bool {
-	if o != nil && !isNil(o.Address6) {
+	if o != nil && !IsNil(o.Address6) {
 		return true
 	}
 
@@ -960,82 +960,82 @@ func (o NetworkInterfaceSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["iface"] = o.Iface
 	toSerialize["type"] = o.Type
-	if !isNil(o.Method) {
+	if !IsNil(o.Method) {
 		toSerialize["method"] = o.Method
 	}
-	if !isNil(o.Method6) {
+	if !IsNil(o.Method6) {
 		toSerialize["method6"] = o.Method6
 	}
-	if !isNil(o.Priority) {
+	if !IsNil(o.Priority) {
 		toSerialize["priority"] = o.Priority
 	}
-	if !isNil(o.Families) {
+	if !IsNil(o.Families) {
 		toSerialize["families"] = o.Families
 	}
-	if !isNil(o.BondPrimary) {
+	if !IsNil(o.BondPrimary) {
 		toSerialize["bond_primary"] = o.BondPrimary
 	}
-	if !isNil(o.BondMode) {
+	if !IsNil(o.BondMode) {
 		toSerialize["bond_mode"] = o.BondMode
 	}
-	if !isNil(o.BondXmitHashPolicy) {
+	if !IsNil(o.BondXmitHashPolicy) {
 		toSerialize["bond_xmit_hash_policy"] = o.BondXmitHashPolicy
 	}
-	if !isNil(o.BondMiimon) {
+	if !IsNil(o.BondMiimon) {
 		toSerialize["bond_miimon"] = o.BondMiimon
 	}
-	if !isNil(o.Slaves) {
+	if !IsNil(o.Slaves) {
 		toSerialize["slaves"] = o.Slaves
 	}
-	if !isNil(o.Autostart) {
+	if !IsNil(o.Autostart) {
 		toSerialize["autostart"] = o.Autostart
 	}
-	if !isNil(o.Comments) {
+	if !IsNil(o.Comments) {
 		toSerialize["comments"] = o.Comments
 	}
-	if !isNil(o.Active) {
+	if !IsNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}
-	if !isNil(o.Exists) {
+	if !IsNil(o.Exists) {
 		toSerialize["exists"] = o.Exists
 	}
-	if !isNil(o.BridgeVids) {
+	if !IsNil(o.BridgeVids) {
 		toSerialize["bridge_vids"] = o.BridgeVids
 	}
-	if !isNil(o.BridgePorts) {
+	if !IsNil(o.BridgePorts) {
 		toSerialize["bridge_ports"] = o.BridgePorts
 	}
-	if !isNil(o.BridgeFd) {
+	if !IsNil(o.BridgeFd) {
 		toSerialize["bridge_fd"] = o.BridgeFd
 	}
-	if !isNil(o.BridgeStp) {
+	if !IsNil(o.BridgeStp) {
 		toSerialize["bridge_stp"] = o.BridgeStp
 	}
-	if !isNil(o.BridgeVlanAware) {
+	if !IsNil(o.BridgeVlanAware) {
 		toSerialize["bridge_vlan_aware"] = o.BridgeVlanAware
 	}
-	if !isNil(o.Address) {
+	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
-	if !isNil(o.Gateway) {
+	if !IsNil(o.Gateway) {
 		toSerialize["gateway"] = o.Gateway
 	}
-	if !isNil(o.Gateway6) {
+	if !IsNil(o.Gateway6) {
 		toSerialize["gateway6"] = o.Gateway6
 	}
-	if !isNil(o.Netmask) {
+	if !IsNil(o.Netmask) {
 		toSerialize["netmask"] = o.Netmask
 	}
-	if !isNil(o.Netmask6) {
+	if !IsNil(o.Netmask6) {
 		toSerialize["netmask6"] = o.Netmask6
 	}
-	if !isNil(o.Cidr) {
+	if !IsNil(o.Cidr) {
 		toSerialize["cidr"] = o.Cidr
 	}
-	if !isNil(o.Cidr6) {
+	if !IsNil(o.Cidr6) {
 		toSerialize["cidr6"] = o.Cidr6
 	}
-	if !isNil(o.Address6) {
+	if !IsNil(o.Address6) {
 		toSerialize["address6"] = o.Address6
 	}
 	return toSerialize, nil

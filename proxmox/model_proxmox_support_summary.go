@@ -47,7 +47,7 @@ func NewProxmoxSupportSummaryWithDefaults() *ProxmoxSupportSummary {
 
 // GetPbsLibraryVersion returns the PbsLibraryVersion field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetPbsLibraryVersion() string {
-	if o == nil || isNil(o.PbsLibraryVersion) {
+	if o == nil || IsNil(o.PbsLibraryVersion) {
 		var ret string
 		return ret
 	}
@@ -57,7 +57,7 @@ func (o *ProxmoxSupportSummary) GetPbsLibraryVersion() string {
 // GetPbsLibraryVersionOk returns a tuple with the PbsLibraryVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsLibraryVersionOk() (*string, bool) {
-	if o == nil || isNil(o.PbsLibraryVersion) {
+	if o == nil || IsNil(o.PbsLibraryVersion) {
 		return nil, false
 	}
 	return o.PbsLibraryVersion, true
@@ -65,7 +65,7 @@ func (o *ProxmoxSupportSummary) GetPbsLibraryVersionOk() (*string, bool) {
 
 // HasPbsLibraryVersion returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasPbsLibraryVersion() bool {
-	if o != nil && !isNil(o.PbsLibraryVersion) {
+	if o != nil && !IsNil(o.PbsLibraryVersion) {
 		return true
 	}
 
@@ -79,7 +79,7 @@ func (o *ProxmoxSupportSummary) SetPbsLibraryVersion(v string) {
 
 // GetPbsMasterkey returns the PbsMasterkey field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetPbsMasterkey() bool {
-	if o == nil || isNil(o.PbsMasterkey) {
+	if o == nil || IsNil(o.PbsMasterkey) {
 		var ret bool
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *ProxmoxSupportSummary) GetPbsMasterkey() bool {
 // GetPbsMasterkeyOk returns a tuple with the PbsMasterkey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsMasterkeyOk() (*bool, bool) {
-	if o == nil || isNil(o.PbsMasterkey) {
+	if o == nil || IsNil(o.PbsMasterkey) {
 		return nil, false
 	}
 	return o.PbsMasterkey, true
@@ -97,7 +97,7 @@ func (o *ProxmoxSupportSummary) GetPbsMasterkeyOk() (*bool, bool) {
 
 // HasPbsMasterkey returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasPbsMasterkey() bool {
-	if o != nil && !isNil(o.PbsMasterkey) {
+	if o != nil && !IsNil(o.PbsMasterkey) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *ProxmoxSupportSummary) SetPbsMasterkey(v bool) {
 
 // GetPbsDirtyBitmapSavevm returns the PbsDirtyBitmapSavevm field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapSavevm() bool {
-	if o == nil || isNil(o.PbsDirtyBitmapSavevm) {
+	if o == nil || IsNil(o.PbsDirtyBitmapSavevm) {
 		var ret bool
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapSavevm() bool {
 // GetPbsDirtyBitmapSavevmOk returns a tuple with the PbsDirtyBitmapSavevm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapSavevmOk() (*bool, bool) {
-	if o == nil || isNil(o.PbsDirtyBitmapSavevm) {
+	if o == nil || IsNil(o.PbsDirtyBitmapSavevm) {
 		return nil, false
 	}
 	return o.PbsDirtyBitmapSavevm, true
@@ -129,7 +129,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapSavevmOk() (*bool, bool) {
 
 // HasPbsDirtyBitmapSavevm returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasPbsDirtyBitmapSavevm() bool {
-	if o != nil && !isNil(o.PbsDirtyBitmapSavevm) {
+	if o != nil && !IsNil(o.PbsDirtyBitmapSavevm) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *ProxmoxSupportSummary) SetPbsDirtyBitmapSavevm(v bool) {
 
 // GetPbsDirtyBitmapMigration returns the PbsDirtyBitmapMigration field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapMigration() bool {
-	if o == nil || isNil(o.PbsDirtyBitmapMigration) {
+	if o == nil || IsNil(o.PbsDirtyBitmapMigration) {
 		var ret bool
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapMigration() bool {
 // GetPbsDirtyBitmapMigrationOk returns a tuple with the PbsDirtyBitmapMigration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapMigrationOk() (*bool, bool) {
-	if o == nil || isNil(o.PbsDirtyBitmapMigration) {
+	if o == nil || IsNil(o.PbsDirtyBitmapMigration) {
 		return nil, false
 	}
 	return o.PbsDirtyBitmapMigration, true
@@ -161,7 +161,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapMigrationOk() (*bool, bool) {
 
 // HasPbsDirtyBitmapMigration returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasPbsDirtyBitmapMigration() bool {
-	if o != nil && !isNil(o.PbsDirtyBitmapMigration) {
+	if o != nil && !IsNil(o.PbsDirtyBitmapMigration) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *ProxmoxSupportSummary) SetPbsDirtyBitmapMigration(v bool) {
 
 // GetPbsDirtyBitmap returns the PbsDirtyBitmap field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmap() bool {
-	if o == nil || isNil(o.PbsDirtyBitmap) {
+	if o == nil || IsNil(o.PbsDirtyBitmap) {
 		var ret bool
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmap() bool {
 // GetPbsDirtyBitmapOk returns a tuple with the PbsDirtyBitmap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapOk() (*bool, bool) {
-	if o == nil || isNil(o.PbsDirtyBitmap) {
+	if o == nil || IsNil(o.PbsDirtyBitmap) {
 		return nil, false
 	}
 	return o.PbsDirtyBitmap, true
@@ -193,7 +193,7 @@ func (o *ProxmoxSupportSummary) GetPbsDirtyBitmapOk() (*bool, bool) {
 
 // HasPbsDirtyBitmap returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasPbsDirtyBitmap() bool {
-	if o != nil && !isNil(o.PbsDirtyBitmap) {
+	if o != nil && !IsNil(o.PbsDirtyBitmap) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *ProxmoxSupportSummary) SetPbsDirtyBitmap(v bool) {
 
 // GetBackupMaxWorkers returns the BackupMaxWorkers field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetBackupMaxWorkers() bool {
-	if o == nil || isNil(o.BackupMaxWorkers) {
+	if o == nil || IsNil(o.BackupMaxWorkers) {
 		var ret bool
 		return ret
 	}
@@ -217,7 +217,7 @@ func (o *ProxmoxSupportSummary) GetBackupMaxWorkers() bool {
 // GetBackupMaxWorkersOk returns a tuple with the BackupMaxWorkers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetBackupMaxWorkersOk() (*bool, bool) {
-	if o == nil || isNil(o.BackupMaxWorkers) {
+	if o == nil || IsNil(o.BackupMaxWorkers) {
 		return nil, false
 	}
 	return o.BackupMaxWorkers, true
@@ -225,7 +225,7 @@ func (o *ProxmoxSupportSummary) GetBackupMaxWorkersOk() (*bool, bool) {
 
 // HasBackupMaxWorkers returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasBackupMaxWorkers() bool {
-	if o != nil && !isNil(o.BackupMaxWorkers) {
+	if o != nil && !IsNil(o.BackupMaxWorkers) {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *ProxmoxSupportSummary) SetBackupMaxWorkers(v bool) {
 
 // GetQueryBitmapInfo returns the QueryBitmapInfo field value if set, zero value otherwise.
 func (o *ProxmoxSupportSummary) GetQueryBitmapInfo() bool {
-	if o == nil || isNil(o.QueryBitmapInfo) {
+	if o == nil || IsNil(o.QueryBitmapInfo) {
 		var ret bool
 		return ret
 	}
@@ -249,7 +249,7 @@ func (o *ProxmoxSupportSummary) GetQueryBitmapInfo() bool {
 // GetQueryBitmapInfoOk returns a tuple with the QueryBitmapInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProxmoxSupportSummary) GetQueryBitmapInfoOk() (*bool, bool) {
-	if o == nil || isNil(o.QueryBitmapInfo) {
+	if o == nil || IsNil(o.QueryBitmapInfo) {
 		return nil, false
 	}
 	return o.QueryBitmapInfo, true
@@ -257,7 +257,7 @@ func (o *ProxmoxSupportSummary) GetQueryBitmapInfoOk() (*bool, bool) {
 
 // HasQueryBitmapInfo returns a boolean if a field has been set.
 func (o *ProxmoxSupportSummary) HasQueryBitmapInfo() bool {
-	if o != nil && !isNil(o.QueryBitmapInfo) {
+	if o != nil && !IsNil(o.QueryBitmapInfo) {
 		return true
 	}
 
@@ -279,25 +279,25 @@ func (o ProxmoxSupportSummary) MarshalJSON() ([]byte, error) {
 
 func (o ProxmoxSupportSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.PbsLibraryVersion) {
+	if !IsNil(o.PbsLibraryVersion) {
 		toSerialize["pbs-library-version"] = o.PbsLibraryVersion
 	}
-	if !isNil(o.PbsMasterkey) {
+	if !IsNil(o.PbsMasterkey) {
 		toSerialize["pbs-masterkey"] = o.PbsMasterkey
 	}
-	if !isNil(o.PbsDirtyBitmapSavevm) {
+	if !IsNil(o.PbsDirtyBitmapSavevm) {
 		toSerialize["pbs-dirty-bitmap-savevm"] = o.PbsDirtyBitmapSavevm
 	}
-	if !isNil(o.PbsDirtyBitmapMigration) {
+	if !IsNil(o.PbsDirtyBitmapMigration) {
 		toSerialize["pbs-dirty-bitmap-migration"] = o.PbsDirtyBitmapMigration
 	}
-	if !isNil(o.PbsDirtyBitmap) {
+	if !IsNil(o.PbsDirtyBitmap) {
 		toSerialize["pbs-dirty-bitmap"] = o.PbsDirtyBitmap
 	}
-	if !isNil(o.BackupMaxWorkers) {
+	if !IsNil(o.BackupMaxWorkers) {
 		toSerialize["backup-max-workers"] = o.BackupMaxWorkers
 	}
-	if !isNil(o.QueryBitmapInfo) {
+	if !IsNil(o.QueryBitmapInfo) {
 		toSerialize["query-bitmap-info"] = o.QueryBitmapInfo
 	}
 	return toSerialize, nil

@@ -42,7 +42,7 @@ func NewRenewNodeCertificateRequestContentWithDefaults() *RenewNodeCertificateRe
 
 // GetForce returns the Force field value if set, zero value otherwise.
 func (o *RenewNodeCertificateRequestContent) GetForce() float32 {
-	if o == nil || isNil(o.Force) {
+	if o == nil || IsNil(o.Force) {
 		var ret float32
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *RenewNodeCertificateRequestContent) GetForce() float32 {
 // GetForceOk returns a tuple with the Force field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RenewNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
-	if o == nil || isNil(o.Force) {
+	if o == nil || IsNil(o.Force) {
 		return nil, false
 	}
 	return o.Force, true
@@ -60,7 +60,7 @@ func (o *RenewNodeCertificateRequestContent) GetForceOk() (*float32, bool) {
 
 // HasForce returns a boolean if a field has been set.
 func (o *RenewNodeCertificateRequestContent) HasForce() bool {
-	if o != nil && !isNil(o.Force) {
+	if o != nil && !IsNil(o.Force) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o RenewNodeCertificateRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o RenewNodeCertificateRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Force) {
+	if !IsNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
 	return toSerialize, nil

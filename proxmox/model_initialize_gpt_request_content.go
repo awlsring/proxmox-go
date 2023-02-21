@@ -43,7 +43,7 @@ func NewInitializeGPTRequestContentWithDefaults() *InitializeGPTRequestContent {
 
 // GetDisk returns the Disk field value if set, zero value otherwise.
 func (o *InitializeGPTRequestContent) GetDisk() string {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *InitializeGPTRequestContent) GetDisk() string {
 // GetDiskOk returns a tuple with the Disk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InitializeGPTRequestContent) GetDiskOk() (*string, bool) {
-	if o == nil || isNil(o.Disk) {
+	if o == nil || IsNil(o.Disk) {
 		return nil, false
 	}
 	return o.Disk, true
@@ -61,7 +61,7 @@ func (o *InitializeGPTRequestContent) GetDiskOk() (*string, bool) {
 
 // HasDisk returns a boolean if a field has been set.
 func (o *InitializeGPTRequestContent) HasDisk() bool {
-	if o != nil && !isNil(o.Disk) {
+	if o != nil && !IsNil(o.Disk) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *InitializeGPTRequestContent) SetDisk(v string) {
 
 // GetUuid returns the Uuid field value if set, zero value otherwise.
 func (o *InitializeGPTRequestContent) GetUuid() string {
-	if o == nil || isNil(o.Uuid) {
+	if o == nil || IsNil(o.Uuid) {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *InitializeGPTRequestContent) GetUuid() string {
 // GetUuidOk returns a tuple with the Uuid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InitializeGPTRequestContent) GetUuidOk() (*string, bool) {
-	if o == nil || isNil(o.Uuid) {
+	if o == nil || IsNil(o.Uuid) {
 		return nil, false
 	}
 	return o.Uuid, true
@@ -93,7 +93,7 @@ func (o *InitializeGPTRequestContent) GetUuidOk() (*string, bool) {
 
 // HasUuid returns a boolean if a field has been set.
 func (o *InitializeGPTRequestContent) HasUuid() bool {
-	if o != nil && !isNil(o.Uuid) {
+	if o != nil && !IsNil(o.Uuid) {
 		return true
 	}
 
@@ -115,10 +115,10 @@ func (o InitializeGPTRequestContent) MarshalJSON() ([]byte, error) {
 
 func (o InitializeGPTRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Disk) {
+	if !IsNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
 	}
-	if !isNil(o.Uuid) {
+	if !IsNil(o.Uuid) {
 		toSerialize["uuid"] = o.Uuid
 	}
 	return toSerialize, nil

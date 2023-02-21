@@ -93,7 +93,7 @@ func (o *CreateTicketRequestContent) SetPassword(v string) {
 
 // GetRealm returns the Realm field value if set, zero value otherwise.
 func (o *CreateTicketRequestContent) GetRealm() string {
-	if o == nil || isNil(o.Realm) {
+	if o == nil || IsNil(o.Realm) {
 		var ret string
 		return ret
 	}
@@ -103,7 +103,7 @@ func (o *CreateTicketRequestContent) GetRealm() string {
 // GetRealmOk returns a tuple with the Realm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateTicketRequestContent) GetRealmOk() (*string, bool) {
-	if o == nil || isNil(o.Realm) {
+	if o == nil || IsNil(o.Realm) {
 		return nil, false
 	}
 	return o.Realm, true
@@ -111,7 +111,7 @@ func (o *CreateTicketRequestContent) GetRealmOk() (*string, bool) {
 
 // HasRealm returns a boolean if a field has been set.
 func (o *CreateTicketRequestContent) HasRealm() bool {
-	if o != nil && !isNil(o.Realm) {
+	if o != nil && !IsNil(o.Realm) {
 		return true
 	}
 
@@ -135,7 +135,7 @@ func (o CreateTicketRequestContent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["username"] = o.Username
 	toSerialize["password"] = o.Password
-	if !isNil(o.Realm) {
+	if !IsNil(o.Realm) {
 		toSerialize["realm"] = o.Realm
 	}
 	return toSerialize, nil

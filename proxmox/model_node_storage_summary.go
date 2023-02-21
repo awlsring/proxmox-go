@@ -129,7 +129,7 @@ func (o *NodeStorageSummary) SetContent(v string) {
 
 // GetActive returns the Active field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetActive() float32 {
-	if o == nil || isNil(o.Active) {
+	if o == nil || IsNil(o.Active) {
 		var ret float32
 		return ret
 	}
@@ -139,7 +139,7 @@ func (o *NodeStorageSummary) GetActive() float32 {
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetActiveOk() (*float32, bool) {
-	if o == nil || isNil(o.Active) {
+	if o == nil || IsNil(o.Active) {
 		return nil, false
 	}
 	return o.Active, true
@@ -147,7 +147,7 @@ func (o *NodeStorageSummary) GetActiveOk() (*float32, bool) {
 
 // HasActive returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasActive() bool {
-	if o != nil && !isNil(o.Active) {
+	if o != nil && !IsNil(o.Active) {
 		return true
 	}
 
@@ -161,7 +161,7 @@ func (o *NodeStorageSummary) SetActive(v float32) {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetEnabled() float32 {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret float32
 		return ret
 	}
@@ -171,7 +171,7 @@ func (o *NodeStorageSummary) GetEnabled() float32 {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetEnabledOk() (*float32, bool) {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
 	return o.Enabled, true
@@ -179,7 +179,7 @@ func (o *NodeStorageSummary) GetEnabledOk() (*float32, bool) {
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -193,7 +193,7 @@ func (o *NodeStorageSummary) SetEnabled(v float32) {
 
 // GetShared returns the Shared field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetShared() float32 {
-	if o == nil || isNil(o.Shared) {
+	if o == nil || IsNil(o.Shared) {
 		var ret float32
 		return ret
 	}
@@ -203,7 +203,7 @@ func (o *NodeStorageSummary) GetShared() float32 {
 // GetSharedOk returns a tuple with the Shared field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetSharedOk() (*float32, bool) {
-	if o == nil || isNil(o.Shared) {
+	if o == nil || IsNil(o.Shared) {
 		return nil, false
 	}
 	return o.Shared, true
@@ -211,7 +211,7 @@ func (o *NodeStorageSummary) GetSharedOk() (*float32, bool) {
 
 // HasShared returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasShared() bool {
-	if o != nil && !isNil(o.Shared) {
+	if o != nil && !IsNil(o.Shared) {
 		return true
 	}
 
@@ -225,7 +225,7 @@ func (o *NodeStorageSummary) SetShared(v float32) {
 
 // GetTotal returns the Total field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetTotal() float32 {
-	if o == nil || isNil(o.Total) {
+	if o == nil || IsNil(o.Total) {
 		var ret float32
 		return ret
 	}
@@ -235,7 +235,7 @@ func (o *NodeStorageSummary) GetTotal() float32 {
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetTotalOk() (*float32, bool) {
-	if o == nil || isNil(o.Total) {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
 	return o.Total, true
@@ -243,7 +243,7 @@ func (o *NodeStorageSummary) GetTotalOk() (*float32, bool) {
 
 // HasTotal returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasTotal() bool {
-	if o != nil && !isNil(o.Total) {
+	if o != nil && !IsNil(o.Total) {
 		return true
 	}
 
@@ -257,7 +257,7 @@ func (o *NodeStorageSummary) SetTotal(v float32) {
 
 // GetUsed returns the Used field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetUsed() float32 {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		var ret float32
 		return ret
 	}
@@ -267,7 +267,7 @@ func (o *NodeStorageSummary) GetUsed() float32 {
 // GetUsedOk returns a tuple with the Used field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetUsedOk() (*float32, bool) {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		return nil, false
 	}
 	return o.Used, true
@@ -275,7 +275,7 @@ func (o *NodeStorageSummary) GetUsedOk() (*float32, bool) {
 
 // HasUsed returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasUsed() bool {
-	if o != nil && !isNil(o.Used) {
+	if o != nil && !IsNil(o.Used) {
 		return true
 	}
 
@@ -289,7 +289,7 @@ func (o *NodeStorageSummary) SetUsed(v float32) {
 
 // GetUsedFraction returns the UsedFraction field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetUsedFraction() float32 {
-	if o == nil || isNil(o.UsedFraction) {
+	if o == nil || IsNil(o.UsedFraction) {
 		var ret float32
 		return ret
 	}
@@ -299,7 +299,7 @@ func (o *NodeStorageSummary) GetUsedFraction() float32 {
 // GetUsedFractionOk returns a tuple with the UsedFraction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetUsedFractionOk() (*float32, bool) {
-	if o == nil || isNil(o.UsedFraction) {
+	if o == nil || IsNil(o.UsedFraction) {
 		return nil, false
 	}
 	return o.UsedFraction, true
@@ -307,7 +307,7 @@ func (o *NodeStorageSummary) GetUsedFractionOk() (*float32, bool) {
 
 // HasUsedFraction returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasUsedFraction() bool {
-	if o != nil && !isNil(o.UsedFraction) {
+	if o != nil && !IsNil(o.UsedFraction) {
 		return true
 	}
 
@@ -321,7 +321,7 @@ func (o *NodeStorageSummary) SetUsedFraction(v float32) {
 
 // GetAvail returns the Avail field value if set, zero value otherwise.
 func (o *NodeStorageSummary) GetAvail() float32 {
-	if o == nil || isNil(o.Avail) {
+	if o == nil || IsNil(o.Avail) {
 		var ret float32
 		return ret
 	}
@@ -331,7 +331,7 @@ func (o *NodeStorageSummary) GetAvail() float32 {
 // GetAvailOk returns a tuple with the Avail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeStorageSummary) GetAvailOk() (*float32, bool) {
-	if o == nil || isNil(o.Avail) {
+	if o == nil || IsNil(o.Avail) {
 		return nil, false
 	}
 	return o.Avail, true
@@ -339,7 +339,7 @@ func (o *NodeStorageSummary) GetAvailOk() (*float32, bool) {
 
 // HasAvail returns a boolean if a field has been set.
 func (o *NodeStorageSummary) HasAvail() bool {
-	if o != nil && !isNil(o.Avail) {
+	if o != nil && !IsNil(o.Avail) {
 		return true
 	}
 
@@ -364,25 +364,25 @@ func (o NodeStorageSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["storage"] = o.Storage
 	toSerialize["type"] = o.Type
 	toSerialize["content"] = o.Content
-	if !isNil(o.Active) {
+	if !IsNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.Shared) {
+	if !IsNil(o.Shared) {
 		toSerialize["shared"] = o.Shared
 	}
-	if !isNil(o.Total) {
+	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
-	if !isNil(o.Used) {
+	if !IsNil(o.Used) {
 		toSerialize["used"] = o.Used
 	}
-	if !isNil(o.UsedFraction) {
+	if !IsNil(o.UsedFraction) {
 		toSerialize["used_fraction"] = o.UsedFraction
 	}
-	if !isNil(o.Avail) {
+	if !IsNil(o.Avail) {
 		toSerialize["avail"] = o.Avail
 	}
 	return toSerialize, nil
