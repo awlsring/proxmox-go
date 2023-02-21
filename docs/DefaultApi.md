@@ -123,6 +123,9 @@ Method | HTTP request | Description
 [**RenewNodeCertificate**](DefaultApi.md#RenewNodeCertificate) | **Put** /nodes/{node}/certificates/acme/certificate | 
 [**ResizeVirtualMachineDisk**](DefaultApi.md#ResizeVirtualMachineDisk) | **Put** /nodes/{node}/qemu/{vmId}/resize | 
 [**RevertNetworkInterfaceConfiguration**](DefaultApi.md#RevertNetworkInterfaceConfiguration) | **Delete** /nodes/{node}/network | 
+[**ShutdownVirtualMachine**](DefaultApi.md#ShutdownVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/status/shutdown | 
+[**StartVirtualMachine**](DefaultApi.md#StartVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/status/start | 
+[**StopVirtualMachine**](DefaultApi.md#StopVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/status/stop | 
 [**SyncRealm**](DefaultApi.md#SyncRealm) | **Post** /access/domains/{realm} | 
 [**UnlinkVirtualMachineDisks**](DefaultApi.md#UnlinkVirtualMachineDisks) | **Put** /nodes/{node}/qemu/{vmId}/unlink | 
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
@@ -8427,6 +8430,231 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ShutdownVirtualMachine
+
+> ShutdownVirtualMachineResponseContent ShutdownVirtualMachine(ctx, node, vmId).ShutdownVirtualMachineRequestContent(shutdownVirtualMachineRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    shutdownVirtualMachineRequestContent := *openapiclient.NewShutdownVirtualMachineRequestContent() // ShutdownVirtualMachineRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ShutdownVirtualMachine(context.Background(), node, vmId).ShutdownVirtualMachineRequestContent(shutdownVirtualMachineRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ShutdownVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ShutdownVirtualMachine`: ShutdownVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ShutdownVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiShutdownVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **shutdownVirtualMachineRequestContent** | [**ShutdownVirtualMachineRequestContent**](ShutdownVirtualMachineRequestContent.md) |  | 
+
+### Return type
+
+[**ShutdownVirtualMachineResponseContent**](ShutdownVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## StartVirtualMachine
+
+> StartVirtualMachineResponseContent StartVirtualMachine(ctx, node, vmId).StartVirtualMachineRequestContent(startVirtualMachineRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    startVirtualMachineRequestContent := *openapiclient.NewStartVirtualMachineRequestContent() // StartVirtualMachineRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.StartVirtualMachine(context.Background(), node, vmId).StartVirtualMachineRequestContent(startVirtualMachineRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.StartVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `StartVirtualMachine`: StartVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.StartVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **startVirtualMachineRequestContent** | [**StartVirtualMachineRequestContent**](StartVirtualMachineRequestContent.md) |  | 
+
+### Return type
+
+[**StartVirtualMachineResponseContent**](StartVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## StopVirtualMachine
+
+> StopVirtualMachineResponseContent StopVirtualMachine(ctx, node, vmId).StopVirtualMachineRequestContent(stopVirtualMachineRequestContent).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    stopVirtualMachineRequestContent := *openapiclient.NewStopVirtualMachineRequestContent() // StopVirtualMachineRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.StopVirtualMachine(context.Background(), node, vmId).StopVirtualMachineRequestContent(stopVirtualMachineRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.StopVirtualMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `StopVirtualMachine`: StopVirtualMachineResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.StopVirtualMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStopVirtualMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **stopVirtualMachineRequestContent** | [**StopVirtualMachineRequestContent**](StopVirtualMachineRequestContent.md) |  | 
+
+### Return type
+
+[**StopVirtualMachineResponseContent**](StopVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
