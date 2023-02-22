@@ -4129,6 +4129,98 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/status/reset:
+    post:
+      description: Reset the specified virtual machine.
+      operationId: ResetVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetVirtualMachineRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetVirtualMachineResponseContent'
+          description: ResetVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/status/resume:
+    post:
+      description: Resume the specified virtual machine.
+      operationId: ResumeVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResumeVirtualMachineRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResumeVirtualMachineResponseContent'
+          description: ResumeVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/status/shutdown:
     post:
       description: Shutdown the specified virtual machine cleanly.
@@ -4255,6 +4347,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/StopVirtualMachineResponseContent'
           description: StopVirtualMachine 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/qemu/{vmId}/status/suspend:
+    post:
+      description: Suspend the specified virtual machine.
+      operationId: SuspendVirtualMachine
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SuspendVirtualMachineRequestContent'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuspendVirtualMachineResponseContent'
+          description: SuspendVirtualMachine 200 response
         "400":
           content:
             application/json:
@@ -12665,6 +12803,50 @@ components:
       - name
       - status
       type: object
+    ResetVirtualMachineRequestContent:
+      example:
+        skiplock: 0.08008281904610115
+      properties:
+        skiplock:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      type: object
+    ResetVirtualMachineResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
+    ResumeVirtualMachineRequestContent:
+      example:
+        skiplock: 0.08008281904610115
+        nocheck: 0.6027456183070403
+      properties:
+        skiplock:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        nocheck:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      type: object
+    ResumeVirtualMachineResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     RolePermissionSummary:
       example:
         VM.Clone: 0.6683562403749608
@@ -13224,6 +13406,37 @@ components:
       - qcow2
       - subvol
       type: string
+    SuspendVirtualMachineRequestContent:
+      example:
+        skiplock: 0.08008281904610115
+        statestorage: 0.6027456183070403
+        todisk: 0.14658129805029452
+      properties:
+        skiplock:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        statestorage:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+        todisk:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      type: object
+    SuspendVirtualMachineResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     SyncRealmRequestContent:
       example:
         enable-new: 0.6027456183070403
