@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**CreatePool**](DefaultApi.md#CreatePool) | **Post** /pools | 
 [**CreateRealm**](DefaultApi.md#CreateRealm) | **Post** /access/domains | 
 [**CreateRole**](DefaultApi.md#CreateRole) | **Post** /access/roles | 
+[**CreateSnapshot**](DefaultApi.md#CreateSnapshot) | **Post** /nodes/{node}/qemu/{vmId}/snapshot | 
 [**CreateStorage**](DefaultApi.md#CreateStorage) | **Post** /storage | 
 [**CreateStorageVolume**](DefaultApi.md#CreateStorageVolume) | **Post** /nodes/{node}/storage/{storage}/content | 
 [**CreateTicket**](DefaultApi.md#CreateTicket) | **Post** /access/ticket | 
@@ -1367,6 +1368,79 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateSnapshot
+
+> CreateSnapshotResponseContent CreateSnapshot(ctx, node, vmId).CreateSnapshotRequestContent(createSnapshotRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    createSnapshotRequestContent := *openapiclient.NewCreateSnapshotRequestContent("Snapname_example") // CreateSnapshotRequestContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateSnapshot(context.Background(), node, vmId).CreateSnapshotRequestContent(createSnapshotRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateSnapshot``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateSnapshot`: CreateSnapshotResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateSnapshot`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateSnapshotRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **createSnapshotRequestContent** | [**CreateSnapshotRequestContent**](CreateSnapshotRequestContent.md) |  | 
+
+### Return type
+
+[**CreateSnapshotResponseContent**](CreateSnapshotResponseContent.md)
 
 ### Authorization
 

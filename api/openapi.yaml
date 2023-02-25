@@ -4082,6 +4082,51 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+    post:
+      operationId: CreateSnapshot
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - description: The id of the virtual machine as a string
+        explode: false
+        in: path
+        name: vmId
+        required: true
+        schema:
+          description: The id of the virtual machine as a string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSnapshotRequestContent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSnapshotResponseContent'
+          description: CreateSnapshot 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/qemu/{vmId}/status/current:
     get:
       description: Get the utilization and status of a virtual machine.
@@ -7564,6 +7609,34 @@ components:
           type: string
       required:
       - roleid
+      type: object
+    CreateSnapshotRequestContent:
+      example:
+        vmstate: 0.08008281904610115
+        description: description
+        snapname: snapname
+      properties:
+        snapname:
+          description: The snapshot name.
+          type: string
+        description:
+          type: string
+        vmstate:
+          description: "An integer used to represent a boolean. 0 is false, 1 is true."
+          maximum: 1
+          minimum: 0
+          type: number
+      required:
+      - snapname
+      type: object
+    CreateSnapshotResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
       type: object
     CreateStorageRequestContent:
       example:
