@@ -110,6 +110,7 @@ Method | HTTP request | Description
 [**ListUsbDevices**](DefaultApi.md#ListUsbDevices) | **Get** /nodes/{node}/hardware/usb | 
 [**ListUserTokens**](DefaultApi.md#ListUserTokens) | **Get** /access/users/{userId}/token | 
 [**ListUsers**](DefaultApi.md#ListUsers) | **Get** /access/users | 
+[**ListVirtualMachineFirewallReferences**](DefaultApi.md#ListVirtualMachineFirewallReferences) | **Get** /nodes/{node}/qemu/{vmId}/firewall/refs | 
 [**ListVirtualMachines**](DefaultApi.md#ListVirtualMachines) | **Get** /nodes/{node}/qemu | 
 [**ListZFSPools**](DefaultApi.md#ListZFSPools) | **Get** /nodes/{node}/disks/zfs | 
 [**ModifyPool**](DefaultApi.md#ModifyPool) | **Put** /pools/{poolId} | 
@@ -7508,6 +7509,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListUsersResponseContent**](ListUsersResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListVirtualMachineFirewallReferences
+
+> ListVirtualMachineFirewallReferencesResponseContent ListVirtualMachineFirewallReferences(ctx, node, vmId).Type_(type_).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    vmId := "vmId_example" // string | The id of the virtual machine as a string
+    type_ := openapiclient.FirewallReferenceType("ipset") // FirewallReferenceType |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListVirtualMachineFirewallReferences(context.Background(), node, vmId).Type_(type_).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListVirtualMachineFirewallReferences``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListVirtualMachineFirewallReferences`: ListVirtualMachineFirewallReferencesResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListVirtualMachineFirewallReferences`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**vmId** | **string** | The id of the virtual machine as a string | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListVirtualMachineFirewallReferencesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **type_** | [**FirewallReferenceType**](FirewallReferenceType.md) |  | 
+
+### Return type
+
+[**ListVirtualMachineFirewallReferencesResponseContent**](ListVirtualMachineFirewallReferencesResponseContent.md)
 
 ### Authorization
 
