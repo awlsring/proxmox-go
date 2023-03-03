@@ -5622,15 +5622,21 @@ components:
         serial3: serial3
         scsi21: scsi21
         serial2: serial2
+        unused2: unused2
         searchdomain: searchdomain
+        unused3: unused3
         scsi28: scsi28
+        unused4: unused4
         cpulimit: 5.637376656633329
         scsi29: scsi29
+        unused5: unused5
         scsi26: scsi26
         bootdisk: bootdisk
         scsi27: scsi27
         scsi24: scsi24
+        unused0: unused0
         scsi25: scsi25
+        unused1: unused1
         startup: startup
         migrate_downtime: 4.145608
         scsi11: scsi11
@@ -5652,7 +5658,9 @@ components:
         virtio5: virtio5
         numa2: numa2
         virtio6: virtio6
+        unused6: unused6
         virtio7: virtio7
+        unused7: unused7
         virtio8: virtio8
         acpi: 0.08008281904610115
         virtio9: virtio9
@@ -6166,6 +6174,30 @@ components:
           type: number
         tpmstate0:
           description: Configure a disk for storing TPM state.
+          type: string
+        unused0:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused1:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused2:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused3:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused4:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused5:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused6:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused7:
+          description: An unused disk on the virtual machine.
           type: string
         usb0:
           description: A usb device on the virtual machine.
@@ -6372,15 +6404,21 @@ components:
         serial3: serial3
         scsi21: scsi21
         serial2: serial2
+        unused2: unused2
         searchdomain: searchdomain
+        unused3: unused3
         scsi28: scsi28
+        unused4: unused4
         cpulimit: 5.637376656633329
         scsi29: scsi29
+        unused5: unused5
         scsi26: scsi26
         bootdisk: bootdisk
         scsi27: scsi27
         scsi24: scsi24
+        unused0: unused0
         scsi25: scsi25
+        unused1: unused1
         startup: startup
         migrate_downtime: 4.145608
         scsi11: scsi11
@@ -6402,7 +6440,9 @@ components:
         virtio5: virtio5
         numa2: numa2
         virtio6: virtio6
+        unused6: unused6
         virtio7: virtio7
+        unused7: unused7
         virtio8: virtio8
         acpi: 0.08008281904610115
         virtio9: virtio9
@@ -6916,6 +6956,30 @@ components:
           type: number
         tpmstate0:
           description: Configure a disk for storing TPM state.
+          type: string
+        unused0:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused1:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused2:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused3:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused4:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused5:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused6:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused7:
+          description: An unused disk on the virtual machine.
           type: string
         usb0:
           description: A usb device on the virtual machine.
@@ -10029,15 +10093,21 @@ components:
           serial3: serial3
           scsi21: scsi21
           serial2: serial2
+          unused2: unused2
           searchdomain: searchdomain
+          unused3: unused3
           scsi28: scsi28
+          unused4: unused4
           cpulimit: 5.637376656633329
           scsi29: scsi29
+          unused5: unused5
           scsi26: scsi26
           bootdisk: bootdisk
           scsi27: scsi27
           scsi24: scsi24
+          unused0: unused0
           scsi25: scsi25
+          unused1: unused1
           startup: startup
           migrate_downtime: 4.145608
           scsi11: scsi11
@@ -10059,7 +10129,9 @@ components:
           virtio5: virtio5
           numa2: numa2
           virtio6: virtio6
+          unused6: unused6
           virtio7: virtio7
+          unused7: unused7
           virtio8: virtio8
           acpi: 0.08008281904610115
           virtio9: virtio9
@@ -14485,15 +14557,21 @@ components:
         serial3: serial3
         scsi21: scsi21
         serial2: serial2
+        unused2: unused2
         searchdomain: searchdomain
+        unused3: unused3
         scsi28: scsi28
+        unused4: unused4
         cpulimit: 5.637376656633329
         scsi29: scsi29
+        unused5: unused5
         scsi26: scsi26
         bootdisk: bootdisk
         scsi27: scsi27
         scsi24: scsi24
+        unused0: unused0
         scsi25: scsi25
+        unused1: unused1
         startup: startup
         migrate_downtime: 4.145608
         scsi11: scsi11
@@ -14515,7 +14593,9 @@ components:
         virtio5: virtio5
         numa2: numa2
         virtio6: virtio6
+        unused6: unused6
         virtio7: virtio7
+        unused7: unused7
         virtio8: virtio8
         acpi: 0.08008281904610115
         virtio9: virtio9
@@ -15027,6 +15107,30 @@ components:
           type: number
         tpmstate0:
           description: Configure a disk for storing TPM state.
+          type: string
+        unused0:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused1:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused2:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused3:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused4:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused5:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused6:
+          description: An unused disk on the virtual machine.
+          type: string
+        unused7:
+          description: An unused disk on the virtual machine.
           type: string
         usb0:
           description: A usb device on the virtual machine.

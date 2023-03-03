@@ -291,6 +291,22 @@ type VirtualMachineConfigurationSummary struct {
 	Template *float32 `json:"template,omitempty"`
 	// Configure a disk for storing TPM state.
 	Tpmstate0 *string `json:"tpmstate0,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused0 *string `json:"unused0,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused1 *string `json:"unused1,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused2 *string `json:"unused2,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused3 *string `json:"unused3,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused4 *string `json:"unused4,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused5 *string `json:"unused5,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused6 *string `json:"unused6,omitempty"`
+	// An unused disk on the virtual machine.
+	Unused7 *string `json:"unused7,omitempty"`
 	// A usb device on the virtual machine.
 	Usb0 *string `json:"usb0,omitempty"`
 	// A usb device on the virtual machine.
@@ -4857,6 +4873,262 @@ func (o *VirtualMachineConfigurationSummary) SetTpmstate0(v string) {
 	o.Tpmstate0 = &v
 }
 
+// GetUnused0 returns the Unused0 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused0() string {
+	if o == nil || IsNil(o.Unused0) {
+		var ret string
+		return ret
+	}
+	return *o.Unused0
+}
+
+// GetUnused0Ok returns a tuple with the Unused0 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused0Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused0) {
+		return nil, false
+	}
+	return o.Unused0, true
+}
+
+// HasUnused0 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused0() bool {
+	if o != nil && !IsNil(o.Unused0) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused0 gets a reference to the given string and assigns it to the Unused0 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused0(v string) {
+	o.Unused0 = &v
+}
+
+// GetUnused1 returns the Unused1 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused1() string {
+	if o == nil || IsNil(o.Unused1) {
+		var ret string
+		return ret
+	}
+	return *o.Unused1
+}
+
+// GetUnused1Ok returns a tuple with the Unused1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused1Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused1) {
+		return nil, false
+	}
+	return o.Unused1, true
+}
+
+// HasUnused1 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused1() bool {
+	if o != nil && !IsNil(o.Unused1) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused1 gets a reference to the given string and assigns it to the Unused1 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused1(v string) {
+	o.Unused1 = &v
+}
+
+// GetUnused2 returns the Unused2 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused2() string {
+	if o == nil || IsNil(o.Unused2) {
+		var ret string
+		return ret
+	}
+	return *o.Unused2
+}
+
+// GetUnused2Ok returns a tuple with the Unused2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused2Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused2) {
+		return nil, false
+	}
+	return o.Unused2, true
+}
+
+// HasUnused2 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused2() bool {
+	if o != nil && !IsNil(o.Unused2) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused2 gets a reference to the given string and assigns it to the Unused2 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused2(v string) {
+	o.Unused2 = &v
+}
+
+// GetUnused3 returns the Unused3 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused3() string {
+	if o == nil || IsNil(o.Unused3) {
+		var ret string
+		return ret
+	}
+	return *o.Unused3
+}
+
+// GetUnused3Ok returns a tuple with the Unused3 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused3Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused3) {
+		return nil, false
+	}
+	return o.Unused3, true
+}
+
+// HasUnused3 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused3() bool {
+	if o != nil && !IsNil(o.Unused3) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused3 gets a reference to the given string and assigns it to the Unused3 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused3(v string) {
+	o.Unused3 = &v
+}
+
+// GetUnused4 returns the Unused4 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused4() string {
+	if o == nil || IsNil(o.Unused4) {
+		var ret string
+		return ret
+	}
+	return *o.Unused4
+}
+
+// GetUnused4Ok returns a tuple with the Unused4 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused4Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused4) {
+		return nil, false
+	}
+	return o.Unused4, true
+}
+
+// HasUnused4 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused4() bool {
+	if o != nil && !IsNil(o.Unused4) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused4 gets a reference to the given string and assigns it to the Unused4 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused4(v string) {
+	o.Unused4 = &v
+}
+
+// GetUnused5 returns the Unused5 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused5() string {
+	if o == nil || IsNil(o.Unused5) {
+		var ret string
+		return ret
+	}
+	return *o.Unused5
+}
+
+// GetUnused5Ok returns a tuple with the Unused5 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused5Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused5) {
+		return nil, false
+	}
+	return o.Unused5, true
+}
+
+// HasUnused5 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused5() bool {
+	if o != nil && !IsNil(o.Unused5) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused5 gets a reference to the given string and assigns it to the Unused5 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused5(v string) {
+	o.Unused5 = &v
+}
+
+// GetUnused6 returns the Unused6 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused6() string {
+	if o == nil || IsNil(o.Unused6) {
+		var ret string
+		return ret
+	}
+	return *o.Unused6
+}
+
+// GetUnused6Ok returns a tuple with the Unused6 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused6Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused6) {
+		return nil, false
+	}
+	return o.Unused6, true
+}
+
+// HasUnused6 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused6() bool {
+	if o != nil && !IsNil(o.Unused6) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused6 gets a reference to the given string and assigns it to the Unused6 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused6(v string) {
+	o.Unused6 = &v
+}
+
+// GetUnused7 returns the Unused7 field value if set, zero value otherwise.
+func (o *VirtualMachineConfigurationSummary) GetUnused7() string {
+	if o == nil || IsNil(o.Unused7) {
+		var ret string
+		return ret
+	}
+	return *o.Unused7
+}
+
+// GetUnused7Ok returns a tuple with the Unused7 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualMachineConfigurationSummary) GetUnused7Ok() (*string, bool) {
+	if o == nil || IsNil(o.Unused7) {
+		return nil, false
+	}
+	return o.Unused7, true
+}
+
+// HasUnused7 returns a boolean if a field has been set.
+func (o *VirtualMachineConfigurationSummary) HasUnused7() bool {
+	if o != nil && !IsNil(o.Unused7) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnused7 gets a reference to the given string and assigns it to the Unused7 field.
+func (o *VirtualMachineConfigurationSummary) SetUnused7(v string) {
+	o.Unused7 = &v
+}
+
 // GetUsb0 returns the Usb0 field value if set, zero value otherwise.
 func (o *VirtualMachineConfigurationSummary) GetUsb0() string {
 	if o == nil || IsNil(o.Usb0) {
@@ -6468,6 +6740,30 @@ func (o VirtualMachineConfigurationSummary) ToMap() (map[string]interface{}, err
 	}
 	if !IsNil(o.Tpmstate0) {
 		toSerialize["tpmstate0"] = o.Tpmstate0
+	}
+	if !IsNil(o.Unused0) {
+		toSerialize["unused0"] = o.Unused0
+	}
+	if !IsNil(o.Unused1) {
+		toSerialize["unused1"] = o.Unused1
+	}
+	if !IsNil(o.Unused2) {
+		toSerialize["unused2"] = o.Unused2
+	}
+	if !IsNil(o.Unused3) {
+		toSerialize["unused3"] = o.Unused3
+	}
+	if !IsNil(o.Unused4) {
+		toSerialize["unused4"] = o.Unused4
+	}
+	if !IsNil(o.Unused5) {
+		toSerialize["unused5"] = o.Unused5
+	}
+	if !IsNil(o.Unused6) {
+		toSerialize["unused6"] = o.Unused6
+	}
+	if !IsNil(o.Unused7) {
+		toSerialize["unused7"] = o.Unused7
 	}
 	if !IsNil(o.Usb0) {
 		toSerialize["usb0"] = o.Usb0

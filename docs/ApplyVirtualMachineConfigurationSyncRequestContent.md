@@ -144,6 +144,14 @@ Name | Type | Description | Notes
 **Tags** | Pointer to **string** | The tags for the virtual machine. | [optional] 
 **Template** | Pointer to **float32** | If the virtual machine is a template or not. | [optional] 
 **Tpmstate0** | Pointer to **string** | Configure a disk for storing TPM state. | [optional] 
+**Unused0** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused1** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused2** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused3** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused4** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused5** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused6** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
+**Unused7** | Pointer to **string** | An unused disk on the virtual machine. | [optional] 
 **Usb0** | Pointer to **string** | A usb device on the virtual machine. | [optional] 
 **Usb1** | Pointer to **string** | A usb device on the virtual machine. | [optional] 
 **Usb2** | Pointer to **string** | A usb device on the virtual machine. | [optional] 
@@ -3700,6 +3708,206 @@ SetTpmstate0 sets Tpmstate0 field to given value.
 `func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasTpmstate0() bool`
 
 HasTpmstate0 returns a boolean if a field has been set.
+
+### GetUnused0
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused0() string`
+
+GetUnused0 returns the Unused0 field if non-nil, zero value otherwise.
+
+### GetUnused0Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused0Ok() (*string, bool)`
+
+GetUnused0Ok returns a tuple with the Unused0 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused0
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused0(v string)`
+
+SetUnused0 sets Unused0 field to given value.
+
+### HasUnused0
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused0() bool`
+
+HasUnused0 returns a boolean if a field has been set.
+
+### GetUnused1
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused1() string`
+
+GetUnused1 returns the Unused1 field if non-nil, zero value otherwise.
+
+### GetUnused1Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused1Ok() (*string, bool)`
+
+GetUnused1Ok returns a tuple with the Unused1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused1
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused1(v string)`
+
+SetUnused1 sets Unused1 field to given value.
+
+### HasUnused1
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused1() bool`
+
+HasUnused1 returns a boolean if a field has been set.
+
+### GetUnused2
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused2() string`
+
+GetUnused2 returns the Unused2 field if non-nil, zero value otherwise.
+
+### GetUnused2Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused2Ok() (*string, bool)`
+
+GetUnused2Ok returns a tuple with the Unused2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused2
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused2(v string)`
+
+SetUnused2 sets Unused2 field to given value.
+
+### HasUnused2
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused2() bool`
+
+HasUnused2 returns a boolean if a field has been set.
+
+### GetUnused3
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused3() string`
+
+GetUnused3 returns the Unused3 field if non-nil, zero value otherwise.
+
+### GetUnused3Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused3Ok() (*string, bool)`
+
+GetUnused3Ok returns a tuple with the Unused3 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused3
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused3(v string)`
+
+SetUnused3 sets Unused3 field to given value.
+
+### HasUnused3
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused3() bool`
+
+HasUnused3 returns a boolean if a field has been set.
+
+### GetUnused4
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused4() string`
+
+GetUnused4 returns the Unused4 field if non-nil, zero value otherwise.
+
+### GetUnused4Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused4Ok() (*string, bool)`
+
+GetUnused4Ok returns a tuple with the Unused4 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused4
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused4(v string)`
+
+SetUnused4 sets Unused4 field to given value.
+
+### HasUnused4
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused4() bool`
+
+HasUnused4 returns a boolean if a field has been set.
+
+### GetUnused5
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused5() string`
+
+GetUnused5 returns the Unused5 field if non-nil, zero value otherwise.
+
+### GetUnused5Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused5Ok() (*string, bool)`
+
+GetUnused5Ok returns a tuple with the Unused5 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused5
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused5(v string)`
+
+SetUnused5 sets Unused5 field to given value.
+
+### HasUnused5
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused5() bool`
+
+HasUnused5 returns a boolean if a field has been set.
+
+### GetUnused6
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused6() string`
+
+GetUnused6 returns the Unused6 field if non-nil, zero value otherwise.
+
+### GetUnused6Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused6Ok() (*string, bool)`
+
+GetUnused6Ok returns a tuple with the Unused6 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused6
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused6(v string)`
+
+SetUnused6 sets Unused6 field to given value.
+
+### HasUnused6
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused6() bool`
+
+HasUnused6 returns a boolean if a field has been set.
+
+### GetUnused7
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused7() string`
+
+GetUnused7 returns the Unused7 field if non-nil, zero value otherwise.
+
+### GetUnused7Ok
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) GetUnused7Ok() (*string, bool)`
+
+GetUnused7Ok returns a tuple with the Unused7 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnused7
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) SetUnused7(v string)`
+
+SetUnused7 sets Unused7 field to given value.
+
+### HasUnused7
+
+`func (o *ApplyVirtualMachineConfigurationSyncRequestContent) HasUnused7() bool`
+
+HasUnused7 returns a boolean if a field has been set.
 
 ### GetUsb0
 
