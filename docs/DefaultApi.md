@@ -53,6 +53,7 @@ Method | HTTP request | Description
 [**GetClusterTotemSettings**](DefaultApi.md#GetClusterTotemSettings) | **Get** /cluster/config/totem | 
 [**GetGroupDetails**](DefaultApi.md#GetGroupDetails) | **Get** /access/groups/{groupId} | 
 [**GetNetworkInterface**](DefaultApi.md#GetNetworkInterface) | **Get** /nodes/{node}/network/{interface} | 
+[**GetNodeDns**](DefaultApi.md#GetNodeDns) | **Get** /nodes/{node}/dns | 
 [**GetPackageChangelog**](DefaultApi.md#GetPackageChangelog) | **Get** /nodes/{node}/apt/changelog | 
 [**GetPendingVirtualMachineCloudInitChanges**](DefaultApi.md#GetPendingVirtualMachineCloudInitChanges) | **Get** /nodes/{node}/qemu/{vmId}/cloudinit | 
 [**GetPermissions**](DefaultApi.md#GetPermissions) | **Get** /access/permissions | 
@@ -3529,6 +3530,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetNetworkInterfaceResponseContent**](GetNetworkInterfaceResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetNodeDns
+
+> GetNodeDnsResponseContent GetNodeDns(ctx, node).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.GetNodeDns(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetNodeDns``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetNodeDns`: GetNodeDnsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetNodeDns`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetNodeDnsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetNodeDnsResponseContent**](GetNodeDnsResponseContent.md)
 
 ### Authorization
 
