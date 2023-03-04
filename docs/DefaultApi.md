@@ -138,6 +138,7 @@ Method | HTTP request | Description
 [**UpdateAccessControlList**](DefaultApi.md#UpdateAccessControlList) | **Put** /access/acl | 
 [**UpdateGroup**](DefaultApi.md#UpdateGroup) | **Put** /access/groups/{groupId} | 
 [**UpdateNetworkInterface**](DefaultApi.md#UpdateNetworkInterface) | **Put** /nodes/{node}/network/{interface} | 
+[**UpdateNodeDns**](DefaultApi.md#UpdateNodeDns) | **Put** /nodes/{node}/dns | 
 [**UpdateRealm**](DefaultApi.md#UpdateRealm) | **Put** /access/domains/{realm} | 
 [**UpdateStorageVolume**](DefaultApi.md#UpdateStorageVolume) | **Put** /nodes/{node}/storage/{storage}/content/{volume} | 
 [**UploadToStorage**](DefaultApi.md#UploadToStorage) | **Post** /nodes/{node}/storage/{storage}/upload | 
@@ -9506,6 +9507,76 @@ Name | Type | Description  | Notes
 
 
  **updateNetworkInterfaceRequestContent** | [**UpdateNetworkInterfaceRequestContent**](UpdateNetworkInterfaceRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateNodeDns
+
+> UpdateNodeDns(ctx, node).Search(search).UpdateNodeDnsRequestContent(updateNodeDnsRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    search := "search_example" // string | 
+    updateNodeDnsRequestContent := *openapiclient.NewUpdateNodeDnsRequestContent() // UpdateNodeDnsRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DefaultApi.UpdateNodeDns(context.Background(), node).Search(search).UpdateNodeDnsRequestContent(updateNodeDnsRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateNodeDns``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateNodeDnsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **search** | **string** |  | 
+ **updateNodeDnsRequestContent** | [**UpdateNodeDnsRequestContent**](UpdateNodeDnsRequestContent.md) |  | 
 
 ### Return type
 

@@ -2422,6 +2422,44 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+    put:
+      operationId: UpdateNodeDns
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: search
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateNodeDnsRequestContent'
+      responses:
+        "200":
+          description: UpdateNodeDns 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/hardware/pci:
     get:
       operationId: ListPciDevices
@@ -14039,6 +14077,19 @@ components:
           type: string
       required:
       - type
+      type: object
+    UpdateNodeDnsRequestContent:
+      example:
+        dns3: dns3
+        dns2: dns2
+        dns1: dns1
+      properties:
+        dns1:
+          type: string
+        dns2:
+          type: string
+        dns3:
+          type: string
       type: object
     UpdateRealmRequestContent:
       example:
