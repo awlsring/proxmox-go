@@ -1482,6 +1482,112 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponseContent'
           description: InternalServerError 500 response
+  /nodes/{node}/ceph/mgr:
+    get:
+      operationId: ListCephManagers
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCephManagersResponseContent'
+          description: ListCephManagers 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+  /nodes/{node}/ceph/mgr/{manager}:
+    delete:
+      operationId: DeleteCephManager
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: manager
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteCephManagerResponseContent'
+          description: DeleteCephManager 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
+    post:
+      operationId: CreateCephManager
+      parameters:
+      - explode: false
+        in: path
+        name: node
+        required: true
+        schema:
+          pattern: "^[A-Za-z]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: manager
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCephManagerResponseContent'
+          description: CreateCephManager 200 response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputErrorResponseContent'
+          description: InvalidInputError 400 response
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponseContent'
+          description: InternalServerError 500 response
   /nodes/{node}/ceph/mon:
     get:
       operationId: ListCephMonitors
@@ -7543,6 +7649,15 @@ components:
       - name
       - vendor
       type: object
+    CreateCephManagerResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
+      type: object
     CreateCephMonitorRequestContent:
       example:
         mon-address: mon-address
@@ -9205,6 +9320,15 @@ components:
       - full-tokenid
       - info
       - value
+      type: object
+    DeleteCephManagerResponseContent:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+      required:
+      - data
       type: object
     DeleteCephMonitorResponseContent:
       example:
@@ -11140,6 +11264,23 @@ components:
       properties:
         linknumber:
           type: string
+      type: object
+    ListCephManagersResponseContent:
+      example:
+        data:
+        - name: name
+          host: host
+          addr: 0.8008281904610115
+        - name: name
+          host: host
+          addr: 0.8008281904610115
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CephMonitorSummary'
+          type: array
+      required:
+      - data
       type: object
     ListCephMonitorsResponseContent:
       example:
