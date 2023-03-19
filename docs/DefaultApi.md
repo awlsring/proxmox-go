@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**ChangePassword**](DefaultApi.md#ChangePassword) | **Put** /access/password | 
 [**ChangeRepositoryProperties**](DefaultApi.md#ChangeRepositoryProperties) | **Post** /nodes/{node}/apt/repositories | 
 [**CloneVirtualMachine**](DefaultApi.md#CloneVirtualMachine) | **Post** /nodes/{node}/qemu/{vmId}/clone | 
+[**CreateCephMonitor**](DefaultApi.md#CreateCephMonitor) | **Post** /nodes/{node}/ceph/mon/{monitor} | 
 [**CreateClusterConfig**](DefaultApi.md#CreateClusterConfig) | **Post** /cluster/config | 
 [**CreateDirectory**](DefaultApi.md#CreateDirectory) | **Post** /nodes/{node}/disks/directory | 
 [**CreateGroup**](DefaultApi.md#CreateGroup) | **Post** /access/groups | 
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**CreateVirtualMachine**](DefaultApi.md#CreateVirtualMachine) | **Post** /nodes/{node}/qemu | 
 [**CreateVirtualMachineTemplate**](DefaultApi.md#CreateVirtualMachineTemplate) | **Post** /nodes/{node}/qemu/{vmId}/template | 
 [**CreateZFSPool**](DefaultApi.md#CreateZFSPool) | **Post** /nodes/{node}/disks/zfs | 
+[**DeleteCephMonitor**](DefaultApi.md#DeleteCephMonitor) | **Delete** /nodes/{node}/ceph/mon/{monitor} | 
 [**DeleteDirectory**](DefaultApi.md#DeleteDirectory) | **Delete** /nodes/{node}/disks/directory/{name} | 
 [**DeleteGroup**](DefaultApi.md#DeleteGroup) | **Delete** /access/groups/{groupId} | 
 [**DeleteLVM**](DefaultApi.md#DeleteLVM) | **Delete** /nodes/{node}/disks/lvm/{name} | 
@@ -82,8 +84,10 @@ Method | HTTP request | Description
 [**GetVirtualMachineTimeZone**](DefaultApi.md#GetVirtualMachineTimeZone) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-timezone | 
 [**GetVirtualMachineVcpus**](DefaultApi.md#GetVirtualMachineVcpus) | **Get** /nodes/{node}/qemu/{vmId}/agent/get-vcpus | 
 [**GetZFSPoolStatus**](DefaultApi.md#GetZFSPoolStatus) | **Get** /nodes/{node}/disks/zfs/{name} | 
+[**InitCephCluster**](DefaultApi.md#InitCephCluster) | **Post** /nodes/{node}/ceph/init | 
 [**InitializeGPT**](DefaultApi.md#InitializeGPT) | **Post** /nodes/{node}/disks/smart | 
 [**JoinCluster**](DefaultApi.md#JoinCluster) | **Post** /cluster/config/join | 
+[**ListCephMonitors**](DefaultApi.md#ListCephMonitors) | **Get** /nodes/{node}/ceph/mon | 
 [**ListCorosyncNodes**](DefaultApi.md#ListCorosyncNodes) | **Get** /cluster/config/nodes | 
 [**ListCpuCapabilities**](DefaultApi.md#ListCpuCapabilities) | **Get** /nodes/{node}/capabilities/qemu/cpu | 
 [**ListDirectories**](DefaultApi.md#ListDirectories) | **Get** /nodes/{node}/disks/directory | 
@@ -775,6 +779,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CloneVirtualMachineResponseContent**](CloneVirtualMachineResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateCephMonitor
+
+> CreateCephMonitorResponseContent CreateCephMonitor(ctx, node, monitor).CreateCephMonitorRequestContent(createCephMonitorRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    monitor := "monitor_example" // string | 
+    createCephMonitorRequestContent := *openapiclient.NewCreateCephMonitorRequestContent() // CreateCephMonitorRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateCephMonitor(context.Background(), node, monitor).CreateCephMonitorRequestContent(createCephMonitorRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateCephMonitor``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateCephMonitor`: CreateCephMonitorResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateCephMonitor`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**monitor** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateCephMonitorRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **createCephMonitorRequestContent** | [**CreateCephMonitorRequestContent**](CreateCephMonitorRequestContent.md) |  | 
+
+### Return type
+
+[**CreateCephMonitorResponseContent**](CreateCephMonitorResponseContent.md)
 
 ### Authorization
 
@@ -2011,6 +2088,77 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteCephMonitor
+
+> DeleteCephMonitorResponseContent DeleteCephMonitor(ctx, node, monitor).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    monitor := "monitor_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.DeleteCephMonitor(context.Background(), node, monitor).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteCephMonitor``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteCephMonitor`: DeleteCephMonitorResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteCephMonitor`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+**monitor** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteCephMonitorRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**DeleteCephMonitorResponseContent**](DeleteCephMonitorResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -5626,6 +5774,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InitCephCluster
+
+> InitCephCluster(ctx, node).InitCephClusterRequestContent(initCephClusterRequestContent).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+    initCephClusterRequestContent := *openapiclient.NewInitCephClusterRequestContent() // InitCephClusterRequestContent |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DefaultApi.InitCephCluster(context.Background(), node).InitCephClusterRequestContent(initCephClusterRequestContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.InitCephCluster``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInitCephClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **initCephClusterRequestContent** | [**InitCephClusterRequestContent**](InitCephClusterRequestContent.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InitializeGPT
 
 > InitializeGPTResponseContent InitializeGPT(ctx, node).InitializeGPTRequestContent(initializeGPTRequestContent).Execute()
@@ -5755,6 +5971,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListCephMonitors
+
+> ListCephMonitorsResponseContent ListCephMonitors(ctx, node).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/awlsring/proxmox-go"
+)
+
+func main() {
+    node := "node_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ListCephMonitors(context.Background(), node).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListCephMonitors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListCephMonitors`: ListCephMonitorsResponseContent
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListCephMonitors`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**node** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListCephMonitorsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListCephMonitorsResponseContent**](ListCephMonitorsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpApiKeyAuth](../README.md#smithy.api.httpApiKeyAuth), [smithy.api.httpBasicAuth](../README.md#smithy.api.httpBasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
